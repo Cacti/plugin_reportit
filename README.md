@@ -2,10 +2,15 @@
 
 Authors ........ Andreas Braun
                  Reinhard Scheck
+                 
 Contact ........ reportit@cacti.cc
+
 Home Site ...... http://sourceforge.net/projects/cacti-reportit/
+
 Program ........ "Cacti-ReportIT"
-Version ........ 0.7.5
+
+Version ........ 1.0
+
 Purpose ........ Create reports
 
 ## Developers
@@ -37,10 +42,7 @@ This plugin creates tabular reports which can be exported to CSV, SML and XML as
 
 Before you install "ReportIT", check the following requirements:
 
-* Cacti 0.8.7 or higher.
-* Cacti Plugin Architecture v2.0 or higher.
-* MySQL 5.0.3 or above.
-* PHP 4.3.8 or above (PHP 5.2.1 or higher are recommended)
+* Cacti 1.1.11 or higher.
 
 To upgrade "ReportIT" release 0.4.0 or higher is required.
 A prior version (0.1, 0.2, 0.3.0, 0.3.1, 0.3.2 or 0.4.0a) has to be completely uninstalled (mysql tables as well)!
@@ -49,9 +51,6 @@ Therefore you can use uninstall.php.
 Optional:
 To use the full set of ReportIT's functionalities additional extensions are required
 
-* Generation of archives:  PHP library "zlib"
-* Generation of charts:    PHP library "GD2" in conjunction with "Freetype 2"
-* Generation of emails:    Cacti Plugin "Settings" v0.5
 * Fast report generation:  PHP extension "php_rrdtool"
 
 ## Installation
