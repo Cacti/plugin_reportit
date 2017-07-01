@@ -57,14 +57,12 @@ function my_report($report_id, $public = FALSE){
 	}
 }
 
-
 function my_template($report_id) {
 	return db_fetch_cell_prepared('SELECT template_id
 		FROM reportit_reports
 		WHERE id = ?',
 		array($report_id));
 }
-
 
 function locked($template_id, $header=true) {
 	$status = db_fetch_cell_prepared("SELECT locked
@@ -76,7 +74,6 @@ function locked($template_id, $header=true) {
 		die_html_custom_error('Template has been locked', true);
 	}
 }
-
 
 function other_name($userid) {
 	return db_fetch_cell_prepared("SELECT username FROM user_auth WHERE id = ?", array($userid));

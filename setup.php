@@ -35,6 +35,19 @@ function plugin_reportit_install() {
 }
 
 function plugin_reportit_uninstall() {
+	db_execute('DROP TABLE IF EXISTS reportit_cache_measurands');
+	db_execute('DROP TABLE IF EXISTS reportit_cache_reports');
+	db_execute('DROP TABLE IF EXISTS reportit_cache_variables');
+	db_execute('DROP TABLE IF EXISTS reportit_data_items');
+	db_execute('DROP TABLE IF EXISTS reportit_data_source_items');
+	db_execute('DROP TABLE IF EXISTS reportit_measurands');
+	db_execute('DROP TABLE IF EXISTS reportit_presets');
+	db_execute('DROP TABLE IF EXISTS reportit_recipients');
+	db_execute('DROP TABLE IF EXISTS reportit_reports');
+	db_execute('DROP TABLE IF EXISTS reportit_rvars');
+	db_execute('DROP TABLE IF EXISTS reportit_templates');
+	db_execute('DROP TABLE IF EXISTS reportit_variables');
+
 	return true;
 }
 
@@ -43,12 +56,10 @@ function plugin_reportit_check_config() {
 	return $status;
 }
 
-
 function plugin_reportit_upgrade() {
     reportit_check_upgrade();
     return true;
 }
-
 
 function plugin_reportit_version() {
 	global $config;

@@ -24,9 +24,10 @@
 
 // ----- CONSTANTS FOR: runtime.php -----
 define('REPORTIT_NAN', sqrt(-1));
-if(!defined('REPORTIT_TMP_FD')) define('REPORTIT_TMP_FD', CACTI_BASE_PATH . '/plugins/reportit/tmp/');
-if(!defined('REPORTIT_ARC_FD')) define('REPORTIT_ARC_FD', CACTI_BASE_PATH . '/plugins/reportit/archive/');
-if(!defined('REPORTIT_EXP_FD')) define('REPORTIT_EXP_FD', CACTI_BASE_PATH . '/plugins/reportit/exports/');
+
+if (!defined('REPORTIT_TMP_FD')) define('REPORTIT_TMP_FD', CACTI_BASE_PATH . '/plugins/reportit/tmp/');
+if (!defined('REPORTIT_ARC_FD')) define('REPORTIT_ARC_FD', CACTI_BASE_PATH . '/plugins/reportit/archive/');
+if (!defined('REPORTIT_EXP_FD')) define('REPORTIT_EXP_FD', CACTI_BASE_PATH . '/plugins/reportit/exports/');
 
 $timezones = array(
     'AEDT (GMT+11 )'  =>array('hour' => 11, 'min' =>  0),
@@ -62,22 +63,22 @@ $timezones = array(
 
 
 $runtime_messages = array(
-                1 => 'REPORTIT ERROR: PHP modul for RRDtool is not available.',
-                2 => 'REPORTIT ERROR: No data items defined. Report[<RID>]',
-                3 => 'REPORTIT ERROR: Startpoint is a part of future. Report[<RID>] Data item[<DID>]',
-                4 => 'REPORTIT ERROR: No valid data found. Check your configuration. Report[<RID>]',
-                5 => 'REPORTIT WARNING: RRDfetch: <NOTICE> Report[<RID>] Data Item[<DID>]',
-                6 => 'REPORTIT WARNING: End of working time is a part of future. Can only calculate data till now. Report[<RID>] Data item[<DID>]',
-                7 => 'REPORTIT WARNING: No startpoints available. Check your working days! Report[<RID>] Data item[<DID>]',
-                8 => 'REPORTIT WARNING: No values available. Report[<RID>] Data Item[<DID>]',
-                9 => 'REPORTIT ERROR: Unable to connect to RRDtool server.',
-               10 => 'REPORTIT ERROR: Data template for report[<RID>] has been locked during the cronjob',
-               11 => 'REPORTIT WARNING: Unknown timezone: <NOTICE>. Please update configuration of Report [<RID>] Data item[<DID>]',
-               12 => 'REPORTIT ERROR: <NOTICE> Report[<RID>]',
-               13 => 'REPORTIT WARNING: <NOTICE> Report[<RID>]',
-               14 => 'REPORTIT STATS: <NOTICE> Report[<RID>]',
-               15 => 'REPORTIT WARNING: <NOTICE>',
-               16 => 'REPORTIT NOTICE: <NOTICE>',
-               17 => 'REPORTIT ERROR: <NOTICE>');
+	1 => 'REPORTIT ERROR: PHP modul for RRDtool is not available.',
+	2 => 'REPORTIT ERROR: No data items defined. Report[<RID>]',
+	3 => 'REPORTIT ERROR: Startpoint is a part of future. Report[<RID>] Data item[<DID>]',
+	4 => 'REPORTIT ERROR: No valid data found. Check your configuration. Report[<RID>]',
+	5 => 'REPORTIT WARNING: RRDfetch: <NOTICE> Report[<RID>] Data Item[<DID>]',
+	6 => 'REPORTIT WARNING: End of working time is a part of future. Can only calculate data till now. Report[<RID>] Data item[<DID>]',
+	7 => 'REPORTIT WARNING: No startpoints available. Check your working days! Report[<RID>] Data item[<DID>]',
+	8 => 'REPORTIT WARNING: No values available. Report[<RID>] Data Item[<DID>]',
+	9 => 'REPORTIT ERROR: Unable to connect to RRDtool server.',
+	10 => 'REPORTIT ERROR: Data template for report[<RID>] has been locked during the cronjob',
+	11 => 'REPORTIT WARNING: Unknown timezone: <NOTICE>. Please update configuration of Report [<RID>] Data item[<DID>]',
+	12 => 'REPORTIT ERROR: <NOTICE> Report[<RID>]',
+	13 => 'REPORTIT WARNING: <NOTICE> Report[<RID>]',
+	14 => 'REPORTIT STATS: <NOTICE> Report[<RID>]',
+	15 => 'REPORTIT WARNING: <NOTICE>',
+	16 => 'REPORTIT NOTICE: <NOTICE>',
+	17 => 'REPORTIT ERROR: <NOTICE>'
+);
 
-?>

@@ -33,10 +33,6 @@ include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/const_variables.php');
 
-/* ======== Validation ======== */
-safeguard_xss();
-/* ============================ */
-
 switch (get_request_var('action')) {
 	case 'actions':
 		form_actions();

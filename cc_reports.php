@@ -32,10 +32,6 @@ include_once(REPORTIT_BASE_PATH . '/lib_int/const_reports.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
 
-/* ============== Validation ============== */
-safeguard_xss('', true, __('<report_title>'));
-/* ======================================== */
-
 set_default_action();
 
 switch (get_request_var('action')) {

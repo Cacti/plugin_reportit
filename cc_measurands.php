@@ -32,10 +32,6 @@ include_once(REPORTIT_BASE_PATH . '/lib_int/funct_calculate.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
 
-/* ======== Validation ======== */
-safeguard_xss();
-/* ============================ */
-
 $measurand_actions 	= array(
 	2 => __('Delete')
 );

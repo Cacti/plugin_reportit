@@ -27,35 +27,37 @@ function html_custom_header_box($header, $hlink = false, $href = '', $link = '')
     global $colors;
 
     echo "<table align='center' width=" . '100%' . " cellpadding='1' cellspacing='0' border='0' bgcolor='#{$colors['header']}'>
-            <tr>
-                <td>
-                    <table align='center' width='100%' cellpadding='3' cellspacing='0' border='0' bgcolor='#{$colors['header']}'>
-                        <tr>
-                            <td class='textHeaderDark' align='left' style='padding: 3px;' colspan='100'>
-                                <table width='100%' cellpadding='0' cellspacing='0'>
-                                    <tr>
-                                        <td class='textHeaderDark' align='left'>";
-                                            print "<b>$header&nbsp;</b>";
-                                            if($hlink) print "[$hlink]";
-    echo                               "</td>";
+		<tr>
+			<td>
+				<table align='center' width='100%' cellpadding='3' cellspacing='0' border='0' bgcolor='#{$colors['header']}'>
+					<tr>
+						<td class='textHeaderDark' align='left' style='padding: 3px;' colspan='100'>
+							<table width='100%' cellpadding='0' cellspacing='0'>
+								<tr>
+									<td class='textHeaderDark' align='left'>";
+										print "<b>$header&nbsp;</b>";
+										if ($hlink) print "[$hlink]";
+	echo '</td>';
 
-    if($href !='' && $link !='') {
-        print "<td class='textHeaderDark' align='right'>";
-        if(is_array($href) && is_array($link)) {
-            foreach($href as $key => $value){
-                print "<a style='color:yellow' href='$value' alt='titlt'>$link[$key]</a>&nbsp;";
-            }
-        }else {
-                print "<a style='color:yellow' href='$href' alt='titlt'>$link</a>";
-        }
-        print "</td>";
-    }
-    echo                           "</tr>
-                                </table>
-                            </td>
-                        </tr>";
+	if ($href !='' && $link !='') {
+		print "<td class='textHeaderDark' align='right'>";
+
+		if (is_array($href) && is_array($link)) {
+			foreach ($href as $key => $value){
+				print "<a style='color:yellow' href='$value' alt='titlt'>" . $link[$key] . '</a>&nbsp;';
+			}
+		} else {
+			print "<a style='color:yellow' href='$href' alt='titlt'>$link</a>";
+		}
+
+		print '</td>';
+	}
+
+	echo '</tr>
+			</table>
+		</td>
+	</tr>';
 }
-
 
 function html_error_box($message, $site, $jump, $link){
     global $colors;
@@ -70,89 +72,96 @@ function html_wizard_header($title, $site, $size='60%') {
     global $colors;
 
     html_start_box("<b>$title</b>", $size, $colors['header_panel'], '2', 'center', '');
+
     echo "<form action='$site' method='post' enctype='multipart/form-data'>\r\n";
 }
 
 
 function html_wizard_footer($jump, $link, $save_html, $colspan=1) {
 	global $config;
-    print " <tr>
+
+    print "<tr>
 		<td align='right' bgcolor='#eaeaea' colspan='$colspan'>
 		    <input type='hidden' name='action' value='$jump'>
 		    <a href='$link'><img src='../../images/button_cancel2.gif' alt='Chancel' align='absmiddle' border='0'></a>
 		    $save_html
 		</td>
-	    </tr>";
+    </tr>";
+
     html_end_box();
+
     include_once(CACTI_BASE_PATH . '/include/bottom_footer.php');
 }
 
 
 function html_report_start_box() {
     global $colors;
+
     echo "<table align='center' width=" . '100%' . " cellpadding='3' cellspacing='1' bgcolor='#{$colors['header_panel']}'>";
 }
 
 
-function html_blue_link(& $data, $lb=true) {
+function html_blue_link(&$data, $lb=true) {
     // Create a blue HTML link in an existing table
-    echo   "<table width=" . '100%' . " align='center'>
-	    		<tr>
-		    		<td class='textinfo' valign='top' align='right'>";
-	foreach($data as $link) {
-			print "<span style='color: #c16921'>*</span><a href='{$link['href']}'>{$link['text']}</a><br>";
+    echo "<table width=" . '100%' . " align='center'>
+	   	<tr>
+	   		<td class='textinfo' valign='top' align='right'>";
+
+	foreach ($data as $link) {
+		print "<span style='color: #c16921'>*</span><a href='{$link['href']}'>{$link['text']}</a><br>";
 	}
-    echo 	   		"</td>
-				</tr>
-	    	</table>";
-	if($lb) echo "<br>";
+
+    echo '</td>
+		</tr>
+   	</table>';
+
+	if ($lb) {
+		echo '<br>';
+	}
 }
 
-
 function html_sorted_with_arrows(& $desc_array, & $link_array, $page, $id = FALSE) {
-	$text	= '';
-	$result 	= array();
+	$text   = '';
+	$result = array();
 
-	$asc	= (isset_request_var('sort') && isset_request_var('mode') && get_request_var('mode') == 'ASC') ? get_request_var('sort') : '';
-	$desc	= (isset_request_var('sort') && isset_request_var('mode') && get_request_var('mode') == 'DESC') ? get_request_var('sort') : '';
+	$asc    = (isset_request_var('sort') && isset_request_var('mode') && get_request_var('mode') == 'ASC') ? get_request_var('sort') : '';
+	$desc   = (isset_request_var('sort') && isset_request_var('mode') && get_request_var('mode') == 'DESC') ? get_request_var('sort') : '';
 
-	if($id) $id = '&id=' . $id;
-	foreach($desc_array as $key => $description) {
+	if ($id) {
+		$id = '&id=' . $id;
+	}
 
+	foreach ($desc_array as $key => $description) {
         $text	= $description;
 
-		if($link_array[$key] != '') {
-            $text   = "<a class='textSubHeaderDark' href='$page?$id&sort={$link_array[$key]}&mode=" . (($asc == $link_array[$key]) ? "DESC'>" : "ASC'>" ) . $text . "</a>&nbsp;";
-			$text	.= "<a href='$page?$id&sort={$link_array[$key]}&mode=ASC'>"
-					. (($asc == $link_array[$key]) ? "<img src='./images/red_arrow_up.gif' alt='ASC' border='0' align='absmiddle' title='arranged in ascending order'>"
-                                                   : "<img src='./images/arrow_up.gif' alt='ASC' border='0' align='absmiddle' title='arrange in ascending order'>")
-					. "</a>";
+		if ($link_array[$key] != '') {
+            $text  = "<a class='textSubHeaderDark' href='$page?$id&sort={$link_array[$key]}&mode=" . (($asc == $link_array[$key]) ? "DESC'>" : "ASC'>" ) . $text . "</a>&nbsp;";
 
-			$text	.= "<a href='$page?$id&sort={$link_array[$key]}&mode=DESC'>"
-					. (($desc == $link_array[$key]) ? "<img src='./images/red_arrow_down.gif' alt='DESC' border='0' align='absmiddle' title='arranged in descending order'>"
-                                                    : "<img src='./images/arrow_down.gif' alt='DESC' border='0' align='absmiddle' title='arrange in descending order'>")
-					. "</a>";
+			$text .= "<a href='$page?$id&sort={$link_array[$key]}&mode=ASC'>" .  (($asc == $link_array[$key]) ? "<img src='./images/red_arrow_up.gif' alt='ASC' border='0' align='absmiddle' title='arranged in ascending order'>" : "<img src='./images/arrow_up.gif' alt='ASC' border='0' align='absmiddle' title='arrange in ascending order'>") . "</a>";
+
+			$text .= "<a href='$page?$id&sort={$link_array[$key]}&mode=DESC'>" . (($desc == $link_array[$key]) ? "<img src='./images/red_arrow_down.gif' alt='DESC' border='0' align='absmiddle' title='arranged in descending order'>" : "<img src='./images/arrow_down.gif' alt='DESC' border='0' align='absmiddle' title='arrange in descending order'>") . "</a>";
 		}
+
 		$result[]	= $text;
 	}
+
 	return $result;
 }
 
-
 function html_checked_with_arrow($value) {
-    if($value == TRUE) {
-	echo '<b>&radic;</b>';
-    }else {
-	echo '';
+    if ($value == true) {
+		echo '<b>&radic;</b>';
+    } else {
+		echo '';
     }
 }
 
 function html_checked_with_icon($value, $icon, $title='', $alternative='', $before='', $after='') {
-    if($value == TRUE) {
-	print "$before<img src='./images/" . $icon . "' alt='$title' border='0' align='top' title='$title'>$after";
-    }else {
-	echo $alternative;
-    }
+	if ($value == true) {
+		print "$before<img src='./images/" . $icon . "' alt='$title' border='0' align='top' title='$title'>$after";
+	} else {
+		echo $alternative;
+	}
 }
 
 function html_custom_page_list($current_page, $pages_per_screen, $rows_per_page, $total_rows, $url, $page_var = "page") {
@@ -166,7 +175,7 @@ function html_custom_page_list($current_page, $pages_per_screen, $rows_per_page,
 	/* adjust if we are close to the beginning of the page list */
 	if ($current_page <= ceil(($pages_per_screen) / 2)) {
 		$end_page += ($pages_per_screen - $end_page);
-	}else{
+	} else {
 		$url_page_select .= "...";
 	}
 
@@ -185,7 +194,7 @@ function html_custom_page_list($current_page, $pages_per_screen, $rows_per_page,
 		if ($page_number < $pages_per_screen) {
 			if ($current_page == ($page_number + $start_page)) {
 				$url_page_select .= "<strong><a style='color:black' href='$url&" . $page_var . "=" . ($page_number + $start_page) . "'>" . ($page_number + $start_page) . "</a></strong>";
-			}else{
+			} else {
 				$url_page_select .= "<a style='color:yellow' href='$url&" . $page_var . "=" . ($page_number + $start_page) . "'>" . ($page_number + $start_page) . "</a>";
 			}
 		}
@@ -210,28 +219,28 @@ function html_custom_form_button($cancel_url="", $force_type = "", $key_field = 
 		if (isempty_request_var($key_field)) {
 			$img = "button_create.gif";
 			$alt = "Create";
-		}else{
+		} else {
 			$img = "button_save.gif";
 			$alt = "Save";
 		}
 		$return = 'save';
-	}else {
+	} else {
         $img = "button_" . $force_type . ".gif";
         $alt = ucfirst($force_type);
         $return = $force_type;
     }
 
-	if($leading_br == true) echo "<br>";
+	if ($leading_br == true) echo "<br>";
 	?>
 	<table align='center' width='<?php print $width; ?>' style='background-color: #ffffff; border: 1px solid #bbbbbb;'>
 		<tr>
 			 <td bgcolor="#f5f5f5" align="right">
 				<?php
 				    print "<input type='hidden' name='action' value='$return'>";
-				    if($cancel_url != "") {
+				    if ($cancel_url != "") {
                         print "<a href='$cancel_url'><img src='{$config['url_path']}images/button_cancel2.gif' alt='Cancel' align='absmiddle' border='0'></a> ";
                     }
-					if($force_type != 'NONE') {
+					if ($force_type != 'NONE') {
 						print "<input type='image' src='{$config['url_path']}images/$img' alt='$alt' align='absmiddle'>";
 					}
 				?>
@@ -263,10 +272,10 @@ function html_calc_syntax($measurand_id, $template_id) {
     $rubrics['Interim Results'] = $interim_results;
 
     //Create an box to get an overview of possible commands
-    foreach($rubrics as $key => $value) {
+    foreach ($rubrics as $key => $value) {
         echo "<tr><td width='15%' align='left' valign='top'><b>$key:</b></td><td>";
         echo "&nbsp;&nbsp";
-        foreach($value as $name => $description) {
+        foreach ($value as $name => $description) {
             $value = str_replace('<br>', '', $name);
             echo "<font id='$value' color='blue' onMouseover=tooltip('Tooltip','$value',1) onMouseout=tooltip('Tooltip','$value',0) onClick=add_to_calc('$value') style='cursor:pointer;'>$name&nbsp;&nbsp;</font>";
         }
@@ -290,13 +299,13 @@ function html_report_variables($report_id, $template_id) {
 
     $variables	= db_fetch_assoc($sql);
 
-    if(count($variables) == 0) {
+    if (count($variables) == 0) {
 	$sql = "SELECT * FROM reportit_variables WHERE template_id = $template_id";
 	$variables = db_fetch_assoc($sql);
     }
 
     //Exit if there are no variables necessary for using this template
-    if(count($variables) == 0) return FALSE;
+    if (count($variables) == 0) return FALSE;
 
     //Put the headerline in
     $header = array('friendly_name'	=> 'Variables',
@@ -304,12 +313,12 @@ function html_report_variables($report_id, $template_id) {
     $form_array_vars['report_var_header'] =  $header;
 
     //Start with a transformation
-    foreach($variables as $v) {
+    foreach ($variables as $v) {
 	$value	= (isset($v['value']) ? $v['value'] : $v['default_value']);
 	$method = $input_types[$v['input_type']];
 	$index 	= 'var_' . $v['id'];
 
-	if($method == 'drop_array') {
+	if ($method == 'drop_array') {
 	    $i 		= 0;
 	    $array 	= array();
 
@@ -329,7 +338,7 @@ function html_report_variables($report_id, $template_id) {
 			 'array'	=> $array);
 
 	    $form_array_vars[$index] = $var;
-	}else {
+	} else {
 	    $var = array('friendly_name'=> $v['name'],
 			 'method' 	=> $method,
 			 'description' 	=> $v['description'],
@@ -368,8 +377,8 @@ function html_template_ds_alias($template_id, $data_template_id) {
     $data_source_items = db_fetch_assoc($sql);
 
     /* create the necessary input field for defining the alias */
-    if(sizeof($data_source_items)>0) {
-        foreach($data_source_items as $data_source_item) {
+    if (sizeof($data_source_items)>0) {
+        foreach ($data_source_items as $data_source_item) {
             $item = array(
                 'friendly_name' => "Data Source Item </font>[<i>{$data_source_item['data_source_name']}</i>]<font class='textEditTitle'>",
                 'method'        => 'checkbox',

@@ -22,49 +22,75 @@
    +-------------------------------------------------------------------------+
 */
 
-    $cache_id           = '';
-    $order              = '';
-    $limit              = '';
-    $affix              = '';
-    $exponent           = '';
-    $prefix             = '';
-    $results            = array();
-    $prefixes           = array();
-    $x_values           = array();
-    $report_ds_alias    = array();
+$cache_id        = '';
+$order           = '';
+$limit           = '';
+$affix           = '';
+$exponent        = '';
+$prefix          = '';
+$results         = array();
+$prefixes        = array();
+$x_values        = array();
+$report_ds_alias = array();
 
-    $prefixes[1] = array(0 => '', 1 => 'Ki' , 2 => 'Mi', 3 => 'Gi', 4 => 'Ti', 5 => 'Pi', 6 => 'Ei', 7 => 'Zi', 8 => 'Yi');
-    $prefixes[2] = array(0 => '', 1 => 'k' , 2 => 'M', 3 => 'G', 4 => 'T', 5 => 'P', 6 => 'E', 7 => 'Z', 8 => 'Y');
+$prefixes[1] = array(
+	0 => '',
+	1 => 'Ki',
+	2 => 'Mi',
+	3 => 'Gi',
+	4 => 'Ti',
+	5 => 'Pi',
+	6 => 'Ei',
+	7 => 'Zi',
+	8 => 'Yi'
+);
 
-    $types = array(
-                    "-10"    => array (
-                                "description"   => "Bar (vertical)",
-                                "name"          => "b",
-                                "x_axis"        => 'Position',
-                                "y_axis"        => 1),
-                    "10"    => array (
-                                "description"   => "Bar (horizontal)",
-                                "name"          => "hb",
-                                "x_axis"        => 1,
-                                "y_axis"        => 'Position'),
-                    "20"    => array (
-                                "description"   => "Line",
-                                "name"          => "l",
-                                "x_axis"        => 'Position',
-                                "y_axis"        => 1),
-                    "21"    => array (
-                                "description"   => "Area",
-                                "name"          => "l",
-                                "x_axis"        => 'Position',
-                                "y_axis"        => 1,
-                                "filled"        => 1),
-                    "30"    => array (
-                                "description"   => "Pie chart 3D",
-                                "name"          => "p"),
-                    "40"    => array (
-                                "description"   => "Spider",
-                                "name"          => "s",
-                                "x_value"       => "1"),
-                    );
+$prefixes[2] = array(
+	0 => '',
+	1 => 'k',
+	2 => 'M',
+	3 => 'G',
+	4 => 'T',
+	5 => 'P',
+	6 => 'E',
+	7 => 'Z',
+	8 => 'Y'
+);
 
-?>
+$types = array(
+	'-10' => array (
+		'description' => __('Bar (vertical)'),
+		'name'        => 'b',
+		'x_axis'      => 'Position',
+		'y_axis'      => 1
+	),
+	'10' => array (
+		'description' => __('Bar (horizontal)'),
+		'name'        => 'hb',
+		'x_axis'      => 1,
+		'y_axis'      => 'Position'
+	),
+	'20' => array (
+		'description' => __('Line'),
+		'name'        => 'l',
+		'x_axis'      => 'Position',
+		'y_axis'      => 1
+	),
+	'21' => array (
+		'description' => __('Area'),
+		'name'        => 'l',
+		'x_axis'      => 'Position',
+		'y_axis'      => 1,
+		'filled'      => 1
+	),
+	'30' => array (
+		'description' => __('Pie chart 3D'),
+		'name'        => 'p'
+	),
+	'40' => array (
+		'description' => __('Spider'),
+		'name'        => 's',
+		'x_value'     => '1'
+	),
+);
+

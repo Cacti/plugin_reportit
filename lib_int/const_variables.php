@@ -25,11 +25,35 @@
 
 //----- CONSTANTS FOR: cc_variables.php -----
 
-$variable_actions 	= array( 1 => 'Delete');
-$var_types			= array( 1 => 'Dropdown', 2 => 'Input field');
-$link_array			= array('name', 'abbreviation', 'max_value', 'min_value', 'default_value', 'input_type');
-$list_of_modes		= array('ASC', 'DESC');
-$desc_array			= array('Name', 'Internal Name', 'Maximum', 'Minimum', 'Default', 'Input Type');
+$variable_actions = array(
+	1 => __('Delete')
+);
 
+$var_types = array(
+	1 => __('Dropdown'),
+	2 => __('Input field')
+);
 
-?>
+$link_array = array(
+	'name',
+	'abbreviation',
+	'max_value',
+	'min_value',
+	'default_value',
+	'input_type'
+);
+
+$list_of_modes = array(
+	'ASC',
+	'DESC'
+);
+
+$desc_array = array(
+	__('Name'),
+	__('Internal Name'),
+	__('Maximum'),
+	__('Minimum'),
+	__('Default'),
+	__('Input Type')
+);
+

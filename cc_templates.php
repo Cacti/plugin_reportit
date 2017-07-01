@@ -31,10 +31,6 @@ include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/const_templates.php');
 
-/* ============== Validation ============== */
-safeguard_xss('', false, '<template_title>');
-/* ======================================== */
-
 set_default_action();
 
 switch (get_request_var('action')) {

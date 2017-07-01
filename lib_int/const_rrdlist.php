@@ -22,47 +22,69 @@
    +-------------------------------------------------------------------------+
 */
 
-
 //----- CONSTANTS FOR: cc_rrdlist.php -----
 
+$rrdlist_actions = array(
+	1 => __('Delete'),
+	2 => __('Copy settings to all')
+);
 
-$rrdlist_actions = array(1 => "Delete", 2 => "Copy settings to all");
-$rrdadd_actions = array(1 => "Add");
+$rrdadd_actions = array(
+	1 => __('Add')
+);
 
-define("MAX_DISPLAY_PAGES", 21);
-$link_array = array('name_cache', 'description', '', '', 'timezone', '');
+$link_array = array(
+	'name_cache',
+	'description',
+	'',
+	'',
+	'timezone',
+	''
+);
 
-
-// $timezone		- array, for dropdown menu
-//			- contains the $keys from $timezones array.
+// $timezone - array, for dropdown menu
+//           - contains the $keys from $timezones array.
 foreach ($timezones as $key => $value) {
-    $timezone[]=$key;
+	$timezone[] = $key;
 }
 
+// $weekday - array, for dropdown menu
+//          - contains the names of all weekdays
+$weekday = array(
+	__('Monday'),
+	__('Tuesday'),
+	__('Wednesday'),
+	__('Thursday'),
+	__('Friday'),
+	__('Saturday'),
+	__('Sunday')
+);
 
-// $weekday		- array, for dropdown menu
-//			- contains the names of all weekdays
-$weekday = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
-
-
-// $shifttime		- array, for dropdown menu
-//			- contains all possible timestamps of a day by using steps of 5 minutes
+// $shifttime - array, for dropdown menu
+//            - contains all possible timestamps of a day by using steps of 5 minutes
 $shifttime = array();
-    for($i=0; $i<24; $i++) {
+
+for($i = 0; $i < 24; $i++) {
 	$hour=$i;
-	if($hour<10) {$hour = '0' . $hour;}
 
-	    for($j=0; $j<60; $j+=5) {
+	if($hour < 10) {
+		$hour = '0' . $hour;
+	}
+
+	for($j = 0; $j < 60; $j += 5) {
 		$minutes = $j;
-		if($minutes<10) {$minutes = '0' . $minutes;}
-		$shifttime[]= "$hour:$minutes:00";
-	    }
 
-    }
-    $shifttime2  = $shifttime;
-    $shifttime2[]= "24:00:00";
+		if($minutes < 10) {
+			$minutes = '0' . $minutes;
+		}
+
+		$shifttime[] = "$hour:$minutes:00";
+	}
+}
+
+$shifttime2  = $shifttime;
+$shifttime2[]= '24:00:00';
 
 unset($i);
 unset($j);
 
-?>

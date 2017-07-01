@@ -32,10 +32,6 @@ include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/const_items.php');
 
-/* ======== Validation ======== */
-safeguard_xss();
-/* ============================ */
-
 set_default_action();
 
 switch (get_request_var('action')) {

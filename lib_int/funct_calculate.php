@@ -22,55 +22,60 @@
    +-------------------------------------------------------------------------+
 */
 
-
 /* ----- Functions without external parameters ----- */
 
 //Count the number of available measuring points
 function f_num(&$array, &$f_cache) {
 	$f_cache['f_count'] = count($array);
+
 	return $f_cache['f_count'];
 }
 
 //Sum
 function f_sum(&$array, &$f_cache) {
 	$f_cache['f_sum'] = empty($array) ? REPORTIT_NAN : array_sum($array);
+
 	return $f_cache['f_sum'];
 }
 
 //Average
 function f_avg(&$array, &$f_cache) {
 	$f_cache['f_avg'] = empty($array) ? REPORTIT_NAN : array_sum($array)/count($array);
+
 	return $f_cache['f_avg'];
 }
 
 //Maximum
 function f_max(&$array, &$f_cache) {
 	$f_cache['f_max'] = empty($array) ? REPORTIT_NAN : max($array);
+
 	return $f_cache['f_max'];
 }
 
 //Minimum
 function f_min(&$array, &$f_cache) {
 	$f_cache['f_min'] = empty($array) ? REPORTIT_NAN : min($array);
+
 	return $f_cache['f_min'];
 }
 
 //First measured value
 function f_1st(&$array, &$f_cache) {
 	$f_cache['f_1st'] = empty($array) ? REPORTIT_NAN : reset($array);
+
 	return $f_cache['f_1st'];
 }
 
 //Last measured value
 function f_last(&$array, &$f_cache) {
 	$f_cache['f_last'] = empty($array) ? REPORTIT_NAN : end($array);
+
 	return $f_cache['f_last'];
 }
 
 //Gradient
 function f_grd(&$array, &$f_cache) {
-
-	if(empty($array)) {
+	if (empty($array)) {
 		$f_cache['f_grd'] = REPORTIT_NAN;
 		return $f_cache['f_grd'];
 	}
@@ -83,145 +88,161 @@ function f_grd(&$array, &$f_cache) {
 	$y_i = array_sum($y_array)/$cnt;
 	$x_i = array_sum($x_array)/$cnt;
 
-	$num	= 0;
-	$denum	= 0;
+	$num   = 0;
+	$denum = 0;
 
-	for($i=0; $i<$cnt; $i++) {
-		$num	+= ($x_array[$i]-$x_i)*($y_array[$i]-$y_i);
-		$denum	+= pow(($x_array[$i]-$x_i),2);
+	for ($i=0; $i<$cnt; $i++) {
+		$num   += ($x_array[$i]-$x_i)*($y_array[$i]-$y_i);
+		$denum += pow(($x_array[$i]-$x_i),2);
 	}
 
 	$f_cache['f_grd'] = $num/$denum;
 	return $f_cache['f_grd'];
 }
 
-
-
 /* ----- Functions with external variables ----- */
 
 //Xth percentitle
 function f_xth(&$array, &$p_cache, $value) {
-	if($value > 100 || $value <= 0) return REPORTIT_NAN;
+	if ($value > 100 || $value <= 0) {
+		return REPORTIT_NAN;
+	}
 
-	if(empty($array)) {
+	if (empty($array)) {
 		$p_cache['f_xth'] = REPORTIT_NAN;
+
 		return $p_cache['f_xth'];
 	}
 
 	sort($array);
+
 	$x = intval(count($array)*($value/100));
 	$p_cache['f_xth'] = $array[$x];
+
 	return $p_cache['f_xth'];
 }
 
 //Over Threshold
 function f_sot(&$array, &$p_cache, $threshold) {
-
-	if(empty($array)) {
+	if (empty($array)) {
 		$p_cache['f_sot'] = REPORTIT_NAN;
+
 		return $p_cache['f_sot'];
 	}
 
 	$over_threshold = 0;
-	foreach($array as $value) {
-		if($value != 0) {
+
+	foreach ($array as $value) {
+		if ($value != 0) {
 			$value -= $threshold;
-			if($value > 0) $over_threshold += $value;
+
+			if ($value > 0) {
+				$over_threshold += $value;
+			}
 		}
 	}
+
 	$p_cache['f_sot'] = $over_threshold;
+
 	return $p_cache['f_sot'];
 }
 
 //Duration Over Threshold
 function f_dot(&$array, &$p_cache, $threshold) {
 
-	if(empty($array)) {
+	if (empty($array)) {
 		$p_cache['f_dot'] = REPORTIT_NAN;
 		return $p_cache['f_dot'];
 	}
 
 	$i = 0;
-	foreach($array as $value) {
-		if($value != 0) {
+	foreach ($array as $value) {
+		if ($value != 0) {
 			$value -= $threshold;
-			if($value > 0) $i++;
+			if ($value > 0) {
+				$i++;
+			}
 		}
 	}
+
 	$p_cache['f_dot'] = ($i/count($array))*100;
+
 	return $p_cache['f_dot'];
 }
 
 //Get the integer value
 function f_int(&$array, &$p_cache, $value) {
-
-	if(empty($array)) {
+	if (empty($array)) {
 		$p_cache['f_int'] = REPORTIT_NAN;
+
 		return $p_cache['f_int'];
 	}
 
 	$intvalue = floor($value);
 	$p_cache['f_int'] = $intvalue;
+
 	return $p_cache['f_int'];
 }
 
 //Get the rounded integer value
 function f_rnd(&$array, &$p_cache, $value) {
-
-	if(empty($array)) {
+	if (empty($array)) {
 		$p_cache['f_rnd'] = REPORTIT_NAN;
+
 		return $p_cache['f_rnd'];
 	}
 
 	$intvalue = round($value);
 	$p_cache['f_rnd'] = $intvalue;
+
 	return $p_cache['f_rnd'];
 }
 
 //Get the highest value of a list of given numbers
 function f_high(&$array, &$p_cache) {
+	if (func_num_args() < 3 | empty($array)) {
+		$p_cache['f_high'] = REPORTIT_NAN;
 
-    if(func_num_args() < 3 | empty($array)) {
-	$p_cache['f_high'] = REPORTIT_NAN;
+		return $p_cache['f_high'];
+	}
+
+	$p_cache['f_high'] = max(array_slice(func_get_args(), 2));
+
 	return $p_cache['f_high'];
-    }
-
-    $p_cache['f_high'] = max(array_slice(func_get_args(), 2));
-    return $p_cache['f_high'];
 }
 
 //Get the lowest values of a list of given numbers
 function f_low(&$array, &$p_cache) {
+	if (func_num_args() < 3 | empty($array)) {
+		$p_cache['f_low'] = REPORTIT_NAN;
 
-    if(func_num_args() < 3 | empty($array)) {
-        $p_cache['f_low'] = REPORTIT_NAN;
-        return $p_cache['f_low'];
-    }
+		return $p_cache['f_low'];
+	}
 
-    $p_cache['f_low'] = min(array_slice(func_get_args(), 2));
-    return $p_cache['f_low'];
+	$p_cache['f_low'] = min(array_slice(func_get_args(), 2));
+
+	return $p_cache['f_low'];
 }
-
 
 /* ----- Main function for calculating ----- */
 
 //Normal way of calulation
 function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & $dr_cache, & $dp_cache, & $ds_cache) {
-	$results	= array();
+	$results = array();
 
-	$f_cache	= $df_cache;	//Functions
-	$m_cache	= $dm_cache;	//Measurands
-	$r_cache	= $dr_cache;	//Interim results
-	$p_cache	= $dp_cache;	//Functions with parameters
-	$s_cache	= $ds_cache;	//Measurands with flag "spanned"
+	$f_cache = $df_cache;	//Functions
+	$m_cache = $dm_cache;	//Measurands
+	$r_cache = $dr_cache;	//Interim results
+	$p_cache = $dp_cache;	//Functions with parameters
+	$s_cache = $ds_cache;	//Measurands with flag "spanned"
 
-	$n_rra		= $params['rrd_ds_cnt'];
-	$ds_namv	= $params['rras'];
+	$n_rra   = $params['rrd_ds_cnt'];
+	$ds_namv = $params['rras'];
 
 	$specific_variables = array('maxValue', 'maxRRDValue');
 
 	//Create a cache for every Round Robin Archive
-	foreach($ds_namv as $key => $ds_name) {
+	foreach ($ds_namv as $key => $ds_name) {
 		$cache[$key] = 	array($f_cache, $m_cache, $p_cache);
 	}
 
@@ -229,87 +250,102 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 	set_error_handler('last_error');
 
 	//Build the calculation command and execute it
-	foreach($m_cache as $k => $m) {
-	debug($cache, "Main Cache Status: f,m,p");
+	foreach ($m_cache as $k => $m) {
+		debug($cache, "Main Cache Status: f,m,p");
 
 		// we need the correct rra index to choose the right data
 		$rra_index = $params['rra_indexes'][$k];
 
-		foreach($ds_namv as $i => $ds_name) {
+		foreach ($ds_namv as $i => $ds_name) {
 			debug($cache, "Main Cache Status: f,m,p");
 
 			// Debug
 			$debug = array();
+
 			//Formula
 			$formula = $m;
 			$debug[]= $formula;
 
 			// transform RRA specific variables (maxValue, maxRRDValue) used in that formula
-			foreach($specific_variables as $specific_variable){
+			foreach ($specific_variables as $specific_variable){
 				$formula = str_replace($specific_variable, $specific_variable . ':' . $ds_name, $formula);
 			}
+
 			$debug[]= $formula;
 
 			//Replace our variables
-			foreach($variables as $key => $value) {
+			foreach ($variables as $key => $value) {
 				$formula = str_replace($key, $value, $formula);
 			}
+
 			$debug[]= $formula;
 
 			//Replace measurands (spanned)
-			foreach($s_cache as $key => $value) {
+			foreach ($s_cache as $key => $value) {
 				$pattern = '/(^|[+|\-|*|\/|\(|\)|,| ])'.$key.'([+|\-|*|\/|\(|\)|,| ]|$)/';
 				$formula = preg_replace($pattern, "\${1}$value\${2}", $formula);
 			}
+
 			$debug[]= $formula;
 
 			//Replace interim results first:
-			foreach($r_cache as $key => $value) {
-				if($value !== FALSE) $formula = str_replace($key, $value, $formula);
+			foreach ($r_cache as $key => $value) {
+				if ($value !== false) $formula = str_replace($key, $value, $formula);
 			}
+
 			$debug[]= $formula;
 
 			//Replace measurands with an existing result if we have one
-			foreach($cache[$i][1] as $key => $value) {
+			foreach ($cache[$i][1] as $key => $value) {
 				$pattern = '/(^|[+|\-|*|\/|\(|\)|,| ])'.$key.'([+|\-|*|\/|\(|\)|,| ]|$)/';
 				$formula = preg_replace($pattern, "\${1}$value\${2}", $formula);
 			}
+
 			$debug[]= $formula;
 
 			//Replace formula calls
-			foreach($cache[$i][0][$rra_index] as $key => $value) {
-				if($value === FALSE) {
+			foreach ($cache[$i][0][$rra_index] as $key => $value) {
+				if ($value === false) {
 					$formula = str_replace($key, $key . '($data[$rra_index][$i], $cache[$i][0][$rra_index])', $formula);
-				}else {
+				} else {
 					$formula = str_replace($key, $value, $formula);
 				}
 			}
+
 			$debug[]= $formula;
 
 			//Replace formula calls with parameters
-			foreach($cache[$i][2][$rra_index] as $key => $value) {
+			foreach ($cache[$i][2][$rra_index] as $key => $value) {
 				$formula = str_replace($key, $key . '( $data[$rra_index][$i], $cache[$i][2][$rra_index]||', $formula);
 				$formula = str_replace('||(', ', ', $formula);
 			}
+
 			$debug[]= $formula;
 
 			//calculate
-			$result = FALSE;
+			$result = false;
+
 			eval("\$result = $formula;");
 
-			if($result === FALSE || is_nan($result)) $result = 'NULL';
+			if ($result === false || is_nan($result)) {
+				$result = 'NULL';
+			}
+
 			$debug[] = $result;
+
 			debug($debug, "Interpretation & Result");
 
 			//If its flagged as "spanned" then update the s_cache, update the main cache
 			//and jump to the next measurand
-			if(array_key_exists($k, $s_cache)) {
+			if (array_key_exists($k, $s_cache)) {
 				$s_cache[$k] = $result;
-				for($i=0; $i<$n_rra; $i++) {
+
+				for ($i=0; $i<$n_rra; $i++) {
 					unset($cache[$i][1][$k]);
 				}
+
 				continue 2;
-			}else {
+			} else {
 				//Update r_cache with the result of our measurand
 				$name = $k . ':' . $params['rras'][$i];
 				$r_cache[$name] = $result;
@@ -322,7 +358,7 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 
 	//Clear up and return to main function
 	$result = array();
-	foreach($ds_namv as $i => $ds_name) {
+	foreach ($ds_namv as $i => $ds_name) {
 		$result[$ds_name] = $cache[$i][1];
 	}
 
@@ -335,3 +371,4 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 
 	return $result;
 }
+

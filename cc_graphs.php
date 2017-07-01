@@ -33,10 +33,6 @@ include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
 require_once(REPORTIT_BASE_PATH . '/lib_ext/graidle/graidle.php');
 
-/* ======== Validation ======== */
-safeguard_xss();
-/* ============================ */
-
 ob_end_clean();
 
 /* start with graphing */
