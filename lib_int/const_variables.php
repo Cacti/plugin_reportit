@@ -49,11 +49,11 @@ $list_of_modes = array(
 );
 
 $desc_array = array(
-	__('Name'),
-	__('Internal Name'),
-	__('Maximum'),
-	__('Minimum'),
-	__('Default'),
-	__('Input Type')
+	'description' => array('display' => __('Name'),          'align' => 'left', 'sort' => 'ASC'),
+	'nosort'      => array('display' => __('Internal Name'), 'align' => 'left'),
+	'pre_filter'  => array('display' => __('Maximum'),       'align' => 'right'),
+	'nosort1'     => array('display' => __('Minimum'),       'align' => 'right'),
+	'nosort2'     => array('display' => __('Default'),       'align' => 'left', 'sort' => 'ASC'),
+	'nosort3'     => array('display' => __('Input Type'),    'align' => 'left', 'sort' => 'ASC'),
 );
 

@@ -54,7 +54,7 @@ function get_prepared_report_data($report_id, $type, $affix='') {
 	$sql = "SELECT * FROM reportit_measurands
 			WHERE template_id = " . $report_data['template_id'];
 	$tmps = db_fetch_assoc($sql);
-	foreach($tmps as $tmp) {
+	foreach ($tmps as $tmp) {
 		$report_measurands[$tmp['id']] = $tmp;
 	}
 
@@ -106,7 +106,7 @@ function get_prepared_report_data($report_id, $type, $affix='') {
 					'report_measurands'	=> $report_measurands,
 					'report_variables'	=> $report_variables,
                     'report_ds_alias'   => $report_ds_alias);
-	strip_slashes($data);
+
 	return $data;
 }
 
@@ -127,7 +127,7 @@ function get_prepared_archive_data($cache_id, $type, $affix='') {
 	/* load configured measurands */
 	$sql = "SELECT * FROM reportit_cache_measurands WHERE `cache_id` = '$cache_id'";
 	$tmps = db_fetch_assoc($sql);
-	foreach($tmps as $tmp) {
+	foreach ($tmps as $tmp) {
 		$report_measurands[$tmp['id']] = $tmp;
 	}
 
@@ -159,7 +159,7 @@ function get_prepared_archive_data($cache_id, $type, $affix='') {
 					'report_measurands'	=> $report_measurands,
 					'report_variables'	=> $report_variables,
                     'report_ds_alias'   => $report_ds_alias);
-	strip_slashes($data);
+
 	return $data;
 }
 
@@ -181,23 +181,23 @@ function db_custom_fetch_assoc($sql, $index=false, $multi=true, $assoc=true){
 	$srt_data = array();
 
 	$raw_data = db_fetch_assoc($sql);
-	if(sizeof($raw_data)> 0) {
-		foreach($raw_data as $row_key => $row) {
-			if($index !== false && !array_key_exists($index, $row)) return false;
+	if (sizeof($raw_data)> 0) {
+		foreach ($raw_data as $row_key => $row) {
+			if ($index !== false && !array_key_exists($index, $row)) return false;
 			$index_key = ($index === false) ? $row_key : $row[$index];
-			foreach($row as $key => $value){
-				if($key != $index){
-					if($multi) {
-						if($assoc) $srt_data[$index_key][$key]=$value;
+			foreach ($row as $key => $value){
+				if ($key != $index){
+					if ($multi) {
+						if ($assoc) $srt_data[$index_key][$key]=$value;
 						else $srt_data[$index_key][]=$value;
-					}else {
+					} else {
 						$srt_data[$index_key]=$value;
 					}
 				}
 			}
 		}
 		return $srt_data;
-	}else {
+	} else {
 		return false;
 	}
 }
@@ -213,12 +213,12 @@ function db_custom_fetch_flat_array($sql){
     $srt_data = array();
 
     $raw_data = db_fetch_assoc($sql);
-    if(sizeof($raw_data)> 0) {
-        foreach($raw_data as $row) {
-            foreach($row as $value) $srt_data[] = $value;
+    if (sizeof($raw_data)> 0) {
+        foreach ($raw_data as $row) {
+            foreach ($row as $value) $srt_data[] = $value;
         }
         return $srt_data;
-    }else {
+    } else {
         return false;
     }
 }
@@ -237,12 +237,12 @@ function db_custom_fetch_flat_string($sql, $delimiter = ','){
     $srt_data = '';
 
     $raw_data = db_fetch_assoc($sql);
-    if(sizeof($raw_data)> 0) {
-        foreach($raw_data as $row) {
-            foreach($row as $value) $srt_data .= $value . $delimiter;
+    if (sizeof($raw_data)> 0) {
+        foreach ($raw_data as $row) {
+            foreach ($row as $value) $srt_data .= $value . $delimiter;
         }
         return substr($srt_data,0,-strlen($delimiter));
-    }else {
+    } else {
         return false;
     }
 }
@@ -337,9 +337,9 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = FALSE) {
 
     $dates['start_date'] 	= ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $ms, $ds, $ys)) : date('Y-m-d', mktime(0,0,0, $ms, $ds, $ys));
 
-    if($present) {
+    if ($present) {
         $dates['end_date'] 	= $today;
-    }else {
+    } else {
 	$dates['end_date'] 	= ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $me, $de, $ye)) : date('Y-m-d', mktime(0,0,0, $me, $de, $ye));
     }
 
@@ -350,7 +350,7 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = FALSE) {
 function get_unit($value, $prefixes, $data_type, $data_precision) {
     global $threshold, $binary, $decimal, $IEC;
 
-	if(!$threshold) {
+	if (!$threshold) {
 		$threshold 	= 0.5;
 
 		$decimal	= array('Y' => pow(1000,8),
@@ -378,24 +378,24 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 	$data_type = $type_specifiers[$data_type];
 
 	/* use precision for type FLOAT and SCIENTIFIC NOTIFICATION only*/
-	if(is_numeric($data_precision) & in_array($data_type, array('f', 'e'))) {
+	if (is_numeric($data_precision) & in_array($data_type, array('f', 'e'))) {
 		$data_precision = '.' . $data_precision;
-	}else {
+	} else {
 		$data_precision = '';
 	}
 
-	if($value === 0) return 0;
-	if($value == NULL) return "NA";
-	if($prefixes == 0) {
+	if ($value === 0) return 0;
+	if ($value == NULL) return "NA";
+	if ($prefixes == 0) {
 		return sprintf("%" . $data_precision . $data_type, $value);
 	}
-	if($prefixes == 0 || $value == 0) return $value;
+	if ($prefixes == 0 || $value == 0) return $value;
 
 	If($prefixes == 1) {
 		$k	= ($IEC) ? 'K' : 'k';
 		$i 	= ($IEC) ? 'i' : '';
 		$pre	= &$binary;
-    }else {
+    } else {
 		$k	= 'k';
 		$i	= '';
 		$pre	= &$decimal;
@@ -479,9 +479,9 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 	$sql = "SELECT id FROM reportit_reports WHERE template_id=$template_id";
 	$ids = db_fetch_assoc($sql);
 
-	if(sizeof($ids) > 0) {
+	if (sizeof($ids) > 0) {
 		$list = '';
-		foreach($ids as $id) {
+		foreach ($ids as $id) {
 			$list .= "($template_id, {$id['id']}, $variable_id, $default),";
 		}
 		//Remove last comma
@@ -518,7 +518,7 @@ function get_possible_rra_names($template_id) {
             AND a.id != 0";
     $names = db_fetch_assoc($sql);
 
-    foreach($names as $name) $array[] = $name['data_source_name'];
+    foreach ($names as $name) $array[] = $name['data_source_name'];
 
     return $array;
 }
@@ -544,16 +544,16 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
             FROM reportit_measurands
             WHERE template_id=$template_id ";
 
-    if($measurand_id != 0) $sql .= "AND id<$measurand_id";
+    if ($measurand_id != 0) $sql .= "AND id<$measurand_id";
     $array = db_fetch_assoc($sql);
 
-    foreach($array as $interim_result) {
-        if($interim_result['spanned'] == 0) {
-            foreach($names as $name) {
+    foreach ($array as $interim_result) {
+        if ($interim_result['spanned'] == 0) {
+            foreach ($names as $name) {
                 $interim_results[] = $interim_result['abbreviation'] . ':' . $name;
             }
         }
-        if($ln) $interim_result['abbreviation'] .= '<br>';
+        if ($ln) $interim_result['abbreviation'] .= '<br>';
         $interim_results[] = $interim_result['abbreviation'];
     }
 
@@ -573,17 +573,17 @@ function get_possible_variables($template_id) {
 			 ON a.data_template_id = b.data_template_id AND b.id = $template_id
 			 WHERE a.local_data_id = 0";
     $maximum = db_fetch_cell($sql);
-    if(!is_numeric($maximum) || $maximum == 0) unset($calc_var_names[0]);
+    if (!is_numeric($maximum) || $maximum == 0) unset($calc_var_names[0]);
 
 
     $sql = "SELECT abbreviation FROM reportit_variables WHERE template_id=$template_id";
     $names = db_fetch_assoc($sql);
     // and bring them toghter with the standard variables
 
-    foreach($calc_var_names as $name) {
+    foreach ($calc_var_names as $name) {
 	$array[] = $name;
     }
-    foreach($names as $name) {
+    foreach ($names as $name) {
             $array[] = $name['abbreviation'];
         }
     return array_flip($array);
@@ -619,7 +619,7 @@ function get_possible_data_query_variables($template_id) {
 	}
 
 	$array = array();
-    foreach($names as $name) {
+    foreach ($names as $name) {
             $array[] = $name['field_name'];
         }
 	debug($array, 'Array of possible Data Query Variables');
@@ -653,7 +653,7 @@ function config_date_format($no_time=TRUE) {
 
 	if ($datechar == GDC_HYPHEN) {
 		$datechar = "-";
-	}else {
+	} else {
 		$datechar = "/";
 	}
 
@@ -692,22 +692,22 @@ function config_date_format($no_time=TRUE) {
 
 function debug(&$value, $msg = '', $fmsg = '') {
 
-    if(!defined('REPORTIT_DEBUG')) return;
+    if (!defined('REPORTIT_DEBUG')) return;
     get_mem_usage();
 
-	if($msg != '') print "\n\t\t******* $msg *******\n";
+	if ($msg != '') print "\n\t\t******* $msg *******\n";
 
-	if(is_array($value)) {
-		if($fmsg == '') {
+	if (is_array($value)) {
+		if ($fmsg == '') {
 			print_r($value);
 			echo "\n";
-		}else {
+		} else {
 			print "\t\t$fmsg: "; print_r($value);
 		}
-	}else {
-		if($fmsg != '') {
+	} else {
+		if ($fmsg != '') {
 			print "\t\t$fmsg: \t$value\n";
-		}else {
+		} else {
 			print "\t\t$value\n";
 		}
 	}
@@ -725,7 +725,7 @@ function get_graph_config_option($config_name, $user_id){
 
     if (isset($db_setting["value"])) {
         return $db_setting["value"];
-    }else{
+    } else{
         return read_default_graph_config_option($config_name);
     }
 }
@@ -742,15 +742,15 @@ function auto_rounding(&$values, $rounding, $order){
     $x = 0;
     for ($exp=1; $x<$highest; $exp++){
         $x = pow($base, $exp);
-        if($x*$threshold < $highest) continue;
+        if ($x*$threshold < $highest) continue;
         else break;
    }
 
     /* workaround to avoid issues Graidle has with scaling the Y-Axis if highest values is under 1 */
-    if($highest/pow($base, $exp-1)<1) $exp--;
+    if ($highest/pow($base, $exp-1)<1) $exp--;
 
     $devisor = pow($base, $exp-1);
-    foreach($values as $key => $value){
+    foreach ($values as $key => $value){
         $values[$key] = sprintf("%01.2f", ($value/=$devisor));
     }
     return $exp-1;
@@ -764,7 +764,7 @@ function load_external_libs($name){
 
 	switch ($name) {
 		case 'pclzip':
-			if(!defined('PCLZIP_TEMPORARY_DIR')) define( 'PCLZIP_TEMPORARY_DIR', REPORTIT_TMP_FD);
+			if (!defined('PCLZIP_TEMPORARY_DIR')) define( 'PCLZIP_TEMPORARY_DIR', REPORTIT_TMP_FD);
 			include_once(CACTI_BASE_PATH . '/plugins/reportit/lib_ext/pclzip/pclzip.lib.php');
 		break;
 		case 'graidle':
@@ -815,26 +815,26 @@ function update_xml_archive($report_id) {
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>$eol";
 	echo "<cacti>$eol<report>$eol<settings>$eol";
 
-	foreach($data['report_data'] as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+	foreach ($data['report_data'] as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
 	echo "</settings>$eol<measurands>$eol";
 
-	foreach($data['report_measurands'] as $measurand){
+	foreach ($data['report_measurands'] as $measurand){
 		echo "<measurand>$eol";
-		foreach($measurand as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+		foreach ($measurand as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
 		echo "</measurand>$eol";
 	}
 	echo "</measurands>$eol<data_items>$eol";
 
-	foreach($data['report_results'] as $results){
+	foreach ($data['report_results'] as $results){
 		echo "<item>$eol";
-		foreach($results as $key => $value) echo "<_di__$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</_di__$key>$eol";
+		foreach ($results as $key => $value) echo "<_di__$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</_di__$key>$eol";
 		echo "</item>$eol";
 	}
 	echo "</data_items>$eol<variables>$eol";
 
-	foreach($data['report_variables'] as $variable) {
+	foreach ($data['report_variables'] as $variable) {
 		echo "<variable>$eol";
-		foreach($variable as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+		foreach ($variable as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
 		echo "</variable>$eol";
 	}
 
@@ -858,10 +858,10 @@ function update_xml_archive($report_id) {
 	/* use file rotation */
 	if (($stat = $archive->properties()) != 0) {
 		$cnt = ($max == 0) ? 0 : $stat['nb'];
-		if($cnt > $max+1) {
+		if ($cnt > $max+1) {
 			$end = $cnt - $max-1;
 			$archive->delete(PCLZIP_OPT_BY_INDEX, '0-'.$end);
-		}else if($cnt == $max+1){
+		} else if ($cnt == $max+1){
 			$archive->delete(PCLZIP_OPT_BY_INDEX, '0');
 		}
 	};
@@ -895,7 +895,7 @@ function cache_xml_file($report_id, $mtime){
 
 	/* check if cache is up to date */
 	$sql = "SHOW TABLES LIKE 'reportit_tmp_" . $cache_id . "'";
-	if(db_fetch_cell($sql) !== null) return;
+	if (db_fetch_cell($sql) !== null) return;
 
 	/* load zip file support */
 	load_external_libs('pclzip');
@@ -905,13 +905,13 @@ function cache_xml_file($report_id, $mtime){
 
 	/* unzip xml archive and load xml file */
 	$info = $archive->listContent();
-	foreach($info as $key => $array) {
-		if($array['mtime'] == $mtime) {
+	foreach ($info as $key => $array) {
+		if ($array['mtime'] == $mtime) {
 			$index = $array['index'];
 			break;
 		}
 	}
-	if($index === false) die_html_custom_error("Report not found in archive.", true);
+	if ($index === false) die_html_custom_error("Report not found in archive.", true);
 	$data = $archive->extractByIndex($index, PCLZIP_OPT_EXTRACT_AS_STRING);
 
 	/* use external XML class to be compatible with PHP4 */
@@ -928,7 +928,7 @@ function cache_xml_file($report_id, $mtime){
 	$sql = "REPLACE INTO reportit_cache_measurands $columns VALUES $values;";
 	db_execute($sql);
 
-	if(trans_array2sql($archive['report']['variables'], $columns, $values, $cache_id)) {
+	if (trans_array2sql($archive['report']['variables'], $columns, $values, $cache_id)) {
 	$sql = "REPLACE INTO reportit_cache_variables $columns VALUES $values;";
 	db_execute($sql);
 	}
@@ -939,9 +939,9 @@ function cache_xml_file($report_id, $mtime){
 	$cols = explode(",", substr($columns, 2, -1));
 	$sql = "CREATE TABLE IF NOT EXISTS reportit_tmp_" . $cache_id . " (";
 
-	foreach($cols as $name){
-		if($name == '`id`') $sql .= $name . " int(11) NOT NULL DEFAULT 0,";
-		elseif(strpos($name, '__') !== false) $sql .= $name . " DOUBLE,";
+	foreach ($cols as $name){
+		if ($name == '`id`') $sql .= $name . " int(11) NOT NULL DEFAULT 0,";
+		elseif (strpos($name, '__') !== false) $sql .= $name . " DOUBLE,";
 		else $sql .= $name . " VARCHAR(255) NOT NULL DEFAULT '',";
 	}
 	$sql .= "PRIMARY KEY (`id`)) ENGINE=MyISAM;";
@@ -951,11 +951,8 @@ function cache_xml_file($report_id, $mtime){
 	db_execute($sql);
 }
 
-
-
 function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
-
-	$keys = false;
+	$keys  = false;
 	$multi = false;
 	$sub_values = '';
 
@@ -963,49 +960,59 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	$columns = $cache_id ? '`cache_id`' : '';
 	$values = '';
 
-	/* prepare data for saving */
-	add_slashes($array);
+	if (!is_array($array)) {
+		return false;
+	}
 
-	if(!is_array($array)) return false;
-	foreach($array as $key => $value) {
-		if(is_array($value)) {
-			if(isset($value[0])) {
-				foreach($value as $sub_array) {
-					$sub_values = '';
-					foreach($sub_array as $sub_key => $sub_value) {
-						if(!$keys) $columns .= ", `$sub_key`";
-						$sub_values .= (strpos($sub_value, '{{') !== false) ? ", ''" : ", '$sub_value'";
+	if (sizeof($array)) {
+		foreach ($array as $key => $value) {
+			if (is_array($value)) {
+				if (isset($value[0])) {
+					foreach ($value as $sub_array) {
+						$sub_values = '';
+
+						foreach ($sub_array as $sub_key => $sub_value) {
+							if (!$keys) {
+								$columns .= ", `$sub_key`";
+							}
+
+							$sub_values .= (strpos($sub_value, '{{') !== false) ? ", ''" : ', ' . db_qstr($sub_value);
+						}
+
+						$keys = true;
+
+						$values .= $cache_id ? ",('$cache_id' $sub_values)" : ',(' . substr($sub_values, 1) .')';
+
+						$multi = true;
+				     }
+				} else {
+					foreach ($value as $sub_key => $sub_value) {
+						$columns .= ", `$sub_key`";
+						$values  .= (strpos($sub_value, '{{') !== false) ? ", ''" : ', ' . db_qstr($sub_value);
 					}
-					$keys = true;
-					$values .= $cache_id ? ",('$cache_id' $sub_values)" : ',(' . substr($sub_values, 1) .')';
-					$multi = true;
-			     }
-			}else {
-				foreach($value as $sub_key => $sub_value) {
-					$columns .= ", `$sub_key`";
-					$values  .= (strpos($sub_value, '{{') !== false) ? ", ''" : ", '$sub_value'";
 				}
+			} else {
+				$columns .= ", `$key`";
+				$values	 .= (strpos($value, '{{') !== false) ? ", ''" : ', ' . db_qstr($value);
 			}
-		}else {
-			$columns .= ", `$key`";
-			$values	 .= (strpos($value, '{{') !== false) ? ", ''" : ", '$value'";
 		}
+	} else {
+		return false;
 	}
 
 	$columns = $cache_id ? "($columns)" : '(' . substr($columns, 1) . ')';
-	$values = ($multi == true)	? substr($values, 1)
-								: (($cache_id !== false)? "('$cache_id' $values)"
-														: "(" . substr($values, 1) . ")" );
+	$values  = ($multi == true) ? substr($values, 1) : (($cache_id !== false)? "('$cache_id' $values)" : "(" . substr($values, 1) . ")" );
+
 	return true;
 }
 
 
 
 function info_xml_archive($report_id) {
-	$content	= array();
-	$arc_path	= read_config_option('reportit_arc_folder');
-	$arc_file	= (($arc_path == '') ? REPORTIT_ARC_FD : $arc_path) . "/$report_id" . '.zip';
-	$format		= config_date_format();
+	$content  = array();
+	$arc_path = read_config_option('reportit_arc_folder');
+	$arc_file = (($arc_path == '') ? REPORTIT_ARC_FD : $arc_path) . "/$report_id" . '.zip';
+	$format   = config_date_format();
 
 	/* load zip file support */
 	load_external_libs('pclzip');
@@ -1014,9 +1021,9 @@ function info_xml_archive($report_id) {
 	$archive = new PclZip($arc_file);
 
 	/* collect some informations about this archive */
-	if(($list = $archive->listContent()) != 0) {
-		foreach($list as $key => $file) {
-			if($file['status'] == 'ok') {
+	if (($list = $archive->listContent()) != 0) {
+		foreach ($list as $key => $file) {
+			if ($file['status'] == 'ok') {
 				list($from, $to) = explode("_", str_replace('.xml', '', $file['filename']));
 				$content[$file['mtime']] = date($format, $from) . " -> " . date($format, $to);
 			}
@@ -1025,127 +1032,74 @@ function info_xml_archive($report_id) {
 		/* show the newest ones first */
 		krsort($content, SORT_NUMERIC);
 		return $content;
-	}else {
+	} else {
 		return false;
 	}
 }
 
 
 function average($array) {
-	if(sizeof($array)== 0) return '';
+	if (sizeof($array)== 0) {
+		return '';
+	}
+
 	return (array_sum($array)/count($array));
 }
 
-/* remove slashes with a deep 3 */
-function strip_slashes(&$data){
-	if(!is_array($data)) {
-		stripslashes($data);
-	}else {
-		foreach($data as $key_1 => $value_1) {
-			if(is_array($value_1)) {
-				foreach($value_1 as $key_2 => $value_2) {
-					if(is_array($value_2)) {
-						foreach($value_2 as $key_3 => $value_3) {
-							$value_2[$key_3] = stripslashes($value_3);
-						}
-						$value_1[$key_2] = $value_2;
-					}else {
-						$value_1[$key_2] = stripslashes($value_2);
-					}
-				}
-				$data[$key_1] = $value_1;
-			}else {
-				$data[$key_1] = stripslashes($value_1);
-			}
-		}
-	}
-
-}
-
-
-function add_slashes(&$data){
-	if(!is_array($data)) {
-		mysql_real_escape_string($data);
-	}else {
-		foreach($data as $key_1 => $value_1) {
-			if(is_array($value_1)) {
-				foreach($value_1 as $key_2 => $value_2) {
-					if(is_array($value_2)) {
-						foreach($value_2 as $key_3 => $value_3) {
-							$value_2[$key_3] = mysql_real_escape_string($value_3);
-
-						}
-						$value_1[$key_2] = $value_2;
-					}else {
-						$value_1[$key_2] = mysql_real_escape_string($value_2);
-					}
-				}
-				$data[$key_1] = $value_1;
-			}else {
-				$data[$key_1] = mysql_real_escape_string($value_1);
-			}
-		}
-	}
-
-}
-
-
 function transform_htmlspecialchars(&$data){
-	if(!is_array($data)) {
+	if (!is_array($data)) {
 		htmlspecialchars($data);
-	}else {
-		foreach($data as $key_1 => $value_1) {
-			if(is_array($value_1)) {
-				foreach($value_1 as $key_2 => $value_2) {
-					if(is_array($value_2)) {
-						foreach($value_2 as $key_3 => $value_3) {
+	} else {
+		foreach ($data as $key_1 => $value_1) {
+			if (is_array($value_1)) {
+				foreach ($value_1 as $key_2 => $value_2) {
+					if (is_array($value_2)) {
+						foreach ($value_2 as $key_3 => $value_3) {
 							$value_2[$key_3] = htmlspecialchars($value_3);
 
 						}
+
 						$value_1[$key_2] = $value_2;
-					}else {
+					} else {
 						$value_1[$key_2] = htmlspecialchars($value_2);
 					}
 				}
+
 				$data[$key_1] = $value_1;
-			}else {
+			} else {
 				$data[$key_1] = htmlspecialchars($value_1);
 			}
 		}
 	}
 }
 
-
 function get_mem_usage() {
+	if (version_compare(phpversion(), '5.2.1') == -1) return;
 
-	if(version_compare(phpversion(), "5.2.1") == -1) return;
-
-	$memory_system  = ini_get('memory_limit') ."B ";
+	$memory_system  = ini_get('memory_limit') .'B ';
 	$memory_used    = round(memory_get_usage()/pow(1024,2),2);
 	$memory_peak    = round(memory_get_peak_usage()/pow(1024,2),2);
 
-	if($memory_system == -1) {
+	if ($memory_system == -1) {
 		$memory_system = 'unlimited';
-		$memory_used   .= "MB";
-		$memory_peak   .= "MB";
-	}else {
-		$memory_used   .= "MB(" . round($memory_used/$memory_system*100,2) . "%)";
-		$memory_peak   .= "MB(" . round($memory_peak/$memory_system*100,2) . "%)";
+		$memory_used   .= 'MB';
+		$memory_peak   .= 'MB';
+	} else {
+		$memory_used   .= 'MB(' . round($memory_used/$memory_system*100,2) . '%)';
+		$memory_peak   .= 'MB(' . round($memory_peak/$memory_system*100,2) . '%)';
 	}
 
 	print " Memory:  System: $memory_system   Used: $memory_used   Peak: $memory_peak\n";
 }
 
-
 /* Basical Email Functions */
 function check_email_support(){
-	if(function_exists('settings_version')) {
+	if (function_exists('settings_version')) {
 		return true;
-	}else {
+	} else {
 		return false;
 	}
 }
-
 
 function send_scheduled_email($report_id){
 	global $config;
@@ -1156,57 +1110,65 @@ function send_scheduled_email($report_id){
 	include_once(CACTI_BASE_PATH . '/plugins/settings/include/mailer.php');
 
 	/* load report based email settings */
-	$report_settings 	= db_fetch_row("SELECT * FROM reportit_reports WHERE id = $report_id");
-	strip_slashes($report_settings);
+	$report_settings  = db_fetch_row_prepared('SELECT *
+		FROM reportit_reports
+		WHERE id = ?',
+		array($report_id));
 
-	$replace 			= array (	$report_settings['description'],
-									$report_settings['start_date'] . '-' . $report_settings['end_date']
-									);
+	$replace          = array($report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']);
 
-	$email_subject		= ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
-	$email_subject		= str_replace($search, $replace, $email_subject);
-	$email_body			= ($report_settings['email_body'] != '') ? $report_settings['email_body'] : 'This is a scheduled report generated from Cacti.';
-	$email_format		= ($report_settings['email_format'] != '') ? $report_settings['email_format'] : 'CSV';
+	$email_subject    = ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
+	$email_subject    = str_replace($search, $replace, $email_subject);
+	$email_body       = ($report_settings['email_body'] != '') ? $report_settings['email_body'] : 'This is a scheduled report generated from Cacti.';
+	$email_format     = ($report_settings['email_format'] != '') ? $report_settings['email_format'] : 'CSV';
 
 	/* load list of recipients */
-	$file_type          = ($email_format != 'SML') ? strtolower($email_format) : 'xml';
-	$mine_type          = ($email_format != 'SML') ? 'application/' . strtolower($email_format)
-                                                   : 'application/' . 'vnd-ms-excel';
-	$email_recipients	= db_fetch_assoc("SELECT email FROM reportit_recipients WHERE report_id = $report_id");
+	$file_type        = ($email_format != 'SML') ? strtolower($email_format) : 'xml';
+	$mine_type        = ($email_format != 'SML') ? 'application/' . strtolower($email_format) : 'application/' . 'vnd-ms-excel';
+
+	$email_recipients = db_fetch_assoc_prepared('SELECT email
+		FROM reportit_recipients
+		WHERE report_id = ?',
+		array($report_id));
 
 	/* define additional attachment settings */
-	$filename			= str_replace("<report_id>", $report_id, read_config_option('reportit_exp_filename') . ".$file_type");
-	$export_function 	= "export_to_" . $email_format;
+	$filename         = str_replace('<report_id>', $report_id, read_config_option('reportit_exp_filename') . ".$file_type");
+	$export_function  = "export_to_" . $email_format;
 
 	/* load global settings provided by Jimmy Connor */
-	$how = read_config_option("settings_how");
+	$how = read_config_option('settings_how');
 
 	switch($how){
 		case '1':
 			/* use Sendmail */
 			$sendmail = read_config_option('settings_sendmail_path');
-			$Mailer = new Mailer(array(
-										'Type' => 'DirectInject',
-										'DirectInject_Path' => $sendmail
-										));
-			break;
 
+			$Mailer = new Mailer(
+				array(
+					'Type'              => 'DirectInject',
+					'DirectInject_Path' => $sendmail
+				)
+			);
+
+			break;
 		case '2':
 			/* use SNMP */
-			$smtp_host 		= read_config_option("settings_smtp_host");
-			$smtp_port 		= read_config_option("settings_smtp_port");
-			$smtp_username 	= read_config_option("settings_smtp_username");
-			$smtp_password 	= read_config_option("settings_smtp_password");
+			$smtp_host 		= read_config_option('settings_smtp_host');
+			$smtp_port 		= read_config_option('settings_smtp_port');
+			$smtp_username 	= read_config_option('settings_smtp_username');
+			$smtp_password 	= read_config_option('settings_smtp_password');
 
-			$Mailer = new Mailer(array(
-										'Type' => 'SMTP',
-										'SMTP_Host' => $smtp_host,
-										'SMTP_Port' => $smtp_port,
-										'SMTP_Username' => $smtp_username,
-										'SMTP_Password' => $smtp_password
-										));
+			$Mailer = new Mailer(
+				array(
+					'Type'          => 'SMTP',
+					'SMTP_Host'     => $smtp_host,
+					'SMTP_Port'     => $smtp_port,
+					'SMTP_Username' => $smtp_username,
+					'SMTP_Password' => $smtp_password
+				)
+			);
+
 			break;
-
 		default:
 			/* use PHPmail as default */
 			$Mailer = new Mailer(array('Type' => 'PHP'));
@@ -1215,22 +1177,22 @@ function send_scheduled_email($report_id){
 	$from 		= read_config_option('settings_from_email');
 	$fromname 	= read_config_option('settings_from_name');
 
-	if ($from == "" && isset($_SERVER['HOSTNAME'])) $from = 'Cacti@' . $_SERVER['HOSTNAME'];
-	if ($fromname == "") $fromname = "Cacti";
+	if ($from == '' && isset($_SERVER['HOSTNAME'])) $from = 'Cacti@' . $_SERVER['HOSTNAME'];
+	if ($fromname == '') $fromname = 'Cacti';
 	$from = $Mailer->email_format($fromname, $from);
 
 	/* setup email header */
 	if ($Mailer->header_set('From', $from) === false) return $Mailer->error();
-	if (!$Mailer->header_set("Subject", $email_subject)) return $Mailer->error();
+	if (!$Mailer->header_set('Subject', $email_subject)) return $Mailer->error();
 
-	foreach($email_recipients as $to) {
-		if(!$Mailer->header_set("To", $to)) return $Mailer->error();
+	foreach ($email_recipients as $to) {
+		if (!$Mailer->header_set('To', $to)) return $Mailer->error();
 	}
 
 	/* load export data and define the attachment file */
-	if(function_exists($export_function)) {
+	if (function_exists($export_function)) {
 	    $data = get_prepared_report_data($report_id,'export');
-	    if($data == '') return('Export failed');
+	    if ($data == '') return('Export failed');
 	    $data = $export_function($data);
 	    if ($Mailer->attach($data, $filename, $mine_type) == false) return $Mailer->error();
 	}
@@ -1239,19 +1201,20 @@ function send_scheduled_email($report_id){
 	return false;
 }
 
-
-
 function export_report_template($template_id, $info=false) {
-
-    $eol = "\r\n";
-    $checksum = "";
+    $eol      = "\r\n";
+    $checksum = '';
 
     /* load template data */
-    $sql = "SELECT * FROM reportit_templates WHERE id = $template_id";
-    $template_data = db_fetch_row($sql);
+    $template_data = db_fetch_row_prepared('SELECT *
+		FROM reportit_templates
+		WHERE id = ?',
+		array($template_id));
 
     /* exit if no result has been returned */
-    if($template_data == false) return false;
+    if ($template_data == false) {
+		return false;
+	}
 
     /* export folder should not be shared */
     $template_data['export_folder'] = '';
@@ -1260,87 +1223,106 @@ function export_report_template($template_id, $info=false) {
     $checksum = convert_array2string($template_data);
 
     /* load definitions of variables */
-    $sql = "SELECT * FROM reportit_variables WHERE template_id = $template_id ORDER BY id";
-    $variables_data = db_fetch_assoc($sql);
+    $variables_data = db_fetch_assoc_prepared('SELECT *
+		FROM reportit_variables
+		WHERE template_id = ?
+		ORDER BY id',
+		array($template_id));
+
     $checksum .= convert_array2string($variables_data);
 
     /* load definitions of measurands */
-    $sql = "SELECT * FROM reportit_measurands WHERE template_id = $template_id ORDER BY id";
-    $measurands_data = db_fetch_assoc($sql);
+    $measurands_data = db_fetch_assoc_prepared('SELECT *
+		FROM reportit_measurands
+		WHERE template_id = ?
+		ORDER BY id',
+		array($template_id));
+
     $checksum .= convert_array2string($measurands_data);
 
     /* load definitions of data source items */
-    $sql = "SELECT * FROM reportit_data_source_items WHERE template_id = $template_id ORDER BY id";
-    $data_source_items_data = db_fetch_assoc($sql);
+    $data_source_items_data = db_fetch_assoc_prepared('SELECT *
+		FROM reportit_data_source_items
+		WHERE template_id = ?
+		ORDER BY id',
+		array($template_id));
+
     $checksum .= convert_array2string($data_source_items_data);
 
     /* add template version and hash the checksum */
     $reportit = array('version' => reportit_version('version'), 'type' => 1);
     $checksum .= convert_array2string($reportit);
-    $reportit["hash"] = md5($checksum);
+    $reportit['hash'] = md5($checksum);
 
     /* use an output puffer for flushing */
     ob_start();
+
     echo "<cacti>$eol\t<report_template>$eol\t\t<reportit>$eol";
 
-    foreach($reportit as $key => $value) echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+    foreach ($reportit as $key => $value) echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
     echo "\t\t</reportit>$eol\t\t<general>$eol";
 
-    if(is_array($info)) {
-        foreach($info as $key => $value)  echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+    if (is_array($info)) {
+        foreach ($info as $key => $value)  echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
     }
     echo "\t\t</general>$eol\t\t<settings>$eol";
 
-    foreach($template_data as $key => $value) echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+    foreach ($template_data as $key => $value) echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
     echo "\t\t</settings>$eol\t\t<measurands>$eol";
 
-    foreach($measurands_data as $measurand){
+    foreach ($measurands_data as $measurand){
             echo "\t\t\t<measurand>$eol";
-            foreach($measurand as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+            foreach ($measurand as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
             echo "\t\t\t</measurand>$eol";
     }
     echo "\t\t</measurands>$eol\t\t<variables>$eol";
 
-    foreach($variables_data as $variable) {
+    foreach ($variables_data as $variable) {
             echo "\t\t\t<variable>$eol";
-            foreach($variable as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+            foreach ($variable as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
             echo "\t\t\t</variable>$eol";
     }
     echo "\t\t</variables>$eol\t\t<data_source_items>$eol";
 
-    foreach($data_source_items_data as $data_source_item) {
+    foreach ($data_source_items_data as $data_source_item) {
             echo "\t\t\t<data_source_item>$eol";
-            foreach($data_source_item as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+            foreach ($data_source_item as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
             echo "\t\t\t</data_source_item>$eol";
     }
-
     echo "\t\t</data_source_items>$eol\t</report_template>$eol</cacti>$eol";
+
     $content = ob_get_clean();
     $content = utf8_encode($content);
+
     return $content;
 }
 
-
 function convert_array2string($data) {
-    $str = "";
-    foreach($data as $key => $value) {
-        if(is_array($value)) {
-            foreach($value as $subkey => $subvalue) {
-                if(preg_match("/(^[\{]{2}([0-9]*)[\}]{2}$)/", $subvalue)) $subvalue ="";
+    $str = '';
+
+    foreach ($data as $key => $value) {
+        if (is_array($value)) {
+            foreach ($value as $subkey => $subvalue) {
+                if (preg_match('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $subvalue)) {
+					$subvalue = '';
+				}
+
                 $str .= $subkey . $subvalue;
             }
-        }else {
-            if(preg_match("/(^[\{]{2}([0-9]*)[\}]{2}$)/", $value)) $value ="";
+        } else {
+            if (preg_match('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $value)) {
+				$value = '';
+			}
+
             $str .= $key . $value;
         }
     }
+
     return $str;
 }
 
-
-function clean_xml_waste(&$array, $replace="") {
-    foreach($array as $key => $value) {
-        $array[$key] = preg_replace("/(^[\{]{2}([0-9]*)[\}]{2}$)/", $replace, $value);
+function clean_xml_waste(&$array, $replace = '') {
+    foreach ($array as $key => $value) {
+        $array[$key] = preg_replace('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $replace, $value);
     }
 }
-?>

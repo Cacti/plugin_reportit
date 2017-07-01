@@ -40,7 +40,7 @@ set_default_action();
 
 //Redirection
 if (isset($_SESSION['run']) && ($_SESSION['run'] == '0')) {
-	header("Location: cc_reports.php");
+	header('Location: cc_reports.php');
 	exit;
 }
 
@@ -68,7 +68,7 @@ function calculation() {
 
 
 	if (stat_process($id)) {
-		html_error_box('Report is just in process.', 'cc_run.php', '', 'cc_reports.php');
+		html_error_box(__('Report is just in process.'), 'cc_run.php', '', 'cc_reports.php');
 		exit;
 	}
 
@@ -76,9 +76,9 @@ function calculation() {
 	$result = runtime($id);
 
 	/* load report informations */
-	$sql = "SELECT a.description, a.last_run, a.runtime FROM reportit_reports AS a WHERE a.id=$id";
-	$report_informations = db_fetch_row($sql);
-	strip_slashes($report_informations);
+	$report_informations = db_fetch_row_prepared("SELECT a.description, a.last_run, a.runtime
+		FROM reportit_reports AS a
+		WHERE a.id = ?", array($id));
 
 	foreach($result as $notice) {
 		if (substr_count($notice, 'WARNING')) {
@@ -91,11 +91,11 @@ function calculation() {
 	}
 
 	if (!isset($result['runtime'])) {
-		html_custom_header_box($report_informations['description'], 'Report calculation failed', "cc_rrdlist.php?&id={get_request_var('id')}", 'List Data Items');
+		html_custom_header_box($report_informations['description'], __('Report calculation failed'), 'cc_rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
 		html_end_box(false);
 	}else {
 		$runtime = $result['runtime'];
-		html_custom_header_box($report_informations['description'], 'Report statistics', "cc_reports.php", 'Report configurations');
+		html_custom_header_box($report_informations['description'], __('Report statistics'), 'cc_reports.php', __('Report configurations'));
 		html_end_box(false);
 
 		form_start('cc_view.php?action=show_report&id=' . get_request_var('id'));
@@ -103,7 +103,7 @@ function calculation() {
 		html_graph_start_box();
 		?>
 		<tr>
-			<td><b> Runtime:&nbsp; <font color="0000FF"> <?php print $runtime; ?>s</font> </b></td>
+			<td><b> Runtime:&nbsp; <font color='0000FF'> <?php print $runtime; ?>s</font> </b></td>
 		</tr>
 		<?php
 		html_graph_end_box();

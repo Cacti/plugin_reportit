@@ -343,8 +343,6 @@ function standard() {
 
     $report_list = db_fetch_assoc($sql);
 
-	strip_slashes($report_list);
-
 	$columns = ($reportAdmin)? 9 : 7;
 
 	/* start with HTML output */
@@ -833,21 +831,15 @@ function report_edit() {
 			WHERE id = ?',
 			array(get_request_var('id')));
 
-		strip_slashes($report_data);
-
 		$rrdlist_data = db_fetch_row_prepared('SELECT *
 			FROM reportit_presets
 			WHERE id = ?',
 			array(get_request_var('id')));
 
-		strip_slashes($rrdlist_data);
-
 		$report_recipients = db_fetch_assoc_prepared('SELECT *
 			FROM reportit_recipients
 			WHERE report_id = ?',
 			array(get_request_var('id')));
-
-		strip_slashes($report_recipients);
 
 		$header_label = '[edit: ' . $report_data['description'] . ']';
 

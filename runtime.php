@@ -1044,7 +1044,6 @@ function autoexport($report_id){
 
     /* load report settings */
     $report_settings = db_fetch_row("SELECT * FROM reportit_reports WHERE id = $report_id");
-    strip_slashes($report_settings);
 
     /* main export folder */
     $main_folder = read_config_option('reportit_exp_folder');

@@ -75,8 +75,7 @@ function template_wizard($action) {
 	global $colors, $config, $list_of_data_templates;
 
 	switch ($action) {
-		case 'new':
-
+	case 'new':
 		top_header();
 		if (isset($_SESSION['reportit_tWizard'])) unset($_SESSION['reportit_tWizard']);
 
@@ -85,195 +84,190 @@ function template_wizard($action) {
 		print "<form action='cc_templates.php' autocomplete='off' method='post'>";
 
 		if (sizeof($list_of_data_templates) == 0) {
-			print "<tr bgcolor='#" . $colors['form_alternate1'] . "'>
-					<td>
-						<span class='textError'>There are no data templates in use.</span>
-					</td>
-					</tr>";
-			$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>";
+			print "<tr class='odd'>
+				<td>
+					<span class='textError'>There are no data templates in use.</span>
+				</td>
+			</tr>";
+
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
 		} else {
-			$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Continue' title='Create a new report template'>";
-			print "<tr bgcolor='#" . $colors['form_alternate1'] . "'>
-					<td>
-						<p>Choose a data template this report template should depend on.<br>Unused data templates are hidden.
-					</td>
-					<td>";
-						form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '');
-			print "</td>
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Create a new report template') . "'>";
+			print "<tr class='odd'>
+				<td>
+					<p>" . __('Choose a data template this report template should depend on.<br>Unused data templates are hidden.') . "
+				</td>";
+
+			print "<td>" . form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '') . "</td>
 				</tr>";
 		}
 
 		print "<tr>
-				<td align='right' bgcolor='#eaeaea' colspan='2'>
-					<input type='hidden' name='action' value='template_edit'>
-					$save_html
-				</td>
-			</tr>";
+			<td class='saveRow'>
+				<input type='hidden' name='action' value='template_edit'>
+				$save_html
+			</td>
+		</tr>";
 
 		html_end_box();
 		bottom_footer();
 
 		break;
+	case 'export':
+		top_header();
 
+		$sql = "SELECT id, description FROM reportit_templates WHERE locked = 0";
+		$templates = db_custom_fetch_assoc($sql, 'id', false);
 
-		case 'export':
+		/* begin with the HTML output */
+		html_start_box(__('Export Report Template'), '60%', '', '3', 'center', '');
+
+		form_start('cc_templates.php');
+
+		if ($templates === false) {
+			print "	<tr bgcolor='#" . $colors['form_alternate1'] . "'>
+				<td>
+					<span class='textError'>No unlocked report templates available.</span>
+				</td>
+			</tr>";
+
+			$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>";
+		} else {
+			$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Export' title='Export report template'>";
+
+			print "<table width='100%' cellpadding='2' cellspacing='2' bgcolor='#" . $colors['form_alternate1'] . "'";
+			print "<tr><td valign='top'><strong>Report Template</strong><br>Choose one of your report templates to export to XML.</td><td>";
+			print form_dropdown('template_id', $templates,'','','','','') . "</td></tr>";
+
+			print "<tr><td><strong>Description</strong><br>Describe your report template.</td><td>";
+			print form_text_area('template_description', '',4,37,'Your description') . "</td></tr>";
+
+			print "<tr><td><strong>[Optional] Author</strong><br>You can fill a your name or your nick.</td><td>";
+			form_text_box('template_author','','', 40, 50);
+			print "</td></tr>";
+			print "<tr><td><strong>[Optional] Version</strong><br>The version or revision of your template.</td><td>";
+			form_text_box('template_version','','', 40, 50);
+			print "</td></tr>";
+			print "<tr><td><strong>[Optional] Contact</strong><br>Fill in your email address or something else if want to be reachable for other users of this template.</td><td>";
+			form_text_box('template_contact','','', 40, 50);
+			print "</td></tr>";
+		}
+
+		print "<tr>
+			<td align='right' bgcolor='#eaeaea' colspan='2'>
+				<input type='hidden' name='action' value='template_export'>
+				$save_html
+			</td>
+		</tr>";
+
+		html_end_box();
+		bottom_footer();
+
+		break;
+	case 'upload':
+		top_header();
+		session_custom_error_display();
+
+		html_start_box("<strong>Import Report Template</strong>", "60%", $colors["header_panel"], "3", "center", "");
+
+		print "<form action='cc_templates.php' autocomplete='off' method='post' enctype='multipart/form-data'>";
+		print "<tr>
+			<td bgcolor='#" . $colors['form_alternate1'] . "'>
+				Select the XML file that contains your report template.
+			</td>
+			<td bgcolor='#" . $colors['form_alternate1'] . "'>
+				<input type='file' name='file' id='file' size='35' maxlength='50000' accept='xml'>
+			</td>
+		</tr>";
+
+		print "<tr>
+			<td align='right' bgcolor='#eaeaea' colspan='2'>
+				<input type='hidden' name='action' value='template_import_wizard'>
+				<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Upload' title='Upload Report Template'>
+			</td>
+		</tr>";
+
+		html_end_box();
+		bottom_footer();
+
+		break;
+	case 'import':
+		/* clean up user session */
+		if (isset($_SESSION['sess_reportit']['report_template'])) unset($_SESSION['sess_reportit']['report_template']);
+
+		if (validate_uploaded_template() == true) {
 			top_header();
 
-			$sql = "SELECT id, description FROM reportit_templates WHERE locked = 0";
-			$templates = db_custom_fetch_assoc($sql, 'id', false);
+			$save_html = ($_SESSION["sess_reportit"]["report_template"]["analyse"]["compatible"] == 'yes')
+				? "<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Import' title='Import Report Template'>"
+				: "<input type='button' value='Cancel' onClick='window.history.back()'>";
 
-			/* begin with the HTML output */
-			html_start_box("<strong>Export Report Template</strong>", "60%", $colors["header_panel"], "3", "center", "");
+			$info	   = $_SESSION["sess_reportit"]["report_template"]["general"];
+			$templates  = $_SESSION["sess_reportit"]["report_template"]["analyse"]["templates"];
 
+			clean_xml_waste($info, '<i>unknown</i>');
+
+			html_start_box("<strong>Summary</strong>", "60%", $colors["header_panel"], "3", "center", "");
 			print "<form action='cc_templates.php' autocomplete='off' method='post'>";
 
-			if ($templates === false) {
-				print "	<tr bgcolor='#" . $colors['form_alternate1'] . "'>
-							<td>
-								<span class='textError'>No unlocked report templates available.</span>
-							</td>
-						</tr>";
-				$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>";
-			} else {
-				$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Export' title='Export report template'>";
+			print "<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
+				<td colspan='4'></td>
+			</tr>
+			<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
+				<td>Template Name:</td>
+				<td>
+					{$_SESSION["sess_reportit"]["report_template"]["settings"]["description"]}
+				</td>
+				<td align='right'>Version:</td>
+				<td>
+					{$info["version"]}
+				</td>
+			</tr>
+			<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
+				<td>Author:</td>
+				<td>
+					{$info["author"]}
+				</td>
+				<td align='right'>Contact:</td>
+				<td>
+					{$info["contact"]}
+				</td>
+			<tr>
+			<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
+				<td>Description:</td>
+				<td colspan='4' width='85%'>
+					" . nl2br($info['description']) ."
+				</td>
+			</tr>
+			<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
+				<td>Compatible:</td>
+				<td colspan='4'>
+					{$_SESSION["sess_reportit"]["report_template"]["analyse"]["compatible"]}
+				</td>
+			</tr>
+			<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
+				<td>Data Template:</td>
+				<td colspan='4'>";
+				($templates) ? form_dropdown('data_template', $templates, '', '', '', '', '') : print "no compatible template found";
 
-				print "<table width='100%' cellpadding='2' cellspacing='2' bgcolor='#" . $colors['form_alternate1'] . "'";
-				print "<tr><td valign='top'><strong>Report Template</strong><br>Choose one of your report templates to export to XML.</td><td>";
-				print form_dropdown('template_id', $templates,'','','','','') . "</td></tr>";
-
-				print "<tr><td><strong>Description</strong><br>Describe your report template.</td><td>";
-				print form_text_area('template_description', '',4,37,'Your description') . "</td></tr>";
-
-				print "<tr><td><strong>[Optional] Author</strong><br>You can fill a your name or your nick.</td><td>";
-				form_text_box('template_author','','', 40, 50);
-				print "</td></tr>";
-				print "<tr><td><strong>[Optional] Version</strong><br>The version or revision of your template.</td><td>";
-				form_text_box('template_version','','', 40, 50);
-				print "</td></tr>";
-				print "<tr><td><strong>[Optional] Contact</strong><br>Fill in your email address or something else if want to be reachable for other users of this template.</td><td>";
-				form_text_box('template_contact','','', 40, 50);
-				print "</td></tr>";
-			}
+			print "</tr>";
 
 			print "<tr>
-					<td align='right' bgcolor='#eaeaea' colspan='2'>
-						<input type='hidden' name='action' value='template_export'>
-						$save_html
+				<td align='right' bgcolor='#eaeaea' colspan='4'>
+					<input type='hidden' name='action' value='template_import'>
+					$save_html
 				</td>
 			</tr>";
 
 			html_end_box();
 			bottom_footer();
+		} else {
+			header('Location: cc_templates.php?action=template_upload_wizard');
+		}
+
+		bottom_footer();
 
 		break;
-
-
-		case 'upload':
-
-			top_header();
-			session_custom_error_display();
-
-			html_start_box("<strong>Import Report Template</strong>", "60%", $colors["header_panel"], "3", "center", "");
-
-			print "<form action='cc_templates.php' autocomplete='off' method='post' enctype='multipart/form-data'>";
-			print "<tr>
-						<td bgcolor='#" . $colors['form_alternate1'] . "'>
-							Select the XML file that contains your report template.
-						</td>
-						<td bgcolor='#" . $colors['form_alternate1'] . "'>
-							<input type='file' name='file' id='file' size='35' maxlength='50000' accept='xml'>
-						</td>
-					</tr>";
-
-			print "<tr>
-						<td align='right' bgcolor='#eaeaea' colspan='2'>
-							<input type='hidden' name='action' value='template_import_wizard'>
-							<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Upload' title='Upload Report Template'>
-						</td>
-					</tr>";
-
-			html_end_box();
-			bottom_footer();
-		break;
-
-
-		case 'import':
-
-			/* clean up user session */
-			if (isset($_SESSION['sess_reportit']['report_template'])) unset($_SESSION['sess_reportit']['report_template']);
-
-			if (validate_uploaded_template() == true) {
-
-				top_header();
-
-				$save_html = ($_SESSION["sess_reportit"]["report_template"]["analyse"]["compatible"] == 'yes')
-							? "<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Import' title='Import Report Template'>"
-							: "<input type='button' value='Cancel' onClick='window.history.back()'>";
-
-				$info	   = $_SESSION["sess_reportit"]["report_template"]["general"];
-				$templates  = $_SESSION["sess_reportit"]["report_template"]["analyse"]["templates"];
-
-				clean_xml_waste($info, '<i>unknown</i>');
-
-				html_start_box("<strong>Summary</strong>", "60%", $colors["header_panel"], "3", "center", "");
-				print "<form action='cc_templates.php' autocomplete='off' method='post'>";
-
-				print "<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
-							<td colspan='4'></td>
-						</tr>
-						<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
-							<td>Template Name:</td>
-							<td>
-								{$_SESSION["sess_reportit"]["report_template"]["settings"]["description"]}
-							</td>
-							<td align='right'>Version:</td>
-							<td>
-								{$info["version"]}
-							</td>
-						</tr>
-						<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
-							<td>Author:</td>
-							<td>
-								{$info["author"]}
-							</td>
-							<td align='right'>Contact:</td>
-							<td>
-								{$info["contact"]}
-							</td>
-						<tr>
-						<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
-							<td>Description:</td>
-							<td colspan='4' width='85%'>
-								" . nl2br($info['description']) ."
-							</td>
-						</tr>
-						<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
-							<td>Compatible:</td>
-							<td colspan='4'>
-								{$_SESSION["sess_reportit"]["report_template"]["analyse"]["compatible"]}
-							</td>
-						<tr class='textArea' bgcolor='#" . $colors['form_alternate1'] . "'>
-							<td>Data Template:</td>
-							<td colspan='4'>";
-							($templates) ? form_dropdown('data_template', $templates, '', '', '', '', '') : print "no compatible template found";
-				print "</tr>";
-
-				print "<tr>
-							<td align='right' bgcolor='#eaeaea' colspan='4'>
-								<input type='hidden' name='action' value='template_import'>
-								$save_html
-							</td>
-						</tr>";
-
-				html_end_box();
-				bottom_footer();
-			} else {
-				header('Location: cc_templates.php?action=template_upload_wizard');
-			}
-
-			bottom_footer();
-		break;
-
 	}
 }
 
@@ -406,155 +400,217 @@ function template_import() {
 	header('Location: cc_templates.php');
 }
 
+function template_filter() {
+	global $item_rows;
+
+	html_start_box( __('Report Templates'), '100%', '', '3', 'center', 'cc_templates.php?action=template_new');
+	?>
+	<tr class='even'>
+		<td>
+			<form id='form_templates' action='cc_templates.php'>
+			<table class='filterTable'>
+				<tr>
+					<td>
+						<?php print __('Search');?>
+					</td>
+					<td>
+						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+					</td>
+					<td>
+						<?php print __('Templates');?>
+					</td>
+					<td>
+						<select id='rows' onChange='applyFilter()'>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
+							<?php
+							if (sizeof($item_rows)) {
+							foreach ($item_rows as $key => $value) {
+								print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
+							}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<input id='refresh' type='button' value='<?php print __esc_x('Button: use filter settings', 'Go');?>'>
+					</td>
+					<td>
+						<input id='clear' type='button' value='<?php print __esc_x('Button: reset filter settings', 'Clear');?>'>
+					</td>
+					<td>
+						<input id='import' type='button' value='<?php print __esc_x('Button: import button', 'Import');?>'>
+					</td>
+					<td>
+						<input id='export' type='button' value='<?php print __esc_x('Button: export button', 'Export');?>'>
+					</td>
+				</tr>
+			</table>
+			<input type='hidden' id='page' value='<?php print get_filter_request_var('page');?>'>
+			</form>
+			<script type='text/javascript'>
+
+			function applyFilter() {
+				strURL = 'cc_templates.php?filter='+escape($('#filter').val())+'&rows='+$('#rows').val()+'&header=false';
+				loadPageNoHeader(strURL);
+			}
+
+			function clearFilter() {
+				strURL = 'cc_templates.php?clear=1&header=false';
+				loadPageNoHeader(strURL);
+			}
+
+			$(function() {
+				$('#refresh').click(function() {
+					applyFilter();
+				});
+
+				$('#clear').click(function() {
+					clearFilter();
+				});
+
+				$('#import').click(function() {
+					document.location = 'cc_templates.php?action=template_upload_wizard';
+				});
+
+				$('#export').click(function() {
+					document.location = 'cc_templates.php?action=template_export_wizard';
+				});
+
+				$('#form_templates').submit(function(event) {
+					event.preventDefault();
+					applyFilter();
+				});
+			});
+
+			</script>
+		</td>
+	</tr>
+	<?php
+
+	html_end_box();
+}
 
 function standard() {
+	global  $template_actions, $link_array, $desc_array, $consolidation_functions, $list_of_data_templates, $order_array;
 
-	global  $colors, $template_actions, $link_array, $desc_array, $consolidation_functions, $list_of_data_templates, $order_array;
+    /* ================= input validation and session storage ================= */
+    $filters = array(
+		'rows' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
+		'page' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '1'
+			),
+		'filter' => array(
+			'filter' => FILTER_CALLBACK,
+			'pageset' => true,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_column' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'name',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_direction' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'ASC',
+			'options' => array('options' => 'sanitize_search_string')
+			)
+	);
 
-	$link  = '';
-
+	validate_store_request_vars($filters, 'sess_cc_templates');
 	/* ================= input validation ================= */
-	get_filter_request_var('page');
-	input_validate_input_whitelist(get_request_var('sort'), $link_array, true);
-	input_validate_input_whitelist(get_request_var('mode'), $order_array, true);
-	/* ==================================================== */
 
-	/* ===================== checkpoint =================== */
-	$session_max_rows = get_valid_max_rows();
-	/* ==================================================== */
-
-	/* clean up sort_column */
-	if (isset_request_var('sort')) {
-		set_request_var('sort', sanitize_search_string(get_request_var('sort')));
+	if (get_request_var('rows') == '-1') {
+		$rows = read_config_option('num_rows_table');
+	} else {
+		$rows = get_request_var('rows');
 	}
 
-	/* clean up sort_direction string */
-	if (isset_request_var('mode')) {
-		set_request_var('mode', sanitize_search_string(get_request_var('mode')));
+	if (get_request_var('filter') != '') {
+		$sql_where = "WHERE (rs.name LIKE '%" . get_request_var('filter') . "%')";
+	} else {
+		$sql_where = '';
 	}
 
-	/* if the user pushed the 'clear' button */
-	if (isset_request_var('clear_x')) {
-		kill_session_var('sess_reportit_ts_current_page');
-		kill_session_var('sess_reportit_ts_sort');
-		kill_session_var('sess_reportit_ts_mode');
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-		unset_request_var('page');
-		unset_request_var('sort');
-		unset_request_var('mode');
-	}
+	$total_rows = db_fetch_cell('SELECT COUNT(reportit_templates.id) FROM reportit_templates ' . $sql_where);
 
-	/* remember these search fields in session vars so we don't have to keep passing them around */
-	load_current_session_value('page', 'sess_reportit_ts_current_page', '1');
-	load_current_session_value('sort', 'sess_reportit_ts_sort', 'id');
-	load_current_session_value('mode', 'sess_reportit_ts_mode', 'ASC');
-
-
-	$total_rows = db_fetch_cell('SELECT COUNT(reportit_templates.id) FROM reportit_templates');
-
-	$sql = "SELECT a.*, b.measurands, c.variables
+	$template_list = db_fetch_assoc("SELECT a.*, b.measurands, c.variables
 		FROM reportit_templates AS a
 		LEFT JOIN (SELECT template_id, COUNT(*) AS measurands FROM `reportit_measurands` GROUP BY template_id) AS b
 		ON a.id = b.template_id
 		LEFT JOIN (SELECT template_id, COUNT(*) AS variables FROM `reportit_variables` GROUP BY template_id) AS c
 		ON a.id = c.template_id
-		ORDER BY "
-		. get_request_var('sort') . " " . get_request_var('mode')
-		. " LIMIT " . ($session_max_rows*(get_request_var('page')-1)) . "," . $session_max_rows;
+		$sql_where
+		$sql_order
+		$sql_limit");
 
-	$template_list = db_fetch_assoc($sql);
-	strip_slashes($template_list);
+	$display_text = array(
+		'description' => array('display' => __('Name'),          'align' => 'left', 'sort' => 'ASC'),
+		'nosort'      => array('display' => __('Internal Name'), 'align' => 'left'),
+		'pre_filter'  => array('display' => __('Maximum'),       'align' => 'right'),
+		'nosort1'     => array('display' => __('Minimum'),       'align' => 'right'),
+		'nosort2'     => array('display' => __('Default'),       'align' => 'left', 'sort' => 'ASC'),
+		'nosort3'     => array('display' => __('Input Type'),    'align' => 'left', 'sort' => 'ASC'),
+	);
 
-	/* generate page list */
-	$url_page_select = html_custom_page_list(get_request_var('page'), MAX_DISPLAY_PAGES, $session_max_rows, $total_rows, "cc_templates.php?");
+	$nav = html_nav_bar('cc_templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Templates'), 'page', 'main');
 
-	$nav = "<tr bgcolor='#6CA6CD' >
-		<td colspan='8'>
-			<table width='100%' cellspacing='0' cellpadding='0' border='0'>
-				<tr>
-					<td align='left'>
-						<strong>&laquo; "; if (get_request_var('page') > 1) { $nav .= "<a style='color:FFFF00' href='cc_templates.php?page=" . (get_request_var('page')-1) . "'>"; } $nav .= "Previous"; if (get_request_var('page') > 1) { $nav .= "</a>"; } $nav .= "</strong>
-					</td>\n
-					<td align='center' class='textSubHeaderDark'>
-						Showing Rows " . (($session_max_rows*(get_request_var('page')-1))+1) . " to " . ((($total_rows < $session_max_rows) || ($total_rows < ($session_max_rows*get_request_var('page')))) ? $total_rows : ($session_max_rows*get_request_var('page'))) . " of $total_rows [$url_page_select]
-					</td>\n
-					<td align='right'>
-						<strong>"; if ((get_request_var('page') * $session_max_rows) < $total_rows) { $nav .= "<a style='color:yellow' href='cc_templates.php?page=" . (get_request_var('page')+1) . "'>"; } $nav .= "Next"; if ((get_request_var('page') * $session_max_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &raquo;</strong>
-					</td>\n
-				</tr>
-			</table>
-		</td>
-		</tr>\n";
+	template_filter();
 
-	$hyperlinks = array('cc_templates.php?action=template_new',
-		'cc_templates.php?action=template_upload_wizard',
-		'cc_templates.php?action=template_export_wizard');
-
-	$images = array("<img src='./images/new.gif' alt='New' border='0' align='top' title='New'>",
-		"<img src='./images/disk_exp.gif' alt='Import' border='0' align='top' title='Import'>",
-		"<img src='./images/disk_imp.gif' alt='Export' border='0' align='top' title='Export'>");
-
-	/* start with HTML output */
-	html_custom_header_box(__('Report Templates [%s]', $total_rows), false, $hyperlinks, $images);
 	print $nav;
 
-	html_header_checkbox(html_sorted_with_arrows( $desc_array, $link_array, 'cc_templates.php'));
+	html_start_box('', '100%', '', '2', 'center', '');
 
-	/* check version of Cacti -> necessary to support 0.8.6k and lower versions as well*/
-	$new_version = check_cacti_version(14);
+	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'));
 
-	$i = 0;
-
-	if (sizeof($template_list) > 0) {
+	if (sizeof($template_list)) {
 		foreach($template_list as $template) {
-			if ($new_version) form_alternate_row_color($colors["alternate"], $colors["light"], $i, $template["id"]);
-			else form_alternate_row_color($colors["alternate"], $colors["light"], $i); $i++;
-			?>
-				<td>
-					<a class='linkEditMain' href="cc_templates.php?action=template_edit&id=<?php print $template['id'];?>">
-						<?php print "{$template['description']}";?>
-					</a>
-				</td>
-				<td>
-					<?php
-					if (isset($list_of_data_templates[$template['data_template_id']])) {
-						print $list_of_data_templates[$template['data_template_id']];
-					} else {
-						echo "<b style='color: #FF0000'>Data template not available<b>";
-					}?>
-				</td>
-				<td><?php print $template['pre_filter'];?></td>
-				<td><?php html_checked_with_icon($template['locked'], 'lock.gif', 'locked');?></td>
-				<td align="absmiddle"><?php
+			form_alternate_row('line' . $template['id'], true);
 
-					($template['measurands'] != NULL)
-						? print "<a class='linkEditMain' href='cc_measurands.php?&id={$template['id']}'>edit ({$template['measurands']})"
-						: print "<a class='linkEditMain' href='cc_measurands.php?action=measurand_edit&template_id={$template['id']}'>add";?>
-					</a>
-				</td>
-				<td align="absmiddle"><?php
-					($template['variables'] != NULL)
-						? print "<a class='linkEditMain' href='cc_variables.php?&id={$template['id']}'>edit ({$template['variables']})"
-						: print "<a class='linkEditMain' href='cc_variables.php?action=variable_edit&template_id={$template['id']}'>add";?>
-					</a>
-				</td>
-				<td
-					style="<?php print get_checkbox_style();?>"
-					width="1%"
-					align="right"><input
-					type='checkbox'
-					style='margin: 0px;'
-					name='chk_<?php print $template["id"];?>'
-					title="Select"></td>
-				</tr>
-			<?php
+			form_selectable_cell('<a class="linkEditMain" href="cc_templates.php?action=template_edit&id=' . $template['id'] . '>' . $template['description'] . '</a>', $template['id']);
+
+			if (isset($list_of_data_templates[$template['data_template_id']])) {
+				form_selectable_cell($list_of_data_templates[$template['data_template_id']], $template['id']);
+			} else {
+				form_selectable_cell("<i class='deviceDown'>" . __('Data template not available') . '</i>', $template['id']);
+			}
+
+			form_selectable_cell($template['pre_filter'], $template['id']);
+			form_selectable_cell(html_checked_with_icon($template['locked'], 'lock.gif', 'locked'), $template['id']);
+
+			if ($template['measurands'] != NULL) {
+				form_selectable_cell("<a class='linkEditMain' href='cc_measurands.php?id=" . $template['id'] . "'>edit (" . $template['measurands'] . ")</a>", $template['id']);
+			} else {
+				form_selectable_cell("<a class='linkEditMain' href='cc_measurands.php?action=measurand_edit&template_id=" . $template['id'] . "'>add</a>", $template['id']);
+			}
+
+			if ($template['variables'] != NULL) {
+				form_selectable_cell("<a class='linkEditMain' href='cc_variables.php?id=" . $template['id'] . "'>edit (" . $template['variables'] . ")</a>", $template['id']);
+			} else {
+				form_selectable_cell("<a class='linkEditMain' href='cc_variables.php?action=variable_edit&template_id=" . $template['id'] . "'>add</a>", $template['id']);
+			}
+
+			form_checkbox_cell($template['id']);
+			form_end_row();
 		}
-		if ($total_rows > $session_max_rows) print $nav;
 	} else {
-		print "<tr bgcolor='#E5E5E5'><td colspan='100'><em>No templates</em></td></tr>\n";
+		print "<tr><td colspan='7'><em>" . __('No templates') . "</em></td></tr>";
 	}
 
 	html_end_box(true);
+
+	if (sizeof($template_list)) {
+		print $nav;
+	}
+
 	draw_actions_dropdown($template_actions);
 }
 
@@ -572,32 +628,32 @@ function form_save() {
 	form_input_validate(get_request_var('template_filter'), 'template_filter', '', true, 3);
 	/* ==================================================== */
 
-	$template_data						= array();
-	$template_data['id']				= get_request_var('id');
-	$template_data['description']		= get_request_var('template_description');
-	$template_data['pre_filter']		= get_request_var('template_filter');
-	$template_data['data_template_id']	= get_request_var('data_template_id');
-	$template_data['locked']			= isset_request_var('template_locked') ? 1 : 0;
-	$template_data['export_folder']		= isset_request_var('template_export_folder') ? mysql_real_escape_string(get_request_var('template_export_folder')) : '';
-
+	$template_data = array();
+	$template_data['id']               = get_request_var('id');
+	$template_data['description']      = get_request_var('template_description');
+	$template_data['pre_filter']       = get_request_var('template_filter');
+	$template_data['data_template_id'] = get_request_var('data_template_id');
+	$template_data['locked']           = isset_request_var('template_locked') ? 1 : 0;
+	$template_data['export_folder']    = isset_request_var('template_export_folder') ? mysql_real_escape_string(get_request_var('template_export_folder')) : '';
 
 	$sql = "SELECT id, data_source_name
 		FROM data_template_rrd
 		WHERE local_data_id = 0
-		AND data_template_id = {$template_data['data_template_id']}";
+		AND data_template_id = " . $template_data['data_template_id'];
+
 	$defined_data_sources = db_custom_fetch_assoc($sql, 'id', false);
 	$defined_data_sources[0] = 'overall';
 
 	foreach($_POST as $key => $value){
 		if (strpos($key, 'ds_enabled__') !== false) {
-			$ds_id									= substr($key, 12);
-			$used_data_sources						.= ($ds_id != 0) ? "$ds_id," : '';
-			$ds_name								= $defined_data_sources[$ds_id];
-			$ds_alias								= 'ds_alias__' . $ds_id;
-			$ds_items[$ds_id]['id']					= $ds_id;
-			$ds_items[$ds_id]['template_id']		= $template_data['id'];
-			$ds_items[$ds_id]['data_source_name']	= $ds_name;
-			$ds_items[$ds_id]['data_source_alias']	= mysql_real_escape_string(trim(get_request_var($ds_alias)));
+			$ds_id                                 = substr($key, 12);
+			$used_data_sources                    .= ($ds_id != 0) ? "$ds_id," : '';
+			$ds_name                               = $defined_data_sources[$ds_id];
+			$ds_alias                              = 'ds_alias__' . $ds_id;
+			$ds_items[$ds_id]['id']                = $ds_id;
+			$ds_items[$ds_id]['template_id']       = $template_data['id'];
+			$ds_items[$ds_id]['data_source_name']  = $ds_name;
+			$ds_items[$ds_id]['data_source_alias'] = mysql_real_escape_string(trim(get_request_var($ds_alias)));
 		}
 	}
 
@@ -610,6 +666,7 @@ function form_save() {
 			WHERE local_data_id = 0
 			AND data_template_id = {$template_data['data_template_id']}
 			AND id NOT IN (". substr($used_data_sources,0,-1) . ")";
+
 		$unused_data_sources = db_custom_fetch_flat_string($sql);
 	}
 
@@ -685,11 +742,14 @@ function template_edit() {
 	session_custom_error_display();
 
 	if (!isempty_request_var('id')) {
-		$template_data = db_fetch_row('SELECT * FROM reportit_templates WHERE id=' . get_request_var('id'));
-		strip_slashes($template_data);
-		$header_label = '[edit: ' . $template_data['description'] . ']';
+		$template_data = db_fetch_row_prepared('SELECT *
+			FROM reportit_templates
+			WHERE id = ?',
+			array(get_request_var('id')));
+
+		$header_label = __('Template Configuration [edit: %s]',$template_data['description']);
 	} else {
-		$header_label = '[new]';
+		$header_label = __('Template Configuration [new]');
 	}
 
 	$id = (isset_request_var('id') ? get_request_var('id') : '0');
@@ -715,28 +775,28 @@ function template_edit() {
 			'value' => 'on'
 		),
 		'template_header' => array(
-			'friendly_name' => 'General',
+			'friendly_name' => __('General'),
 			'method' => 'spacer',
 		),
 		'template_description' => array(
-			'friendly_name' => 'Name',
+			'friendly_name' => __('Name'),
 			'method' => 'textbox',
 			'max_length' => '100',
-			'description' => 'The unique name given to this report template.',
+			'description' => __('The unique name given to this report template.'),
 			'value' => (isset($template_data['description']) ? $template_data['description'] : '')
 		),
 		'template_locked' => array(
-			'friendly_name' => 'Locked',
+			'friendly_name' => __('Locked'),
 			'method' => 'checkbox',
 			'default' => 'on',
-			'description' => 'Define this template as locked (default), so that power users <br> can\'t use it until you have checked its functionality. During that time they are<br> also not allowed to modify or run reports based on this template.',
+			'description' => __('Define this template as locked (default), so that power users <br> can\'t use it until you have checked its functionality. During that time they are<br> also not allowed to modify or run reports based on this template.'),
 			'value' => (!isset($template_data['locked']) || $template_data['locked'] == true) ? 'on' : 'off'
 		),
 		'template_filter' => array(
-			'friendly_name' => 'Additional Pre-filter',
+			'friendly_name' => __('Additional Pre-filter'),
 			'method' => 'textbox',
 			'max_length' => '100',
-			'description' => 'Optional: The syntax to filter the available list of data items<br> by their description. Use SQL wildcards like % and/or _. No regular Expressions!',
+			'description' => __('Optional: The syntax to filter the available list of data items<br> by their description. Use SQL wildcards like % and/or _. No regular Expressions!'),
 			'value' => (isset($template_data['pre_filter']) ? $template_data['pre_filter'] : '')
 		)
 	);
@@ -744,8 +804,8 @@ function template_edit() {
 	if (read_config_option('reportit_auto_export')) {
 		$form_array2 = array(
 			'template_export_folder' => array(
-				'friendly_name' => 'Export Path',
-				'description' => 'Optional: The path to an folder for saving the exports.  If it does not exist ReportIT automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id.',
+				'friendly_name' => __('Export Path'),
+				'description' => __('Optional: The path to an folder for saving the exports.  If it does not exist ReportIT automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id.'),
 				'method' => 'dirpath',
 				'max_length' => '255',
 				'value' => isset($template_data['export_folder']) ? $template_data['export_folder'] : ''
@@ -757,14 +817,14 @@ function template_edit() {
 
 	$form_array3 = array(
 		'template_header2' => array(
-			'friendly_name' => 'Data Template',
+			'friendly_name' => __('Data Template'),
 			'method' => 'spacer',
 		),
 		'template_data_template' => array(
-			'friendly_name' => 'Data Template',
+			'friendly_name' => __('Data Template'),
 			'method' => 'custom',
 			'max_length' => '100',
-			'description' => 'The name of the data template this report template depends on.',
+			'description' => __('The name of the data template this report template depends on.'),
 			'value' => $data_template
 		)
 	);
@@ -776,21 +836,28 @@ function template_edit() {
 	$form_array = array_merge($form_array, $data_source_items);
 
 	if (!isempty_request_var('id')) {
-		//Build "Create links"
+		//Build 'Create links'
 		$links		= array();
 		$href		= 'cc_variables.php?action=variable_edit&template_id=' . get_request_var('id');
-		$text		= 'Create a new variable';
+		$text		= __('Create a new variable');
 		$links[]	= array('href' =>$href, 'text' =>$text);
 
 		$href		= 'cc_measurands.php?action=measurand_edit&template_id=' . get_request_var('id');
-		$text		= 'Create a new measurand';
+		$text		= __('Create a new measurand');
 		$links[]	= array('href' =>$href, 'text' =>$text);
 
-		html_blue_link( $links);
+		html_blue_link($links);
 	}
 
-	html_start_box("<b>Template configuration</strong> $header_label", '100%', $colors["header"], "2", "center", "");
-	draw_edit_form(array('config' => array(),'fields' => $form_array));
+	html_start_box($header_label, '100%', '', '2', 'center', '');
+
+	draw_edit_form(
+		array(
+			'config' => array(),
+			'fields' => $form_array
+		)
+	);
+
 	html_end_box();
 
 	form_save_button('cc_templates.php');
@@ -828,7 +895,6 @@ function form_actions() {
 				}
 			}
 		} elseif (get_request_var('drp_action') == '2') { //DUPLICATE REPORT TEMPLATE
-
 			for ($i=0;($i<count($selected_items));$i++) {
 				/* ================= input validation ================= */
 				input_validate_input_number($selected_items[$i]);
@@ -843,34 +909,55 @@ function form_actions() {
 				$new = array();
 
 				/* duplicate all variable of the original template */
-				$template_variables = db_fetch_assoc('SELECT * FROM reportit_variables WHERE template_id = ' . $selected_items[$i] . ' ORDER BY id');
-				foreach($template_variables as $variable) {
-					$variable['id'] = 0;
-					$variable['template_id'] = $template_id;
-					$new_id = sql_save($variable, 'reportit_variables');
-					$old[] = $variable['abbreviation'];
-					$abbr = 'c' . $new_id . 'v';
-					$new[] = $abbr;
-					db_execute("UPDATE reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+				$template_variables = db_fetch_assoc_prepared('SELECT *
+					FROM reportit_variables
+					WHERE template_id = ?
+					ORDER BY id',
+					array($selected_items[$i]));
+
+				if (sizeof($template_variables)) {
+					foreach($template_variables as $variable) {
+						$variable['id']          = 0;
+						$variable['template_id'] = $template_id;
+
+						$new_id = sql_save($variable, 'reportit_variables');
+
+						$old[]  = $variable['abbreviation'];
+						$abbr   = 'c' . $new_id . 'v';
+						$new[]  = $abbr;
+
+						db_execute("UPDATE reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+					}
 				}
 
 				/* duplicate all measurands of the original template */
-				$template_measurands = db_fetch_assoc('SELECT * FROM reportit_measurands WHERE template_id = ' . $selected_items[$i] . ' ORDER BY id');
-				foreach($template_measurands as $measurand) {
-					$measurand['id'] = 0;
-					$measurand['template_id'] = $template_id;
-					$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
-					sql_save($measurand, 'reportit_measurands');
+				$template_measurands = db_fetch_assoc_prepared('SELECT *
+					FROM reportit_measurands
+					WHERE template_id = ?
+					ORDER BY id',
+					array($selected_items[$i]));
+
+				if (sizeof($template_measurands)) {
+					foreach($template_measurands as $measurand) {
+						$measurand['id'] = 0;
+						$measurand['template_id'] = $template_id;
+						$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
+						sql_save($measurand, 'reportit_measurands');
+					}
 				}
 
 				/* duplicate all data source items of the original */
-				$template_ds_items = db_fetch_assoc('SELECT *
+				$template_ds_items = db_fetch_assoc_prepared('SELECT *
 					FROM reportit_data_source_items
-					WHERE template_id = ' . $selected_items[$i] . ' ORDER BY id');
+					WHERE template_id = ?
+					ORDER BY id',
+					array($selected_items[$i]));
 
-				foreach($template_ds_items as $data_source_item) {
-					$data_source_item['template_id'] = $template_id;
-					sql_save($data_source_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+				if (sizeof($template_ds_items)) {
+					foreach($template_ds_items as $data_source_item) {
+						$data_source_item['template_id'] = $template_id;
+						sql_save($data_source_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+					}
 				}
 			}
 		}
@@ -908,28 +995,28 @@ function form_actions() {
 
 	top_header();
 
-	html_start_box($template_actions{get_request_var('drp_action')}, "60%", $colors["header_panel"], "3", "center", "");
+	html_start_box($template_actions{get_request_var('drp_action')}, '60%', '', '3', 'center', '');
 
 	form_start('cc_templates.php');
 
 	if (get_request_var('drp_action') == '1') {
 		/* delete report template(s) */
 		print "<tr>
-			<td bgcolor='#" . $colors["form_alternate1"]. "'>
-				<p>Are you sure you want to delete the following report templates?</p>";
+			<td class='textArea'>
+				<p>" . __('Click \'Continue\' to Delete the following Report Templates') . '</p>';
 
 		if (is_array($ds_list)) {
-			print "<strong>WARNING:</strong> Every report that belongs to these templates will be deleted too!";
+			print "<strong>" . __('WARNING:') . "</strong> " . __('Every report that belongs to these templates will be deleted too!');
 
 			foreach($ds_list as $key => $value) {
 				print "<p>Template : $key<br>";
 
 				if (is_array($ds_list[$key])) {
 					foreach($ds_list[$key] as $report_name => $value) {
-						print "&#160 |_Report: $value<br>";
+						print __("&#160 |_Report: %s<br>", $value);
 					}
 				} else {
-					print "&#160 |_Report: <i>none</i><br>";
+					print __("&#160 |_Report: <i>none</i><br>");
 				}
 			}
 		}
@@ -939,38 +1026,38 @@ function form_actions() {
 		</tr>";
 	} elseif (get_request_var('drp_action') == '2') { // DUPLICATE REPORT TEMPLATE
 		print "<tr>
-			<td bgcolor='#" . $colors['form_alternate1']. "'>
-				<p>Click \"yes\" to duplicate the following report templates. You can optionally change the title for the new report templates.</p>";
+			<td class='textArea'>
+				<p>" . __('Click \'Continue\' to Duplicate the following Report Templates.  You can optionally change the Title for the new Report Templates.') . '</p>';
 
 		if (is_array($ds_list)) {
-			print	"<p>List of selected templates:<br>";
+			print	'<p>' . __('List of selected templates:') . '<br>';
 
 			foreach($ds_list as $key => $value) {
-				print	"&#160 |_Template : $key<br>";
+				print	__('&#160 |_Template : %s<br>', $key);
 			}
 		}
 
-		print "<p><strong>Title:</strong><br>";
+		print '<p><strong>' . __('Title:') . '</strong><br>';
 
-		form_text_box("template_addition", "<template_title> (1)", "", "255", "30", "text");
+		form_text_box('template_addition', __('<template_title> (1)'), '', '255', '30', 'text');
 
-		print "</p>
+		print '</p>
 			</td>
-		</tr>";
+		</tr>';
 	}
 
 	if (!is_array($ds_list)) {
 		print "<tr>
-			<td bgcolor='#" . $colors['form_alternate1']. "'>
-				<span class='textError'>You must select at least one report template.</span>
+			<td class='textArea'>
+				<span class='textError'>" . __('You must select at least one report template.') . '</span>
 			</td>
-		</tr>";
+		</tr>';
 
-		$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>";
+		$save_html = "<input type='button' value='" . __('Cancel') . " onClick='cactiReturnTo()'>";
 	} elseif (get_request_var('drp_action') == '1') {
-		$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Continue' title='Delete Report Templates'>";
+		$save_html = "<input type='button' value='" . __('Cancel') . " onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . " title='" . __('Delete Report Templates') . "'>";
 	} else {
-		$save_html = "<input type='button' value='Cancel' onClick='window.history.back()'>&nbsp;<input type='submit' value='Continue' title='Duplicate Report Templates'>";
+		$save_html = "<input type='button' value='" . __('Cancel') . " onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . " title='" . __('Duplicate Report Templates') . "'>";
 	}
 
 	print "<tr>
