@@ -22,148 +22,182 @@
    +-------------------------------------------------------------------------+
 */
 
-
 function owner($report_id) {
-	$sql = "SELECT b.username, b.full_name FROM reportit_reports as a
-			 INNER JOIN user_auth as b
-			 ON b.id = a.user_id
-			 WHERE a.id = $report_id";
-	$tmp = db_fetch_row($sql);
-	$owner = "{$tmp['full_name']} ({$tmp['username']})";
-	return $owner;
+	$tmp = db_fetch_row_prepared('SELECT b.username, b.full_name
+		FROM reportit_reports as a
+		INNER JOIN user_auth as b
+		ON b.id = a.user_id
+		WHERE a.id = ?' ,
+		array($report_id));
+
+	if (sizeof($tmp)) {
+		return $tmp['full_name'] . ' (' . $tmp['username'] . ')';
+	} else {
+		return __('Unknown Owner');
+	}
 }
 
-
-function get_prepared_report_data($report_id, $type, $affix='') {
-
-	$report_measurands	= array();
-	$report_variables	= array();
+function get_prepared_report_data($report_id, $type, $sql_where = '') {
+	$report_measurands = array();
+	$report_variables  = array();
 
 	/* load report configuration + template description */
-	$sql =	"SELECT a.*, b.description AS template_name
-			FROM reportit_reports AS a
-			INNER JOIN reportit_templates AS b
-			ON a.template_id = b.id
-			WHERE a.id = '$report_id'";
-	$report_data = db_fetch_row($sql);
+	$report_data = db_fetch_row_prepared('SELECT a.*, b.description AS template_name
+		FROM reportit_reports AS a
+		INNER JOIN reportit_templates AS b
+		ON a.template_id = b.id
+		WHERE a.id = ?',
+		array($report_id));
+
+	if (!sizeof($report_data)) {
+		return false;
+	}
 
 	/* get the owner of this report */
 	$report_data['owner']	= owner($report_id);
 
 	/* load measurand configurations */
-	$sql = "SELECT * FROM reportit_measurands
-			WHERE template_id = " . $report_data['template_id'];
-	$tmps = db_fetch_assoc($sql);
+	$tmps = db_fetch_assoc_prepared("SELECT *
+		FROM reportit_measurands
+		WHERE template_id = ?",
+		array($report_data['template_id']));
+
 	foreach ($tmps as $tmp) {
 		$report_measurands[$tmp['id']] = $tmp;
 	}
 
 	/* load configurations of variables */
-	$sql = "SELECT a.id, a.name, a.description, b.value, a.min_value, a.max_value
-			FROM reportit_variables AS a
-			INNER JOIN reportit_rvars AS b
-			ON a.id = b.variable_id AND b.report_id = $report_id
-			WHERE a.template_id = " . $report_data['template_id'];
-	$report_variables = db_fetch_assoc($sql);
+	$report_variables = db_fetch_assoc_prepared('SELECT a.id, a.name,
+		a.description, b.value, a.min_value, a.max_value
+		FROM reportit_variables AS a
+		INNER JOIN reportit_rvars AS b
+		ON a.id = b.variable_id
+		AND b.report_id = ?
+		WHERE a.template_id = ?',
+		array($report_id, $report_data['template_id']));
 
-    /* load data source alias */
-    $sql = "SELECT data_source_name, data_source_alias
-            FROM reportit_data_source_items
-            WHERE template_id = " . $report_data['template_id'];
-    $report_ds_alias = db_custom_fetch_assoc($sql,'data_source_name',false,false);
+	/* load data source alias */
+	$sql = "SELECT data_source_name, data_source_alias
+		FROM reportit_data_source_items
+		WHERE template_id = " . $report_data['template_id'];
+    $report_ds_alias = db_custom_fetch_assoc($sql, 'data_source_name', false, false);
 
 	switch ($type) {
-		case 'export':
-			$sql = "SELECT c.name_cache, b.*, a.*
-					FROM reportit_results_$report_id AS a
-					INNER JOIN reportit_data_items AS b
-					ON (a.id = b.id AND b.report_id = $report_id)
-					INNER JOIN data_template_data AS c
-					ON c.local_data_id = a.id " . $affix;
-			break;
-		case 'graidle':
-			$sql = $affix;
-			break;
-		case 'graph':
-			$data = array(	'report_data' 		=> $report_data,
-							'report_measurands' => $report_measurands);
-			return $data;
-			break;
-		case 'view':
-			$sql = "SELECT a.*, b.*, c.name_cache
-					FROM reportit_results_$report_id AS a
-					INNER JOIN reportit_data_items AS b
-					ON (a.id = b.id AND b.report_id = $report_id)
-					INNER JOIN data_template_data AS c
-					ON c.local_data_id = a.id " . $affix;
-			break;
+	case 'export':
+		$sql = "SELECT c.name_cache, b.*, a.*
+			FROM reportit_results_$report_id AS a
+			INNER JOIN reportit_data_items AS b
+			ON a.id = b.id AND b.report_id = $report_id
+			INNER JOIN data_template_data AS c
+			ON c.local_data_id = a.id
+			$sql_where";
+
+		break;
+	case 'graidle':
+		$sql = $sql_where;
+
+		break;
+	case 'graph':
+		return array(
+			'report_data'       => $report_data,
+			'report_measurands' => $report_measurands
+		);
+
+		break;
+	case 'view':
+		$sql = "SELECT a.*, b.*, c.name_cache
+			FROM reportit_results_$report_id AS a
+			INNER JOIN reportit_data_items AS b
+			ON (a.id = b.id
+			AND b.report_id = $report_id)
+			INNER JOIN data_template_data AS c
+			ON c.local_data_id = a.id
+			$sql_where";
+
+		break;
 	}
+
 	$report_results = db_fetch_assoc($sql);
 
 	/* build data package for return */
-	$data = array(	'report_data'		=> $report_data,
-					'report_results'	=> $report_results,
-					'report_measurands'	=> $report_measurands,
-					'report_variables'	=> $report_variables,
-                    'report_ds_alias'   => $report_ds_alias);
+	$data = array(
+		'report_data'       => $report_data,
+		'report_results'    => $report_results,
+		'report_measurands' => $report_measurands,
+		'report_variables'  => $report_variables,
+		'report_ds_alias'   => $report_ds_alias
+	);
 
 	return $data;
 }
 
-
-function get_prepared_archive_data($cache_id, $type, $affix='') {
-
+function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 	$report_measurands = array();
 	$report_variables  = array();
 
 	/* load report configuration */
-	$sql =	"SELECT * FROM reportit_cache_reports WHERE `cache_id` = '$cache_id'";
-	$report_data = db_fetch_row($sql);
+	$report_data = db_fetch_row_prepared('SELECT *
+		FROM reportit_cache_reports
+		WHERE cache_id = ?',
+		array($cache_id));
 
 	/* save serialized data source alias separately */
 	$report_ds_alias = unserialize($report_data['data_template_alias']);
 	unset($report_data['data_template_alias']);
 
 	/* load configured measurands */
-	$sql = "SELECT * FROM reportit_cache_measurands WHERE `cache_id` = '$cache_id'";
-	$tmps = db_fetch_assoc($sql);
-	foreach ($tmps as $tmp) {
-		$report_measurands[$tmp['id']] = $tmp;
+	$tmps = db_fetch_assoc_prepared('SELECT *
+		FROM reportit_cache_measurands
+		WHERE cache_id = ?',
+		array($cache_id));
+
+	if (sizeof($tmps)) {
+		foreach ($tmps as $tmp) {
+			$report_measurands[$tmp['id']] = $tmp;
+		}
 	}
 
 	/* load configured variables */
-	$sql = "SELECT * FROM reportit_cache_variables WHERE `cache_id` = '$cache_id'";
-	$report_variables = db_fetch_assoc($sql);
+	$report_variables = db_fetch_assoc_prepared('SELECT *
+		FROM reportit_cache_variables
+		WHERE cache_id = ?',
+		array($cache_id));
 
 	switch ($type) {
-        case 'export':
-            $sql = "SELECT * FROM reportit_tmp_" . $cache_id . " as a " . $affix;
-			break;
-		case 'graidle':
-			$sql = $affix;
-			break;
-		case 'graph':
-			$data = array(	'report_data' 		=> $report_data,
-							'report_measurands' => $report_measurands);
-			return $data;
-			break;
-		case 'view':
-			$sql = "SELECT * FROM reportit_tmp_" . $cache_id . " as a " . $affix;
-			break;
+	case 'export':
+		$sql = 'SELECT * FROM reportit_tmp_' . $cache_id . ' as a ' . $sql_where;
+
+		break;
+	case 'graidle':
+		$sql = $sql_where;
+
+		break;
+	case 'graph':
+		return array(
+			'report_data'       => $report_data,
+			'report_measurands' => $report_measurands
+		);
+
+		break;
+	case 'view':
+		$sql = 'SELECT * FROM reportit_tmp_' . $cache_id . ' AS a ' . $sql_where;
+
+		break;
 	}
+
 	$report_results = db_fetch_assoc($sql);
 
 	/* build data package for return */
-	$data = array(	'report_data'		=> $report_data,
-					'report_results'	=> $report_results,
-					'report_measurands'	=> $report_measurands,
-					'report_variables'	=> $report_variables,
-                    'report_ds_alias'   => $report_ds_alias);
+	$data = array(
+		'report_data'       => $report_data,
+		'report_results'    => $report_results,
+		'report_measurands' => $report_measurands,
+		'report_variables'  => $report_variables,
+		'report_ds_alias'   => $report_ds_alias
+	);
 
 	return $data;
 }
-
-
 
 /**
  * db_custom_fetch_assoc()
@@ -176,26 +210,35 @@ function get_prepared_archive_data($cache_id, $type, $affix='') {
  * 								requires that $multi is true.
  * @return binary				returns an array or false if the SQL command failed
  */
-function db_custom_fetch_assoc($sql, $index=false, $multi=true, $assoc=true){
+function db_custom_fetch_assoc($sql, $index = false, $multi = true, $assoc = true){
 	$raw_data = array();
 	$srt_data = array();
 
 	$raw_data = db_fetch_assoc($sql);
-	if (sizeof($raw_data)> 0) {
+
+	if (sizeof($raw_data)) {
 		foreach ($raw_data as $row_key => $row) {
-			if ($index !== false && !array_key_exists($index, $row)) return false;
+			if ($index !== false && !array_key_exists($index, $row)) {
+				return false;
+			}
+
 			$index_key = ($index === false) ? $row_key : $row[$index];
+
 			foreach ($row as $key => $value){
 				if ($key != $index){
 					if ($multi) {
-						if ($assoc) $srt_data[$index_key][$key]=$value;
-						else $srt_data[$index_key][]=$value;
+						if ($assoc) {
+							$srt_data[$index_key][$key] = $value;
+						} else {
+							$srt_data[$index_key][] = $value;
+						}
 					} else {
 						$srt_data[$index_key]=$value;
 					}
 				}
 			}
 		}
+
 		return $srt_data;
 	} else {
 		return false;
@@ -213,17 +256,19 @@ function db_custom_fetch_flat_array($sql){
     $srt_data = array();
 
     $raw_data = db_fetch_assoc($sql);
+
     if (sizeof($raw_data)> 0) {
         foreach ($raw_data as $row) {
-            foreach ($row as $value) $srt_data[] = $value;
+            foreach ($row as $value) {
+				 $srt_data[] = $value;
+			}
         }
+
         return $srt_data;
     } else {
         return false;
     }
 }
-
-
 
 /**
  * db_custom_fetch_string()
@@ -237,10 +282,14 @@ function db_custom_fetch_flat_string($sql, $delimiter = ','){
     $srt_data = '';
 
     $raw_data = db_fetch_assoc($sql);
+
     if (sizeof($raw_data)> 0) {
         foreach ($raw_data as $row) {
-            foreach ($row as $value) $srt_data .= $value . $delimiter;
+            foreach ($row as $value) {
+				$srt_data .= $value . $delimiter;
+			}
         }
+
         return substr($srt_data,0,-strlen($delimiter));
     } else {
         return false;
@@ -248,86 +297,108 @@ function db_custom_fetch_flat_string($sql, $delimiter = ','){
 }
 
 
-function rp_get_timespan($preset_timespan, $present, $enable_tmz = FALSE) {
-
+function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
     //Set preconditions
     $today = ($enable_tmz) ? gmdate('Y-m-d') : date('Y-m-d');
-    list($ys, $ms, $ds) = explode("-", $today);
-    list($ye, $me, $de) = explode("-", $today);
+    list($ys, $ms, $ds) = explode('-', $today);
+    list($ye, $me, $de) = explode('-', $today);
 
     //Set report start date
     switch ($preset_timespan)  {
 	case 'Today':
+
 	    break;
 	case 'Last 1 Day':
 	    $ds-=1;$de-=1;
+
 	    break;
 	case 'Last 2 Days':
 	    $ds-=2;$de-=1;
+
 	    break;
 	case 'Last 3 Days':
 	    $ds-=3;$de-=1;
+
 	    break;
 	case 'Last 4 Days':
 	    $ds-=4;$de-=1;
+
 	    break;
 	case 'Last 5 Days':
 	    $ds-=5;$de-=1;
+
 	    break;
 	case 'Last 6 Days':
 	    $ds-=6;$de-=1;
+
 	    break;
 	case 'Last 7 Days':
 	    $ds-=7;$de-=1;
+
 	    break;
 	case 'Last Week (Sun - Sat)':
 	    $ds -= ($enable_tmz) ? 7 + gmdate('w') : 7 + date('w');
 	    $de = $ds + 6;
+
 	    break;
 	case 'Last Week (Mon - Sun)':
 	    $ds -= ($enable_tmz) ? 6 + gmdate('w') : 6 + date('w');
 	    $de = $ds + 6;
+
 	    break;
 	case 'Last 14 Days':
 	    $ds-=14;$de-=1;
+
 	    break;
 	case 'Last 21 Days':
 	    $ds-=21;$de-=1;
+
 	    break;
 	case 'Last 28 Days':
 	    $ds-=28;$de-=1;
+
 	    break;
 	case 'Current Month':
 		$de = ($ds == 1)? $ds : $de-1;
 	    $ds=1;
+
 	    break;
 	case 'Last Month':
 	    $ms-=1;$ds=1;$de=0;
+
 	    break;
 	case 'Last 2 Months':
 	    $ms-=2;$ds=1;$de=0;
+
 	    break;
 	case 'Last 3 Months':
 	    $ms-=3;$ds=1;$de=0;
+
 	    break;
 	case 'Last 4 Months':
 	    $ms-=4;$ds=1;$de=0;
+
 	    break;
 	case 'Last 5 Months':
 	    $ms-=5;$ds=1;$de=0;
+
 	    break;
 	case 'Last 6 Months':
 	    $ms-=6;$ds=1;$de=0;
+
 	    break;
 	case 'Current Year':
 		$de = ($ds == 1 & $ms ==1 )? $ds : $de-1;
 	    $ms=1;$ds=1;
+
 	    break;
 	case 'Last Year':
 	    $ms=1;$ds=1;$ys-=1;$me=1;$de=0;
+
 	    break;
 	case 'Last 2 Years':
 	    $ms=1;$ds=1;$ys-=2;$me=1;$de=0;
+
 	    break;
 	default:
 	    break;
@@ -335,17 +406,16 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = FALSE) {
 
     $dates = array();
 
-    $dates['start_date'] 	= ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $ms, $ds, $ys)) : date('Y-m-d', mktime(0,0,0, $ms, $ds, $ys));
+    $dates['start_date'] = ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $ms, $ds, $ys)) : date('Y-m-d', mktime(0,0,0, $ms, $ds, $ys));
 
-    if ($present) {
-        $dates['end_date'] 	= $today;
-    } else {
-	$dates['end_date'] 	= ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $me, $de, $ye)) : date('Y-m-d', mktime(0,0,0, $me, $de, $ye));
-    }
+	if ($present) {
+		$dates['end_date'] = $today;
+	} else {
+		$dates['end_date'] = ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $me, $de, $ye)) : date('Y-m-d', mktime(0,0,0, $me, $de, $ye));
+	}
 
-    return $dates;
+	return $dates;
 }
-
 
 function get_unit($value, $prefixes, $data_type, $data_precision) {
     global $threshold, $binary, $decimal, $IEC;
@@ -353,152 +423,180 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 	if (!$threshold) {
 		$threshold 	= 0.5;
 
-		$decimal	= array('Y' => pow(1000,8),
-					'Z' => pow(1000,7),
-					'E' => pow(1000,6),
-					'P' => pow(1000,5),
-					'T' => pow(1000,4),
-					'G' => pow(1000,3),
-					'M' => pow(1000,2),
-					'K' => 1000);
+		$decimal = array(
+			'Y' => pow(1000,8),
+			'Z' => pow(1000,7),
+			'E' => pow(1000,6),
+			'P' => pow(1000,5),
+			'T' => pow(1000,4),
+			'G' => pow(1000,3),
+			'M' => pow(1000,2),
+			'K' => 1000
+		);
 
-		$binary		= array('Y' => pow(1024,8),
-					'Z' => pow(1024,7),
-					'E' => pow(1024,6),
-					'P' => pow(1024,5),
-					'T' => pow(1024,4),
-					'G' => pow(1024,3),
-					'M' => pow(1024,2),
-					'K' => 1024);
+		$binary = array(
+			'Y' => pow(1024,8),
+			'Z' => pow(1024,7),
+			'E' => pow(1024,6),
+			'P' => pow(1024,5),
+			'T' => pow(1024,4),
+			'G' => pow(1024,3),
+			'M' => pow(1024,2),
+			'K' => 1024
+		);
 
-		$IEC		= read_config_option('reportit_use_IEC');
+		$IEC = read_config_option('reportit_use_IEC');
 	}
 
 	$type_specifiers = array('b', 'f', 'd', 'u', 'x', 'X', 'o', 'e');
+
 	$data_type = $type_specifiers[$data_type];
 
 	/* use precision for type FLOAT and SCIENTIFIC NOTIFICATION only*/
-	if (is_numeric($data_precision) & in_array($data_type, array('f', 'e'))) {
+	if (is_numeric($data_precision) && in_array($data_type, array('f', 'e'))) {
 		$data_precision = '.' . $data_precision;
 	} else {
 		$data_precision = '';
 	}
 
-	if ($value === 0) return 0;
-	if ($value == NULL) return "NA";
-	if ($prefixes == 0) {
+	if ($value === 0) {
+		return 0;
+	} elseif ($value == NULL) {
+		return "NA";
+	} elseif ($prefixes == 0) {
 		return sprintf("%" . $data_precision . $data_type, $value);
+	} elseif ($prefixes == 0 || $value == 0) {
+		return $value;
 	}
-	if ($prefixes == 0 || $value == 0) return $value;
 
-	If($prefixes == 1) {
-		$k	= ($IEC) ? 'K' : 'k';
-		$i 	= ($IEC) ? 'i' : '';
-		$pre	= &$binary;
+	if ($prefixes == 1) {
+		$k   = ($IEC) ? 'K' : 'k';
+		$i   = ($IEC) ? 'i' : '';
+		$pre = &$binary;
     } else {
-		$k	= 'k';
-		$i	= '';
-		$pre	= &$decimal;
+		$k   = 'k';
+		$i   = '';
+		$pre = &$decimal;
     }
 
     $absolute = abs($value);
 
     switch($value) {
-	case ($absolute >= $pre['Y']): 			//YOTTA
-	    $value   /= $pre['Y'];
+	case ($absolute >= $pre['Y']): //YOTTA
+	    $value /= $pre['Y'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " Y$i");
+
 	    break;
 	case ($absolute >= $pre['Y']*$threshold):
-	    $value   /= $pre['Y'];
+	    $value /= $pre['Y'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " Y$i");
+
 	    break;
-	case ($absolute >= $pre['Z']): 			//ZETTA
-	    $value   /= $pre['Z'];
+	case ($absolute >= $pre['Z']): //ZETTA
+	    $value /= $pre['Z'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " Z$i");
+
 	    break;
 	case ($absolute >= $pre['Z']*$threshold):
-	    $value   /= $pre['Z'];
+	    $value /= $pre['Z'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " Z$i");
+
 	    break;
-	case ($absolute >= $pre['E']): 			//EXA
-	    $value   /= $pre['E'];
+	case ($absolute >= $pre['E']): //EXA
+	    $value /= $pre['E'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " E$i");
+
 	    break;
 	case ($absolute >= $pre['E']*$threshold):
-	    $value   /= $pre['E'];
+	    $value /= $pre['E'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " E$i");
+
 	    break;
-	case ($absolute >= $pre['P']): 			//PETA
-	    $value   /= $pre['P'];
+	case ($absolute >= $pre['P']): //PETA
+	    $value /= $pre['P'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " P$i");
+
 	    break;
 	case ($absolute >= $pre['P']*$threshold):
-	    $value   /= $pre['P'];
+	    $value /= $pre['P'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " P$i");
+
 	    break;
-	case ($absolute >= $pre['T']): 			//TERA
-	    $value   /= $pre['T'];
+	case ($absolute >= $pre['T']): //TERA
+	    $value /= $pre['T'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " T$i");
+
 	    break;
 	case ($absolute >= $pre['T']*$threshold):
-	    $value   /= $pre['T'];
+	    $value /= $pre['T'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " T$i");
+
 	    break;
-	case ($absolute >= $pre['G']): 			//GIGA
-	    $value   /= $pre['G'];
+	case ($absolute >= $pre['G']): //GIGA
+	    $value /= $pre['G'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " G$i");
+
 	    break;
 	case ($absolute >= $pre['G']*$threshold):
-	    $value   /= $pre['G'];
+	    $value /= $pre['G'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " G$i");
+
 	    break;
-	case ($absolute >= $pre['M']): 			//MEGA
-	    $value   /= $pre['M'];
+	case ($absolute >= $pre['M']): //MEGA
+	    $value /= $pre['M'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " M$i");
+
 	    break;
 	case ($absolute >= $pre['M']*$threshold):
-	    $value   /= $pre['M'];
+	    $value /= $pre['M'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " M$i");
+
 	    break;
-	case ($absolute >= $pre['K']): 			//KILO
-	    $value   /= $pre['K'];
+	case ($absolute >= $pre['K']): //KILO
+	    $value /= $pre['K'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " $k$i");
+
 	    break;
 	case ($absolute >= $pre['K']*$threshold):
-	    $value   /= $pre['K'];
+	    $value /= $pre['K'];
 	    return (sprintf("%" . $data_precision . $data_type, $value) . " $k$i");
+
 	    break;
 	default:
 	    return sprintf("%" . $data_precision . $data_type, $value);
+
 	    break;
     }
 }
 
-
 function create_rvars_entries($variable_id, $template_id, $default) {
-	$sql = "SELECT id FROM reportit_reports WHERE template_id=$template_id";
-	$ids = db_fetch_assoc($sql);
+	$ids = db_fetch_assoc_prepared('SELECT id
+		FROM reportit_reports
+		WHERE template_id = ?',
+		array($template_id));
 
-	if (sizeof($ids) > 0) {
+	if (sizeof($ids)) {
 		$list = '';
+
 		foreach ($ids as $id) {
 			$list .= "($template_id, {$id['id']}, $variable_id, $default),";
 		}
 		//Remove last comma
 		$list = substr($list, 0, strlen($list)-1);
 
-		$sql = "INSERT INTO reportit_rvars (template_id, report_id, variable_id, value) VALUES $list";
-		db_execute($sql);
+		db_execute("INSERT INTO reportit_rvars
+			(template_id, report_id, variable_id, value)
+			VALUES $list");
 	}
 }
 
-
 function reset_report($report_id) {
     // Set report values last_run and runtime to zero
-    db_execute("UPDATE reportit_reports SET last_run = '0000-00-00 00:00:00', runtime = '0' WHERE id = '$report_id'");
+    db_execute_prepared("UPDATE reportit_reports
+		SET last_run = '0000-00-00 00:00:00', runtime = '0'
+		WHERE id = ?",
+		array($report_id));
 }
-
-
 
 /**
  * get_possible_rra_names()
@@ -511,19 +609,19 @@ function get_possible_rra_names($template_id) {
     $names = array();
     $array = array();
 
-    $sql = "SELECT b.data_source_name from reportit_data_source_items AS a
-            LEFT JOIN data_template_rrd AS b
-            ON a.id = b.id
-            WHERE a.template_id = $template_id
-            AND a.id != 0";
-    $names = db_fetch_assoc($sql);
+    $names = db_fetch_assoc_prepared("SELECT b.data_source_name
+		FROM reportit_data_source_items AS a
+		LEFT JOIN data_template_rrd AS b
+		ON a.id = b.id
+		WHERE a.template_id = ?
+		AND a.id != 0", array($template_id));
 
-    foreach ($names as $name) $array[] = $name['data_source_name'];
+    foreach ($names as $name) {
+		$array[] = $name['data_source_name'];
+	}
 
     return $array;
 }
-
-
 
 /**
  * get_interim_results()
@@ -534,59 +632,74 @@ function get_possible_rra_names($template_id) {
  * @return array with the syntax of possible interim results
  */
 function get_interim_results($measurand_id, $template_id, $ln = false) {
+	$array           = array();
+	$names           = array();
+	$interim_results = array();
 
-    $array              = array();
-    $names              = array();
-    $interim_results    = array();
+	$names = get_possible_rra_names($template_id);
+	$sql = "SELECT abbreviation, spanned
+		FROM reportit_measurands
+		WHERE template_id=$template_id ";
 
-    $names = get_possible_rra_names($template_id);
-    $sql = "SELECT abbreviation, spanned
-            FROM reportit_measurands
-            WHERE template_id=$template_id ";
+	if ($measurand_id != 0) {
+		$sql .= "AND id<$measurand_id";
+	}
 
-    if ($measurand_id != 0) $sql .= "AND id<$measurand_id";
-    $array = db_fetch_assoc($sql);
+	$array = db_fetch_assoc($sql);
 
-    foreach ($array as $interim_result) {
-        if ($interim_result['spanned'] == 0) {
-            foreach ($names as $name) {
-                $interim_results[] = $interim_result['abbreviation'] . ':' . $name;
-            }
-        }
-        if ($ln) $interim_result['abbreviation'] .= '<br>';
-        $interim_results[] = $interim_result['abbreviation'];
-    }
+	if (sizeof($array)) {
+	    foreach ($array as $interim_result) {
+			if ($interim_result['spanned'] == 0) {
+				foreach ($names as $name) {
+					$interim_results[] = $interim_result['abbreviation'] . ':' . $name;
+				}
+			}
 
-    return $interim_results;
+			if ($ln) {
+				$interim_result['abbreviation'] .= '<br>';
+			}
+
+			$interim_results[] = $interim_result['abbreviation'];
+		}
+	}
+
+	return $interim_results;
 }
 
-
 function get_possible_variables($template_id) {
-    // Fetch all variables which has been defined for this template
-    global $calc_var_names;
-    $names = array();
-    $array = array();
+	global $calc_var_names;
 
-    // Check whether maxValue is valid
-    $sql = "SELECT DISTINCT a.rrd_maximum FROM data_template_rrd as a
-			 INNER JOIN reportit_templates as b
-			 ON a.data_template_id = b.data_template_id AND b.id = $template_id
-			 WHERE a.local_data_id = 0";
-    $maximum = db_fetch_cell($sql);
-    if (!is_numeric($maximum) || $maximum == 0) unset($calc_var_names[0]);
+	// Fetch all variables which has been defined for this template
+	$names = array();
+	$array = array();
 
+	// Check whether maxValue is valid
+	$maximum = db_fetch_cell_prepared('SELECT DISTINCT a.rrd_maximum
+		FROM data_template_rrd as a
+		INNER JOIN reportit_templates as b
+		ON a.data_template_id = b.data_template_id
+		AND b.id = ?
+		WHERE a.local_data_id = 0',
+		array($template_id));
 
-    $sql = "SELECT abbreviation FROM reportit_variables WHERE template_id=$template_id";
-    $names = db_fetch_assoc($sql);
-    // and bring them toghter with the standard variables
+    if (!is_numeric($maximum) || $maximum == 0) {
+		unset($calc_var_names[0]);
+	}
 
-    foreach ($calc_var_names as $name) {
-	$array[] = $name;
-    }
-    foreach ($names as $name) {
-            $array[] = $name['abbreviation'];
-        }
-    return array_flip($array);
+    $names = db_fetch_assoc_prepared('SELECT abbreviation
+		FROM reportit_variables
+		WHERE template_id = ?',
+		array($template_id));
+
+	foreach ($calc_var_names as $name) {
+		$array[] = $name;
+	}
+
+	foreach ($names as $name) {
+		$array[] = $name['abbreviation'];
+	}
+
+	return array_flip($array);
 }
 
 /**
