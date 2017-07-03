@@ -816,12 +816,6 @@ function report_edit() {
 
 	/* ==================== Checkpoint ==================== */
 	my_report(get_request_var('id'));
-
-//	if (get_request_var('tab') == 'admin' & !re_admin()) die_html_custom_error('Permission denied', true);
-//	if (get_request_var('tab') == 'email' & !read_config_option('reportit_email')) die_html_custom_error();
-//	if (!isset_request_var('id') && isempty_request_var('template')) die_html_custom_error();
-//	if (get_request_var('tab') == 'email' & isset_request_var('id') && !get_report_setting(get_request_var('id'), 'auto_email')) die_html_custom_error();
-//	session_custom_error_display();
 	/* ==================================================== */
 
 	/* load config settings if it's not a new one */
@@ -906,13 +900,23 @@ function report_edit() {
 	$rrdlist_data['id']= $id;
 
 	if (isset_request_var('template')) {
-		if (!isset($_SESSION['reportit']['template'])) $_SESSION['reportit']['template'] = get_request_var('template');
+		if (!isset($_SESSION['reportit']['template'])) {
+			$_SESSION['reportit']['template'] = get_request_var('template');
+		}
 	}
 
-	$template_id = (isset($report_data['template_id']) ? $report_data['template_id'] : $_SESSION['reportit']['template']);
+	if (isset($report_data['template_id'])) {
+		$template_id = $report_data['template_id'];
+	} elseif (isset($_SESSION['reportit']['template'])) {
+		$template_id = $_SESSION['reportit']['template'];
+	} else {
+		$template_id = 0;
+	}
 
 	/* leave if base template is locked */
-	locked($template_id);
+	if ($template_id) {
+		locked($template_id);
+	}
 
 	$report_data['template_id'] = $template_id;
 
@@ -924,16 +928,26 @@ function report_edit() {
 	if (!array_key_exists('auto_email',$report_data)) $report_data['auto_email'] = false;
 
 	/* start with HTML output */
-	if ($id != 0) html_blue_link($link, false);
+	if ($id != 0) {
+		html_blue_link($link, false);
+
+		/* unset the administration tab if user isn't a report admin */
+		if (!re_admin()) {
+			unset($tabs['admin']);
+		}
+
+		/* remove the email tab if emailing is deactivated globally */
+		if (read_config_option('reportit_email') != 'on') {
+			unset($tabs['email']);
+		}
+	} else {
+		unset($tabs['admin']);
+		unset($tabs['presets']);
+		unset($tabs['email']);
+	}
 
 	/* draw the categories tabs on the top of the page */
 	$current_tab = get_request_var('tab');
-
-	/* unset the administration tab if user isn't a report admin */
-	if (!re_admin()) unset($tabs['admin']);
-
-	/* remove the email tab if emailing is deactivated globally */
-	if (read_config_option('reportit_email') != 'on') unset($tabs['email']);
 
 	if (sizeof($tabs)) {
 		$i = 0;
@@ -943,8 +957,7 @@ function report_edit() {
 
 		foreach (array_keys($tabs) as $tab_short_name) {
 			print "<li class='subTab'><a class='tab" . (($tab_short_name == $current_tab) ? " selected'" : "'") .
-				" href='" . htmlspecialchars($config['url_path'] .
-				'cc_reports.php?action=report_edit&id=' . $id .
+				" href='" . htmlspecialchars($config['url_path'] .  '/plugins/reportit/cc_reports.php?action=report_edit&id=' . $id .
 				'&tab=' . $tab_short_name) .
 				"'>" . $tabs[$tab_short_name] . "</a></li>\n";
 

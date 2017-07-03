@@ -79,27 +79,29 @@ function template_wizard($action) {
 		top_header();
 		if (isset($_SESSION['reportit_tWizard'])) unset($_SESSION['reportit_tWizard']);
 
-		html_start_box(__('New Template'), '60%', '', '3', 'center', '');
+		html_start_box(__('New Template'), '60%', '', '3', 'left', '');
 
 		form_start('cc_templates.php');
 
 		if (sizeof($list_of_data_templates) == 0) {
-			print "<tr class='odd'>
+			print "<tr class='textArea'>
 				<td>
-					<span class='textError'>There are no data templates in use.</span>
+					<span class='textError'>" . __('There are no data templates in use.') . "</span>
 				</td>
 			</tr>";
 
 			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
 		} else {
-			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Create a new report template') . "'>";
-			print "<tr class='odd'>
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Create a new Report Template') . "'>";
+			print "<tr class='textArea'>
 				<td>
-					<p>" . __('Choose a data template this report template should depend on.<br>Unused data templates are hidden.') . "
-				</td>";
+					<p>" . __('Choose a Data Template this Report Template should depend on.  Unused data templates are hidden.') . "
+				</td>
+			</tr>";
 
-			print "<td>" . form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '') . "</td>
-				</tr>";
+			print "<tr class='textArea'>
+				<td>" . form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '') . "</td>
+			</tr>";
 		}
 
 		print "<tr>
@@ -110,6 +112,7 @@ function template_wizard($action) {
 		</tr>";
 
 		html_end_box();
+
 		bottom_footer();
 
 		break;
@@ -127,19 +130,19 @@ function template_wizard($action) {
 		if ($templates === false) {
 			print "<tr class='textArea'>
 				<td>
-					<span class='textError'>" . __('No unlocked report templates available.') . '</span>
+					<span class='textError'>" . __('No unlocked Report Templates available.') . '</span>
 				</td>
 			</tr>';
 
 			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
 		} else {
-			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Export') . "' title='" . __('Export report template') . "'>";
+			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Export') . "' title='" . __('Export Report Template') . "'>";
 
 			print "<table class='cactiTable'";
-			print '<tr><td>' . __('Report Template') . '<br>' . __('Choose one of your report templates to export to XML.') . '</td><td>';
+			print '<tr><td>' . __('Report Template') . '<br>' . __('Choose one of your Report Templates to export to XML.') . '</td><td>';
 			print form_dropdown('template_id', $templates,'','','','','') . '</td></tr>';
 
-			print '<tr><td>' . __('Description') . '<br>' . __('Describe your report template.') . '</td><td>';
+			print '<tr><td>' . __('Description') . '<br>' . __('Describe your Report Template.') . '</td><td>';
 			print form_text_area('template_description', '', 4, 37,__('Your description')) . '</td></tr>';
 
 			print '<tr><td>' . __('[Optional] Author') . '<br>' . __('You can fill a your name or your nick.') . '</td><td>';
@@ -167,6 +170,7 @@ function template_wizard($action) {
 		break;
 	case 'upload':
 		top_header();
+
 		session_custom_error_display();
 
 		html_start_box(__('Import Report Template'), '60%', '', '3', 'center', '');
@@ -174,7 +178,7 @@ function template_wizard($action) {
 		print "<form action='cc_templates.php' autocomplete='off' method='post' enctype='multipart/form-data'>";
 
 		print "<tr class='textArea'>
-			<td>" . __('Select the XML file that contains your report template.') . "</td>
+			<td>" . __('Select the XML file that contains your Report Template.') . "</td>
 			<td>
 				<input type='file' name='file' id='file' size='35' maxlength='50000' accept='xml'>
 			</td>
@@ -782,7 +786,7 @@ function template_edit() {
 			'friendly_name' => __('Name'),
 			'method' => 'textbox',
 			'max_length' => '100',
-			'description' => __('The unique name given to this report template.'),
+			'description' => __('The unique name given to this Report Template.'),
 			'value' => (isset($template_data['description']) ? $template_data['description'] : '')
 		),
 		'template_locked' => array(
@@ -824,7 +828,7 @@ function template_edit() {
 			'friendly_name' => __('Data Template'),
 			'method' => 'custom',
 			'max_length' => '100',
-			'description' => __('The name of the data template this report template depends on.'),
+			'description' => __('The name of the data template this Report Template depends on.'),
 			'value' => $data_template
 		)
 	);
@@ -1006,7 +1010,7 @@ function form_actions() {
 				<p>" . __('Click \'Continue\' to Delete the following Report Templates') . '</p>';
 
 		if (is_array($ds_list)) {
-			print "<strong>" . __('WARNING:') . "</strong> " . __('Every report that belongs to these templates will be deleted too!');
+			print "<strong>" . __('WARNING:') . "</strong> " . __('Every Report that belongs to these Templates will be deleted too!');
 
 			foreach($ds_list as $key => $value) {
 				print "<p>Template : $key<br>";
@@ -1049,7 +1053,7 @@ function form_actions() {
 	if (!is_array($ds_list)) {
 		print "<tr>
 			<td class='textArea'>
-				<span class='textError'>" . __('You must select at least one report template.') . '</span>
+				<span class='textError'>" . __('You must select at least one Report Template.') . '</span>
 			</td>
 		</tr>';
 
