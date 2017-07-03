@@ -406,12 +406,12 @@ function measurand_edit() {
 	html_calc_syntax($measurand_id, $template_id);
 	html_graph_end_box();
 
-	echo '<br>';
+	print '<br>';
 
 	form_save_button('cc_measurands.php?id=' . $template_id);
 
 	//Define layer
-	echo '<div id="Tooltip"></div>';
+	print '<div id="Tooltip"></div>';
 
 	//A little bit of java
 	?>

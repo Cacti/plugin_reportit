@@ -813,7 +813,7 @@ function debug(&$value, $msg = '', $fmsg = '') {
 	if (is_array($value)) {
 		if ($fmsg == '') {
 			print_r($value);
-			echo "\n";
+			print "\n";
 		} else {
 			print "\t\t$fmsg: "; print_r($value);
 		}
@@ -925,33 +925,33 @@ function update_xml_archive($report_id) {
 
 	/* use an output puffer for flushing */
 	ob_start();
-	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>$eol";
-	echo "<cacti>$eol<report>$eol<settings>$eol";
+	print "<?xml version=\"1.0\" encoding=\"UTF-8\"?>$eol";
+	print "<cacti>$eol<report>$eol<settings>$eol";
 
-	foreach ($data['report_data'] as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-	echo "</settings>$eol<measurands>$eol";
+	foreach ($data['report_data'] as $key => $value) print "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+	print "</settings>$eol<measurands>$eol";
 
 	foreach ($data['report_measurands'] as $measurand){
-		echo "<measurand>$eol";
-		foreach ($measurand as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-		echo "</measurand>$eol";
+		print "<measurand>$eol";
+		foreach ($measurand as $key => $value) print "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+		print "</measurand>$eol";
 	}
-	echo "</measurands>$eol<data_items>$eol";
+	print "</measurands>$eol<data_items>$eol";
 
 	foreach ($data['report_results'] as $results){
-		echo "<item>$eol";
-		foreach ($results as $key => $value) echo "<_di__$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</_di__$key>$eol";
-		echo "</item>$eol";
+		print "<item>$eol";
+		foreach ($results as $key => $value) print "<_di__$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</_di__$key>$eol";
+		print "</item>$eol";
 	}
-	echo "</data_items>$eol<variables>$eol";
+	print "</data_items>$eol<variables>$eol";
 
 	foreach ($data['report_variables'] as $variable) {
-		echo "<variable>$eol";
-		foreach ($variable as $key => $value) echo "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-		echo "</variable>$eol";
+		print "<variable>$eol";
+		foreach ($variable as $key => $value) print "<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+		print "</variable>$eol";
 	}
 
-	echo "</variables>$eol</report>$eol</cacti>$eol";
+	print "</variables>$eol</report>$eol</cacti>$eol";
 	$content = ob_get_clean();
 	$content = utf8_encode($content);
 
@@ -1370,39 +1370,39 @@ function export_report_template($template_id, $info=false) {
     /* use an output puffer for flushing */
     ob_start();
 
-    echo "<cacti>$eol\t<report_template>$eol\t\t<reportit>$eol";
+    print "<cacti>$eol\t<report_template>$eol\t\t<reportit>$eol";
 
-    foreach ($reportit as $key => $value) echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-    echo "\t\t</reportit>$eol\t\t<general>$eol";
+    foreach ($reportit as $key => $value) print "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+    print "\t\t</reportit>$eol\t\t<general>$eol";
 
     if (is_array($info)) {
-        foreach ($info as $key => $value)  echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+        foreach ($info as $key => $value)  print "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
     }
-    echo "\t\t</general>$eol\t\t<settings>$eol";
+    print "\t\t</general>$eol\t\t<settings>$eol";
 
-    foreach ($template_data as $key => $value) echo "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-    echo "\t\t</settings>$eol\t\t<measurands>$eol";
+    foreach ($template_data as $key => $value) print "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+    print "\t\t</settings>$eol\t\t<measurands>$eol";
 
     foreach ($measurands_data as $measurand){
-            echo "\t\t\t<measurand>$eol";
-            foreach ($measurand as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-            echo "\t\t\t</measurand>$eol";
+            print "\t\t\t<measurand>$eol";
+            foreach ($measurand as $key => $value) print "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+            print "\t\t\t</measurand>$eol";
     }
-    echo "\t\t</measurands>$eol\t\t<variables>$eol";
+    print "\t\t</measurands>$eol\t\t<variables>$eol";
 
     foreach ($variables_data as $variable) {
-            echo "\t\t\t<variable>$eol";
-            foreach ($variable as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-            echo "\t\t\t</variable>$eol";
+            print "\t\t\t<variable>$eol";
+            foreach ($variable as $key => $value) print "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+            print "\t\t\t</variable>$eol";
     }
-    echo "\t\t</variables>$eol\t\t<data_source_items>$eol";
+    print "\t\t</variables>$eol\t\t<data_source_items>$eol";
 
     foreach ($data_source_items_data as $data_source_item) {
-            echo "\t\t\t<data_source_item>$eol";
-            foreach ($data_source_item as $key => $value) echo "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-            echo "\t\t\t</data_source_item>$eol";
+            print "\t\t\t<data_source_item>$eol";
+            foreach ($data_source_item as $key => $value) print "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
+            print "\t\t\t</data_source_item>$eol";
     }
-    echo "\t\t</data_source_items>$eol\t</report_template>$eol</cacti>$eol";
+    print "\t\t</data_source_items>$eol\t</report_template>$eol</cacti>$eol";
 
     $content = ob_get_clean();
     $content = utf8_encode($content);

@@ -145,24 +145,24 @@ function export_to_CSV(&$data) {
 	ob_start();
 
 	/* report header */
-	echo "$header $eol";
+	print "$header $eol";
 
 	/* report settings */
-	echo "$eol";
+	print "$eol";
 	foreach ($report_settings as $key => $value) {
-		echo "# $key: $value $eol";
+		print "# $key: $value $eol";
 	}
 
 	/* defined variables */
-	echo "$eol # Variables: $eol";
+	print "$eol # Variables: $eol";
 	foreach ($report_variables as $var) {
-		echo "# {$var['name']}: {$var['value']} $eol";
+		print "# {$var['name']}: {$var['value']} $eol";
 	}
 
 	/* build a legend to explain the abbreviations of measurands */
-	echo "$eol # Legend: $eol";
+	print "$eol # Legend: $eol";
 	foreach ($report_measurands as $id) {
-		echo "# {$id['abbreviation']}: {$id['description']} $eol";
+		print "# {$id['abbreviation']}: {$id['description']} $eol";
 	}
 
 	/* print table header */
@@ -188,17 +188,17 @@ function export_to_CSV(&$data) {
 		}
 	}
 
-	echo "$eol $tab_head_1 $eol $tab_head_2 $eol";
+	print "$eol $tab_head_1 $eol $tab_head_2 $eol";
 
 	/* print results */
 	foreach ($report_results as $result){
-		echo '"' . $result['name_cache'] . '"' . $c_sep;
-		echo '"' . str_replace($subhead, '', $result['description']) . '"' . $c_sep;
-		echo '"' . $result['start_day']  . '"' . $c_sep;
-		echo '"' . $result['end_day']    . '"' . $c_sep;
-		echo '"' . $result['start_time'] . '"' . $c_sep;
-		echo '"' . $result['end_time']   . '"' . $c_sep;
-		echo '"' . $result['timezone']   . '"' . $c_sep;
+		print '"' . $result['name_cache'] . '"' . $c_sep;
+		print '"' . str_replace($subhead, '', $result['description']) . '"' . $c_sep;
+		print '"' . $result['start_day']  . '"' . $c_sep;
+		print '"' . $result['end_day']    . '"' . $c_sep;
+		print '"' . $result['start_time'] . '"' . $c_sep;
+		print '"' . $result['end_time']   . '"' . $c_sep;
+		print '"' . $result['timezone']   . '"' . $c_sep;
 
 		foreach ($ds_description as $datasource) {
 			$name = ($datasource != 'overall') ? $rs_ids : $ov_ids;
@@ -213,12 +213,12 @@ function export_to_CSV(&$data) {
 
 					$value = ($result[$var] == NULL)? 'NA': str_replace(".", $d_sep, (($no_formatting) ? $result[$var] : get_unit($result[$var], $rounding, $data_type, $data_precision) ));
 
-					echo '"'. $value .'"' . $c_sep;
+					print '"'. $value .'"' . $c_sep;
 				}
 			}
 		}
 
-		echo "$eol";
+		print "$eol";
 	}
 
 	return ob_get_clean();
@@ -277,27 +277,27 @@ function export_to_XML(&$data) {
 	/* create puffered xml output */
 	ob_start();
 
-	echo "<?xml version='1.0' encoding=\"UTF-8\"?>$eol";
-	echo "<!--{$header} -->";
-	echo "<cacti>$eol<report>$eol<settings>$eol";
+	print "<?xml version='1.0' encoding=\"UTF-8\"?>$eol";
+	print "<!--{$header} -->";
+	print "<cacti>$eol<report>$eol<settings>$eol";
 
 	foreach ($report_settings as $key => $value) {
-		echo "<$key>$value</$key>$eol";
+		print "<$key>$value</$key>$eol";
 	}
 
-	echo "</settings>$eol<variables>$eol";
+	print "</settings>$eol<variables>$eol";
 
 	foreach ($report_variables as $variable) {
-		echo "<variable>$eol";
+		print "<variable>$eol";
 
 		foreach ($variable as $key => $value) {
-			echo "<$key>$value</$key>$eol";
+			print "<$key>$value</$key>$eol";
 		}
 
-		echo "</variable>$eol";
+		print "</variable>$eol";
 	}
 
-	echo "</variables>$eol<measurands>$eol";
+	print "</variables>$eol<measurands>$eol";
 
 	foreach ($report_measurands as $measurand){
 		$id = $measurand['id'];
@@ -309,27 +309,27 @@ function export_to_XML(&$data) {
 		$mea[$id]['data_type']      = $measurand['data_type'];
 		$mea[$id]['data_precision'] = $measurand['data_precision'];
 
-		echo "<measurand>$eol";
-		echo "<abbreviation>{$measurand['abbreviation']}</abbreviation>$eol";
-		echo "<description>{$measurand['description']}</description>$eol";
-		echo "</measurand>$eol";
+		print "<measurand>$eol";
+		print "<abbreviation>{$measurand['abbreviation']}</abbreviation>$eol";
+		print "<description>{$measurand['description']}</description>$eol";
+		print "</measurand>$eol";
 	}
 
-	echo "</measurands>$eol<data_items>$eol";
+	print "</measurands>$eol<data_items>$eol";
 
 	foreach ($report_results as $results){
-		echo "<item>$eol";
-		echo "<description>{$results['name_cache']}</description>$eol";
-		echo "<subhead>". str_replace($subhead, '', $results['description']) ."</subhead>$eol";
-		echo "<start_day>{$results['start_day']}</start_day>$eol";
-		echo "<end_day>{$results['end_day']}</end_day>$eol";
-		echo "<start_time>{$results['start_time']}</start_time>$eol";
-		echo "<end_time>{$results['end_time']}</end_time>$eol";
-		echo "<time_zone>{$results['timezone']}</time_zone>$eol";
-		echo "<results>$eol";
+		print "<item>$eol";
+		print "<description>{$results['name_cache']}</description>$eol";
+		print "<subhead>". str_replace($subhead, '', $results['description']) ."</subhead>$eol";
+		print "<start_day>{$results['start_day']}</start_day>$eol";
+		print "<end_day>{$results['end_day']}</end_day>$eol";
+		print "<start_time>{$results['start_time']}</start_time>$eol";
+		print "<end_time>{$results['end_time']}</end_time>$eol";
+		print "<time_zone>{$results['timezone']}</time_zone>$eol";
+		print "<results>$eol";
 
 		foreach ($ds_description as $datasource) {
-			echo "<$datasource>$eol";
+			print "<$datasource>$eol";
 
 			$name = ($datasource != 'overall') ? $rs_ids : $ov_ids;
 
@@ -343,22 +343,22 @@ function export_to_XML(&$data) {
 					$data_precision = $mea[$id]['data_precision'];
 
 					$value  = ($value == NULL)? 'NA' : (($no_formatting) ? $value : get_unit($value, $rounding, $data_type, $data_precision) );
-					echo "<$abbr measurand=\"{$mea[$id]['abbreviation']}\" unit=\"{$mea[$id]['unit']}\">$eol";
-					echo "$value";
-					echo "</$abbr >$eol";
+					print "<$abbr measurand=\"{$mea[$id]['abbreviation']}\" unit=\"{$mea[$id]['unit']}\">$eol";
+					print "$value";
+					print "</$abbr >$eol";
 				}
 			}
 
-			echo "</$datasource>$eol";
+			print "</$datasource>$eol";
 		}
 
-		echo"</results>$eol";
-		echo "</item>$eol";
+		print"</results>$eol";
+		print "</item>$eol";
 	}
 
-	echo "</data_items>$eol";
+	print "</data_items>$eol";
 
-	echo "</report>$eol</cacti>$eol";
+	print "</report>$eol</cacti>$eol";
 	$output = utf8_encode(ob_get_clean());
 
 	return $output;
@@ -393,13 +393,13 @@ function export_to_SML(&$data){
 	/* create puffered xml output */
 	ob_start();
 
-	echo "<?xml version='1.0' encoding='UTF-8'?>";
-	echo "<?mso-application progid='Excel.Sheet'?>";
-	echo $sml_workbook;
-	echo $sml_properties;
-	echo $sml_styles;
-	echo new_worksheet($data, $sml_styles);
-	echo $footer;
+	print "<?xml version='1.0' encoding='UTF-8'?>";
+	print "<?mso-application progid='Excel.Sheet'?>";
+	print $sml_workbook;
+	print $sml_properties;
+	print $sml_styles;
+	print new_worksheet($data, $sml_styles);
+	print $footer;
 	$output = utf8_encode(ob_get_clean());
 
 	return $output;
@@ -511,35 +511,35 @@ function new_worksheet(&$data, &$styles){
 	ob_start();
 
 	/* worksheet header */
-	echo "\t<Worksheet ss:Name='{$report_data['description']}'>$eol";
-	echo "\t\t<Table ss:StyleID='theme_1'>$eol";
+	print "\t<Worksheet ss:Name='{$report_data['description']}'>$eol";
+	print "\t\t<Table ss:StyleID='theme_1'>$eol";
 
 	/* report header */
-	echo sml_cell($header, true);
+	print sml_cell($header, true);
 
 	/* report settings */
-	echo sml_cell('', true);
+	print sml_cell('', true);
 	foreach ($report_settings as $key => $value) {
-		echo sml_cell("# $key: $value", true);
+		print sml_cell("# $key: $value", true);
 	}
 
 	/* defined variables */
-	echo sml_cell('', true);
-	echo sml_cell('# Variables:', true);
+	print sml_cell('', true);
+	print sml_cell('# Variables:', true);
 	foreach ($report_variables as $var) {
-		echo sml_cell("# {$var['name']}: {$var['value']}", true);
+		print sml_cell("# {$var['name']}: {$var['value']}", true);
 	}
 
 	/* build a legend to explain the abbreviations of measurands */
-	echo sml_cell('# Legend:', true);
+	print sml_cell('# Legend:', true);
 	foreach ($report_measurands as $id) {
-		echo sml_cell ("# {$id['abbreviation']}: {$id['description']}", true);
+		print sml_cell ("# {$id['abbreviation']}: {$id['description']}", true);
 	}
 
 	/* print table header */
-	echo sml_cell('', true);
+	print sml_cell('', true);
 
-	echo "\t\t\t<Row>$eol";
+	print "\t\t\t<Row>$eol";
 
 	for($i = 1; $i < 8; $i++) {
 		$tab_head_1 .= sml_cell('');
@@ -564,19 +564,19 @@ function new_worksheet(&$data, &$styles){
 		}
 	}
 
-	echo "$eol $tab_head_1\t\t\t</Row>$eol\t\t\t<Row>$tab_head_2 $eol";
-	echo "\t\t\t</Row>$eol";
+	print "$eol $tab_head_1\t\t\t</Row>$eol\t\t\t<Row>$tab_head_2 $eol";
+	print "\t\t\t</Row>$eol";
 
 	/* print results */
 	foreach ($report_results as $result){
-		echo "\t\t\t<Row>$eol";
-		echo sml_cell($result['name_cache']);
-		echo sml_cell(str_replace($subhead, '', $result['description']));
-		echo sml_cell($result['start_day']);
-		echo sml_cell($result['end_day']);
-		echo sml_cell($result['start_time']);
-		echo sml_cell($result['end_time']);
-		echo sml_cell($result['timezone']);
+		print "\t\t\t<Row>$eol";
+		print sml_cell($result['name_cache']);
+		print sml_cell(str_replace($subhead, '', $result['description']));
+		print sml_cell($result['start_day']);
+		print sml_cell($result['end_day']);
+		print sml_cell($result['start_time']);
+		print sml_cell($result['end_time']);
+		print sml_cell($result['timezone']);
 
 		foreach ($ds_description as $datasource) {
 			$name = ($datasource != 'overall') ? $rs_ids : $ov_ids;
@@ -590,17 +590,17 @@ function new_worksheet(&$data, &$styles){
 
 					$value = $result[$var];
 					$value = ($value == NULL)? 'NA' : (($no_formatting) ? $value : get_unit($value, $rounding, $data_type, $data_precision) );
-					echo sml_cell($value);
+					print sml_cell($value);
 				}
 			}
 		}
 
-		echo "\t\t\t</Row>$eol";
+		print "\t\t\t</Row>$eol";
 	}
 
 	/* print worksheet footer */
-	echo "\t\t</Table>$eol";
-	echo "\t</Worksheet>$eol";
+	print "\t\t</Table>$eol";
+	print "\t</Worksheet>$eol";
 
 	return ob_get_clean();
 }

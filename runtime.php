@@ -103,27 +103,27 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 function help() {
     $version = reportit_version('version');
 
-    echo "\n---------------------------------------------------------------------------------------------------\n";
-    echo " Copyright 2006-2017 - The Cacti Group\n";
-    echo " Project:         Cacti-ReportIT\n";
-    echo " Project site:    http://sourceforge.net/projects/cacti-reportit/\n";
-    echo " Version:         v$version\n";
-    echo " Authors:         Andreas Braun, Reinhard Scheck\n";
-    echo "---------------------------------------------------------------------------------------------------\n\n";
-    echo " Usage: runtime.php [OPTIONS] <Report Config ID>\n";
-    echo "  e.g.: runtime.php 12                            run report 12 only\n";
-    echo "      : runtime.php -d -v                         run all daily reports + CLI feedback\n";
-    echo "      : runtime.php --debug 12                    debug report 12\n";
-    echo "      : runtime.php --debug -v 12 > log.txt       redirect debugging output\n";
-    echo "      : runtime.php --debug -d                    debug all daily reports (STRONGLY NOT RECOMMEND)\n\n\n";
-    echo "     -d:          daily\n";
-    echo "     -w:          weekly\n";
-    echo "     -m:          monthly\n";
-    echo "     -q:          quarterly\n";
-    echo "     -y:          yearly\n\n";
-    echo "     -v:          verbose\n";
-    echo "     --debug:     DEBUG MODE\n\n";
-    echo "---------------------------------------------------------------------------------------------------\n\n";
+    print "\n---------------------------------------------------------------------------------------------------\n";
+    print " Copyright 2006-2017 - The Cacti Group\n";
+    print " Project:         Cacti-ReportIT\n";
+    print " Project site:    http://sourceforge.net/projects/cacti-reportit/\n";
+    print " Version:         v$version\n";
+    print " Authors:         Andreas Braun, Reinhard Scheck\n";
+    print "---------------------------------------------------------------------------------------------------\n\n";
+    print " Usage: runtime.php [OPTIONS] <Report Config ID>\n";
+    print "  e.g.: runtime.php 12                            run report 12 only\n";
+    print "      : runtime.php -d -v                         run all daily reports + CLI feedback\n";
+    print "      : runtime.php --debug 12                    debug report 12\n";
+    print "      : runtime.php --debug -v 12 > log.txt       redirect debugging output\n";
+    print "      : runtime.php --debug -d                    debug all daily reports (STRONGLY NOT RECOMMEND)\n\n\n";
+    print "     -d:          daily\n";
+    print "     -w:          weekly\n";
+    print "     -m:          monthly\n";
+    print "     -q:          quarterly\n";
+    print "     -y:          yearly\n\n";
+    print "     -v:          verbose\n";
+    print "     --debug:     DEBUG MODE\n\n";
+    print "---------------------------------------------------------------------------------------------------\n\n";
     exit;
 }
 
@@ -149,7 +149,7 @@ function run($frequency) {
     $reports = db_fetch_assoc($sql);
     $number = count($reports);
     if(is_numeric($frequency) & $number == 0) {
-        echo "\n\n ERROR: Invalid report ID !\n";
+        print "\n\n ERROR: Invalid report ID !\n";
         help();
     }
 
@@ -204,7 +204,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice='') {
         if($run_verb) {
             $date     = date("m/d/Y h:i:s A");
             $output     = "$date - " . str_replace($run_search, $run_repl_fin, $runtime_messages[$code]) . "\n";
-            echo $output;
+            print $output;
         }
     }else {
         $run_output      = str_replace($run_search, $run_repl_view, $runtime_messages[$code]);

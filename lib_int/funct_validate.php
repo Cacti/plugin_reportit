@@ -154,7 +154,7 @@ function die_html_custom_error($msg = '', $top_header = FALSE) {
 
 	top_header();
 
-	echo "<table width='98%' align='center'>
+	print "<table width='98%' align='center'>
 		<tr>
 			<td>
 				$message

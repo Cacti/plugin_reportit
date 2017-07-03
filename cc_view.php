@@ -859,7 +859,7 @@ function show_report() {
 	}
 
 	print '<form name="custom_dropdown" method="post">';
-	draw_custom_actions_dropdown($export_formats, 'cc_view.php', 'single_export');
+	draw_actions_dropdown($export_formats, 'cc_view.php', 'single_export');
 	print '</form>';
 
 	ob_end_flush();
@@ -1293,7 +1293,7 @@ function show_graphs() {
 					print "<td colspan='1' width='100%'>";
 
 					if (count($data)) {
-						html_report_start_box();
+						html_start_box('', '100%', '', '2', 'center', '');
 
 						html_header(array(
 							__('Pos.'),
@@ -1326,7 +1326,7 @@ function show_graphs() {
 							print '</td>';
 						}
 
-						print '</table>';
+						html_end_box();
 					}
 
 					print '</td></tr>';

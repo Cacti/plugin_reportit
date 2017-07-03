@@ -114,7 +114,7 @@ function calculation() {
 			<td style='vertical-align:top;'><b><?php print __('Number of errors <font class="deviceDown"> (%s)</font>', $number_of_errors);?></b></td>
 			<td class='left'><b> <font color='FF0000'><ul><?php
 			foreach($result as $error) {
-				if (substr_count($error, 'ERROR')) echo "<li>$error</li>";
+				if (substr_count($error, 'ERROR')) print "<li>$error</li>";
 			}
 			?></ul></font></b></td>
 		</tr>
@@ -131,7 +131,9 @@ function calculation() {
 			<td style='vertical-align:top;'><b><?php print__('Number of warnings <font class="deviceDown"> (%s)</font>', $number_of_warnings);?></b></td>
 			<td class='left'><b><ul><?php
 			foreach($result as $warning) {
-				if (substr_count($warning, 'WARNING')) echo "<li>$warning</li>";
+				if (substr_count($warning, 'WARNING')) {
+					print "<li>$warning</li>";
+				}
 			}
 			?></ul></b></td>
 		</tr>

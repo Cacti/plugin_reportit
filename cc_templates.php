@@ -79,14 +79,14 @@ function template_wizard($action) {
 		top_header();
 		if (isset($_SESSION['reportit_tWizard'])) unset($_SESSION['reportit_tWizard']);
 
-		html_start_box(__('New Template'), '60%', '', '3', 'left', '');
-
 		form_start('cc_templates.php');
+
+		html_start_box(__('New Template'), '60%', '', '3', 'left', '');
 
 		if (sizeof($list_of_data_templates) == 0) {
 			print "<tr class='textArea'>
 				<td>
-					<span class='textError'>" . __('There are no data templates in use.') . "</span>
+					<span class='textError'>" . __('There are no Data Templates in use.') . "</span>
 				</td>
 			</tr>";
 
@@ -95,7 +95,7 @@ function template_wizard($action) {
 			$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Create a new Report Template') . "'>";
 			print "<tr class='textArea'>
 				<td>
-					<p>" . __('Choose a Data Template this Report Template should depend on.  Unused data templates are hidden.') . "
+					<p>" . __('Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden.') . "
 				</td>
 			</tr>";
 
@@ -112,6 +112,8 @@ function template_wizard($action) {
 		</tr>";
 
 		html_end_box();
+
+		form_end();
 
 		bottom_footer();
 
@@ -717,12 +719,16 @@ function form_save() {
 
 		/* remove all data source items which are no longer in use */
 		if ($unused_data_sources) {
-			$sql = "DELETE FROM reportit_data_source_items WHERE template_id = $id AND id IN ($unused_data_sources)";
-			db_execute($sql);
+			db_execute_prepared("DELETE FROM reportit_data_source_items
+				WHERE template_id = ?
+				AND id IN ($unused_data_sources)",
+				array($id));;
 		}
 
 		/* save the data source items */
-		foreach($ds_items as $ds_item) sql_save($ds_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+		foreach($ds_items as $ds_item) {
+			sql_save($ds_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+		}
 
 		/* return to list view if it was an existing report template */
 		if (get_request_var('id')!='0') {
@@ -793,14 +799,14 @@ function template_edit() {
 			'friendly_name' => __('Locked'),
 			'method' => 'checkbox',
 			'default' => 'on',
-			'description' => __('Define this template as locked (default), so that power users <br> can\'t use it until you have checked its functionality. During that time they are<br> also not allowed to modify or run reports based on this template.'),
+			'description' => __('Define this Report Template as locked (default), so that power users can\'t use it until you have checked its functionality. During that time they are also not allowed to modify or run reports based on this template.'),
 			'value' => (!isset($template_data['locked']) || $template_data['locked'] == true) ? 'on' : 'off'
 		),
 		'template_filter' => array(
 			'friendly_name' => __('Additional Pre-filter'),
 			'method' => 'textbox',
 			'max_length' => '100',
-			'description' => __('Optional: The syntax to filter the available list of data items<br> by their description. Use SQL wildcards like % and/or _. No regular Expressions!'),
+			'description' => __('Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!'),
 			'value' => (isset($template_data['pre_filter']) ? $template_data['pre_filter'] : '')
 		)
 	);
@@ -853,11 +859,13 @@ function template_edit() {
 		html_blue_link($links);
 	}
 
+	form_start('cc_templates.php');
+
 	html_start_box($header_label, '100%', '', '2', 'center', '');
 
 	draw_edit_form(
 		array(
-			'config' => array(),
+			'config' => array('no_form_tag' => true),
 			'fields' => $form_array
 		)
 	);
@@ -906,7 +914,7 @@ function form_actions() {
 
 				$template_data = db_fetch_row('SELECT * FROM reportit_templates WHERE id = ' . $selected_items[$i]);
 				$template_data['id'] = 0;
-				$template_data['description'] = str_replace("<template_title>", $template_data['description'], get_request_var('template_addition'));
+				$template_data['description'] = str_replace(__('<template_title>'), $template_data['description'], get_request_var('template_addition'));
 				$template_id = sql_save($template_data, 'reportit_templates');
 
 				$old = array();
@@ -930,7 +938,10 @@ function form_actions() {
 						$abbr   = 'c' . $new_id . 'v';
 						$new[]  = $abbr;
 
-						db_execute("UPDATE reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+						db_execute_prepared('UPDATE reportit_variables
+							SET abbreviation = ?
+							WHERE id = ?' ,
+							array($abbr, $new_id));
 					}
 				}
 
@@ -943,9 +954,10 @@ function form_actions() {
 
 				if (sizeof($template_measurands)) {
 					foreach($template_measurands as $measurand) {
-						$measurand['id'] = 0;
-						$measurand['template_id'] = $template_id;
+						$measurand['id']           = 0;
+						$measurand['template_id']  = $template_id;
 						$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
+
 						sql_save($measurand, 'reportit_measurands');
 					}
 				}
@@ -960,6 +972,7 @@ function form_actions() {
 				if (sizeof($template_ds_items)) {
 					foreach($template_ds_items as $data_source_item) {
 						$data_source_item['template_id'] = $template_id;
+
 						sql_save($data_source_item, 'reportit_data_source_items', array('id', 'template_id'), false);
 					}
 				}
@@ -984,12 +997,19 @@ function form_actions() {
 			// ====================================================
 
 			//Fetch Template description
-			$template_description = db_fetch_cell('SELECT description FROM reportit_templates WHERE id=' . $id);
+			$template_description = db_fetch_cell_prepared('SELECT description
+				FROM reportit_templates
+				WHERE id = ?',
+				array($id));
+
 			$template_identifier = $template_description . " [<a href='./cc_templates.php?action=template_edit&id=$id'>$id</a>]";
 			$ds_list[$template_identifier] = '';
 
 			//Fetch all descriptions of reports attached to this template
-			$template_reports = db_fetch_assoc('SELECT id, description FROM reportit_reports WHERE template_id=' . $id);
+			$template_reports = db_fetch_assoc_prepared('SELECT id, description
+				FROM reportit_reports
+				WHERE template_id = ?',
+				array($id));
 
 			foreach ($template_reports as $key => $value) {
 				$ds_list[$template_identifier][] = "[<a href='./cc_reports.php?action=report_edit&id={$template_reports[$key]['id']}'>{$template_reports[$key]['id']}</a>] " . $template_reports[$key]['description'];
@@ -999,9 +1019,9 @@ function form_actions() {
 
 	top_header();
 
-	html_start_box($template_actions{get_request_var('drp_action')}, '60%', '', '3', 'center', '');
-
 	form_start('cc_templates.php');
+
+	html_start_box($template_actions{get_request_var('drp_action')}, '60%', '', '3', 'center', '');
 
 	if (get_request_var('drp_action') == '1') {
 		/* delete report template(s) */
@@ -1010,38 +1030,45 @@ function form_actions() {
 				<p>" . __('Click \'Continue\' to Delete the following Report Templates') . '</p>';
 
 		if (is_array($ds_list)) {
-			print "<strong>" . __('WARNING:') . "</strong> " . __('Every Report that belongs to these Templates will be deleted too!');
+			print __('<b>WARNING:</b>Every Report that belongs to these Templates will be deleted too!');
 
 			foreach($ds_list as $key => $value) {
-				print "<p>Template : $key<br>";
+				print '<p>' . __('Template : %s', $key) . '</p>';
 
 				if (is_array($ds_list[$key])) {
+					print '<ul>';
 					foreach($ds_list[$key] as $report_name => $value) {
-						print __("&#160 |_Report: %s<br>", $value);
+						print '<li>' . __('Report: %s', $value) . '</li>';
 					}
+					print '</ul>';
 				} else {
-					print __("&#160 |_Report: <i>none</i><br>");
+					print '<ul>';
+					print '<li>' . __('Report: <i>None</i>') . '</li>';
+					print '</ul>';
 				}
 			}
 		}
 
-		print "</p>
-			</td>
-		</tr>";
+		print '</td>
+		</tr>';
 	} elseif (get_request_var('drp_action') == '2') { // DUPLICATE REPORT TEMPLATE
 		print "<tr>
 			<td class='textArea'>
 				<p>" . __('Click \'Continue\' to Duplicate the following Report Templates.  You can optionally change the Title for the new Report Templates.') . '</p>';
 
 		if (is_array($ds_list)) {
-			print	'<p>' . __('List of selected templates:') . '<br>';
+			print	'<p>' . __('List of selected templates:') . '</p>';
 
-			foreach($ds_list as $key => $value) {
-				print	__('&#160 |_Template : %s<br>', $key);
+			if (sizeof($ds_list)) {
+				print '<ul>';
+				foreach($ds_list as $key => $value) {
+					print '<li>' . __('Template : %s', $key) . '</li>';
+				}
+				print '</ul>';
 			}
 		}
 
-		print '<p><strong>' . __('Title:') . '</strong><br>';
+		print '<p>' . __('Title:') . '<br>';
 
 		form_text_box('template_addition', __('<template_title> (1)'), '', '255', '30', 'text');
 
@@ -1074,6 +1101,8 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
+
+	form_end();
 
 	bottom_footer();
 }

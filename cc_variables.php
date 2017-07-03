@@ -87,7 +87,7 @@ function standard() {
 
 	html_start_box($header_label, '100%', '', '2', 'center', 'cc_variables.php?action=variable_edit&template_id=' . get_request_var('id'));
 
-	html_header_checkbox(html_sorted_with_arrows( $desc_array, $link_array, 'cc_variables.php', get_request_var('id')));
+	html_header_checkbox($desc_array);
 
 	if (sizeof($variables_list) > 0) {
 		foreach($variables_list as $variable) {

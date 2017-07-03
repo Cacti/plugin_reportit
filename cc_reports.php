@@ -1007,9 +1007,9 @@ function report_edit() {
 		if (sizeof($report_recipients)) {
 			foreach ($report_recipients as $recipient) {
 				form_alternate_row();
-				echo '<td>' . $recipient['name'] . '</td>';
-				echo '<td>' . $recipient['email'] . '</td>';
-				echo "<td class='right'><a class='pic fa fa-delete' href='cc_reports.php?action=remove&id=" . get_request_var('id') . '&rec=' . $recipient['id'] . '></a></td>';
+				print '<td>' . $recipient['name'] . '</td>';
+				print '<td>' . $recipient['email'] . '</td>';
+				print "<td class='right'><a class='pic fa fa-delete' href='cc_reports.php?action=remove&id=" . get_request_var('id') . '&rec=' . $recipient['id'] . '></a></td>';
 
 				form_end_row();
 			}
