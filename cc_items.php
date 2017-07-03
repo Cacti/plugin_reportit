@@ -210,31 +210,31 @@ function standard() {
 	}
 
 	/* check host filter defined by form */
-	if (get_request_var('host') == "-1") {
+	if (get_request_var('host') == '-1') {
 		/* filter nothing */
 	}elseif (!isempty_request_var('host')) {
 		/* show only data items of selected host */
-		$sql .= " AND c.host_id =" . get_request_var('host');
+		$sql .= ' AND c.host_id =' . get_request_var('host');
 	}
 
 	/* check text filter defined by form */
 	if (strlen(get_request_var('filter'))) {
-		$sql .= " AND a.name_cache LIKE '%%" . get_request_var('filter') . "%%'";
+		$sql .= ' AND a.name_cache LIKE "%' . get_request_var('filter') . '%"';
 	}
 
 	/* check for the specific Host Template Id, if Host Template Id filter has been applied */
 	if ($report_data['host_template_id'] != 0) {
-		$sql .= " AND e.id = " . $report_data['host_template_id'];
+		$sql .= ' AND e.id = ' . $report_data['host_template_id'];
 	}
 
 	/* check Data Source Filter, if defined in report configuration*/
 	if ($report_data['data_source_filter'] != '') {
-		$sql .= " AND a.name_cache LIKE '{$report_data['data_source_filter']}'";
+		$sql .= ' AND a.name_cache LIKE "%' . $report_data['data_source_filter'] . '%"';
 	}
 
 	/* use additional where clause for graph permissions if necessary */
-	if (read_config_option("auth_method") != 0 & $report_data['graph_permission'] == 1) {
-		$sql .= " AND $sql_where ";
+	if (read_config_option('auth_method') != 0 & $report_data['graph_permission'] == 1) {
+		$sql .= ' AND ' . $sql_where;
 	}
 
 	if (get_request_var('rows') == '-1') {
@@ -243,11 +243,11 @@ function standard() {
 		$rows = get_request_var('rows');
 	}
 
-	$total_rows = db_fetch_cell(str_replace('DISTINCT a.local_data_id AS id, a.name_cache','COUNT(DISTINCT a.local_data_id)',$sql));
+	$total_rows = db_fetch_cell(str_replace('DISTINCT a.local_data_id AS id, a.name_cache','COUNT(DISTINCT a.local_data_id)', $sql));
 
 	/* apply sorting functionality and limitation */
 	$sql_order = get_order_string();
-	$sql_limit = " LIMIT " . ($rows*(get_request_var('page')-1)) . "," . $rows;
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	$sql .= $sql_order . $sql_limit;
 

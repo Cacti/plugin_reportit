@@ -150,16 +150,16 @@ function standard() {
 
 	/* form the 'where' clause for our main sql query */
 	if (get_request_var('filter') != '') {
-		$affix = "WHERE b.name_cache LIKE '%" . get_request_var('filter') . "%' AND a.report_id = " . get_request_var('id');
+		$sql_where = "WHERE b.name_cache LIKE '%" . get_request_var('filter') . "%' AND a.report_id = " . get_request_var('id');
 	} else {
-		$affix = "WHERE a.report_id = " . get_request_var('id');
+		$sql_where = "WHERE a.report_id = " . get_request_var('id');
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(a.id)
 		FROM reportit_data_items AS a
    		LEFT JOIN data_template_data as b
 		ON b.local_data_id = a.id
-		$affix");
+		$sql_where");
 
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
@@ -168,7 +168,7 @@ function standard() {
 		FROM reportit_data_items AS a
 		LEFT JOIN data_template_data AS b
 		ON b.local_data_id = a.id
-		$affix
+		$sql_where
 		$sql_order
 		$sql_limit");
 

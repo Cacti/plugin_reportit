@@ -39,12 +39,12 @@ set_default_action();
 
 switch (get_request_var('action')) {
 	case 'show_report':
-		top_header();
+		general_header();
 		show_report();
 		bottom_footer();
 		break;
 	case 'show_graphs':
-		top_header();
+		general_header();
 		show_graphs();
 		bottom_footer();
 		break;
@@ -52,7 +52,7 @@ switch (get_request_var('action')) {
 		show_graph_overview();
 		break;
 	case 'export':
-		top_header();
+		general_header();
 		show_export_wizard(true);
 		bottom_footer();
 		break;
@@ -60,7 +60,7 @@ switch (get_request_var('action')) {
 		export();
 		break;
 	default:
-		top_header();
+		general_header();
 		standard();
 		bottom_footer();
 		break;
@@ -559,11 +559,12 @@ function show_report() {
 	$nav = html_nav_bar('cc_view.php?action=show_report&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
 
 	/* graph view */
-	$link = (read_config_option('reportit_graph') == 'on')? "./cc_view.php?action=show_graphs&id={get_request_var('id')}" : "";
+	$link = (read_config_option('reportit_graph') == 'on')? './cc_view.php?action=show_graphs&id=' . get_request_var('id') : '';
 
 	/* start HTML output */
 	ob_start();
-	html_custom_header_box($report_header, false, $link, "<img src='./images/bar.gif' alt='Graph View' border='0' align='top'>");
+
+	html_custom_header_box($report_header, false, $link, '<img src="./images/bar.gif" title="' . __('Graph View') . '">');
 
 	?>
 	<tr class='odd'>
@@ -679,7 +680,7 @@ function show_report() {
 		</form>
 		<script type='text/javascript'>
 		function applyFilter() {
-			strURL  = 'cc_view.php?header=false';
+			strURL  = 'cc_view.php?action=show_report&header=false';
 			strURL += '&filter='+escape($('#filter').val());
 			strURL += '&info='+$('#info').val();
 			strURL += '&rows='+$('#rows').val();
@@ -692,7 +693,7 @@ function show_report() {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_view.php?clear=1&header=false';
+			strURL = 'cc_view.php?action=show_report&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -724,14 +725,14 @@ function show_report() {
 	if (get_request_var('summary')) {
 		html_graph_start_box(1, false);
 		foreach ($report_summary as $array) {
-			print "<tr>";
+			print '<tr>';
 			foreach ($array as $key => $value) {
 				print "<td><b>$key:</b></td></td><td align='left'>$value</td>";
 			}
-			print "</tr>";
+			print '</tr>';
 		}
 		html_graph_end_box();
-		print "<br>";
+		print '<br>';
 	}
 
 	print $nav;
@@ -739,7 +740,7 @@ function show_report() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	/* print categories */
-	print "<tr><td class='even'></td>";
+	print '<tr><td class="even"></td>';
 	foreach ($ds_description as $description) {
 		$counter = ($description != 'overall') ? $count_rs : $count_ov;
 		if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
@@ -747,7 +748,7 @@ function show_report() {
 		}
 		print "<td colspan='$counter' height='10' class='even'>$description</td>";
 	}
-	print "</tr>\n";
+	print '</tr>';
 
 	/* print table header */
 	$display_text = array(
@@ -780,15 +781,13 @@ function show_report() {
 		foreach ($report_results as $result) {
 			form_alternate_row();
 
-			print "<td " . ((get_request_var('sort_column') == 'name_cache') ? "bgcolor='#FFFACD'>" : ">") ."
-				<a class='linkEditMain' href='cc_view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd=" . $result["id"] . "&cache=" . get_request_var('archive') . "'>
-					{$result["name_cache"]}
-				</a>";
+			print '<td>
+				<a class="linkEditMain" href="cc_view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . $result['name_cache'] . '</a>';
 
 			if (get_request_var('subhead') == 1) {
 				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
 				$subhead = str_replace($search, $replace, $result['description']);
-				print "<br>$subhead";
+				print '<br>' . $subhead;
 			}
 			print '</td>';
 
@@ -814,7 +813,7 @@ function show_report() {
 			}
 		}
 	} else {
-		print "<tr><td colspan='" . sizeof($display_text) . "'><em>" . __('No data items') . "</em></td></tr>";
+		print "<tr><td colspan='" . sizeof($display_text) . "'><em>" . __('No Data Items') . "</em></td></tr>";
 	}
 
 	/* show additional informations if requested */
@@ -885,18 +884,19 @@ function show_graph_overview() {
 		: get_prepared_archive_data($cache_id, 'view');
 	$report_data	= $data['report_data'];
 
-	$sql = "SELECT DISTINCT c.local_graph_id
-			 FROM 			data_template_data 		AS a
-			 INNER JOIN 	data_template_rrd 		AS b
-			 ON 			b.local_data_id 		= a.local_data_id
-			 INNER JOIN 	graph_templates_item 	AS c
-			 ON 			c.task_item_id 			= b.id
-			 WHERE 			a.local_data_id 		= {get_request_var('rrd')}";
-	$local_graph_id = db_fetch_cell($sql);
+	$local_graph_id = db_fetch_cell_prepared('SELECT DISTINCT c.local_graph_id
+		FROM data_template_data AS a
+		INNER JOIN data_template_rrd AS b
+		ON b.local_data_id = a.local_data_id
+		INNER JOIN graph_templates_item AS c
+		ON c.task_item_id = b.id
+		WHERE a.local_data_id = ?',
+		array(get_request_var('rrd')));
 
 	$start	= strtotime($report_data['start_date']);
 	$end	= strtotime($report_data['end_date'] . ' 23:59:59');
-	header("Location: ../../graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
+
+	header("Location: ../../graph.php?header=false&action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
 }
 
 function graphs_filter($ds_description, $measurands, $graphs, $archive) {
@@ -904,7 +904,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 
 	?>
 	<tr class='odd'>
-		<form id='form_graphs' method='get' action='cc_view.php'>
+		<form id='form_graphs' method='get' action='cc_view.php?action=show_graphs'>
 		<td>
 			<table class='filterTable'>
 				<tr>
@@ -1005,6 +1005,39 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 		</td>
 		<input type='hidden' name='page' value='<?php print get_request_var('page');?>'>
 		</form>
+		<script type='text/javascript'>
+		function applyFilter() {
+			strURL  = 'cc_view.php?action=show_graphs&header=false';
+			strURL += '&filter='+escape($('#filter').val());
+			strURL += '&rows='+$('#rows').val();
+			strURL += '&measurand='+$('#measurand').val();
+			strURL += '&data_source='+$('#data_source').val();
+			strURL += '&archive='+$('#archive').val();
+			strURL += '&summary='+$('#summary').is(':checked');
+			strURL += '&type='+$('#type').val();
+			loadPageNoHeader(strURL);
+		}
+
+		function clearFilter() {
+			strURL = 'cc_view.php?action=show_graphs&clear=1&header=false';
+			loadPageNoHeader(strURL);
+		}
+
+		$(function() {
+			$('#type, #rows, #measurand, #data_source, #archive, #summary').change(function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
+			});
+
+			$('#form_graphs').submit(function(event) {
+				event.preventDefault();
+				applyFilter();
+			});
+		});
+		</script>
 	</tr>
 	<?php
 }
@@ -1090,7 +1123,7 @@ function show_graphs() {
 
 	/* form the 'where' clause for our main sql query */
 	if (get_request_var('filter') != '') {
-		$sql_where .= " LIKE '%%" . get_request_var('filter') . "%%'";
+		$sql_where .= " LIKE '%" . get_request_var('filter') . "%'";
 	}
 
 	/* get informations about the archive if it exists */
@@ -1122,7 +1155,7 @@ function show_graphs() {
 
 		$report_summary[3]['Last Run']  = $report_data['last_run'];
 		$report_summary[3]['Scheduler'] = ($report_data['scheduled'] == 0) ? 'disabled' : 'enabled (' . $report_data['frequency'] . ')';
-		$report_summary[4]['Period']                  = $report_data['start_date'] . " - " . $report_data['end_date'];
+		$report_summary[4]['Period']                  = $report_data['start_date'] . ' - ' . $report_data['end_date'];
 		$report_summary[4]['Auto Generated RRD list'] = ($report_data['autorrdlist'] == 0)? 'disabled' : 'enabled';
 	}
 
@@ -1195,21 +1228,21 @@ function show_graphs() {
 	//----- Start HTML output -----
 	ob_start();
 
-	html_start_box($report_header, '100%', '', '2', 'center', "");
+	html_start_box($report_header, '100%', '', '2', 'center', '');
 	graphs_filter($ds_description, $measurands, $graphs, $archive);
 	html_end_box();
 
 	if (get_request_var('summary')) {
 		html_graph_start_box(1, false);
 		foreach ($report_summary as $array) {
-			print "<tr>";
+			print '<tr>';
 			foreach ($array as $key => $value) {
 				print "<td><b>$key:</b></td></td><td align='left'>$value</td>";
 			}
-			print "</tr>";
+			print '</tr>';
 		}
 		html_graph_end_box();
-		print "<br>";
+		print '<br>';
 	}
 
 	html_graph_start_box(3, false);

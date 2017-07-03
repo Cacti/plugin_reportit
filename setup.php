@@ -23,13 +23,13 @@
 */
 
 function plugin_reportit_install() {
-	api_plugin_register_hook('reportit', 'page_head', 'reportit_page_head', 'setup.php');
-    api_plugin_register_hook('reportit', 'top_header_tabs', 'reportit_show_tab', 'setup.php');
-    api_plugin_register_hook('reportit', 'top_graph_header_tabs', 'reportit_show_tab', 'setup.php');
-    api_plugin_register_hook('reportit', 'draw_navigation_text', 'reportit_draw_navigation_text', 'setup.php');
-    api_plugin_register_hook('reportit', 'config_arrays', 'reportit_config_arrays', 'setup.php');
-    api_plugin_register_hook('reportit', 'config_settings', 'reportit_config_settings', 'setup.php');
-    api_plugin_register_hook('reportit', 'poller_bottom', 'reportit_poller_bottom', 'setup.php');
+	api_plugin_register_hook('reportit', 'page_head',             'reportit_page_head',            'setup.php');
+    api_plugin_register_hook('reportit', 'top_header_tabs',       'reportit_show_tab',             'setup.php');
+    api_plugin_register_hook('reportit', 'top_graph_header_tabs', 'reportit_show_tab',             'setup.php');
+    api_plugin_register_hook('reportit', 'draw_navigation_text',  'reportit_draw_navigation_text', 'setup.php');
+    api_plugin_register_hook('reportit', 'config_arrays',         'reportit_config_arrays',        'setup.php');
+    api_plugin_register_hook('reportit', 'config_settings',       'reportit_config_settings',      'setup.php');
+    api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
 
 	reportit_setup_table();
 }
@@ -52,8 +52,7 @@ function plugin_reportit_uninstall() {
 }
 
 function plugin_reportit_check_config() {
-	$status = reportit_check_upgrade();
-	return $status;
+	return reportit_check_upgrade();
 }
 
 function plugin_reportit_upgrade() {
@@ -508,7 +507,7 @@ function reportit_config_settings() {
 			'method'                => 'textarea',
 			'textarea_rows'         => '3',
 			'textarea_cols'         => '60',
-			'default'               => "# Your report header\n# <cacti_version> <reportit_version>",
+			'default'               => __('# Your report header\\n# <cacti_version> <reportit_version>'),
 		),
 		'reportit_header4'          => array(
 			'friendly_name'         => __('Auto Archiving'),
@@ -691,28 +690,17 @@ function reportit_config_settings() {
 	if (isset($settings_graphs['reports'])) {
 		$settings_graphs['reportit'] = array_merge($settings_graphs['reportit'],$temp);
 	} else {
-		$settings_graphs['reportit'] =$temp;
+		$settings_graphs['reportit'] = $temp;
 	}
 
 	unset($temp);
 }
 
 function reportit_show_tab() {
-    global $config, $user_auth_realms, $user_auth_realm_filenames;
+    global $config;
 
-	$realm_id2 = 0;
-
-	if (isset($user_auth_realm_filenames{basename('cc_view.php')})) {
-		$realm_id2 = $user_auth_realm_filenames{basename('cc_view.php')};
-	}
-
-	$sql = "SELECT user_auth_realm.realm_id
-		FROM user_auth_realm
-		WHERE user_auth_realm.user_id='" . $_SESSION["sess_user_id"] . "'
-		AND user_auth_realm.realm_id='$realm_id2'";
-
-	if ((db_fetch_assoc($sql)) || (empty($realm_id2))) {
-		print '<a href="' . $config['url_path'] . 'plugins/reportit/cc_view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (basename($_SERVER['PHP_SELF']) == 'cc_view.php' ? 'down' : 'up'). '.png" alt="reportit" align="absmiddle" border="0"></a>';
+	if (api_user_realm_auth('cc_view.php')) {
+		print '<a href="' . $config['url_path'] . 'plugins/reportit/cc_view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'cc_view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIT') . '"></a>';
 	}
 }
 
@@ -969,20 +957,22 @@ function reportit_poller_bottom() {
         $ids = substr($ids, 1);
         $str = substr($str, 0, -2);
         if (db_execute("DROP TABLE IF EXISTS $str") == 1) {
-            db_execute("DELETE FROM reportit_cache_reports WHERE `cache_id` IN ($ids);");
-            db_execute("DELETE FROM reportit_cache_variables WHERE `cache_id` IN ($ids);");
-            db_execute("DELETE FROM reportit_cache_measurands WHERE `cache_id` IN ($ids);");
+            db_execute("DELETE FROM reportit_cache_reports WHERE `cache_id` IN ($ids)");
+            db_execute("DELETE FROM reportit_cache_variables WHERE `cache_id` IN ($ids)");
+            db_execute("DELETE FROM reportit_cache_measurands WHERE `cache_id` IN ($ids)");
+
             if ($cnt >= 5) {
-                db_execute("OPTIMIZE TABLE `reportit_cache_reports`;");
-                db_execute("OPTIMIZE TABLE `reportit_cache_variables`;");
-                db_execute("OPTIMIZE TABLE `reportit_cache_measurands`;");
+                db_execute('OPTIMIZE TABLE `reportit_cache_reports`');
+                db_execute('OPTIMIZE TABLE `reportit_cache_variables`');
+                db_execute('OPTIMIZE TABLE `reportit_cache_measurands`');
             }
-            if ($logging_level != 'POLLER_VERBOSITY_NONE' and $logging_level != 'POLLER_VERBOSITY_LOW') {
+
+            if ($logging_level != 'POLLER_VERBOSITY_NONE' && $logging_level != 'POLLER_VERBOSITY_LOW') {
                 cacti_log("REPORTIT STATS: Cache Life Cycle:$lifecycle"."s &nbsp;&nbsp;Number of drops:$cnt", false, 'PLUGIN');
             }
         } else {
             if ($logging_level != 'POLLER_VERBOSITY_LOW') {
-                cacti_log("REPORTIT WARNING: Unable to clean up report cache", false, 'PLUGIN');
+                cacti_log('REPORTIT WARNING: Unable to clean up report cache', false, 'PLUGIN');
             }
         }
     }

@@ -76,9 +76,9 @@ function calculation() {
 	$result = runtime($id);
 
 	/* load report informations */
-	$report_informations = db_fetch_row_prepared("SELECT a.description, a.last_run, a.runtime
+	$report_informations = db_fetch_row_prepared('SELECT a.description, a.last_run, a.runtime
 		FROM reportit_reports AS a
-		WHERE a.id = ?", array($id));
+		WHERE a.id = ?', array($id));
 
 	foreach($result as $notice) {
 		if (substr_count($notice, 'WARNING')) {
@@ -114,12 +114,12 @@ function calculation() {
 
 		?>
 		<tr>
-			<td valign="top"><b> Number of errors <font color="0000FF"> <?php print "($number_of_errors):"; ?></font></b></td>
-			<td align="left"><b> <font color="FF0000"> <?php
+			<td style='vertical-align:top;'><b><?php print __('Number of errors <font class="deviceDown"> (%s)</font>', $number_of_errors);?></b></td>
+			<td class='left'><b> <font color='FF0000'><ul><?php
 			foreach($result as $error) {
-				if (substr_count($error, 'ERROR')) echo "<li>$error";
+				if (substr_count($error, 'ERROR')) echo "<li>$error</li>";
 			}
-			?></font></b></td>
+			?></ul></font></b></td>
 		</tr>
 		<?php
 
@@ -131,12 +131,12 @@ function calculation() {
 
 		?>
 		<tr>
-			<td valign="top"><b> Number of warnings <font color="0000FF"> <?php print "($number_of_warnings):"; ?></font></b></td>
-			<td align="left"><b> <?php
+			<td style='vertical-align:top;'><b><?php print__('Number of warnings <font class="deviceDown"> (%s)</font>', $number_of_warnings);?></b></td>
+			<td class='left'><b><ul><?php
 			foreach($result as $warning) {
-				if (substr_count($warning, 'WARNING')) echo "<li>$warning";
+				if (substr_count($warning, 'WARNING')) echo "<li>$warning</li>";
 			}
-			?> </b></td>
+			?></ul></b></td>
 		</tr>
 		<?php
 
@@ -145,16 +145,17 @@ function calculation() {
 
 	if ($number_of_errors == 0) {
 		?>
-		<table width="<?php print '100%'; ?>" align="center">
+		<table width='100%' class='center'>
 			<tr>
-				<td align="left">
-					<img type="image" src="../../images/arrow.gif" align="absmiddle" border="0">
+				<td class='left'>
+					<img type='image' src='../../images/arrow.gif'>
 				</td>
-				<td align="right">
-					<input type="image"	name="view"	src="../../images/button_view.gif" alt="View report" align="absmiddle">
+				<td class='right'>
+					<input type='button' value='<?php print __('View Report');?>'>
 				</td>
 			</tr>
 		</form>
 		<?php
 	}
 }
+
