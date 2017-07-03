@@ -62,7 +62,7 @@ switch (get_request_var('action')) {
 }
 
 function report_wizard() {
-	global $colors, $config;
+	global $config;
 
 	$templates_list = array();
 	$templates      = array();
@@ -75,7 +75,7 @@ function report_wizard() {
 
 	if (isset($_SESSION['reportit'])) unset($_SESSION['reportit']);
 
-	html_start_box(__('New Report'), '60%', $colors['header_panel'], '3', 'center', '');
+	html_start_box(__('New Report'), '60%', '', '3', 'center', '');
 
 	form_start('cc_reports.php');
 
@@ -205,7 +205,7 @@ function report_filter() {
 }
 
 function standard() {
-	global $colors, $config, $report_actions, $minutes, $link_array, $link_array_admin;
+	global $config, $report_actions, $minutes, $link_array, $link_array_admin;
 
     $affix       = '';
     $columns     = 0;
@@ -352,7 +352,7 @@ function standard() {
 
 	print $nav;
 
-	html_start_box('', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('', '100%', '', '3', 'center', '');
 
 	if ($reportAdmin) {
 		$desc_array = array(
@@ -801,7 +801,7 @@ function form_save() {
 }
 
 function report_edit() {
-	global $colors, $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs,
+	global $config, $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs,
 		$weekday, $timezone, $shifttime, $shifttime2, $format,
 		$form_array_admin, $form_array_presets, $form_array_general, $form_array_email;
 
@@ -817,11 +817,11 @@ function report_edit() {
 	/* ==================== Checkpoint ==================== */
 	my_report(get_request_var('id'));
 
-	if (get_request_var('tab') == 'admin' & !re_admin()) die_html_custom_error('Permission denied', true);
-	if (get_request_var('tab') == 'email' & !read_config_option('reportit_email')) die_html_custom_error();
-	if (!isset_request_var('id') && isempty_request_var('template')) die_html_custom_error();
-	if (get_request_var('tab') == 'email' & isset_request_var('id') && !get_report_setting(get_request_var('id'), 'auto_email')) die_html_custom_error();
-	session_custom_error_display();
+//	if (get_request_var('tab') == 'admin' & !re_admin()) die_html_custom_error('Permission denied', true);
+//	if (get_request_var('tab') == 'email' & !read_config_option('reportit_email')) die_html_custom_error();
+//	if (!isset_request_var('id') && isempty_request_var('template')) die_html_custom_error();
+//	if (get_request_var('tab') == 'email' & isset_request_var('id') && !get_report_setting(get_request_var('id'), 'auto_email')) die_html_custom_error();
+//	session_custom_error_display();
 	/* ==================================================== */
 
 	/* load config settings if it's not a new one */
@@ -1126,7 +1126,7 @@ function report_edit() {
 }
 
 function form_actions() {
-	global $colors, $report_actions, $config;
+	global $report_actions, $config;
 
 	if (isset_request_var('selected_items')) {
 		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));

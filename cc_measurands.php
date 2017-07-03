@@ -59,8 +59,7 @@ switch (get_request_var('action')) {
 
 
 function standard() {
-
-	global $colors, $measurand_actions, $config, $consolidation_functions;
+	global $measurand_actions, $config, $consolidation_functions;
 
 	/* ================= input validation ================= */
 	$id = get_filter_request_var('id');
@@ -134,7 +133,7 @@ function standard() {
 }
 
 function form_save() {
-	global $colors, $calc_var_names, $rounding, $precision, $type_specifier;
+	global $calc_var_names, $rounding, $precision, $type_specifier;
 
 	/* ================= input validation ================= */
 	input_validate_input_number(get_request_var('id'));
@@ -595,7 +594,7 @@ function measurand_edit() {
 }
 
 function form_actions() {
-	global $colors, $measurand_actions, $config;
+	global $measurand_actions, $config;
 
 	// ================= input validation =================
 	get_filter_request_var('id');

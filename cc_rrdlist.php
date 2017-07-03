@@ -54,7 +54,7 @@ switch (get_request_var('action')) {
 }
 
 function form_save() {
-	global $colors, $timezone, $shifttime, $shifttime2, $weekday;
+	global $timezone, $shifttime, $shifttime2, $weekday;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');

@@ -1043,7 +1043,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 }
 
 function show_graphs() {
-	global $config, $colors, $graphs, $limit;
+	global $config, $graphs, $limit;
 
 	$columns         = 1;
 	$archive         = array();
@@ -1340,7 +1340,7 @@ function show_graphs() {
 }
 
 function show_export_wizard($new=false){
-	global $config,$colors, $export_formats;
+	global $config, $export_formats;
 
 	/* start-up sequence */
 	if ($new !== false) {

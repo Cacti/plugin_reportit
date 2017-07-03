@@ -110,7 +110,7 @@ function save(){
 }
 
 function standard() {
-	global $colors, $config, $link_array;
+	global $config, $link_array;
 
     /* ================= input validation and session storage ================= */
     $filters = array(

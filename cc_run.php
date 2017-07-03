@@ -55,8 +55,6 @@ switch (get_request_var('action')) {
 }
 
 function calculation() {
-	global $colors;
-
 	$number_of_warnings	= 0;
 	$number_of_errors	= 0;
 	$runtime			= '';
@@ -65,7 +63,6 @@ function calculation() {
 
 	$id = get_request_var('id');
 	$_SESSION['run'] = '0';
-
 
 	if (stat_process($id)) {
 		html_error_box(__('Report is just in process.'), 'cc_run.php', '', 'cc_reports.php');

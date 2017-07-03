@@ -53,7 +53,7 @@ switch (get_request_var('action')) {
 }
 
 function standard() {
-	global $colors, $variable_actions, $link_array, $list_of_modes, $var_types, $desc_array;
+	global $variable_actions, $link_array, $list_of_modes, $var_types, $desc_array;
 
 	$affix = '';
 
@@ -91,41 +91,43 @@ function standard() {
 
 	if (sizeof($variables_list) > 0) {
 		foreach($variables_list as $variable) {
-			form_alternate_row_color($colors["alternate"], $colors["light"], $i, $variable["id"]); $i++;
-			?>
-			<td>
-				<a class='linkEditMain' href="cc_variables.php?action=variable_edit&id=<?php print $variable['id'];?>">
-					<?php print $variable['name'];?>
-				</a>
-			</td>
-			<td><?php print $variable['abbreviation'];?></td>
-			<td><?php print $variable['max_value'];?></td>
-			<td><?php print $variable['min_value'];?></td>
-			<td><?php print $variable['default_value'];?></td>
-			<td><?php print $var_types[$variable['input_type']];?></td>
-			<td style="<?php print get_checkbox_style();?>" width='1%' align='right'>
-				<input type='checkbox' style='margin: 0px;' name='chk_<?php print $variable['id'];?>' title='Select'>
-			</td>
-			</tr>
-			<?php
+			form_alternate_row('line' . $variable['id'], true);
+			form_selectable_cell('<a class="linkEditMain" href="cc_variables.php?action=variable_edit&id=' . $variable['id'] . '">' . $variable['name'] . '</a>', $variable['id']);
+			form_selectable_cell($variable['abbreviation'], $variable['id']);
+			form_selectable_cell($variable['max_value'], $variable['id']);
+			form_selectable_cell($variable['min_value'], $variable['id']);
+			form_selectable_cell($variable['default_value'], $variable['id']);
+			form_selectable_cell($var_types[$variable['input_type']], $variable['id']);
+			form_checkbox_cell($variable['id']);
+			form_end_row();
 		}
 	} else {
-		print "<tr><td><em>No variables</em></td></tr>\n";
+		print '<tr><td colspan="7"><em>' . __('No Variables Found') . '</em></td></tr>';
 	}
 
-	$form_array = array('id' => array('method'	=>'hidden_zero', 'value' =>get_request_var('id')));
-	draw_edit_form(array( 'config' => array(),'fields' => $form_array));
+	$form_array = array(
+		'id' => array(
+			'method' =>'hidden_zero',
+			'value'  => get_request_var('id')
+		)
+	);
+
+	draw_edit_form(
+		array(
+			'config' => array(),
+			'fields' => $form_array
+		)
+	);
 
 	html_end_box(true);
-	draw_custom_actions_dropdown($variable_actions, 'cc_templates.php');
+
+	draw_actions_dropdown($variable_actions, 'cc_templates.php');
 }
 
 function form_save() {
-	global $colors;
-
 	/* ================= input validation ================= */
-	input_validate_input_number(get_request_var('id'));
-	input_validate_input_number(get_request_var('template_id'));
+	get_filter_request_var('id');
+	get_filter_request_var('template_id');
 
 	form_input_validate(get_request_var('variable_name'), 'variable_name', '^[a-zA-Z0-9[:space:]]+$', false, 3);
 	form_input_validate(get_request_var('variable_description'), 'variable_description', '[a-zA-Z0-9\n\r]+', false, 3);
@@ -133,6 +135,7 @@ function form_save() {
 	form_input_validate(get_request_var('variable_minimum'), 'variable_minimum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
 	form_input_validate(get_request_var('variable_default'), 'variable_default', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
 	form_input_validate(get_request_var('variable_type'), 'variable_type', '^[1-2]$', false, 3);
+
 	if (get_request_var('variable_type') == 1) {
 		form_input_validate(get_request_var('variable_stepping'), 'variable_stepping', '^[0-9]+[.]?[0-9]*$', false, 3);
 	}
@@ -140,10 +143,14 @@ function form_save() {
 
 
 	//Check defined variable
-	if (!(get_request_var('variable_maximum') > get_request_var('variable_minimum')))
-	session_custom_error_message('variable_maximum', 'Maximum has to be greater than minimum.');
-	if (!(get_request_var('variable_minimum') <= get_request_var('variable_default') && get_request_var('variable_default')<= get_request_var('variable_maximum')))
-	session_custom_error_message('variable_default', 'Default value is out of values range.');
+	if (!(get_request_var('variable_maximum') > get_request_var('variable_minimum'))) {
+		session_custom_error_message('variable_maximum', __('Maximum has to be greater than minimum.'));
+	}
+
+	if (!(get_request_var('variable_minimum') <= get_request_var('variable_default') && get_request_var('variable_default') <= get_request_var('variable_maximum'))) {
+		session_custom_error_message('variable_default', __('Default value is out of values range.'));
+	}
+
 	if (get_request_var('variable_type') == 1) {
 		if ( !(get_request_var('variable_stepping') > 0) ||
 		!(get_request_var('variable_stepping') <= (get_request_var('variable_maximum') - get_request_var('variable_minimum'))))
@@ -188,7 +195,7 @@ function form_save() {
 }
 
 function variable_edit() {
-	global $colors, $template_actions, $var_types;
+	global $template_actions, $var_types;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
@@ -200,9 +207,9 @@ function variable_edit() {
 			WHERE id = ?',
 			array(get_request_var('id')));
 
-		$header_label 		= __('Variable Configuration [edit: %s]', $variable_data['name']);
+		$header_label = __('Variable Configuration [edit: %s]', $variable_data['name']);
 	} else {
-		$header_label 		= __('Variable Configuration [new]');
+		$header_label = __('Variable Configuration [new]');
 	}
 
 	session_custom_error_display();
@@ -319,7 +326,7 @@ function variable_edit() {
 }
 
 function form_actions() {
-	global $colors, $variable_actions, $config;
+	global $variable_actions, $config;
 	$error = FALSE;
 
 	// ================= input validation =================

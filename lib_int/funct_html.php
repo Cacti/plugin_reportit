@@ -24,15 +24,13 @@
 
 
 function html_custom_header_box($header, $hlink = false, $href = '', $link = '') {
-    global $colors;
-
-    echo "<table align='center' width=" . '100%' . " cellpadding='1' cellspacing='0' border='0' bgcolor='#{$colors['header']}'>
+    echo "<table calss='cactiTable'>
 		<tr>
 			<td>
-				<table align='center' width='100%' cellpadding='3' cellspacing='0' border='0' bgcolor='#{$colors['header']}'>
+				<table class='cactiTable'>
 					<tr>
 						<td class='textHeaderDark' align='left' style='padding: 3px;' colspan='100'>
-							<table width='100%' cellpadding='0' cellspacing='0'>
+							<table>
 								<tr>
 									<td class='textHeaderDark' align='left'>";
 										print "<b>$header&nbsp;</b>";
@@ -60,18 +58,16 @@ function html_custom_header_box($header, $hlink = false, $href = '', $link = '')
 }
 
 function html_error_box($message, $site, $jump, $link){
-    global $colors;
+    html_wizard_header('Error', $site);
 
-    html_wizard_header('Error', '$site');
-    print "<tr><td bgcolor='#" . $colors['form_alternate1'] . "'><span class='textError'>$message</span></td></tr>\n";
+    print "<tr><td class='odd'><span class='textError'>$message</span></td></tr>\n";
+
     html_wizard_footer($jump, $link, '');
 }
 
 
 function html_wizard_header($title, $site, $size='60%') {
-    global $colors;
-
-    html_start_box("<b>$title</b>", $size, $colors['header_panel'], '2', 'center', '');
+    html_start_box($title, $size, '', '2', 'center', '');
 
     echo "<form action='$site' method='post' enctype='multipart/form-data'>\r\n";
 }
@@ -95,11 +91,8 @@ function html_wizard_footer($jump, $link, $save_html, $colspan=1) {
 
 
 function html_report_start_box() {
-    global $colors;
-
-    echo "<table align='center' width=" . '100%' . " cellpadding='3' cellspacing='1' bgcolor='#{$colors['header_panel']}'>";
+    echo "<table class='cactiTable'>";
 }
-
 
 function html_blue_link(&$data, $lb=true) {
     // Create a blue HTML link in an existing table
