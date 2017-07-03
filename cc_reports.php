@@ -38,7 +38,7 @@ switch (get_request_var('action')) {
 	case 'actions':
 		form_actions();
 		break;
-	case 'edit':
+	case 'report_edit':
 		top_header();
 		report_edit();
 		bottom_footer();
@@ -121,7 +121,7 @@ function report_wizard() {
 function report_filter() {
 	global $item_rows;
 
-	html_start_box( __('Report Filters'), '100%', '', '3', 'center', 'cc_reports.php?action=edit');
+	html_start_box( __('Report Filters'), '100%', '', '3', 'center', 'cc_reports.php?action=report_edit');
 	?>
 	<tr class='even'>
 		<td>
@@ -385,7 +385,7 @@ function standard() {
 			form_alternate_row('line' . $report['id'], true);
 			?>
 			<td>
-				<a class='linkEditMain' href='cc_reports.php?action=edit&id=<?php print $report['id'];?>'>
+				<a class='linkEditMain' href='cc_reports.php?action=report_edit&id=<?php print $report['id'];?>'>
 				<?php print $report['description'];
 				if ($report['in_process']) print "<b style='color: #FF0000'>&nbsp;" . __('*In process*') . "</b>";
 				?>
