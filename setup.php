@@ -288,27 +288,27 @@ function reportit_draw_navigation_text ($nav) {
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_variables.php:'] = array(
+    $nav['variables.php:'] = array(
 		'title' => __('Variables'),
 		'mapping' => 'index.php:,cc_templates.php:',
 		'url' => 'cc_templates.php',
 		'level' => '2');
 
-    $nav['cc_variables.php:save'] = array(
+    $nav['variables.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,cc_variables.php:',
+		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_variables.php:variable_edit'] = array(
+    $nav['variables.php:variable_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,cc_variables.php:',
+		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_variables.php:actions'] = array(
+    $nav['variables.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:,cc_variables.php:',
+		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
@@ -364,18 +364,31 @@ function reportit_draw_navigation_text ($nav) {
 }
 
 function reportit_config_arrays() {
-    global $user_auth_realms, $user_auth_realm_filenames, $menu;
+	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
 
-    /* register all realms of ReportIT */
-    api_plugin_register_realm('reportit', 'cc_view.php,cc_charts.php', __('View Reports'), 1);
-    api_plugin_register_realm('reportit', 'cc_reports.php,cc_rrdlist.php,cc_items.php,cc_run.php', __('Create Reports'), 1);
-    api_plugin_register_realm('reportit', 'cc_templates.php,cc_measurands.php,cc_variables.php', __('Administrate Reports'), 1);
+	/* register all realms of ReportIT */
+	api_plugin_register_realm('reportit', 'cc_view.php,cc_charts.php', __('View Reports'), 1);
+	api_plugin_register_realm('reportit', 'cc_reports.php,cc_rrdlist.php,cc_items.php,cc_run.php', __('Create Reports'), 1);
+	api_plugin_register_realm('reportit', 'templates.php,cc_measurands.php,variables.php', __('Administrate Reports'), 1);
 
-    /* show additional menu entries if plugin is enabled */
-    if (api_plugin_is_enabled('reportit')) {
-        $menu[__('Management')]['plugins/reportit/cc_reports.php']  = __('Reports');
-        $menu[__('Templates')]['plugins/reportit/cc_templates.php'] = __('Report');
-    }
+	/* show additional menu entries if plugin is enabled */
+	if (api_plugin_is_enabled('reportit')) {
+		$menu[__('Management')]['plugins/reportit/cc_reports.php']  = __('Reports');
+		$menu[__('Templates')]['plugins/reportit/templates.php'] = __('Report');
+
+		$temp = array(
+			'reportit_templates__1' => array(
+				'message' => __('No data source item selected', 'reportit'),
+				'type' => 'error'),
+			'reportit_templates__2' => array(
+				'message' => __('Unselected data source items are still in use', 'reportit'),
+				'type' => 'error'),
+			'reportit_templates__3' => array(
+				'message' => __('Unable to unlock this template without defined measurands'),
+				'type' => 'error'),
+		);
+		$messages += $temp;
+	}
 }
 
 function reportit_config_settings() {
@@ -980,4 +993,3 @@ function reportit_poller_bottom() {
 
 function reportit_page_head(){
 }
-
