@@ -593,9 +593,9 @@ function standard() {
 			form_selectable_cell( ($template['locked']) ? __('yes', 'reportit') : __('no', 'reportit'), $template['id']);
 
 			if ($template['measurands'] != NULL) {
-				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('cc_measurands.php?id=' . $template['id']) . '"><i class="fa fa-wrench" aria-hidden="true"></i> (' . $template['measurands'] . ')</a>', $template['id']);
+				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?id=' . $template['id']) . '"><i class="fa fa-wrench" aria-hidden="true"></i> (' . $template['measurands'] . ')</a>', $template['id']);
 			} else {
-				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('cc_measurands.php?action=measurand_edit&template_id=' . $template['id']) . '"><i class="fa fa-plus" aria-hidden="true"></i></a>', $template['id']);
+				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?action=measurand_edit&template_id=' . $template['id']) . '"><i class="fa fa-plus" aria-hidden="true"></i></a>', $template['id']);
 			}
 
 			if ($template['variables'] != NULL) {

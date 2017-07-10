@@ -26,12 +26,12 @@
 //----- CONSTANTS FOR: cc_variables.php -----
 
 $variable_actions = array(
-	1 => __('Delete')
+	1 => __('Delete', 'reportit')
 );
 
 $var_types = array(
-	1 => __('Dropdown'),
-	2 => __('Input field')
+	1 => __('Dropdown', 'reportit'),
+	2 => __('Input field', 'reportit')
 );
 
 $link_array = array(
@@ -49,11 +49,11 @@ $list_of_modes = array(
 );
 
 $desc_array = array(
-	'description' => array('display' => __('Name'),          'align' => 'left', 'sort' => 'ASC'),
-	'nosort'      => array('display' => __('Internal Name'), 'align' => 'left'),
-	'pre_filter'  => array('display' => __('Maximum'),       'align' => 'right'),
-	'nosort1'     => array('display' => __('Minimum'),       'align' => 'right'),
-	'nosort2'     => array('display' => __('Default'),       'align' => 'left', 'sort' => 'ASC'),
-	'nosort3'     => array('display' => __('Input Type'),    'align' => 'left', 'sort' => 'ASC'),
+	'description' => array('display' => __('Name', 'reportit'),          'align' => 'left', 'sort' => 'ASC'),
+	'nosort'      => array('display' => __('Internal Name', 'reportit'), 'align' => 'left'),
+	'pre_filter'  => array('display' => __('Maximum', 'reportit'),       'align' => 'left'),
+	'nosort1'     => array('display' => __('Minimum', 'reportit'),       'align' => 'left'),
+	'nosort2'     => array('display' => __('Default', 'reportit'),       'align' => 'left', 'sort' => 'ASC'),
+	'nosort3'     => array('display' => __('Input Type', 'reportit'),    'align' => 'left', 'sort' => 'ASC'),
 );
 

@@ -95,7 +95,7 @@ function html_blue_link(&$data, $lb=true) {
 	   		<td class='textinfo' valign='top' align='right'>";
 
 	foreach ($data as $link) {
-		print "<span style='color: #c16921'>*</span><a href='{$link['href']}'>{$link['text']}</a><br>";
+		print "<span class='linkmarker'>*</span><a class='hyperlink' href='{$link['href']}'>{$link['text']}</a><br>";
 	}
 
     print '</td>
@@ -137,19 +137,42 @@ function html_calc_syntax($measurand_id, $template_id) {
     $dq_variables = array_flip(get_possible_data_query_variables($template_id));
     $rubrics[__('Data Query Variables')] = $dq_variables;
 
-    $interim_results = array_flip(get_interim_results($measurand_id, $template_id, true));
+    $interim_results = array_flip(get_interim_results($measurand_id, $template_id, false));
     $rubrics[__('Interim Results')] = $interim_results;
 
-    //Create an box to get an overview of possible commands
+    $output = '';
     foreach ($rubrics as $key => $value) {
-        print "<tr><td width='15%' align='left' valign='top'><b>$key:</b></td><td>";
-        print "&nbsp;&nbsp";
-        foreach ($value as $name => $description) {
-            $value = str_replace('<br>', '', $name);
-            print "<font id='$value' color='blue' onMouseover=tooltip('Tooltip','$value',1) onMouseout=tooltip('Tooltip','$value',0) onClick=add_to_calc('$value') style='cursor:pointer;'>$name&nbsp;&nbsp;</font>";
+        $output .= "<div style='line-height: 1.5em;'><b>$key:</b></div><div style='line-height: 1.5em;'>";
+        $measurand = false;
+        foreach ($value as $name => $properties) {
+
+			if( $key == 'Interim Results') {
+				if($measurand === false) {
+					$measurand = $name;
+				}else {
+					$temp = str_replace($measurand, '', $name);
+					if(strpos($temp, ':') !== 0 && strlen($name) !== 0 ) {
+						$output .='<br>';
+						$measurand = $name;
+					}
+				}
+			}
+
+			$title  = "<div class='header'>" . (isset($properties['title']) ? $properties['title'] : $name) . "</div>";
+
+			if(isset($properties['description'])) {
+				$title .= "<div class='content preformatted'>"
+				. "Description: " . $properties['description'] . "<br>"
+				. "Syntax:      " . $properties['syntax'] . "<br>"
+				. "Parameters:  " . $properties['params'] . "<br>"
+				. "Examples:    " . $properties['examples'] . "</div>";
+			}
+
+	       	$output .= '<a id="' . $name . '" class="linkOverDark" title="' . $title . '" onClick=add_to_calc("' . $name . '") style="cursor:pointer;">' . $name . "&nbsp;&nbsp;</a>";
         }
-        print "</td><td width='5%'><td></tr>";
+        $output .= "</div>";
     }
+	return $output;
 }
 
 function html_report_variables($report_id, $template_id) {

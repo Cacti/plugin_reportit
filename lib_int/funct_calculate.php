@@ -104,9 +104,7 @@ function f_grd(&$array, &$f_cache) {
 
 //Xth percentitle
 function f_xth(&$array, &$p_cache, $value) {
-	if ($value > 100 || $value <= 0) {
-		return REPORTIT_NAN;
-	}
+	if($value > 100 || $value <= 0) return REPORTIT_NAN;
 
 	if (empty($array)) {
 		$p_cache['f_xth'] = REPORTIT_NAN;
@@ -122,7 +120,7 @@ function f_xth(&$array, &$p_cache, $value) {
 	return $p_cache['f_xth'];
 }
 
-//Over Threshold
+//Sum Over Threshold
 function f_sot(&$array, &$p_cache, $threshold) {
 	if (empty($array)) {
 		$p_cache['f_sot'] = REPORTIT_NAN;
@@ -135,10 +133,7 @@ function f_sot(&$array, &$p_cache, $threshold) {
 	foreach ($array as $value) {
 		if ($value != 0) {
 			$value -= $threshold;
-
-			if ($value > 0) {
-				$over_threshold += $value;
-			}
+			if($value > 0) $over_threshold += $value;
 		}
 	}
 
@@ -159,43 +154,46 @@ function f_dot(&$array, &$p_cache, $threshold) {
 	foreach ($array as $value) {
 		if ($value != 0) {
 			$value -= $threshold;
-			if ($value > 0) {
-				$i++;
+			if($value > 0) $i++;
 			}
 		}
-	}
-
 	$p_cache['f_dot'] = ($i/count($array))*100;
 
 	return $p_cache['f_dot'];
 }
 
-//Get the integer value
+//Get the integer value <-- should become an alias of 'f_floor'
 function f_int(&$array, &$p_cache, $value) {
-	if (empty($array)) {
-		$p_cache['f_int'] = REPORTIT_NAN;
-
+	$p_cache['f_int'] = empty($array) ? REPORTIT_NAN : floor($value);
+	$p_cache['f_floor'] = $p_cache['f_int'];
 		return $p_cache['f_int'];
 	}
 
-	$intvalue = floor($value);
-	$p_cache['f_int'] = $intvalue;
-
-	return $p_cache['f_int'];
+//Round fractions down
+function f_floor(&$array, &$p_cache, $value) {
+	$p_cache['f_floor'] = empty($array) ? REPORTIT_NAN : floor($value);
+	$p_cache['f_int'] = $p_cache['f_floor'];
+	return $p_cache['f_floor'];
 }
 
-//Get the rounded integer value
-function f_rnd(&$array, &$p_cache, $value) {
-	if (empty($array)) {
-		$p_cache['f_rnd'] = REPORTIT_NAN;
+//Round fractions up
+function f_ceil(&$array, &$p_cache, $value) {
+	$p_cache['f_ceil'] = empty($array) ? REPORTIT_NAN : ceil($value);
+	return $p_cache['f_ceil'];
+}
 
+//Get the rounded integer value   <--- should become an alias of 'f_round'
+function f_rnd(&$array, &$p_cache, $value) {
+	$p_cache['f_rnd'] = empty($array) ? REPORTIT_NAN : round($value);
+	$p_cache['f_round'] = $p_cache['f_rnd'];
 		return $p_cache['f_rnd'];
 	}
 
-	$intvalue = round($value);
-	$p_cache['f_rnd'] = $intvalue;
-
-	return $p_cache['f_rnd'];
+//Get the rounded integer value
+function f_round(&$array, &$p_cache, $value) {
+	$p_cache['f_round'] = empty($array) ? REPORTIT_NAN : round($value);
+	$p_cache['f_rnd'] = $p_cache['f_round'];
+	return $p_cache['f_round'];
 }
 
 //Get the highest value of a list of given numbers
@@ -215,13 +213,123 @@ function f_high(&$array, &$p_cache) {
 function f_low(&$array, &$p_cache) {
 	if (func_num_args() < 3 | empty($array)) {
 		$p_cache['f_low'] = REPORTIT_NAN;
+        return $p_cache['f_low'];
+    }
 
+    $p_cache['f_low'] = min(array_slice(func_get_args(), 2));
 		return $p_cache['f_low'];
 	}
 
-	$p_cache['f_low'] = min(array_slice(func_get_args(), 2));
+//If then else logic .. If arg1 is true then return arg2 else arg3
+function f_if(&$array, &$p_cache) {
 
-	return $p_cache['f_low'];
+	if(func_num_args() != 5 | empty($array)) {
+        $p_cache['f_if'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		$p_cache['f_if'] = ($args[0]) ? $args[1] : $args[2];
+	}
+	return $p_cache['f_if'];
+}
+
+// "Greater than" logic supporting predefined return values for true and false
+function f_gt(&$array, &$p_cache) {
+	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+        $p_cache['f_gt'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		return f_cmp($array, $p_cache, 'gt', $args);
+	}
+}
+
+/* Alias for f_cmp - "Lower than" logic */
+function f_lt(&$array, &$p_cache) {
+	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+        $p_cache['f_lt'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		return f_cmp($array, $p_cache, 'lt', $args);
+	}
+}
+
+/* Alias for f_cmp - "Greater than or equal" logic */
+function f_ge(&$array, &$p_cache) {
+	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+        $p_cache['f_ge'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		return f_cmp($array, $p_cache, 'ge', $args);
+	}
+}
+
+/* Alias for f_cmp - "Lower than or equal " logic */
+function f_le(&$array, &$p_cache) {
+	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+        $p_cache['f_le'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		return f_cmp($array, $p_cache, 'le', $args);
+	}
+}
+
+/* Alias for f_cmp - "Equal" logic */
+function f_eq(&$array, &$p_cache) {
+	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+        $p_cache['f_eq'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		return f_cmp($array, $p_cache, 'eq', $args);
+	}
+}
+
+/* Alias for f_cmp - "Equal" logic */
+function f_uq(&$array, &$p_cache) {
+	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+        $p_cache['f_uq'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		return f_cmp($array, $p_cache, 'uq', $args);
+	}
+}
+
+/* compare function */
+function f_cmp(&$array, &$p_cache, $function, $args) {
+	$operators = array("eq" => "==", "lt" => "<", "gt" => ">", "le" => "<=", "ge" => ">=", "uq" => "!=");
+
+	$condition = 'return (' . $args[0] .  $operators[$function] . $args[1] . ') ? true : false;';
+
+	if(sizeof($args) == 2) {
+		/* no return value given - return 1 or 0 if true or false */
+		$p_cache['f_'.$function] = eval($condition) ? 1 : 0;
+	}else if(sizeof($args) == 3) {
+		/* pos. return value given - return third argument if true or 0 if false */
+		$p_cache['f_'.$function] = eval($condition) ? $args[2] : 0;
+	}else {
+		/* pos. return value given - return third argument if true
+		   neg. return value given - return fourth argument if false */
+		$p_cache['f_'.$function] = eval($condition) ? $args[2] : $args[3];
+	}
+	return $p_cache['f_'.$function];
+}
+
+function f_nan(&$array, &$p_cache) {
+	if(func_num_args() < 3 | func_num_args() > 5 | empty($array)) {
+        $p_cache['f_nan'] = REPORTIT_NAN;
+    }else {
+		$args = array_slice(func_get_args(), 2);
+		if(sizeof($args) == 2) {
+			/* no return value given - return 1 or 0 if true or false */
+			$p_cache['f_nan'] = (is_nan($args[0]) | is_null($args[0])) ? 1 : 0;
+		}else if(sizeof($args) == 3) {
+			/* pos. return value given - return third argument if true or 0 if false */
+			$p_cache['f_nan'] = (is_nan($args[0]) | is_null($args[0])) ? $args[2] : 0;
+		}else {
+			/* pos. return value given - return third argument if true
+			   neg. return value given - return fourth argument if false */
+			$p_cache['f_nan'] = (is_nan($args[0]) | is_null($args[0])) ? $args[2] : $args[3];
+		}
+	}
+	return $p_cache['f_nan'];
 }
 
 /* ----- Main function for calculating ----- */

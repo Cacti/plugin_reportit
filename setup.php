@@ -264,27 +264,27 @@ function reportit_draw_navigation_text ($nav) {
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_measurands.php:'] = array(
+    $nav['measurands.php:'] = array(
 		'title' => __('Measurands'),
 		'mapping' => 'index.php:,cc_templates.php:',
 		'url' => 'cc_templates.php',
 		'level' => '2');
 
-    $nav['cc_measurands.php:save'] = array(
+    $nav['measurands.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,cc_measurands.php:',
+		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_measurands.php:measurand_edit'] = array(
+    $nav['measurands.php:measurand_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,cc_measurands.php:',
+		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_measurands.php:actions'] = array(
+    $nav['measurands.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:,cc_measurands.php:',
+		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
@@ -369,7 +369,7 @@ function reportit_config_arrays() {
 	/* register all realms of ReportIT */
 	api_plugin_register_realm('reportit', 'cc_view.php,cc_charts.php', __('View Reports'), 1);
 	api_plugin_register_realm('reportit', 'cc_reports.php,cc_rrdlist.php,cc_items.php,cc_run.php', __('Create Reports'), 1);
-	api_plugin_register_realm('reportit', 'templates.php,cc_measurands.php,variables.php', __('Administrate Reports'), 1);
+	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', __('Administrate Reports'), 1);
 
 	/* show additional menu entries if plugin is enabled */
 	if (api_plugin_is_enabled('reportit')) {

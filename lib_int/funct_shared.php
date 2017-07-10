@@ -649,17 +649,12 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 
 	if (sizeof($array)) {
 	    foreach ($array as $interim_result) {
+			$interim_results[] = $interim_result['abbreviation'];
 			if ($interim_result['spanned'] == 0) {
 				foreach ($names as $name) {
 					$interim_results[] = $interim_result['abbreviation'] . ':' . $name;
 				}
 			}
-
-			if ($ln) {
-				$interim_result['abbreviation'] .= '<br>';
-			}
-
-			$interim_results[] = $interim_result['abbreviation'];
 		}
 	}
 
@@ -720,8 +715,11 @@ function get_possible_data_query_variables($template_id) {
 	$names = array();
 
 	if (sizeof($available_data_queries)) {
-		// build IN(...) from the possible list of available data queries
-		$data_query_list = array_to_sql_or($available_data_queries, 'snmp_query_id');
+		$data_query_list = 'snmp_query_id IN (';
+		foreach($available_data_queries as $data_queries) {
+			$data_query_list .= $data_queries['snmp_query_id'] . ',';
+		}
+		$data_query_list = substr($data_query_list, 0, -1) . ")";
 
 		// get all host_snmp_cache variables for those list of data queries
 		$sql = "SELECT DISTINCT(`host_snmp_cache`.`field_name`) " .
