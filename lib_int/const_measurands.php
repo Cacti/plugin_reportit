@@ -24,53 +24,104 @@
 
 $calc_functions = array(
 	'f_avg'  => array(
-		'description'	=> __('Returns the average value. (sum of values /number of values)', 'reportit'),
+		'title'			=> __('f_avg - Arithmetic Average', 'reportit'),
+		'description'	=> __('Returns the average value of all measured values per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>float</i> f_avg',
 		'examples'		=> 'f_avg*8'
 	),
 	'f_max'  => array(
-		'description'	=> __('Returns the highest value', 'reportit'),
+		'title'			=> __('f_max - Maximum Value', 'reportit'),
+		'description'	=> __('Returns the highest measured value per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>float</i> f_max',
 		'examples'		=> '(f_max-f_min)*8'
 	),
 	'f_min'  => array(
-		'description'	=> __('Returns the lowest value', 'reportit'),
+		'title'			=> __('f_min - Minimum Value', 'reportit'),
+		'description'	=> __('Returns the lowest measured value per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>float</i> f_min',
 		'examples'		=> 'f_min*8'
 	),
 	'f_sum'  => array(
-		'description'	=> __('Returns the sum of all values.(1.Value + 2.Value + 3.Value + ... + n.Value)', 'reportit'),
+		'title'			=> __('f_sum - Sum', 'reportit'),
+		'description'	=> __('Returns the sum of all measured values per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>float</i> f_sum',
 		'examples'		=> 'f_sum*8'
 	),
 	'f_num'  => array(
-		'description'	=> __('Returns the number of valid measured values. (excludes NaN\'s)', 'reportit'),
+		'title'			=> __('f_num - Number of Values (Not NaN)', 'reportit'),
+		'description'	=> __('Returns the number of valid measured values per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>int</i> f_num',
 		'examples'		=> 'f_num'
 	),
 	'f_grd'  => array(
-		'description'	=> __('Returns the gradient of a straight line by using linear regression for trend analysis', 'reportit'),
+		'title'			=> __('f_grd - Gradient', 'reportit'),
+		'description'	=> __('Returns the gradient of a straight line by using linear regression per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>float</i> f_grd',
 		'examples'		=> 'f_grd'
 	),
 	'f_last'  => array(
-		'description'	=> __('Returns the last valid measured value of the reporting period. (excludes NaN\'s)', 'reportit'),
+		'title'			=> __('f_last - Last Value', 'reportit'),
+		'description'	=> __('Returns the last valid measured value per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>float</i> f_last',
 		'examples'		=> 'f_last*16/2'
 	),
 	'f_1st'  => array(
-		'description'	=> __('Returns the first valid measured value of the reporting period. (excludes NaN\'s)', 'reportit'),
+		'title'			=> __('f_1st - First Value', 'reportit'),
+		'description'	=> __('Returns the first valid measured value per DS', 'reportit'),
 		'params'		=> __('none', 'reportit'),
 		'syntax'		=> '<i>float</i> f_1st',
 		'examples'		=> 'f_1st*2*(5.5-1.5)'
-	)
+	),
+	'f_nan'  => array(
+		'title'			=> __('f_nan - Number of NaNs', 'reportit'),
+		'description'	=> __('Returns the number of NaNs stored per DS', 'reportit'),
+		'params'		=> __('none', 'reportit'),
+		'syntax'		=> '<i>int</i> f_nan',
+		'examples'		=> 'f_num+f_nan'
+	),
+	'f_median'  => array(
+		'title'			=> __('f_median - Median', 'reportit'),
+		'description'	=> __('Returns that value that separates the higher half from the lower half per DS', 'reportit'),
+		'params'		=> __('none', 'reportit'),
+		'syntax'		=> '<i>float</i> f_median',
+		'examples'		=> 'f_median'
+	),
+	'f_mode'  => array(
+		'title'			=> __('f_mode - Mode', 'reportit'),
+		'description'	=> __('Returns the value that appears most often per DS', 'reportit'),
+		'params'		=> __('none', 'reportit'),
+		'syntax'		=> '<i>float</i> f_mode',
+		'examples'		=> 'f_mode'
+	),
+	'f_range'  => array(
+		'title'			=> __('f_range - Range', 'reportit'),
+		'description'	=> __('Returns the difference between the largest and the smallest value per DS', 'reportit'),
+		'params'		=> __('none', 'reportit'),
+		'syntax'		=> '<i>float</i> f_range',
+		'examples'		=> 'f_range'
+	),
+	'f_iqr'  => array(
+		'title'			=> __('f_iqr - Interquartile Range', 'reportit'),
+		'description'	=> __('Returns the distance of the middle50&#037; around the median per DS', 'reportit'),
+		'params'		=> __('none', 'reportit'),
+		'syntax'		=> '<i>float</i> f_iqr',
+		'examples'		=> 'f_iqr'
+	),
+	'f_sd'  => array(
+		'title'			=> __('f_sd - Standard Deviation', 'reportit'),
+		'description'	=> __('Returns the square root per data source variance', 'reportit'),
+		'params'		=> __('none', 'reportit'),
+		'syntax'		=> '<i>float</i> f_sd',
+		'examples'		=> 'f_sd'
+	),
+
 );
 
 $calc_fct_names = array_keys($calc_functions);
@@ -95,42 +146,42 @@ $calc_functions_aliases = array(
 		'description'	=> __('Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
 		'params'		=> '$A, $B [, $C, $D]',
 		'syntax'		=> '<i>bool</i> f_eq <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_eq(5,6) = 0,  f_eq(6,6) = 1, f_eq(f_min(),6) = 1 or 0, f_eq(6,6,f_min()) = f_min(), f_eq(6,5,f_min(),f_max()) = f_max()'
+		'examples'		=> 'f_eq(5,6) = 0,  f_eq(6,6) = 1, f_eq(f_min,6) = 1 or 0, f_eq(6,6,f_min) = f_min, f_eq(6,5,f_min,f_max) = f_max'
 	),
 	'f_uq' => array(
 		'title'			=> __('f_uq - Alias of f_cmp - IS UNEQUAL', 'reportit'),
 		'description'	=> __('Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
 		'params'		=> '$A, $B [, $C, $D]',
 		'syntax'		=> '<i>bool</i> f_uq <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_uq(5,6) = 1,  f_uq(6,6) = 0, f_uq(f_min(),6) = 1 or 0, f_uq(6,6,f_min()) = 0, f_uq(6,5,f_min(),f_max()) = f_min()'
+		'examples'		=> 'f_uq(5,6) = 1,  f_uq(6,6) = 0, f_uq(f_min,6) = 1 or 0, f_uq(6,6,f_min) = 0, f_uq(6,5,f_min,f_max) = f_min'
 	),
 	'f_gt' => array(
 		'title'			=> __('f_gt - Alias of f_cmp - IS GREATER THAN', 'reportit'),
 		'description'	=> __('Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
 		'params'		=> '$A, $B [, $C, $D]',
 		'syntax'		=> '<i>bool</i> f_gt <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_gt(5,6) = 0,  f_gt(6,6) = 0, f_gt(f_min(),6) = 1 or 0, f_gt(6,6,f_min()) = 0, f_gt(6,5,f_min(),f_max()) = f_min()'
+		'examples'		=> 'f_gt(5,6) = 0,  f_gt(6,6) = 0, f_gt(f_min,6) = 1 or 0, f_gt(6,6,f_min) = 0, f_gt(6,5,f_min,f_max) = f_min'
 	),
 	'f_lt' => array(
 		'title'			=> __('f_lt - Alias of f_cmp - IS LOWER THAN', 'reportit'),
 		'description'	=> __('Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
 		'params'		=> '$A, $B [, $C, $D]',
 		'syntax'		=> '<i>bool</i> f_lt <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_lt(5,6) = 1,  f_lt(6,6) = 0, f_lt(f_min(),6) = 1 or 0, f_lt(6,6,f_min()) = 0, f_lt(6,5,f_min(),f_max()) = f_max()'
+		'examples'		=> 'f_lt(5,6) = 1,  f_lt(6,6) = 0, f_lt(f_min,6) = 1 or 0, f_lt(6,6,f_min) = 0, f_lt(6,5,f_min,f_max) = f_max()'
 	),
 	'f_ge' => array(
 		'title'			=> __('f_ge - Alias of f_cmp - IS GREATER OR EQUAL', 'reportit'),
 		'description'	=> __('Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
 		'params'		=> '$A, $B [, $C, $D]',
 		'syntax'		=> '<i>bool</i> f_ge <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_ge(5,6) = 0,  f_ge(6,6) = 1, f_ge(f_min(),6) = 1 or 0, f_ge(6,6,f_min()) = f_min(), f_ge(6,5,f_min(),f_max()) = f_min()'
+		'examples'		=> 'f_ge(5,6) = 0,  f_ge(6,6) = 1, f_ge(f_min,6) = 1 or 0, f_ge(6,6,f_min) = f_min, f_ge(6,5,f_min,f_max) = f_min'
 	),
 	'f_le' => array(
 		'title'			=> __('f_le - Alias of f_cmp - IS LOWER OR EQUAL', 'reportit'),
 		'description'	=> __('Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
 		'params'		=> '$A, $B [, $C, $D]',
 		'syntax'		=> '<i>bool</i> f_le <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_le(5,6) = 1,  f_le(6,6) = 1, f_le(f_min(),6) = 1 or 0, f_le(6,6,f_min()) = f_min(), f_le(6,5,f_min(),f_max()) = f_max()'
+		'examples'		=> 'f_le(5,6) = 1,  f_le(6,6) = 1, f_le(f_min,6) = 1 or 0, f_le(6,6,f_min) = f_min, f_le(6,5,f_min,f_max) = f_max'
 	)
 );
 
@@ -199,12 +250,12 @@ $calc_functions_params = array(
 		'syntax'		=> '<i>bool</i> f_if <i>(float $A, float $B, float $C)</i>',
 		'examples'		=> 'f_if(0,1,2) = 2, f_if(1,1,2) = 1, f_if(f_low(0,1),f_1st, f_last) = f_last'
 	),
-	'f_nan' => array(
-		'title'			=> __('f_nan - Find whether a value is not a number', 'reportit'),
+	'f_isNaN' => array(
+		'title'			=> __('f_isNaN - Find whether a value is not a number', 'reportit'),
 		'description'	=> __('Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional.', 'reportit'),
 		'params'		=> '$A [, $B, $C]',
-		'syntax'		=> '<i>bool</i> f_nan <i>(float $A [, float $B, float $C])</i>',
-		'examples'		=> 'f_nan(5) = 0, f_nan(f_min()) = 1 or 0, f_nan(f_min(),5) = 5 or 0, f_nan(f_min(),5,10) = 5 or 10'
+		'syntax'		=> '<i>bool</i> f_isNaN <i>(float $A [, float $B, float $C])</i>',
+		'examples'		=> 'f_isNaN(5) = 0, f_isNaN(f_min) = 1 or 0, f_isNaN(f_min,5) = 5 or 0, f_isNaN(f_min,5,10) = 5 or 10'
 	),
 	'f_cmp' => array(
 		'title'			=> __('f_cmp - Complex Comparison', 'reportit'),
@@ -218,16 +269,79 @@ $calc_functions_params = array(
 $calc_fct_names_params	= array_keys($calc_functions_params);
 
 $calc_operators = array(
-	'+' => __('Addition', 'reportit'),
+	'+' => array(
+		'title' 		=> __('Addition', 'reportit'),
+		'description'	=> __('Mathematical Operation to return the sum of two or more summands', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '$A + $B',
+		'examples'		=> '10 + 2 = 12'
+	),
 	'-' => array(
 		'title' 		=> __('Subtraction', 'reportit'),
-		'description'	=> __('Mathematical Operation to return the difference of minuend and subtrahend'),
+		'description'	=> __('Mathematical Operation to return the difference of minuend and subtrahend', 'reportit'),
 		'params'		=> 'none',
 		'syntax'		=> '$A - $B',
-		'examples'		=> '10-2 = 8, f_max()-f_min() = range'
+		'examples'		=> '10 - 2 = 8'
 	),
-	'*' => __('Multiplication', 'reportit'),
-	'/' => __('Division', 'reportit')
+	'*' => array(
+		'title' 		=> __('Multiplication', 'reportit'),
+		'description'	=> __('Mathematical Operation to return the product of multiplier and multiplicant', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '$A * $B',
+		'examples'		=> '10 * 2 = 20'
+	),
+	'/' => array(
+		'title' 		=> __('Division', 'reportit'),
+		'description'	=> __('Mathematical Operation to return the fraction of divident and divisor', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '$A / $B',
+		'examples'		=> '10 / 2 = 5'
+	),
+	'%' => array(
+		'title' 		=> __('Modulus', 'reportit'),
+		'description'	=> __('Mathematical Operation to return the remainder of a division of two integers', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '$A % $B',
+		'examples'		=> '10 % 2 = 0'
+	),
+	'**' => array(
+		'title' 		=> __('Exponentiation - PHP5.6 or above required', 'reportit'),
+		'description'	=> __('Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent.', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '$A ** $B',
+		'examples'		=> '10 ** 2 = 10 * 10 = 100'
+	)
+);
+
+$calc_parentheses = array(
+	'(' => array(
+		'title' 		=> __('Left (Opening) parenthesis', 'reportit'),
+		'description'	=> __('Used to override normal precedence or to mark the first level of nesting', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '-',
+		'examples'		=> '(10 + 2) * (10 + 2) = 144'
+	),
+	')' => array(
+		'title' 		=> __('Right (Closing) parenthesis', 'reportit'),
+		'description'	=> __('Used to override normal precedence or to mark the first level of nesting', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '-',
+		'examples'		=> '(10 + 2) * (10 + 2) = 144'
+	),
+	'[' => array(
+		'title' 		=> __('Left (Opening) Square Bracket', 'reportit'),
+		'description'	=> __('Used to override normal precedence or to mark the second level of nesting', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '-',
+		'examples'		=> '[(10 - 2) * (10 - 2)] - 4 = 60'
+	),
+	']' => array(
+		'title' 		=> __('Right (Closing) Square Bracket', 'reportit'),
+		'description'	=> __('Used to override normal precedence or to mark the second level of nesting', 'reportit'),
+		'params'		=> 'none',
+		'syntax'		=> '-',
+		'examples'		=> '[(10 - 2) * (10 - 2)] - 4 = 60'
+	),
 );
 
 $calc_variables = array(
@@ -245,6 +359,7 @@ $rubrics = array(
 	__('Functions with parameters') => $calc_functions_params,
 	__('Aliases')					=> $calc_functions_aliases,
 	__('Operators')                 => $calc_operators,
+	__('Parentheses')               => $calc_parentheses,
 	__('Variables')                 => $calc_variables,
 	__('Data Query Variables')      => '',
 	__('Interim Results')           => ''
@@ -257,18 +372,18 @@ $rounding = array(
 );
 
 $type_specifier = array(
-	__('Binary'),
-	__('Floating point'),
-	__('Integer'),
-	__('Integer (unsigned)'),
-	__('Hexadecimal (lower-case)'),
-	__('Hexadecimal (upper-case)'),
-	__('Octal'),
-	__('Scientific Notation')
+	__('Binary', 'reportit'),
+	__('Floating point', 'reportit'),
+	__('Integer', 'reportit'),
+	__('Integer (unsigned)', 'reportit'),
+	__('Hexadecimal (lower-case)', 'reportit'),
+	__('Hexadecimal (upper-case)', 'reportit'),
+	__('Octal', 'reportit'),
+	__('Scientific Notation', 'reportit')
 );
 
 $precision = array(
-	0  => __('None'),
+	0  => __('None', 'reportit'),
 	1  => 1,
 	2  => 2,
 	3  => 3,
@@ -278,6 +393,6 @@ $precision = array(
 	7  => 7,
 	8  => 8,
 	9  => 9,
-	-1 => __('Unchanged')
+	-1 => __('Unchanged', 'reportit')
 );
 

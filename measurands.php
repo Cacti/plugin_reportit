@@ -313,14 +313,14 @@ function measurand_edit() {
 		),
 		'measurand_visible'	=> array(
 			'friendly_name'		=> __('Visible', 'reportit'),
-			'description'		=> __('Choose \'enable\' if this measurand should be shown in the report.', 'reportit'),
+			'description'		=> __('Choose \'enable\' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation.', 'reportit'),
 			'method'			=> 'checkbox',
 			'value'				=> ((isset($measurand_data['visible']) || $measurand_data['visible'] == true) ? 'on' : ''),
 			'default'			=> 'on'
 		),
 		'measurand_spanned'	=> array(
 			'friendly_name'		=> __('Separate', 'reportit'),
-			'description'		=> __('Choose \'enable\' if this measurand will only have one result instead of one for every Round Robin Archive and it\'s result<br>should be displayed separately.', 'reportit'),
+			'description'		=> __('Choose \'enable\' if this measurand will only have one result in total instead of one for every Data Source Item. It\'s result<br>will be shown separately. Use this option in combination with "Visible" = "off" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users.', 'reportit'),
 			'method'			=> 'checkbox',
 			'value'				=> ((isset($measurand_data['spanned']) && $measurand_data['spanned'] == true) ? 'on' : ''),
 			'default'			=> '',
@@ -358,7 +358,7 @@ function measurand_edit() {
 		),
 		'measurand_formula'	=> array(
 			'friendly_name'		=> __('Calculation Formula', 'reportit'),
-			'description'		=> __('The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics.', 'reportit'),
+			'description'		=> __('The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations.', 'reportit'),
 			'method' 			=> 'custom',
 			'value'				=> "<input type='text' id='measurand_formula' name='measurand_formula' size='40' maxlength='200'" . (isset($measurand_data['calc_formula']) ? "value='{$measurand_data['calc_formula']}'" : "" ) . '>'
 		),
@@ -435,30 +435,7 @@ function measurand_edit() {
 		fieldId.value = old + name;
 		fieldId.focus();
 		fieldId.value = fieldId.value;
-	}
-
-	function tooltip(layer, name, status) {
-		if(status) {
-			for(var i = 0; i < desc.length; i++) {
-				if (desc[i]['name'] == name) {
-					Tooltip.innerHTML =
-						'<br>'
-						+'<table width=<?php print '100%'; ?> align="center" cellpadding="2" style="background-color:#FFFACD; border: 1px solid #bbbbbb;" >'
-						+'<tr><td width="100"><?php print __('Name:', 'reportit');?></td><td>' + name + '</td></tr>'
-						+'<tr><td><?php print __('Syntax:', 'reportit');?></td><td>' + desc[i]['syntax'] + '</td></tr>'
-						+'<tr><td><?php print __('Parameters:', 'reportit');?></td><td>' + desc[i]['params'] + '</td></tr>'
-						+'<tr><td valign="top"><?php print __('Description:', 'reportit');?></td><td>' + desc[i]['description'] + '</td></tr>'
-						+'<tr><td align="left" valign="top"><?php print __('Example:', 'reportit');?></td><td>' + desc[i]['example'] + '</td></tr>'
-						+'</table>';
-
-						$('#'+layer).show();
-					break;
-				}
-			}
-		}else {
-			Tooltip.innerHTML = "";
-			Tooltip.style.visibility = "hidden"
-		}
+		return false;
 	}
 
 	</script>

@@ -118,7 +118,7 @@ function standard() {
 	//Number of variables
 	$number_of_variables = count($variables_list);
 
-	$header_label = __("Variables [Template: <a style='linkEditMain' href='templates.php?action=template_edit&id=" . get_request_var('id') . "'>%s</a> ] [%d]", $template_name, $number_of_variables, 'reportit');
+	$header_label = __("Variables [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id=" . get_request_var('id') . "'>%s</a> ] [%d]", $template_name, $number_of_variables, 'reportit');
 
 	form_start('variables.php');
 	html_start_box($header_label, '100%', '', '2', 'center', 'variables.php?action=variable_edit&template_id=' . get_request_var('id'));
@@ -134,10 +134,13 @@ function standard() {
 			if($select_options_count !== false) {
 				if($select_options_count <= 100) {
 					$select_options_class = 'deviceUp';
+					$icon = 'fa-thumbs-up';
 				}else if($select_options_count <= 500) {
 					$select_options_class = 'deviceDownMuted';
+					$icon = 'fa-thumbs-down';
 				}else {
-					$select_options_class = 'deviceError';
+					$select_options_class = 'deviceDown';
+					$icon = 'fa-exclamation-triangle';
 				}
 			}
 
@@ -149,7 +152,7 @@ function standard() {
 			form_selectable_cell($variable['default_value'], $variable['id']);
 			form_selectable_cell($variable['stepping'], $variable['id']);
 			form_selectable_cell($var_types[$variable['input_type']], $variable['id'], 'left');
-			form_selectable_cell('<font class="' . $select_options_class . '">' . (($select_options_count !== false) ? $select_options_count : 'n/a' ) . '</font>', $variable['id']);
+			form_selectable_cell('<font class="' . $select_options_class . '"><i class="fa ' . $icon . '" aria-hidden="true"></i> (' . (($select_options_count !== false) ? $select_options_count : 'n/a' ) . ')</font>', $variable['id']);
 			form_checkbox_cell($variable['name'], $variable['id']);
 			form_end_row();
 		}
@@ -422,9 +425,8 @@ function form_actions() {
 
 	top_header();
 
-	html_start_box($variable_actions{get_request_var('drp_action')}, '60%', '', '2', 'center', '');
-
 	form_start('variables.php');
+	html_start_box($variable_actions{get_request_var('drp_action')}, '60%', '', '2', 'center', '');
 
 	if (get_request_var('drp_action') == '1') { //DELETE REPORT
 		print "<tr>
@@ -471,9 +473,9 @@ function form_actions() {
 				print "<tr><td class='odd'><span class='textError'>" . __('You must select at least one variable.', 'reportit') . '</span></td></tr>';
 			}
 
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"variables.php?id=" . get_request_var('id') . "\")'>";
 		} else {
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Variables', 'reportit') . "'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"variables.php?id=" . get_request_var('id') . "\")'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Variables', 'reportit') . "'>";
 		}
 	}
 
@@ -488,6 +490,8 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
+
+	form_end();
 
 	bottom_footer();
 }

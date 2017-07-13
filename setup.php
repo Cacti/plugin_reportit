@@ -438,6 +438,7 @@ function reportit_config_settings() {
 		'reportit_header1'          => array(
 			'friendly_name'         => __('General'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_met'              => array(
 			'friendly_name'         => __('Maximum Execution Time (in seconds)'),
@@ -481,6 +482,7 @@ function reportit_config_settings() {
 		'reportit_header2'          => array(
 			'friendly_name'         => __('RRDtool'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_API'              => array(
 			'friendly_name'         => __('RRDtool Connection'),
@@ -506,6 +508,7 @@ function reportit_config_settings() {
 		'reportit_header3'          => array(
 			'friendly_name'         => __('Export Settings'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_exp_filename'     => array(
 			'friendly_name'         => __('Filename Format'),
@@ -525,6 +528,7 @@ function reportit_config_settings() {
 		'reportit_header4'          => array(
 			'friendly_name'         => __('Auto Archiving'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_archive'          => array(
 			'friendly_name'         => __('Enabled'),
@@ -549,6 +553,7 @@ function reportit_config_settings() {
 		'reportit_header5'          => array(
 			'friendly_name'         => __('Auto E-Mailing'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_email'            => array(
 			'friendly_name'         => __('Enable'),
@@ -559,6 +564,7 @@ function reportit_config_settings() {
 		'reportit_header6'          => array(
 			'friendly_name'         => __('Auto Exporting'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_auto_export'      => array(
 			'friendly_name'         => __('Enabled'),
@@ -576,6 +582,7 @@ function reportit_config_settings() {
 		'reportit_header7'          => array(
 			'friendly_name'         => __('Graph Settings'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_graph'            => array(
 			'friendly_name'         => __('Enabled'),
@@ -652,6 +659,7 @@ function reportit_config_settings() {
 		'reportit_csv_header'       => array(
 			'friendly_name'         => __('ReportIT Export Settings'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_csv_column_s'     => array(
 			'friendly_name'         => __('CSV Column Separator'),
@@ -670,6 +678,7 @@ function reportit_config_settings() {
 		'reportit_graph_header'     => array(
 			'friendly_name'         => __('ReportIT Graph Settings'),
 			'method'                => 'spacer',
+			'collapsible'           => 'true'
 		),
 		'reportit_g_default'        => array(
 			'friendly_name'         => __('Default Chart'),

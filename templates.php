@@ -89,10 +89,9 @@ function template_wizard($action) {
 					<span class='textError'>" . __('There are no Data Templates in use.', 'reportit') . "</span>
 				</td>
 			</tr>";
-
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php\")'>";
 		} else {
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Create a new Report Template', 'reportit') . "'>";
+			$save_html = '<input type="button" value="' . __esc('Cancel', 'reportit') . '" onClick="cactiReturnTo(\'templates.php\')">&nbsp;<input type="submit" value="' . __esc('Continue', 'reportit') . '" title="' . __esc('Create a new Report Template', 'reportit') . '">';
 			print "<tr class='textArea'>
 				<td>
 					<p>" . __('Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden.', 'reportit') . "
@@ -125,9 +124,9 @@ function template_wizard($action) {
 		$templates = db_custom_fetch_assoc($sql, 'id', false);
 
 		/* begin with the HTML output */
-		html_start_box(__('Export Report Template', 'reportit'), '60%', '', '3', 'center', '');
-
 		form_start('templates.php');
+
+		html_start_box(__('Export Report Template', 'reportit'), '60%', '', '3', 'center', '');
 
 		if ($templates === false) {
 			print "<tr class='textArea'>
@@ -136,9 +135,9 @@ function template_wizard($action) {
 				</td>
 			</tr>';
 
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php\")'>";
 		} else {
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Export', 'reportit') . "' title='" . __esc('Export Report Template', 'reportit') . "'>";
+			$save_html = '<input type="button" value="' . __esc('Cancel', 'reportit') . '" onClick="cactiReturnTo(\'templates.php\')">&nbsp;<input type="submit" value="' . __esc('Export', 'reportit') . '" title="' . __esc('Export Report Template', 'reportit') . '">';
 
 			print "<table class='cactiTable'";
 			print '<tr><td>' . __('Report Template', 'reportit') . '<br>' . __('Choose one of your Report Templates to export to XML.', 'reportit') . '</td><td>';
@@ -166,6 +165,8 @@ function template_wizard($action) {
 		</tr>";
 
 		html_end_box();
+
+		form_end(false);
 
 		bottom_footer();
 
@@ -290,7 +291,7 @@ function template_export() {
 	header('Content-Type: application/xml');
 	header('Content-Disposition: attachment; filename=\'template.xml\'');
 
-	print '<?xml version=\'1.0\' encoding=\'UTF-8\'/>' . $output;
+	print '<?xml version="1.0" encoding="UTF-8"?>' . $output;
 }
 
 function template_import() {
@@ -475,11 +476,13 @@ function template_filter() {
 				});
 
 				$('#import').click(function() {
-					document.location = 'templates.php?action=template_upload_wizard';
+					strURL = 'templates.php?header=false&action=template_upload_wizard';
+					loadPageNoHeader(strURL);
 				});
 
 				$('#export').click(function() {
-					document.location = 'templates.php?action=template_export_wizard';
+					strURL = 'templates.php?header=false&action=template_export_wizard';
+					loadPageNoHeader(strURL);
 				});
 
 				$('#form_templates').submit(function(event) {
@@ -711,7 +714,7 @@ function form_save() {
 		/* update template id for data source items if necessary */
 		if (get_request_var('id') == 0) {
 			foreach($ds_items as $key => $ds_item) {
-				$ds_items[$key]['template_id']=$id;
+				$ds_items[$key]['template_id']=$template_data['id'];
 			}
 		}
 
@@ -720,7 +723,7 @@ function form_save() {
 			db_execute_prepared("DELETE FROM reportit_data_source_items
 				WHERE template_id = ?
 				AND id IN ($unused_data_sources)",
-				array($id));;
+				array($template_data['id']));
 		}
 
 		/* save the data source items */

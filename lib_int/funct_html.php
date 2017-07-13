@@ -95,7 +95,7 @@ function html_blue_link(&$data, $lb=true) {
 	   		<td class='textinfo' valign='top' align='right'>";
 
 	foreach ($data as $link) {
-		print "<span class='linkmarker'>*</span><a class='hyperlink' href='{$link['href']}'>{$link['text']}</a><br>";
+		print "<span class='linkmarker'>*</span><a class='hyperLink' href='" . htmlspecialchars($link['href']) . "'>{$link['text']}</a><br>";
 	}
 
     print '</td>

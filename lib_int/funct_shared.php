@@ -1361,7 +1361,7 @@ function export_report_template($template_id, $info=false) {
     $checksum .= convert_array2string($data_source_items_data);
 
     /* add template version and hash the checksum */
-    $reportit = array('version' => reportit_version('version'), 'type' => 1);
+    $reportit = array('version' => plugin_reportit_version()['version'], 'type' => 1);
     $checksum .= convert_array2string($reportit);
     $reportit['hash'] = md5($checksum);
 
