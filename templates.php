@@ -29,6 +29,7 @@ include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/include/global_forms.php');
 include_once(REPORTIT_BASE_PATH . '/lib_int/const_templates.php');
 
 set_default_action();
@@ -72,7 +73,7 @@ switch (get_request_var('action')) {
 
 
 function template_wizard($action) {
-	global $config, $list_of_data_templates;
+	global $config, $list_of_data_templates, $fields_template_export;
 
 	switch ($action) {
 	case 'new':
@@ -119,55 +120,16 @@ function template_wizard($action) {
 		break;
 	case 'export':
 		top_header();
-
-		$sql = "SELECT id, description FROM reportit_templates WHERE locked = 0";
-		$templates = db_custom_fetch_assoc($sql, 'id', false);
-
-		/* begin with the HTML output */
 		form_start('templates.php');
-
-		html_start_box(__('Export Report Template', 'reportit'), '60%', '', '3', 'center', '');
-
-		if ($templates === false) {
-			print "<tr class='textArea'>
-				<td>
-					<span class='textError'>" . __('No unlocked Report Templates available.', 'reportit') . '</span>
-				</td>
-			</tr>';
-
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php\")'>";
-		} else {
-			$save_html = '<input type="button" value="' . __esc('Cancel', 'reportit') . '" onClick="cactiReturnTo(\'templates.php\')">&nbsp;<input type="submit" value="' . __esc('Export', 'reportit') . '" title="' . __esc('Export Report Template', 'reportit') . '">';
-
-			print "<table class='cactiTable'";
-			print '<tr><td>' . __('Report Template', 'reportit') . '<br>' . __('Choose one of your Report Templates to export to XML.', 'reportit') . '</td><td>';
-			print form_dropdown('template_id', $templates,'','','','','') . '</td></tr>';
-
-			print '<tr><td>' . __('Description', 'reportit') . '<br>' . __('Describe your Report Template.', 'reportit') . '</td><td>';
-			print form_text_area('template_description', '', 4, 37,__('Your description', 'reportit')) . '</td></tr>';
-
-			print '<tr><td>' . __('[Optional] Author', 'reportit') . '<br>' . __('You can fill a your name or your nick.', 'reportit') . '</td><td>';
-			form_text_box('template_author','','', 40, 50);
-			print '</td></tr>';
-			print '<tr><td>' . __('[Optional] Version', 'reportit') . '<br>' . __('The version or revision of your template.', 'reportit') . '</td><td>';
-			form_text_box('template_version','','', 40, 50);
-			print '</td></tr>';
-			print '<tr><td>' . __('[Optional] Contact', 'reportit') . '<br>' . __('Fill in your email address or something else if want to be reachable for other users of this template.', 'reportit') . '</td><td>';
-			form_text_box('template_contact','','', 40, 50);
-			print '</td></tr>';
-		}
-
-		print "<tr>
-			<td class='saveRow'>
-				<input type='hidden' name='action' value='template_export'>
-				$save_html
-			</td>
-		</tr>";
-
+		html_start_box( __('Export Report Template', 'reportit'), '100%', '', '2', 'center', '');
+		draw_edit_form(
+			array(
+				'config' => array('no_form_tag' => true),
+				'fields' => $fields_template_export
+			)
+		);
 		html_end_box();
-
-		form_end(false);
-
+		form_save_button('templates.php', $force_type = 'export', '', false);
 		bottom_footer();
 
 		break;
@@ -564,10 +526,10 @@ function standard() {
 	$display_text = array(
 		'description' => array('display' => __('Name', 'reportit'),             'align' => 'left', 'sort' => 'ASC'),
 		'nosort'      => array('display' => __('Data Template', 'reportit'),    'align' => 'left'),
-		'pre_filter'  => array('display' => __('Pre-filter', 'reportit'),       'align' => 'left'),
-		'nosort1'     => array('display' => __('Locked', 'reportit'),           'align' => 'left'),
-		'nosort2'     => array('display' => __('Measurands', 'reportit'),       'align' => 'left', 'sort' => 'ASC'),
-		'nosort3'     => array('display' => __('Variables', 'reportit'),        'align' => 'left', 'sort' => 'ASC'),
+		'enabled'     => array('display' => __('Published', 'reporit'),         'align' => 'left'),
+		'nosort2'     => array('display' => __('Locked', 'reportit'),           'align' => 'left'),
+		'nosort3'     => array('display' => __('Measurands', 'reportit'),       'align' => 'left', 'sort' => 'ASC'),
+		'nosort4'     => array('display' => __('Variables', 'reportit'),        'align' => 'left', 'sort' => 'ASC'),
 	);
 
 	$nav = html_nav_bar('templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Templates', 'reportit'), 'page', 'main');
@@ -592,8 +554,8 @@ function standard() {
 				form_selectable_cell("<span class='textError'>" . __('Data template not available', 'reportit') . '</span>', $template['id']);
 			}
 
-			form_selectable_cell($template['pre_filter'], $template['id']);
-			form_selectable_cell( ($template['locked']) ? __('yes', 'reportit') : __('no', 'reportit'), $template['id']);
+			form_selectable_cell( ($template['enabled']) ? __('yes', 'reportit') : __('no', 'reportit'), $template['id']);
+			form_selectable_cell( ($template['locked']) ? '<i class="fa fa-lock" ria-hidden="true"></i>' : '<i class="fa fa-unlock" ria-hidden="true"></i>', $template['id']);
 
 			if ($template['measurands'] != NULL) {
 				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?id=' . $template['id']) . '"><i class="fa fa-wrench" aria-hidden="true"></i> (' . $template['measurands'] . ')</a>', $template['id']);
@@ -643,7 +605,8 @@ function form_save() {
 	$template_data['description']      = get_request_var('template_description');
 	$template_data['pre_filter']       = get_request_var('template_filter');
 	$template_data['data_template_id'] = get_request_var('data_template_id');
-	$template_data['locked']           = isset_request_var('template_locked') ? 1 : 0;
+	$template_data['enabled']          = isset_request_var('template_enabled') ? 'on' : '';
+	$template_data['locked']           = isset_request_var('template_locked') ? 'on' : '';
 	$template_data['export_folder']    = isset_request_var('template_export_folder') ? get_request_var('template_export_folder') : '';
 
 	$sql = "SELECT id, data_source_name
@@ -742,123 +705,45 @@ function form_save() {
 }
 
 function template_edit() {
-	global $consolidation_functions, $list_of_data_templates;
+	global $consolidation_functions, $list_of_data_templates, $fields_template_edit;
 
 	/* ================= input validation ================= */
-	get_filter_request_var('id');
+	$id = get_filter_request_var('id', FILTER_VALIDATE_INT, array('default'=>0) );
 	/* ==================================================== */
 
 	session_custom_error_display();
 
-	if (!isempty_request_var('id')) {
-		$template_data = db_fetch_row_prepared('SELECT *
-			FROM reportit_templates
-			WHERE id = ?',
-			array(get_request_var('id')));
-
+	if ($id) {
+		$template_data = db_fetch_row('SELECT *	FROM reportit_templates	WHERE id = ' . $id);
 		$header_label = __('Template Configuration [edit: %s]',$template_data['description'], 'reportit');
 	} else {
+		$template_data['id'] = 0;
 		$header_label = __('Template Configuration [new]', 'reportit');
 	}
 
-	$id = (isset_request_var('id') ? get_request_var('id') : '0');
 	if (isset_request_var('data_template')) {
 		if (!isset($_SESSION['reportit_tWizard']['data_template']))
-		$_SESSION['reportit_tWizard']['data_template'] = get_request_var('data_template');
+		$_SESSION['reportit_tWizard']['data_template'] = get_filter_request_var('data_template');
 	}
 
-	$data_template_id = (isset($template_data['data_template_id']) ? $template_data['data_template_id'] : $_SESSION['reportit_tWizard']['data_template']);
-	$data_template = $list_of_data_templates[$data_template_id];
+	if (!isset($template_data['data_template_id'])) {
+		$template_data['data_template_id'] = $_SESSION['reportit_tWizard']['data_template'];
+	}
 
-	$form_array = array(
-		'id' => array(
-			'method' => 'hidden_zero',
-			'value' => $id
-		),
-		'data_template_id' => array(
-			'method' => 'hidden_zero',
-			'value' => $data_template_id
-		),
-		'ds_enabled__0' => array(
-			'method' => 'hidden_zero',
-			'value' => 'on'
-		),
-		'template_header' => array(
-			'method' => 'spacer',
-			'friendly_name' => __('General', 'reportit'),
-			'collapsible' => 'true'
-		),
-		'template_description' => array(
-			'friendly_name' => __('Name', 'reportit'),
-			'method' => 'textbox',
-			'max_length' => '100',
-			'description' => __('The unique name given to this Report Template.', 'reportit'),
-			'value' => (isset($template_data['description']) ? $template_data['description'] : '')
-		),
-		'template_locked' => array(
-			'friendly_name' => __('Locked', 'reportit'),
-			'method' => 'checkbox',
-			'default' => 'on',
-			'description' => __('Define this Report Template as locked (default), so that power users can\'t use it until you have checked its functionality. During that time they are also not allowed to modify or run reports based on this template.', 'reportit'),
-			'value' => (!isset($template_data['locked']) || $template_data['locked'] == true) ? 'on' : 'off'
-		),
-		'template_filter' => array(
-			'friendly_name' => __('Additional Pre-filter', 'reportit'),
-			'method' => 'textbox',
-			'max_length' => '100',
-			'description' => __('Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!', 'reportit'),
-			'value' => (isset($template_data['pre_filter']) ? $template_data['pre_filter'] : '')
-		)
-	);
+	$template_data['data_template_name'] =  $list_of_data_templates[$template_data['data_template_id']];
 
 	if (read_config_option('reportit_auto_export')) {
-		$form_array2 = array(
-			'template_export_folder' => array(
-				'friendly_name' => __('Export Path', 'reportit'),
-				'description' => __('Optional: The path to an folder for saving the exports.  If it does not exist ReportIT automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id.', 'reportit'),
-				'method' => 'dirpath',
-				'max_length' => '255',
-				'value' => isset($template_data['export_folder']) ? $template_data['export_folder'] : ''
-			)
-		);
-
-		$form_array = array_merge($form_array, $form_array2);
+		$fields_template_edit['template_export_folder']['method'] = 'hidden';
 	}
 
-	$form_array3 = array(
-		'template_header2' => array(
-			'method' => 'spacer',
-			'friendly_name' => __('Data Template', 'reportit'),
-			'collapsible' => 'true'
-		),
-		'template_data_template' => array(
-			'friendly_name' => __('Data Template', 'reportit'),
-			'method' => 'custom',
-			'max_length' => '100',
-			'description' => __('The name of the data template this Report Template depends on.', 'reportit'),
-			'value' => $data_template
-		)
-	);
+	/* generate input fields for data source aliases */
+	$data_source_items = html_template_ds_alias($id, $template_data['data_template_id']);
+	$form_array = array_merge($fields_template_edit, $data_source_items);
 
-	$form_array = array_merge($form_array, $form_array3);
-
-	/* draw input fields for data source alias */
-	$data_source_items = html_template_ds_alias($id, $data_template_id);
-	$form_array = array_merge($form_array, $data_source_items);
-
-	if (!isempty_request_var('id')) {
-		//Build 'Create links'
-		$links		= array();
-		$href		= 'variables.php?action=variable_edit&template_id=' . get_request_var('id');
-		$text		= __('Create a new variable', 'reportit');
-		$links[]	= array('href' =>$href, 'text' =>$text);
-
-		$href		= 'measurands.php?action=measurand_edit&template_id=' . get_request_var('id');
-		$text		= __('Create a new measurand', 'reportit');
-		$links[]	= array('href' =>$href, 'text' =>$text);
-
-		html_blue_link($links);
-	}
+	/* built 'create links' */
+	$links[] = array('href' => 'variables.php?action=variable_edit&template_id=' . $id, 'text' => __('Create a new variable', 'reportit'));
+	$links[] = array('href' => 'cc_measurands.php?action=measurand_edit&template_id=' . $id, 'text' => __('Create a new measurand', 'reportit'));
+	html_blue_link($links, $id);
 
 	form_start('templates.php');
 
@@ -867,7 +752,7 @@ function template_edit() {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true),
-			'fields' => $form_array
+			'fields' => inject_form_variables($form_array, $template_data)
 		)
 	);
 

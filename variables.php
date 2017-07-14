@@ -130,6 +130,7 @@ function standard() {
 
 			$select_options_count = ($variable['input_type'] == 1) ? (($variable['max_value']-$variable['min_value'])/$variable['stepping'])+1 : false;
 			$select_options_class = '';
+			$icon = '';
 
 			if($select_options_count !== false) {
 				if($select_options_count <= 100) {
@@ -152,7 +153,7 @@ function standard() {
 			form_selectable_cell($variable['default_value'], $variable['id']);
 			form_selectable_cell($variable['stepping'], $variable['id']);
 			form_selectable_cell($var_types[$variable['input_type']], $variable['id'], 'left');
-			form_selectable_cell('<font class="' . $select_options_class . '"><i class="fa ' . $icon . '" aria-hidden="true"></i> (' . (($select_options_count !== false) ? $select_options_count : 'n/a' ) . ')</font>', $variable['id']);
+			form_selectable_cell('<font class="' . $select_options_class . '"><i class="fa ' . $icon . '" aria-hidden="true"></i> ' . (($select_options_count !== false) ? "($select_options_count)" : 'n/a' ) . '</font>', $variable['id']);
 			form_checkbox_cell($variable['name'], $variable['id']);
 			form_end_row();
 		}

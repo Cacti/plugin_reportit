@@ -88,22 +88,13 @@ function html_wizard_footer($jump, $link, $save_html, $colspan=1) {
     include_once(CACTI_BASE_PATH . '/include/bottom_footer.php');
 }
 
-function html_blue_link(&$data, $lb=true) {
-    // Create a blue HTML link in an existing table
-    print "<table width=" . '100%' . " align='center'>
-	   	<tr>
-	   		<td class='textinfo' valign='top' align='right'>";
-
+function html_blue_link($data, $id=0) {
+	if($id) {
+	    print "<table width=" . '100%' . " align='center'><tr><td class='textinfo' valign='top' align='right'>";
 	foreach ($data as $link) {
 		print "<span class='linkmarker'>*</span><a class='hyperLink' href='" . htmlspecialchars($link['href']) . "'>{$link['text']}</a><br>";
 	}
-
-    print '</td>
-		</tr>
-   	</table>';
-
-	if ($lb) {
-		print '<br>';
+    	print '</td></tr></table><br>';
 	}
 }
 
