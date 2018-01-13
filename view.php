@@ -1,7 +1,7 @@
 <?php
 /*
    +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
+   | Copyright (C) 2004-2018 The Cacti Group                                 |
    |                                                                         |
    | This program is free software; you can redistribute it and/or           |
    | modify it under the terms of the GNU General Public License             |
@@ -182,15 +182,15 @@ function standard() {
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(a.id)
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		$sql_where");
 
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	$report_list = db_fetch_assoc("SELECT a.*, b.description AS template_description
-		FROM reportit_reports AS a
-		INNER JOIN reportit_templates AS b
+		FROM plugin_reportit_reports AS a
+		INNER JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
 		$sql_where
 		$sql_order
@@ -1268,8 +1268,8 @@ function show_graphs() {
 				if ($mea[$id]['visible']) {
 					if (get_request_var('archive') == -1) {
 						$sql = 	"SELECT a.*, b.*, c.name_cache
-							FROM reportit_results_" . get_request_var('id') . " AS a
-							INNER JOIN reportit_data_items AS b
+							FROM plugin_reportit_results_" . get_request_var('id') . " AS a
+							INNER JOIN plugin_reportit_data_items AS b
 							ON b.id = a.id
 							AND b.report_id = " . get_request_var('id') . "
 							INNER JOIN data_template_data AS c
@@ -1279,7 +1279,7 @@ function show_graphs() {
 							$suffix";
 					} else {
 						$sql =	"SELECT *
-							FROM reportit_tmp_" . get_request_var('id') . "_" . get_request_var('archive') . " AS a
+							FROM plugin_reportit_tmp_" . get_request_var('id') . "_" . get_request_var('archive') . " AS a
 							WHERE a.name_cache
 							$sql_where
 							$suffix";
@@ -1388,7 +1388,7 @@ function show_export_wizard($new=false){
 	$ids = substr($ids, 0, strlen($ids)-1);
 
 	$report = db_fetch_assoc("SELECT id, description, scheduled, autoarchive
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id IN ($ids)");
 
 	if (sizeof($reports)) {
