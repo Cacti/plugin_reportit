@@ -247,7 +247,7 @@ function reportit_system_install() {
 	* - contains report definition parameters of archived reports read in temporarily
 	*/
 	$data = array();
-	$data['columns'][] = array(	'name' => 'cache_id',			'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
+	$data['columns'][] = array(	'name' => 'cache_id',			'type' => 'varchar(30)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'id', 				'type' => 'int(11)', 		'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'name',				'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'description',		'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
@@ -291,7 +291,7 @@ function reportit_system_install() {
 	* - defined measurands as part of an archived report
 	*/
 	$data = array();
-	$data['columns'][] = array(	'name' => 'cache_id',			'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
+	$data['columns'][] = array(	'name' => 'cache_id',			'type' => 'varchar(30)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'id', 				'type' => 'int(11)', 		'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'template_id', 		'type' => 'int(11)',		'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'description',		'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
@@ -316,7 +316,7 @@ function reportit_system_install() {
 	* - definition of variables as part of an archived report
 	*/
 	$data = array();
-	$data['columns'][] = array(	'name' => 'cache_id',			'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
+	$data['columns'][] = array(	'name' => 'cache_id',			'type' => 'varchar(30)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'id', 				'type' => 'int(11)', 		'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'name',				'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'description',		'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
@@ -330,4 +330,4 @@ function reportit_system_install() {
 
 	api_plugin_db_table_create ('reportit', 'plugin_reportit_cache_variables', $data);
 }
-?>
+
