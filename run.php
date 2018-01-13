@@ -1,7 +1,7 @@
 <?php
 /*
    +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
+   | Copyright (C) 2004-2018 The Cacti Group                                 |
    |                                                                         |
    | This program is free software; you can redistribute it and/or           |
    | modify it under the terms of the GNU General Public License             |
@@ -25,15 +25,15 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_calculate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
-include_once(REPORTIT_BASE_PATH . '/runtime.php');
+include_once( REPORTIT_LIB_PATH . '/funct_validate.php');
+include_once( REPORTIT_LIB_PATH . '/funct_shared.php');
+include_once( REPORTIT_LIB_PATH . '/funct_online.php');
+include_once( REPORTIT_LIB_PATH . '/const_runtime.php');
+include_once( REPORTIT_LIB_PATH . '/const_measurands.php');
+include_once( REPORTIT_LIB_PATH . '/funct_calculate.php');
+include_once( REPORTIT_LIB_PATH . '/funct_runtime.php');
+include_once( REPORTIT_LIB_PATH . '/funct_html.php');
+include_once( REPORTIT_BASE_PATH . '/runtime.php');
 
 //Set default action
 set_default_action();

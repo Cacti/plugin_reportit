@@ -1,7 +1,7 @@
 <?php
 /*
    +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
+   | Copyright (C) 2004-2018 The Cacti Group                                 |
    |                                                                         |
    | This program is free software; you can redistribute it and/or           |
    | modify it under the terms of the GNU General Public License             |
@@ -34,7 +34,6 @@ $run_id         = false;
 $run_verb       = false;
 $run_scheduled  = false;
 $run_search     = array('<NOTICE>','<RID>','<DID>');
-$socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
 
@@ -51,8 +50,8 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 
     include_once(REPORTIT_BASE_PATH . '/setup.php');
     include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
+	include_once(REPORTIT_BASE_PATH . '/include/global_arrays.php');
     include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
     include_once(REPORTIT_BASE_PATH . '/lib_int/funct_calculate.php');
     include_once(REPORTIT_BASE_PATH . '/lib_int/funct_runtime.php');
     include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
@@ -128,20 +127,19 @@ function help() {
 }
 
 function run($frequency) {
-    global $run_verb, $email_counter, $export_counter;
 
     //Check RRDtool connection:
     if(!chk_cnn_rrdtool()) exit;
 
     $start = microtime();
     if(is_numeric($frequency)) {
-        $sql = "SELECT a.id, a.template_id FROM reportit_reports as a
-                INNER JOIN reportit_templates as b
+        $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
+                INNER JOIN plugin_reportit_templates as b
                 ON b.locked = 0 and a.template_id = b.id
                 WHERE a.id = $frequency";
     }else {
-        $sql = "SELECT a.id, a.template_id FROM reportit_reports as a
-                INNER JOIN reportit_templates as b
+        $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
+                INNER JOIN plugin_reportit_templates as b
                 ON b.locked = 0 AND a.template_id = b.id
                 WHERE a.scheduled = 1 AND a.frequency = '$frequency'";
     }
@@ -213,89 +211,16 @@ function run_error($code, $RID = 0, $DID = 0, $notice='') {
     }
 }
 
-
-function chk_cnn_rrdtool() {
-    global $rrdtool_api, $config;
-
-    $rrdtool_api  = read_config_option('reportit_API');
-    switch($rrdtool_api) {
-        case '0':
-            //Check PHP bindings
-            return check_rrdtool_bindings();
-            break;
-
-        case '2':
-            //Check RRDtool Server
-            return check_rrdtool_server();
-            break;
-
-        default:
-            //RRDtool Cacti means the core function rrdtool_execute
-            //We have only to include the lib.
-            include_once(CACTI_BASE_PATH . '/lib/rrd.php');
-            return true;
-            break;
-    }
-}
-
-
-function check_rrdtool_bindings() {
-    global $run_scheduled;
-
-    $loaded_extensions = get_loaded_extensions();
-    if(in_array('rrdtool', $loaded_extensions) | in_array('RRDTool', $loaded_extensions)) {
-        return true;
-    }else {
-        if($run_scheduled) {
-            cacti_log( 'REPORTIT ERROR: PHP modul for RRDtool is not available.', true, 'PLUGIN');
-        }else {
-            run_error(1);
-        }
-    }
-    return false;
-}
-
-
-function check_rrdtool_server() {
-    global $socket_handle, $run_scheduled;
-
-    $run_RRDId          = read_config_option('reportit_RRDID');
-    $run_RRDPort        = read_config_option('reportit_RRDPort');
-    $socket_handle      = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-    $socket_connection  = @socket_connect($socket_handle, $run_RRDId, $run_RRDPort);
-
-
-    if(!$socket_connection) {
-        if($run_scheduled) {
-            cacti_log( 'REPORTIT ERROR: Unable to connect to RRDtool server.', true, 'PLUGIN');
-        }else {
-            run_error(9);
-        }
-    }
-    return $socket_connection;
-}
-
-
-function disc_rrdtool_server() {
-    global $socket_handle;
-
-    socket_close($socket_handle);
-    return true;
-}
-
-
 function runtime($report_id) {
 	global	$timezones, $run_scheduled, $run_return, $consolidation_functions,
-	$rrdtool_api, $socket_handle, $calc_fct_names, $calc_fct_names_params, $error, $email_counter, $export_counter;
+	$calc_fct_names, $calc_fct_names_params, $error, $email_counter, $export_counter;
+
+	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
 
 	//This report is in_process, so flag it!
 	in_process($report_id);
 
 	if(!$run_scheduled) {
-		if(!chk_cnn_rrdtool()) {
-			in_process($report_id, 0);
-			return $run_return;
-		}
 		ini_set("max_execution_time", read_config_option('reportit_met'));
 	}
 
@@ -313,7 +238,7 @@ function runtime($report_id) {
 	reset_report($report_id);
 
     //----- load default settings -----
-    $report_settings = db_fetch_row("SELECT * FROM reportit_reports WHERE id = '$report_id'");
+    $report_settings = db_fetch_row("SELECT * FROM plugin_reportit_reports WHERE id = '$report_id'");
 
     //----- auto clean-up RRDlist -----
     autocleanup($report_id);
@@ -360,7 +285,7 @@ function runtime($report_id) {
 
 	//----- Prepare result table -----
 	// First destroy old result table if exists
-	db_execute("DROP TABLE IF EXISTS reportit_results_$report_id");
+	db_execute("DROP TABLE IF EXISTS plugin_reportit_results_$report_id");
 
 	// Create new table for saving our results
 	create_result_table($report_id);
@@ -521,63 +446,19 @@ function runtime($report_id) {
         $rrd_data 		= array();
         $valid_rra_indexes	= array();
 
-        switch($rrdtool_api) {
-            case '0':
-                //PHP bindings
-                foreach($rra_types as $rra_type => $rra_index) {
-                    $rrd_options            = array( $rra_type, "--start", $f_sp, "--end", $l_ep);
-                    $rrd_data[$rra_index]   = rrd_fetch($data_source_path, $rrd_options, count($rrd_options));
-                    if($error = rrd_error()) {
-                        $cf = array_search($rra_index, $rra_types);
-                        run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
-                    }else {
-                        $valid_rra_indexes[] = $rra_index;
-                    }
-                    debug($rrd_data[$rra_index], "RRDtool Bindings -> RRDfetch - Raw data");
-                }
-                break;
+		foreach($rra_types as $rra_type => $rra_index) {
+		    $cmd_line               = "fetch $data_source_path $rra_type -s $f_sp -e $l_ep";
+		    debug($cmd_line, "RRDfetch command");
+		    $rrd_data[$rra_index]   = @rrdtool_execute($cmd_line, false, RRDTOOL_OUTPUT_STDOUT);
+		    if (strlen($rrd_data[$rra_index]) == 0){
+		        $cf = array_search($rra_index, $rra_types);
+		        run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
+		    }else {
+		        $valid_rra_indexes[] = $rra_index;
+		    }
+		    debug($rrd_data[$rra_index], "RRDtool Cacti -> RRDfetch - Raw data");
+		}
 
-            case '1':
-                //RRDtool Cacti means the core function "rrdtool_execute"
-                foreach($rra_types as $rra_type => $rra_index) {
-                    $cmd_line               = "fetch $data_source_path $rra_type -s $f_sp -e $l_ep";
-                    debug($cmd_line, "RRDfetch command");
-                    $rrd_data[$rra_index]   = @rrdtool_execute($cmd_line, false, RRDTOOL_OUTPUT_STDOUT);
-                    if (strlen($rrd_data[$rra_index]) == 0){
-                        $cf = array_search($rra_index, $rra_types);
-                        run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
-                    }else {
-                        $valid_rra_indexes[] = $rra_index;
-                    }
-                    debug($rrd_data[$rra_index], "RRDtool Cacti -> RRDfetch - Raw data");
-                }
-                break;
-
-            case '2':
-                //RRDtool Server
-                foreach($rra_types as $rra_type => $rra_index) {
-                    $cmd_line               = "fetch $data_source_path $rra_type -s $f_sp -e $l_ep \n";
-                    debug($cmd_line, "RRDfetch command");
-                    socket_write($socket_handle, $cmd_line);
-                    $data = '';
-                    $buffer = '';
-                    while($out = socket_recv($socket_handle, $buffer, 16384, 0)) {
-                        $data      .= $buffer;
-                        if(strstr(substr($buffer, -30, 10), 'OK')) {
-                            $data    = substr($data, 0 , strpos($data, 'OK'));
-                            break;
-                        }
-                    }
-                    $rrd_data[$rra_index] = $data;
-                    if (strlen($data) == 0){
-                        $cf = array_search($rra_index, $rra_types);
-                        run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
-                    }else {
-                        $valid_rra_indexes[] = $rra_index;
-                    }
-                    debug($rrd_data[$rra_index], "RRDtool Server -> RRDfetch - Raw data");
-                }
-        }
 
         // ----- Break up if we were not able to fetch any data -----
         if(sizeof($valid_rra_indexes) == 0) {
@@ -585,12 +466,10 @@ function runtime($report_id) {
             continue;
         }else {
             /* transform data that has not been fetch via the PHP based RRDtool API */
-            if($rrdtool_api != 0) {
-                foreach($rrd_data as $rra_index => $data) {
-                    if(in_array($rra_index, $valid_rra_indexes)) {
-                        transform( $data, $rrd_data[$rra_index], $report_definitions['template']);
-                        debug($rrd_data[$rra_index], "Transformed RAW data");
-                    }
+			foreach($rrd_data as $rra_index => $data) {
+            	if(in_array($rra_index, $valid_rra_indexes)) {
+                    transform( $data, $rrd_data[$rra_index], $report_definitions['template']);
+                    debug($rrd_data[$rra_index], "Transformed RAW data");
                 }
             }
         }
@@ -735,7 +614,7 @@ function runtime($report_id) {
 
 			// Remove last comma and complete the sql string
 			$list = substr($list, 0, strlen($list)-1);
-			$list = "ALTER TABLE reportit_results_$report_id $list";
+			$list = "ALTER TABLE plugin_reportit_results_$report_id $list";
 
 			// Add columms
 			db_execute($list);
@@ -793,11 +672,8 @@ function runtime($report_id) {
 		// Remove last comma
 		$list = substr($list, 0, strlen($list)-1);
 		// Save values
-		db_execute("REPLACE reportit_results_$report_id SET id = $local_data_id, $list");
+		db_execute("REPLACE plugin_reportit_results_$report_id SET id = $local_data_id, $list");
 	}
-
-	//----- Close socket connection if its open -----
-	if($socket_handle != '' && !$run_scheduled) disc_rrdtool_server();
 
 	//----- Make a note of our endpoint -----
 	$runtime_ep = microtime();
@@ -818,7 +694,7 @@ function runtime($report_id) {
 	//----- Save/update report data -----
 	$now = date("Y-m-d H:i:s");
 
-	$sql = "UPDATE reportit_reports
+	$sql = "UPDATE plugin_reportit_reports
 		SET last_run	= '$now',
 		runtime 		= '$runtime',
 		start_date 		= '$s_date',
@@ -874,7 +750,7 @@ function autorrdlist($reportid) {
 	global $timezone, $shifttime, $shifttime2, $weekday;
 
 	// fetch data for current report
-	$report_data		= db_fetch_row('SELECT * FROM reportit_reports WHERE id=' . $reportid);
+	$report_data		= db_fetch_row('SELECT * FROM plugin_reportit_reports WHERE id=' . $reportid);
 	$header_label 		= $report_data['description']  . ' ID: ' . $reportid;
 
 	// if Host Template Id filter was set, show the Host Template Description in the header
@@ -887,7 +763,7 @@ function autorrdlist($reportid) {
 	}
 
 	// how many rows are already there?
-	$current_rows = db_fetch_cell("SELECT COUNT(*) FROM reportit_data_items WHERE report_id = $reportid");
+	$current_rows = db_fetch_cell("SELECT COUNT(*) FROM plugin_reportit_data_items WHERE report_id = $reportid");
 
 	//Get the filter setting by template
 	$sql = "SELECT
@@ -909,7 +785,7 @@ function autorrdlist($reportid) {
 	    FROM
 	    	data_template_data AS a
 	    LEFT JOIN
-	       (SELECT * FROM reportit_data_items WHERE report_id = $reportid) as b
+	       (SELECT * FROM plugin_reportit_data_items WHERE report_id = $reportid) as b
 	    ON
 	    	a.local_data_id = b.id";
 
@@ -979,7 +855,7 @@ function autorrdlist($reportid) {
 		$rrd 		= '';
 
 		/* load data item presets */
-		$sql = "SELECT * FROM reportit_presets WHERE id = $reportid";
+		$sql = "SELECT * FROM plugin_reportit_presets WHERE id = $reportid";
 		$presets = db_fetch_row($sql);
 
 		if(sizeof($presets)>0) {
@@ -1004,7 +880,7 @@ function autorrdlist($reportid) {
 		$columns = substr($columns, 1);
 
 		/* save */
-		$sql = "INSERT INTO reportit_data_items ($columns) VALUES $rrd";
+		$sql = "INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd";
 		db_execute($sql);
 
 		// Reset report
@@ -1022,7 +898,7 @@ function autorrdlist($reportid) {
  */
 function autocleanup($report_id){
 
-    $sql = "SELECT a.id FROM reportit_data_items AS a
+    $sql = "SELECT a.id FROM plugin_reportit_data_items AS a
             LEFT JOIN data_template_data AS b
             ON b.local_data_id = a.id
             WHERE a.report_id = $report_id
@@ -1031,9 +907,9 @@ function autocleanup($report_id){
     $data_items = db_custom_fetch_flat_string($sql);
 
     if($data_items) {
-        $sql = "DELETE FROM `reportit_data_items`
-                WHERE `reportit_data_items`.`report_id` = $report_id
-                AND `reportit_data_items`.`id` in ($data_items)";
+        $sql = "DELETE FROM `plugin_reportit_data_items`
+                WHERE `plugin_reportit_data_items`.`report_id` = $report_id
+                AND `plugin_reportit_data_items`.`id` in ($data_items)";
         db_execute($sql);
     }
 }
@@ -1043,7 +919,7 @@ function autocleanup($report_id){
 function autoexport($report_id){
 
     /* load report settings */
-    $report_settings = db_fetch_row("SELECT * FROM reportit_reports WHERE id = $report_id");
+    $report_settings = db_fetch_row("SELECT * FROM plugin_reportit_reports WHERE id = $report_id");
 
     /* main export folder */
     $main_folder = read_config_option('reportit_exp_folder');
@@ -1055,8 +931,8 @@ function autoexport($report_id){
 
     /* export folder per template definition */
     $template_folder = db_fetch_cell("SELECT b.export_folder
-                                        FROM reportit_reports AS a
-                                        INNER JOIN reportit_templates as b
+                                        FROM plugin_reportit_reports AS a
+                                        INNER JOIN plugin_reportit_templates as b
                                         ON a.template_id = b.id
                                         WHERE a.id = $report_id");
 

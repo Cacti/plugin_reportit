@@ -1,7 +1,7 @@
 <?php
 /*
    +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
+   | Copyright (C) 2004-2018 The Cacti Group                                 |
    |                                                                         |
    | This program is free software; you can redistribute it and/or           |
    | modify it under the terms of the GNU General Public License             |
@@ -81,7 +81,7 @@ function create_chart(){
 
 	if (get_request_var('archive') == -1) {
 		$sql = "SELECT a.{get_request_var('source')}
-			FROM reportit_results_{get_request_var('id')} AS a
+			FROM plugin_reportit_results_{get_request_var('id')} AS a
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id
 			WHERE c.name_cache " . $affix;
@@ -89,7 +89,7 @@ function create_chart(){
 		$data = get_prepared_report_data(get_request_var('id'), 'graidle', $sql);
 	} else {
 		$sql = "SELECT a.{get_request_var('source')}
-			FROM reportit_tmp_$cache_id AS a
+			FROM plugin_reportit_tmp_$cache_id AS a
 			WHERE a.name_cache " . $affix;
 
 		$data = get_prepared_archive_data($cache_id, 'graidle', $sql);
