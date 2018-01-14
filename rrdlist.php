@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2018 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2018 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 chdir('../../');
@@ -96,7 +96,7 @@ function form_save() {
 	/* return to list view */
 	raise_message(1);
 
-	header('Location: cc_rrdlist.php?header=false&id=' . get_request_var('report_id'));
+	header('Location: rrdlist.php?header=false&id=' . get_request_var('report_id'));
 	exit;
 }
 
@@ -177,7 +177,7 @@ function standard() {
 		WHERE id = ?',
 		array(get_request_var('id')));
 
-	$header_label = __('Data Items [Report: %s %s [%d]', "<a class='pic' href='cc_reports.php?action=report_edit&id=" . get_request_var('id') . '>', $report_data['description'] . '</a>', $total_rows);
+	$header_label = __('Data Items [Report: %s %s [%d]', "<a class='pic' href='reports.php?action=report_edit&id=" . get_request_var('id') . '>', $report_data['description'] . '</a>', $total_rows);
 
 	/* define subheader description */
 	$description = array(
@@ -196,17 +196,17 @@ function standard() {
 		unset($link_array[array_search('timezone', $link_array)]);
 	}
 
-	$nav = html_nav_bar('cc_rrdlist.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('RRDs'), 'page', 'main');
+	$nav = html_nav_bar('rrdlist.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('RRDs'), 'page', 'main');
 
 	$columns = sizeof($link_array);
 
 	/* start with HTML output */
-	html_start_box($header_label, '100%', '', '2', 'center', 'cc_items.php?&id=' . get_request_var('id'));
+	html_start_box($header_label, '100%', '', '2', 'center', 'items.php?&id=' . get_request_var('id'));
 
 	?>
 	<tr class='odd'>
 		<td>
-		<form id='form_rrdlist' method='get' action='cc_rrdlist.php'>
+		<form id='form_rrdlist' method='get' action='rrdlist.php'>
 			<table class='filterTable'>
 				<tr>
 					<td>
@@ -244,12 +244,12 @@ function standard() {
 	</tr>
 	<script type='text/javascript'>
 	function applyFilter() {
-		strURL = 'cc_rrdlist.php?header=false&filter='+escape($('#filter').val())+'&rows='+$('#rows').val();
+		strURL = 'rrdlist.php?header=false&filter='+escape($('#filter').val())+'&rows='+$('#rows').val();
 		loadPageNoHeader(strURL);
 	}
 
 	function clearFilter() {
-		strURL = 'cc_rrdlist.php?clear=1&header=false';
+		strURL = 'rrdlist.php?clear=1&header=false';
 		loadPageNoHeader(strURL);
 	}
 
@@ -285,7 +285,7 @@ function standard() {
 			if ($rrd['name_cache'] == NULL) {
 				form_selectable_cell(__('Does not exist anymore'), $rrd['id']);
 			} else {
-				form_selectable_cell("<class='linkEditMain' href='cc_rrdlist.php?action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id') . ">" . $rrd['name_cache'] . "</a>", $rrd['id']);
+				form_selectable_cell("<class='linkEditMain' href='rrdlist.php?action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id') . ">" . $rrd['name_cache'] . "</a>", $rrd['id']);
 			}
 
 			form_selectable_cell($rrd['description'], $rrd['id']);
@@ -324,7 +324,7 @@ function standard() {
 
 	html_end_box(true);
 
-	draw_actions_dropdown($rrdlist_actions, 'cc_reports.php');
+	draw_actions_dropdown($rrdlist_actions, 'reports.php');
 }
 
 function rrdlist_edit() {
@@ -467,7 +467,7 @@ function rrdlist_edit() {
 
 	html_end_box();
 
-	form_save_button('cc_rrdlist.php?&id='. get_request_var('report_id'));
+	form_save_button('rrdlist.php?&id='. get_request_var('report_id'));
 }
 
 function form_actions() {
@@ -514,7 +514,7 @@ function form_actions() {
 			reset_report(get_request_var('id'));
 		}
 
-		header('Location: cc_rrdlist.php?header=false&id=' . get_request_var('id'));
+		header('Location: rrdlist.php?header=false&id=' . get_request_var('id'));
 		exit;
 	}
 
@@ -547,7 +547,7 @@ function form_actions() {
 
 	top_header();
 
-	form_start('cc_rrdlist.php');
+	form_start('rrdlist.php');
 
 	html_start_box($rrdlist_actions{get_request_var('drp_action')}, '60%', '', '2', 'center', '');
 

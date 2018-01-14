@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2018 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2018 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 chdir('../../');
@@ -40,7 +40,7 @@ set_default_action();
 
 //Redirection
 if (isset($_SESSION['run']) && ($_SESSION['run'] == '0')) {
-	header('Location: cc_reports.php');
+	header('Location: reports.php');
 	exit;
 }
 
@@ -65,7 +65,7 @@ function calculation() {
 	$_SESSION['run'] = '0';
 
 	if (stat_process($id)) {
-		html_error_box(__('Report is just in process.'), 'cc_run.php', '', 'cc_reports.php');
+		html_error_box(__('Report is just in process.'), 'run.php', '', 'reports.php');
 		exit;
 	}
 
@@ -88,14 +88,14 @@ function calculation() {
 	}
 
 	if (!isset($result['runtime'])) {
-		html_custom_header_box($report_informations['description'], __('Report calculation failed'), 'cc_rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
+		html_custom_header_box($report_informations['description'], __('Report calculation failed'), 'rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
 		html_end_box(false);
 	}else {
 		$runtime = $result['runtime'];
-		html_custom_header_box($report_informations['description'], __('Report statistics'), 'cc_reports.php', __('Report configurations'));
+		html_custom_header_box($report_informations['description'], __('Report statistics'), 'reports.php', __('Report configurations'));
 		html_end_box(false);
 
-		form_start('cc_view.php?action=show_report&id=' . get_request_var('id'));
+		form_start('view.php?action=show_report&id=' . get_request_var('id'));
 
 		html_graph_start_box();
 		?>

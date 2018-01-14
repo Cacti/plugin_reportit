@@ -1,32 +1,32 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2018 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2018 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 //----- Define some variables -----
-$PATH_RID_LOG   = "<a href='./plugins/reportit/cc_reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_LOG   = "<a href='./plugins/reportit/cc_rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
-$PATH_RID_VIEW  = "<a href='cc_reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_VIEW  = "<a href='cc_rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_LOG   = "<a href='./plugins/reportit/reports.php?action=report_edit&id=<RID>'><RID></a>";
+$PATH_DID_LOG   = "<a href='./plugins/reportit/rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&id=<RID>'><RID></a>";
+$PATH_DID_VIEW  = "<a href='rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
 
 $run_return     = array();
 $run_freq       = '';
@@ -103,7 +103,7 @@ function help() {
     $version = reportit_version('version');
 
     print "\n---------------------------------------------------------------------------------------------------\n";
-    print " Copyright 2006-2017 - The Cacti Group\n";
+    print " Copyright 2006-2018 - The Cacti Group\n";
     print " Project:         Cacti-ReportIT\n";
     print " Project site:    http://sourceforge.net/projects/cacti-reportit/\n";
     print " Version:         v$version\n";

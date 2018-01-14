@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2018 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2018 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 chdir('../../');
@@ -106,7 +106,7 @@ function save(){
 	}
 
 	/* return to standard form */
-	header('Location: cc_items.php?id=' . get_request_var('id'));
+	header('Location: items.php?id=' . get_request_var('id'));
 }
 
 function standard() {
@@ -253,9 +253,9 @@ function standard() {
 
 	$rrdlist = db_fetch_assoc($sql);
 
-	$nav = html_nav_bar('cc_items.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
+	$nav = html_nav_bar('items.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
 
-	$header_label	= __('Data Objects [add to report: <a style="color:yellow" href="cc_reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
+	$header_label	= __('Data Objects [add to report: <a style="color:yellow" href="reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
 
 	/* show the Host Template Description in the header, if Host Template Id filter was set */
 	$ht_desc = db_fetch_cell_prepared('SELECT name
@@ -315,13 +315,13 @@ function standard() {
 
 	if ($total_rows > $rows) print $nav;
 
-	form_save_button('cc_rrdlist.php?&id=' . get_request_var('id'), '', '');
+	form_save_button('rrdlist.php?&id=' . get_request_var('id'), '', '');
 }
 
 function items_filter($header_label) {
 	global $item_rows;
 
-	html_start_box($header_label, '100%', '', '3', 'center', 'cc_items.php?action=edit');
+	html_start_box($header_label, '100%', '', '3', 'center', 'items.php?action=edit');
 	?>
 	<tr class='even'>
 		<td>
@@ -363,7 +363,7 @@ function items_filter($header_label) {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL = 'cc_reports.php?filter='+
+			strURL = 'reports.php?filter='+
 				escape($('#filter').val())+
 				'&rows='+$('#rows').val()+
 				'&page='+$('#page').val()+
@@ -372,7 +372,7 @@ function items_filter($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_reports.php?clear=1&header=false';
+			strURL = 'reports.php?clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 

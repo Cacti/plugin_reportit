@@ -1,27 +1,26 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2018 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2018 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
-
 
 chdir('../../');
 
@@ -196,7 +195,7 @@ function standard() {
 		$sql_order
 		$sql_limit");
 
-	$nav = html_nav_bar('cc_view.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Reports'), 'page', 'main');
+	$nav = html_nav_bar('view.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Reports'), 'page', 'main');
 
 	/* start with HTML output */
 	html_start_box(__('Reports [%s]', $total_rows), '100%', '', '2', 'center', '');
@@ -248,7 +247,7 @@ function standard() {
 		</form>
 		<script type='text/javascript'>
 		function applyFilter() {
-			strURL  = 'cc_view.php?action=show_report&header=false';
+			strURL  = 'view.php?action=show_report&header=false';
 			strURL += '&filter='+escape($('#filter').val());
 			strURL += '&type='+$('#type').val();
 			strURL += '&rows='+$('#rows').val();
@@ -256,7 +255,7 @@ function standard() {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_view.php?action=show_report&clear=1&header=false';
+			strURL = 'view.php?action=show_report&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -304,7 +303,7 @@ function standard() {
 
 			form_alternate_row();
 
-			print '<td><a class="linkEditMain" href="cc_view.php?action=show_report&id=' . $report['id'] . '>' . $report['description'] . '</a></td>';
+			print '<td><a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '>' . $report['description'] . '</a></td>';
 			print '<td>' . other_name($ownerId) . '</td>';
 			print '<td>' . $report['template_description'] . '</td>';
 			print '<td class="right">' . (date(config_date_format(), strtotime($report['start_date'])) . ' - ' . date(config_date_format(), strtotime($report['end_date']))) . '</td>';
@@ -556,10 +555,10 @@ function show_report() {
 		$ds_description = array($ds_description[get_request_var('data_source')]);
 	}
 
-	$nav = html_nav_bar('cc_view.php?action=show_report&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
+	$nav = html_nav_bar('view.php?action=show_report&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
 
 	/* graph view */
-	$link = (read_config_option('reportit_graph') == 'on')? './cc_view.php?action=show_graphs&id=' . get_request_var('id') : '';
+	$link = (read_config_option('reportit_graph') == 'on')? './view.php?action=show_graphs&id=' . get_request_var('id') : '';
 
 	/* start HTML output */
 	ob_start();
@@ -680,7 +679,7 @@ function show_report() {
 		</form>
 		<script type='text/javascript'>
 		function applyFilter() {
-			strURL  = 'cc_view.php?action=show_report&header=false';
+			strURL  = 'view.php?action=show_report&header=false';
 			strURL += '&filter='+escape($('#filter').val());
 			strURL += '&info='+$('#info').val();
 			strURL += '&rows='+$('#rows').val();
@@ -693,7 +692,7 @@ function show_report() {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_view.php?action=show_report&clear=1&header=false';
+			strURL = 'view.php?action=show_report&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -782,7 +781,7 @@ function show_report() {
 			form_alternate_row();
 
 			print '<td>
-				<a class="linkEditMain" href="cc_view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . $result['name_cache'] . '</a>';
+				<a class="linkEditMain" href="view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . $result['name_cache'] . '</a>';
 
 			if (get_request_var('subhead') == 1) {
 				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
@@ -859,7 +858,7 @@ function show_report() {
 	}
 
 	print '<form name="custom_dropdown" method="post">';
-	draw_actions_dropdown($export_formats, 'cc_view.php', 'single_export');
+	draw_actions_dropdown($export_formats, 'view.php', 'single_export');
 	print '</form>';
 
 	ob_end_flush();
@@ -904,7 +903,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 
 	?>
 	<tr class='odd'>
-		<form id='form_graphs' method='get' action='cc_view.php?action=show_graphs'>
+		<form id='form_graphs' method='get' action='view.php?action=show_graphs'>
 		<td>
 			<table class='filterTable'>
 				<tr>
@@ -1007,7 +1006,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 		</form>
 		<script type='text/javascript'>
 		function applyFilter() {
-			strURL  = 'cc_view.php?action=show_graphs&header=false';
+			strURL  = 'view.php?action=show_graphs&header=false';
 			strURL += '&filter='+escape($('#filter').val());
 			strURL += '&rows='+$('#rows').val();
 			strURL += '&measurand='+$('#measurand').val();
@@ -1019,7 +1018,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_view.php?action=show_graphs&clear=1&header=false';
+			strURL = 'view.php?action=show_graphs&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -1288,8 +1287,8 @@ function show_graphs() {
 					$data = db_fetch_assoc($sql);
 
 					print "<tr bgcolor='#a9b7cb'><td colspan='3' class='textHeaderDark'><strong>Measurand:</strong> $title ({$mea[$id]['abbreviation']})</td></tr>";
-					//print "<tr valign='top'><td colspan='2'><a href='./cc_graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'>hallo</a></td>";
-					print "<tr valign='top'><td colspan='2'><img src='./cc_graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'></td>";
+					//print "<tr valign='top'><td colspan='2'><a href='./graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'>hallo</a></td>";
+					print "<tr valign='top'><td colspan='2'><img src='./graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'></td>";
 					print "<td colspan='1' width='100%'>";
 
 					if (count($data)) {
@@ -1309,7 +1308,7 @@ function show_graphs() {
 
 							print "<td title='$title'>$i</td>";
 							print "<td title='$title'>
-										<a class='linkEditMain' href='cc_view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd=" . $item['id'] . "&cache=" . get_request_var('archive') . "'>" . $item['name_cache'] . "
+										<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd=" . $item['id'] . "&cache=" . get_request_var('archive') . "'>" . $item['name_cache'] . "
 								</a>
 							</td>";
 
@@ -1359,7 +1358,7 @@ function show_export_wizard($new=false){
 
 	$report_ids = $_SESSION['reportit']['export'];
 
-	html_wizard_header('Export', 'cc_view.php');
+	html_wizard_header('Export', 'view.php');
 
 	print "<tr>
 		<td class='textArea'>
@@ -1408,7 +1407,7 @@ function show_export_wizard($new=false){
 			print '<td class="right">' . sizeof($_SESSION['reportit']['export'][$id]['ids']) . '</td>';
 
 			print '<td class="right">'
-				."<a href=\"cc_reports.php?action=remove&id=$key\">"
+				."<a href=\"reports.php?action=remove&id=$key\">"
 				.'<img src="../../images/delete_icon.gif" width="10" height="10" border="0" alt="Delete"></a></td>';
 
 			form_end_row();
@@ -1419,6 +1418,6 @@ function show_export_wizard($new=false){
 
 	html_end_box();
 
-	html_form_button('cc_view.php', 'create', 'id', false, '60%');
+	html_form_button('view.php', 'create', 'id', false, '60%');
 }
 
