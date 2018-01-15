@@ -493,7 +493,7 @@ function standard() {
 	if (sizeof($template_list)) {
 		foreach($template_list as $template) {
 			form_alternate_row('line' . $template['id'], true);
-			form_selectable_cell('<a class="linkEditMain"' . (($template['description']) ? ' title="' . htmlentities($template['description'],ENT_QUOTES, "UTF-8", true) . '"' : '') .  ' href="' . htmlentities('templates.php?action=edit&id=' . $template['id'], ENT_QUOTES, "UTF-8", true) . '">' . $template['name']  . '</a>', $template['id']);
+			form_selectable_cell('<a class="linkEditMain"' . (($template['description']) ? ' title="' . htmlspecialchars(htmlspecialchars($template['description'],ENT_QUOTES,'UTF-8')) . '"' : '') .  ' href="templates.php?action=edit&id=' . $template['id'] . '">' . $template['name']  . '</a>', $template['id']);
 			form_selectable_cell( ($template['enabled']) ? __('yes', 'reportit') : __('no', 'reportit'), $template['id']);
 			form_selectable_cell( ($template['locked']) ? '<i class="fa fa-lock" aria-hidden="true"></i>' : '<i class="fa fa-unlock" ria-hidden="true"></i>', $template['id']);
 			form_selectable_cell(get_username($template['user_id']), $template['id']);
@@ -817,22 +817,17 @@ function form_save__templates() {
 	$unused_data_sources = FALSE;
 
 	/* ================= input validation ================= */
-	get_filter_request_var('id');
-	form_input_validate(get_nfilter_request_var('template_name'), 'template_description', '', false, 3);
-	form_input_validate(get_request_var('template_description'), 'template_description', '', false, 3);
-	form_input_validate(get_request_var('template_filter'), 'template_filter', '', true, 3);
+	$template_data['id']			= get_filter_request_var('id');
+	$template_data['name']			= form_input_validate(get_nfilter_request_var('template_name'), 'template_description', '', false, 3);
+	$template_data['description']	= form_input_validate(get_nfilter_request_var('template_description'), 'template_description', '', false, 3);
+	$template_data['pre_filter']	= form_input_validate(get_nfilter_request_var('template_filter'), 'template_filter', '', true, 3);
 	/* ==================================================== */
 
-	$template_data = array();
-	$template_data['id']               = get_request_var('id');
-	$template_data['name']      	   = get_request_var('template_name');
-	$template_data['description']      = get_request_var('template_description');
-	$template_data['pre_filter']       = get_request_var('template_filter');
-	$template_data['enabled']          = isset_request_var('template_enabled') ? 'on' : '';
-	$template_data['locked'] 		   = isset_request_var('template_locked') ? 'on' : '';
-	$template_data['export_folder']    = isset_request_var('template_export_folder') ? get_request_var('template_export_folder') : '';
-	$template_data['last_modified'] = date('Y-m-d H:i:s', time());
-	$template_data['modified_by']   = $_SESSION['sess_user_id'];
+	$template_data['enabled']		= isset_request_var('template_enabled') ? 'on' : '';
+	$template_data['locked']		= isset_request_var('template_locked') ? 'on' : '';
+	$template_data['export_folder']	= isset_request_var('template_export_folder') ? get_nfilter_request_var('template_export_folder') : '';
+	$template_data['last_modified']	= date('Y-m-d H:i:s', time());
+	$template_data['modified_by']	= $_SESSION['sess_user_id'];
 	if (empty($template_data['id'])) {
 		$template_data['user_id'] = $_SESSION['sess_user_id'];
 	}else {
@@ -865,61 +860,56 @@ function form_save__templates() {
 
 function form_save__variables() {
 	/* ================= input validation ================= */
-	get_filter_request_var('id');
-	get_filter_request_var('template_id');
+	$id = get_filter_request_var('id');
+	$template_id = get_filter_request_var('template_id');
 
-	form_input_validate(get_nfilter_request_var('variable_name'), 'variable_name', '^[a-zA-Z0-9[:space:]]+$', false, 3);
-	form_input_validate(get_nfilter_request_var('variable_description'), 'variable_description', '^[a-zA-Z0-9\n\r]+$', false, 3);
-	form_input_validate(get_nfilter_request_var('variable_maximum'), 'variable_maximum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
-	form_input_validate(get_nfilter_request_var('variable_minimum'), 'variable_minimum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
-	form_input_validate(get_nfilter_request_var('variable_default'), 'variable_default', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
-	form_input_validate(get_filter_request_var('variable_type'), 'variable_type', '^[1-2]$', false, 3);
-
-	if (get_request_var('variable_type') == 1) {
-		form_input_validate(get_request_var('variable_stepping'), 'variable_stepping', '^[0-9]+[.]?[0-9]*$', false, 3);
-	}
+	$var_name 			= form_input_validate(get_nfilter_request_var('variable_name'), 'variable_name', '', false, 3);
+	$var_type 			= form_input_validate(get_filter_request_var('variable_type'), 'variable_type', '^[1-2]$', false, 3);
+	$var_maximum 		= form_input_validate(get_nfilter_request_var('variable_maximum'), 'variable_maximum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
+	$var_minimum 		= form_input_validate(get_nfilter_request_var('variable_minimum'), 'variable_minimum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
+	$var_default 		= form_input_validate(get_nfilter_request_var('variable_default'), 'variable_default', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
+	$var_description	= form_input_validate(get_nfilter_request_var('variable_description'), 'variable_description', '', false, 3);
+	$var_stepping 		= ($var_type == 1)
+						? form_input_validate(get_nfilter_request_var('variable_stepping'), 'variable_stepping', '^[0-9]+[.]?[0-9]*$', false, 3)
+						: '';
 	/* ==================================================== */
 
-
 	//Check defined variable
-	if (!(get_request_var('variable_maximum') > get_request_var('variable_minimum'))) {
+	if (!($var_maximum > $var_minimum)) {
 		session_custom_error_message('variable_maximum', __('Maximum has to be greater than minimum.', 'reportit'));
 	}
 
-	if (!(get_request_var('variable_minimum') <= get_request_var('variable_default') && get_request_var('variable_default') <= get_request_var('variable_maximum'))) {
+	if (!($var_minimum <= $var_default && $var_default <= $var_maximum)) {
 		session_custom_error_message('variable_default', __('Default value is out of defined range.', 'reportit'));
 	}
 
-	if (get_request_var('variable_type') == 1) {
-		if ( get_request_var('variable_stepping') <= 0 ) {
+	if ($var_type == 1) {
+		if ( $var_stepping <= 0 ) {
 			session_custom_error_message('variable_stepping', __('Step has to be positive','reportit'));
-		}elseif (!(get_request_var('variable_stepping') <= (get_request_var('variable_maximum') - get_request_var('variable_minimum') ) ) ) {
+		}elseif (!($var_stepping <= ($var_maximum - $var_minimum ) ) ) {
 			session_custom_error_message('variable_stepping', __('Step does not fit to defined range', 'reportit'));
-		}elseif ( (float) ( get_request_var('variable_maximum') - (( (int) (get_request_var('variable_maximum')/get_request_var('variable_stepping'))) * get_request_var('variable_stepping') )) ) {
+		}elseif ( (float) ( $var_maximum - (( (int) ($var_maximum/$var_stepping)) * $var_stepping )) ) {
 			session_custom_error_message('variable_stepping', __('Maximum value is not an integer multiple of step.', 'reportit') );
-		}elseif ( (float) ( get_request_var('variable_minimum') - (( (int) (get_request_var('variable_minimum')/get_request_var('variable_stepping'))) * get_request_var('variable_stepping') )) ) {
+		}elseif ( (float) ( $var_minimum - (( (int) ($var_minimum/$var_stepping)) * $var_stepping )) ) {
 			session_custom_error_message('variable_stepping', __('Minimum value is not an integer multiple of step.', 'reportit') );
-		}elseif ( (float) ( get_request_var('variable_default') - (( (int) (get_request_var('variable_default')/get_request_var('variable_stepping'))) * get_request_var('variable_stepping') )) ) {
+		}elseif ( (float) ( $var_default - (( (int) ($var_default/$var_stepping)) * $var_stepping )) ) {
 			session_custom_error_message('variable_stepping', __('Default value is not an integer multiple of step.', 'reportit') );
 		}
 	}
 
 	$variable_data = array();
-	$variable_data['id']            = get_request_var('id');
-	$variable_data['name']          = get_request_var('variable_name');
-	$variable_data['template_id']   = get_request_var('template_id');
-	$variable_data['description']   = get_request_var('variable_description');
-	$variable_data['max_value']     = get_request_var('variable_maximum');
-	$variable_data['min_value']     = get_request_var('variable_minimum');
-	$variable_data['default_value'] = get_request_var('variable_default');
-	$variable_data['input_type']	= get_request_var('variable_type');
-
-	if (isset_request_var('variable_stepping')) {
-		$variable_data['stepping']  = get_request_var('variable_stepping');
-	}
+	$variable_data['id']            = $id;
+	$variable_data['name']          = $var_name;
+	$variable_data['template_id']   = $template_id;
+	$variable_data['description']   = $var_description;
+	$variable_data['max_value']     = $var_maximum;
+	$variable_data['min_value']     = $var_minimum;
+	$variable_data['default_value'] = $var_default;
+	$variable_data['input_type']	= $var_type;
+	$variable_data['stepping']		= $var_stepping;
 
 	if (is_error_message()) {
-		header('Location: templates.php?header=false&action=edit&tab=variables&tab_action=edit&id=' . get_request_var('template_id') . '&variable_id=' . get_request_var('id'));
+		header('Location: templates.php?header=false&action=edit&tab=variables&tab_action=edit&id=' . $template_id . '&variable_id=' . $id);
 	} else {
 		//Save data
 		$var_id = sql_save($variable_data, 'plugin_reportit_variables');
@@ -936,7 +926,7 @@ function form_save__variables() {
 
 		//Return to list view if it was an existing report
 
-		header('Location: templates.php?header=false&action=edit&tab=variables&id=' . get_request_var('template_id'));
+		header('Location: templates.php?header=false&action=edit&tab=variables&id=' . $template_id);
 		raise_message(1);
 	}
 }
@@ -945,19 +935,19 @@ function form_save__measurands() {
 	global $calc_var_names, $measurand_rounding, $measurand_precision, $measurand_type_specifier;
 
 	/* ================= input validation ================= */
-	input_validate_input_number(get_filter_request_var('id'));
-	input_validate_input_number(get_filter_request_var('template_id'));
-	input_validate_input_key(get_filter_request_var('measurand_type'), $measurand_type_specifier);
-	input_validate_input_key(get_filter_request_var('measurand_precision'), $measurand_precision, true);
-	input_validate_input_key(get_filter_request_var('measurand_rounding'), array(0,1,2), true);
+	$id 				= get_filter_request_var('id');
+	$template_id 		= get_filter_request_var('template_id');
+	$mea_type			= input_validate_input_key(get_filter_request_var('measurand_type'), $measurand_type_specifier);
+	$mea_precision		= input_validate_input_key(get_filter_request_var('measurand_precision'), $measurand_precision, true);
+	$mea_rounding 		= input_validate_input_key(get_filter_request_var('measurand_rounding'), array(0,1,2), true);
 
-	form_input_validate(get_nfilter_request_var('measurand_description'), 'measurand_description', '', false, 3);
-	form_input_validate(get_nfilter_request_var('measurand_abbreviation'), 'measurand_abbreviation', '^[a-zA-Z0-9]+$', false, 3);
-	form_input_validate(get_filter_request_var('measurand_group'), 'measurand_group', '^[1-9]\d*$', false, 'reportit_templates__5');
+	$mea_description	= form_input_validate(get_nfilter_request_var('measurand_description'), 'measurand_description', '', false, 3);
+	$mea_abbreviation	= form_input_validate(strtoupper(trim(get_nfilter_request_var('measurand_abbreviation'))), 'measurand_abbreviation', '^[A-Z0-9]+$', false, 3);
+	$mea_group 			= form_input_validate(get_filter_request_var('measurand_group'), 'measurand_group', '^[1-9]\d*$', false, 'reportit_templates__5');
 
-	form_input_validate(get_nfilter_request_var('measurand_unit'), 'measurand_unit', '^[\/\\\$a-zA-Z0-9%²³-]+$', false, 3);
-	form_input_validate(get_nfilter_request_var('measurand_formula'), 'measurand_formula', '', false, 3);
-	form_input_validate(get_filter_request_var('measurand_cf'), 'measurand_cf', '[1-4]', false, 3);
+	$mea_unit			= form_input_validate(get_nfilter_request_var('measurand_unit'), 'measurand_unit', '^[\/\\\$a-zA-Z0-9%²³-]+$', false, 3);
+	$mea_formula		= form_input_validate(get_nfilter_request_var('measurand_formula'), 'measurand_formula', '', false, 3);
+	$mea_cf				= form_input_validate(get_filter_request_var('measurand_cf'), 'measurand_cf', '[1-4]', false, 3);
 	/* ==================================================== */
 
 	//Check if the abbreviation is already in use.
@@ -967,18 +957,18 @@ function form_save__measurands() {
 		AND id != ?
 		AND template_id = ?
 		AND group_id = ?',
-		array(strtoupper(trim(get_nfilter_request_var('measurand_abbreviation'))), get_request_var('id'), get_request_var('template_id'), get_request_var('measurand_group')));
+		array($mea_abbreviation, $id, $template_id, $mea_group));
 
 	if ($count != 0) {
 		raise_message('reportit_templates__6');
 	}
 
 	//Check calculation formula
-	if (strlen(get_nfilter_request_var('measurand_formula'))) {
-		$interim_results      = get_interim_results(get_request_var('id'), get_request_var('template_id'));
-		$calc_var_names       = array_keys(get_possible_variables(get_request_var('template_id')));
-		$data_query_variables = get_possible_data_query_variables( get_filter_request_var('measurand_group') );
-		$error                = validate_calc_formula( get_nfilter_request_var('measurand_formula'), $interim_results, $calc_var_names, $data_query_variables);
+	if (strlen($mea_formula)) {
+		$interim_results      = get_interim_results($id, $template_id);
+		$calc_var_names       = array_keys(get_possible_variables($template_id));
+		$data_query_variables = get_possible_data_query_variables( $mea_group );
+		$error                = validate_calc_formula( $mea_formula, $interim_results, $calc_var_names, $data_query_variables);
 
 		if ($error != 'VALID') {
 			session_custom_error_message('measurand_formula', $error);
@@ -986,15 +976,15 @@ function form_save__measurands() {
 	}
 
 	//Check possible dependences with other measurands
-	if (!is_error_message_field('measurand_abbreviation') && get_request_var('id') != 0) {
+	if (!is_error_message_field('measurand_abbreviation') && $id != 0) {
 		$dependences = array();
 
-		$new = get_request_var('measurand_abbreviation');
+		$new = $mea_abbreviation;
 
 		$old = db_fetch_cell_prepared("SELECT abbreviation
 			FROM plugin_reportit_measurands
 			WHERE id = ?",
-			array(get_request_var('id')));
+			array($id));
 
 		if ($old != $new) {
 			$dependencies = db_fetch_assoc_prepared("SELECT id, calc_formula
@@ -1002,7 +992,7 @@ function form_save__measurands() {
 				WHERE template_id = ?
 				AND id > ?
 				AND calc_formula LIKE '%$old%'",
-				array(get_request_var('template_id'), get_request_var('id')));
+				array($template_id, $id));
 
 			if (sizeof($dependencies)) {
 				foreach($dependences as $key => $value) {
@@ -1019,7 +1009,7 @@ function form_save__measurands() {
 				WHERE template_id = ?
 				AND id > ?
 				AND calc_formula LIKE '%$old:%'",
-				array(get_request_var('template_id'), get_request_var('id')))
+				array($template_id, $id))
 ;
 
 			if ($count != 0) {
@@ -1029,22 +1019,22 @@ function form_save__measurands() {
 	}
 
 	$measurand_data = array();
-	$measurand_data['id']             = get_request_var('id');
-	$measurand_data['template_id']    = get_request_var('template_id');
-	$measurand_data['group_id']    	  = get_request_var('measurand_group');
-	$measurand_data['description']    = get_nfilter_request_var('measurand_description');
-	$measurand_data['abbreviation']   = strtoupper(get_request_var('measurand_abbreviation'));
-	$measurand_data['unit']           = get_nfilter_request_var('measurand_unit');
+	$measurand_data['id']             = $id;
+	$measurand_data['template_id']    = $template_id;
+	$measurand_data['group_id']    	  = $mea_group;
+	$measurand_data['description']    = $mea_description;
+	$measurand_data['abbreviation']   = $mea_abbreviation;
+	$measurand_data['unit']           = $mea_unit;
 	$measurand_data['visible']        = isset_request_var('measurand_visible') ? 'on' : '';
 	$measurand_data['spanned']        = isset_request_var('measurand_spanned') ? 'on' : '';
-	$measurand_data['calc_formula']   = get_request_var('measurand_formula');
-	$measurand_data['rounding']       = isset_request_var('measurand_rounding') ? get_request_var('measurand_rounding'): '';
-	$measurand_data['cf']             = get_request_var('measurand_cf');
-	$measurand_data['data_type']      = get_request_var('measurand_type');
-	$measurand_data['data_precision'] = isset_request_var('measurand_precision') ? get_request_var('measurand_precision') : '';
+	$measurand_data['calc_formula']   = $mea_formula;
+	$measurand_data['rounding']       = isset_request_var('measurand_rounding') ? $mea_rounding : '';
+	$measurand_data['cf']             = $mea_cf;
+	$measurand_data['data_type']      = $mea_type;
+	$measurand_data['data_precision'] = isset_request_var('measurand_precision') ? $mea_precision : '';
 
 	if (is_error_message()) {
-		header('Location: templates.php?header=false&action=edit&tab=measurands&tab_action=edit&id=' . get_request_var('template_id') . '&measurand_id=' . get_request_var('id'));
+		header('Location: templates.php?header=false&action=edit&tab=measurands&tab_action=edit&id=' . $template_id . '&measurand_id=' . $id);
 	} else {
 		//Save data
 		sql_save($measurand_data, 'plugin_reportit_measurands');
@@ -1055,7 +1045,7 @@ function form_save__measurands() {
 		}
 
 		//Return to list view if it was an existing measurand
-		header('Location: templates.php?header=false&action=edit&tab=measurands&id=' . get_request_var('template_id'));
+		header('Location: templates.php?header=false&action=edit&tab=measurands&id=' . $template_id);
 		raise_message(1);
 	}
 }
@@ -1071,7 +1061,7 @@ function template_edit() {
 
 	if ($id) {
 		$template_data = db_fetch_row('SELECT *	FROM plugin_reportit_templates	WHERE id = ' . $id);
-		$header_label = __('Template Configuration [edit: %s]', $template_data['name'], 'reportit');
+		$header_label = __('Template Configuration [edit: %s]', htmlspecialchars($template_data['name'], ENT_QUOTES), 'reportit');
 	} else {
 		$template_data['id'] = 0;
 		$header_label = __('Template Configuration [new]', 'reportit');
@@ -1159,7 +1149,7 @@ function template_edit_groups($template_id, $header_label) {
 	session_custom_error_display();
 
 	$group_data = db_fetch_row('SELECT * FROM plugin_reportit_data_template_groups WHERE id = ' . $id);
-	$header = __('[group: %s]', $group_data['name'], 'reportit');
+	$header = __('[group: %s]', htmlspecialchars($group_data['name'], ENT_QUOTES), 'reportit');
 
 	form_start('templates.php');
 	html_start_box($header_label . $header, '100%', '', '2', 'center', '');
@@ -1189,7 +1179,7 @@ function template_edit_variables($template_id, $header_label) {
 		$variable_data['template_id'] = $template_id;
 		$variable_data['abbreviation'] = __('created automatically', 'reportit');
 	}
-	$header = __('[variable: %s]', (isset($variable_data['name']) ? $variable_data['name'] : 'new'), 'reportit');
+	$header = __('[variable: %s]', (isset($variable_data['name']) ? htmlspecialchars($variable_data['name'], ENT_QUOTES) : 'new'), 'reportit');
 
 	?>
 	<script type='text/javascript'>
@@ -1233,7 +1223,7 @@ function template_edit_measurands($template_id, $header_label) {
 		$measurand_data['group_id'] = 0;
 	}
 
-	$header = __('[measurand: %s]', (isset($measurand_data['abbreviation']) ? $measurand_data['abbreviation'] : 'new'), 'reportit');
+	$header = __('[measurand: %s]', (isset($measurand_data['abbreviation']) ? htmlspecialchars($measurand_data['abbreviation'], ENT_QUOTES) : 'new'), 'reportit');
 
 	$arg2['ops_and_opds'] = html_operations_and_operands($measurand_data);
 	$arg2['sql'] = 'SELECT id, name FROM plugin_reportit_data_template_groups WHERE template_id = ' . $template_id . ' ORDER BY name';
@@ -1401,7 +1391,7 @@ function template_data_templates($template_id, $header_label) {
 	$data_templates_unused = array_diff($data_templates, $data_templates_used);
 
 	form_start('templates.php');
-	html_start_box($header_label, '100%', '', '2', 'center', false);
+	html_start_box( $header_label, '100%', '', '2', 'center', false);
 
 	?>
 	<tr class='odd'>
@@ -1593,7 +1583,7 @@ function draw_tab_table_record($template_id, $header_label, $tab, $record) {
 			}
 
 			form_alternate_row('line' . $record['id'], true);
-			form_selectable_cell('<a class="linkEditMain"' . (($record['description']) ? ' title="' . htmlspecialchars($record['description']) . '"' : '') . ' href="templates.php?action=edit&tab=variables&tab_action=edit&id=' . $template_id . '&variable_id=' . $record['id'] . '">' . $record['name'] . '</a>', $record['id']);
+			form_selectable_cell('<a class="linkEditMain"' . (($record['description']) ? ' title="' . htmlspecialchars(htmlspecialchars($record['description'],ENT_QUOTES,'UTF-8')) . '"' : '') . ' href="templates.php?action=edit&tab=variables&tab_action=edit&id=' . $template_id . '&variable_id=' . $record['id'] . '">' . htmlspecialchars($record['name']) . '</a>', $record['id']);
 			form_selectable_cell($record['abbreviation'], $record['id']);
 			form_selectable_cell($record['max_value'], $record['id']);
 			form_selectable_cell($record['min_value'], $record['id']);
@@ -1608,7 +1598,7 @@ function draw_tab_table_record($template_id, $header_label, $tab, $record) {
 			global $consolidation_functions;
 			form_alternate_row('line' . $record['id'], true);
 			form_selectable_cell($record['id'], $record['id']);
-			form_selectable_cell('<a class="linkEditMain"' . (($record['description']) ? ' title="' . htmlspecialchars($record['description']) . '"' : '') . ' href="templates.php?action=edit&tab=measurands&tab_action=edit&id=' . $template_id . '&measurand_id=' . $record['id'] . '">' . $record['abbreviation'] . '</a>', $record['id']);
+			form_selectable_cell('<a class="linkEditMain"' . (($record['description']) ? ' title="' . htmlspecialchars(htmlspecialchars($record['description'],ENT_QUOTES,'UTF-8')) . '"' : '') . ' href="templates.php?action=edit&tab=measurands&tab_action=edit&id=' . $template_id . '&measurand_id=' . $record['id'] . '">' . $record['abbreviation'] . '</a>', $record['id']);
 			form_selectable_cell('<a class="linkEditMain" href="templates.php?action=edit&tab=groups&tab_action=edit&id=' . $template_id . '&group_id=' . $record['grp_id'] . '">' . $record['grp_name'] . '</a>', $record['id']);
 			form_selectable_cell($record['unit'], $record['id']);
 			form_selectable_cell($consolidation_functions[$record['cf']], $record['id']);
@@ -1621,7 +1611,7 @@ function draw_tab_table_record($template_id, $header_label, $tab, $record) {
 		case 'groups':
 			form_alternate_row('line' . $record['id'], true);
 			form_selectable_cell($record['id'], $record['id']);
-			form_selectable_cell('<a class="linkEditMain"' . (($record['description']) ? ' title="' . htmlspecialchars($record['description']) . '"' : '') . ' href="templates.php?action=edit&tab=groups&tab_action=edit&id=' . $template_id . '&group_id=' . $record['id'] . '">' . $record['name'] . '</a>', $record['id']);
+			form_selectable_cell('<a class="linkEditMain"' . (($record['description']) ? ' title="' . htmlspecialchars(htmlspecialchars($record['description'],ENT_QUOTES,'UTF-8')) . '"' : '') . ' href="templates.php?action=edit&tab=groups&tab_action=edit&id=' . $template_id . '&group_id=' . $record['id'] . '">' . $record['name'] . '</a>', $record['id']);
 			form_selectable_cell($record['generic_group_id'], $record['id']);
 			form_selectable_cell(str_replace(';', '<br>', $record['elements']), $record['id']);
 			form_selectable_cell(($record['mea_cnt'] ? $record['mea_cnt'] : 0), $record['id']);
