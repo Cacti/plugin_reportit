@@ -99,7 +99,7 @@ function save(){
 		$columns = substr($columns, 1);
 
 		/* save */
-		db_execute("INSERT INTO reportit_data_items ($columns) VALUES $rrd");
+		db_execute("INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd");
 
 		/* reset report */
 		reset_report(get_request_var('id'));
@@ -178,7 +178,7 @@ function standard() {
 	/* filter all RRDs which are not in RRD table and match with filter settings */
 	$sql = "SELECT DISTINCT a.local_data_id AS id, a.name_cache
 		FROM data_template_data AS a
-		LEFT JOIN reportit_data_items AS b
+		LEFT JOIN plugin_reportit_data_items AS b
 		ON a.local_data_id = b.id
 		AND b.report_id = {get_request_var('id')}
 		LEFT JOIN data_local AS c

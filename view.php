@@ -1270,7 +1270,7 @@ function show_graphs() {
 					if (get_request_var('archive') == -1) {
 						$sql = 	"SELECT a.*, b.*, c.name_cache
 							FROM reportit_results_" . get_request_var('id') . " AS a
-							INNER JOIN reportit_data_items AS b
+							INNER JOIN plugin_reportit_data_items AS b
 							ON b.id = a.id
 							AND b.report_id = " . get_request_var('id') . "
 							INNER JOIN data_template_data AS c

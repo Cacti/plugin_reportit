@@ -336,7 +336,7 @@ function standard() {
 		LEFT JOIN reportit_templates AS b
 		ON b.id = a.template_id
 		LEFT JOIN
-		(SELECT report_id, count(*) as ds_cnt FROM `reportit_data_items` GROUP BY report_id) AS c
+		(SELECT report_id, count(*) as ds_cnt FROM `plugin_reportit_data_items` GROUP BY report_id) AS c
 		ON c.report_id = a.id
 		LEFT JOIN user_auth AS d
 		ON d.id = a.user_id' . $affix .
@@ -1159,7 +1159,7 @@ function form_actions() {
 				$counter_data_items = 0;
 				foreach ($report_datas as $report_data) {
 					$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
-						FROM reportit_data_items
+						FROM plugin_reportit_data_items
 						WHERE report_id = ?',
 						array($report_data['id']));
 
@@ -1167,12 +1167,12 @@ function form_actions() {
 					db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_data_items WHERE report_id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', array($report_data['id']));
 					db_execute('DROP TABLE IF EXISTS reportit_results_' . $report_data['id']);
 				}
 
 				if ($counter_data_items > 200) {
-					db_execute('OPTIMIZE TABLE `reportit_data_items`');
+					db_execute('OPTIMIZE TABLE `plugin_reportit_data_items`');
 				}
 			}
 		} elseif (get_request_var('drp_action') == '3') { //DUPLICATE REPORT CONFIGURATION
@@ -1191,14 +1191,14 @@ function form_actions() {
 
 				//Copy original rrdlist table  to new rrdlist table
 				$data_items = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_data_items
+					FROM plugin_reportit_data_items
 					WHERE report_id = ?',
 					array($selected_items[$i]));
 
 				if (sizeof($data_items)) {
 					foreach($data_items as $data_item) {
 						$data_item['report_id']=$new_id;
-						sql_save($data_item, 'reportit_data_items', array('id', 'report_id'), false);
+						sql_save($data_item, 'plugin_reportit_data_items', array('id', 'report_id'), false);
 					}
 				}
 

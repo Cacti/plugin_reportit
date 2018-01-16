@@ -32,7 +32,7 @@ function create_result_table($report_id) {
 	// Copy all actual ids from rrdlist
 	db_execute('INSERT INTO reportit_results_' . $report_id . '
 		SELECT `id`
-		FROM reportit_data_items
+		FROM plugin_reportit_data_items
 		WHERE report_id = '. $report_id);
 }
 
@@ -49,7 +49,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all RRD definitions
     $data_items = db_fetch_assoc_prepared('SELECT c.field_value as `maxValue`, a.*
-		FROM reportit_data_items AS a
+		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_local AS b
 		ON b.id=a.id
 		LEFT JOIN host_snmp_cache AS c
@@ -63,7 +63,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all high counters
     $high_counters = db_fetch_assoc_prepared('SELECT c.field_value as maxHighValue, a.id
-		FROM reportit_data_items AS a
+		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_local AS b
 		ON b.id=a.id
 		LEFT JOIN host_snmp_cache AS c
@@ -92,7 +92,7 @@ function &get_report_definitions($report_id) {
 	foreach ($ds_items as $key => $data_source_name) {
 		$maxRRDValues[$key] = db_fetch_assoc_prepared('SELECT b.id, a.rrd_maximum AS maxRRDValue
 			FROM data_template_rrd AS a
-			RIGHT JOIN reportit_data_items AS b
+			RIGHT JOIN plugin_reportit_data_items AS b
 			ON a.local_data_id = b.id
 			WHERE a.data_template_id = ?
 			AND b.report_id = ?

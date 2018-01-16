@@ -88,7 +88,7 @@ function form_save() {
 	if (isset_request_var('rrdlist_timezone')) $rrdlist_data['timezone'] = $timezone[get_request_var('rrdlist_timezone')];
 
 	/* save settings */
-	sql_save($rrdlist_data, 'reportit_data_items', array('id', 'report_id'), false);
+	sql_save($rrdlist_data, 'plugin_reportit_data_items', array('id', 'report_id'), false);
 
 	/* reset report */
 	reset_report(get_request_var('report_id'));
@@ -157,7 +157,7 @@ function standard() {
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(a.id)
-		FROM reportit_data_items AS a
+		FROM plugin_reportit_data_items AS a
    		LEFT JOIN data_template_data as b
 		ON b.local_data_id = a.id
 		$sql_where");
@@ -166,7 +166,7 @@ function standard() {
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	$rrdlist = db_fetch_assoc("SELECT a.*, b.name_cache
-		FROM reportit_data_items AS a
+		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_template_data AS b
 		ON b.local_data_id = a.id
 		$sql_where
@@ -351,7 +351,7 @@ function rrdlist_edit() {
 	$enable_tmz = read_config_option('reportit_use_tmz');
 
 	$rrdlist_data = db_fetch_row_prepared('SELECT a.*, b.name_cache
-		FROM reportit_data_items AS a
+		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_template_data AS b
 		ON b.local_data_id=a.id
 		WHERE a.id = ?
@@ -486,14 +486,14 @@ function form_actions() {
 
 		if (get_request_var('drp_action') == '1') { // Remove RRD from RRD table
 			$rrdlist_datas = db_fetch_assoc_prepared('SELECT id
-				FROM reportit_data_items
+				FROM plugin_reportit_data_items
 				WHERE report_id = ?
 				AND ' . array_to_sql_or($selected_items, 'id'),
 				array(get_request_var('id')));
 
 			if (sizeof($rrdlist_datas)) {
 				foreach ($rrdlist_datas as $rrdlist_data) {
-					db_execute_prepared('DELETE FROM reportit_data_items
+					db_execute_prepared('DELETE FROM plugin_reportit_data_items
 						WHERE report_id = ?
 						AND id = ?', array(get_request_var('id'), $rrdlist_data['id']));
 
@@ -504,7 +504,7 @@ function form_actions() {
 		}elseif (get_request_var('drp_action') == '2') { //Copy RRD's reference settings to all other RRDs
 			$reference_items = unserialize(stripslashes(get_request_var('reference_items')));
 
-			db_execute_prepared("UPDATE reportit_data_items
+			db_execute_prepared("UPDATE plugin_reportit_data_items
 				SET start_day = ?, end_day = ?, start_time = ?,
 				 end_time = ?, timezone = ?,
 				 WHERE report_id = ?",
@@ -542,7 +542,7 @@ function form_actions() {
 
             //Fetch rrd description
             $rrd_description = db_fetch_cell_prepared('SELECT b.name_cache
-				FROM reportit_data_items AS a
+				FROM plugin_reportit_data_items AS a
 				LEFT JOIN data_template_data AS b
 				ON b.local_data_id = a.id
 				WHERE a.id = ?
@@ -579,7 +579,7 @@ function form_actions() {
 
 		if (isset($rrd_ids[0])) {
 			$rrd_settings = db_fetch_assoc_prepared('SELECT b.name_cache, a.*
-				FROM reportit_data_items AS a
+				FROM plugin_reportit_data_items AS a
 				LEFT JOIN data_template_data AS b
 				ON b.local_data_id = a.id
 				WHERE a.id = ?

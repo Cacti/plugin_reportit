@@ -38,7 +38,7 @@ function plugin_reportit_uninstall() {
  	db_execute('DROP TABLE IF EXISTS reportit_cache_measurands');
  	db_execute('DROP TABLE IF EXISTS reportit_cache_reports');
  	db_execute('DROP TABLE IF EXISTS reportit_cache_variables');
- 	db_execute('DROP TABLE IF EXISTS reportit_data_items');
+ 	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_items');
  	db_execute('DROP TABLE IF EXISTS reportit_data_source_items');
 	db_execute('DROP TABLE IF EXISTS reportit_measurands');
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_presets');

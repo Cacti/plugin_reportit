@@ -889,7 +889,7 @@ function autorrdlist($reportid) {
 	}
 
 	// how many rows are already there?
-	$current_rows = db_fetch_cell("SELECT COUNT(*) FROM reportit_data_items WHERE report_id = $reportid");
+	$current_rows = db_fetch_cell("SELECT COUNT(*) FROM plugin_reportit_data_items WHERE report_id = $reportid");
 
 	//Get the filter setting by template
 	$sql = "SELECT
@@ -911,7 +911,7 @@ function autorrdlist($reportid) {
 	    FROM
 	    	data_template_data AS a
 	    LEFT JOIN
-	       (SELECT * FROM reportit_data_items WHERE report_id = $reportid) as b
+	       (SELECT * FROM plugin_reportit_data_items WHERE report_id = $reportid) as b
 	    ON
 	    	a.local_data_id = b.id";
 
@@ -1006,7 +1006,7 @@ function autorrdlist($reportid) {
 		$columns = substr($columns, 1);
 
 		/* save */
-		$sql = "INSERT INTO reportit_data_items ($columns) VALUES $rrd";
+		$sql = "INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd";
 		db_execute($sql);
 
 		// Reset report
@@ -1024,7 +1024,7 @@ function autorrdlist($reportid) {
  */
 function autocleanup($report_id){
 
-    $sql = "SELECT a.id FROM reportit_data_items AS a
+    $sql = "SELECT a.id FROM plugin_reportit_data_items AS a
             LEFT JOIN data_template_data AS b
             ON b.local_data_id = a.id
             WHERE a.report_id = $report_id
@@ -1033,9 +1033,9 @@ function autocleanup($report_id){
     $data_items = db_custom_fetch_flat_string($sql);
 
     if($data_items) {
-        $sql = "DELETE FROM `reportit_data_items`
-                WHERE `reportit_data_items`.`report_id` = $report_id
-                AND `reportit_data_items`.`id` in ($data_items)";
+        $sql = "DELETE FROM `plugin_reportit_data_items`
+                WHERE `plugin_reportit_data_items`.`report_id` = $report_id
+                AND `plugin_reportit_data_items`.`id` in ($data_items)";
         db_execute($sql);
     }
 }
