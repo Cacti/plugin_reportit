@@ -83,7 +83,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all all data source items
     $sql = 'SELECT data_source_name
-		FROM reportit_data_source_items
+		FROM plugin_reportit_data_source_items
 		WHERE template_id = ' . $report['template_id'] . '
 		AND id != 0
 		ORDER BY id';

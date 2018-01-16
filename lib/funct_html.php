@@ -304,7 +304,7 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		b.data_source_alias, b.id AS enabled
 		FROM data_template_rrd as a
 		LEFT JOIN (
-			SELECT * FROM reportit_data_source_items WHERE template_id = ?
+			SELECT * FROM plugin_reportit_data_source_items WHERE template_id = ?
 		) AS b
 		ON a.data_source_name = b.data_source_name
 		WHERE a.local_data_id = 0
@@ -339,7 +339,7 @@ function html_template_ds_alias($template_id, $data_template_id) {
 
 	/* add the alias for the group of separate measurands */
 	$separate_group_alias = db_fetch_cell_prepared('SELECT data_source_alias
-		FROM reportit_data_source_items
+		FROM plugin_reportit_data_source_items
 		WHERE id = 0
 		AND template_id = ?',
 		array($template_id));

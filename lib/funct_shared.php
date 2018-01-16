@@ -78,7 +78,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 
 	/* load data source alias */
 	$sql = "SELECT data_source_name, data_source_alias
-		FROM reportit_data_source_items
+		FROM plugin_reportit_data_source_items
 		WHERE template_id = " . $report_data['template_id'];
     $report_ds_alias = db_custom_fetch_assoc($sql, 'data_source_name', false, false);
 
@@ -610,7 +610,7 @@ function get_possible_rra_names($template_id) {
     $array = array();
 
     $names = db_fetch_assoc_prepared("SELECT b.data_source_name
-		FROM reportit_data_source_items AS a
+		FROM plugin_reportit_data_source_items AS a
 		LEFT JOIN data_template_rrd AS b
 		ON a.id = b.id
 		WHERE a.template_id = ?
@@ -1353,7 +1353,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load definitions of data source items */
     $data_source_items_data = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_data_source_items
+		FROM plugin_reportit_data_source_items
 		WHERE template_id = ?
 		ORDER BY id',
 		array($template_id));
