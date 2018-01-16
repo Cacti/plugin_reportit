@@ -617,7 +617,7 @@ function form_save() {
 
 		/* save settings */
 		sql_save($report_data, 'plugin_reportit_reports');
-		sql_save($rrdlist_data, 'reportit_presets', 'id', false);
+		sql_save($rrdlist_data, 'plugin_reportit_presets', 'id', false);
 
 		break;
 	case 'admin':
@@ -831,7 +831,7 @@ function report_edit() {
 			array(get_request_var('id')));
 
 		$rrdlist_data = db_fetch_row_prepared('SELECT *
-			FROM reportit_presets
+			FROM plugin_reportit_presets
 			WHERE id = ?',
 			array(get_request_var('id')));
 
@@ -1164,7 +1164,7 @@ function form_actions() {
 						array($report_data['id']));
 
 					db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_presets WHERE id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_recipients WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_data_items WHERE report_id = ?', array($report_data['id']));
@@ -1204,12 +1204,12 @@ function form_actions() {
 
 				/* duplicate the presets settings */
 				$report_presets = db_fetch_row_prepared('SELECT *
-					FROM reportit_presets
+					FROM plugin_reportit_presets
 					WHERE id = ?',
 					array($selected_items[$i]));
 
 				$report_presets['id'] = $new_id;
-				sql_save($report_presets, 'reportit_presets', 'id', false);
+				sql_save($report_presets, 'plugin_reportit_presets', 'id', false);
 
 				/* duplicate list of recipients */
 				$report_recipients = db_fetch_assoc_prepared('SELECT *

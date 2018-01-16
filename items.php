@@ -72,7 +72,7 @@ function save(){
 
 		/* load data item presets */
 		$presets = db_fetch_row_prepared('SELECT *
-			FROM reportit_presets
+			FROM plugin_reportit_presets
 			WHERE id = ?',
 			array(get_request_var('id')));
 

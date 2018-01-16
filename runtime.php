@@ -981,7 +981,7 @@ function autorrdlist($reportid) {
 		$rrd 		= '';
 
 		/* load data item presets */
-		$sql = "SELECT * FROM reportit_presets WHERE id = $reportid";
+		$sql = "SELECT * FROM plugin_reportit_presets WHERE id = $reportid";
 		$presets = db_fetch_row($sql);
 
 		if(sizeof($presets)>0) {
