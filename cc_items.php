@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once('./plugins/reportit/lib_int/funct_validate.php');
-include_once('./plugins/reportit/lib_int/funct_online.php');
-include_once('./plugins/reportit/lib_int/funct_shared.php');
-include_once('./plugins/reportit/lib_int/funct_html.php');
-include_once('./plugins/reportit/lib_int/const_runtime.php');
-#include_once(REPORTIT_BASE_PATH . '/lib_int/const_items.php');
+include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib_int/const_items.php');
 
 set_default_action();
 
