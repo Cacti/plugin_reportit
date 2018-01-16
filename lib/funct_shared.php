@@ -70,7 +70,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	$report_variables = db_fetch_assoc_prepared('SELECT a.id, a.name,
 		a.description, b.value, a.min_value, a.max_value
 		FROM plugin_reportit_variables AS a
-		INNER JOIN reportit_rvars AS b
+		INNER JOIN plugin_reportit_rvars AS b
 		ON a.id = b.variable_id
 		AND b.report_id = ?
 		WHERE a.template_id = ?',
@@ -584,7 +584,7 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 		//Remove last comma
 		$list = substr($list, 0, strlen($list)-1);
 
-		db_execute("INSERT INTO reportit_rvars
+		db_execute("INSERT INTO plugin_reportit_rvars
 			(template_id, report_id, variable_id, value)
 			VALUES $list");
 	}

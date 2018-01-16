@@ -218,7 +218,7 @@ function html_report_variables($report_id, $template_id) {
     //Load the possible variables
     $variables = db_fetch_assoc_prepared('SELECT a.*, b.value
 		FROM plugin_reportit_variables AS a
-	    LEFT JOIN reportit_rvars AS b
+	    LEFT JOIN plugin_reportit_rvars AS b
 	    ON a.id = b.variable_id
 		AND report_id = ?
 	    WHERE a.template_id = ?',

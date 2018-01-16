@@ -742,7 +742,7 @@ function form_save() {
 
 		$rvars = db_fetch_assoc_prepared('SELECT a.*, b.id AS b_id, b.value
 			FROM plugin_reportit_variables AS a
-			LEFT JOIN reportit_rvars AS b
+			LEFT JOIN plugin_reportit_rvars AS b
 			ON a.id = b.variable_id
 			AND report_id = ?
 			WHERE a.template_id = ?',
@@ -795,7 +795,7 @@ function form_save() {
 			/* save addtional report variables */
 			foreach($var_data as $data) {
 				if (get_request_var('id') == 0) $data['report_id'] = $report_id;
-				sql_save($data, 'reportit_rvars');
+				sql_save($data, 'plugin_reportit_rvars');
 			}
 		}
 	}
@@ -1165,7 +1165,7 @@ function form_actions() {
 
 					db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_presets WHERE id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_rvars WHERE report_id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_recipients WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_data_items WHERE report_id = ?', array($report_data['id']));
 					db_execute('DROP TABLE IF EXISTS reportit_results_' . $report_data['id']);

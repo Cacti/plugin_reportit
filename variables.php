@@ -395,7 +395,7 @@ function form_actions() {
 
 		if (get_request_var('drp_action') == '1') { // delete variables
 			db_execute('DELETE FROM plugin_reportit_variables WHERE ' . array_to_sql_or($selected_items, 'id'));
-			db_execute('DELETE FROM reportit_rvars WHERE ' . array_to_sql_or($selected_items, 'variable_id'));
+			db_execute('DELETE FROM plugin_reportit_rvars WHERE ' . array_to_sql_or($selected_items, 'variable_id'));
 		}
 
 		header('Location: variables.php?header=false&id=' . get_request_var('id'));

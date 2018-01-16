@@ -117,7 +117,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all variables
     $rvars = db_fetch_assoc_prepared('SELECT variable_id AS id, value
-		FROM reportit_rvars
+		FROM plugin_reportit_rvars
 		WHERE report_id = ?',
 		array($report_id));
 
