@@ -37,7 +37,7 @@ function plugin_reportit_install() {
 function plugin_reportit_uninstall() {
  	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_measurands');
  	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_reports');
- 	db_execute('DROP TABLE IF EXISTS reportit_cache_variables');
+ 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_variables');
  	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_items');
  	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_source_items');
 	db_execute('DROP TABLE IF EXISTS reportit_measurands');
@@ -775,12 +775,12 @@ function reportit_poller_bottom() {
         $str = substr($str, 0, -2);
         if (db_execute("DROP TABLE IF EXISTS $str") == 1) {
             db_execute("DELETE FROM plugin_reportit_cache_reports WHERE `cache_id` IN ($ids)");
-            db_execute("DELETE FROM reportit_cache_variables WHERE `cache_id` IN ($ids)");
+            db_execute("DELETE FROM plugin_reportit_cache_variables WHERE `cache_id` IN ($ids)");
             db_execute("DELETE FROM plugin_reportit_cache_measurands WHERE `cache_id` IN ($ids)");
 
             if ($cnt >= 5) {
                 db_execute('OPTIMIZE TABLE `plugin_reportit_cache_reports`');
-                db_execute('OPTIMIZE TABLE `reportit_cache_variables`');
+                db_execute('OPTIMIZE TABLE `plugin_reportit_cache_variables`');
                 db_execute('OPTIMIZE TABLE `plugin_reportit_cache_measurands`');
             }
 
