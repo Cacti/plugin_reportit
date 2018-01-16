@@ -469,7 +469,7 @@ function remove_recipient() {
 	my_report(get_request_var('id'));
 	/* ==================================================== */
 
-	db_execute_prepared('DELETE FROM reportit_recipients
+	db_execute_prepared('DELETE FROM plugin_reportit_recipients
 		WHERE id = ?
 		AND report_id = ?',
 		array(get_request_var('rec'), get_request_var('id')));
@@ -691,7 +691,7 @@ function form_save() {
 				$values = substr($values, 0, strlen($values)-1);
 
 				if (!is_error_message()) {
-					db_execute("INSERT INTO reportit_recipients $columns VALUES $values");
+					db_execute("INSERT INTO plugin_reportit_recipients $columns VALUES $values");
 				}
 			}
 		}
@@ -836,7 +836,7 @@ function report_edit() {
 			array(get_request_var('id')));
 
 		$report_recipients = db_fetch_assoc_prepared('SELECT *
-			FROM reportit_recipients
+			FROM plugin_reportit_recipients
 			WHERE report_id = ?',
 			array(get_request_var('id')));
 
@@ -1166,7 +1166,7 @@ function form_actions() {
 					db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_recipients WHERE report_id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_data_items WHERE report_id = ?', array($report_data['id']));
 					db_execute('DROP TABLE IF EXISTS reportit_results_' . $report_data['id']);
 				}
@@ -1213,7 +1213,7 @@ function form_actions() {
 
 				/* duplicate list of recipients */
 				$report_recipients = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_recipients
+					FROM plugin_reportit_recipients
 					WHERE report_id = ?',
 					array($selected_items[$i]));
 
@@ -1221,7 +1221,7 @@ function form_actions() {
 					foreach($report_recipients as $recipient) {
 						$recipient['id'] = 0;
 						$recipient['report_id']=$new_id;
-						sql_save($recipient, 'reportit_recipients');
+						sql_save($recipient, 'plugin_reportit_recipients');
 					}
 				}
 

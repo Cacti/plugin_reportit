@@ -1238,7 +1238,7 @@ function send_scheduled_email($report_id){
 	$mine_type        = ($email_format != 'SML') ? 'application/' . strtolower($email_format) : 'application/' . 'vnd-ms-excel';
 
 	$email_recipients = db_fetch_assoc_prepared('SELECT email
-		FROM reportit_recipients
+		FROM plugin_reportit_recipients
 		WHERE report_id = ?',
 		array($report_id));
 

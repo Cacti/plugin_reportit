@@ -42,7 +42,7 @@ function plugin_reportit_uninstall() {
  	db_execute('DROP TABLE IF EXISTS reportit_data_source_items');
 	db_execute('DROP TABLE IF EXISTS reportit_measurands');
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_presets');
-	db_execute('DROP TABLE IF EXISTS reportit_recipients');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_recipients');
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_reports');
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_rvars');
 	db_execute('DROP TABLE IF EXISTS reportit_templates');

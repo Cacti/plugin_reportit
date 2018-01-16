@@ -793,7 +793,7 @@ function form_actions() {
 							db_execute('DROP TABLE IF EXISTS reportit_results_' . $template_report['id']);
 							db_execute('DELETE FROM plugin_reportit_rvars WHERE report_id =' . $template_report['id']);
 							db_execute('DELETE FROM plugin_reportit_presets WHERE id=' . $template_report['id']);
-							db_execute('DELETE FROM reportit_recipients WHERE report_id=' . $template_report['id']);
+							db_execute('DELETE FROM plugin_reportit_recipients WHERE report_id=' . $template_report['id']);
 						}
 					}
 				}
