@@ -104,7 +104,7 @@ function standard() {
 	/* ==================================================== */
 
 	$variables_list = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_variables
+		FROM plugin_reportit_variables
 		WHERE template_id = ? ' . $affix,
 		array(get_request_var('id')));
 
@@ -234,10 +234,10 @@ function form_save() {
 
 	} else {
 		//Save data
-		$var_id = sql_save($variable_data, 'reportit_variables');
+		$var_id = sql_save($variable_data, 'plugin_reportit_variables');
 
 		if (get_request_var('id') == 0) {
-			db_execute("UPDATE reportit_variables
+			db_execute("UPDATE plugin_reportit_variables
 				SET abbreviation = 'c". $var_id . "v'
 				WHERE id = $var_id");
 
@@ -261,7 +261,7 @@ function variable_edit() {
 
 	if (!isempty_request_var('id')) {
 		$variable_data = db_fetch_row_prepared('SELECT *
-			FROM reportit_variables
+			FROM plugin_reportit_variables
 			WHERE id = ?',
 			array(get_request_var('id')));
 
@@ -394,7 +394,7 @@ function form_actions() {
 		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
 
 		if (get_request_var('drp_action') == '1') { // delete variables
-			db_execute('DELETE FROM reportit_variables WHERE ' . array_to_sql_or($selected_items, 'id'));
+			db_execute('DELETE FROM plugin_reportit_variables WHERE ' . array_to_sql_or($selected_items, 'id'));
 			db_execute('DELETE FROM reportit_rvars WHERE ' . array_to_sql_or($selected_items, 'variable_id'));
 		}
 
@@ -416,7 +416,7 @@ function form_actions() {
 
 			//Fetch report description
 			$variable_description 	= db_fetch_cell_prepared('SELECT name
-				FROM reportit_variables
+				FROM plugin_reportit_variables
 				WHERE id = ?',
 				array($id));
 
@@ -438,7 +438,7 @@ function form_actions() {
 			//Check possible dependences for each variable
 			foreach($variable_ids as $id) {
 				$name = db_fetch_cell_prepared('SELECT abbreviation
-					FROM reportit_variables
+					FROM plugin_reportit_variables
 					WHERE id = ?',
 					array($id));
 

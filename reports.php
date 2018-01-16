@@ -741,7 +741,7 @@ function form_save() {
 		}
 
 		$rvars = db_fetch_assoc_prepared('SELECT a.*, b.id AS b_id, b.value
-			FROM reportit_variables AS a
+			FROM plugin_reportit_variables AS a
 			LEFT JOIN reportit_rvars AS b
 			ON a.id = b.variable_id
 			AND report_id = ?

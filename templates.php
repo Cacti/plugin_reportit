@@ -287,21 +287,21 @@ function template_import() {
 			$variable = $template_variables['variable'];
 			$variable['id'] = 0;
 			$variable['template_id'] = $template_id;
-			$new_id = sql_save($variable, 'reportit_variables');
+			$new_id = sql_save($variable, 'plugin_reportit_variables');
 			$old[] = $variable['abbreviation'];
 			$abbr = 'c' . $new_id . 'v';
 			$new[] = $abbr;
-			db_execute("UPDATE reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+			db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
 		} else {
 			$template_variables = $template_variables['variable'];
 			foreach($template_variables as $variable) {
 				$variable['id'] = 0;
 				$variable['template_id']= $template_id;
-				$new_id = sql_save($variable, 'reportit_variables');
+				$new_id = sql_save($variable, 'plugin_reportit_variables');
 				$old[] = $variable['abbreviation'];
 				$abbr = 'c' . $new_id . 'v';
 				$new[] = $abbr;
-				db_execute("UPDATE reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+				db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
 			 }
 		}
 	}
@@ -517,7 +517,7 @@ function standard() {
 		FROM reportit_templates AS a
 		LEFT JOIN (SELECT template_id, COUNT(*) AS measurands FROM `reportit_measurands` GROUP BY template_id) AS b
 		ON a.id = b.template_id
-		LEFT JOIN (SELECT template_id, COUNT(*) AS variables FROM `reportit_variables` GROUP BY template_id) AS c
+		LEFT JOIN (SELECT template_id, COUNT(*) AS variables FROM `plugin_reportit_variables` GROUP BY template_id) AS c
 		ON a.id = c.template_id
 		$sql_where
 		$sql_order
@@ -780,7 +780,7 @@ function form_actions() {
 			if (sizeof($template_datas) > 0) {
 				foreach ($template_datas as $template_data) {
 					db_execute('DELETE FROM reportit_templates WHERE id=' . $template_data['id']);
-					db_execute('DELETE FROM reportit_variables WHERE template_id=' . $template_data['id']);
+					db_execute('DELETE FROM plugin_reportit_variables WHERE template_id=' . $template_data['id']);
 					db_execute('DELETE FROM reportit_measurands WHERE template_id =' . $template_data['id']);
 					db_execute('DELETE FROM reportit_data_source_items WHERE template_id =' . $template_data['id']);
 
@@ -814,7 +814,7 @@ function form_actions() {
 
 				/* duplicate all variable of the original template */
 				$template_variables = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_variables
+					FROM plugin_reportit_variables
 					WHERE template_id = ?
 					ORDER BY id',
 					array($selected_items[$i]));
@@ -824,13 +824,13 @@ function form_actions() {
 						$variable['id']          = 0;
 						$variable['template_id'] = $template_id;
 
-						$new_id = sql_save($variable, 'reportit_variables');
+						$new_id = sql_save($variable, 'plugin_reportit_variables');
 
 						$old[]  = $variable['abbreviation'];
 						$abbr   = 'c' . $new_id . 'v';
 						$new[]  = $abbr;
 
-						db_execute_prepared('UPDATE reportit_variables
+						db_execute_prepared('UPDATE plugin_reportit_variables
 							SET abbreviation = ?
 							WHERE id = ?' ,
 							array($abbr, $new_id));

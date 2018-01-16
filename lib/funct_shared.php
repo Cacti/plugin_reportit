@@ -69,7 +69,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	/* load configurations of variables */
 	$report_variables = db_fetch_assoc_prepared('SELECT a.id, a.name,
 		a.description, b.value, a.min_value, a.max_value
-		FROM reportit_variables AS a
+		FROM plugin_reportit_variables AS a
 		INNER JOIN reportit_rvars AS b
 		ON a.id = b.variable_id
 		AND b.report_id = ?
@@ -682,7 +682,7 @@ function get_possible_variables($template_id) {
 	}
 
     $names = db_fetch_assoc_prepared('SELECT abbreviation
-		FROM reportit_variables
+		FROM plugin_reportit_variables
 		WHERE template_id = ?',
 		array($template_id));
 
@@ -1335,7 +1335,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load definitions of variables */
     $variables_data = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_variables
+		FROM plugin_reportit_variables
 		WHERE template_id = ?
 		ORDER BY id',
 		array($template_id));

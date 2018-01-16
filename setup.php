@@ -46,7 +46,7 @@ function plugin_reportit_uninstall() {
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_reports');
 	db_execute('DROP TABLE IF EXISTS reportit_rvars');
 	db_execute('DROP TABLE IF EXISTS reportit_templates');
-	db_execute('DROP TABLE IF EXISTS reportit_variables');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_variables');
 
 	return true;
 }
