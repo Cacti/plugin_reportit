@@ -187,7 +187,7 @@ function try_autolock_template($template_id) {
     $status = db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_reports
 		WHERE template_id = ?
-		AND in_process = 1',
+		AND state = 1',
 		array($template_id));
 
     if ($status == 0) {

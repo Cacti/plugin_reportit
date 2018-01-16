@@ -746,13 +746,13 @@ function get_template_status($template_id) {
 
 
 function in_process($report_id, $status = 1) {
-    $sql = "UPDATE plugin_reportit_reports SET in_process=$status WHERE id=$report_id";
+    $sql = "UPDATE plugin_reportit_reports SET state=$status WHERE id=$report_id";
     db_execute($sql);
 }
 
 
 function stat_process($report_id) {
-    $sql = "SELECT in_process FROM plugin_reportit_reports WHERE id=$report_id";
+    $sql = "SELECT state FROM plugin_reportit_reports WHERE id=$report_id";
     return db_fetch_cell($sql);
 }
 

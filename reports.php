@@ -390,7 +390,7 @@ function standard() {
 			<td>
 				<a class='linkEditMain' href='reports.php?action=report_edit&id=<?php print $report['id'];?>'>
 				<?php print $report['description'];
-				if ($report['in_process']) print "<b style='color: #FF0000'>&nbsp;" . __('*In process*') . "</b>";
+				if ($report['state']) print "<b style='color: #FF0000'>&nbsp;" . __('*In process*') . "</b>";
 				?>
 				</a>
 			</td>
@@ -434,7 +434,7 @@ function standard() {
 
 			print "<td><a class='linkEditMain' href='$link'>$msg</a></td>";
 
-			if (!$report['locked'] && !$report['in_process']) {
+			if (!$report['locked'] && !$report['state']) {
 				form_checkbox_cell("Select",$report["id"]);
 				
 			} else {
