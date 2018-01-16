@@ -23,10 +23,10 @@
 */
 
 //----- Define some variables -----
-$PATH_RID_LOG   = "<a href='./plugins/reportit/cc_reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_LOG   = "<a href='./plugins/reportit/cc_rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
-$PATH_RID_VIEW  = "<a href='cc_reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_VIEW  = "<a href='cc_rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_LOG   = "<a href='./plugins/reportit/reports.php?action=report_edit&id=<RID>'><RID></a>";
+$PATH_DID_LOG   = "<a href='./plugins/reportit/rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&id=<RID>'><RID></a>";
+$PATH_DID_VIEW  = "<a href='rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
 
 $run_return     = array();
 $run_freq       = '';
@@ -50,13 +50,13 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
     else include_once('./include/config.php');
 
     include_once(REPORTIT_BASE_PATH . '/setup.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_calculate.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_runtime.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_export.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
 
     $run_scheduled    = TRUE;
 

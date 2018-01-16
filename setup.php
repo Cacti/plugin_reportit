@@ -138,225 +138,225 @@ function reportit_database_upgrade($action) {
 }
 
 function reportit_draw_navigation_text ($nav) {
-    $nav['cc_reports.php:'] = array(
+    $nav['reports.php:'] = array(
 		'title' => __('Reports'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_reports.php',
+		'url' => 'reports.php',
 		'level' => '1');
 
-    $nav['cc_reports.php:save'] = array(
+    $nav['reports.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_reports.php:report_add'] = array(
+    $nav['reports.php:report_add'] = array(
 		'title' => __('Add'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_reports.php:report_edit'] = array(
+    $nav['reports.php:report_edit'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_reports.php:actions'] = array(
+    $nav['reports.php:actions'] = array(
 		'title' => __('Actions'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_rrdlist.php:'] = array(
+    $nav['rrdlist.php:'] = array(
 		'title' => __('Data Items'),
-		'mapping' => 'index.php:,cc_reports.php:',
-		'url' => 'cc_templates.php',
+		'mapping' => 'index.php:,reports.php:',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_rrdlist.php:save'] = array(
+    $nav['rrdlist.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_rrdlist.php:rrdlist_edit'] = array(
+    $nav['rrdlist.php:rrdlist_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_rrdlist.php:actions'] = array(
+    $nav['rrdlist.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_items.php:'] = array(
+    $nav['items.php:'] = array(
 		'title' => __('Add'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
-		'url'  => 'cc_templates.php',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
+		'url'  => 'templates.php',
 		'level' => '3');
 
-    $nav['cc_items.php:save'] = array(
+    $nav['items.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '4');
 
-    $nav['cc_templates.php:'] = array(
+    $nav['templates.php:'] = array(
 		'title' => __('Report Templates'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '1');
 
-    $nav['cc_templates.php:save'] = array(
+    $nav['templates.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_edit'] = array(
+    $nav['templates.php:template_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_new'] = array(
+    $nav['templates.php:template_new'] = array(
 		'title' => __('Add'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_import_wizard'] = array(
+    $nav['templates.php:template_import_wizard'] = array(
 		'title' => __('Import'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_upload_wizard'] = array(
+    $nav['templates.php:template_upload_wizard'] = array(
 		'title' => __('Import'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_import'] = array(
+    $nav['templates.php:template_import'] = array(
 		'title' => __('Export'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_export'] = array(
+    $nav['templates.php:template_export'] = array(
 		'title' => __('Export'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_export_wizard'] = array(
+    $nav['templates.php:template_export_wizard'] = array(
 		'title' => __('Export'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:actions'] = array(
+    $nav['templates.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
     $nav['measurands.php:'] = array(
 		'title' => __('Measurands'),
-		'mapping' => 'index.php:,cc_templates.php:',
-		'url' => 'cc_templates.php',
+		'mapping' => 'index.php:,templates.php:',
+		'url' => 'templates.php',
 		'level' => '2');
 
     $nav['measurands.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
+		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['measurands.php:measurand_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
+		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['measurands.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
+		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['variables.php:'] = array(
 		'title' => __('Variables'),
-		'mapping' => 'index.php:,cc_templates.php:',
-		'url' => 'cc_templates.php',
+		'mapping' => 'index.php:,templates.php:',
+		'url' => 'templates.php',
 		'level' => '2');
 
     $nav['variables.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
+		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['variables.php:variable_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
+		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['variables.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
+		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_run.php:calculation'] = array(
+    $nav['run.php:calculation'] = array(
 		'title' => __('Report Calculation'),
-		'mapping' => 'index.php:,cc_reports.php:',
+		'mapping' => 'index.php:,reports.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_view.php:'] = array(
+    $nav['view.php:'] = array(
 		'title' => __('Public Reports'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_view.php',
+		'url' => 'view.php',
 		'level' => '1');
 
-    $nav['cc_view.php:show_report'] = array(
+    $nav['view.php:show_report'] = array(
 		'title' => __('Show Report'),
-		'mapping' => 'index.php:,cc_view.php:',
+		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_view.php:export'] = array(
+    $nav['view.php:export'] = array(
 		'title' => __('Export Report'),
-		'mapping' => 'index.php:,cc_view.php:',
+		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_view.php:show_graphs'] = array(
+    $nav['view.php:show_graphs'] = array(
 		'title' => __('Show Report'),
-		'mapping' => 'index.php:,cc_view.php:',
+		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_charts.php:'] = array(
+    $nav['charts.php:'] = array(
 		'title' => __('Public Report Charts'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_graph.php',
+		'url' => 'graph.php',
 		'level' => '1');
 
-    $nav['cc_charts.php:bar'] = array(
+    $nav['charts.php:bar'] = array(
 		'title' => __('Bar Chart'),
-		'mapping' => 'index.php:,cc_graph.php:',
+		'mapping' => 'index.php:,graph.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_charts.php:pie'] = array(
+    $nav['charts.php:pie'] = array(
 		'title' => __('Pie Chart'),
-		'mapping' => 'index.php:,cc_graph.php:',
+		'mapping' => 'index.php:,graph.php:',
 		'url' => '',
 		'level' => '2');
 
@@ -367,13 +367,13 @@ function reportit_config_arrays() {
 	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
 
 	/* register all realms of ReportIT */
-	api_plugin_register_realm('reportit', 'cc_view.php,cc_charts.php', __('View Reports'), 1);
-	api_plugin_register_realm('reportit', 'cc_reports.php,cc_rrdlist.php,cc_items.php,cc_run.php', __('Create Reports'), 1);
+	api_plugin_register_realm('reportit', 'view.php,charts.php', __('View Reports'), 1);
+	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', __('Create Reports'), 1);
 	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', __('Administrate Reports'), 1);
 
 	/* show additional menu entries if plugin is enabled */
 	if (api_plugin_is_enabled('reportit')) {
-		$menu[__('Management')]['plugins/reportit/cc_reports.php']  = __('Reports');
+		$menu[__('Management')]['plugins/reportit/reports.php']  = __('Reports');
 		$menu[__('Templates')]['plugins/reportit/templates.php'] = __('Report');
 
 		$temp = array(
@@ -727,8 +727,8 @@ function reportit_config_settings() {
 function reportit_show_tab() {
     global $config;
 
-	if (api_user_realm_auth('cc_view.php')) {
-		print '<a href="' . $config['url_path'] . 'plugins/reportit/cc_view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'cc_view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIT') . '"></a>';
+	if (api_user_realm_auth('view.php')) {
+		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIT') . '"></a>';
 	}
 }
 

@@ -26,7 +26,7 @@ function upgrade_reportit_0_4_0_to_0_7_0(){
 	global $config, $database_default;
 
 	include_once($config["base_path"] . '/plugins/reportit/setup.php');
-	include_once($config["base_path"] . "/plugins/reportit/lib_int/funct_shared.php");
+	include_once($config["base_path"] . "/plugins/reportit/lib/funct_shared.php");
 
 
 	/* install default tables */

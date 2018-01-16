@@ -25,14 +25,14 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_calculate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
 
-//----- CONSTANTS FOR: cc_variables.php -----
+//----- CONSTANTS FOR: variables.php -----
 $variable_actions = array(
 	1 => __('Delete', 'reportit')
 );

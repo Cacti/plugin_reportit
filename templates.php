@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
 include_once(REPORTIT_BASE_PATH . '/include/global_forms.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_templates.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_templates.php');
 
 set_default_action();
 
@@ -493,7 +493,7 @@ function standard() {
 			)
 	);
 
-	validate_store_request_vars($filters, 'sess_cc_templates');
+	validate_store_request_vars($filters, 'sess_templates');
 	/* ================= input validation ================= */
 
 	if (get_request_var('rows') == '-1') {
@@ -904,7 +904,7 @@ function form_actions() {
 				array($id));
 
 			foreach ($template_reports as $key => $value) {
-				$ds_list[$template_identifier][] = "[<a href='./cc_reports.php?action=report_edit&id={$template_reports[$key]['id']}'>{$template_reports[$key]['id']}</a>] " . $template_reports[$key]['description'];
+				$ds_list[$template_identifier][] = "[<a href='./reports.php?action=report_edit&id={$template_reports[$key]['id']}'>{$template_reports[$key]['id']}</a>] " . $template_reports[$key]['description'];
 			}
 		}
 	}
