@@ -74,7 +74,7 @@ function calculation() {
 
 	/* load report informations */
 	$report_informations = db_fetch_row_prepared('SELECT a.description, a.last_run, a.runtime
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		WHERE a.id = ?', array($id));
 
 	foreach($result as $notice) {

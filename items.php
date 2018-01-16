@@ -155,7 +155,7 @@ function standard() {
 	/* ==================================================== */
 
 	$report_data = db_fetch_row_prepared('SELECT *
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array(get_request_var('id')));
 
@@ -168,7 +168,7 @@ function standard() {
 
 	/* load filter settings of that report template this report relies on */
 	$template_filter = db_fetch_assoc_prepared("SELECT rt.pre_filter, rt.data_template_id
-		FROM reportit_reports AS rr
+		FROM plugin_reportit_reports AS rr
 		INNER JOIN reportit_templates AS rt
 		ON rr.template_id = rt.id
 		WHERE rr.id = ?",

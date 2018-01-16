@@ -182,14 +182,14 @@ function standard() {
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(a.id)
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		$sql_where");
 
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	
 	$report_list = db_fetch_assoc("SELECT a.*, b.description AS template_description
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		INNER JOIN reportit_templates AS b
 		ON b.id = a.template_id
 		$sql_where
@@ -1389,7 +1389,7 @@ function show_export_wizard($new=false){
 	$ids = substr($ids, 0, strlen($ids)-1);
 
 	$report = db_fetch_assoc("SELECT id, description, scheduled, autoarchive
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id IN ($ids)");
 
 	if (sizeof($reports)) {

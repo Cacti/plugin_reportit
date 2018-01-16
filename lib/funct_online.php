@@ -40,7 +40,7 @@ function my_report($report_id, $public = FALSE){
 		$user_id  = my_id();
 
         $user = db_fetch_row_prepared("SELECT user_id, public
-			FROM reportit_reports
+			FROM plugin_reportit_reports
 			WHERE id = ?",
 			array($report_id));
 
@@ -59,7 +59,7 @@ function my_report($report_id, $public = FALSE){
 
 function my_template($report_id) {
 	return db_fetch_cell_prepared('SELECT template_id
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 }
@@ -185,7 +185,7 @@ function update_formulas($array) {
 
 function try_autolock_template($template_id) {
     $status = db_fetch_cell_prepared('SELECT COUNT(*)
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE template_id = ?
 		AND in_process = 1',
 		array($template_id));

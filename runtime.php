@@ -135,12 +135,12 @@ function run($frequency) {
 
     $start = microtime();
     if(is_numeric($frequency)) {
-        $sql = "SELECT a.id, a.template_id FROM reportit_reports as a
+        $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
                 INNER JOIN reportit_templates as b
                 ON b.locked = 0 and a.template_id = b.id
                 WHERE a.id = $frequency";
     }else {
-        $sql = "SELECT a.id, a.template_id FROM reportit_reports as a
+        $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
                 INNER JOIN reportit_templates as b
                 ON b.locked = 0 AND a.template_id = b.id
                 WHERE a.scheduled = 1 AND a.frequency = '$frequency'";
@@ -313,7 +313,7 @@ function runtime($report_id) {
 	reset_report($report_id);
 
     //----- load default settings -----
-    $report_settings = db_fetch_row("SELECT * FROM reportit_reports WHERE id = '$report_id'");
+    $report_settings = db_fetch_row("SELECT * FROM plugin_reportit_reports WHERE id = '$report_id'");
 
     //----- auto clean-up RRDlist -----
     autocleanup($report_id);
@@ -820,7 +820,7 @@ function runtime($report_id) {
 	//----- Save/update report data -----
 	$now = date("Y-m-d H:i:s");
 
-	$sql = "UPDATE reportit_reports
+	$sql = "UPDATE plugin_reportit_reports
 		SET last_run	= '$now',
 		runtime 		= '$runtime',
 		start_date 		= '$s_date',
@@ -876,7 +876,7 @@ function autorrdlist($reportid) {
 	global $timezone, $shifttime, $shifttime2, $weekday;
 
 	// fetch data for current report
-	$report_data		= db_fetch_row('SELECT * FROM reportit_reports WHERE id=' . $reportid);
+	$report_data		= db_fetch_row('SELECT * FROM plugin_reportit_reports WHERE id=' . $reportid);
 	$header_label 		= $report_data['description']  . ' ID: ' . $reportid;
 
 	// if Host Template Id filter was set, show the Host Template Description in the header
@@ -895,7 +895,7 @@ function autorrdlist($reportid) {
 	$sql = "SELECT
 		b.pre_filter, b.data_template_id
 	    FROM
-		reportit_reports AS a
+		plugin_reportit_reports AS a
 	    JOIN
 	    	reportit_templates AS b
 	    ON
@@ -1045,7 +1045,7 @@ function autocleanup($report_id){
 function autoexport($report_id){
 
     /* load report settings */
-    $report_settings = db_fetch_row("SELECT * FROM reportit_reports WHERE id = $report_id");
+    $report_settings = db_fetch_row("SELECT * FROM plugin_reportit_reports WHERE id = $report_id");
 
     /* main export folder */
     $main_folder = read_config_option('reportit_exp_folder');
@@ -1057,7 +1057,7 @@ function autoexport($report_id){
 
     /* export folder per template definition */
     $template_folder = db_fetch_cell("SELECT b.export_folder
-                                        FROM reportit_reports AS a
+                                        FROM plugin_reportit_reports AS a
                                         INNER JOIN reportit_templates as b
                                         ON a.template_id = b.id
                                         WHERE a.id = $report_id");

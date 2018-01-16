@@ -43,7 +43,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch report's definition
     $report = db_fetch_row_prepared('SELECT *
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 

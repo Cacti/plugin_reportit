@@ -175,7 +175,7 @@ function standard() {
 	
 	
 	$report_data = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array(get_request_var('id')));
 	

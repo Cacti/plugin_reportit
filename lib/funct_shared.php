@@ -24,7 +24,7 @@
 
 function owner($report_id) {
 	$tmp = db_fetch_row_prepared('SELECT b.username, b.full_name
-		FROM reportit_reports as a
+		FROM plugin_reportit_reports as a
 		INNER JOIN user_auth as b
 		ON b.id = a.user_id
 		WHERE a.id = ?' ,
@@ -43,7 +43,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 
 	/* load report configuration + template description */
 	$report_data = db_fetch_row_prepared('SELECT a.*, b.description AS template_name
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		INNER JOIN reportit_templates AS b
 		ON a.template_id = b.id
 		WHERE a.id = ?',
@@ -571,7 +571,7 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 
 function create_rvars_entries($variable_id, $template_id, $default) {
 	$ids = db_fetch_assoc_prepared('SELECT id
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE template_id = ?',
 		array($template_id));
 
@@ -592,7 +592,7 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 
 function reset_report($report_id) {
     // Set report values last_run and runtime to zero
-    db_execute_prepared("UPDATE reportit_reports
+    db_execute_prepared("UPDATE plugin_reportit_reports
 		SET last_run = '0000-00-00 00:00:00', runtime = '0'
 		WHERE id = ?",
 		array($report_id));
@@ -746,13 +746,13 @@ function get_template_status($template_id) {
 
 
 function in_process($report_id, $status = 1) {
-    $sql = "UPDATE reportit_reports SET in_process=$status WHERE id=$report_id";
+    $sql = "UPDATE plugin_reportit_reports SET in_process=$status WHERE id=$report_id";
     db_execute($sql);
 }
 
 
 function stat_process($report_id) {
-    $sql = "SELECT in_process FROM reportit_reports WHERE id=$report_id";
+    $sql = "SELECT in_process FROM plugin_reportit_reports WHERE id=$report_id";
     return db_fetch_cell($sql);
 }
 
@@ -826,7 +826,7 @@ function debug(&$value, $msg = '', $fmsg = '') {
 
 
 function get_report_setting($report_id, $column){
-	$sql = "SELECT $column FROM reportit_reports WHERE id = $report_id";
+	$sql = "SELECT $column FROM plugin_reportit_reports WHERE id = $report_id";
 	return db_fetch_cell($sql);
 }
 
@@ -1222,7 +1222,7 @@ function send_scheduled_email($report_id){
 
 	/* load report based email settings */
 	$report_settings  = db_fetch_row_prepared('SELECT *
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 

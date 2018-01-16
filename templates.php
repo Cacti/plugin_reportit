@@ -784,11 +784,11 @@ function form_actions() {
 					db_execute('DELETE FROM reportit_measurands WHERE template_id =' . $template_data['id']);
 					db_execute('DELETE FROM reportit_data_source_items WHERE template_id =' . $template_data['id']);
 
-					$template_reports = db_fetch_assoc('SELECT id FROM reportit_reports WHERE template_id =' .$template_data['id']);
+					$template_reports = db_fetch_assoc('SELECT id FROM plugin_reportit_reports WHERE template_id =' .$template_data['id']);
 
 					if (is_array($template_reports)) {
 						foreach($template_reports as $template_report) {
-							db_execute('DELETE FROM reportit_reports WHERE id=' . $template_report['id']);
+							db_execute('DELETE FROM plugin_reportit_reports WHERE id=' . $template_report['id']);
 							db_execute('DELETE FROM reportit_data_items WHERE report_id = ' . $template_report['id']);
 							db_execute('DROP TABLE IF EXISTS reportit_results_' . $template_report['id']);
 							db_execute('DELETE FROM reportit_rvars WHERE report_id =' . $template_report['id']);
@@ -899,7 +899,7 @@ function form_actions() {
 
 			//Fetch all descriptions of reports attached to this template
 			$template_reports = db_fetch_assoc_prepared('SELECT id, description
-				FROM reportit_reports
+				FROM plugin_reportit_reports
 				WHERE template_id = ?',
 				array($id));
 

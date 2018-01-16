@@ -260,7 +260,7 @@ function standard() {
 	if ($reportAdmin) {
 		/* fetch user names */
 		$ownerlist = db_fetch_assoc('SELECT DISTINCT a.user_id as id, c.username
-			FROM reportit_reports AS a
+			FROM plugin_reportit_reports AS a
 			LEFT JOIN reportit_templates AS b
 			ON b.id = a.template_id
 			LEFT JOIN user_auth AS c
@@ -269,7 +269,7 @@ function standard() {
 
 		/* fetch template list */
 		$sql = 'SELECT DISTINCT b.id, b.description
-			FROM reportit_reports AS a
+			FROM plugin_reportit_reports AS a
 			INNER JOIN reportit_templates AS b
 			ON b.id = a.template_id';
 
@@ -327,12 +327,12 @@ function standard() {
 		$rows = get_request_var('rows');
 	}
 
-	$sql = "SELECT COUNT(a.id) FROM reportit_reports AS a $affix";
+	$sql = "SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $affix";
 
 	$total_rows = db_fetch_cell($sql);
 
     $sql = 'SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		LEFT JOIN reportit_templates AS b
 		ON b.id = a.template_id
 		LEFT JOIN
@@ -616,7 +616,7 @@ function form_save() {
 		$report_data['data_source_filter'] = get_request_var('data_source_filter');
 
 		/* save settings */
-		sql_save($report_data, 'reportit_reports');
+		sql_save($report_data, 'plugin_reportit_reports');
 		sql_save($rrdlist_data, 'reportit_presets', 'id', false);
 
 		break;
@@ -638,7 +638,7 @@ function form_save() {
 		}
 
 		/* save settings */
-		sql_save($report_data, 'reportit_reports');
+		sql_save($report_data, 'plugin_reportit_reports');
 
 		break;
 	case 'email':
@@ -649,7 +649,7 @@ function form_save() {
 			$report_data['email_format']  = get_request_var('report_email_format');
 
 			/* save settings */
-			sql_save($report_data, 'reportit_reports');
+			sql_save($report_data, 'plugin_reportit_reports');
 		} else {
 			$id      = get_request_var('id');
 			$columns = '(report_id, email, name)';
@@ -790,7 +790,7 @@ function form_save() {
 			
 		} else {
 			/* save report config */
-			$report_id = sql_save($report_data, 'reportit_reports');
+			$report_id = sql_save($report_data, 'plugin_reportit_reports');
 
 			/* save addtional report variables */
 			foreach($var_data as $data) {
@@ -826,7 +826,7 @@ function report_edit() {
 	/* load config settings if it's not a new one */
 	if (!isempty_request_var('id')) {
 		$report_data = db_fetch_row_prepared('SELECT *
-			FROM reportit_reports
+			FROM plugin_reportit_reports
 			WHERE id = ?',
 			array(get_request_var('id')));
 
@@ -1152,7 +1152,7 @@ function form_actions() {
 
 		if (get_request_var('drp_action') == '2') { // DELETE REPORT
 			$report_datas = db_fetch_assoc('SELECT id
-				FROM reportit_reports
+				FROM plugin_reportit_reports
 				WHERE ' . array_to_sql_or($selected_items, 'id'));
 
 			if (sizeof($report_datas) > 0) {
@@ -1163,7 +1163,7 @@ function form_actions() {
 						WHERE report_id = ?',
 						array($report_data['id']));
 
-					db_execute_prepared('DELETE FROM reportit_reports WHERE id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_presets WHERE id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_rvars WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM reportit_recipients WHERE report_id = ?', array($report_data['id']));
@@ -1182,12 +1182,12 @@ function form_actions() {
 				/* ==================================================== */
 
 				$report_data = db_fetch_row_prepared('SELECT *
-					FROM reportit_reports
+					FROM plugin_reportit_reports
 					WHERE id = ?', array($selected_items[$i]));
 
 				$report_data['id'] = 0;
 				$report_data['description'] = str_replace("<report_title>", $report_data['description'], get_request_var('report_addition'));
-				$new_id = sql_save($report_data, 'reportit_reports');
+				$new_id = sql_save($report_data, 'plugin_reportit_reports');
 
 				//Copy original rrdlist table  to new rrdlist table
 				$data_items = db_fetch_assoc_prepared('SELECT *
@@ -1248,7 +1248,7 @@ function form_actions() {
 
 			//Fetch report description
 			$report_description = db_fetch_cell_prepared('SELECT description
-				FROM reportit_reports
+				FROM plugin_reportit_reports
 				WHERE id = ?',
 				array($id));
 
