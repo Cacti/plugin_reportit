@@ -44,7 +44,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	/* load report configuration + template description */
 	$report_data = db_fetch_row_prepared('SELECT a.*, b.description AS template_name
 		FROM plugin_reportit_reports AS a
-		INNER JOIN reportit_templates AS b
+		INNER JOIN plugin_reportit_templates AS b
 		ON a.template_id = b.id
 		WHERE a.id = ?',
 		array($report_id));
@@ -58,7 +58,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 
 	/* load measurand configurations */
 	$tmps = db_fetch_assoc_prepared("SELECT *
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?",
 		array($report_data['template_id']));
 
@@ -638,7 +638,7 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 
 	$names = get_possible_rra_names($template_id);
 	$sql = "SELECT abbreviation, spanned
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id=$template_id ";
 
 	if ($measurand_id != 0) {
@@ -671,7 +671,7 @@ function get_possible_variables($template_id) {
 	// Check whether maxValue is valid
 	$maximum = db_fetch_cell_prepared('SELECT DISTINCT a.rrd_maximum
 		FROM data_template_rrd as a
-		INNER JOIN reportit_templates as b
+		INNER JOIN plugin_reportit_templates as b
 		ON a.data_template_id = b.data_template_id
 		AND b.id = ?
 		WHERE a.local_data_id = 0',
@@ -706,9 +706,9 @@ function get_possible_data_query_variables($template_id) {
 	// any data query associated with this data template?
 	$sql = "SELECT DISTINCT(`data_local`.`snmp_query_id`) " .
 			"FROM `data_local` " .
-			"INNER JOIN `reportit_templates` " .
-			"ON `data_local`.`data_template_id` = `reportit_templates`.`data_template_id` " .
-			"WHERE `reportit_templates`.`id`=$template_id";
+			"INNER JOIN `plugin_reportit_templates` " .
+			"ON `data_local`.`data_template_id` = `plugin_reportit_templates`.`data_template_id` " .
+			"WHERE `plugin_reportit_templates`.`id`=$template_id";
 	$available_data_queries = db_fetch_assoc($sql);
 
 	// in case there is no data query, have $names initialized
@@ -739,7 +739,7 @@ function get_possible_data_query_variables($template_id) {
 
 function get_template_status($template_id) {
     //Returns '1' if the template has been locked.
-    $sql = "SELECT locked FROM reportit_templates WHERE id=$template_id";
+    $sql = "SELECT locked FROM plugin_reportit_templates WHERE id=$template_id";
     $status = db_fetch_cell($sql);
     return $status;
 }
@@ -1318,7 +1318,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load template data */
     $template_data = db_fetch_row_prepared('SELECT *
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array($template_id));
 
@@ -1344,7 +1344,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load definitions of measurands */
     $measurands_data = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id',
 		array($template_id));

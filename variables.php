@@ -109,7 +109,7 @@ function standard() {
 		array(get_request_var('id')));
 
 	$template_name = db_fetch_cell_prepared('SELECT description
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array(get_request_var('id')));
 
@@ -443,7 +443,7 @@ function form_actions() {
 					array($id));
 
 				$count = db_fetch_cell_prepared("SELECT COUNT(*)
-					FROM reportit_measurands
+					FROM plugin_reportit_measurands
 					WHERE template_id = ?
 					AND calc_formula LIKE '%$name%'",
 					array(get_request_var('id')));

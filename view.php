@@ -190,7 +190,7 @@ function standard() {
 	
 	$report_list = db_fetch_assoc("SELECT a.*, b.description AS template_description
 		FROM plugin_reportit_reports AS a
-		INNER JOIN reportit_templates AS b
+		INNER JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
 		$sql_where
 		$sql_order

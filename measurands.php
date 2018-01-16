@@ -66,12 +66,12 @@ function standard() {
 	/* ==================================================== */
 
 	$measurands_list = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id', array(get_request_var('id')));
 
 	$template_name	= db_fetch_cell_prepared('SELECT description
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array(get_request_var('id')));
 
@@ -152,7 +152,7 @@ function form_save() {
 
 	//Check if the abbreviation is in use.
 	$count = db_fetch_cell_prepared('SELECT COUNT(*)
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE abbreviation = ?
 		AND id != ?
 		AND template_id = ?',
@@ -183,13 +183,13 @@ function form_save() {
 		$new = get_request_var('measurand_abbreviation');
 
 		$old = db_fetch_cell_prepared("SELECT abbreviation
-			FROM reportit_measurands
+			FROM plugin_reportit_measurands
 			WHERE id = ?",
 			array(get_request_var('id')));
 
 		if ($old != $new) {
 			$dependencies = db_fetch_assoc_prepared("SELECT id, calc_formula
-				FROM reportit_measurands
+				FROM plugin_reportit_measurands
 				WHERE template_id = ?
 				AND id > ?
 				AND calc_formula LIKE '%$old%'",
@@ -206,7 +206,7 @@ function form_save() {
 		//Check if interim results are used in other measurands
 		if(isset_request_var('measurand_spanned')) {
 			$count = db_fetch_cell_prepared("SELECT COUNT(*)
-				FROM reportit_measurands
+				FROM plugin_reportit_measurands
 				WHERE template_id = ?
 				AND id > ?
 				AND calc_formula LIKE '%$old:%'",
@@ -238,7 +238,7 @@ function form_save() {
 		header('Location: measurands.php?header=false&action=measurand_edit&id=' . get_request_var('id') . '&template_id=' . get_request_var('template_id'));
 	} else {
 		//Save data
-		sql_save($measurand_data, 'reportit_measurands');
+		sql_save($measurand_data, 'plugin_reportit_measurands');
 
 		//Update dependences if it's necessary
 		if (isset($dependences) && sizeof($dependencies)) {
@@ -260,7 +260,7 @@ function measurand_edit() {
 
 	if (!isempty_request_var('id')) {
 		$measurand_data = db_fetch_row_prepared('SELECT *
-			FROM reportit_measurands
+			FROM plugin_reportit_measurands
 			WHERE id = ?',
 			array(get_request_var('id')));
 
@@ -463,7 +463,7 @@ function form_actions() {
 		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
 
 		if (get_request_var('drp_action') == '2') { // DELETE MEASURANDS
-			db_execute('DELETE FROM reportit_measurands WHERE ' . array_to_sql_or($selected_items, 'id'));
+			db_execute('DELETE FROM plugin_reportit_measurands WHERE ' . array_to_sql_or($selected_items, 'id'));
 
 			//Check if it is necessary to lock the report template
 			if (stat_autolock_template(get_request_var('id'))) {
@@ -489,7 +489,7 @@ function form_actions() {
 
 			//Fetch report description
 			$measurand_description 	= db_fetch_cell_prepared('SELECT description
-				FROM reportit_measurands
+				FROM plugin_reportit_measurands
 				WHERE id = ?',
 				array($id));
 

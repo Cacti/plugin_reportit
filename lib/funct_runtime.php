@@ -77,7 +77,7 @@ function &get_report_definitions($report_id) {
 
 	// Fetch all template informations
     $template = db_fetch_row_prepared('SELECT *
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array($report['template_id']));
 
@@ -103,7 +103,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all measurands
     $measurands = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id', array($report['template_id']));
 

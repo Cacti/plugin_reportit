@@ -53,7 +53,7 @@ $link_array_admin = array(
 
 //$templates		- array, for dropdown menu
 //			- contains all names of available templates by taking into account user's realm
-$templates = db_fetch_assoc('SELECT * FROM reportit_templates WHERE locked = 0');
+$templates = db_fetch_assoc('SELECT * FROM plugin_reportit_templates WHERE locked = 0');
 
 if (!$templates) {
     $templates['0'] = '- No template available -';

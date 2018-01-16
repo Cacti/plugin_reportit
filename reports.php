@@ -68,7 +68,7 @@ function report_wizard() {
 	$templates      = array();
 
 	$templates_list = db_fetch_assoc('SELECT id, description
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE locked=""');
 
 	#top_header();
@@ -261,7 +261,7 @@ function standard() {
 		/* fetch user names */
 		$ownerlist = db_fetch_assoc('SELECT DISTINCT a.user_id as id, c.username
 			FROM plugin_reportit_reports AS a
-			LEFT JOIN reportit_templates AS b
+			LEFT JOIN plugin_reportit_templates AS b
 			ON b.id = a.template_id
 			LEFT JOIN user_auth AS c
 			ON c.id = a.user_id
@@ -270,7 +270,7 @@ function standard() {
 		/* fetch template list */
 		$sql = 'SELECT DISTINCT b.id, b.description
 			FROM plugin_reportit_reports AS a
-			INNER JOIN reportit_templates AS b
+			INNER JOIN plugin_reportit_templates AS b
 			ON b.id = a.template_id';
 
 		if (get_request_var('owner') !== '-1' & !isempty_request_var('owner')) {
@@ -333,7 +333,7 @@ function standard() {
 
     $sql = 'SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
 		FROM plugin_reportit_reports AS a
-		LEFT JOIN reportit_templates AS b
+		LEFT JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
 		LEFT JOIN
 		(SELECT report_id, count(*) as ds_cnt FROM `plugin_reportit_data_items` GROUP BY report_id) AS c
@@ -888,12 +888,12 @@ function report_edit() {
 
 		/* load values for host_template_filter */
 		$filter = db_fetch_cell_prepared('SELECT pre_filter
-			FROM reportit_templates
+			FROM plugin_reportit_templates
 			WHERE id = ?',
 			array($report_data['template_id']));
 
 		$tmp = db_fetch_assoc_prepared('SELECT id, description
-			FROM reportit_templates
+			FROM plugin_reportit_templates
 			WHERE pre_filter = ?',
 			array($filter));
 	} else {
@@ -926,7 +926,7 @@ function report_edit() {
 	$report_data['template_id'] = $template_id;
 
 	$report_data['template'] = db_fetch_cell_prepared('SELECT description
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array($template_id));
 

@@ -98,7 +98,7 @@ $fields_template_export = array(
 		'friendly_name' => __('Report Template', 'reportit'),
 		'description' => __('Choose one of your Report Templates to export to XML.', 'reportit'),
 		'method' => 'drop_sql',
-		'sql' => 'SELECT id, description as name FROM reportit_templates WHERE locked = 0 ORDER BY description',
+		'sql' => 'SELECT id, description as name FROM plugin_reportit_templates WHERE locked = 0 ORDER BY description',
 		'default' => 0,
 		'none_value' => 'None',
 		'value' => '',

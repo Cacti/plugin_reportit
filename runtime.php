@@ -136,12 +136,12 @@ function run($frequency) {
     $start = microtime();
     if(is_numeric($frequency)) {
         $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
-                INNER JOIN reportit_templates as b
+                INNER JOIN plugin_reportit_templates as b
                 ON b.locked = 0 and a.template_id = b.id
                 WHERE a.id = $frequency";
     }else {
         $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
-                INNER JOIN reportit_templates as b
+                INNER JOIN plugin_reportit_templates as b
                 ON b.locked = 0 AND a.template_id = b.id
                 WHERE a.scheduled = 1 AND a.frequency = '$frequency'";
     }
@@ -897,7 +897,7 @@ function autorrdlist($reportid) {
 	    FROM
 		plugin_reportit_reports AS a
 	    JOIN
-	    	reportit_templates AS b
+	    	plugin_reportit_templates AS b
 	    ON
 	    	a.template_id = b.id
 	    WHERE
@@ -1058,7 +1058,7 @@ function autoexport($report_id){
     /* export folder per template definition */
     $template_folder = db_fetch_cell("SELECT b.export_folder
                                         FROM plugin_reportit_reports AS a
-                                        INNER JOIN reportit_templates as b
+                                        INNER JOIN plugin_reportit_templates as b
                                         ON a.template_id = b.id
                                         WHERE a.id = $report_id");
 

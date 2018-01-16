@@ -169,7 +169,7 @@ function standard() {
 	/* load filter settings of that report template this report relies on */
 	$template_filter = db_fetch_assoc_prepared("SELECT rt.pre_filter, rt.data_template_id
 		FROM plugin_reportit_reports AS rr
-		INNER JOIN reportit_templates AS rt
+		INNER JOIN plugin_reportit_templates AS rt
 		ON rr.template_id = rt.id
 		WHERE rr.id = ?",
 		array(get_request_var('id')));

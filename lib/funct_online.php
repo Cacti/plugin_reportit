@@ -66,7 +66,7 @@ function my_template($report_id) {
 
 function locked($template_id, $header=true) {
 	$status = db_fetch_cell_prepared("SELECT locked
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?",
 		array($template_id));
 
@@ -156,7 +156,7 @@ function is_error_message_field($field) {
 
 function stat_autolock_template($template_id) {
     $count = db_fetch_cell_prepared("SELECT COUNT(*)
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?",
 		array($template_id));
 
@@ -168,7 +168,7 @@ function stat_autolock_template($template_id) {
 }
 
 function set_autolock_template($template_id) {
-    db_execute_prepared('UPDATE reportit_templates
+    db_execute_prepared('UPDATE plugin_reportit_templates
 		SET locked=1
 		WHERE id = ?',
 		array($template_id));
@@ -176,7 +176,7 @@ function set_autolock_template($template_id) {
 
 function update_formulas($array) {
     foreach($array as $key => $value) {
-		db_execute_prepared('UPDATE reportit_measurands
+		db_execute_prepared('UPDATE plugin_reportit_measurands
 			SET calc_formula = ?
 			WHERE id = ?',
 			array($value['calc_formula'], $value['id']));
