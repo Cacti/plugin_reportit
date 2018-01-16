@@ -226,7 +226,7 @@ function reportit_system_install() {
 	* - keeps track of ds items per data source template that should be part of a report template
 	*/
 	$data = array();
-	$data['columns'][] = array(	'name' => 'id', 					'type' => 'tinyint', 		'NULL' => false, 'default' => '0');
+	$data['columns'][] = array(	'name' => 'id', 					'type' => 'mediumint',	'unsigned' => true,	'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'template_id', 			'type' => 'mediumint(8)',	'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'group_id', 				'type' => 'mediumint(8)',	'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'data_template_id', 		'type' => 'mediumint(8)',	'unsigned' => true,	'NULL' => false, 'default' => '0');
