@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_items.php');
+include_once('./plugins/reportit/lib_int/funct_validate.php');
+include_once('./plugins/reportit/lib_int/funct_online.php');
+include_once('./plugins/reportit/lib_int/funct_shared.php');
+include_once('./plugins/reportit/lib_int/funct_html.php');
+include_once('./plugins/reportit/lib_int/const_runtime.php');
+#include_once(REPORTIT_BASE_PATH . '/lib_int/const_items.php');
 
 set_default_action();
 
@@ -106,7 +106,7 @@ function save(){
 	}
 
 	/* return to standard form */
-	header('Location: cc_items.php?id=' . get_request_var('id'));
+	header('Location: cc_items.php?header=false&id=' . get_request_var('id'));
 }
 
 function standard() {
@@ -144,7 +144,8 @@ function standard() {
 			'default' => '-1'
 			)
 	);
-
+    $filters = api_plugin_hook_function('report_filters', $filters);
+    
 	validate_store_request_vars($filters, 'sess_cc_items');
 	/* ================= input validation ================= */
 
@@ -253,7 +254,7 @@ function standard() {
 
 	$rrdlist = db_fetch_assoc($sql);
 
-	$nav = html_nav_bar('cc_items.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
+	$nav = html_nav_bar('cc_items.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
 
 	$header_label	= __('Data Objects [add to report: <a style="color:yellow" href="cc_reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
 
@@ -276,7 +277,7 @@ function standard() {
 	items_filter($header_label);
 
 	print $nav;
-
+	form_start('cc_items.php');
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$desc_array = array(__('Description'));
@@ -289,13 +290,9 @@ function standard() {
 	if (sizeof($rrdlist)) {
 		foreach($rrdlist as $rrd) {
 			form_alternate_row('line' . $rrd['id'], true);
-			?>
-				<td><?php print $rrd['name_cache'];?></td>
-				<td style='<?php print get_checkbox_style();?>' width='1%' align='right'>
-					<input type='checkbox' style='margin: 0px;' name='chk_<?php print $rrd['id'];?>' title='<?php print __('Select');?>'>
-				</td>
-			</tr>
-			<?php
+			?><td><?php print $rrd['name_cache'];?></td><?php
+			form_checkbox_cell("Select",$rrd["id"]);
+			
 		}
 	} else {
 		print '<tr><td colspan="2"><em>' . __('No data items') . '</em></td></tr>';
@@ -325,7 +322,7 @@ function items_filter($header_label) {
 	?>
 	<tr class='even'>
 		<td>
-		<form id='form_reports' action='items.php'>
+		<form id='form_reports' action='cc_items.php?id=<?php print get_request_var('id');?>'>
 			<table class='filterTable'>
 				<tr>
 					<td>
@@ -363,7 +360,7 @@ function items_filter($header_label) {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL = 'cc_reports.php?filter='+
+			strURL = 'cc_items.php?id=<?php print get_request_var('id');?>'+'&filter='+
 				escape($('#filter').val())+
 				'&rows='+$('#rows').val()+
 				'&page='+$('#page').val()+
@@ -372,7 +369,7 @@ function items_filter($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_reports.php?clear=1&header=false';
+			strURL = 'cc_items.php?clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 

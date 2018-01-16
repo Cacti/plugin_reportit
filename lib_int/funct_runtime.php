@@ -33,7 +33,7 @@ function create_result_table($report_id) {
 	db_execute('INSERT INTO reportit_results_' . $report_id . '
 		SELECT `id`
 		FROM reportit_data_items
-		WHERE report_id = $report_id');
+		WHERE report_id = '. $report_id);
 }
 
 function &get_report_definitions($report_id) {
@@ -140,7 +140,8 @@ function &get_report_definitions($report_id) {
 
     // Fetch RRA definitions
     $template['RRA'] = db_fetch_assoc('SELECT steps, timespan
-		FROM rra
+		FROM data_source_profiles_rra 
+    	WHERE data_source_profile_id=1
 		ORDER BY timespan');
 
     // Rebuild the variables

@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_reports.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
+include_once('./plugins/reportit/lib_int/funct_validate.php');
+include_once('./plugins/reportit/lib_int/funct_online.php');
+include_once('./plugins/reportit/lib_int/const_runtime.php');
+include_once('./plugins/reportit/lib_int/const_reports.php');
+include_once('./plugins/reportit/lib_int/funct_shared.php');
+include_once('./plugins/reportit/lib_int/funct_html.php');
 
 set_default_action();
 
@@ -43,7 +43,7 @@ switch (get_request_var('action')) {
 		report_edit();
 		bottom_footer();
 		break;
-	case 'add':
+	case 'report_add':
 		top_header();
 		report_wizard();
 		bottom_footer();
@@ -69,15 +69,14 @@ function report_wizard() {
 
 	$templates_list = db_fetch_assoc('SELECT id, description
 		FROM reportit_templates
-		WHERE locked=0');
+		WHERE locked=""');
 
-	top_header();
+	#top_header();
 
 	if (isset($_SESSION['reportit'])) unset($_SESSION['reportit']);
+	form_start('cc_reports.php');
 
 	html_start_box(__('New Report'), '60%', '', '3', 'center', '');
-
-	form_start('cc_reports.php');
 
 	if (sizeof($templates_list) == 0) {
 		print "<tr class='even'>
@@ -107,21 +106,24 @@ function report_wizard() {
 	}
 
 	print "<tr>
-		<td class='saveRow'>
+		
+		<td class='saveRow' colspan='2'>
 			<input type='hidden' name='action' value='report_edit'>
 			$save_html
 		</td>
 	</tr>";
 
 	html_end_box();
+	
+	form_end();
+	
 
-	bottom_footer();
 }
 
 function report_filter() {
 	global $item_rows;
 
-	html_start_box( __('Report Filters'), '100%', '', '3', 'center', 'cc_reports.php?action=report_edit');
+	html_start_box( __('Report Filters'), '100%', '', '3', 'center', 'cc_reports.php?action=report_add');
 	?>
 	<tr class='even'>
 		<td>
@@ -351,8 +353,9 @@ function standard() {
 	$nav = html_nav_bar('cc_reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
 
 	print $nav;
-
+	form_start('cc_reports.php');
 	html_start_box('', '100%', '', '3', 'center', '');
+	#html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'));
 
 	if ($reportAdmin) {
 		$desc_array = array(
@@ -432,11 +435,8 @@ function standard() {
 			print "<td><a class='linkEditMain' href='$link'>$msg</a></td>";
 
 			if (!$report['locked'] && !$report['in_process']) {
-				?>
-				<td style="<?php print get_checkbox_style();?>" width="1%" align="right">
-				<input type='checkbox' style='margin: 0px;' name='chk_<?php print $report["id"];?>' title="Select">
-				</td>
-				<?php
+				form_checkbox_cell("Select",$report["id"]);
+				
 			} else {
                 print "<td align='center'>";
                 html_checked_with_icon(true, 'lock.gif', __('Template has been locked temporarily'));
@@ -456,6 +456,7 @@ function standard() {
 	if ($total_rows > $rows) print $nav;
 
 	draw_actions_dropdown($report_actions);
+	form_end();
 }
 
 function remove_recipient() {
@@ -486,6 +487,7 @@ function form_save() {
 		INNER JOIN user_auth_realm AS b
 		ON a.id = b.user_id WHERE (b.realm_id = " . REPORTIT_USER_OWNER . " OR b.realm_id = " . REPORTIT_USER_VIEWER . ")
 		ORDER BY username";
+	
 	$owner = db_custom_fetch_assoc($sql, 'id', false);
 
 	/* ================= Input Validation ================= */
@@ -748,7 +750,6 @@ function form_save() {
 
 		foreach($rvars as $key => $v) {
 			$value = $vars[$v['id']];
-
 			if ($v['input_type'] == 1) {
 				$i = 0;
 				$array = array();
@@ -765,6 +766,7 @@ function form_save() {
 				if ($value > $v['max_value'] || $value < $v['min_value']) die_html_custom_error('', true);
 			} else {
 				if ($value > $v['max_value'] || $value < $v['min_value']) {
+					
 					session_custom_error_message($v['name'], "{$v['name']} is out of range");
 					break;
 				}
@@ -780,9 +782,12 @@ function form_save() {
 			);
 		}
 
-		/* start saving process or return */
+		/* start saving process or return is_error_message()*/
 		if (is_error_message()) {
+			
 			header('Location: cc_reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+			exit;
+			
 		} else {
 			/* save report config */
 			$report_id = sql_save($report_data, 'reportit_reports');
@@ -795,7 +800,7 @@ function form_save() {
 		}
 	}
 
-	header('Location: cc_reports.php?action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
+	header('Location: cc_reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
 
 	raise_message(1);
 }
@@ -957,7 +962,7 @@ function report_edit() {
 
 		foreach (array_keys($tabs) as $tab_short_name) {
 			print "<li class='subTab'><a class='tab" . (($tab_short_name == $current_tab) ? " selected'" : "'") .
-				" href='" . htmlspecialchars($config['url_path'] .  '/plugins/reportit/cc_reports.php?action=report_edit&id=' . $id .
+				" href='" . htmlspecialchars($config['url_path'] .  'plugins/reportit/cc_reports.php?action=report_edit&id=' . $id .
 				'&tab=' . $tab_short_name) .
 				"'>" . $tabs[$tab_short_name] . "</a></li>\n";
 
@@ -966,14 +971,14 @@ function report_edit() {
 
         print "</ul></nav></div>\n";
 	}
-
+	form_start('cc_reports.php');
 	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label), '100%', '', '2', 'center', '');
 
 	switch(get_request_var('tab')) {
 	case 'presets':
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_presets, $rrdlist_data, $report_data)
 			)
 		);
@@ -982,7 +987,7 @@ function report_edit() {
 	case 'admin':
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_admin, $report_data)
 			)
 		);
@@ -991,7 +996,7 @@ function report_edit() {
 	case 'email':
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_email, $report_data)
 			)
 		);
@@ -1021,7 +1026,7 @@ function report_edit() {
 	default:
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_general, $report_data)
 			)
 		);
@@ -1032,7 +1037,7 @@ function report_edit() {
 		if ($template_variables !== false) {
 			draw_edit_form(
 				array(
-					'config' => array(),
+					'config' => array('no_form_tag'=> true),
 					'fields' => $template_variables
 				)
 			);
@@ -1041,6 +1046,7 @@ function report_edit() {
 
 	html_end_box();
 	form_save_button('cc_reports.php');
+	
 
 	?>
 	<script type='text/javascript'>
@@ -1224,7 +1230,7 @@ function form_actions() {
 			}
 		}
 
-		header('Location: cc_reports.php');
+		header('Location: cc_reports.php?header=false');
 		exit;
 	}
 
@@ -1266,10 +1272,11 @@ function form_actions() {
 	}
 
 	top_header();
+	form_start('cc_reports.php');
 
 	html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
-	form_start('cc_reports.php');
+	
 
 	if (get_request_var('drp_action') == '2') { //DELETE REPORT
 		print "<tr>
@@ -1324,6 +1331,8 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
+	
+	form_end();
 
 	bottom_footer();
 }

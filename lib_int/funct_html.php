@@ -23,38 +23,81 @@
 */
 
 
-function html_custom_header_box($header, $hlink = false, $href = '', $link = '') {
-    print "<table calss='cactiTable'>
-		<tr>
-			<td>
-				<table class='cactiTable'>
-					<tr>
-						<td class='textHeaderDark' align='left' style='padding: 3px;' colspan='100'>
-							<table>
-								<tr>
-									<td class='textHeaderDark' align='left'>";
-										print "<b>$header&nbsp;</b>";
-										if ($hlink) print "[$hlink]";
-	print '</td>';
+function html_custom_header_box($title, $width, $div, $cell_padding, $align, $add_text, $add_label = false) {
+//function html_custom_header_box($header, $hlink = false, $href = '', $link = '') {
+//     print "<table calss='cactiTable'>
+// 		<tr>
+// 			<td>
+// 				<table class='cactiTable'>
+// 					<tr>
+// 						<td class='textHeaderDark' align='left' style='padding: 3px;' colspan='100'>
+// 							<table>
+// 								<tr>
+// 									<td class='textHeaderDark' align='left'>";
+// 										print "<b>$header&nbsp;</b>";
+// 										if ($hlink) print "[$hlink]";
+// 	print '</td>';
 
-	if ($href !='' && $link !='') {
-		print "<td class='textHeaderDark' align='right'>";
+// 	if ($href !='' && $link !='') {
+// 		print "<td class='textHeaderDark' align='right'>";
 
-		if (is_array($href) && is_array($link)) {
-			foreach ($href as $key => $value){
-				print "<a style='color:yellow' href='$value' alt='titlt'>" . $link[$key] . '</a>&nbsp;';
-			}
-		} else {
-			print "<a style='color:yellow' href='$href' alt='titlt'>$link</a>";
-		}
+// 		if (is_array($href) && is_array($link)) {
+// 			foreach ($href as $key => $value){
+// 				print "<a style='color:yellow' href='$value' alt='titlt'>" . $link[$key] . '</a>&nbsp;';
+// 			}
+// 		} else {
+// 			print "<a style='color:yellow' href='$href' alt='titlt'>$link</a>";
+// 		}
 
-		print '</td>';
+// 		print '</td>';
+// 	}
+
+// 	print '</tr>
+// 			</table>
+// 		</td>
+// 	</tr>';
+
+	static $table_suffix = 1;
+	
+	if ($add_label === false) {
+		$add_label = __('Add');
 	}
-
-	print '</tr>
-			</table>
-		</td>
-	</tr>';
+	
+	$table_prefix = basename(get_current_page(), '.php');;
+	if (!isempty_request_var('report')) {
+		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('report'));
+	} elseif (!isempty_request_var('tab')) {
+		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('tab'));
+	} elseif (!isempty_request_var('action')) {
+		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('action'));
+	}
+	$table_id = $table_prefix . $table_suffix;
+	
+	if ($title != '') {
+		print "<div id='$table_id' class='cactiTable' style='width:$width;text-align:$align;'>";
+		print "<div>";
+		print "<div class='cactiTableTitle'><span>" . ($title != '' ? $title:'') . '</span></div>';
+		print "<div style='background: rgba(0,0,0,0.9);text-align: right;padding: 3px 0px;border-bottom: 1px solid rgba(0,0,0,0.5);font-weight: 700;font-size: 1em;'  class='' ><span>" . ($add_text != '' ? "<a href='" . html_escape($add_text) . "'>" . "<img src='./images/bar.gif' title='Graph View'>" . '</a>':'') . '</span></div>';
+		print '</div>';
+	
+		if ($div === true) {
+			print "<div id='$table_id" . "_child' class='cactiTable'>";
+		} else {
+			print "<table id='$table_id" . "_child' class='cactiTable' style='padding:" . $cell_padding . "px;'>";
+		}
+	} else {
+		print "<div id='$table_id' class='cactiTable' style='width:$width;text-align:$align;'>";
+	
+		if ($div === true) {
+			print "<div id='$table_id" . "_child' class='cactiTable'>";
+		} else {
+			print "<table id='$table_id" . "_child' class='cactiTable' style='padding:" . $cell_padding . "px;'>";
+		}
+	}
+	
+	$table_suffix++;
+	
+	
 }
 
 function html_error_box($message, $site, $jump, $link){
@@ -159,7 +202,7 @@ function html_calc_syntax($measurand_id, $template_id) {
 				. "Examples:    " . $properties['examples'] . "</div>";
 			}
 
-	       	$output .= '<a id="' . $name . '" class="linkOverDark" title="' . $title . '" onClick=add_to_calc("' . $name . '") style="cursor:pointer;">' . $name . "&nbsp;&nbsp;</a>";
+	       	$output .= '<a id="' . $name . '" class="linkOverDark1" title="' . $title . '" onClick=add_to_calc("' . $name . '") style="cursor:pointer;">' . $name . "&nbsp;&nbsp;</a>";
         }
         $output .= "</div>";
     }

@@ -45,7 +45,8 @@ function create_chart(){
 	include_once(REPORTIT_BASE_PATH . '/lib_int/const_graphs.php');
 
 	/* ================= Input validation ================= */
-	get_filter_request_var('id');
+	#get_filter_request_var('id');
+	input_validate_input_number(get_request_var("id"));
 
 	if (!isset_request_var('source')) exit;
 
@@ -80,15 +81,15 @@ function create_chart(){
 	$affix   .= 'ORDER BY a.' . get_request_var('source') . ' ' . $order . ' LIMIT 0, ' . $limit;
 
 	if (get_request_var('archive') == -1) {
-		$sql = "SELECT a.{get_request_var('source')}
-			FROM reportit_results_{get_request_var('id')} AS a
+		$sql = "SELECT a.". get_request_var('source') . "
+			FROM reportit_results_" . get_request_var('id') ." AS a
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id
 			WHERE c.name_cache " . $affix;
 
 		$data = get_prepared_report_data(get_request_var('id'), 'graidle', $sql);
 	} else {
-		$sql = "SELECT a.{get_request_var('source')}
+		$sql = "SELECT a." . get_request_var('source') ." 
 			FROM reportit_tmp_$cache_id AS a
 			WHERE a.name_cache " . $affix;
 

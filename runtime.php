@@ -320,9 +320,11 @@ function runtime($report_id) {
 
 	//----- check if BOOST is active -----
 	$boost_enabled = (function_exists("boost_process_poller_output") && db_fetch_cell("SELECT 1 FROM `settings` WHERE name = 'boost_rrd_update_enable' and value = 'on'"))? true : false;
-	debug($debug_value = ($boost_enabled ? "enabled" : "disabled"), "Boost Plugin Status");
+	$debug_value = ($boost_enabled ? "enabled" : "disabled");
+	debug($debug_value, "Boost Plugin Status");
 	$boost_server_enabled = (db_fetch_cell("SELECT 1 FROM `settings` WHERE name = 'boost_server_enable' and value = 'on'"))? true : false;
-	debug($debug_value = ($boost_server_enabled ? "enabled" : "disabled"), "Boost Server Status");
+	$debug_value = ($boost_server_enabled ? "enabled" : "disabled");
+	debug($debug_value, "Boost Server Status");
 
 	//----- automatic RRDList Generation -----
     if($report_settings['autorrdlist']) autorrdlist($report_id);
@@ -488,16 +490,16 @@ function runtime($report_id) {
 
 		//----- ERROR CHECK (3) -----
 		// Check whether start- and endpoint are part of future timestamps (Important for timespan "today")
-		if($f_sp > mktime()) {
+		if($f_sp > time()) {
 			run_error(3, $report_id, $local_data_id);
 			continue;
 		}
-		if($f_ep > mktime()) {
-			$f_ep	= mktime();
+		if($f_ep > time()) {
+			$f_ep	= time();
 			run_error(6, $report_id, $local_data_id);
 		}
-		If($l_ep > mktime()) {
-			$l_ep	= mktime();
+		If($l_ep > time()) {
+			$l_ep	= time();
 			if(!$dynamic) run_error(6, $report_id, $local_data_id);
 		}
 		//---------------------------
@@ -632,7 +634,7 @@ function runtime($report_id) {
 
         //----- Prepare data for normal calculating -----
         foreach($rrd_data as $rra_index => $data){
-            $pre_data[$rra_index] = &get_prepared_data($rrd_data[$rra_index]['data'], $rrd_ad_data,
+            $pre_data[$rra_index] = get_prepared_data($rrd_data[$rra_index]['data'], $rrd_ad_data,
                                                         $rrd_ds_cnt, $ds_type, $corr_factor_start,
                                                         $corr_factor_end, $rrd_ds_namv, $rrd_nan);
             unset($rrd_data[$rra_index]);

@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once($config['base_path'] . '/plugins/reportit/lib_int/funct_validate.php');
-include_once($config['base_path'] . '/plugins/reportit/lib_int/funct_online.php');
-include_once($config['base_path'] . '/plugins/reportit/lib_int/funct_shared.php');
-include_once($config['base_path'] . '/plugins/reportit/lib_int/funct_html.php');
-include_once($config['base_path'] . '/plugins/reportit/lib_int/const_runtime.php');
-include_once($config['base_path'] . '/plugins/reportit/lib_int/const_rrdlist.php');
+include_once('./plugins/reportit/lib_int/funct_validate.php');
+include_once('./plugins/reportit/lib_int/funct_online.php');
+include_once('./plugins/reportit/lib_int/funct_shared.php');
+include_once('./plugins/reportit/lib_int/funct_html.php');
+include_once('./plugins/reportit/lib_int/const_runtime.php');
+include_once('./plugins/reportit/lib_int/const_rrdlist.php');
 
 set_default_action();
 
@@ -146,6 +146,7 @@ function standard() {
 	/* ==================== checkpoint ==================== */
 	my_report(get_request_var('id'));
 	locked(my_template(get_request_var('id')));
+	$rows = read_config_option('num_rows_table');
 	/* ==================================================== */
 
 	/* form the 'where' clause for our main sql query */
@@ -171,13 +172,14 @@ function standard() {
 		$sql_where
 		$sql_order
 		$sql_limit");
-
-	$report_data = db_fetch_row_pepared('SELECT *
+	
+	
+	$report_data = db_fetch_assoc_prepared('SELECT *
 		FROM reportit_reports
 		WHERE id = ?',
 		array(get_request_var('id')));
-
-	$header_label = __('Data Items [Report: %s %s [%d]', "<a class='pic' href='cc_reports.php?action=report_edit&id=" . get_request_var('id') . '>', $report_data['description'] . '</a>', $total_rows);
+	
+	$header_label = __('Data Items [Report: %s %s [%d]', "<a class='pic' href='cc_reports.php?action=report_edit&id=" . get_request_var('id') . '\'>', $report_data['0']['description'] . ']</a>', $total_rows);
 
 	/* define subheader description */
 	$description = array(
@@ -277,15 +279,21 @@ function standard() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	html_header_checkbox($description);
-
+	$i = 0;
+	
 	if (sizeof($rrdlist)) {
 		foreach($rrdlist as $rrd) {
-			form_alternate_row_color('line' . $rrd['id'], true);
+			form_alternate_row('line' . $rrd['id'], true);
+
 
 			if ($rrd['name_cache'] == NULL) {
 				form_selectable_cell(__('Does not exist anymore'), $rrd['id']);
 			} else {
-				form_selectable_cell("<class='linkEditMain' href='cc_rrdlist.php?action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id') . ">" . $rrd['name_cache'] . "</a>", $rrd['id']);
+				form_selectable_cell("<a class='linkEditMain' 
+						href='cc_rrdlist.php?action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id') . "'>" 
+						. $rrd['name_cache'] 
+						. "</a>", 
+						$rrd['id']);
 			}
 
 			form_selectable_cell($rrd['description'], $rrd['id']);
@@ -301,7 +309,7 @@ function standard() {
 		print "<tr><td colspan='6'><em>" . __('No data items found') . "</em></td></tr>";
 	}
 
-	html_end_box();
+	html_end_box(false);
 
 	if (sizeof($rrdlist)) {
 		print $nav;

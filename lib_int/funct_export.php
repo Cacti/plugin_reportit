@@ -59,19 +59,21 @@ function export_to_CSV(&$data) {
 	if ($run_scheduled !== true) {
 		/* request via web */
 		$no_formatting = 0;
-		$c_sep = $csv_c_sep[read_graph_config_option('reportit_csv_column_s')];
-		$d_sep = $csv_d_sep[read_graph_config_option('reportit_csv_decimal_s')];
+		$c_sep = $csv_c_sep[read_config_option('reportit_csv_column_s')];
+		$d_sep = $csv_d_sep[read_config_option('reportit_csv_decimal_s')];
 	} else {
 		/* request via cli */
 		$no_formatting = $report_data['autoexport_no_formatting'];
 		$c_sep = $csv_c_sep[get_graph_config_option('reportit_csv_column_s', $report_data['user_id'])];
 		$d_sep = $csv_d_sep[get_graph_config_option('reportit_csv_decimal_s', $report_data['user_id'])];
 	}
-
+	/* plugin version */
+	$info = plugin_reportit_version();
 	/* form the export header */
 	$header = read_config_option('reportit_exp_header');
 	$header = str_replace("<cacti_version>", "$eol# Cacti: " . $config['cacti_version'], $header);
-	$header = str_replace("<reportit_version>", " ReportIT: " . reportit_version('version'), $header);
+	
+	$header = str_replace("<reportit_version>", " ReportIT: " . $info['version'] , $header);
 
 	/* compose additional informations */
 	$report_settings = array(
@@ -250,7 +252,8 @@ function export_to_XML(&$data) {
 	/* form the export header */
 	$header = read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', "\r\nCacti: " . $config['cacti_version'], $header);
-	$header = str_replace('<reportit_version>', ' ReportIT: ' . reportit_version('version'), $header);
+	$info = plugin_reportit_version();
+	$header = str_replace('<reportit_version>', ' ReportIT: ' . info['version'], $header);
 
 	/* compose additional informations */
 	$report_settings = array(
@@ -434,9 +437,10 @@ function new_worksheet(&$data, &$styles){
 	$no_formatting     = ($run_scheduled !== true) ? 0 : $report_data['autoexport_no_formatting'];
 
 	/* form the export header */
+	$info = $info = plugin_reportit_version();
 	$header = read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', ' Cacti: ' . $config['cacti_version'], $header);
-	$header = str_replace('<reportit_version>', ' ReportIT: ' . reportit_version('version'), $header);
+	$header = str_replace('<reportit_version>', ' ReportIT: ' . $info['version'], $header);
 
 	/* compose additional informations */
 	$report_settings = array(

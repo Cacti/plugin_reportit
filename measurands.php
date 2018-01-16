@@ -80,7 +80,8 @@ function standard() {
 	//Number of measurands
 	$number_of_measurands = count($measurands_list);
 	$header_label	= __("Measurands [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id=" . get_request_var('id') . "'>%s</a>] [%d]", $template_name, $number_of_measurands, 'reportit');
-
+	
+	form_start('measurands.php');
 	html_start_box($header_label, '100%', '', '2', 'center', 'measurands.php?action=measurand_edit&template_id=' . get_request_var('id'));
 
 	$display_text = array(
@@ -127,8 +128,9 @@ function standard() {
 	);
 
 	html_end_box(true);
-
-	draw_actions_dropdown($measurand_actions, 'templates.php');
+	
+	draw_actions_dropdown($measurand_actions, 'measurands.php');
+	form_end();
 }
 
 function form_save() {
@@ -176,6 +178,7 @@ function form_save() {
 	//Check possible dependences with other measurands
 	if (!is_error_message_field('measurand_abbreviation') && get_request_var('id') != 0) {
 		$dependences = array();
+		$dependencies = array();
 
 		$new = get_request_var('measurand_abbreviation');
 
@@ -222,15 +225,16 @@ function form_save() {
 	$measurand_data['description']    = get_request_var('measurand_description');
 	$measurand_data['abbreviation']   = strtoupper(get_request_var('measurand_abbreviation'));
 	$measurand_data['unit']           = get_request_var('measurand_unit');
-	$measurand_data['visible']        = isset_request_var('measurand_visible') ? 1 : 0;
-	$measurand_data['spanned']        = isset_request_var('measurand_spanned') ? 1 : 0;
+	$measurand_data['visible']        = isset_request_var('measurand_visible') ? 'on' : '';
+	$measurand_data['spanned']        = isset_request_var('measurand_spanned') ? 'on' : '';
 	$measurand_data['calc_formula']   = get_request_var('measurand_formula');
 	$measurand_data['rounding']       = isset_request_var('measurand_rounding') ? get_request_var('measurand_rounding'): '';
 	$measurand_data['cf']             = get_request_var('measurand_cf');
 	$measurand_data['data_type']      = get_request_var('measurand_type');
 	$measurand_data['data_precision'] = isset_request_var('measurand_precision') ? get_request_var('measurand_precision') : '';
-
-	if (is_error_message()) {
+	
+	
+	if (false) {//is_error_message()
 		header('Location: measurands.php?header=false&action=measurand_edit&id=' . get_request_var('id') . '&template_id=' . get_request_var('template_id'));
 	} else {
 		//Save data
@@ -267,7 +271,8 @@ function measurand_edit() {
 
 	$measurand_id		= (isset_request_var('id') ? get_request_var('id') : '0');
 	$template_id		= (isset_request_var('template_id') ? get_request_var('template_id') : $measurand_data['template_id']);
-
+	
+	
 	$form_array = array(
 		'id'				=> array(
 			'method'			=> 'hidden_zero',
@@ -315,15 +320,19 @@ function measurand_edit() {
 			'friendly_name'		=> __('Visible', 'reportit'),
 			'description'		=> __('Choose \'enable\' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation.', 'reportit'),
 			'method'			=> 'checkbox',
-			'value'				=> ((isset($measurand_data['visible']) || $measurand_data['visible'] == true) ? 'on' : ''),
-			'default'			=> 'on'
+			'value'				=> ((isset($measurand_data['visible']) && $measurand_data['visible'] == true) ? 'on' : ''),
+			'form_id'			=> (isset_request_var('id') ? get_request_var('id') : ''), 
+			'default'			=> 'on',
+			
 		),
 		'measurand_spanned'	=> array(
 			'friendly_name'		=> __('Separate', 'reportit'),
 			'description'		=> __('Choose \'enable\' if this measurand will only have one result in total instead of one for every Data Source Item. It\'s result<br>will be shown separately. Use this option in combination with "Visible" = "off" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users.', 'reportit'),
 			'method'			=> 'checkbox',
 			'value'				=> ((isset($measurand_data['spanned']) && $measurand_data['spanned'] == true) ? 'on' : ''),
+			'form_id'			=> (isset_request_var('id') ? get_request_var('id') : ''),
 			'default'			=> '',
+			
 		),
 		'measurand_header2'	=> array(
 			'friendly_name'		=> __('Formatting', 'reportit'),
@@ -401,6 +410,7 @@ function measurand_edit() {
 
 	form_start('measurands.php');
 	html_start_box($header_label, '100%', '', '2', 'center', '');
+	
 
 	draw_edit_form(
 		array(
@@ -417,7 +427,7 @@ function measurand_edit() {
 	//print '<br>';
 
 	form_save_button('measurands.php?id=' . $template_id);
-	form_end();
+	//form_end();
 
 
 
@@ -488,10 +498,11 @@ function form_actions() {
 	}
 
 	top_header();
-
-	html_start_box($measurand_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
-
+	
 	form_start('measurands.php');
+	
+	html_start_box($measurand_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
+	
 
 	if (get_request_var('drp_action') == '2') { //DELETE REPORT
 		print "<tr class='odd'>
@@ -533,7 +544,9 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
-
+	
+	form_end();
+	
 	bottom_footer();
 }
 

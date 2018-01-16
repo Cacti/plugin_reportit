@@ -35,11 +35,11 @@ function plugin_reportit_install() {
 }
 
 function plugin_reportit_uninstall() {
-	db_execute('DROP TABLE IF EXISTS reportit_cache_measurands');
-	db_execute('DROP TABLE IF EXISTS reportit_cache_reports');
-	db_execute('DROP TABLE IF EXISTS reportit_cache_variables');
-	db_execute('DROP TABLE IF EXISTS reportit_data_items');
-	db_execute('DROP TABLE IF EXISTS reportit_data_source_items');
+ 	db_execute('DROP TABLE IF EXISTS reportit_cache_measurands');
+ 	db_execute('DROP TABLE IF EXISTS reportit_cache_reports');
+ 	db_execute('DROP TABLE IF EXISTS reportit_cache_variables');
+ 	db_execute('DROP TABLE IF EXISTS reportit_data_items');
+ 	db_execute('DROP TABLE IF EXISTS reportit_data_source_items');
 	db_execute('DROP TABLE IF EXISTS reportit_measurands');
 	db_execute('DROP TABLE IF EXISTS reportit_presets');
 	db_execute('DROP TABLE IF EXISTS reportit_recipients');
@@ -709,13 +709,19 @@ function reportit_config_settings() {
 		),
 	);
 
-	if (isset($settings_graphs['reports'])) {
-		$settings_graphs['reportit'] = array_merge($settings_graphs['reportit'],$temp);
+	if (isset($setting_graphs['reportit'])) {
+		$settings['reportit'] = array_merge($settings_graphs['reportit'],$temp);
 	} else {
-		$settings_graphs['reportit'] = $temp;
+		$settings['reportit'] = $temp;
 	}
 
 	unset($temp);
+	
+	foreach ($settings['reportit'] as $key => $value ){
+		if( array_key_exists('default', $value) ){
+			set_config_option($key,$value['default']);
+		}
+	}
 }
 
 function reportit_show_tab() {
@@ -728,48 +734,49 @@ function reportit_show_tab() {
 
 function reportit_setup_table($upgrade = false) {
 	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_reports (
-		`id` int(11) NOT NULL auto_increment,
-		`description` varchar(255) NOT NULL default '',
-		`user_id` int(11) NOT NULL default '0',
-		`template_id` int(11) NOT NULL default '0',
-		`host_template_id` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-		`data_source_filter` varchar(255) NOT NULL DEFAULT '',
-		`preset_timespan` varchar(255) NOT NULL default '',
-		`last_run` datetime NOT NULL default '0000-00-00 00:00:00',
-		`runtime` int(11) NOT NULL default '0',
-		`public` tinyint(1) NOT NULL default '0',
-		`start_date` date NOT NULL default '0000-00-00',
-		`end_date` date NOT NULL default '0000-00-00',
-		`ds_description` varchar(5000) NOT NULL default '',
-		`rs_def` varchar(255) NOT NULL default '',
-		`sp_def` varchar(255) NOT NULL default '',
-		`sliding` tinyint(1) NOT NULL default '0',
-		`present` tinyint(1) NOT NULL default '0',
-		`scheduled` tinyint(1) NOT NULL default '0',
-		`autorrdlist` tinyint(1) NOT NULL DEFAULT '0',
-		`auto_email` tinyint(1) NOT NULL DEFAULT '0',
-		`email_subject` varchar(255) NOT NULL default '',
-		`email_body` varchar(1000) NOT NULL default '',
-		`email_format` varchar(255) NOT NULL default '',
-		`subhead` tinyint(1) NOT NULL default '0',
-		`in_process` tinyint(1) NOT NULL default '0',
-		`graph_permission` tinyint(1) NOT NULL DEFAULT '1',
-		`frequency` varchar(255) NOT NULL default '',
-		`autoarchive` mediumint(8) UNSIGNED NOT NULL DEFAULT 1,
-		`autoexport` varchar(255) NOT NULL default '',
-		`autoexport_max_records` smallint NOT NULL DEFAULT '0',
-		`autoexport_no_formatting` tinyint(1) NOT NULL default '0',
-		PRIMARY KEY (`id`))
+		`id` int(11) NOT NULL AUTO_INCREMENT,
+	  `description` varchar(255) NOT NULL DEFAULT '',
+	  `user_id` int(11) NOT NULL DEFAULT '0',
+	  `template_id` int(11) NOT NULL DEFAULT '0',
+	  `host_template_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+	  `data_source_filter` varchar(255) NOT NULL DEFAULT '',
+	  `preset_timespan` varchar(255) NOT NULL DEFAULT '',
+	  `last_run` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+	  `runtime` int(11) NOT NULL DEFAULT '0',
+	  `public` tinyint(1) NOT NULL DEFAULT '0',
+	  `start_date` date NOT NULL DEFAULT '0000-00-00',
+	  `end_date` date NOT NULL DEFAULT '0000-00-00',
+	  `ds_description` varchar(5000) NOT NULL DEFAULT '',
+	  `rs_def` varchar(255) NOT NULL DEFAULT '',
+	  `sp_def` varchar(255) NOT NULL DEFAULT '',
+	  `sliding` tinyint(1) NOT NULL DEFAULT '0',
+	  `present` tinyint(1) NOT NULL DEFAULT '0',
+	  `scheduled` tinyint(1) NOT NULL DEFAULT '0',
+	  `autorrdlist` tinyint(1) NOT NULL DEFAULT '0',
+	  `auto_email` tinyint(1) NOT NULL DEFAULT '0',
+	  `email_subject` varchar(255) NOT NULL DEFAULT '',
+	  `email_body` varchar(1000) NOT NULL DEFAULT '',
+	  `email_format` varchar(255) NOT NULL DEFAULT '',
+	  `subhead` tinyint(1) NOT NULL DEFAULT '0',
+	  `in_process` tinyint(1) NOT NULL DEFAULT '0',
+	  `graph_permission` tinyint(1) NOT NULL DEFAULT '1',
+	  `frequency` varchar(255) NOT NULL DEFAULT '',
+	  `autoarchive` mediumint(8) unsigned NOT NULL DEFAULT '1',
+	  `autoexport` varchar(255) NOT NULL DEFAULT '',
+	  `autoexport_max_records` smallint(6) NOT NULL DEFAULT '0',
+	  `autoexport_no_formatting` tinyint(1) NOT NULL DEFAULT '0',
+	  PRIMARY KEY (`id`))
 		ENGINE=InnoDB;";
 
 	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_templates (
-		`id` int(11) NOT NULL auto_increment,
-		`description` varchar(255) NOT NULL default '',
-		`pre_filter` varchar(255) NOT NULL default '',
-		`data_template_id` int(11) NOT NULL default '0',
-		`locked` tinyint(1) NOT NULL default '0',
-		`export_folder` varchar(255) NOT NULL default '',
-		PRIMARY KEY (`id`))
+		`id` int(11) NOT NULL AUTO_INCREMENT,
+		  `description` varchar(255) NOT NULL DEFAULT '',
+		  `pre_filter` varchar(255) NOT NULL DEFAULT '',
+		  `data_template_id` int(11) NOT NULL DEFAULT '0',
+		  `locked` char(2) NOT NULL DEFAULT '',
+		  `export_folder` varchar(255) NOT NULL DEFAULT '',
+		  `enabled` char(2) NOT NULL DEFAULT '',
+		  PRIMARY KEY (`id`))
 		ENGINE=InnoDB;";
 
 	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_measurands (
@@ -779,9 +786,9 @@ function reportit_setup_table($upgrade = false) {
 		`abbreviation` varchar(255) NOT NULL default '',
 		`calc_formula` varchar(255) NOT NULL default '',
 		`unit` varchar(255) NOT NULL default '',
-		`visible` tinyint(1) NOT NULL default '1',
-		`spanned` tinyint(1) NOT NULL default '0',
-		`rounding` tinyint(1) NOT NULL default '0',
+		`visible` char(2) NOT NULL default 'on',
+		`spanned` char(2) NOT NULL default NULL,
+		`rounding` char(2) NOT NULL default NULL,
 		`cf` int(11) NOT NULL default '1',
 		`data_type` SMALLINT NOT NULL DEFAULT '1',
 		`data_precision` SMALLINT NOT NULL DEFAULT '2',

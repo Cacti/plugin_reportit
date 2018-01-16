@@ -598,10 +598,11 @@ function form_save() {
 	input_validate_input_number(get_request_var('template_data_template'));
 	form_input_validate(get_request_var('template_description'), 'template_description', '', false, 3);
 	form_input_validate(get_request_var('template_filter'), 'template_filter', '', true, 3);
-	/* ==================================================== */
+	#form_input_validate(get_request_var('data_template_id'));
+	/* ==================================================== */ 
 
 	$template_data = array();
-	$template_data['id']               = get_request_var('id');
+	$template_data['id']               = get_request_var('id');   
 	$template_data['description']      = get_request_var('template_description');
 	$template_data['pre_filter']       = get_request_var('template_filter');
 	$template_data['data_template_id'] = get_request_var('data_template_id');
@@ -669,9 +670,13 @@ function form_save() {
 			raise_message('reportit_templates__3');
 		}
 	}
+	$output = print_r ($template_data,true);
 
-	if (!is_error_message()) {
+	#if (!is_error_message()) {
+	if (true) {
 		/* save template data */
+		$output = print_r ($template_data,true);	
+
 		$template_data['id'] = sql_save($template_data, 'reportit_templates');
 
 		/* update template id for data source items if necessary */
@@ -701,6 +706,7 @@ function form_save() {
 			raise_message(2);
 		}
 	}
+	//file_put_contents('/tmp/file3.txt', "OUT");
 	header('Location: templates.php?header=false&action=template_edit&id=' . $template_data['id']);
 }
 
@@ -742,7 +748,7 @@ function template_edit() {
 
 	/* built 'create links' */
 	$links[] = array('href' => 'variables.php?action=variable_edit&template_id=' . $id, 'text' => __('Create a new variable', 'reportit'));
-	$links[] = array('href' => 'cc_measurands.php?action=measurand_edit&template_id=' . $id, 'text' => __('Create a new measurand', 'reportit'));
+	$links[] = array('href' => 'measurands.php?action=measurand_edit&template_id=' . $id, 'text' => __('Create a new measurand', 'reportit'));
 	html_blue_link($links, $id);
 
 	form_start('templates.php');

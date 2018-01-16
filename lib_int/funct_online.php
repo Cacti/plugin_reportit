@@ -146,6 +146,7 @@ function session_custom_error_display() {
 }
 
 function is_error_message_field($field) {
+	
 	if (isset($_SESSION['sess_error_fields'][$field])) {
 		return true;
 	} else {
