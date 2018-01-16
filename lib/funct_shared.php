@@ -137,7 +137,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 
 	/* load report configuration */
 	$report_data = db_fetch_row_prepared('SELECT *
-		FROM reportit_cache_reports
+		FROM plugin_reportit_cache_reports
 		WHERE cache_id = ?',
 		array($cache_id));
 
@@ -1032,7 +1032,7 @@ function cache_xml_file($report_id, $mtime){
 
 	/* transform data and fill up the cache tables */
 	trans_array2sql($archive['report']['settings'], $columns, $values, $cache_id);
-	$sql = "REPLACE INTO reportit_cache_reports $columns VALUES $values;";
+	$sql = "REPLACE INTO plugin_reportit_cache_reports $columns VALUES $values;";
 	db_execute($sql);
 
 	trans_array2sql($archive['report']['measurands'], $columns, $values, $cache_id);
