@@ -147,7 +147,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 
 	/* load configured measurands */
 	$tmps = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_cache_measurands
+		FROM plugin_reportit_cache_measurands
 		WHERE cache_id = ?',
 		array($cache_id));
 
@@ -1036,7 +1036,7 @@ function cache_xml_file($report_id, $mtime){
 	db_execute($sql);
 
 	trans_array2sql($archive['report']['measurands'], $columns, $values, $cache_id);
-	$sql = "REPLACE INTO reportit_cache_measurands $columns VALUES $values;";
+	$sql = "REPLACE INTO plugin_reportit_cache_measurands $columns VALUES $values;";
 	db_execute($sql);
 
 	if (trans_array2sql($archive['report']['variables'], $columns, $values, $cache_id)) {
