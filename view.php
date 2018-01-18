@@ -455,7 +455,7 @@ function show_report() {
 	/* get total number of rows (data items) */
 	$source = (get_request_var('archive') != -1)
 		? 'reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive') . ' AS a'
-		: 'reportit_results_' . get_request_var('id') . ' AS a'.
+		: 'plugin_reportit_results_' . get_request_var('id') . ' AS a'.
 		  ' INNER JOIN data_template_data AS c'.
 		  ' ON c.local_data_id = a.id';
 
@@ -1269,7 +1269,7 @@ function show_graphs() {
 				if ($mea[$id]['visible']) {
 					if (get_request_var('archive') == -1) {
 						$sql = 	"SELECT a.*, b.*, c.name_cache
-							FROM reportit_results_" . get_request_var('id') . " AS a
+							FROM plugin_reportit_results_" . get_request_var('id') . " AS a
 							INNER JOIN plugin_reportit_data_items AS b
 							ON b.id = a.id
 							AND b.report_id = " . get_request_var('id') . "

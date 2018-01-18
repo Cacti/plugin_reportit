@@ -24,13 +24,13 @@
 
 function create_result_table($report_id) {
 	// Create the sql syntax
-    db_execute('CREATE TABLE IF NOT EXISTS reportit_results_' . $report_id . ' (
+    db_execute('CREATE TABLE IF NOT EXISTS plugin_reportit_results_' . $report_id . ' (
 		`id` 	int(11) NOT NULL DEFAULT 0,
 		PRIMARY KEY (`id`))
 		ENGINE=InnoDB');
 
 	// Copy all actual ids from rrdlist
-	db_execute('INSERT INTO reportit_results_' . $report_id . '
+	db_execute('INSERT INTO plugin_reportit_results_' . $report_id . '
 		SELECT `id`
 		FROM plugin_reportit_data_items
 		WHERE report_id = '. $report_id);

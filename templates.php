@@ -790,7 +790,7 @@ function form_actions() {
 						foreach($template_reports as $template_report) {
 							db_execute('DELETE FROM plugin_reportit_reports WHERE id=' . $template_report['id']);
 							db_execute('DELETE FROM plugin_reportit_data_items WHERE report_id = ' . $template_report['id']);
-							db_execute('DROP TABLE IF EXISTS reportit_results_' . $template_report['id']);
+							db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $template_report['id']);
 							db_execute('DELETE FROM plugin_reportit_rvars WHERE report_id =' . $template_report['id']);
 							db_execute('DELETE FROM plugin_reportit_presets WHERE id=' . $template_report['id']);
 							db_execute('DELETE FROM plugin_reportit_recipients WHERE report_id=' . $template_report['id']);

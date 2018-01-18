@@ -82,7 +82,7 @@ function create_chart(){
 
 	if (get_request_var('archive') == -1) {
 		$sql = "SELECT a.". get_request_var('source') . "
-			FROM reportit_results_" . get_request_var('id') ." AS a
+			FROM plugin_reportit_resultss_" . get_request_var('id') ." AS a
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id
 			WHERE c.name_cache " . $affix;

@@ -1168,7 +1168,7 @@ function form_actions() {
 					db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($report_data['id']));
 					db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', array($report_data['id']));
-					db_execute('DROP TABLE IF EXISTS reportit_results_' . $report_data['id']);
+					db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $report_data['id']);
 				}
 
 				if ($counter_data_items > 200) {

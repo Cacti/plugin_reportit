@@ -362,7 +362,7 @@ function runtime($report_id) {
 
 	//----- Prepare result table -----
 	// First destroy old result table if exists
-	db_execute("DROP TABLE IF EXISTS reportit_results_$report_id");
+	db_execute("DROP TABLE IF EXISTS plugin_reportit_results_$report_id");
 
 	// Create new table for saving our results
 	create_result_table($report_id);
@@ -737,7 +737,7 @@ function runtime($report_id) {
 
 			// Remove last comma and complete the sql string
 			$list = substr($list, 0, strlen($list)-1);
-			$list = "ALTER TABLE reportit_results_$report_id $list";
+			$list = "ALTER TABLE plugin_reportit_results_$report_id $list";
 
 			// Add columms
 			db_execute($list);
@@ -795,7 +795,7 @@ function runtime($report_id) {
 		// Remove last comma
 		$list = substr($list, 0, strlen($list)-1);
 		// Save values
-		db_execute("REPLACE reportit_results_$report_id SET id = $local_data_id, $list");
+		db_execute("REPLACE plugin_reportit_results_$report_id SET id = $local_data_id, $list");
 	}
 
 	//----- Close socket connection if its open -----

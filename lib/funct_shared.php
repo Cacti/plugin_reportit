@@ -85,7 +85,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	switch ($type) {
 	case 'export':
 		$sql = "SELECT c.name_cache, b.*, a.*
-			FROM reportit_results_$report_id AS a
+			FROM plugin_reportit_results_$report_id AS a
 			INNER JOIN plugin_reportit_data_items AS b
 			ON a.id = b.id AND b.report_id = $report_id
 			INNER JOIN data_template_data AS c
@@ -106,7 +106,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		break;
 	case 'view':
 		$sql = "SELECT a.*, b.*, c.name_cache
-			FROM reportit_results_$report_id AS a
+			FROM plugin_reportit_results_$report_id AS a
 			INNER JOIN plugin_reportit_data_items AS b
 			ON (a.id = b.id
 			AND b.report_id = $report_id)
