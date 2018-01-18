@@ -234,7 +234,7 @@ function form_save() {
 	$measurand_data['data_precision'] = isset_request_var('measurand_precision') ? get_request_var('measurand_precision') : '';
 	
 	
-	if (false) {//is_error_message()
+	if (is_error_message()) {
 		header('Location: measurands.php?header=false&action=measurand_edit&id=' . get_request_var('id') . '&template_id=' . get_request_var('template_id'));
 	} else {
 		//Save data

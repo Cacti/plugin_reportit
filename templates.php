@@ -609,6 +609,7 @@ function form_save() {
 	$template_data['enabled']          = isset_request_var('template_enabled') ? 'on' : '';
 	$template_data['locked']           = isset_request_var('template_locked') ? 'on' : '';
 	$template_data['export_folder']    = isset_request_var('template_export_folder') ? get_request_var('template_export_folder') : '';
+	
 
 	$sql = "SELECT id, data_source_name
 		FROM data_template_rrd
@@ -665,18 +666,15 @@ function form_save() {
 	}
 
 	/* check if we can unlock this template. */
-	if ($template_data['locked'] == 0) {
+	if ($template_data['locked'] == '') {
 		if (stat_autolock_template($template_data['id'])) {
 			raise_message('reportit_templates__3');
 		}
 	}
-	$output = print_r ($template_data,true);
-
-	#if (!is_error_message()) {
-	if (true) {
+	
+	if (!is_error_message()) {
 		/* save template data */
-		$output = print_r ($template_data,true);	
-
+		
 		$template_data['id'] = sql_save($template_data, 'plugin_reportit_templates');
 
 		/* update template id for data source items if necessary */
@@ -706,7 +704,7 @@ function form_save() {
 			raise_message(2);
 		}
 	}
-	//file_put_contents('/tmp/file3.txt', "OUT");
+	
 	header('Location: templates.php?header=false&action=template_edit&id=' . $template_data['id']);
 }
 
