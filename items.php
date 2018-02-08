@@ -40,9 +40,7 @@ switch (get_request_var('action')) {
 		break;
 	case 'ajax_hosts':
                 get_allowed_ajax_hosts();
-
                 break;
-
 	default:
 		top_header();
 		standard();
