@@ -211,11 +211,11 @@ function standard() {
 	}
 
 	/* check host filter defined by form */
-	if (get_request_var('host') == '-1') {
+	if (get_request_var('host_id') == '-1') {
 		/* filter nothing */
-	}elseif (!isempty_request_var('host')) {
+	}elseif (!isempty_request_var('host_id')) {
 		/* show only data items of selected host */
-		$sql .= ' AND c.host_id =' . get_request_var('host');
+		$sql .= ' AND c.host_id =' . get_request_var('host_id');
 	}
 
 	/* check text filter defined by form */
