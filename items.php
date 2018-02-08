@@ -142,7 +142,7 @@ function standard() {
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
 			),
-		'host' => array(
+		'host_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '-1'
 			)
