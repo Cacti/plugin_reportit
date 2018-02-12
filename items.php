@@ -253,7 +253,7 @@ function standard() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$sql .= $sql_order . $sql_limit;
+	$sql .= ' ' . $sql_order . $sql_limit;
 
 	$rrdlist = db_fetch_assoc($sql);
 
