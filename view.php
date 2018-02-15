@@ -490,7 +490,7 @@ function show_report() {
 
 	if ($rs_description !== false) {
 		foreach ($rs_description as $key => $id) {
-			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 				$count_rs--;
 				unset($rs_description[$key]);
 			} else {
@@ -514,7 +514,7 @@ function show_report() {
 		$ov_description 	= ($ov_description == '') ? false : explode('|', $ov_description);
 		if ($ov_description !== false) {
 			foreach ($ov_description as $key => $id) {
-				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$count_ov--;
 					unset($ov_description[$key]);
 				} elseif (get_request_var('data_source') == -1 || get_request_var('data_source') == -2) {
@@ -1165,7 +1165,7 @@ function show_graphs() {
 	$rs_description = ($rs_description == '') ? false : explode('|', $rs_description);
 	if ($rs_description !== false) {
 		foreach ($rs_description as $key => $id) {
-			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 				$count_rs--;
 				unset($rs_description[$key]);
 			} else {
@@ -1188,7 +1188,7 @@ function show_graphs() {
 		$ov_description 	= ($ov_description == '') ? false : explode('|', $ov_description);
 		if ($ov_description !== false) {
 			foreach ($ov_description as $key => $id) {
-				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$count_ov--;
 					unset($ov_description[$key]);
 				} else {
