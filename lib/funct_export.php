@@ -105,7 +105,7 @@ function export_to_CSV(&$data) {
 	/* sort out all measurands which shouldn't be visible */
 	if ($rs_ids !== false & sizeof($rs_ids)>0) {
 		foreach ($rs_ids as $key => $id) {
-			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 				$rs_cnt--;
 				unset($rs_ids[$key]);
 			}
@@ -125,7 +125,7 @@ function export_to_CSV(&$data) {
 		/* sort out all measurands which shouldn't be visible */
 		if ($ov_ids !== false & sizeof($ov_ids)>0) {
 			foreach ($ov_ids as $key => $id) {
-				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$ov_cnt--;
 					unset($ov_ids[$key]);
 				}
@@ -473,7 +473,7 @@ function new_worksheet(&$data, &$styles){
 	/* sort out all measurands which shouldn't be visible */
 	if ($rs_ids !== false && sizeof($rs_ids)>0) {
 		foreach ($rs_ids as $key => $id) {
-			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 				$rs_cnt--;
 				unset($rs_ids[$key]);
 			}
@@ -493,7 +493,7 @@ function new_worksheet(&$data, &$styles){
 		/* sort out all measurands which shouldn't be visible */
 		if ($ov_ids !== false && sizeof($ov_ids)>0) {
 			foreach ($ov_ids as $key => $id) {
-				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$ov_cnt--;
 					unset($ov_ids[$key]);
 				}
