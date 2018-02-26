@@ -2,12 +2,12 @@
 
 Authors ........ Andreas Braun
                  Reinhard Scheck
-
+                 
 Contact ........ reportit@cacti.cc
 
 Home Site ...... http://sourceforge.net/projects/cacti-reportit/
 
-Program ........ "Cacti-ReportIt"
+Program ........ "Cacti-ReportIT"
 
 Version ........ 1.0
 
@@ -40,33 +40,33 @@ This plugin creates tabular reports which can be exported to CSV, SML and XML as
 
 ## Requirements
 
-Before you install "ReportIt", check the following requirements:
+Before you install "ReportIT", check the following requirements:
 
 * Cacti 1.1.11 or higher.
 
-To upgrade "ReportIt" release 0.4.0 or higher is required.
+To upgrade "ReportIT" release 0.4.0 or higher is required.
 A prior version (0.1, 0.2, 0.3.0, 0.3.1, 0.3.2 or 0.4.0a) has to be completely uninstalled (mysql tables as well)!
 Therefore you can use uninstall.php.
 
 Optional:
-To use the full set of ReportIt's functionalities additional extensions are required
+To use the full set of ReportIT's functionalities additional extensions are required
 
 * Fast report generation:  PHP extension "php_rrdtool"
 
 ## Installation
 
-The Installation of ReportIt is similar to other plugins:
+The Installation of ReportIT is similar to other plugins:
 
 * Unpack the tar-file into the plugins folder. It contains a folder called "reportit".
 * Go to the Plugin Management Console and click on "Install".
 * Start Cacti and update your realm permissions under "Utilities/User Management".
-* Update ReportIt's settings under "Configuration/Settings/Reports".
+* Update ReportIT's settings under "Configuration/Settings/Reports".
 
 ## Upgrade
 
-To upgrade an existing version of ReportIt please ensure that its release number is v0.4.0 or above. It's strongly recommended to make a backup of your cacti database and your ReportIt folder before! If you're using the default archive folder of 0.6.x save it first!!!  After that replace your existing ReportIt folder with the new one stored in this download archive.  Go to the plugin management console and click on "install". The upgrade process will start automatically!  After it has finished you can enable ReportIt with a click on "enable".
+To upgrade an existing version of ReportIT please ensure that its release number is v0.4.0 or above. It's strongly recommended to make a backup of your cacti database and your ReportIT folder before! If you're using the default archive folder of 0.6.x save it first!!!  After that replace your existing ReportIT folder with the new one stored in this download archive.  Go to the plugin management console and click on "install". The upgrade process will start automatically!  After it has finished you can enable ReportIT with a click on "enable".
 
-ReportIt does not require that your webserver has write access to any folder.  But if the history function should be in use, you will have to ensure that the user, who executes the calculation of your scheduled reports via Crontab or another scheduler, will have write access to the folders called "tmp" and "archive".  Same has to be ensured for the export folder.  At least change to the Cacti Webinterface and check the settings under "Console->Settings->Reports".
+ReportIT does not require that your webserver has write access to any folder.  But if the history function should be in use, you will have to ensure that the user, who executes the calculation of your scheduled reports via Crontab or another scheduler, will have write access to the folders called "tmp" and "archive".  Same has to be ensured for the export folder.  At least change to the Cacti Webinterface and check the settings under "Console->Settings->Reports".
 
 ## Additional Help?
 
@@ -86,22 +86,6 @@ At first it's recommend to discuss your feature request with the Cacti community
 
 --- 1.0 ---
 * feature: Support for Cacti 1.x
-* feature: Upgrade PCLZIP from 2.6 to 2.8.2
-* feature: Auto-grouping to support multiple data templates per report template.
-* feature: Extended checkup (limits, stepping, options) for variables.
-* feature: Duplication of variables supported
-* feature: Tab navigation to improve configuration workflow
-* feature: 10 new calculation functions plus several RRDtool like aliases for data comparison
-* feature: Support exponentiation and modulus function
-* feature: Improved formula builder (mark and replace by value or put in brackets)
-* feature: Support of maximum RRDValue settings
-* feature: New storage concept: Encapsulate reports by storing all data as an archive directly on harddisk
-* feature: Replace Graidle by ChartJS
-* feature: New reporting daemon to replace crontab entries
-* feature: Flexiable scheduler supporting rules like "Run every second Monday", "First day of every month" etc.
-* feature: Auto Calculation of "inside" and "outside" working times as well as 24/7
-* feature: Switch report presentation from a defined reporting time frame to DS statistics. ("Realtime" dashboard)
-* feature: Duplication of report configurations and change of the related report template afterwards
 
 --- 0.7.5 ---
 * feature: Data Query Variables: List all available data query variables for use with a formula
@@ -114,7 +98,7 @@ At first it's recommend to discuss your feature request with the Cacti community
 * bug#00120: Fix issues with 10G interfaces if ifHighSpeed counter is not available.
 
 --- 0.7.3 ---
-* feature: New function f_high() returns the highest value out of bunch of given parameters like measurands, variables or static values.
+* feature: New function f_high() returns the highest value out of bunch of given parameters like measurands, variables or static values.  
 * feature: New function f_low() returns the lowest value out of a list of numbers
 * feature: Support boost's on demand RRD update
 * bug#00119: Issues to export a report to CSV as well as Excel with IE
@@ -161,7 +145,7 @@ At first it's recommend to discuss your feature request with the Cacti community
 * feature: Export format "SML" (Spreadsheet XML 2003) will be supported
 * feature: Export to CSV, XML and SML can directly done from the report view
 * feature: Calculation of 10 Gigabit Ethernet interfaces will be supported
-* feature: User can define the max. number of rows for all tables shown in ReportIt
+* feature: User can define the max. number of rows for all tables shown in ReportIT
 * feature: New arrows for sorting the tables
 * feature: Report view: Sorted column gets a yellow background
 * bug#00099: Generation of charts fails if user did not setup the default type before
@@ -228,7 +212,7 @@ At first it's recommend to discuss your feature request with the Cacti community
 * bug#00057: Incorrect width displayed with Cacti 0.8.7 and above
 
 --- 0.5.1 ---
-* feature: changemode.php modifies an existing ReportIt v0.4.x installation to support SQL strict mode
+* feature: changemode.php modifies an existing ReportIT v0.4.x installation to support SQL strict mode
 * feature: Active sort criterion: Arrow becomes red instead of yellow
 * feature: Subhead configuration supports serial variables to show interface settings
 * feature: Use of an individual filter per report view can be activated (graph settings)
