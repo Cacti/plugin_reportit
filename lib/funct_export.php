@@ -253,7 +253,7 @@ function export_to_XML(&$data) {
 	$header = read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', "\r\nCacti: " . $config['cacti_version'], $header);
 	$info = plugin_reportit_version();
-	$header = str_replace('<reportit_version>', ' ReportIT: ' . info['version'], $header);
+	$header = str_replace('<reportit_version>', ' ReportIT: ' . $info['version'], $header);
 
 	/* compose additional informations */
 	$report_settings = array(
