@@ -37,7 +37,7 @@ class Graidle
 	var $scarmax=1;
 	var $scarmin=-1;
 
-	function Graidle($title=NULL,$mass=NULL,$mnvs=NULL){
+	function __construct($title=NULL,$mass=NULL,$mnvs=NULL){
 		$this->title=$title;
 		$this->mass=$mass;
 		$this->mnvs=$mnvs;
