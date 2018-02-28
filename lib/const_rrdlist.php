@@ -22,7 +22,7 @@
    +-------------------------------------------------------------------------+
 */
 
-//----- CONSTANTS FOR: cc_rrdlist.php -----
+//----- CONSTANTS FOR: rrdlist.php -----
 
 $rrdlist_actions = array(
 	1 => __('Delete'),

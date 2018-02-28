@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_reports.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
 
 set_default_action();
 
@@ -43,7 +43,7 @@ switch (get_request_var('action')) {
 		report_edit();
 		bottom_footer();
 		break;
-	case 'add':
+	case 'report_add':
 		top_header();
 		report_wizard();
 		bottom_footer();
@@ -68,16 +68,15 @@ function report_wizard() {
 	$templates      = array();
 
 	$templates_list = db_fetch_assoc('SELECT id, description
-		FROM reportit_templates
-		WHERE locked=0');
+		FROM plugin_reportit_templates
+		WHERE locked=""');
 
-	top_header();
+	#top_header();
 
 	if (isset($_SESSION['reportit'])) unset($_SESSION['reportit']);
+	form_start('reports.php');
 
 	html_start_box(__('New Report'), '60%', '', '3', 'center', '');
-
-	form_start('cc_reports.php');
 
 	if (sizeof($templates_list) == 0) {
 		print "<tr class='even'>
@@ -107,25 +106,28 @@ function report_wizard() {
 	}
 
 	print "<tr>
-		<td class='saveRow'>
+		
+		<td class='saveRow' colspan='2'>
 			<input type='hidden' name='action' value='report_edit'>
 			$save_html
 		</td>
 	</tr>";
 
 	html_end_box();
+	
+	form_end();
+	
 
-	bottom_footer();
 }
 
 function report_filter() {
 	global $item_rows;
 
-	html_start_box( __('Report Filters'), '100%', '', '3', 'center', 'cc_reports.php?action=report_edit');
+	html_start_box( __('Report Filters'), '100%', '', '3', 'center', 'reports.php?action=report_add');
 	?>
 	<tr class='even'>
 		<td>
-			<form id='form_reports' action='cc_reports.php'>
+			<form id='form_reports' action='reports.php'>
 			<table class='filterTable'>
 				<tr>
 					<td>
@@ -168,7 +170,7 @@ function report_filter() {
 			<script type='text/javascript'>
 
 			function applyFilter() {
-				strURL = 'cc_reports.php?filter='+
+				strURL = 'reports.php?filter='+
 					escape($('#filter').val())+
 					'&rows='+$('#rows').val()+
 					'&page='+$('#page').val()+
@@ -177,7 +179,7 @@ function report_filter() {
 			}
 
 			function clearFilter() {
-				strURL = 'cc_reports.php?clear=1&header=false';
+				strURL = 'reports.php?clear=1&header=false';
 				loadPageNoHeader(strURL);
 			}
 
@@ -252,14 +254,14 @@ function standard() {
 			),
 	);
 
-	validate_store_request_vars($filters, 'sess_cc_reports');
+	validate_store_request_vars($filters, 'sess_reports');
 	/* ================= Input validation ================= */
 
 	if ($reportAdmin) {
 		/* fetch user names */
 		$ownerlist = db_fetch_assoc('SELECT DISTINCT a.user_id as id, c.username
-			FROM reportit_reports AS a
-			LEFT JOIN reportit_templates AS b
+			FROM plugin_reportit_reports AS a
+			LEFT JOIN plugin_reportit_templates AS b
 			ON b.id = a.template_id
 			LEFT JOIN user_auth AS c
 			ON c.id = a.user_id
@@ -267,8 +269,8 @@ function standard() {
 
 		/* fetch template list */
 		$sql = 'SELECT DISTINCT b.id, b.description
-			FROM reportit_reports AS a
-			INNER JOIN reportit_templates AS b
+			FROM plugin_reportit_reports AS a
+			INNER JOIN plugin_reportit_templates AS b
 			ON b.id = a.template_id';
 
 		if (get_request_var('owner') !== '-1' & !isempty_request_var('owner')) {
@@ -325,16 +327,16 @@ function standard() {
 		$rows = get_request_var('rows');
 	}
 
-	$sql = "SELECT COUNT(a.id) FROM reportit_reports AS a $affix";
+	$sql = "SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $affix";
 
 	$total_rows = db_fetch_cell($sql);
 
     $sql = 'SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
-		FROM reportit_reports AS a
-		LEFT JOIN reportit_templates AS b
+		FROM plugin_reportit_reports AS a
+		LEFT JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
 		LEFT JOIN
-		(SELECT report_id, count(*) as ds_cnt FROM `reportit_data_items` GROUP BY report_id) AS c
+		(SELECT report_id, count(*) as ds_cnt FROM `plugin_reportit_data_items` GROUP BY report_id) AS c
 		ON c.report_id = a.id
 		LEFT JOIN user_auth AS d
 		ON d.id = a.user_id' . $affix .
@@ -348,11 +350,12 @@ function standard() {
 	/* start with HTML output */
 	report_filter();
 
-	$nav = html_nav_bar('cc_reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
+	$nav = html_nav_bar('reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
 
 	print $nav;
-
+	form_start('reports.php');
 	html_start_box('', '100%', '', '3', 'center', '');
+	#html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'));
 
 	if ($reportAdmin) {
 		$desc_array = array(
@@ -366,7 +369,7 @@ function standard() {
 			'ds_cnt'               => array('display' => __('Data Items'),  'sort' => 'DESC', 'align' => 'right'),
 		);
 
-		html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'cc_reports.php');
+		html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
 	} else {
 		$desc_array = array(
 			'description'          => array('display' => __('Description'),  'sort' => 'ASC',  'align' => 'left'),
@@ -377,7 +380,7 @@ function standard() {
 			'ds_cnt'               => array('display' => __('Data Objects'), 'sort' => 'DESC', 'align' => 'right'),
 		);
 
-		html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'cc_reports.php');
+		html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
 	}
 
 	if (sizeof($report_list)) {
@@ -385,9 +388,9 @@ function standard() {
 			form_alternate_row('line' . $report['id'], true);
 			?>
 			<td>
-				<a class='linkEditMain' href='cc_reports.php?action=report_edit&id=<?php print $report['id'];?>'>
+				<a class='linkEditMain' href='reports.php?action=report_edit&id=<?php print $report['id'];?>'>
 				<?php print $report['description'];
-				if ($report['in_process']) print "<b style='color: #FF0000'>&nbsp;" . __('*In process*') . "</b>";
+				if ($report['state']) print "<b style='color: #FF0000'>&nbsp;" . __('*In process*') . "</b>";
 				?>
 				</a>
 			</td>
@@ -422,21 +425,18 @@ function standard() {
 			}
 
 			if ($report['ds_cnt'] != NULL) {
-				$link = "cc_rrdlist.php?&id={$report['id']}";
+				$link = "rrdlist.php?&id={$report['id']}";
 				$msg  = "edit ({$report['ds_cnt']})";
 			} else {
-				$link = "cc_items.php?&id={$report['id']}";
+				$link = "items.php?&id={$report['id']}";
 				$msg  = "add";
 			}
 
 			print "<td><a class='linkEditMain' href='$link'>$msg</a></td>";
 
-			if (!$report['locked'] && !$report['in_process']) {
-				?>
-				<td style="<?php print get_checkbox_style();?>" width="1%" align="right">
-				<input type='checkbox' style='margin: 0px;' name='chk_<?php print $report["id"];?>' title="Select">
-				</td>
-				<?php
+			if (!$report['locked'] && !$report['state']) {
+				form_checkbox_cell("Select",$report["id"]);
+				
 			} else {
                 print "<td align='center'>";
                 html_checked_with_icon(true, 'lock.gif', __('Template has been locked temporarily'));
@@ -456,6 +456,7 @@ function standard() {
 	if ($total_rows > $rows) print $nav;
 
 	draw_actions_dropdown($report_actions);
+	form_end();
 }
 
 function remove_recipient() {
@@ -468,12 +469,12 @@ function remove_recipient() {
 	my_report(get_request_var('id'));
 	/* ==================================================== */
 
-	db_execute_prepared('DELETE FROM reportit_recipients
+	db_execute_prepared('DELETE FROM plugin_reportit_recipients
 		WHERE id = ?
 		AND report_id = ?',
 		array(get_request_var('rec'), get_request_var('id')));
 
-	header('Location: cc_reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=email');
+	header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=email');
 	exit;
 }
 
@@ -486,6 +487,7 @@ function form_save() {
 		INNER JOIN user_auth_realm AS b
 		ON a.id = b.user_id WHERE (b.realm_id = " . REPORTIT_USER_OWNER . " OR b.realm_id = " . REPORTIT_USER_VIEWER . ")
 		ORDER BY username";
+	
 	$owner = db_custom_fetch_assoc($sql, 'id', false);
 
 	/* ================= Input Validation ================= */
@@ -589,7 +591,7 @@ function form_save() {
 
 	/* return if validation failed */
 	if (is_error_message()) {
-		header('Location: cc_reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+		header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
 		exit;
 	}
 
@@ -614,8 +616,8 @@ function form_save() {
 		$report_data['data_source_filter'] = get_request_var('data_source_filter');
 
 		/* save settings */
-		sql_save($report_data, 'reportit_reports');
-		sql_save($rrdlist_data, 'reportit_presets', 'id', false);
+		sql_save($report_data, 'plugin_reportit_reports');
+		sql_save($rrdlist_data, 'plugin_reportit_presets', 'id', false);
 
 		break;
 	case 'admin':
@@ -636,7 +638,7 @@ function form_save() {
 		}
 
 		/* save settings */
-		sql_save($report_data, 'reportit_reports');
+		sql_save($report_data, 'plugin_reportit_reports');
 
 		break;
 	case 'email':
@@ -647,7 +649,7 @@ function form_save() {
 			$report_data['email_format']  = get_request_var('report_email_format');
 
 			/* save settings */
-			sql_save($report_data, 'reportit_reports');
+			sql_save($report_data, 'plugin_reportit_reports');
 		} else {
 			$id      = get_request_var('id');
 			$columns = '(report_id, email, name)';
@@ -689,7 +691,7 @@ function form_save() {
 				$values = substr($values, 0, strlen($values)-1);
 
 				if (!is_error_message()) {
-					db_execute("INSERT INTO reportit_recipients $columns VALUES $values");
+					db_execute("INSERT INTO plugin_reportit_recipients $columns VALUES $values");
 				}
 			}
 		}
@@ -739,8 +741,8 @@ function form_save() {
 		}
 
 		$rvars = db_fetch_assoc_prepared('SELECT a.*, b.id AS b_id, b.value
-			FROM reportit_variables AS a
-			LEFT JOIN reportit_rvars AS b
+			FROM plugin_reportit_variables AS a
+			LEFT JOIN plugin_reportit_rvars AS b
 			ON a.id = b.variable_id
 			AND report_id = ?
 			WHERE a.template_id = ?',
@@ -748,7 +750,6 @@ function form_save() {
 
 		foreach($rvars as $key => $v) {
 			$value = $vars[$v['id']];
-
 			if ($v['input_type'] == 1) {
 				$i = 0;
 				$array = array();
@@ -765,6 +766,7 @@ function form_save() {
 				if ($value > $v['max_value'] || $value < $v['min_value']) die_html_custom_error('', true);
 			} else {
 				if ($value > $v['max_value'] || $value < $v['min_value']) {
+					
 					session_custom_error_message($v['name'], "{$v['name']} is out of range");
 					break;
 				}
@@ -780,22 +782,25 @@ function form_save() {
 			);
 		}
 
-		/* start saving process or return */
+		/* start saving process or return is_error_message()*/
 		if (is_error_message()) {
-			header('Location: cc_reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+			
+			header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+			exit;
+			
 		} else {
 			/* save report config */
-			$report_id = sql_save($report_data, 'reportit_reports');
+			$report_id = sql_save($report_data, 'plugin_reportit_reports');
 
 			/* save addtional report variables */
 			foreach($var_data as $data) {
 				if (get_request_var('id') == 0) $data['report_id'] = $report_id;
-				sql_save($data, 'reportit_rvars');
+				sql_save($data, 'plugin_reportit_rvars');
 			}
 		}
 	}
 
-	header('Location: cc_reports.php?action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
+	header('Location: reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
 
 	raise_message(1);
 }
@@ -821,17 +826,17 @@ function report_edit() {
 	/* load config settings if it's not a new one */
 	if (!isempty_request_var('id')) {
 		$report_data = db_fetch_row_prepared('SELECT *
-			FROM reportit_reports
+			FROM plugin_reportit_reports
 			WHERE id = ?',
 			array(get_request_var('id')));
 
 		$rrdlist_data = db_fetch_row_prepared('SELECT *
-			FROM reportit_presets
+			FROM plugin_reportit_presets
 			WHERE id = ?',
 			array(get_request_var('id')));
 
 		$report_recipients = db_fetch_assoc_prepared('SELECT *
-			FROM reportit_recipients
+			FROM plugin_reportit_recipients
 			WHERE report_id = ?',
 			array(get_request_var('id')));
 
@@ -873,7 +878,7 @@ function report_edit() {
 		}
 
 		/* setup blue link */
-		$href 	= 'cc_items.php?id=' . get_request_var('id');
+		$href 	= 'items.php?id=' . get_request_var('id');
 		$text 	= __('Add data items');
 
 		$link[] = array(
@@ -883,12 +888,12 @@ function report_edit() {
 
 		/* load values for host_template_filter */
 		$filter = db_fetch_cell_prepared('SELECT pre_filter
-			FROM reportit_templates
+			FROM plugin_reportit_templates
 			WHERE id = ?',
 			array($report_data['template_id']));
 
 		$tmp = db_fetch_assoc_prepared('SELECT id, description
-			FROM reportit_templates
+			FROM plugin_reportit_templates
 			WHERE pre_filter = ?',
 			array($filter));
 	} else {
@@ -921,7 +926,7 @@ function report_edit() {
 	$report_data['template_id'] = $template_id;
 
 	$report_data['template'] = db_fetch_cell_prepared('SELECT description
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array($template_id));
 
@@ -957,7 +962,7 @@ function report_edit() {
 
 		foreach (array_keys($tabs) as $tab_short_name) {
 			print "<li class='subTab'><a class='tab" . (($tab_short_name == $current_tab) ? " selected'" : "'") .
-				" href='" . htmlspecialchars($config['url_path'] .  '/plugins/reportit/cc_reports.php?action=report_edit&id=' . $id .
+				" href='" . htmlspecialchars($config['url_path'] .  'plugins/reportit/reports.php?action=report_edit&id=' . $id .
 				'&tab=' . $tab_short_name) .
 				"'>" . $tabs[$tab_short_name] . "</a></li>\n";
 
@@ -966,14 +971,14 @@ function report_edit() {
 
         print "</ul></nav></div>\n";
 	}
-
+	form_start('reports.php');
 	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label), '100%', '', '2', 'center', '');
 
 	switch(get_request_var('tab')) {
 	case 'presets':
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_presets, $rrdlist_data, $report_data)
 			)
 		);
@@ -982,7 +987,7 @@ function report_edit() {
 	case 'admin':
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_admin, $report_data)
 			)
 		);
@@ -991,7 +996,7 @@ function report_edit() {
 	case 'email':
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_email, $report_data)
 			)
 		);
@@ -1009,7 +1014,7 @@ function report_edit() {
 				form_alternate_row();
 				print '<td>' . $recipient['name'] . '</td>';
 				print '<td>' . $recipient['email'] . '</td>';
-				print "<td class='right'><a class='pic fa fa-delete' href='cc_reports.php?action=remove&id=" . get_request_var('id') . '&rec=' . $recipient['id'] . '></a></td>';
+				print "<td class='right'><a class='pic fa fa-delete' href='reports.php?action=remove&id=" . get_request_var('id') . '&rec=' . $recipient['id'] . '></a></td>';
 
 				form_end_row();
 			}
@@ -1021,7 +1026,7 @@ function report_edit() {
 	default:
 		draw_edit_form(
 			array(
-				'config' => array(),
+				'config' => array('no_form_tag'=> true),
 				'fields' => inject_form_variables($form_array_general, $report_data)
 			)
 		);
@@ -1032,7 +1037,7 @@ function report_edit() {
 		if ($template_variables !== false) {
 			draw_edit_form(
 				array(
-					'config' => array(),
+					'config' => array('no_form_tag'=> true),
 					'fields' => $template_variables
 				)
 			);
@@ -1040,7 +1045,8 @@ function report_edit() {
 	}
 
 	html_end_box();
-	form_save_button('cc_reports.php');
+	form_save_button('reports.php');
+	
 
 	?>
 	<script type='text/javascript'>
@@ -1146,27 +1152,27 @@ function form_actions() {
 
 		if (get_request_var('drp_action') == '2') { // DELETE REPORT
 			$report_datas = db_fetch_assoc('SELECT id
-				FROM reportit_reports
+				FROM plugin_reportit_reports
 				WHERE ' . array_to_sql_or($selected_items, 'id'));
 
 			if (sizeof($report_datas) > 0) {
 				$counter_data_items = 0;
 				foreach ($report_datas as $report_data) {
 					$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
-						FROM reportit_data_items
+						FROM plugin_reportit_data_items
 						WHERE report_id = ?',
 						array($report_data['id']));
 
-					db_execute_prepared('DELETE FROM reportit_reports WHERE id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_presets WHERE id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_rvars WHERE report_id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_recipients WHERE report_id = ?', array($report_data['id']));
-					db_execute_prepared('DELETE FROM reportit_data_items WHERE report_id = ?', array($report_data['id']));
-					db_execute('DROP TABLE IF EXISTS reportit_results_' . $report_data['id']);
+					db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($report_data['id']));
+					db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', array($report_data['id']));
+					db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $report_data['id']);
 				}
 
 				if ($counter_data_items > 200) {
-					db_execute('OPTIMIZE TABLE `reportit_data_items`');
+					db_execute('OPTIMIZE TABLE `plugin_reportit_data_items`');
 				}
 			}
 		} elseif (get_request_var('drp_action') == '3') { //DUPLICATE REPORT CONFIGURATION
@@ -1176,38 +1182,38 @@ function form_actions() {
 				/* ==================================================== */
 
 				$report_data = db_fetch_row_prepared('SELECT *
-					FROM reportit_reports
+					FROM plugin_reportit_reports
 					WHERE id = ?', array($selected_items[$i]));
 
 				$report_data['id'] = 0;
 				$report_data['description'] = str_replace("<report_title>", $report_data['description'], get_request_var('report_addition'));
-				$new_id = sql_save($report_data, 'reportit_reports');
+				$new_id = sql_save($report_data, 'plugin_reportit_reports');
 
 				//Copy original rrdlist table  to new rrdlist table
 				$data_items = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_data_items
+					FROM plugin_reportit_data_items
 					WHERE report_id = ?',
 					array($selected_items[$i]));
 
 				if (sizeof($data_items)) {
 					foreach($data_items as $data_item) {
 						$data_item['report_id']=$new_id;
-						sql_save($data_item, 'reportit_data_items', array('id', 'report_id'), false);
+						sql_save($data_item, 'plugin_reportit_data_items', array('id', 'report_id'), false);
 					}
 				}
 
 				/* duplicate the presets settings */
 				$report_presets = db_fetch_row_prepared('SELECT *
-					FROM reportit_presets
+					FROM plugin_reportit_presets
 					WHERE id = ?',
 					array($selected_items[$i]));
 
 				$report_presets['id'] = $new_id;
-				sql_save($report_presets, 'reportit_presets', 'id', false);
+				sql_save($report_presets, 'plugin_reportit_presets', 'id', false);
 
 				/* duplicate list of recipients */
 				$report_recipients = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_recipients
+					FROM plugin_reportit_recipients
 					WHERE report_id = ?',
 					array($selected_items[$i]));
 
@@ -1215,7 +1221,7 @@ function form_actions() {
 					foreach($report_recipients as $recipient) {
 						$recipient['id'] = 0;
 						$recipient['report_id']=$new_id;
-						sql_save($recipient, 'reportit_recipients');
+						sql_save($recipient, 'plugin_reportit_recipients');
 					}
 				}
 
@@ -1224,7 +1230,7 @@ function form_actions() {
 			}
 		}
 
-		header('Location: cc_reports.php');
+		header('Location: reports.php?header=false');
 		exit;
 	}
 
@@ -1242,7 +1248,7 @@ function form_actions() {
 
 			//Fetch report description
 			$report_description = db_fetch_cell_prepared('SELECT description
-				FROM reportit_reports
+				FROM plugin_reportit_reports
 				WHERE id = ?',
 				array($id));
 
@@ -1250,7 +1256,7 @@ function form_actions() {
 		}
 	}
 
-	//For running report jump to cc_run.php!
+	//For running report jump to run.php!
 	if (get_request_var('drp_action') == '1') { // RUNNING REPORT
 		//Only one report is allowed to run at the same time, so select the first one:
 		if (isset($report_ids)) {
@@ -1259,17 +1265,18 @@ function form_actions() {
 			//Update $_SESSION
 			$_SESSION['run'] = '1';
 
-			//Jump to cc_run.php
-			header('Location: cc_run.php?action=calculation&id=' . $report_id);
+			//Jump to run.php
+			header('Location: run.php?action=calculation&id=' . $report_id);
 			exit;
 		}
 	}
 
 	top_header();
+	form_start('reports.php');
 
 	html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
-	form_start('cc_reports.php');
+	
 
 	if (get_request_var('drp_action') == '2') { //DELETE REPORT
 		print "<tr>
@@ -1324,6 +1331,8 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
+	
+	form_end();
 
 	bottom_footer();
 }

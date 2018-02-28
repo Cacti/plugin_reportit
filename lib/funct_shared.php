@@ -24,7 +24,7 @@
 
 function owner($report_id) {
 	$tmp = db_fetch_row_prepared('SELECT b.username, b.full_name
-		FROM reportit_reports as a
+		FROM plugin_reportit_reports as a
 		INNER JOIN user_auth as b
 		ON b.id = a.user_id
 		WHERE a.id = ?' ,
@@ -43,8 +43,8 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 
 	/* load report configuration + template description */
 	$report_data = db_fetch_row_prepared('SELECT a.*, b.description AS template_name
-		FROM reportit_reports AS a
-		INNER JOIN reportit_templates AS b
+		FROM plugin_reportit_reports AS a
+		INNER JOIN plugin_reportit_templates AS b
 		ON a.template_id = b.id
 		WHERE a.id = ?',
 		array($report_id));
@@ -58,7 +58,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 
 	/* load measurand configurations */
 	$tmps = db_fetch_assoc_prepared("SELECT *
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?",
 		array($report_data['template_id']));
 
@@ -69,8 +69,8 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	/* load configurations of variables */
 	$report_variables = db_fetch_assoc_prepared('SELECT a.id, a.name,
 		a.description, b.value, a.min_value, a.max_value
-		FROM reportit_variables AS a
-		INNER JOIN reportit_rvars AS b
+		FROM plugin_reportit_variables AS a
+		INNER JOIN plugin_reportit_rvars AS b
 		ON a.id = b.variable_id
 		AND b.report_id = ?
 		WHERE a.template_id = ?',
@@ -78,15 +78,15 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 
 	/* load data source alias */
 	$sql = "SELECT data_source_name, data_source_alias
-		FROM reportit_data_source_items
+		FROM plugin_reportit_data_source_items
 		WHERE template_id = " . $report_data['template_id'];
     $report_ds_alias = db_custom_fetch_assoc($sql, 'data_source_name', false, false);
 
 	switch ($type) {
 	case 'export':
 		$sql = "SELECT c.name_cache, b.*, a.*
-			FROM reportit_results_$report_id AS a
-			INNER JOIN reportit_data_items AS b
+			FROM plugin_reportit_results_$report_id AS a
+			INNER JOIN plugin_reportit_data_items AS b
 			ON a.id = b.id AND b.report_id = $report_id
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id
@@ -106,8 +106,8 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		break;
 	case 'view':
 		$sql = "SELECT a.*, b.*, c.name_cache
-			FROM reportit_results_$report_id AS a
-			INNER JOIN reportit_data_items AS b
+			FROM plugin_reportit_results_$report_id AS a
+			INNER JOIN plugin_reportit_data_items AS b
 			ON (a.id = b.id
 			AND b.report_id = $report_id)
 			INNER JOIN data_template_data AS c
@@ -137,7 +137,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 
 	/* load report configuration */
 	$report_data = db_fetch_row_prepared('SELECT *
-		FROM reportit_cache_reports
+		FROM plugin_reportit_cache_reports
 		WHERE cache_id = ?',
 		array($cache_id));
 
@@ -147,7 +147,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 
 	/* load configured measurands */
 	$tmps = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_cache_measurands
+		FROM plugin_reportit_cache_measurands
 		WHERE cache_id = ?',
 		array($cache_id));
 
@@ -159,7 +159,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 
 	/* load configured variables */
 	$report_variables = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_cache_variables
+		FROM plugin_reportit_cache_variables
 		WHERE cache_id = ?',
 		array($cache_id));
 
@@ -195,7 +195,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 		'report_variables'  => $report_variables,
 		'report_ds_alias'   => $report_ds_alias
 	);
-
+	
 	return $data;
 }
 
@@ -571,7 +571,7 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 
 function create_rvars_entries($variable_id, $template_id, $default) {
 	$ids = db_fetch_assoc_prepared('SELECT id
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE template_id = ?',
 		array($template_id));
 
@@ -584,7 +584,7 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 		//Remove last comma
 		$list = substr($list, 0, strlen($list)-1);
 
-		db_execute("INSERT INTO reportit_rvars
+		db_execute("INSERT INTO plugin_reportit_rvars
 			(template_id, report_id, variable_id, value)
 			VALUES $list");
 	}
@@ -592,7 +592,7 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 
 function reset_report($report_id) {
     // Set report values last_run and runtime to zero
-    db_execute_prepared("UPDATE reportit_reports
+    db_execute_prepared("UPDATE plugin_reportit_reports
 		SET last_run = '0000-00-00 00:00:00', runtime = '0'
 		WHERE id = ?",
 		array($report_id));
@@ -610,7 +610,7 @@ function get_possible_rra_names($template_id) {
     $array = array();
 
     $names = db_fetch_assoc_prepared("SELECT b.data_source_name
-		FROM reportit_data_source_items AS a
+		FROM plugin_reportit_data_source_items AS a
 		LEFT JOIN data_template_rrd AS b
 		ON a.id = b.id
 		WHERE a.template_id = ?
@@ -638,7 +638,7 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 
 	$names = get_possible_rra_names($template_id);
 	$sql = "SELECT abbreviation, spanned
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id=$template_id ";
 
 	if ($measurand_id != 0) {
@@ -649,12 +649,13 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 
 	if (sizeof($array)) {
 	    foreach ($array as $interim_result) {
-			$interim_results[] = $interim_result['abbreviation'];
 			if ($interim_result['spanned'] == 0) {
 				foreach ($names as $name) {
 					$interim_results[] = $interim_result['abbreviation'] . ':' . $name;
 				}
 			}
+		    	if($ln) $interim_result['abbreviation'] .= '<br>';
+			$interim_results[] = $interim_result['abbreviation'];
 		}
 	}
 
@@ -671,7 +672,7 @@ function get_possible_variables($template_id) {
 	// Check whether maxValue is valid
 	$maximum = db_fetch_cell_prepared('SELECT DISTINCT a.rrd_maximum
 		FROM data_template_rrd as a
-		INNER JOIN reportit_templates as b
+		INNER JOIN plugin_reportit_templates as b
 		ON a.data_template_id = b.data_template_id
 		AND b.id = ?
 		WHERE a.local_data_id = 0',
@@ -682,7 +683,7 @@ function get_possible_variables($template_id) {
 	}
 
     $names = db_fetch_assoc_prepared('SELECT abbreviation
-		FROM reportit_variables
+		FROM plugin_reportit_variables
 		WHERE template_id = ?',
 		array($template_id));
 
@@ -706,9 +707,9 @@ function get_possible_data_query_variables($template_id) {
 	// any data query associated with this data template?
 	$sql = "SELECT DISTINCT(`data_local`.`snmp_query_id`) " .
 			"FROM `data_local` " .
-			"INNER JOIN `reportit_templates` " .
-			"ON `data_local`.`data_template_id` = `reportit_templates`.`data_template_id` " .
-			"WHERE `reportit_templates`.`id`=$template_id";
+			"INNER JOIN `plugin_reportit_templates` " .
+			"ON `data_local`.`data_template_id` = `plugin_reportit_templates`.`data_template_id` " .
+			"WHERE `plugin_reportit_templates`.`id`=$template_id";
 	$available_data_queries = db_fetch_assoc($sql);
 
 	// in case there is no data query, have $names initialized
@@ -739,20 +740,20 @@ function get_possible_data_query_variables($template_id) {
 
 function get_template_status($template_id) {
     //Returns '1' if the template has been locked.
-    $sql = "SELECT locked FROM reportit_templates WHERE id=$template_id";
+    $sql = "SELECT locked FROM plugin_reportit_templates WHERE id=$template_id";
     $status = db_fetch_cell($sql);
     return $status;
 }
 
 
 function in_process($report_id, $status = 1) {
-    $sql = "UPDATE reportit_reports SET in_process=$status WHERE id=$report_id";
+    $sql = "UPDATE plugin_reportit_reports SET state=$status WHERE id=$report_id";
     db_execute($sql);
 }
 
 
 function stat_process($report_id) {
-    $sql = "SELECT in_process FROM reportit_reports WHERE id=$report_id";
+    $sql = "SELECT state FROM plugin_reportit_reports WHERE id=$report_id";
     return db_fetch_cell($sql);
 }
 
@@ -826,7 +827,7 @@ function debug(&$value, $msg = '', $fmsg = '') {
 
 
 function get_report_setting($report_id, $column){
-	$sql = "SELECT $column FROM reportit_reports WHERE id = $report_id";
+	$sql = "SELECT $column FROM plugin_reportit_reports WHERE id = $report_id";
 	return db_fetch_cell($sql);
 }
 
@@ -1032,15 +1033,15 @@ function cache_xml_file($report_id, $mtime){
 
 	/* transform data and fill up the cache tables */
 	trans_array2sql($archive['report']['settings'], $columns, $values, $cache_id);
-	$sql = "REPLACE INTO reportit_cache_reports $columns VALUES $values;";
+	$sql = "REPLACE INTO plugin_reportit_cache_reports $columns VALUES $values;";
 	db_execute($sql);
 
 	trans_array2sql($archive['report']['measurands'], $columns, $values, $cache_id);
-	$sql = "REPLACE INTO reportit_cache_measurands $columns VALUES $values;";
+	$sql = "REPLACE INTO plugin_reportit_cache_measurands $columns VALUES $values;";
 	db_execute($sql);
 
 	if (trans_array2sql($archive['report']['variables'], $columns, $values, $cache_id)) {
-	$sql = "REPLACE INTO reportit_cache_variables $columns VALUES $values;";
+	$sql = "REPLACE INTO plugin_reportit_cache_variables $columns VALUES $values;";
 	db_execute($sql);
 	}
 
@@ -1222,7 +1223,7 @@ function send_scheduled_email($report_id){
 
 	/* load report based email settings */
 	$report_settings  = db_fetch_row_prepared('SELECT *
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 
@@ -1238,7 +1239,7 @@ function send_scheduled_email($report_id){
 	$mine_type        = ($email_format != 'SML') ? 'application/' . strtolower($email_format) : 'application/' . 'vnd-ms-excel';
 
 	$email_recipients = db_fetch_assoc_prepared('SELECT email
-		FROM reportit_recipients
+		FROM plugin_reportit_recipients
 		WHERE report_id = ?',
 		array($report_id));
 
@@ -1318,7 +1319,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load template data */
     $template_data = db_fetch_row_prepared('SELECT *
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array($template_id));
 
@@ -1335,7 +1336,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load definitions of variables */
     $variables_data = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_variables
+		FROM plugin_reportit_variables
 		WHERE template_id = ?
 		ORDER BY id',
 		array($template_id));
@@ -1344,7 +1345,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load definitions of measurands */
     $measurands_data = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id',
 		array($template_id));
@@ -1353,7 +1354,7 @@ function export_report_template($template_id, $info=false) {
 
     /* load definitions of data source items */
     $data_source_items_data = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_data_source_items
+		FROM plugin_reportit_data_source_items
 		WHERE template_id = ?
 		ORDER BY id',
 		array($template_id));

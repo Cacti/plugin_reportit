@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
 include_once(REPORTIT_BASE_PATH . '/include/global_forms.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_templates.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_templates.php');
 
 set_default_action();
 
@@ -280,28 +280,28 @@ function template_import() {
 
 	clean_xml_waste($template_data);
 
-	$template_id = sql_save($template_data, 'reportit_templates');
+	$template_id = sql_save($template_data, 'plugin_reportit_templates');
 
 	if (is_array($template_variables)) {
 		if (!isset($template_variables['variable'][0])) {
 			$variable = $template_variables['variable'];
 			$variable['id'] = 0;
 			$variable['template_id'] = $template_id;
-			$new_id = sql_save($variable, 'reportit_variables');
+			$new_id = sql_save($variable, 'plugin_reportit_variables');
 			$old[] = $variable['abbreviation'];
 			$abbr = 'c' . $new_id . 'v';
 			$new[] = $abbr;
-			db_execute("UPDATE reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+			db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
 		} else {
 			$template_variables = $template_variables['variable'];
 			foreach($template_variables as $variable) {
 				$variable['id'] = 0;
 				$variable['template_id']= $template_id;
-				$new_id = sql_save($variable, 'reportit_variables');
+				$new_id = sql_save($variable, 'plugin_reportit_variables');
 				$old[] = $variable['abbreviation'];
 				$abbr = 'c' . $new_id . 'v';
 				$new[] = $abbr;
-				db_execute("UPDATE reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+				db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
 			 }
 		}
 	}
@@ -313,7 +313,7 @@ function template_import() {
 			$measurand['template_id']  = $template_id;
 			$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
 
-			sql_save($measurand, 'reportit_measurands');
+			sql_save($measurand, 'plugin_reportit_measurands');
 		} else {
 			$template_measurands = $template_measurands['measurand'];
 
@@ -322,7 +322,7 @@ function template_import() {
 				$measurand['template_id']  = $template_id;
 				$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
 
-				sql_save($measurand, 'reportit_measurands');
+				sql_save($measurand, 'plugin_reportit_measurands');
 			}
 		}
 	}
@@ -342,7 +342,7 @@ function template_import() {
 
 			$ds_item['template_id'] = $template_id;
 
-			sql_save($ds_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+			sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
 		} else {
 			$template_ds_items = $template_data_source_items['data_source_item'];
 
@@ -358,7 +358,7 @@ function template_import() {
 
 				$ds_item['template_id'] = $template_id;
 
-				sql_save($ds_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+				sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
 			}
 		}
 	}
@@ -493,7 +493,7 @@ function standard() {
 			)
 	);
 
-	validate_store_request_vars($filters, 'sess_cc_templates');
+	validate_store_request_vars($filters, 'sess_templates');
 	/* ================= input validation ================= */
 
 	if (get_request_var('rows') == '-1') {
@@ -511,13 +511,13 @@ function standard() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$total_rows = db_fetch_cell('SELECT COUNT(reportit_templates.id) FROM reportit_templates ' . $sql_where);
+	$total_rows = db_fetch_cell('SELECT COUNT(plugin_reportit_templates.id) FROM plugin_reportit_templates ' . $sql_where);
 
 	$template_list = db_fetch_assoc("SELECT a.*, b.measurands, c.variables
-		FROM reportit_templates AS a
-		LEFT JOIN (SELECT template_id, COUNT(*) AS measurands FROM `reportit_measurands` GROUP BY template_id) AS b
+		FROM plugin_reportit_templates AS a
+		LEFT JOIN (SELECT template_id, COUNT(*) AS measurands FROM `plugin_reportit_measurands` GROUP BY template_id) AS b
 		ON a.id = b.template_id
-		LEFT JOIN (SELECT template_id, COUNT(*) AS variables FROM `reportit_variables` GROUP BY template_id) AS c
+		LEFT JOIN (SELECT template_id, COUNT(*) AS variables FROM `plugin_reportit_variables` GROUP BY template_id) AS c
 		ON a.id = c.template_id
 		$sql_where
 		$sql_order
@@ -598,16 +598,18 @@ function form_save() {
 	input_validate_input_number(get_request_var('template_data_template'));
 	form_input_validate(get_request_var('template_description'), 'template_description', '', false, 3);
 	form_input_validate(get_request_var('template_filter'), 'template_filter', '', true, 3);
-	/* ==================================================== */
+	#form_input_validate(get_request_var('data_template_id'));
+	/* ==================================================== */ 
 
 	$template_data = array();
-	$template_data['id']               = get_request_var('id');
+	$template_data['id']               = get_request_var('id');   
 	$template_data['description']      = get_request_var('template_description');
 	$template_data['pre_filter']       = get_request_var('template_filter');
 	$template_data['data_template_id'] = get_request_var('data_template_id');
 	$template_data['enabled']          = isset_request_var('template_enabled') ? 'on' : '';
 	$template_data['locked']           = isset_request_var('template_locked') ? 'on' : '';
 	$template_data['export_folder']    = isset_request_var('template_export_folder') ? get_request_var('template_export_folder') : '';
+	
 
 	$sql = "SELECT id, data_source_name
 		FROM data_template_rrd
@@ -653,7 +655,7 @@ function form_save() {
 		$pattern = db_custom_fetch_flat_string($sql, '|');
 
 		$sql = "SELECT `abbreviation`
-				FROM reportit_measurands
+				FROM plugin_reportit_measurands
 				WHERE `template_id` = {$template_data['id']}
 				AND `calc_formula` REGEXP '($pattern)'";
 		$measurands = db_custom_fetch_flat_string($sql, ', ');
@@ -664,15 +666,16 @@ function form_save() {
 	}
 
 	/* check if we can unlock this template. */
-	if ($template_data['locked'] == 0) {
+	if ($template_data['locked'] == '') {
 		if (stat_autolock_template($template_data['id'])) {
 			raise_message('reportit_templates__3');
 		}
 	}
-
+	
 	if (!is_error_message()) {
 		/* save template data */
-		$template_data['id'] = sql_save($template_data, 'reportit_templates');
+		
+		$template_data['id'] = sql_save($template_data, 'plugin_reportit_templates');
 
 		/* update template id for data source items if necessary */
 		if (get_request_var('id') == 0) {
@@ -683,7 +686,7 @@ function form_save() {
 
 		/* remove all data source items which are no longer in use */
 		if ($unused_data_sources) {
-			db_execute_prepared("DELETE FROM reportit_data_source_items
+			db_execute_prepared("DELETE FROM plugin_reportit_data_source_items
 				WHERE template_id = ?
 				AND id IN ($unused_data_sources)",
 				array($template_data['id']));
@@ -691,7 +694,7 @@ function form_save() {
 
 		/* save the data source items */
 		foreach($ds_items as $ds_item) {
-			sql_save($ds_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+			sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
 		}
 
 		/* return to list view if it was an existing report template */
@@ -701,6 +704,7 @@ function form_save() {
 			raise_message(2);
 		}
 	}
+	
 	header('Location: templates.php?header=false&action=template_edit&id=' . $template_data['id']);
 }
 
@@ -714,7 +718,7 @@ function template_edit() {
 	session_custom_error_display();
 
 	if ($id) {
-		$template_data = db_fetch_row('SELECT *	FROM reportit_templates	WHERE id = ' . $id);
+		$template_data = db_fetch_row('SELECT *	FROM plugin_reportit_templates	WHERE id = ' . $id);
 		$header_label = __('Template Configuration [edit: %s]',$template_data['description'], 'reportit');
 	} else {
 		$template_data['id'] = 0;
@@ -742,7 +746,7 @@ function template_edit() {
 
 	/* built 'create links' */
 	$links[] = array('href' => 'variables.php?action=variable_edit&template_id=' . $id, 'text' => __('Create a new variable', 'reportit'));
-	$links[] = array('href' => 'cc_measurands.php?action=measurand_edit&template_id=' . $id, 'text' => __('Create a new measurand', 'reportit'));
+	$links[] = array('href' => 'measurands.php?action=measurand_edit&template_id=' . $id, 'text' => __('Create a new measurand', 'reportit'));
 	html_blue_link($links, $id);
 
 	form_start('templates.php');
@@ -769,25 +773,25 @@ function form_actions() {
 		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
 
 		if (get_request_var('drp_action') == '1') { // DELETE REPORT TEMPLATE
-			$template_datas = db_fetch_assoc('SELECT id FROM reportit_templates WHERE ' . array_to_sql_or($selected_items, 'id'));
+			$template_datas = db_fetch_assoc('SELECT id FROM plugin_reportit_templates WHERE ' . array_to_sql_or($selected_items, 'id'));
 
 			if (sizeof($template_datas) > 0) {
 				foreach ($template_datas as $template_data) {
-					db_execute('DELETE FROM reportit_templates WHERE id=' . $template_data['id']);
-					db_execute('DELETE FROM reportit_variables WHERE template_id=' . $template_data['id']);
-					db_execute('DELETE FROM reportit_measurands WHERE template_id =' . $template_data['id']);
-					db_execute('DELETE FROM reportit_data_source_items WHERE template_id =' . $template_data['id']);
+					db_execute('DELETE FROM plugin_reportit_templates WHERE id=' . $template_data['id']);
+					db_execute('DELETE FROM plugin_reportit_variables WHERE template_id=' . $template_data['id']);
+					db_execute('DELETE FROM plugin_reportit_measurands WHERE template_id =' . $template_data['id']);
+					db_execute('DELETE FROM plugin_reportit_data_source_items WHERE template_id =' . $template_data['id']);
 
-					$template_reports = db_fetch_assoc('SELECT id FROM reportit_reports WHERE template_id =' .$template_data['id']);
+					$template_reports = db_fetch_assoc('SELECT id FROM plugin_reportit_reports WHERE template_id =' .$template_data['id']);
 
 					if (is_array($template_reports)) {
 						foreach($template_reports as $template_report) {
-							db_execute('DELETE FROM reportit_reports WHERE id=' . $template_report['id']);
-							db_execute('DELETE FROM reportit_data_items WHERE report_id = ' . $template_report['id']);
-							db_execute('DROP TABLE IF EXISTS reportit_results_' . $template_report['id']);
-							db_execute('DELETE FROM reportit_rvars WHERE report_id =' . $template_report['id']);
-							db_execute('DELETE FROM reportit_presets WHERE id=' . $template_report['id']);
-							db_execute('DELETE FROM reportit_recipients WHERE report_id=' . $template_report['id']);
+							db_execute('DELETE FROM plugin_reportit_reports WHERE id=' . $template_report['id']);
+							db_execute('DELETE FROM plugin_reportit_data_items WHERE report_id = ' . $template_report['id']);
+							db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $template_report['id']);
+							db_execute('DELETE FROM plugin_reportit_rvars WHERE report_id =' . $template_report['id']);
+							db_execute('DELETE FROM plugin_reportit_presets WHERE id=' . $template_report['id']);
+							db_execute('DELETE FROM plugin_reportit_recipients WHERE report_id=' . $template_report['id']);
 						}
 					}
 				}
@@ -798,17 +802,17 @@ function form_actions() {
 				input_validate_input_number($selected_items[$i]);
 				/* ==================================================== */
 
-				$template_data = db_fetch_row('SELECT * FROM reportit_templates WHERE id = ' . $selected_items[$i]);
+				$template_data = db_fetch_row('SELECT * FROM plugin_reportit_templates WHERE id = ' . $selected_items[$i]);
 				$template_data['id'] = 0;
 				$template_data['description'] = str_replace(__('<template_title>'), $template_data['description'], get_request_var('template_addition'));
-				$template_id = sql_save($template_data, 'reportit_templates');
+				$template_id = sql_save($template_data, 'plugin_reportit_templates');
 
 				$old = array();
 				$new = array();
 
 				/* duplicate all variable of the original template */
 				$template_variables = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_variables
+					FROM plugin_reportit_variables
 					WHERE template_id = ?
 					ORDER BY id',
 					array($selected_items[$i]));
@@ -818,13 +822,13 @@ function form_actions() {
 						$variable['id']          = 0;
 						$variable['template_id'] = $template_id;
 
-						$new_id = sql_save($variable, 'reportit_variables');
+						$new_id = sql_save($variable, 'plugin_reportit_variables');
 
 						$old[]  = $variable['abbreviation'];
 						$abbr   = 'c' . $new_id . 'v';
 						$new[]  = $abbr;
 
-						db_execute_prepared('UPDATE reportit_variables
+						db_execute_prepared('UPDATE plugin_reportit_variables
 							SET abbreviation = ?
 							WHERE id = ?' ,
 							array($abbr, $new_id));
@@ -833,7 +837,7 @@ function form_actions() {
 
 				/* duplicate all measurands of the original template */
 				$template_measurands = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_measurands
+					FROM plugin_reportit_measurands
 					WHERE template_id = ?
 					ORDER BY id',
 					array($selected_items[$i]));
@@ -844,13 +848,13 @@ function form_actions() {
 						$measurand['template_id']  = $template_id;
 						$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
 
-						sql_save($measurand, 'reportit_measurands');
+						sql_save($measurand, 'plugin_reportit_measurands');
 					}
 				}
 
 				/* duplicate all data source items of the original */
 				$template_ds_items = db_fetch_assoc_prepared('SELECT *
-					FROM reportit_data_source_items
+					FROM plugin_reportit_data_source_items
 					WHERE template_id = ?
 					ORDER BY id',
 					array($selected_items[$i]));
@@ -859,7 +863,7 @@ function form_actions() {
 					foreach($template_ds_items as $data_source_item) {
 						$data_source_item['template_id'] = $template_id;
 
-						sql_save($data_source_item, 'reportit_data_source_items', array('id', 'template_id'), false);
+						sql_save($data_source_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
 					}
 				}
 			}
@@ -884,7 +888,7 @@ function form_actions() {
 
 			//Fetch Template description
 			$template_description = db_fetch_cell_prepared('SELECT description
-				FROM reportit_templates
+				FROM plugin_reportit_templates
 				WHERE id = ?',
 				array($id));
 
@@ -893,12 +897,12 @@ function form_actions() {
 
 			//Fetch all descriptions of reports attached to this template
 			$template_reports = db_fetch_assoc_prepared('SELECT id, description
-				FROM reportit_reports
+				FROM plugin_reportit_reports
 				WHERE template_id = ?',
 				array($id));
 
 			foreach ($template_reports as $key => $value) {
-				$ds_list[$template_identifier][] = "[<a href='./cc_reports.php?action=report_edit&id={$template_reports[$key]['id']}'>{$template_reports[$key]['id']}</a>] " . $template_reports[$key]['description'];
+				$ds_list[$template_identifier][] = "[<a href='./reports.php?action=report_edit&id={$template_reports[$key]['id']}'>{$template_reports[$key]['id']}</a>] " . $template_reports[$key]['description'];
 			}
 		}
 	}

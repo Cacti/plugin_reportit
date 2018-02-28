@@ -23,53 +23,37 @@
 */
 
 
-// ----- CONSTANTS FOR: cc_templates.php -----
+//----- CONSTANTS FOR: variables.php -----
 
-$template_actions = array(
-	1 => 'Delete',
-	2 => 'Duplicate'
+$variable_actions = array(
+	1 => __('Delete', 'reportit')
 );
 
-$desc_array = array(
-	'Template Name',
-	'Data Template',
-	'Pre-filter',
-	'Locked',
-	'Measurands',
-	'Variables'
+$var_types = array(
+	1 => __('Dropdown', 'reportit'),
+	2 => __('Input field', 'reportit')
 );
 
 $link_array = array(
-	'description',
-	'data_template_id',
-	'pre_filter',
-	'locked',
-	'measurands',
-	'variables'
+	'name',
+	'abbreviation',
+	'max_value',
+	'min_value',
+	'default_value',
+	'input_type'
 );
 
-$order_array = array('ASC', 'DESC');
+$list_of_modes = array(
+	'ASC',
+	'DESC'
+);
 
-$sql = 'SELECT DISTINCT b.id, b.name FROM data_template_rrd AS a
-    INNER JOIN data_template as b
-    ON a.data_template_id = b.id
-    WHERE a.local_data_id != 0
-    ORDER BY b.name';
-
-$data_templates            = array();
-$list_of_data_templates    = array();
-$data_templates            = db_fetch_assoc($sql);
-foreach($data_templates as $data_template) {
-    $list_of_data_templates[$data_template['id']] = $data_template['name'];
-}
-
-$hashes = array(
-	'1' => array(
-		'reportit' => 'c0788d60041d96616d05b87892942948',
-		'general'  => 'b993b55029680216764b47d1da5c18d',
-		'settings' => 'd446e8da603362e98b7d868e99e144fd',
-		'measurand'=> 'd52041e0e00f5daac84f1cd15532732c',
-		'variable' => 'fa1e95ba13fc87fa80da64758628d68f'
-	)
+$desc_array = array(
+	'description' => array('display' => __('Name', 'reportit'),          'align' => 'left', 'sort' => 'ASC'),
+	'nosort'      => array('display' => __('Internal Name', 'reportit'), 'align' => 'left'),
+	'pre_filter'  => array('display' => __('Maximum', 'reportit'),       'align' => 'left'),
+	'nosort1'     => array('display' => __('Minimum', 'reportit'),       'align' => 'left'),
+	'nosort2'     => array('display' => __('Default', 'reportit'),       'align' => 'left', 'sort' => 'ASC'),
+	'nosort3'     => array('display' => __('Input Type', 'reportit'),    'align' => 'left', 'sort' => 'ASC'),
 );
 

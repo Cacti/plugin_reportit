@@ -25,12 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_items.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_items.php');
 
 set_default_action();
 
@@ -38,6 +38,9 @@ switch (get_request_var('action')) {
 	case 'save':
 		save();
 		break;
+	case 'ajax_hosts':
+                get_allowed_ajax_hosts();
+                break;
 	default:
 		top_header();
 		standard();
@@ -72,7 +75,7 @@ function save(){
 
 		/* load data item presets */
 		$presets = db_fetch_row_prepared('SELECT *
-			FROM reportit_presets
+			FROM plugin_reportit_presets
 			WHERE id = ?',
 			array(get_request_var('id')));
 
@@ -99,14 +102,14 @@ function save(){
 		$columns = substr($columns, 1);
 
 		/* save */
-		db_execute("INSERT INTO reportit_data_items ($columns) VALUES $rrd");
+		db_execute("INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd");
 
 		/* reset report */
 		reset_report(get_request_var('id'));
 	}
 
 	/* return to standard form */
-	header('Location: cc_items.php?id=' . get_request_var('id'));
+	header('Location: items.php?header=false&id=' . get_request_var('id'));
 }
 
 function standard() {
@@ -139,13 +142,14 @@ function standard() {
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
 			),
-		'host' => array(
+		'host_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '-1'
 			)
 	);
-
-	validate_store_request_vars($filters, 'sess_cc_items');
+    $filters = api_plugin_hook_function('report_filters', $filters);
+    
+	validate_store_request_vars($filters, 'sess_items');
 	/* ================= input validation ================= */
 
 	/* ==================== checkpoint ==================== */
@@ -154,7 +158,7 @@ function standard() {
 	/* ==================================================== */
 
 	$report_data = db_fetch_row_prepared('SELECT *
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array(get_request_var('id')));
 
@@ -167,8 +171,8 @@ function standard() {
 
 	/* load filter settings of that report template this report relies on */
 	$template_filter = db_fetch_assoc_prepared("SELECT rt.pre_filter, rt.data_template_id
-		FROM reportit_reports AS rr
-		INNER JOIN reportit_templates AS rt
+		FROM plugin_reportit_reports AS rr
+		INNER JOIN plugin_reportit_templates AS rt
 		ON rr.template_id = rt.id
 		WHERE rr.id = ?",
 		array(get_request_var('id')));
@@ -177,7 +181,7 @@ function standard() {
 	/* filter all RRDs which are not in RRD table and match with filter settings */
 	$sql = "SELECT DISTINCT a.local_data_id AS id, a.name_cache
 		FROM data_template_data AS a
-		LEFT JOIN reportit_data_items AS b
+		LEFT JOIN plugin_reportit_data_items AS b
 		ON a.local_data_id = b.id
 		AND b.report_id = {get_request_var('id')}
 		LEFT JOIN data_local AS c
@@ -210,11 +214,11 @@ function standard() {
 	}
 
 	/* check host filter defined by form */
-	if (get_request_var('host') == '-1') {
+	if (get_request_var('host_id') == '-1') {
 		/* filter nothing */
-	}elseif (!isempty_request_var('host')) {
+	}elseif (!isempty_request_var('host_id')) {
 		/* show only data items of selected host */
-		$sql .= ' AND c.host_id =' . get_request_var('host');
+		$sql .= ' AND c.host_id =' . get_request_var('host_id');
 	}
 
 	/* check text filter defined by form */
@@ -249,13 +253,13 @@ function standard() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$sql .= $sql_order . $sql_limit;
+	$sql .= ' ' . $sql_order . $sql_limit;
 
 	$rrdlist = db_fetch_assoc($sql);
 
-	$nav = html_nav_bar('cc_items.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
+	$nav = html_nav_bar('items.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
 
-	$header_label	= __('Data Objects [add to report: <a style="color:yellow" href="cc_reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
+	$header_label	= __('Data Objects [add to report: <a style="color:yellow" href="reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
 
 	/* show the Host Template Description in the header, if Host Template Id filter was set */
 	$ht_desc = db_fetch_cell_prepared('SELECT name
@@ -276,7 +280,7 @@ function standard() {
 	items_filter($header_label);
 
 	print $nav;
-
+	form_start('items.php');
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$desc_array = array(__('Description'));
@@ -289,13 +293,9 @@ function standard() {
 	if (sizeof($rrdlist)) {
 		foreach($rrdlist as $rrd) {
 			form_alternate_row('line' . $rrd['id'], true);
-			?>
-				<td><?php print $rrd['name_cache'];?></td>
-				<td style='<?php print get_checkbox_style();?>' width='1%' align='right'>
-					<input type='checkbox' style='margin: 0px;' name='chk_<?php print $rrd['id'];?>' title='<?php print __('Select');?>'>
-				</td>
-			</tr>
-			<?php
+			?><td><?php print $rrd['name_cache'];?></td><?php
+			form_checkbox_cell("Select",$rrd["id"]);
+			
 		}
 	} else {
 		print '<tr><td colspan="2"><em>' . __('No data items') . '</em></td></tr>';
@@ -315,17 +315,17 @@ function standard() {
 
 	if ($total_rows > $rows) print $nav;
 
-	form_save_button('cc_rrdlist.php?&id=' . get_request_var('id'), '', '');
+	form_save_button('rrdlist.php?&id=' . get_request_var('id'), '', '');
 }
 
 function items_filter($header_label) {
 	global $item_rows;
 
-	html_start_box($header_label, '100%', '', '3', 'center', 'cc_items.php?action=edit');
+	html_start_box($header_label, '100%', '', '3', 'center', 'items.php?action=edit');
 	?>
 	<tr class='even'>
 		<td>
-		<form id='form_reports' action='items.php'>
+		<form id='form_reports' action='items.php?id=<?php print get_request_var('id');?>'>
 			<table class='filterTable'>
 				<tr>
 					<td>
@@ -363,7 +363,7 @@ function items_filter($header_label) {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL = 'cc_reports.php?filter='+
+			strURL = 'items.php?id=<?php print get_request_var('id');?>'+'&filter='+
 				escape($('#filter').val())+
 				'&rows='+$('#rows').val()+
 				'&page='+$('#page').val()+
@@ -372,7 +372,7 @@ function items_filter($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_reports.php?clear=1&header=false';
+			strURL = 'items.php?clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 

@@ -23,7 +23,7 @@
 */
 
 
-//----- CONSTANTS FOR: cc_items.php -----
+//----- CONSTANTS FOR: items.php -----
 
 define("MAX_DISPLAY_PAGES", 21);
 $link_array = array('name_cache', '');

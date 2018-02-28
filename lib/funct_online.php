@@ -40,7 +40,7 @@ function my_report($report_id, $public = FALSE){
 		$user_id  = my_id();
 
         $user = db_fetch_row_prepared("SELECT user_id, public
-			FROM reportit_reports
+			FROM plugin_reportit_reports
 			WHERE id = ?",
 			array($report_id));
 
@@ -59,14 +59,14 @@ function my_report($report_id, $public = FALSE){
 
 function my_template($report_id) {
 	return db_fetch_cell_prepared('SELECT template_id
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 }
 
 function locked($template_id, $header=true) {
 	$status = db_fetch_cell_prepared("SELECT locked
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?",
 		array($template_id));
 
@@ -88,7 +88,7 @@ function only_viewer() {
 		AND (realm_id = " . REPORTIT_USER_ADMIN . "
 		OR realm_id = " . REPORTIT_USER_OWNER . ")");
 
-	if ($report_viewer == null || substr_count($_SERVER['REQUEST_URI'], 'cc_view.php')) {
+	if ($report_viewer == null || substr_count($_SERVER['REQUEST_URI'], 'view.php')) {
 		return true;
 	} else {
 		return false;
@@ -146,6 +146,7 @@ function session_custom_error_display() {
 }
 
 function is_error_message_field($field) {
+	
 	if (isset($_SESSION['sess_error_fields'][$field])) {
 		return true;
 	} else {
@@ -155,7 +156,7 @@ function is_error_message_field($field) {
 
 function stat_autolock_template($template_id) {
     $count = db_fetch_cell_prepared("SELECT COUNT(*)
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?",
 		array($template_id));
 
@@ -167,7 +168,7 @@ function stat_autolock_template($template_id) {
 }
 
 function set_autolock_template($template_id) {
-    db_execute_prepared('UPDATE reportit_templates
+    db_execute_prepared('UPDATE plugin_reportit_templates
 		SET locked=1
 		WHERE id = ?',
 		array($template_id));
@@ -175,7 +176,7 @@ function set_autolock_template($template_id) {
 
 function update_formulas($array) {
     foreach($array as $key => $value) {
-		db_execute_prepared('UPDATE reportit_measurands
+		db_execute_prepared('UPDATE plugin_reportit_measurands
 			SET calc_formula = ?
 			WHERE id = ?',
 			array($value['calc_formula'], $value['id']));
@@ -184,9 +185,9 @@ function update_formulas($array) {
 
 function try_autolock_template($template_id) {
     $status = db_fetch_cell_prepared('SELECT COUNT(*)
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE template_id = ?
-		AND in_process = 1',
+		AND state = 1',
 		array($template_id));
 
     if ($status == 0) {

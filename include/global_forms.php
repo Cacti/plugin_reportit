@@ -57,7 +57,8 @@ $fields_template_edit = array(
 		'friendly_name' => __('Locked', 'reportit'),
 		'method' => 'checkbox',
 		'description' => __('The status "locked" avoids any kind of modification to your report template as well as assigned measurands and variable definitions', 'reportit'),
-		'value' => '|arg1:locked|'
+		'value' => '|arg1:locked|',
+		'default' => 'on'
 	),
 	'template_filter' => array(
 		'friendly_name' => __('Additional Pre-filter', 'reportit'),
@@ -98,7 +99,7 @@ $fields_template_export = array(
 		'friendly_name' => __('Report Template', 'reportit'),
 		'description' => __('Choose one of your Report Templates to export to XML.', 'reportit'),
 		'method' => 'drop_sql',
-		'sql' => 'SELECT id, description as name FROM reportit_templates WHERE locked = 0 ORDER BY description',
+		'sql' => 'SELECT id, description as name FROM plugin_reportit_templates WHERE locked = 0 ORDER BY description',
 		'default' => 0,
 		'none_value' => 'None',
 		'value' => '',

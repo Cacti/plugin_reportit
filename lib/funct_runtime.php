@@ -24,16 +24,16 @@
 
 function create_result_table($report_id) {
 	// Create the sql syntax
-    db_execute('CREATE TABLE IF NOT EXISTS reportit_results_' . $report_id . ' (
+    db_execute('CREATE TABLE IF NOT EXISTS plugin_reportit_results_' . $report_id . ' (
 		`id` 	int(11) NOT NULL DEFAULT 0,
 		PRIMARY KEY (`id`))
 		ENGINE=InnoDB');
 
 	// Copy all actual ids from rrdlist
-	db_execute('INSERT INTO reportit_results_' . $report_id . '
+	db_execute('INSERT INTO plugin_reportit_results_' . $report_id . '
 		SELECT `id`
-		FROM reportit_data_items
-		WHERE report_id = $report_id');
+		FROM plugin_reportit_data_items
+		WHERE report_id = '. $report_id);
 }
 
 function &get_report_definitions($report_id) {
@@ -43,13 +43,13 @@ function &get_report_definitions($report_id) {
 
     // Fetch report's definition
     $report = db_fetch_row_prepared('SELECT *
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 
     // Fetch all RRD definitions
     $data_items = db_fetch_assoc_prepared('SELECT c.field_value as `maxValue`, a.*
-		FROM reportit_data_items AS a
+		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_local AS b
 		ON b.id=a.id
 		LEFT JOIN host_snmp_cache AS c
@@ -63,7 +63,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all high counters
     $high_counters = db_fetch_assoc_prepared('SELECT c.field_value as maxHighValue, a.id
-		FROM reportit_data_items AS a
+		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_local AS b
 		ON b.id=a.id
 		LEFT JOIN host_snmp_cache AS c
@@ -77,13 +77,13 @@ function &get_report_definitions($report_id) {
 
 	// Fetch all template informations
     $template = db_fetch_row_prepared('SELECT *
-		FROM reportit_templates
+		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array($report['template_id']));
 
     // Fetch all all data source items
     $sql = 'SELECT data_source_name
-		FROM reportit_data_source_items
+		FROM plugin_reportit_data_source_items
 		WHERE template_id = ' . $report['template_id'] . '
 		AND id != 0
 		ORDER BY id';
@@ -92,7 +92,7 @@ function &get_report_definitions($report_id) {
 	foreach ($ds_items as $key => $data_source_name) {
 		$maxRRDValues[$key] = db_fetch_assoc_prepared('SELECT b.id, a.rrd_maximum AS maxRRDValue
 			FROM data_template_rrd AS a
-			RIGHT JOIN reportit_data_items AS b
+			RIGHT JOIN plugin_reportit_data_items AS b
 			ON a.local_data_id = b.id
 			WHERE a.data_template_id = ?
 			AND b.report_id = ?
@@ -103,7 +103,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all measurands
     $measurands = db_fetch_assoc_prepared('SELECT *
-		FROM reportit_measurands
+		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id', array($report['template_id']));
 
@@ -117,7 +117,7 @@ function &get_report_definitions($report_id) {
 
     // Fetch all variables
     $rvars = db_fetch_assoc_prepared('SELECT variable_id AS id, value
-		FROM reportit_rvars
+		FROM plugin_reportit_rvars
 		WHERE report_id = ?',
 		array($report_id));
 
@@ -140,7 +140,8 @@ function &get_report_definitions($report_id) {
 
     // Fetch RRA definitions
     $template['RRA'] = db_fetch_assoc('SELECT steps, timespan
-		FROM rra
+		FROM data_source_profiles_rra 
+    	WHERE data_source_profile_id=1
 		ORDER BY timespan');
 
     // Rebuild the variables

@@ -31,22 +31,23 @@ function plugin_reportit_install() {
     api_plugin_register_hook('reportit', 'config_settings',       'reportit_config_settings',      'setup.php');
     api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
 
-	reportit_setup_table();
+	reportit_system_setup();
 }
 
 function plugin_reportit_uninstall() {
-	db_execute('DROP TABLE IF EXISTS reportit_cache_measurands');
-	db_execute('DROP TABLE IF EXISTS reportit_cache_reports');
-	db_execute('DROP TABLE IF EXISTS reportit_cache_variables');
-	db_execute('DROP TABLE IF EXISTS reportit_data_items');
-	db_execute('DROP TABLE IF EXISTS reportit_data_source_items');
-	db_execute('DROP TABLE IF EXISTS reportit_measurands');
-	db_execute('DROP TABLE IF EXISTS reportit_presets');
-	db_execute('DROP TABLE IF EXISTS reportit_recipients');
-	db_execute('DROP TABLE IF EXISTS reportit_reports');
-	db_execute('DROP TABLE IF EXISTS reportit_rvars');
-	db_execute('DROP TABLE IF EXISTS reportit_templates');
-	db_execute('DROP TABLE IF EXISTS reportit_variables');
+ 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_measurands');
+ 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_reports');
+ 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_variables');
+ 	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_items');
+ 	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_source_items');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_measurands');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_presets');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_recipients');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_reports');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_rvars');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_templates');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_variables');
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_template_groups');
 
 	return true;
 }
@@ -84,11 +85,12 @@ function reportit_check_upgrade() {
 		return true;
 	}elseif (sizeof($old) && $current != $old['version']) {
 		if ($old['status'] == 1 || $old['status'] == 4) {
-			/* install new tables */
-			reportit_setup_table();
+			/* re-register hooks */
+			plugin_reportit_install();
 
 			/* perform data base upgrade */
-			reportit_database_upgrade($old['version']);
+			require_once($config['base_path'] . '/plugins/reportit/system/upgrade.php');
+			reportit_system_upgrade($old["version"]);
 
 			/* re-register plugins hooks */
 			plugin_reportit_install();
@@ -117,246 +119,227 @@ function reportit_upgrade_requirements() {
 	return true;
 }
 
-function reportit_database_upgrade($action) {
-    global $config, $database_default;
-
-    if ($action == 'old_structure') {
-        include_once($config['base_path'] . '/plugins/reportit/upgrade/0_4_0_to_0_7_0.php');
-        upgrade_reportit_0_4_0_to_0_7_0();
-    	include_once($config['base_path'] . '/plugins/reportit/upgrade/0_7_0_to_0_7_2.php');
-    	upgrade_reportit_0_7_0_to_0_7_2();
-    }elseif ($action == 'post-installation') {
-		include_once($config['base_path'] . '/plugins/reportit/upgrade/0_4_0_to_0_7_0.php');
-		upgrade_pia_1x_to_pia_2x();
-    }elseif ($action == '0.7.0' || $action == '0.7.1') {
-    	include_once($config['base_path'] . '/plugins/reportit/upgrade/0_7_0_to_0_7_2.php');
-		upgrade_reportit_0_7_0_to_0_7_2();
-    }elseif ($action == '0.7.2' || $action == '0.7.3') {
-    	include_once($config['base_path'] . '/plugins/reportit/upgrade/0_7_2_to_0_7_4.php');
-    	upgrade_reportit_0_7_2_to_0_7_4();
-    }
-}
 
 function reportit_draw_navigation_text ($nav) {
-    $nav['cc_reports.php:'] = array(
+    $nav['reports.php:'] = array(
 		'title' => __('Reports'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_reports.php',
+		'url' => 'reports.php',
 		'level' => '1');
 
-    $nav['cc_reports.php:save'] = array(
+    $nav['reports.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_reports.php:report_add'] = array(
+    $nav['reports.php:report_add'] = array(
 		'title' => __('Add'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_reports.php:report_edit'] = array(
+    $nav['reports.php:report_edit'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_reports.php:actions'] = array(
+    $nav['reports.php:actions'] = array(
 		'title' => __('Actions'),
 		'mapping' => 'index.php:,?',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_rrdlist.php:'] = array(
+    $nav['rrdlist.php:'] = array(
 		'title' => __('Data Items'),
-		'mapping' => 'index.php:,cc_reports.php:',
-		'url' => 'cc_templates.php',
+		'mapping' => 'index.php:,reports.php:',
+		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['cc_rrdlist.php:save'] = array(
+    $nav['rrdlist.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_rrdlist.php:rrdlist_edit'] = array(
+    $nav['rrdlist.php:rrdlist_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_rrdlist.php:actions'] = array(
+    $nav['rrdlist.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_items.php:'] = array(
+    $nav['items.php:'] = array(
 		'title' => __('Add'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
-		'url'  => 'cc_templates.php',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
+		'url'  => 'templates.php',
 		'level' => '3');
 
-    $nav['cc_items.php:save'] = array(
+    $nav['items.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_reports.php:,cc_rrdlist.php:',
+		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '4');
 
-    $nav['cc_templates.php:'] = array(
+    $nav['templates.php:'] = array(
 		'title' => __('Report Templates'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_templates.php',
+		'url' => 'templates.php',
 		'level' => '1');
 
-    $nav['cc_templates.php:save'] = array(
+    $nav['templates.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_edit'] = array(
+    $nav['templates.php:template_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_new'] = array(
+    $nav['templates.php:template_new'] = array(
 		'title' => __('Add'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_import_wizard'] = array(
+    $nav['templates.php:template_import_wizard'] = array(
 		'title' => __('Import'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_upload_wizard'] = array(
+    $nav['templates.php:template_upload_wizard'] = array(
 		'title' => __('Import'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_import'] = array(
+    $nav['templates.php:template_import'] = array(
 		'title' => __('Export'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_export'] = array(
+    $nav['templates.php:template_export'] = array(
 		'title' => __('Export'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:template_export_wizard'] = array(
+    $nav['templates.php:template_export_wizard'] = array(
 		'title' => __('Export'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_templates.php:actions'] = array(
+    $nav['templates.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:',
+		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
     $nav['measurands.php:'] = array(
 		'title' => __('Measurands'),
-		'mapping' => 'index.php:,cc_templates.php:',
-		'url' => 'cc_templates.php',
+		'mapping' => 'index.php:,templates.php:',
+		'url' => 'templates.php',
 		'level' => '2');
 
     $nav['measurands.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
+		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['measurands.php:measurand_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
+		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['measurands.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:,measurands.php:',
+		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['variables.php:'] = array(
 		'title' => __('Variables'),
-		'mapping' => 'index.php:,cc_templates.php:',
-		'url' => 'cc_templates.php',
+		'mapping' => 'index.php:,templates.php:',
+		'url' => 'templates.php',
 		'level' => '2');
 
     $nav['variables.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
+		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['variables.php:variable_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
+		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
     $nav['variables.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,cc_templates.php:,variables.php:',
+		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['cc_run.php:calculation'] = array(
+    $nav['run.php:calculation'] = array(
 		'title' => __('Report Calculation'),
-		'mapping' => 'index.php:,cc_reports.php:',
+		'mapping' => 'index.php:,reports.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_view.php:'] = array(
+    $nav['view.php:'] = array(
 		'title' => __('Public Reports'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_view.php',
+		'url' => 'view.php',
 		'level' => '1');
 
-    $nav['cc_view.php:show_report'] = array(
+    $nav['view.php:show_report'] = array(
 		'title' => __('Show Report'),
-		'mapping' => 'index.php:,cc_view.php:',
+		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_view.php:export'] = array(
+    $nav['view.php:export'] = array(
 		'title' => __('Export Report'),
-		'mapping' => 'index.php:,cc_view.php:',
+		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_view.php:show_graphs'] = array(
+    $nav['view.php:show_graphs'] = array(
 		'title' => __('Show Report'),
-		'mapping' => 'index.php:,cc_view.php:',
+		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_charts.php:'] = array(
+    $nav['charts.php:'] = array(
 		'title' => __('Public Report Charts'),
 		'mapping' => 'index.php:',
-		'url' => 'cc_graph.php',
+		'url' => 'graph.php',
 		'level' => '1');
 
-    $nav['cc_charts.php:bar'] = array(
+    $nav['charts.php:bar'] = array(
 		'title' => __('Bar Chart'),
-		'mapping' => 'index.php:,cc_graph.php:',
+		'mapping' => 'index.php:,graph.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['cc_charts.php:pie'] = array(
+    $nav['charts.php:pie'] = array(
 		'title' => __('Pie Chart'),
-		'mapping' => 'index.php:,cc_graph.php:',
+		'mapping' => 'index.php:,graph.php:',
 		'url' => '',
 		'level' => '2');
 
@@ -367,13 +350,13 @@ function reportit_config_arrays() {
 	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
 
 	/* register all realms of ReportIT */
-	api_plugin_register_realm('reportit', 'cc_view.php,cc_charts.php', __('View Reports'), 1);
-	api_plugin_register_realm('reportit', 'cc_reports.php,cc_rrdlist.php,cc_items.php,cc_run.php', __('Create Reports'), 1);
+	api_plugin_register_realm('reportit', 'view.php,charts.php', __('View Reports'), 1);
+	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', __('Create Reports'), 1);
 	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', __('Administrate Reports'), 1);
 
 	/* show additional menu entries if plugin is enabled */
 	if (api_plugin_is_enabled('reportit')) {
-		$menu[__('Management')]['plugins/reportit/cc_reports.php']  = __('Reports');
+		$menu[__('Management')]['plugins/reportit/reports.php']  = __('Reports');
 		$menu[__('Templates')]['plugins/reportit/templates.php'] = __('Report');
 
 		$temp = array(
@@ -709,221 +692,33 @@ function reportit_config_settings() {
 		),
 	);
 
-	if (isset($settings_graphs['reports'])) {
-		$settings_graphs['reportit'] = array_merge($settings_graphs['reportit'],$temp);
+	if (isset($setting_graphs['reportit'])) {
+		$settings['reportit'] = array_merge($settings_graphs['reportit'],$temp);
 	} else {
-		$settings_graphs['reportit'] = $temp;
+		$settings['reportit'] = $temp;
 	}
 
 	unset($temp);
+	
+	foreach ($settings['reportit'] as $key => $value ){
+		if( array_key_exists('default', $value) ){
+			set_config_option($key,$value['default']);
+		}
+	}
 }
 
 function reportit_show_tab() {
     global $config;
 
-	if (api_user_realm_auth('cc_view.php')) {
-		print '<a href="' . $config['url_path'] . 'plugins/reportit/cc_view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'cc_view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIT') . '"></a>';
+	if (api_user_realm_auth('view.php')) {
+		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIT') . '"></a>';
 	}
 }
 
-function reportit_setup_table($upgrade = false) {
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_reports (
-		`id` int(11) NOT NULL auto_increment,
-		`description` varchar(255) NOT NULL default '',
-		`user_id` int(11) NOT NULL default '0',
-		`template_id` int(11) NOT NULL default '0',
-		`host_template_id` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-		`data_source_filter` varchar(255) NOT NULL DEFAULT '',
-		`preset_timespan` varchar(255) NOT NULL default '',
-		`last_run` datetime NOT NULL default '0000-00-00 00:00:00',
-		`runtime` int(11) NOT NULL default '0',
-		`public` tinyint(1) NOT NULL default '0',
-		`start_date` date NOT NULL default '0000-00-00',
-		`end_date` date NOT NULL default '0000-00-00',
-		`ds_description` varchar(5000) NOT NULL default '',
-		`rs_def` varchar(255) NOT NULL default '',
-		`sp_def` varchar(255) NOT NULL default '',
-		`sliding` tinyint(1) NOT NULL default '0',
-		`present` tinyint(1) NOT NULL default '0',
-		`scheduled` tinyint(1) NOT NULL default '0',
-		`autorrdlist` tinyint(1) NOT NULL DEFAULT '0',
-		`auto_email` tinyint(1) NOT NULL DEFAULT '0',
-		`email_subject` varchar(255) NOT NULL default '',
-		`email_body` varchar(1000) NOT NULL default '',
-		`email_format` varchar(255) NOT NULL default '',
-		`subhead` tinyint(1) NOT NULL default '0',
-		`in_process` tinyint(1) NOT NULL default '0',
-		`graph_permission` tinyint(1) NOT NULL DEFAULT '1',
-		`frequency` varchar(255) NOT NULL default '',
-		`autoarchive` mediumint(8) UNSIGNED NOT NULL DEFAULT 1,
-		`autoexport` varchar(255) NOT NULL default '',
-		`autoexport_max_records` smallint NOT NULL DEFAULT '0',
-		`autoexport_no_formatting` tinyint(1) NOT NULL default '0',
-		PRIMARY KEY (`id`))
-		ENGINE=InnoDB;";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_templates (
-		`id` int(11) NOT NULL auto_increment,
-		`description` varchar(255) NOT NULL default '',
-		`pre_filter` varchar(255) NOT NULL default '',
-		`data_template_id` int(11) NOT NULL default '0',
-		`locked` tinyint(1) NOT NULL default '0',
-		`export_folder` varchar(255) NOT NULL default '',
-		PRIMARY KEY (`id`))
-		ENGINE=InnoDB;";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_measurands (
-		`id` int(11) NOT NULL auto_increment,
-		`template_id` int(11) NOT NULL default '0',
-		`description` varchar(255) NOT NULL default '',
-		`abbreviation` varchar(255) NOT NULL default '',
-		`calc_formula` varchar(255) NOT NULL default '',
-		`unit` varchar(255) NOT NULL default '',
-		`visible` tinyint(1) NOT NULL default '1',
-		`spanned` tinyint(1) NOT NULL default '0',
-		`rounding` tinyint(1) NOT NULL default '0',
-		`cf` int(11) NOT NULL default '1',
-		`data_type` SMALLINT NOT NULL DEFAULT '1',
-		`data_precision` SMALLINT NOT NULL DEFAULT '2',
-		PRIMARY KEY  (`id`))
-		ENGINE=InnoDB;";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_variables (
-		`id` int(11) NOT NULL auto_increment,
-		`template_id` int(11) NOT NULL default '0',
-		`abbreviation` varchar(255) NOT NULL default '',
-		`name` varchar(255) NOT NULL default '',
-		`description` varchar(255) NOT NULL default '',
-		`max_value` float NOT NULL default '0',
-		`min_value` float NOT NULL default '0',
-		`default_value` float NOT NULL default '0',
-		`input_type` tinyint(1) NOT NULL default '0',
-		`stepping` float NOT NULL default '0',
-		PRIMARY KEY (`id`))
-		ENGINE=InnoDB";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_rvars (
-		`id` int(11) NOT NULL auto_increment,
-		`template_id` int(11) NOT NULL default '0',
-		`report_id` int(11) NOT NULL default '0',
-		`variable_id` int(11) NOT NULL default '0',
-		`value` float NOT NULL default '0',
-		PRIMARY KEY (`id`))
-		ENGINE=MyISAM;";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_presets (
-		`id` int(11) NOT NULL DEFAULT 0,
-		`description` varchar(255) NOT NULL default '',
-		`start_day` varchar(255) NOT NULL default 'Monday',
-		`end_day` varchar(255) NOT NULL default 'Sunday',
-		`start_time` time NOT NULL default '00:00:00',
-		`end_time` time NOT NULL default '24:00:00',
-		`timezone` varchar(255) NOT NULL default 'GMT',
-		PRIMARY KEY (`id`))
-		ENGINE=InnoDB";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_recipients (
-		`id` int(11) NOT NULL auto_increment,
-		`report_id` int(11) NOT NULL DEFAULT '0',
-		`email` varchar(255) NOT NULL default '',
-		`name` varchar(255) NOT NULL default '',
-		PRIMARY KEY (`id`))
-		ENGINE=InnoDB";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_data_items (
-		`id` int(11) NOT NULL default '0',
-		`report_id` int(11) NOT NULL default '0',
-		`description` varchar(255) NOT NULL default '',
-		`start_day` varchar(255) NOT NULL default 'Monday',
-		`end_day` varchar(255) NOT NULL default 'Sunday',
-		`start_time` time NOT NULL default '00:00:00',
-		`end_time` time NOT NULL default '24:00:00',
-		`timezone` varchar(255) NOT NULL default 'GMT',
-		PRIMARY KEY (`id`, `report_id`), INDEX (`report_id`))
-		ENGINE = InnoDB";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_data_source_items (
-		`id` int(11) NOT NULL default '0',
-		`template_id` int(11) NOT NULL default '0',
-		`data_source_name` varchar(255) NOT NULL default '',
-		`data_source_alias` varchar(255) NOT NULL default '',
-		PRIMARY KEY (`id`, `template_id`), INDEX (`template_id`))
-		ENGINE = InnoDB";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_cache_reports (
-		`cache_id` varchar(255) NOT NULL default '',
-		`id` int(11) NOT NULL default '0',
-		`description` varchar(255) NOT NULL default '',
-		`user_id` int(11) NOT NULL default '0',
-		`template_id` int(11) NOT NULL default '0',
-		`host_template_id` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-		`data_source_filter` varchar(255) NOT NULL DEFAULT '',
-		`preset_timespan` varchar(255) NOT NULL default '',
-		`last_run` datetime NOT NULL default '0000-00-00 00:00:00',
-		`runtime` float NOT NULL default '0',
-		`public` tinyint(1) NOT NULL default '0',
-		`start_date` date NOT NULL default '0000-00-00',
-		`end_date` date NOT NULL default '0000-00-00',
-		`ds_description` varchar(5000) NOT NULL default '',
-		`rs_def` varchar(255) NOT NULL default '',
-		`sp_def` varchar(255) NOT NULL default '',
-		`sliding` tinyint(1) NOT NULL default '0',
-		`present` tinyint(1) NOT NULL default '0',
-		`scheduled` tinyint(1) NOT NULL default '0',
-		`autorrdlist` tinyint(1) NOT NULL DEFAULT '0',
-		`auto_email` tinyint(1) NOT NULL DEFAULT '0',
-		`email_subject` varchar(255) NOT NULL default '',
-		`email_body` varchar(1000) NOT NULL default '',
-		`email_format` varchar(255) NOT NULL default '',
-		`subhead` tinyint(1) NOT NULL default '0',
-		`in_process` tinyint(1) NOT NULL default '0',
-		`graph_permission` tinyint(1) NOT NULL DEFAULT '1',
-		`frequency` varchar(255) NOT NULL default '',
-		`autoarchive` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
-		`template_name` varchar(255) NOT NULL default '',
-		`data_template_alias` varchar(10000) NOT NULL default '',
-		`owner` varchar(255) NOT NULL default '',
-		`autoexport` varchar(255) NOT NULL default '',
-		`autoexport_max_records` smallint NOT NULL DEFAULT '0',
-		`autoexport_no_formatting` tinyint(1) NOT NULL default '0',
-		PRIMARY KEY (`cache_id`))
-		ENGINE=InnoDB";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_cache_measurands (
-		`cache_id` varchar(255) NOT NULL default '',
-		`id` int(11) NOT NULL default '0',
-		`template_id` int(11) NOT NULL default '0',
-		`description` varchar(255) NOT NULL default '',
-		`abbreviation` varchar(255) NOT NULL default '',
-		`calc_formula` varchar(255) NOT NULL default '',
-		`unit` varchar(255) NOT NULL default '',
-		`visible` tinyint(1) NOT NULL default '1',
-		`spanned` tinyint(1) NOT NULL default '0',
-		`rounding` tinyint(1) NOT NULL default '0',
-		`cf` int(11) NOT NULL default '1',
-		`data_type` SMALLINT NOT NULL DEFAULT '1',
-		`data_precision` SMALLINT NOT NULL DEFAULT '2',
-		INDEX (`cache_id`),
-		UNIQUE(`cache_id`, `id`))
-		ENGINE=InnoDB";
-
-	$sql[] = "CREATE TABLE IF NOT EXISTS reportit_cache_variables (
-		`cache_id` varchar(255) NOT NULL default '',
-		`id` int(11) NOT NULL default '0',
-		`name` varchar(255) NOT NULL default '',
-		`description` varchar(255) NOT NULL default '',
-		`value` float NOT NULL default '0',
-		`max_value` float NOT NULL default '0',
-		`min_value` float NOT NULL default '0',
-		INDEX (`cache_id`),
-		UNIQUE(`cache_id`, `id`))
-		ENGINE=InnoDB";
-
-    if (sizeof($sql)) {
-		foreach($sql as $query) {
-			db_execute($query);
-        }
-    }
+function reportit_system_setup() {
+	global $config;
+	require_once($config['base_path'] . '/plugins/reportit/system/install.php');
+	reportit_system_install();
 }
 
 function reportit_define_constants(){
@@ -979,14 +774,14 @@ function reportit_poller_bottom() {
         $ids = substr($ids, 1);
         $str = substr($str, 0, -2);
         if (db_execute("DROP TABLE IF EXISTS $str") == 1) {
-            db_execute("DELETE FROM reportit_cache_reports WHERE `cache_id` IN ($ids)");
-            db_execute("DELETE FROM reportit_cache_variables WHERE `cache_id` IN ($ids)");
-            db_execute("DELETE FROM reportit_cache_measurands WHERE `cache_id` IN ($ids)");
+            db_execute("DELETE FROM plugin_reportit_cache_reports WHERE `cache_id` IN ($ids)");
+            db_execute("DELETE FROM plugin_reportit_cache_variables WHERE `cache_id` IN ($ids)");
+            db_execute("DELETE FROM plugin_reportit_cache_measurands WHERE `cache_id` IN ($ids)");
 
             if ($cnt >= 5) {
-                db_execute('OPTIMIZE TABLE `reportit_cache_reports`');
-                db_execute('OPTIMIZE TABLE `reportit_cache_variables`');
-                db_execute('OPTIMIZE TABLE `reportit_cache_measurands`');
+                db_execute('OPTIMIZE TABLE `plugin_reportit_cache_reports`');
+                db_execute('OPTIMIZE TABLE `plugin_reportit_cache_variables`');
+                db_execute('OPTIMIZE TABLE `plugin_reportit_cache_measurands`');
             }
 
             if ($logging_level != 'POLLER_VERBOSITY_NONE' && $logging_level != 'POLLER_VERBOSITY_LOW') {

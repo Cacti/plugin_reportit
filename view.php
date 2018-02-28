@@ -28,12 +28,12 @@ chdir('../../');
 $guest_account = true;
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_export.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_view.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_view.php');
 
 set_default_action();
 
@@ -90,7 +90,7 @@ function export() {
 		cache_xml_file(get_request_var('id'), get_request_var('archive'));
 		$cache_id = get_request_var('id') . '_' . get_request_var('archive');
 	}
-
+		
 	/* load report data */
 	$data = (get_request_var('archive') == -1)
 		? get_prepared_report_data(get_request_var('id'),'export', $sql_where)
@@ -159,7 +159,7 @@ function standard() {
 			)
 	);
 
-	validate_store_request_vars($filters, 'sess_cc_view');
+	validate_store_request_vars($filters, 'sess_view');
 	/* ================= input validation ================= */
 
 	if (get_request_var('rows') == '-1') {
@@ -182,21 +182,21 @@ function standard() {
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(a.id)
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		$sql_where");
 
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
-
+	
 	$report_list = db_fetch_assoc("SELECT a.*, b.description AS template_description
-		FROM reportit_reports AS a
-		INNER JOIN reportit_templates AS b
+		FROM plugin_reportit_reports AS a
+		INNER JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
 		$sql_where
 		$sql_order
 		$sql_limit");
 
-	$nav = html_nav_bar('cc_view.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Reports'), 'page', 'main');
+	$nav = html_nav_bar('view.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Reports'), 'page', 'main');
 
 	/* start with HTML output */
 	html_start_box(__('Reports [%s]', $total_rows), '100%', '', '2', 'center', '');
@@ -248,7 +248,7 @@ function standard() {
 		</form>
 		<script type='text/javascript'>
 		function applyFilter() {
-			strURL  = 'cc_view.php?action=show_report&header=false';
+			strURL  = 'view.php?action=standard&header=false';
 			strURL += '&filter='+escape($('#filter').val());
 			strURL += '&type='+$('#type').val();
 			strURL += '&rows='+$('#rows').val();
@@ -256,7 +256,7 @@ function standard() {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_view.php?action=show_report&clear=1&header=false';
+			strURL = 'view.php?action=standard&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -304,7 +304,7 @@ function standard() {
 
 			form_alternate_row();
 
-			print '<td><a class="linkEditMain" href="cc_view.php?action=show_report&id=' . $report['id'] . '>' . $report['description'] . '</a></td>';
+			print '<td><a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '">' . $report['description'] . '</a></td>';
 			print '<td>' . other_name($ownerId) . '</td>';
 			print '<td>' . $report['template_description'] . '</td>';
 			print '<td class="right">' . (date(config_date_format(), strtotime($report['start_date'])) . ' - ' . date(config_date_format(), strtotime($report['end_date']))) . '</td>';
@@ -390,14 +390,14 @@ function validate_report_vars() {
 			)
 	);
 
-	validate_store_request_vars($filters, 'sess_cc_show_' . $id);
+	validate_store_request_vars($filters, 'sess_show_' . $id);
 	/* ================= input validation ================= */
 
 	return $id;
 }
 
 function show_report() {
-	global $config, $search, $t_limit, $add_info, $export_formats;
+	global $config, $search, $t_limit, $add_info, $export_formats, $item_rows;;
 
 	$columns         = 1;
 	$limitation      = 0;
@@ -455,7 +455,7 @@ function show_report() {
 	/* get total number of rows (data items) */
 	$source = (get_request_var('archive') != -1)
 		? 'reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive') . ' AS a'
-		: 'reportit_results_' . get_request_var('id') . ' AS a'.
+		: 'plugin_reportit_results_' . get_request_var('id') . ' AS a'.
 		  ' INNER JOIN data_template_data AS c'.
 		  ' ON c.local_data_id = a.id';
 
@@ -490,7 +490,7 @@ function show_report() {
 
 	if ($rs_description !== false) {
 		foreach ($rs_description as $key => $id) {
-			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 				$count_rs--;
 				unset($rs_description[$key]);
 			} else {
@@ -514,7 +514,7 @@ function show_report() {
 		$ov_description 	= ($ov_description == '') ? false : explode('|', $ov_description);
 		if ($ov_description !== false) {
 			foreach ($ov_description as $key => $id) {
-				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$count_ov--;
 					unset($ov_description[$key]);
 				} elseif (get_request_var('data_source') == -1 || get_request_var('data_source') == -2) {
@@ -556,16 +556,17 @@ function show_report() {
 		$ds_description = array($ds_description[get_request_var('data_source')]);
 	}
 
-	$nav = html_nav_bar('cc_view.php?action=show_report&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
+	$nav = html_nav_bar('view.php?action=show_report&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
 
 	/* graph view */
-	$link = (read_config_option('reportit_graph') == 'on')? './cc_view.php?action=show_graphs&id=' . get_request_var('id') : '';
+	$link = (read_config_option('reportit_graph') != 'on')? 'view.php?action=show_graphs&id=' . get_request_var('id') : '';
 
 	/* start HTML output */
+	//html_start_box(__($report_header), '100%', '', '2', 'center', $link,true);
 	ob_start();
 
-	html_custom_header_box($report_header, false, $link, '<img src="./images/bar.gif" title="' . __('Graph View') . '">');
-
+	html_custom_header_box(__($report_header), '100%', '', '2', 'center', $link,true);
+	
 	?>
 	<tr class='odd'>
 		<td>
@@ -680,7 +681,7 @@ function show_report() {
 		</form>
 		<script type='text/javascript'>
 		function applyFilter() {
-			strURL  = 'cc_view.php?action=show_report&header=false';
+			strURL  = 'view.php?action=show_report&header=false';
 			strURL += '&filter='+escape($('#filter').val());
 			strURL += '&info='+$('#info').val();
 			strURL += '&rows='+$('#rows').val();
@@ -693,7 +694,7 @@ function show_report() {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_view.php?action=show_report&clear=1&header=false';
+			strURL = 'view.php?action=show_report&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -782,7 +783,7 @@ function show_report() {
 			form_alternate_row();
 
 			print '<td>
-				<a class="linkEditMain" href="cc_view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . $result['name_cache'] . '</a>';
+				<a class="linkEditMain" href="view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . $result['name_cache'] . '</a>';
 
 			if (get_request_var('subhead') == 1) {
 				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
@@ -859,7 +860,7 @@ function show_report() {
 	}
 
 	print '<form name="custom_dropdown" method="post">';
-	draw_actions_dropdown($export_formats, 'cc_view.php', 'single_export');
+	draw_actions_dropdown($export_formats,0);
 	print '</form>';
 
 	ob_end_flush();
@@ -904,7 +905,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 
 	?>
 	<tr class='odd'>
-		<form id='form_graphs' method='get' action='cc_view.php?action=show_graphs'>
+		<form id='form_graphs' method='get' action='view.php?action=show_graphs'>
 		<td>
 			<table class='filterTable'>
 				<tr>
@@ -922,7 +923,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 							<option value='-1'><?php print __('Any');?></option>
 							<?php
 							if (sizeof($ds_description)) {
-								foreach ($data_sources as $key => $value) {
+								foreach ($ds_description as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('data_source') == $key) { print ' selected'; } print '>' . $value . '</option>';
 								}
 							}
@@ -1007,7 +1008,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 		</form>
 		<script type='text/javascript'>
 		function applyFilter() {
-			strURL  = 'cc_view.php?action=show_graphs&header=false';
+			strURL  = 'view.php?action=show_graphs&header=false';
 			strURL += '&filter='+escape($('#filter').val());
 			strURL += '&rows='+$('#rows').val();
 			strURL += '&measurand='+$('#measurand').val();
@@ -1019,7 +1020,7 @@ function graphs_filter($ds_description, $measurands, $graphs, $archive) {
 		}
 
 		function clearFilter() {
-			strURL = 'cc_view.php?action=show_graphs&clear=1&header=false';
+			strURL = 'view.php?action=show_graphs&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -1113,7 +1114,7 @@ function show_graphs() {
 			)
 	);
 
-	validate_store_request_vars($filters, 'sess_cc_view1_' . $id);
+	validate_store_request_vars($filters, 'sess_view1_' . $id);
 	/* ================= input validation ================= */
 
 	/* ==================== Checkpoint ==================== */
@@ -1128,7 +1129,7 @@ function show_graphs() {
 
 	/* get informations about the archive if it exists */
 	$archive = info_xml_archive(get_request_var('id'));
-
+	
 	/* load report archive and fill up report cache if requested*/
 	if (get_request_var('archive') != -1) {
 		cache_xml_file(get_request_var('id'), get_request_var('archive'));
@@ -1164,7 +1165,7 @@ function show_graphs() {
 	$rs_description = ($rs_description == '') ? false : explode('|', $rs_description);
 	if ($rs_description !== false) {
 		foreach ($rs_description as $key => $id) {
-			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 				$count_rs--;
 				unset($rs_description[$key]);
 			} else {
@@ -1187,7 +1188,7 @@ function show_graphs() {
 		$ov_description 	= ($ov_description == '') ? false : explode('|', $ov_description);
 		if ($ov_description !== false) {
 			foreach ($ov_description as $key => $id) {
-				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$count_ov--;
 					unset($ov_description[$key]);
 				} else {
@@ -1229,7 +1230,7 @@ function show_graphs() {
 	ob_start();
 
 	html_start_box($report_header, '100%', '', '2', 'center', '');
-	graphs_filter($ds_description, $measurands, $graphs, $archive);
+	
 	html_end_box();
 
 	if (get_request_var('summary')) {
@@ -1268,8 +1269,8 @@ function show_graphs() {
 				if ($mea[$id]['visible']) {
 					if (get_request_var('archive') == -1) {
 						$sql = 	"SELECT a.*, b.*, c.name_cache
-							FROM reportit_results_" . get_request_var('id') . " AS a
-							INNER JOIN reportit_data_items AS b
+							FROM plugin_reportit_results_" . get_request_var('id') . " AS a
+							INNER JOIN plugin_reportit_data_items AS b
 							ON b.id = a.id
 							AND b.report_id = " . get_request_var('id') . "
 							INNER JOIN data_template_data AS c
@@ -1288,8 +1289,8 @@ function show_graphs() {
 					$data = db_fetch_assoc($sql);
 
 					print "<tr bgcolor='#a9b7cb'><td colspan='3' class='textHeaderDark'><strong>Measurand:</strong> $title ({$mea[$id]['abbreviation']})</td></tr>";
-					//print "<tr valign='top'><td colspan='2'><a href='./cc_graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'>hallo</a></td>";
-					print "<tr valign='top'><td colspan='2'><img src='./cc_graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'></td>";
+					//print "<tr valign='top'><td colspan='2'><a href='./graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'>hallo</a></td>";
+					print "<tr valign='top'><td colspan='2'><img src='./graphs.php?id=". get_request_var('id') . "&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'></td>";
 					print "<td colspan='1' width='100%'>";
 
 					if (count($data)) {
@@ -1309,7 +1310,7 @@ function show_graphs() {
 
 							print "<td title='$title'>$i</td>";
 							print "<td title='$title'>
-										<a class='linkEditMain' href='cc_view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd=" . $item['id'] . "&cache=" . get_request_var('archive') . "'>" . $item['name_cache'] . "
+										<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd=" . $item['id'] . "&cache=" . get_request_var('archive') . "'>" . $item['name_cache'] . "
 								</a>
 							</td>";
 
@@ -1359,7 +1360,7 @@ function show_export_wizard($new=false){
 
 	$report_ids = $_SESSION['reportit']['export'];
 
-	html_wizard_header('Export', 'cc_view.php');
+	html_wizard_header('Export', 'view.php');
 
 	print "<tr>
 		<td class='textArea'>
@@ -1388,7 +1389,7 @@ function show_export_wizard($new=false){
 	$ids = substr($ids, 0, strlen($ids)-1);
 
 	$report = db_fetch_assoc("SELECT id, description, scheduled, autoarchive
-		FROM reportit_reports
+		FROM plugin_reportit_reports
 		WHERE id IN ($ids)");
 
 	if (sizeof($reports)) {
@@ -1408,7 +1409,7 @@ function show_export_wizard($new=false){
 			print '<td class="right">' . sizeof($_SESSION['reportit']['export'][$id]['ids']) . '</td>';
 
 			print '<td class="right">'
-				."<a href=\"cc_reports.php?action=remove&id=$key\">"
+				."<a href=\"reports.php?action=remove&id=$key\">"
 				.'<img src="../../images/delete_icon.gif" width="10" height="10" border="0" alt="Delete"></a></td>';
 
 			form_end_row();
@@ -1419,6 +1420,6 @@ function show_export_wizard($new=false){
 
 	html_end_box();
 
-	html_form_button('cc_view.php', 'create', 'id', false, '60%');
+	html_form_button('view.php', 'create', 'id', false, '60%');
 }
 

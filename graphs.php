@@ -28,9 +28,9 @@ ob_start();
 include('../../include/global.php');
 
 /* load standard libraries */
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
 require_once(REPORTIT_BASE_PATH . '/lib_ext/graidle/graidle.php');
 
 ob_end_clean();
@@ -42,10 +42,11 @@ function create_chart(){
 	global $config, $types, $prefixes;
 
 	/* load presets */
-	include_once(REPORTIT_BASE_PATH . '/lib_int/const_graphs.php');
+	include_once(REPORTIT_BASE_PATH . '/lib/const_graphs.php');
 
 	/* ================= Input validation ================= */
-	get_filter_request_var('id');
+	#get_filter_request_var('id');
+	input_validate_input_number(get_request_var("id"));
 
 	if (!isset_request_var('source')) exit;
 
@@ -80,15 +81,15 @@ function create_chart(){
 	$affix   .= 'ORDER BY a.' . get_request_var('source') . ' ' . $order . ' LIMIT 0, ' . $limit;
 
 	if (get_request_var('archive') == -1) {
-		$sql = "SELECT a.{get_request_var('source')}
-			FROM reportit_results_{get_request_var('id')} AS a
+		$sql = "SELECT a.". get_request_var('source') . "
+			FROM plugin_reportit_resultss_" . get_request_var('id') ." AS a
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id
 			WHERE c.name_cache " . $affix;
 
 		$data = get_prepared_report_data(get_request_var('id'), 'graidle', $sql);
 	} else {
-		$sql = "SELECT a.{get_request_var('source')}
+		$sql = "SELECT a." . get_request_var('source') ." 
 			FROM reportit_tmp_$cache_id AS a
 			WHERE a.name_cache " . $affix;
 

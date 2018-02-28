@@ -23,10 +23,10 @@
 */
 
 //----- Define some variables -----
-$PATH_RID_LOG   = "<a href='./plugins/reportit/cc_reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_LOG   = "<a href='./plugins/reportit/cc_rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
-$PATH_RID_VIEW  = "<a href='cc_reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_VIEW  = "<a href='cc_rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_LOG   = "<a href='./plugins/reportit/reports.php?action=report_edit&id=<RID>'><RID></a>";
+$PATH_DID_LOG   = "<a href='./plugins/reportit/rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&id=<RID>'><RID></a>";
+$PATH_DID_VIEW  = "<a href='rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
 
 $run_return     = array();
 $run_freq       = '';
@@ -50,13 +50,13 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
     else include_once('./include/config.php');
 
     include_once(REPORTIT_BASE_PATH . '/setup.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_calculate.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_runtime.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-    include_once(REPORTIT_BASE_PATH . '/lib_int/funct_export.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+    include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
 
     $run_scheduled    = TRUE;
 
@@ -135,13 +135,13 @@ function run($frequency) {
 
     $start = microtime();
     if(is_numeric($frequency)) {
-        $sql = "SELECT a.id, a.template_id FROM reportit_reports as a
-                INNER JOIN reportit_templates as b
+        $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
+                INNER JOIN plugin_reportit_templates as b
                 ON b.locked = 0 and a.template_id = b.id
                 WHERE a.id = $frequency";
     }else {
-        $sql = "SELECT a.id, a.template_id FROM reportit_reports as a
-                INNER JOIN reportit_templates as b
+        $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
+                INNER JOIN plugin_reportit_templates as b
                 ON b.locked = 0 AND a.template_id = b.id
                 WHERE a.scheduled = 1 AND a.frequency = '$frequency'";
     }
@@ -313,16 +313,18 @@ function runtime($report_id) {
 	reset_report($report_id);
 
     //----- load default settings -----
-    $report_settings = db_fetch_row("SELECT * FROM reportit_reports WHERE id = '$report_id'");
+    $report_settings = db_fetch_row("SELECT * FROM plugin_reportit_reports WHERE id = '$report_id'");
 
     //----- auto clean-up RRDlist -----
     autocleanup($report_id);
 
 	//----- check if BOOST is active -----
 	$boost_enabled = (function_exists("boost_process_poller_output") && db_fetch_cell("SELECT 1 FROM `settings` WHERE name = 'boost_rrd_update_enable' and value = 'on'"))? true : false;
-	debug($debug_value = ($boost_enabled ? "enabled" : "disabled"), "Boost Plugin Status");
+	$debug_value = ($boost_enabled ? "enabled" : "disabled");
+	debug($debug_value, "Boost Plugin Status");
 	$boost_server_enabled = (db_fetch_cell("SELECT 1 FROM `settings` WHERE name = 'boost_server_enable' and value = 'on'"))? true : false;
-	debug($debug_value = ($boost_server_enabled ? "enabled" : "disabled"), "Boost Server Status");
+	$debug_value = ($boost_server_enabled ? "enabled" : "disabled");
+	debug($debug_value, "Boost Server Status");
 
 	//----- automatic RRDList Generation -----
     if($report_settings['autorrdlist']) autorrdlist($report_id);
@@ -360,7 +362,7 @@ function runtime($report_id) {
 
 	//----- Prepare result table -----
 	// First destroy old result table if exists
-	db_execute("DROP TABLE IF EXISTS reportit_results_$report_id");
+	db_execute("DROP TABLE IF EXISTS plugin_reportit_results_$report_id");
 
 	// Create new table for saving our results
 	create_result_table($report_id);
@@ -488,16 +490,16 @@ function runtime($report_id) {
 
 		//----- ERROR CHECK (3) -----
 		// Check whether start- and endpoint are part of future timestamps (Important for timespan "today")
-		if($f_sp > mktime()) {
+		if($f_sp > time()) {
 			run_error(3, $report_id, $local_data_id);
 			continue;
 		}
-		if($f_ep > mktime()) {
-			$f_ep	= mktime();
+		if($f_ep > time()) {
+			$f_ep	= time();
 			run_error(6, $report_id, $local_data_id);
 		}
-		If($l_ep > mktime()) {
-			$l_ep	= mktime();
+		If($l_ep > time()) {
+			$l_ep	= time();
 			if(!$dynamic) run_error(6, $report_id, $local_data_id);
 		}
 		//---------------------------
@@ -632,7 +634,7 @@ function runtime($report_id) {
 
         //----- Prepare data for normal calculating -----
         foreach($rrd_data as $rra_index => $data){
-            $pre_data[$rra_index] = &get_prepared_data($rrd_data[$rra_index]['data'], $rrd_ad_data,
+            $pre_data[$rra_index] = get_prepared_data($rrd_data[$rra_index]['data'], $rrd_ad_data,
                                                         $rrd_ds_cnt, $ds_type, $corr_factor_start,
                                                         $corr_factor_end, $rrd_ds_namv, $rrd_nan);
             unset($rrd_data[$rra_index]);
@@ -735,7 +737,7 @@ function runtime($report_id) {
 
 			// Remove last comma and complete the sql string
 			$list = substr($list, 0, strlen($list)-1);
-			$list = "ALTER TABLE reportit_results_$report_id $list";
+			$list = "ALTER TABLE plugin_reportit_results_$report_id $list";
 
 			// Add columms
 			db_execute($list);
@@ -793,7 +795,7 @@ function runtime($report_id) {
 		// Remove last comma
 		$list = substr($list, 0, strlen($list)-1);
 		// Save values
-		db_execute("REPLACE reportit_results_$report_id SET id = $local_data_id, $list");
+		db_execute("REPLACE plugin_reportit_results_$report_id SET id = $local_data_id, $list");
 	}
 
 	//----- Close socket connection if its open -----
@@ -818,7 +820,7 @@ function runtime($report_id) {
 	//----- Save/update report data -----
 	$now = date("Y-m-d H:i:s");
 
-	$sql = "UPDATE reportit_reports
+	$sql = "UPDATE plugin_reportit_reports
 		SET last_run	= '$now',
 		runtime 		= '$runtime',
 		start_date 		= '$s_date',
@@ -874,7 +876,7 @@ function autorrdlist($reportid) {
 	global $timezone, $shifttime, $shifttime2, $weekday;
 
 	// fetch data for current report
-	$report_data		= db_fetch_row('SELECT * FROM reportit_reports WHERE id=' . $reportid);
+	$report_data		= db_fetch_row('SELECT * FROM plugin_reportit_reports WHERE id=' . $reportid);
 	$header_label 		= $report_data['description']  . ' ID: ' . $reportid;
 
 	// if Host Template Id filter was set, show the Host Template Description in the header
@@ -887,15 +889,15 @@ function autorrdlist($reportid) {
 	}
 
 	// how many rows are already there?
-	$current_rows = db_fetch_cell("SELECT COUNT(*) FROM reportit_data_items WHERE report_id = $reportid");
+	$current_rows = db_fetch_cell("SELECT COUNT(*) FROM plugin_reportit_data_items WHERE report_id = $reportid");
 
 	//Get the filter setting by template
 	$sql = "SELECT
 		b.pre_filter, b.data_template_id
 	    FROM
-		reportit_reports AS a
+		plugin_reportit_reports AS a
 	    JOIN
-	    	reportit_templates AS b
+	    	plugin_reportit_templates AS b
 	    ON
 	    	a.template_id = b.id
 	    WHERE
@@ -909,7 +911,7 @@ function autorrdlist($reportid) {
 	    FROM
 	    	data_template_data AS a
 	    LEFT JOIN
-	       (SELECT * FROM reportit_data_items WHERE report_id = $reportid) as b
+	       (SELECT * FROM plugin_reportit_data_items WHERE report_id = $reportid) as b
 	    ON
 	    	a.local_data_id = b.id";
 
@@ -979,7 +981,7 @@ function autorrdlist($reportid) {
 		$rrd 		= '';
 
 		/* load data item presets */
-		$sql = "SELECT * FROM reportit_presets WHERE id = $reportid";
+		$sql = "SELECT * FROM plugin_reportit_presets WHERE id = $reportid";
 		$presets = db_fetch_row($sql);
 
 		if(sizeof($presets)>0) {
@@ -1004,7 +1006,7 @@ function autorrdlist($reportid) {
 		$columns = substr($columns, 1);
 
 		/* save */
-		$sql = "INSERT INTO reportit_data_items ($columns) VALUES $rrd";
+		$sql = "INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd";
 		db_execute($sql);
 
 		// Reset report
@@ -1022,7 +1024,7 @@ function autorrdlist($reportid) {
  */
 function autocleanup($report_id){
 
-    $sql = "SELECT a.id FROM reportit_data_items AS a
+    $sql = "SELECT a.id FROM plugin_reportit_data_items AS a
             LEFT JOIN data_template_data AS b
             ON b.local_data_id = a.id
             WHERE a.report_id = $report_id
@@ -1031,9 +1033,9 @@ function autocleanup($report_id){
     $data_items = db_custom_fetch_flat_string($sql);
 
     if($data_items) {
-        $sql = "DELETE FROM `reportit_data_items`
-                WHERE `reportit_data_items`.`report_id` = $report_id
-                AND `reportit_data_items`.`id` in ($data_items)";
+        $sql = "DELETE FROM `plugin_reportit_data_items`
+                WHERE `plugin_reportit_data_items`.`report_id` = $report_id
+                AND `plugin_reportit_data_items`.`id` in ($data_items)";
         db_execute($sql);
     }
 }
@@ -1043,7 +1045,7 @@ function autocleanup($report_id){
 function autoexport($report_id){
 
     /* load report settings */
-    $report_settings = db_fetch_row("SELECT * FROM reportit_reports WHERE id = $report_id");
+    $report_settings = db_fetch_row("SELECT * FROM plugin_reportit_reports WHERE id = $report_id");
 
     /* main export folder */
     $main_folder = read_config_option('reportit_exp_folder');
@@ -1055,8 +1057,8 @@ function autoexport($report_id){
 
     /* export folder per template definition */
     $template_folder = db_fetch_cell("SELECT b.export_folder
-                                        FROM reportit_reports AS a
-                                        INNER JOIN reportit_templates as b
+                                        FROM plugin_reportit_reports AS a
+                                        INNER JOIN plugin_reportit_templates as b
                                         ON a.template_id = b.id
                                         WHERE a.id = $report_id");
 

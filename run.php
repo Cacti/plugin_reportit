@@ -25,14 +25,14 @@
 chdir('../../');
 
 include_once('./include/auth.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/const_measurands.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_calculate.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib_int/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
 include_once(REPORTIT_BASE_PATH . '/runtime.php');
 
 //Set default action
@@ -40,13 +40,13 @@ set_default_action();
 
 //Redirection
 if (isset($_SESSION['run']) && ($_SESSION['run'] == '0')) {
-	header('Location: cc_reports.php');
+	header('Location: reports.php');
 	exit;
 }
 
 switch (get_request_var('action')) {
 	case 'calculation':
-		top_header();
+		#top_header();
 		calculation();
 		bottom_footer();
 		break;
@@ -65,7 +65,7 @@ function calculation() {
 	$_SESSION['run'] = '0';
 
 	if (stat_process($id)) {
-		html_error_box(__('Report is just in process.'), 'cc_run.php', '', 'cc_reports.php');
+		html_error_box(__('Report is just in process.'), 'run.php', '', 'reports.php');
 		exit;
 	}
 
@@ -74,7 +74,7 @@ function calculation() {
 
 	/* load report informations */
 	$report_informations = db_fetch_row_prepared('SELECT a.description, a.last_run, a.runtime
-		FROM reportit_reports AS a
+		FROM plugin_reportit_reports AS a
 		WHERE a.id = ?', array($id));
 
 	foreach($result as $notice) {
@@ -88,26 +88,31 @@ function calculation() {
 	}
 
 	if (!isset($result['runtime'])) {
-		html_custom_header_box($report_informations['description'], __('Report calculation failed'), 'cc_rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
+		#html_custom_header_box($report_informations['description'], __('Report calculation failed'), 'rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
+		html_custom_header_box($report_informations['description'], '100%', '', '2', 'center','rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
 		html_end_box(false);
 	}else {
 		$runtime = $result['runtime'];
-		html_custom_header_box($report_informations['description'], __('Report statistics'), 'cc_reports.php', __('Report configurations'));
+		#html_custom_header_box($report_informations['description'], __('Report statistics'), 'reports.php', __('Report configurations'));
+		html_custom_header_box($report_informations['description'], '100%', '', '2', 'center','reports.php', __('Report configurations'));
 		html_end_box(false);
 
-		form_start('cc_view.php?action=show_report&id=' . get_request_var('id'));
+		form_start('view.php?action=show_report&id=' . get_request_var('id'));
 
-		html_graph_start_box();
+		#html_graph_start_box();
+		html_start_box("test", '100%', '', '2', 'center', '');
 		?>
 		<tr>
 			<td><b> Runtime:&nbsp; <font color='0000FF'> <?php print $runtime; ?>s</font> </b></td>
 		</tr>
 		<?php
-		html_graph_end_box();
+		#html_graph_end_box();
+		html_end_box();
 	}
 
 	if ($number_of_errors > 0) {
-		html_graph_start_box();
+		#html_graph_start_box();
+		print "<table width='100%' style='background-color: #f5f5f5; border: 1px solid #bbbbbb;' align='center' cellpadding='$cellpadding'>\n";
 
 		?>
 		<tr>
@@ -119,16 +124,17 @@ function calculation() {
 			?></ul></font></b></td>
 		</tr>
 		<?php
-
-		html_graph_end_box();
+		print "</table>";
+		#html_graph_end_box();
 	}
 
 	if ($number_of_warnings > 0) {
-		html_graph_start_box();
+		#html_graph_start_box();
+		print "<table width='100%' style='background-color: #f5f5f5; border: 1px solid #bbbbbb;' align='center' cellpadding='$cellpadding'>\n";
 
 		?>
 		<tr>
-			<td style='vertical-align:top;'><b><?php print__('Number of warnings <font class="deviceDown"> (%s)</font>', $number_of_warnings);?></b></td>
+			<td style='vertical-align:top;'><b><?php print __('Number of warnings <font class="deviceDown"> (%s)</font>', $number_of_warnings);?></b></td>
 			<td class='left'><b><ul><?php
 			foreach($result as $warning) {
 				if (substr_count($warning, 'WARNING')) {
@@ -139,7 +145,8 @@ function calculation() {
 		</tr>
 		<?php
 
-		html_graph_end_box();
+		#html_graph_end_box();
+		print "</table>";
 	}
 
 	if ($number_of_errors == 0) {
@@ -150,11 +157,12 @@ function calculation() {
 					<img type='image' src='../../images/arrow.gif'>
 				</td>
 				<td class='right'>
-					<input type='button' value='<?php print __('View Report');?>'>
+					<input type='submit' value='<?php print __('View Report');?>'>
 				</td>
 			</tr>
-		</form>
+		
 		<?php
+		form_end();
 	}
 }
 
