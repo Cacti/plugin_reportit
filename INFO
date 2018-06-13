@@ -1,6 +1,6 @@
 [info]
 name = reportit
-version = 1.0
+version = 1.0.1
 longname = Reporting tool for Cacti
 author = The Cacti Group
 email = 

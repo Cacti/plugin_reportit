@@ -83,8 +83,10 @@ At first it's recommend to discuss your feature request with the Cacti community
 ## Future Changes
 
 ## Changelog
+--- 1.0.1 ---
+* issue#2: Suppress display of 'Constant MAX_DISPLAY_PAGES is already defined'
 
---- 1.0 ---
+--- 1.0.0 ---
 * feature: Support for Cacti 1.x
 
 --- 0.7.5 ---
