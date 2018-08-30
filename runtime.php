@@ -38,6 +38,7 @@ $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
 
+
 //----- Running on CLI? -----
 if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) {
 
@@ -45,9 +46,8 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
     chdir($path);
     chdir('../../');
 
-    /* Try to support 0.8.7 and lower versions as well*/
-    if(is_file('./include/global.php')) include_once('./include/global.php');
-    else include_once('./include/config.php');
+	$no_http_headers = true;
+	include('./include/global.php');
 
     include_once(REPORTIT_BASE_PATH . '/setup.php');
     include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
@@ -101,14 +101,14 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 
 
 function help() {
-    $version = reportit_version('version');
+    $info = plugin_reportit_version();
 
     print "\n---------------------------------------------------------------------------------------------------\n";
-    print " Copyright 2006-2017 - The Cacti Group\n";
-    print " Project:         Cacti-ReportIT\n";
-    print " Project site:    http://sourceforge.net/projects/cacti-reportit/\n";
-    print " Version:         v$version\n";
-    print " Authors:         Andreas Braun, Reinhard Scheck\n";
+    print " Copyright (C) 2004-2018 The Cacti Group\n";
+    print " Project:         ReportIt\n";
+    print " Project site:    {$info['homepage']}\n";
+    print " Version:         v{$info['version']}\n";
+    print " Authors:         {$info['author']}\n";
     print "---------------------------------------------------------------------------------------------------\n\n";
     print " Usage: runtime.php [OPTIONS] <Report Config ID>\n";
     print "  e.g.: runtime.php 12                            run report 12 only\n";
@@ -286,7 +286,7 @@ function disc_rrdtool_server() {
 
 function runtime($report_id) {
 	global	$timezones, $run_scheduled, $run_return, $consolidation_functions,
-	$rrdtool_api, $socket_handle, $calc_fct_names, $calc_fct_names_params, $error, $email_counter, $export_counter;
+	$rrdtool_api, $socket_handle, $calc_fct_names, $calc_fct_names_params, $calc_fct_aliases, $error, $email_counter, $export_counter;
 
 	//This report is in_process, so flag it!
 	in_process($report_id);
@@ -405,6 +405,7 @@ function runtime($report_id) {
     foreach($rra_types as $rra_type) {
         foreach($calc_fct_names as $value) $df_cache[$rra_type][$value] = FALSE;
         foreach($calc_fct_names_params as $value) $dp_cache[$rra_type][$value] = FALSE;
+        foreach($calc_fct_aliases as $value) $dp_cache[$rra_type][$value] = FALSE;
     }
     debug($df_cache, "Defined Cache -> Functions");
     debug($dp_cache, "Defined Cache -> Functions with Parameters");
@@ -686,13 +687,12 @@ function runtime($report_id) {
         // add data query variables as new $variables[]
         $data_query_variables = get_possible_data_query_variables($report_definitions['report']['template_id']);  # better put this into get_report_definitions???
         if (sizeof($data_query_variables)){
+			// get all data for given local data id first
+			$sql = "SELECT `data_local`.* " .
+					"FROM `data_local` " .
+					"WHERE `data_local`.`id`=$local_data_id";
+			$data_local = db_fetch_row($sql);
         	foreach($data_query_variables as $dq_variable) {
-        		// get all data for given local data id first
-        		$sql = "SELECT `data_local`.* " .
-        				"FROM `data_local` " .
-        				"WHERE `data_local`.`id`=$local_data_id";
-        		$data_local = db_fetch_row($sql);
-
         		if (isset($data_local['id'])) {
         			// now fetch the cached data for given query variable
         			$sql = "SELECT `host_snmp_cache`.`field_value` " .
@@ -703,7 +703,10 @@ function runtime($report_id) {
         					" AND `snmp_index`=" . $data_local['snmp_index'] .
         					" AND `present` > 0";
         			// and update the value for the given data query cache variable
-        			$variables[$dq_variable] = db_fetch_cell($sql);
+        			$dq_variable_value = db_fetch_cell($sql);
+        			$variables[$dq_variable] = ($dq_variable_value === false) ? REPORTIT_NAN : $dq_variable_value;
+        		}else {
+        			$variables[$dq_variable] = REPORTIT_NAN;
         		}
         	}
         }
@@ -988,7 +991,7 @@ function autorrdlist($reportid) {
 			$presets['report_id'] = $reportid;
 			foreach($presets as $key => $value) {
 				$columns .= ', ' .$key;
-				if($key != 'id') $values .= (",\"" . mysql_real_escape_string($value) . "\"");
+				if($key != 'id') $values .= (",\"" . $value . "\"");
 			}
 		}else {
 			$columns = ' id, report_id';

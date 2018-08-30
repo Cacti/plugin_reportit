@@ -58,11 +58,11 @@ function html_custom_header_box($title, $width, $div, $cell_padding, $align, $ad
 // 	</tr>';
 
 	static $table_suffix = 1;
-	
+
 	if ($add_label === false) {
 		$add_label = __('Add');
 	}
-	
+
 	$table_prefix = basename(get_current_page(), '.php');;
 	if (!isempty_request_var('report')) {
 		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('report'));
@@ -72,14 +72,14 @@ function html_custom_header_box($title, $width, $div, $cell_padding, $align, $ad
 		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('action'));
 	}
 	$table_id = $table_prefix . $table_suffix;
-	
+
 	if ($title != '') {
 		print "<div id='$table_id' class='cactiTable' style='width:$width;text-align:$align;'>";
 		print "<div>";
 		print "<div class='cactiTableTitle'><span>" . ($title != '' ? $title:'') . '</span></div>';
 		print "<div style='background: rgba(0,0,0,0.9);text-align: right;padding: 3px 0px;border-bottom: 1px solid rgba(0,0,0,0.5);font-weight: 700;font-size: 1em;'  class='' ><span>" . ($add_text != '' ? "<a href='" . html_escape($add_text) . "'>" . "<img src='./images/bar.gif' title='Graph View'>" . '</a>':'') . '</span></div>';
 		print '</div>';
-	
+
 		if ($div === true) {
 			print "<div id='$table_id" . "_child' class='cactiTable'>";
 		} else {
@@ -87,17 +87,17 @@ function html_custom_header_box($title, $width, $div, $cell_padding, $align, $ad
 		}
 	} else {
 		print "<div id='$table_id' class='cactiTable' style='width:$width;text-align:$align;'>";
-	
+
 		if ($div === true) {
 			print "<div id='$table_id" . "_child' class='cactiTable'>";
 		} else {
 			print "<table id='$table_id" . "_child' class='cactiTable' style='padding:" . $cell_padding . "px;'>";
 		}
 	}
-	
+
 	$table_suffix++;
-	
-	
+
+
 }
 
 function html_error_box($message, $site, $jump, $link){
@@ -315,12 +315,12 @@ function html_template_ds_alias($template_id, $data_template_id) {
 	if (sizeof($data_source_items)) {
 		foreach ($data_source_items as $data_source_item) {
 			$item = array(
-				'friendly_name' => __('Data Source Item </font>[<i>%s</i>]<font class="textEditTitle">', $data_source_item['data_source_name']),
+				'friendly_name' => __('Enable [%s]', $data_source_item['data_source_name']),
 				'description' => __('Activate data source item \'%s\' for the calculation process.', $data_source_item['data_source_name']),
 				'method' => 'checkbox',
 				'default' => 'on',
 				'value' => ($data_source_item['enabled'] == true) ? 'on' : 'off'
-            );
+			);
 
 			$form_array_alias['ds_enabled__' . $data_source_item['id']] = $item;
 
@@ -331,11 +331,11 @@ function html_template_ds_alias($template_id, $data_template_id) {
 				'max_length' => '25',
 				'default' => '',
 				'value' => ( $data_source_item['data_source_alias'] !== NULL ) ? stripslashes($data_source_item['data_source_alias']) : '',
-            );
+			);
 
-            $form_array_alias['ds_alias__' . $data_source_item['id']] = $var;
-        }
-    }
+			$form_array_alias['ds_alias__' . $data_source_item['id']] = $var;
+		}
+	}
 
 	/* add the alias for the group of separate measurands */
 	$separate_group_alias = db_fetch_cell_prepared('SELECT data_source_alias
@@ -345,7 +345,7 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		array($template_id));
 
 	$var = array(
-		'friendly_name' => __('Separate Group Title </font>[<i>overall</i>]<font class="textEditTitle">'),
+		'friendly_name' => __('Separate Group Title [overall]'),
 		'description' => __('Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports.'),
 		'method' => 'textbox',
 		'max_length' => '25',

@@ -35,19 +35,19 @@ function plugin_reportit_install() {
 }
 
 function plugin_reportit_uninstall() {
- 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_measurands');
- 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_reports');
- 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_variables');
- 	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_items');
- 	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_source_items');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_measurands');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_presets');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_recipients');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_reports');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_rvars');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_templates');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_variables');
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_data_template_groups');
+ 	#db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_measurands');
+ 	#db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_reports');
+ 	#db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_variables');
+ 	#db_execute('DROP TABLE IF EXISTS plugin_reportit_data_items');
+ 	#db_execute('DROP TABLE IF EXISTS plugin_reportit_data_source_items');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_measurands');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_presets');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_recipients');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_reports');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_rvars');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_templates');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_variables');
+	#db_execute('DROP TABLE IF EXISTS plugin_reportit_data_template_groups');
 
 	return true;
 }
@@ -81,12 +81,12 @@ function reportit_check_upgrade() {
 	$tables  = db_fetch_assoc("SHOW TABLE STATUS WHERE `Name` LIKE 'reportit%'");
 
 	if (sizeof($old) && $current == $old['version']){
-		/* ReportIT is up to date */
+		/* ReportIt is up to date */
 		return true;
 	}elseif (sizeof($old) && $current != $old['version']) {
 		if ($old['status'] == 1 || $old['status'] == 4) {
 			/* re-register hooks */
-			plugin_reportit_install();
+			//plugin_reportit_install();
 
 			/* perform data base upgrade */
 			require_once($config['base_path'] . '/plugins/reportit/system/upgrade.php');
@@ -349,7 +349,7 @@ function reportit_draw_navigation_text ($nav) {
 function reportit_config_arrays() {
 	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
 
-	/* register all realms of ReportIT */
+	/* register all realms of ReportIt */
 	api_plugin_register_realm('reportit', 'view.php,charts.php', __('View Reports'), 1);
 	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', __('Create Reports'), 1);
 	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', __('Administrate Reports'), 1);
@@ -414,7 +414,7 @@ function reportit_config_settings() {
 	$font  = REPORTIT_BASE_PATH . '/lib_ext/fonts/DejaVuSansMono.ttf';
 	$tfont = REPORTIT_BASE_PATH . '/lib_ext/fonts/DejaVuSansMono-Bold.ttf';
 
-	/* setup ReportIT's global configuration area */
+	/* setup ReportIt's global configuration area */
 	$tabs['reports'] = __('Reports');
 
 	$temp =  array(
@@ -575,14 +575,14 @@ function reportit_config_settings() {
 		),
 		'reportit_g_mheight'        => array(
 			'friendly_name'         => __('Maximum Graph Height'),
-			'description'           => __('The maximum height of ReportIT graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set \'memory_limit\' high enough.'),
+			'description'           => __('The maximum height of ReportIt graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set \'memory_limit\' high enough.'),
 			'method'                => 'textbox',
 			'max_length'            => '4',
 			'default'               => '320',
 		),
 		'reportit_g_mwidth'         => array(
 			'friendly_name'         => __('Maximum Graph Width'),
-			'description'           => __('The maximum width of ReportIT graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set \'memory_limit\' high enough.'),
+			'description'           => __('The maximum width of ReportIt graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set \'memory_limit\' high enough.'),
 			'method'                => 'textbox',
 			'max_length'            => '4',
 			'default'               => '480',
@@ -624,7 +624,7 @@ function reportit_config_settings() {
     }
 
 	//Extension of graph settings
-	$tabs_graphs['reportit'] = __('ReportIT General Settings');
+	$tabs_graphs['reportit'] = __('ReportIt General Settings');
 	$temp =  array(
 		'reportit_view_filter'      => array(
 			'friendly_name'         => __('Separate Report View Filter'),
@@ -640,7 +640,7 @@ function reportit_config_settings() {
 			'default'               => '25',
 		),
 		'reportit_csv_header'       => array(
-			'friendly_name'         => __('ReportIT Export Settings'),
+			'friendly_name'         => __('ReportIt Export Settings'),
 			'method'                => 'spacer',
 			'collapsible'           => 'true'
 		),
@@ -659,7 +659,7 @@ function reportit_config_settings() {
 			'default'               => '1',
 		),
 		'reportit_graph_header'     => array(
-			'friendly_name'         => __('ReportIT Graph Settings'),
+			'friendly_name'         => __('ReportIt Graph Settings'),
 			'method'                => 'spacer',
 			'collapsible'           => 'true'
 		),
@@ -672,21 +672,21 @@ function reportit_config_settings() {
 		),
 		'reportit_g_height'         => array(
 			'friendly_name'         => __('Graph Height'),
-			'description'           => __('The height of ReportIT graphs in pixel.'),
+			'description'           => __('The height of ReportIt graphs in pixel.'),
 			'method'                => 'textbox',
 			'max_length'            => '4',
 			'default'               => '320',
 		),
 		'reportit_g_width'          => array(
 			'friendly_name'         => __('Graph Width'),
-			'description'           => __('The width of ReportIT graphs in pixel.'),
+			'description'           => __('The width of ReportIt graphs in pixel.'),
 			'method'                => 'textbox',
 			'max_length'            => '4',
 			'default'               => '480',
 		),
 		'reportit_g_showgrid'       => array(
 			'friendly_name'         => __('Show Graph Grid'),
-			'description'           => __('Enable/disable Graph Grid for ReportIT Graphs.'),
+			'description'           => __('Enable/disable Graph Grid for ReportIt Graphs.'),
 			'method'                => 'checkbox',
 			'default'               => 'off',
 		),
@@ -699,7 +699,7 @@ function reportit_config_settings() {
 	}
 
 	unset($temp);
-	
+
 	foreach ($settings['reportit'] as $key => $value ){
 		if( array_key_exists('default', $value) ){
 			set_config_option($key,$value['default']);
@@ -711,7 +711,7 @@ function reportit_show_tab() {
     global $config;
 
 	if (api_user_realm_auth('view.php')) {
-		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIT') . '"></a>';
+		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIt') . '"></a>';
 	}
 }
 
@@ -725,13 +725,15 @@ function reportit_define_constants(){
     global $config;
 
     /* realm IDs which have been defined dynamically by PIA 2.x */
-    $ids = db_fetch_assoc("SELECT id FROM plugin_realms WHERE plugin='reportit' ORDER BY id ASC");
+    $view 			= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%view.php%'");
+    $create 		= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%reports.php%'");
+	$administrate 	= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%templates.php%'");
 
-    @define('REPORTIT_USER_ADMIN', 100 + $ids[0]['id']);
-    @define('REPORTIT_USER_OWNER', 100 + $ids[1]['id']);
-    @define('REPORTIT_USER_VIEWER', 100 + $ids[2]['id']);
+    @define('REPORTIT_USER_VIEWER', 100+$view);
+    @define('REPORTIT_USER_OWNER', 100+$create);
+    @define('REPORTIT_USER_ADMIN', 100+$administrate);
 
-    /* define ReportIT's base paths */
+    /* define ReportIt's base paths */
     @define('REPORTIT_BASE_PATH', $config['base_path'] . '/plugins/reportit');
 
     /* with regard to Cacti 0.8.8 it becomes necessarily to replace the old path settings */

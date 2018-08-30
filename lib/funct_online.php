@@ -51,7 +51,7 @@ function my_report($report_id, $public = FALSE){
 
 		if ($user_id !== $user['user_id']) {
 			if (re_admin()) return;
-			if ($public && $user['public'] == 1) return;
+			if ($public && $user['public'] == 'on') return;
 			die_html_custom_error('Permission denied');
 		}
 	}
@@ -146,7 +146,7 @@ function session_custom_error_display() {
 }
 
 function is_error_message_field($field) {
-	
+
 	if (isset($_SESSION['sess_error_fields'][$field])) {
 		return true;
 	} else {

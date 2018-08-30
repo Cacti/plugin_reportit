@@ -72,8 +72,8 @@ function export_to_CSV(&$data) {
 	/* form the export header */
 	$header = read_config_option('reportit_exp_header');
 	$header = str_replace("<cacti_version>", "$eol# Cacti: " . $config['cacti_version'], $header);
-	
-	$header = str_replace("<reportit_version>", " ReportIT: " . $info['version'] , $header);
+
+	$header = str_replace("<reportit_version>", " ReportIt: " . $info['version'] , $header);
 
 	/* compose additional informations */
 	$report_settings = array(
@@ -253,7 +253,7 @@ function export_to_XML(&$data) {
 	$header = read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', "\r\nCacti: " . $config['cacti_version'], $header);
 	$info = plugin_reportit_version();
-	$header = str_replace('<reportit_version>', ' ReportIT: ' . $info['version'], $header);
+	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'], $header);
 
 	/* compose additional informations */
 	$report_settings = array(
@@ -440,7 +440,7 @@ function new_worksheet(&$data, &$styles){
 	$info = $info = plugin_reportit_version();
 	$header = read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', ' Cacti: ' . $config['cacti_version'], $header);
-	$header = str_replace('<reportit_version>', ' ReportIT: ' . $info['version'], $header);
+	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'], $header);
 
 	/* compose additional informations */
 	$report_settings = array(

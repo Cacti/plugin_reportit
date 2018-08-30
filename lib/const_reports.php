@@ -26,29 +26,15 @@
 //----- CONSTANTS FOR: reports.php -----
 
 $report_actions = array(
-	1 => __('Run Report'),
-	2 => __('Delete'),
-	3 => __('Duplicate')
+	1 => __('Run', 'reportit'),
+	2 => __('Delete', 'reportit'),
+	3 => __('Duplicate', 'reportit')
 );
 
-$link_array = array(
-	'description',
-	'template_description',
-	'',
-	'',
-	'public',
-	'ds_cnt'
-);
-
-$link_array_admin = array(
-	'description',
-	'username',
-	'template_description',
-	'',
-	'',
-	'public',
-	'scheduled',
-	'ds_cnt'
+$report_states = array(
+	'-1' => __('failed', 'reportit'),
+	'0'  => __('idle', 'reportit'),
+	'1'  => __('running', 'reportit')
 );
 
 //$templates		- array, for dropdown menu

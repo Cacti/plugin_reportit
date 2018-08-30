@@ -34,7 +34,7 @@ function last_error($errno, $errstr) {
 }
 
 function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names, $calc_data_query_variables) {
-	global $calc_fct_names, $calc_fct_names_params;
+	global $calc_fct_names, $calc_fct_names_params, $calc_fct_aliases;
 
 	//Valid signs:
 	$valids['intersizes']['S']   = $calc_intersizes;
@@ -43,6 +43,8 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	$valids['functions']['R']    = 'E';
 	$valids['fct_nwp']['S']      = $calc_fct_names_params;
 	$valids['fct_nwp']['R']      = 'P';
+	$valids['fct_awp']['S']      = $calc_fct_aliases;
+	$valids['fct_awp']['R']      = 'P';
 
 	$valids['variables']['S']    = $calc_var_names;
 	$valids['variables']['R']    = 'E';
@@ -57,8 +59,8 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	$valids['numbers']['S']      = array('1','2','3','4','5','6','7','8','9','0');
 	$valids['numbers']['R']      = 'N';
 
-    //Invalid combinations of signs:
-    $invalids = array(
+	//Invalid combinations of signs:
+	$invalids = array(
 		'++', '+*', '+/', '--', '-*', '-/', '**', '*/', '/*', '//',
 		'NE', 'EN',
 		'LR', 'L*', 'L/', '.L', 'EL', 'NL',
@@ -72,11 +74,11 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	);
 
 	//Invalid divisions:
-    $invaldiv = array('/0');
+	$invaldiv = array('/0');
 
 	//Search for invalid signs or function calls:
 	$debug = '';
-	$debug = str_replace(' ', '', $calc_formula);
+	$debug = str_replace(array(' ',"\r\n","\n"), '', $calc_formula);
 
 	foreach($valids as $array) {
 		$debug = str_replace($array['S'], '', $debug);

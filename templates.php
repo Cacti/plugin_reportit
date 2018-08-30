@@ -513,23 +513,27 @@ function standard() {
 
 	$total_rows = db_fetch_cell('SELECT COUNT(plugin_reportit_templates.id) FROM plugin_reportit_templates ' . $sql_where);
 
-	$template_list = db_fetch_assoc("SELECT a.*, b.measurands, c.variables
+	$template_list = db_fetch_assoc("SELECT a.*, b.measurands, c.variables, d.reports
 		FROM plugin_reportit_templates AS a
 		LEFT JOIN (SELECT template_id, COUNT(*) AS measurands FROM `plugin_reportit_measurands` GROUP BY template_id) AS b
 		ON a.id = b.template_id
 		LEFT JOIN (SELECT template_id, COUNT(*) AS variables FROM `plugin_reportit_variables` GROUP BY template_id) AS c
 		ON a.id = c.template_id
+		LEFT JOIN (SELECT template_id, COUNT(*) AS reports FROM `plugin_reportit_reports` GROUP BY template_id) AS d
+		ON a.id = d.template_id
 		$sql_where
 		$sql_order
 		$sql_limit");
 
 	$display_text = array(
-		'description' => array('display' => __('Name', 'reportit'),             'align' => 'left', 'sort' => 'ASC'),
+		'id'          => array('display' => __('Id', 'reportit'),               'align' => 'left', 'sort' => 'ASC', 'tip' => __('The internal identifier of this Report Template.', 'reportit')),
+		'description' => array('display' => __('Name', 'reportit'),             'align' => 'left', 'sort' => 'ASC', 'tip' => __('The name of this Report Template.', 'reportit')),
 		'nosort'      => array('display' => __('Data Template', 'reportit'),    'align' => 'left'),
 		'enabled'     => array('display' => __('Published', 'reporit'),         'align' => 'left'),
 		'nosort2'     => array('display' => __('Locked', 'reportit'),           'align' => 'left'),
 		'nosort3'     => array('display' => __('Measurands', 'reportit'),       'align' => 'left', 'sort' => 'ASC'),
 		'nosort4'     => array('display' => __('Variables', 'reportit'),        'align' => 'left', 'sort' => 'ASC'),
+		'reports'     => array('display' => __('Reports', 'reportit'),          'align' => 'left', 'sort' => 'ASC', 'tip' => __('The total number of reports using this report template.', 'reportit')),
 	);
 
 	$nav = html_nav_bar('templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Templates', 'reportit'), 'page', 'main');
@@ -546,6 +550,7 @@ function standard() {
 	if (sizeof($template_list)) {
 		foreach($template_list as $template) {
 			form_alternate_row('line' . $template['id'], true);
+			form_selectable_cell($template['id'], $template['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('templates.php?action=template_edit&id=' . $template['id']) . '">' . $template['description']  . '</a>', $template['id'], 'left');
 
 			if (isset($list_of_data_templates[$template['data_template_id']])) {
@@ -568,7 +573,7 @@ function standard() {
 			} else {
 				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('variables.php?action=variable_edit&template_id=' . $template['id']) . '"><i class="fa fa-plus" aria-hidden="true"></i></a>', $template['id']);
 			}
-
+			form_selectable_cell( $template['reports'] ? $template['reports'] : '-', $template['id']);
 			form_checkbox_cell($template['description'], $template['id']);
 			form_end_row();
 		}
@@ -599,17 +604,17 @@ function form_save() {
 	form_input_validate(get_request_var('template_description'), 'template_description', '', false, 3);
 	form_input_validate(get_request_var('template_filter'), 'template_filter', '', true, 3);
 	#form_input_validate(get_request_var('data_template_id'));
-	/* ==================================================== */ 
+	/* ==================================================== */
 
 	$template_data = array();
-	$template_data['id']               = get_request_var('id');   
+	$template_data['id']               = get_request_var('id');
 	$template_data['description']      = get_request_var('template_description');
 	$template_data['pre_filter']       = get_request_var('template_filter');
 	$template_data['data_template_id'] = get_request_var('data_template_id');
 	$template_data['enabled']          = isset_request_var('template_enabled') ? 'on' : '';
 	$template_data['locked']           = isset_request_var('template_locked') ? 'on' : '';
 	$template_data['export_folder']    = isset_request_var('template_export_folder') ? get_request_var('template_export_folder') : '';
-	
+
 
 	$sql = "SELECT id, data_source_name
 		FROM data_template_rrd
@@ -671,10 +676,10 @@ function form_save() {
 			raise_message('reportit_templates__3');
 		}
 	}
-	
+
 	if (!is_error_message()) {
 		/* save template data */
-		
+
 		$template_data['id'] = sql_save($template_data, 'plugin_reportit_templates');
 
 		/* update template id for data source items if necessary */
@@ -704,7 +709,7 @@ function form_save() {
 			raise_message(2);
 		}
 	}
-	
+
 	header('Location: templates.php?header=false&action=template_edit&id=' . $template_data['id']);
 }
 

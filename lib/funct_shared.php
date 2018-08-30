@@ -195,7 +195,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 		'report_variables'  => $report_variables,
 		'report_ds_alias'   => $report_ds_alias
 	);
-	
+
 	return $data;
 }
 

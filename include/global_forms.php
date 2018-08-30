@@ -58,7 +58,6 @@ $fields_template_edit = array(
 		'method' => 'checkbox',
 		'description' => __('The status "locked" avoids any kind of modification to your report template as well as assigned measurands and variable definitions', 'reportit'),
 		'value' => '|arg1:locked|',
-		'default' => 'on'
 	),
 	'template_filter' => array(
 		'friendly_name' => __('Additional Pre-filter', 'reportit'),
@@ -70,7 +69,7 @@ $fields_template_edit = array(
 	),
 	'template_export_folder' => array(
 		'friendly_name' => __('Export Path', 'reportit'),
-		'description' => __('Optional: The path to an folder for saving the exports.  If it does not exist ReportIT automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id.', 'reportit'),
+		'description' => __('Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id.', 'reportit'),
 		'method' => 'dirpath',
 		'max_length' => '255',
 		'value' => '|arg1:export_folder|',

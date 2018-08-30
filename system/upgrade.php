@@ -33,7 +33,7 @@ function reportit_system_upgrade($old_version) {
 	if (sizeof($default_engine)) {
 		$engine = $default_engine['Value'];
 	} else {
-		$engine = 'MyISAM';
+		$engine = 'InnoDB';
 	}
 
 	if (version_compare($old_version, '0.7.4', '>=') && version_compare($old_version, '1.0.0', '<')) {
@@ -41,7 +41,7 @@ function reportit_system_upgrade($old_version) {
 		/* we do not support older version any longer - users having something below 0.7.4
 		 * should upgrade ReportIt to 0.7.4, 0.7.5 or 0.7.5a first.
 		 */
-		db_install_rename_table('reportit_reports', 'plugin_reportit_reports');
+		db_execute('RENAME TABLE `reportit_reports` TO `plugin_reportit_reports`');
 		db_execute("ALTER TABLE `plugin_reportit_reports`
 			MODIFY `public` varchar(2) NOT NULL DEFAULT '',
 			MODIFY `sliding` varchar(2) NOT NULL DEFAULT '',
@@ -70,7 +70,7 @@ function reportit_system_upgrade($old_version) {
 		db_execute("UPDATE plugin_reportit_reports SET `autoexport_no_formatting` = 'on' where `autoexport_no_formatting` = '1'");
 		db_execute("UPDATE plugin_reportit_reports SET `autoexport_no_formatting` = '' where `autoexport_no_formatting` = '0'");
 
-		db_install_rename_table('reportit_cache_reports', 'plugin_reportit_cache_reports');
+		db_execute('RENAME TABLE `reportit_cache_reports` TO `plugin_reportit_cache_reports`');
 		db_execute("ALTER TABLE `plugin_reportit_cache_reports`
 			MODIFY `public` varchar(2) NOT NULL DEFAULT '',
 			MODIFY `sliding` varchar(2) NOT NULL DEFAULT '',
@@ -99,7 +99,7 @@ function reportit_system_upgrade($old_version) {
 		db_execute("UPDATE plugin_reportit_cache_reports SET `autoexport_no_formatting` = 'on' where `autoexport_no_formatting` = '1'");
 		db_execute("UPDATE plugin_reportit_cache_reports SET `autoexport_no_formatting` = '' where `autoexport_no_formatting` = '0'");
 
-		db_install_rename_table('reportit_measurands', 'plugin_reportit_measurands');
+		db_execute('RENAME TABLE `reportit_measurands` TO `plugin_reportit_measurands`');
 		db_execute("ALTER TABLE `plugin_reportit_measurands`
 			MODIFY `visible` varchar(2) NOT NULL DEFAULT 'on',
 			MODIFY `spanned` varchar(2) NOT NULL DEFAULT default '',
@@ -110,7 +110,7 @@ function reportit_system_upgrade($old_version) {
 		db_execute("UPDATE plugin_reportit_measurands SET `spanned` = 'on' where `spanned` = '1'");
 		db_execute("UPDATE plugin_reportit_measurands SET `spanned` = '' where `spanned` = '0'");
 
-		db_install_rename_table('reportit_cache_measurands', 'plugin_reportit_cache_measurands');
+		db_execute('RENAME TABLE `reportit_cache_measurands` TO `plugin_reportit_cache_measurands`');
 		db_execute("ALTER TABLE `plugin_reportit_cache_measurands`
 			MODIFY `visible` varchar(2) NOT NULL DEFAULT 'on',
 			MODIFY `spanned` varchar(2) NOT NULL DEFAULT default '',
@@ -121,40 +121,56 @@ function reportit_system_upgrade($old_version) {
 		db_execute("UPDATE plugin_reportit_cache_measurands SET `spanned` = 'on' where `spanned` = '1'");
 		db_execute("UPDATE plugin_reportit_cache_measurands SET `spanned` = '' where `spanned` = '0'");
 
-		db_install_rename_table('reportit_variables', 'plugin_reportit_variables');
-		db_install_rename_table('reportit_cache_variables', 'plugin_reportit_cache_variables');
-		db_install_rename_table('reportit_rvars', 'plugin_reportit_rvars');
-		db_install_rename_table('reportit_data_items', 'plugin_reportit_data_items');
-		db_install_rename_table('reportit_data_source_items', 'plugin_reportit_data_source_items');
-		db_install_rename_table('reportit_presets', 'plugin_reportit_presets');
-		db_install_rename_table('reportit_recipients', 'plugin_reportit_recipients');
 
-		db_install_rename_table('reportit_templates', 'plugin_reportit_templates');
+		db_execute('RENAME TABLE `reportit_variables` TO `plugin_reportit_variables`');
+		db_execute('RENAME TABLE `reportit_cache_variables` TO `plugin_reportit_cache_variables`');
+		db_execute('RENAME TABLE `reportit_rvars` TO `plugin_reportit_rvars`');
+		db_execute('RENAME TABLE `reportit_data_items` TO `plugin_reportit_data_items`');
+		db_execute('RENAME TABLE `reportit_data_source_items` TO `plugin_reportit_data_source_items`');
+		db_execute('RENAME TABLE `reportit_presets` TO `plugin_reportit_presets`');
+		db_execute('RENAME TABLE `reportit_recipients` TO `plugin_reportit_recipients`');
+		db_execute('RENAME TABLE `reportit_templates` TO `plugin_reportit_templates`');
 		db_execute("ALTER TABLE `plugin_reportit_templates`
 			CHANGE `description` `name` varchar(255) NOT NULL DEFAULT '',
-			ADD `description` varchar(255) NOT NULL DEFAULT '' AFTER `name`,
+			ADD `user_id` int(11) NOT NULL DEFAULT '0' AFTER `name`,
+			ADD `modified_by` int(11) NOT NULL DEFAULT '0' AFTER `user_id`,
+			ADD `last_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `modified_by`,
+			ADD `description` varchar(255) NOT NULL DEFAULT '' AFTER `last_modified`,
 			MODIFY `locked` varchar(2) NOT NULL DEFAULT 'on',
-			ADD `enabled` varchar(2) NOT NULL DEFAULT '' AFTER `locked`
+			ADD `enabled` varchar(2) NOT NULL DEFAULT '' AFTER `locked`,
 		");
-		db_install_execute("CREATE TABLE IF NOT EXISTS `plugin_reportit_data_template_groups` (
+		db_execute("UPDATE plugin_reportit_templates SET `locked` = 'on' WHERE `locked` = '1'");
+		db_execute("UPDATE plugin_reportit_templates SET `locked` = '' WHERE `locked` = '0'");
+		db_execute("UPDATE plugin_reportit_templates SET `enabled` = 'on' WHERE `locked` != 'on'");
+
+		db_execute("CREATE TABLE IF NOT EXISTS `plugin_reportit_data_template_groups` (
 			`id` int(11) NOT NULL auto_increment,
 			`template_id` mediumint(8) NOT NULL DEFAULT '0',
 			`name` varchar(255) NOT NULL DEFAULT '',
 			`descriptions` varchar(255) NOT NULL DEFAULT '',
 			`generic_group_id` varchar(32) NOT NULL DEFAULT '',
+			`elements` varchar(510) NOT NULL DEFAULT '',
 			PRIMARY KEY (`id`),
-			KEY `group_id` (`group_id`,`type`))
+			KEY `template_id` (`template_id`)
+			)
 			ENGINE=$engine
 			COMMENT='Table that Contains Data Template Group Definitions';
 		");
+
 
 
 #TODO change columns type frequency in reportit reports from var to numeric.
 #TODO drop column "scheduled", "sliding", "present"
 #TODO report description become report name
 
+	}else if (version_compare($old_version, '1.0.1', '>=') && version_compare($old_version, '1.2.0', '<')) {
+		/* migrate existing result tables */
+		$result_tables = db_fetch_assoc("SHOW TABLES FROM `$database_default` LIKE 'reportit_result%'");
 
-
-
+		foreach($result_tables as $index => $arr) {
+			foreach($arr as $tbl) {
+				db_execute("RENAME TABLE `$tbl` TO `plugin_$tbl`");
+			}
+		}
 	}
 }

@@ -80,7 +80,7 @@ function standard() {
 	//Number of measurands
 	$number_of_measurands = count($measurands_list);
 	$header_label	= __("Measurands [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id=" . get_request_var('id') . "'>%s</a>] [%d]", $template_name, $number_of_measurands, 'reportit');
-	
+
 	form_start('measurands.php');
 	html_start_box($header_label, '100%', '', '2', 'center', 'measurands.php?action=measurand_edit&template_id=' . get_request_var('id'));
 
@@ -128,7 +128,7 @@ function standard() {
 	);
 
 	html_end_box(true);
-	
+
 	draw_actions_dropdown($measurand_actions, 'measurands.php');
 	form_end();
 }
@@ -142,7 +142,6 @@ function form_save() {
 	input_validate_input_key(get_request_var('measurand_type'), $type_specifier);
 	input_validate_input_key(get_request_var('measurand_precision'), $precision, true);
 	input_validate_input_key(get_request_var('measurand_rounding'), array(0,1,2), true);
-
 	form_input_validate(get_request_var('measurand_description'), 'measurand_description', '', false, 3);
 	form_input_validate(get_request_var('measurand_abbreviation'), 'measurand_abbreviation', '^[a-zA-Z0-9]+$', false, 3);
 	form_input_validate(get_request_var('measurand_unit'), 'measurand_unit', '^[\/\\\$a-zA-Z0-9%²³-]+$', false, 3);
@@ -232,8 +231,7 @@ function form_save() {
 	$measurand_data['cf']             = get_request_var('measurand_cf');
 	$measurand_data['data_type']      = get_request_var('measurand_type');
 	$measurand_data['data_precision'] = isset_request_var('measurand_precision') ? get_request_var('measurand_precision') : '';
-	
-	
+
 	if (is_error_message()) {
 		header('Location: measurands.php?header=false&action=measurand_edit&id=' . get_request_var('id') . '&template_id=' . get_request_var('template_id'));
 	} else {
@@ -271,8 +269,8 @@ function measurand_edit() {
 
 	$measurand_id		= (isset_request_var('id') ? get_request_var('id') : '0');
 	$template_id		= (isset_request_var('template_id') ? get_request_var('template_id') : $measurand_data['template_id']);
-	
-	
+
+
 	$form_array = array(
 		'id'				=> array(
 			'method'			=> 'hidden_zero',
@@ -321,9 +319,9 @@ function measurand_edit() {
 			'description'		=> __('Choose \'enable\' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation.', 'reportit'),
 			'method'			=> 'checkbox',
 			'value'				=> ((isset($measurand_data['visible']) && $measurand_data['visible'] == true) ? 'on' : ''),
-			'form_id'			=> (isset_request_var('id') ? get_request_var('id') : ''), 
+			'form_id'			=> (isset_request_var('id') ? get_request_var('id') : ''),
 			'default'			=> 'on',
-			
+
 		),
 		'measurand_spanned'	=> array(
 			'friendly_name'		=> __('Separate', 'reportit'),
@@ -332,7 +330,7 @@ function measurand_edit() {
 			'value'				=> ((isset($measurand_data['spanned']) && $measurand_data['spanned'] == true) ? 'on' : ''),
 			'form_id'			=> (isset_request_var('id') ? get_request_var('id') : ''),
 			'default'			=> '',
-			
+
 		),
 		'measurand_header2'	=> array(
 			'friendly_name'		=> __('Formatting', 'reportit'),
@@ -369,7 +367,7 @@ function measurand_edit() {
 			'friendly_name'		=> __('Calculation Formula', 'reportit'),
 			'description'		=> __('The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations.', 'reportit'),
 			'method' 			=> 'custom',
-			'value'				=> "<input type='text' id='measurand_formula' name='measurand_formula' size='40' maxlength='200'" . (isset($measurand_data['calc_formula']) ? "value='{$measurand_data['calc_formula']}'" : "" ) . '>'
+			'value'				=> "<textarea aria-multiline='true' cols='60' rows='5' id='measurand_formula' name='measurand_formula'>" . (isset($measurand_data['calc_formula']) ? $measurand_data['calc_formula'] : "" ) . '</textarea>'
 		),
 		'measurand_ops_and_opds'=> array(
 			'friendly_name'		=> __('Operators & Operands', 'reportit'),
@@ -410,7 +408,7 @@ function measurand_edit() {
 
 	form_start('measurands.php');
 	html_start_box($header_label, '100%', '', '2', 'center', '');
-	
+
 
 	draw_edit_form(
 		array(
@@ -498,11 +496,11 @@ function form_actions() {
 	}
 
 	top_header();
-	
+
 	form_start('measurands.php');
-	
+
 	html_start_box($measurand_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
-	
+
 
 	if (get_request_var('drp_action') == '2') { //DELETE REPORT
 		print "<tr class='odd'>
@@ -544,9 +542,9 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
-	
+
 	form_end();
-	
+
 	bottom_footer();
 }
 

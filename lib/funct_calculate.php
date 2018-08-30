@@ -100,6 +100,81 @@ function f_grd(&$array, &$f_cache) {
 	return $f_cache['f_grd'];
 }
 
+//returns the median
+function f_median(&$array, &$f_cache) {
+	if($f_cache['f_median'] === FALSE) {
+		if(empty($array)) {
+			$f_cache['f_median'] = REPORTIT_NAN;
+		}else {
+			$cnt = f_num($array, $f_cache);
+			$values = $array;
+			sort($values);
+			if($cnt % 2 == 1) {
+				$index = (($cnt + 1) / 2 ) - 1;
+				$f_cache['f_median'] = $values[$index];
+			}else {
+				$index = (($cnt) / 2 ) -1;
+				$f_cache['f_median'] = 0.5*($values[$index]+$values[$index+1]);
+			}
+		}
+	}
+	return $f_cache['f_median'];
+}
+
+//returns the distance between the highest and lowest measured value
+function f_range(&$array, &$f_cache) {
+	if($f_cache['f_range'] === FALSE) {
+		$f_cache['f_range'] = empty($array) ? REPORTIT_NAN : f_max($array, $f_cache)-f_min($array, $f_cache);
+	}
+	return $f_cache['f_range'];
+}
+
+//returns the interquartile range
+function f_iqr(&$array, &$f_cache){
+	if($f_cache['f_iqr'] === FALSE) {
+		if(empty($array)) {
+			$f_cache['f_iqr'] = REPORTIT_NAN;
+		}else {
+			$cnt = f_num($array, $f_cache);
+			$first_quartile = ((0.25*$cnt)%1 == 0) ? 0.5*(0.25*$cnt+(0.25*$cnt+1)) : intval(0.25*$cnt+1);
+			$fourth_quartile = ((0.25*$cnt)%1 == 0) ? 0.5*(0.75*$cnt+(0.75*$cnt+1)) : intval(0.75*$cnt+1);
+			$f_cache['f_iqr'] = $array[$fourth_quartile-1] - $array[$first_quartile-1];
+		}
+	}
+	return $f_cache['f_iqr'];
+}
+
+//returns the variance
+function f_var(&$array, &$f_cache){
+	if($f_cache['f_var'] === FALSE) {
+		if(empty($array)) {
+			$f_cache['f_var'] = REPORTIT_NAN;
+		}else {
+			$avg = f_avg($array, $f_cache);
+			$num = f_num($array, $f_cache);
+			$numerator = 0;
+			foreach($array as $value) {
+				$numerator += sqrt($value-$avg);
+			}
+			$f_cache['f_sd'] = $numerator/$num;
+		}
+	}
+	return $f_cache['f_var'];
+}
+
+//returns the standard deviation
+function f_sd(&$array, &$f_cache) {
+	if($f_cache['f_sd'] === FALSE) {
+		if(empty($array)) {
+			$f_cache['f_sd'] = REPORTIT_NAN;
+		}else {
+			$variance = f_var($array, $f_cache);
+			$f_cache['f_sd'] = ($variance !== REPORTIT_NAN ) ? sqrt($variance) : REPORTIT_NAN;
+		}
+	}
+	return $f_cache['f_sd'];
+}
+
 /* ----- Functions with external variables ----- */
 
 //Xth percentitle
@@ -312,10 +387,10 @@ function f_cmp(&$array, &$p_cache, $function, $args) {
 	return $p_cache['f_'.$function];
 }
 
-function f_nan(&$array, &$p_cache) {
+function f_isNaN(&$array, &$p_cache) {
 	if(func_num_args() < 3 | func_num_args() > 5 | empty($array)) {
-        $p_cache['f_nan'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_nan'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		if(sizeof($args) == 2) {
 			/* no return value given - return 1 or 0 if true or false */
@@ -371,7 +446,7 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 			$debug = array();
 
 			//Formula
-			$formula = $m;
+			$formula = str_replace(array(' ',"\r\n","\n"), '', $m);
 			$debug[]= $formula;
 
 			// transform RRA specific variables (maxValue, maxRRDValue) used in that formula
@@ -433,15 +508,18 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 			//calculate
 			$result = false;
 
+			debug($debug, "Interpretation");
+
 			eval("\$result = $formula;");
 
-			if ($result === false || is_nan($result)) {
+			if ($result === false || is_nan($result) || is_null($result)) {
 				$result = 'NULL';
 			}
 
+			$debug = array();
 			$debug[] = $result;
 
-			debug($debug, "Interpretation & Result");
+			debug($debug, "Result");
 
 			//If its flagged as "spanned" then update the s_cache, update the main cache
 			//and jump to the next measurand

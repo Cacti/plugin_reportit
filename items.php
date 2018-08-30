@@ -39,8 +39,8 @@ switch (get_request_var('action')) {
 		save();
 		break;
 	case 'ajax_hosts':
-                get_allowed_ajax_hosts();
-                break;
+		get_allowed_ajax_hosts();
+		break;
 	default:
 		top_header();
 		standard();
@@ -148,7 +148,7 @@ function standard() {
 			)
 	);
     $filters = api_plugin_hook_function('report_filters', $filters);
-    
+
 	validate_store_request_vars($filters, 'sess_items');
 	/* ================= input validation ================= */
 
@@ -295,7 +295,7 @@ function standard() {
 			form_alternate_row('line' . $rrd['id'], true);
 			?><td><?php print $rrd['name_cache'];?></td><?php
 			form_checkbox_cell("Select",$rrd["id"]);
-			
+
 		}
 	} else {
 		print '<tr><td colspan="2"><em>' . __('No data items') . '</em></td></tr>';

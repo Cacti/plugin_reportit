@@ -185,6 +185,7 @@ $calc_functions_aliases = array(
 	)
 );
 
+$calc_fct_aliases = array_keys($calc_functions_aliases);
 
 $calc_functions_params = array(
 	'f_xth' => array(

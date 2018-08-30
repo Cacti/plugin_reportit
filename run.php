@@ -112,7 +112,7 @@ function calculation() {
 
 	if ($number_of_errors > 0) {
 		#html_graph_start_box();
-		print "<table width='100%' style='background-color: #f5f5f5; border: 1px solid #bbbbbb;' align='center' cellpadding='$cellpadding'>\n";
+		print "<table width='100%' style='background-color: #f5f5f5; border: 1px solid #bbbbbb;' align='center'>\n";
 
 		?>
 		<tr>
@@ -130,7 +130,7 @@ function calculation() {
 
 	if ($number_of_warnings > 0) {
 		#html_graph_start_box();
-		print "<table width='100%' style='background-color: #f5f5f5; border: 1px solid #bbbbbb;' align='center' cellpadding='$cellpadding'>\n";
+		print "<table width='100%' style='background-color: #f5f5f5; border: 1px solid #bbbbbb;' align='center'>\n";
 
 		?>
 		<tr>
@@ -160,7 +160,7 @@ function calculation() {
 					<input type='submit' value='<?php print __('View Report');?>'>
 				</td>
 			</tr>
-		
+
 		<?php
 		form_end();
 	}

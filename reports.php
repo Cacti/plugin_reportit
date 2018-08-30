@@ -67,11 +67,9 @@ function report_wizard() {
 	$templates_list = array();
 	$templates      = array();
 
-	$templates_list = db_fetch_assoc('SELECT id, description
+	$templates_list = db_fetch_assoc("SELECT id, description
 		FROM plugin_reportit_templates
-		WHERE locked=""');
-
-	#top_header();
+		WHERE `locked` = '' AND `enabled` = 'on' ORDER BY description");
 
 	if (isset($_SESSION['reportit'])) unset($_SESSION['reportit']);
 	form_start('reports.php');
@@ -106,7 +104,7 @@ function report_wizard() {
 	}
 
 	print "<tr>
-		
+
 		<td class='saveRow' colspan='2'>
 			<input type='hidden' name='action' value='report_edit'>
 			$save_html
@@ -114,9 +112,9 @@ function report_wizard() {
 	</tr>";
 
 	html_end_box();
-	
+
 	form_end();
-	
+
 
 }
 
@@ -156,12 +154,6 @@ function report_filter() {
 					</td>
 					<td>
 						<input type='button' value='<?php print __esc_x('Button: reset filter settings', 'Clear');?>' id='clear'>
-					</td>
-					<td>
-						<input type='button' value='<?php print __esc_x('Button: import reports', 'Import');?>' id='import'>
-					</td>
-					<td>
-						<input type='button' value='<?php print __esc_x('Button: export reports', 'Export');?>' id='export'>
 					</td>
 				</tr>
 			</table>
@@ -207,18 +199,18 @@ function report_filter() {
 }
 
 function standard() {
-	global $config, $report_actions, $minutes, $link_array, $link_array_admin;
+	global $config, $report_actions, $minutes, $report_states;
 
-    $affix       = '';
-    $columns     = 0;
-    $myId        = my_id();
-    $myName      = my_name();
-    $reportAdmin = re_admin();
-    $tmz         = (read_config_option('reportit_show_tmz') == 'on') ? '('.date('T').')' : '';
-    $enable_tmz  = read_config_option('reportit_use_tmz');
+	$affix       = '';
+	$columns     = 0;
+	$myId        = my_id();
+	$myName      = my_name();
+	$reportAdmin = re_admin();
+	$tmz         = (read_config_option('reportit_show_tmz') == 'on') ? '('.date('T').')' : '';
+	$enable_tmz  = read_config_option('reportit_use_tmz');
 
-    /* ================= input validation and session storage ================= */
-    $filters = array(
+/* ================= input validation and session storage ================= */
+	$filters = array(
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -331,7 +323,7 @@ function standard() {
 
 	$total_rows = db_fetch_cell($sql);
 
-    $sql = 'SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
+	$sql = 'SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
 		FROM plugin_reportit_reports AS a
 		LEFT JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
@@ -343,86 +335,53 @@ function standard() {
 		' ORDER BY ' . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
 		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-    $report_list = db_fetch_assoc($sql);
+	$report_list = db_fetch_assoc($sql);
 
-	$columns = ($reportAdmin)? 9 : 7;
+	$desc_array = array(
+		'id'                   => array('display' => __('Id'),          'sort' => 'ASC',  'align' => 'left'),
+		'description'          => array('display' => __('Description'), 'sort' => 'ASC',  'align' => 'left'),
+		'nosort0'              => array('display' => __("Period %s from - to", $tmz)),
+		'state'                => array('display' => __('State', 'reportit'), 'sort' => 'ASC',  'align' => 'left'),
+		'last_run'             => array('display' => __('Last run %s', $tmz, 'reportit'), 'sort' => 'ASC',  'align' => 'left'),
+		'runtime'              => array('display' => __('Runtime [s]', 'reportit'), 'sort' => 'ASC',  'align' => 'right'),
+		'public'               => array('display' => __('Public'),      'sort' => 'ASC',  'align' => 'left'),
+		'scheduled'            => array('display' => __('Scheduled'),   'sort' => 'ASC',  'align' => 'left'),
+		'ds_cnt'               => array('display' => __('Data Items'),  'sort' => 'DESC', 'align' => 'right'),
+	);
 
 	/* start with HTML output */
 	report_filter();
 
-	$nav = html_nav_bar('reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
+	$nav = html_nav_bar('reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports'), 'page', 'main');
 
 	print $nav;
 	form_start('reports.php');
 	html_start_box('', '100%', '', '3', 'center', '');
-	#html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'));
 
-	if ($reportAdmin) {
-		$desc_array = array(
-			'description'          => array('display' => __('Description'), 'sort' => 'ASC',  'align' => 'left'),
-			'username'             => array('display' => __('Owner'),       'sort' => 'ASC',  'align' => 'left'),
-			'template_description' => array('display' => __('Template'),    'sort' => 'ASC',  'align' => 'left'),
-			'nosort0'              => array('display' => __("Period %s from - to", $tmz)),
-			'nosort1'              => array('display' => __("Last run %s/ Runtime [s]", $tmz)),
-			'public'               => array('display' => __('Public'),      'sort' => 'ASC',  'align' => 'left'),
-			'scheduled'            => array('display' => __('Scheduled'),   'sort' => 'ASC',  'align' => 'left'),
-			'ds_cnt'               => array('display' => __('Data Items'),  'sort' => 'DESC', 'align' => 'right'),
-		);
 
-		html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
-	} else {
-		$desc_array = array(
-			'description'          => array('display' => __('Description'),  'sort' => 'ASC',  'align' => 'left'),
-			'template_description' => array('display' => __('Template'),     'sort' => 'ASC',  'align' => 'left'),
-			'nosort0'              => array('display' => __("Period %s from - to", $tmz)),
-			'nosort1'              => array('display' => __("Last run %s/ Runtime [s]", $tmz)),
-			'public'               => array('display' => __('Public'),       'sort' => 'ASC',  'align' => 'left'),
-			'ds_cnt'               => array('display' => __('Data Objects'), 'sort' => 'DESC', 'align' => 'right'),
-		);
 
-		html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
-	}
+	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
 
 	if (sizeof($report_list)) {
 		foreach($report_list as $report) {
-			form_alternate_row('line' . $report['id'], true);
-			?>
-			<td>
-				<a class='linkEditMain' href='reports.php?action=report_edit&id=<?php print $report['id'];?>'>
-				<?php print $report['description'];
-				if ($report['state']) print "<b style='color: #FF0000'>&nbsp;" . __('*In process*') . "</b>";
-				?>
-				</a>
-			</td>
-			<?php if ($reportAdmin) print '<td>' . $report['username'] . '</td>'; ?>
-			<td><?php print $report['template_description']; ?></td>
-			<td>
-			<?php
-		    if ($report['sliding']== true && $report['last_run'] == 0) {
+
+			//$description = filter_value($report['description'], get_request_var('filter'));
+
+			form_alternate_row( 'line' . $report['id'], true );
+			form_selectable_cell( $report['id'], $report['id'] );
+			form_selectable_cell( '<a class="linkEditMain" href="' . htmlspecialchars('reports.php?action=report_edit&id=' . $report['id']) . '">' . filter_value($report['description'], get_request_var('filter')) . '</a>', $report['id'], 'left' );
+			if ($report['sliding']== true && $report['last_run'] == 0) {
 				$dates = rp_get_timespan($report['preset_timespan'], $report['present'], $enable_tmz);
-				print (date(config_date_format(), strtotime($dates['start_date'])) . " - " . date(config_date_format(), strtotime($dates['end_date'])));
-		    } else {
-				print (date(config_date_format(), strtotime($report['start_date'])) . " - " . date(config_date_format(), strtotime($report['end_date'])));
-		    }
-			?>
-			</td>
-			<td>
-			<?php
-		    if ($report['last_run'] == '0000-00-00 00:00:00') {
-		      	print __("- not available -");
-		    } else {
-				list($date, $time) = explode(' ', $report['last_run']);
-		        print (date(config_date_format(), strtotime($date)) . '&nbsp;' . $time . '&nbsp;&nbsp;/&nbsp;' . $report['runtime']);
-		    }
-			?>
-			</td>
-			<td><?php html_checked_with_arrow($report['public']);?></td>
-			<?php
-			if ($reportAdmin) {
-				print "<td>";
-				html_checked_with_arrow($report['scheduled']);
-				print "</td>";
+				form_selectable_cell( date(config_date_format(), strtotime($dates['start_date'])) . " - " . date(config_date_format(), strtotime($dates['end_date'])), $report['id']);
+			} else {
+				form_selectable_cell( date(config_date_format(), strtotime($report['start_date'])) . " - " . date(config_date_format(), strtotime($report['end_date'])), $report['id']);
 			}
+			form_selectable_cell( $report_states[$report['state']], $report['id'] );
+			form_selectable_cell( (($report['last_run'] == '0000-00-00 00:00:00') ? __('n/a') : '<a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '">' . $report['last_run'] . '</a>'), $report['id']);
+			form_selectable_cell( sprintf("%01.1f", $report['runtime']), $report['id']);
+			form_selectable_cell( ($report['public'] == 'on') ? __('yes', 'reportit') : __('no', 'reportit'), $report['id']);
+			form_selectable_cell( ($report['scheduled'] == 'on') ? __('yes', 'reportit') : __('no', 'reportit'), $report['id']);
+
 
 			if ($report['ds_cnt'] != NULL) {
 				$link = "rrdlist.php?&id={$report['id']}";
@@ -436,11 +395,9 @@ function standard() {
 
 			if (!$report['locked'] && !$report['state']) {
 				form_checkbox_cell("Select",$report["id"]);
-				
+
 			} else {
-                print "<td align='center'>";
-                html_checked_with_icon(true, 'lock.gif', __('Template has been locked temporarily'));
-                print "</td>";
+				print '<td align="center"><i class="fa fa-lock" ria-hidden="true" title="' . __('Template has been locked') . '"></i></td>';
 			}
 
 			?>
@@ -448,7 +405,7 @@ function standard() {
 			<?php
 		}
 	} else {
-		print "<tr><td colspan='9'><em>" . __('No reports') . "</em></td></tr>\n";
+		print "<tr><td colspan='10'><em>" . __('No reports') . "</em></td></tr>\n";
 	}
 
 	html_end_box(true);
@@ -487,7 +444,7 @@ function form_save() {
 		INNER JOIN user_auth_realm AS b
 		ON a.id = b.user_id WHERE (b.realm_id = " . REPORTIT_USER_OWNER . " OR b.realm_id = " . REPORTIT_USER_VIEWER . ")
 		ORDER BY username";
-	
+
 	$owner = db_custom_fetch_assoc($sql, 'id', false);
 
 	/* ================= Input Validation ================= */
@@ -766,7 +723,7 @@ function form_save() {
 				if ($value > $v['max_value'] || $value < $v['min_value']) die_html_custom_error('', true);
 			} else {
 				if ($value > $v['max_value'] || $value < $v['min_value']) {
-					
+
 					session_custom_error_message($v['name'], "{$v['name']} is out of range");
 					break;
 				}
@@ -784,10 +741,10 @@ function form_save() {
 
 		/* start saving process or return is_error_message()*/
 		if (is_error_message()) {
-			
+
 			header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
 			exit;
-			
+
 		} else {
 			/* save report config */
 			$report_id = sql_save($report_data, 'plugin_reportit_reports');
@@ -877,15 +834,6 @@ function report_edit() {
 			}
 		}
 
-		/* setup blue link */
-		$href 	= 'items.php?id=' . get_request_var('id');
-		$text 	= __('Add data items');
-
-		$link[] = array(
-			'href' => $href,
-			'text' => $text
-		);
-
 		/* load values for host_template_filter */
 		$filter = db_fetch_cell_prepared('SELECT pre_filter
 			FROM plugin_reportit_templates
@@ -934,7 +882,10 @@ function report_edit() {
 
 	/* start with HTML output */
 	if ($id != 0) {
-		html_blue_link($link, false);
+
+		/* built 'create links' */
+		$links[] = array('href' => 'items.php?id=' . $id, 'text' => __('Add Data Items', 'reportit'));
+		html_blue_link($links, $id);
 
 		/* unset the administration tab if user isn't a report admin */
 		if (!re_admin()) {
@@ -1046,11 +997,11 @@ function report_edit() {
 
 	html_end_box();
 	form_save_button('reports.php');
-	
+
 
 	?>
 	<script type='text/javascript'>
-
+$(function() {
 	if ($('#report_dynamic').length > 0) {
 		dyn_general_tab();
 		$('#report_dynamic').click(function() {
@@ -1064,7 +1015,7 @@ function report_edit() {
 			dyn_admin_tab();
 		});
 	}
-
+});
 	function start_input(name) {
 		if (name == 'report_email_address') {
 			text = '<?php print __('- Email address of a recipient (or list of names) -');?>';
@@ -1276,7 +1227,7 @@ function form_actions() {
 
 	html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
-	
+
 
 	if (get_request_var('drp_action') == '2') { //DELETE REPORT
 		print "<tr>
@@ -1331,7 +1282,7 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
-	
+
 	form_end();
 
 	bottom_footer();
