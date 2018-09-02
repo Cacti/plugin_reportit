@@ -196,19 +196,15 @@ $form_array_email = array(
 		'description' => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: \';\' or \',\''),
 		'method' => 'custom',
 		'default' => 'false',
-		'value' => "<table border='0' cellspacing='0'>
-			<tr>
-				<td>
+		'value' => "<div style='line-height: 1.5em;'>
+				<div>
 					<input type='text' id='report_email_address' name='report_email_address' size='60' maxlength='2500' value='- Email address of a recipient (or list of names) -' style='text-align: center' align='top' onfocus=start_input('report_email_address') onblur=leave_input('report_email_address')>
 					<input type='submit'  name='add_recipients_x' value='add' title='Add recipients'>
-				</td>
-			</tr>
-			<tr>
-				<td>
+				</div>
+				<div>
 					<input type='text' id='report_email_recipient' name='report_email_recipient' size='60' maxlength='2500' value='[OPTIONAL] - Name of a recipient (or list of names) -' style='text-align: center' align='top' onfocus=start_input('report_email_recipient') onblur=leave_input('report_email_recipient')>
-				</td>
-			</tr>
-		</table>",
+				</div>
+		</div>",
 	)
 );
 
@@ -445,6 +441,13 @@ $form_array_general = array(
 		'max_length' => '100',
 		'value' => '|arg1:template|',
 		'default' => '',
+	),
+	'report_owner' => array(
+		'friendly_name' => __('Owner'),
+		'description' => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.'),
+		'method' => 'drop_sql',
+		'sql' => "SELECT DISTINCT a.id, a.username as name FROM user_auth AS a INNER JOIN user_auth_realm AS b ON a.id = b.user_id WHERE (b.realm_id = " . REPORTIT_USER_OWNER . " OR b.realm_id = " . REPORTIT_USER_VIEWER . ") ORDER BY username",
+		'value' => '|arg1:user_id|',
 	),
 	'report_public' => array(
 		'friendly_name' => __('Public'),

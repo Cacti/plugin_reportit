@@ -23,13 +23,12 @@
 */
 
 function plugin_reportit_install() {
-	api_plugin_register_hook('reportit', 'page_head',             'reportit_page_head',            'setup.php');
-    api_plugin_register_hook('reportit', 'top_header_tabs',       'reportit_show_tab',             'setup.php');
-    api_plugin_register_hook('reportit', 'top_graph_header_tabs', 'reportit_show_tab',             'setup.php');
-    api_plugin_register_hook('reportit', 'draw_navigation_text',  'reportit_draw_navigation_text', 'setup.php');
-    api_plugin_register_hook('reportit', 'config_arrays',         'reportit_config_arrays',        'setup.php');
-    api_plugin_register_hook('reportit', 'config_settings',       'reportit_config_settings',      'setup.php');
-    api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
+	api_plugin_register_hook('reportit', 'top_header_tabs',       'reportit_show_tab',             'setup.php');
+	api_plugin_register_hook('reportit', 'top_graph_header_tabs', 'reportit_show_tab',             'setup.php');
+	api_plugin_register_hook('reportit', 'draw_navigation_text',  'reportit_draw_navigation_text', 'setup.php');
+	api_plugin_register_hook('reportit', 'config_arrays',         'reportit_config_arrays',        'setup.php');
+	api_plugin_register_hook('reportit', 'config_settings',       'reportit_config_settings',      'setup.php');
+	api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
 
 	reportit_system_setup();
 }
@@ -384,35 +383,10 @@ function reportit_config_settings() {
 	$csv_column_separator  = array(',', ';', 'Tab', 'Blank');
 	$csv_decimal_separator = array(',', '.');
 
-	$rrdtool_api = array(
-		__('PHP BINDINGS (FAST)'),
-		__('RRDTOOL CACTI (SLOW)'),
-		__('RRDTOOL SERVER (SLOW)')
-	);
-
-	$rrdtool_quality = array(
-		'2' => __('LOW'),
-		'3' => __('MEDIUM'),
-		'4' => __('HIGH'),
-		'5' => __('ULTIMATE')
-	);
-
 	$operator = array(
 		__('Power User (Report Owner)'),
 		__('Super User (Report Admin)')
 	);
-
-    $graphs = array(
-		'-10' => __('Bar (vertical)'),
-		'10'  => __('Bar (horizontal)'),
-		'20'  => __('Line'),
-		'21'  => __('Area'),
-		'30'  => __('Pie'),
-		'40'  => __('Spider')
-	);
-
-	$font  = REPORTIT_BASE_PATH . '/lib_ext/fonts/DejaVuSansMono.ttf';
-	$tfont = REPORTIT_BASE_PATH . '/lib_ext/fonts/DejaVuSansMono-Bold.ttf';
 
 	/* setup ReportIt's global configuration area */
 	$tabs['reports'] = __('Reports');
@@ -455,39 +429,6 @@ function reportit_config_settings() {
 			'method'                => 'checkbox',
 			'default'               => 'on',
 		),
-		'reportit_operator'         => array(
-			'friendly_name'         => __('Operator for Scheduled Reporting'),
-			'description'           => __('Choose the level which is necessary to configure all options of scheduled reporting in a report configuration.'),
-			'method'                => 'drop_array',
-			'array'                 => $operator,
-			'default'               => '1',
-		),
-		'reportit_header2'          => array(
-			'friendly_name'         => __('RRDtool'),
-			'method'                => 'spacer',
-			'collapsible'           => 'true'
-		),
-		'reportit_API'              => array(
-			'friendly_name'         => __('RRDtool Connection'),
-			'description'           => __('Choose the way to connect to RRDtool.'),
-			'method'                => 'drop_array',
-			'array'                 => $rrdtool_api,
-			'default'               => '1',
-		),
-		'reportit_RRDID'            => array(
-			'friendly_name'         => __('RRDtool Server IP'),
-			'description'           => __('Optional: Configured IP address of the RRDtool server.'),
-			'method'                => 'textbox',
-			'max_length'            => '15',
-			'default'               => '127.0.0.1',
-		),
-		'reportit_RRDPort'          => array(
-			'friendly_name'         => __('RRDtool Server Port'),
-			'description'           => __('Optional: Configured port setting of RRDtool server.'),
-			'method'                => 'textbox',
-			'max_length'            => '5',
-			'default'               => '13900',
-		),
 		'reportit_header3'          => array(
 			'friendly_name'         => __('Export Settings'),
 			'method'                => 'spacer',
@@ -527,8 +468,8 @@ function reportit_config_settings() {
 			'default'               => '300',
 		),
 		'reportit_arc_folder'       => array(
-			'friendly_name'         => __('Archive Path'),
-			'description'           => __('Optional: The path to an archive folder for saving. If not defined subfolder \'archive\' will be used.'),
+			'friendly_name'         => __('Archive Path', 'reportit'),
+			'description'           => __('The path to an archive folder where archives have to be stored.', 'reportit'),
 			'method'                => 'dirpath',
 			'max_length'            => '255',
 			'default'               => REPORTIT_ARC_FD,
@@ -556,63 +497,11 @@ function reportit_config_settings() {
 			'default'               => '',
 		),
 		'reportit_exp_folder'       => array(
-			'friendly_name'         => __('Export Path'),
-			'description'           => __('Optional: The main path to an export folder for saving the exports. If not defined subfolder \'exports\' will be used.'),
+			'friendly_name'         => __('Export Path', 'reportit'),
+			'description'           => __('The main path to an export folder for saving the exports.', 'reportit'),
 			'method'                => 'dirpath',
 			'max_length'            => '255',
 			'default'               => REPORTIT_EXP_FD,
-		),
-		'reportit_header7'          => array(
-			'friendly_name'         => __('Graph Settings'),
-			'method'                => 'spacer',
-			'collapsible'           => 'true'
-		),
-		'reportit_graph'            => array(
-			'friendly_name'         => __('Enabled'),
-			'description'           => __('Enable/disable graph functionality'),
-			'method'                => 'checkbox',
-			'default'               => 'off',
-		),
-		'reportit_g_mheight'        => array(
-			'friendly_name'         => __('Maximum Graph Height'),
-			'description'           => __('The maximum height of ReportIt graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set \'memory_limit\' high enough.'),
-			'method'                => 'textbox',
-			'max_length'            => '4',
-			'default'               => '320',
-		),
-		'reportit_g_mwidth'         => array(
-			'friendly_name'         => __('Maximum Graph Width'),
-			'description'           => __('The maximum width of ReportIt graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set \'memory_limit\' high enough.'),
-			'method'                => 'textbox',
-			'max_length'            => '4',
-			'default'               => '480',
-		),
-		'reportit_g_quality'        => array(
-			'friendly_name'         => __('Quality Level'),
-			'description'           => __('Choose the level of quality.<br> Warning! A higher quality setting has a lower calculation speed and requires more memory.'),
-			'method'                => 'drop_array',
-			'array'                 => $rrdtool_quality,
-			'default'               => '1',
-		),
-		'reportit_g_mono'           => array(
-			'friendly_name'         => __('Monospace Fonts'),
-			'description'           => __('It\'s recommend to use monospace fonts like Lucida, Courier, Vera or DejaVu instead of the other types.'),
-			'method'                => 'checkbox',
-			'default'               => 'on',
-		),
-		'reportit_g_tfont'          => array(
-			'friendly_name'         => __('Title Font File'),
-			'description'           => __('Define font file to use for graph titles'),
-			'method'                => 'filepath',
-			'max_length'            => '255',
-			'default'               => $tfont,
-		),
-		'reportit_g_afont'          => array(
-			'friendly_name'         => __('Axis Font File'),
-			'description'           => __('Define font file to use for graph axis'),
-			'method'                => 'filepath',
-			'max_length'            => '255',
-			'default'               => $font,
 		),
 	);
 
@@ -658,38 +547,6 @@ function reportit_config_settings() {
 			'array'                 => $csv_decimal_separator,
 			'default'               => '1',
 		),
-		'reportit_graph_header'     => array(
-			'friendly_name'         => __('ReportIt Graph Settings'),
-			'method'                => 'spacer',
-			'collapsible'           => 'true'
-		),
-		'reportit_g_default'        => array(
-			'friendly_name'         => __('Default Chart'),
-			'description'           => __('Define your default chart that should be shown first'),
-			'method'                => 'drop_array',
-			'array'                 => $graphs,
-			'default'               => '-10',
-		),
-		'reportit_g_height'         => array(
-			'friendly_name'         => __('Graph Height'),
-			'description'           => __('The height of ReportIt graphs in pixel.'),
-			'method'                => 'textbox',
-			'max_length'            => '4',
-			'default'               => '320',
-		),
-		'reportit_g_width'          => array(
-			'friendly_name'         => __('Graph Width'),
-			'description'           => __('The width of ReportIt graphs in pixel.'),
-			'method'                => 'textbox',
-			'max_length'            => '4',
-			'default'               => '480',
-		),
-		'reportit_g_showgrid'       => array(
-			'friendly_name'         => __('Show Graph Grid'),
-			'description'           => __('Enable/disable Graph Grid for ReportIt Graphs.'),
-			'method'                => 'checkbox',
-			'default'               => 'off',
-		),
 	);
 
 	if (isset($setting_graphs['reportit'])) {
@@ -708,8 +565,7 @@ function reportit_config_settings() {
 }
 
 function reportit_show_tab() {
-    global $config;
-
+	global $config;
 	if (api_user_realm_auth('view.php')) {
 		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIt') . '"></a>';
 	}
@@ -722,30 +578,29 @@ function reportit_system_setup() {
 }
 
 function reportit_define_constants(){
-    global $config;
+	global $config;
 
-    /* realm IDs which have been defined dynamically by PIA 2.x */
-    $view 			= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%view.php%'");
-    $create 		= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%reports.php%'");
+	/* realm IDs which have been defined dynamically by PIA 2.x */
+	$view 			= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%view.php%'");
+	$create 		= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%reports.php%'");
 	$administrate 	= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%templates.php%'");
 
-    @define('REPORTIT_USER_VIEWER', 100+$view);
-    @define('REPORTIT_USER_OWNER', 100+$create);
-    @define('REPORTIT_USER_ADMIN', 100+$administrate);
+	@define('REPORTIT_USER_VIEWER', 100+$view);
+	@define('REPORTIT_USER_OWNER', 100+$create);
+	@define('REPORTIT_USER_ADMIN', 100+$administrate);
 
-    /* define ReportIt's base paths */
-    @define('REPORTIT_BASE_PATH', $config['base_path'] . '/plugins/reportit');
+	/* define ReportIt's base paths */
+	@define('REPORTIT_BASE_PATH', $config['base_path'] . '/plugins/reportit');
 
-    /* with regard to Cacti 0.8.8 it becomes necessarily to replace the old path settings */
-    @define('CACTI_BASE_PATH', $config['base_path']);
-    @define('CACTI_INCLUDE_PATH', CACTI_BASE_PATH . '/include/');
+	@define('CACTI_BASE_PATH', $config['base_path']);
+	@define('CACTI_INCLUDE_PATH', CACTI_BASE_PATH . '/include/');
 
-    /* path where PCLZIP will save temporary files */
-    @define('REPORTIT_TMP_FD', REPORTIT_BASE_PATH . '/tmp/');
-    /* path where archives will be saved per default */
-    @define('REPORTIT_ARC_FD', REPORTIT_BASE_PATH . '/archive/');
-    /* path where exports will be saved per default */
-    @define('REPORTIT_EXP_FD', REPORTIT_BASE_PATH . '/exports/');
+	/* path where PCLZIP will save temporary files */
+	@define('REPORTIT_TMP_FD', REPORTIT_BASE_PATH . '/tmp/');
+	/* path where archives will be saved per default */
+	@define('REPORTIT_ARC_FD', REPORTIT_BASE_PATH . '/archive/');
+	/* path where exports will be saved per default */
+	@define('REPORTIT_EXP_FD', REPORTIT_BASE_PATH . '/exports/');
 }
 
 function reportit_poller_bottom() {
@@ -795,7 +650,4 @@ function reportit_poller_bottom() {
             }
         }
     }
-}
-
-function reportit_page_head(){
 }

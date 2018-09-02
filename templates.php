@@ -551,7 +551,7 @@ function standard() {
 		foreach($template_list as $template) {
 			form_alternate_row('line' . $template['id'], true);
 			form_selectable_cell($template['id'], $template['id']);
-			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('templates.php?action=template_edit&id=' . $template['id']) . '">' . $template['description']  . '</a>', $template['id'], 'left');
+			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('templates.php?action=template_edit&id=' . $template['id']) . '">' . filter_value($template['description'], get_request_var('filter')) . '</a>', $template['id'], 'left');
 
 			if (isset($list_of_data_templates[$template['data_template_id']])) {
 				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars(URL_PATH . 'data_templates.php?action=template_edit&id=' . $template['data_template_id']) . '">' . $list_of_data_templates[$template['data_template_id']] . '</a>', $template['id']);

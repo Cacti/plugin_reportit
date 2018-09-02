@@ -101,39 +101,38 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 
 
 function help() {
-    $info = plugin_reportit_version();
+	$info = plugin_reportit_version();
 
-    print "\n---------------------------------------------------------------------------------------------------\n";
-    print " Copyright (C) 2004-2018 The Cacti Group\n";
-    print " Project:         ReportIt\n";
-    print " Project site:    {$info['homepage']}\n";
-    print " Version:         v{$info['version']}\n";
-    print " Authors:         {$info['author']}\n";
-    print "---------------------------------------------------------------------------------------------------\n\n";
-    print " Usage: runtime.php [OPTIONS] <Report Config ID>\n";
-    print "  e.g.: runtime.php 12                            run report 12 only\n";
-    print "      : runtime.php -d -v                         run all daily reports + CLI feedback\n";
-    print "      : runtime.php --debug 12                    debug report 12\n";
-    print "      : runtime.php --debug -v 12 > log.txt       redirect debugging output\n";
-    print "      : runtime.php --debug -d                    debug all daily reports (STRONGLY NOT RECOMMEND)\n\n\n";
-    print "     -d:          daily\n";
-    print "     -w:          weekly\n";
-    print "     -m:          monthly\n";
-    print "     -q:          quarterly\n";
-    print "     -y:          yearly\n\n";
-    print "     -v:          verbose\n";
-    print "     --debug:     DEBUG MODE\n\n";
-    print "---------------------------------------------------------------------------------------------------\n\n";
-    exit;
+	print "\n---------------------------------------------------------------------------------------------------\n";
+	print " Copyright (C) 2004-2018 The Cacti Group\n";
+	print " Project:         ReportIt\n";
+	print " Project site:    {$info['homepage']}\n";
+	print " Version:         v{$info['version']}\n";
+	print " Authors:         {$info['author']}\n";
+	print "---------------------------------------------------------------------------------------------------\n\n";
+	print " Usage: runtime.php [OPTIONS] <Report Config ID>\n";
+	print "  e.g.: runtime.php 12                            run report 12 only\n";
+	print "      : runtime.php -d -v                         run all daily reports + CLI feedback\n";
+	print "      : runtime.php --debug 12                    debug report 12\n";
+	print "      : runtime.php --debug -v 12 > log.txt       redirect debugging output\n";
+	print "      : runtime.php --debug -d                    debug all daily reports (NOT RECOMMENDED)\n\n\n";
+	print "     -d:          daily\n";
+	print "     -w:          weekly\n";
+	print "     -m:          monthly\n";
+	print "     -q:          quarterly\n";
+	print "     -y:          yearly\n\n";
+	print "     -v:          verbose\n";
+	print "     --debug:     DEBUG MODE\n\n";
+	print "---------------------------------------------------------------------------------------------------\n\n";
+	exit;
 }
 
 function run($frequency) {
-    global $run_verb, $email_counter, $export_counter;
+	global $run_verb, $email_counter, $export_counter;
 
-    //Check RRDtool connection:
-    if(!chk_cnn_rrdtool()) exit;
+	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
 
-    $start = microtime();
+	$start = microtime();
     if(is_numeric($frequency)) {
         $sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
                 INNER JOIN plugin_reportit_templates as b
@@ -213,77 +212,6 @@ function run_error($code, $RID = 0, $DID = 0, $notice='') {
     }
 }
 
-
-function chk_cnn_rrdtool() {
-    global $rrdtool_api, $config;
-
-    $rrdtool_api  = read_config_option('reportit_API');
-    switch($rrdtool_api) {
-        case '0':
-            //Check PHP bindings
-            return check_rrdtool_bindings();
-            break;
-
-        case '2':
-            //Check RRDtool Server
-            return check_rrdtool_server();
-            break;
-
-        default:
-            //RRDtool Cacti means the core function rrdtool_execute
-            //We have only to include the lib.
-            include_once(CACTI_BASE_PATH . '/lib/rrd.php');
-            return true;
-            break;
-    }
-}
-
-
-function check_rrdtool_bindings() {
-    global $run_scheduled;
-
-    $loaded_extensions = get_loaded_extensions();
-    if(in_array('rrdtool', $loaded_extensions) | in_array('RRDTool', $loaded_extensions)) {
-        return true;
-    }else {
-        if($run_scheduled) {
-            cacti_log( 'REPORTIT ERROR: PHP modul for RRDtool is not available.', true, 'PLUGIN');
-        }else {
-            run_error(1);
-        }
-    }
-    return false;
-}
-
-
-function check_rrdtool_server() {
-    global $socket_handle, $run_scheduled;
-
-    $run_RRDId          = read_config_option('reportit_RRDID');
-    $run_RRDPort        = read_config_option('reportit_RRDPort');
-    $socket_handle      = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-    $socket_connection  = @socket_connect($socket_handle, $run_RRDId, $run_RRDPort);
-
-
-    if(!$socket_connection) {
-        if($run_scheduled) {
-            cacti_log( 'REPORTIT ERROR: Unable to connect to RRDtool server.', true, 'PLUGIN');
-        }else {
-            run_error(9);
-        }
-    }
-    return $socket_connection;
-}
-
-
-function disc_rrdtool_server() {
-    global $socket_handle;
-
-    socket_close($socket_handle);
-    return true;
-}
-
-
 function runtime($report_id) {
 	global	$timezones, $run_scheduled, $run_return, $consolidation_functions,
 	$rrdtool_api, $socket_handle, $calc_fct_names, $calc_fct_names_params, $calc_fct_aliases, $error, $email_counter, $export_counter;
@@ -292,10 +220,6 @@ function runtime($report_id) {
 	in_process($report_id);
 
 	if(!$run_scheduled) {
-		if(!chk_cnn_rrdtool()) {
-			in_process($report_id, 0);
-			return $run_return;
-		}
 		ini_set("max_execution_time", read_config_option('reportit_met'));
 	}
 
@@ -505,11 +429,11 @@ function runtime($report_id) {
 		}
 		//---------------------------
 
-        //----- Calculate shift duration -----
-        $shift_duration = ($enable_tmz) ? $f_ep - $f_sp
-                                        : (($s_time > $e_time)  ? gmmktime($e_hour, $e_min, 0, 0, 1) - gmmktime($s_hour, $s_min, 0, 0, 0)
-                                                                : gmmktime($e_hour, $e_min, 0) - gmmktime($s_hour, $s_min, 0));
-
+		//----- Calculate shift duration -----
+		$shift_duration = ($enable_tmz)
+						? $f_ep - $f_sp
+						: (($s_time > $e_time)  ? gmmktime($e_hour, $e_min, 0, 0, 1) - gmmktime($s_hour, $s_min, 0, 0, 0)
+												: gmmktime($e_hour, $e_min, 0) - gmmktime($s_hour, $s_min, 0));
 
 		//----- run on demand update if Boost is enabled and cached data is part of the report period -----
 		if($boost_enabled) {
@@ -521,66 +445,21 @@ function runtime($report_id) {
 		}
 
 		//----- Set options for rrd_fetch and run it! -----
-        $rrd_data 		= array();
-        $valid_rra_indexes	= array();
+		$rrd_data 		= array();
+		$valid_rra_indexes	= array();
 
-        switch($rrdtool_api) {
-            case '0':
-                //PHP bindings
-                foreach($rra_types as $rra_type => $rra_index) {
-                    $rrd_options            = array( $rra_type, "--start", $f_sp, "--end", $l_ep);
-                    $rrd_data[$rra_index]   = rrd_fetch($data_source_path, $rrd_options, count($rrd_options));
-                    if($error = rrd_error()) {
-                        $cf = array_search($rra_index, $rra_types);
-                        run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
-                    }else {
-                        $valid_rra_indexes[] = $rra_index;
-                    }
-                    debug($rrd_data[$rra_index], "RRDtool Bindings -> RRDfetch - Raw data");
-                }
-                break;
-
-            case '1':
-                //RRDtool Cacti means the core function "rrdtool_execute"
-                foreach($rra_types as $rra_type => $rra_index) {
-                    $cmd_line               = "fetch $data_source_path $rra_type -s $f_sp -e $l_ep";
-                    debug($cmd_line, "RRDfetch command");
-                    $rrd_data[$rra_index]   = @rrdtool_execute($cmd_line, false, RRDTOOL_OUTPUT_STDOUT);
-                    if (strlen($rrd_data[$rra_index]) == 0){
-                        $cf = array_search($rra_index, $rra_types);
-                        run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
-                    }else {
-                        $valid_rra_indexes[] = $rra_index;
-                    }
-                    debug($rrd_data[$rra_index], "RRDtool Cacti -> RRDfetch - Raw data");
-                }
-                break;
-
-            case '2':
-                //RRDtool Server
-                foreach($rra_types as $rra_type => $rra_index) {
-                    $cmd_line               = "fetch $data_source_path $rra_type -s $f_sp -e $l_ep \n";
-                    debug($cmd_line, "RRDfetch command");
-                    socket_write($socket_handle, $cmd_line);
-                    $data = '';
-                    $buffer = '';
-                    while($out = socket_recv($socket_handle, $buffer, 16384, 0)) {
-                        $data      .= $buffer;
-                        if(strstr(substr($buffer, -30, 10), 'OK')) {
-                            $data    = substr($data, 0 , strpos($data, 'OK'));
-                            break;
-                        }
-                    }
-                    $rrd_data[$rra_index] = $data;
-                    if (strlen($data) == 0){
-                        $cf = array_search($rra_index, $rra_types);
-                        run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
-                    }else {
-                        $valid_rra_indexes[] = $rra_index;
-                    }
-                    debug($rrd_data[$rra_index], "RRDtool Server -> RRDfetch - Raw data");
-                }
-        }
+		foreach($rra_types as $rra_type => $rra_index) {
+			$cmd_line = "fetch $data_source_path $rra_type -s $f_sp -e $l_ep";
+			debug($cmd_line, "RRDfetch command");
+			$rrd_data[$rra_index] = @rrdtool_execute($cmd_line, false, RRDTOOL_OUTPUT_STDOUT);
+			if (strlen($rrd_data[$rra_index]) == 0){
+				$cf = array_search($rra_index, $rra_types);
+				run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
+			}else {
+				$valid_rra_indexes[] = $rra_index;
+			}
+			debug($rrd_data[$rra_index], "RRDtool Cacti -> RRDfetch - Raw data");
+		}
 
         // ----- Break up if we were not able to fetch any data -----
         if(sizeof($valid_rra_indexes) == 0) {
@@ -588,14 +467,12 @@ function runtime($report_id) {
             continue;
         }else {
             /* transform data that has not been fetch via the PHP based RRDtool API */
-            if($rrdtool_api != 0) {
-                foreach($rrd_data as $rra_index => $data) {
+            foreach($rrd_data as $rra_index => $data) {
                     if(in_array($rra_index, $valid_rra_indexes)) {
                         transform( $data, $rrd_data[$rra_index], $report_definitions['template']);
                         debug($rrd_data[$rra_index], "Transformed RAW data");
                     }
                 }
-            }
         }
 
         //----- Read header informations from rrd_data array -----

@@ -305,7 +305,7 @@ function standard() {
 
 			form_alternate_row();
 
-			print '<td><a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '">' . $report['description'] . '</a></td>';
+			print '<td><a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '">' . filter_value($report['description'], get_request_var('filter')) . '</a></td>';
 			print '<td>' . other_name($ownerId) . '</td>';
 			print '<td>' . $report['template_description'] . '</td>';
 			print '<td>' . (date(config_date_format(), strtotime($report['start_date'])) . ' - ' . date(config_date_format(), strtotime($report['end_date']))) . '</td>';
@@ -895,87 +895,3 @@ function show_graph_overview() {
 
 	header("Location: ../../graph.php?header=false&action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
 }
-
-function show_export_wizard($new=false){
-	global $config, $export_formats;
-
-	/* start-up sequence */
-	if ($new !== false) {
-		$_SESSION['reportit']['export'] = array();
-
-		/* save all report ids in $_SESSION */
-		foreach ($_POST as $key => $value) {
-			if (strstr($key, 'chk_')) {
-				$id = substr($key, 4);
-				my_report($id, true);
-				$_SESSION['reportit']['export'][$id] = array();
-				$_SESSION['reportit']['export'][$id]['ids'] = array();
-			}
-		}
-	}
-
-	$report_ids = $_SESSION['reportit']['export'];
-
-	html_wizard_header('Export', 'view.php');
-
-	print "<tr>
-		<td class='textArea'>
-			<p>" . __('Choose a template your report should depends on.') . "</p><br>
-			<b>" . __('Available report templates') . "</b><br>";
-
-	form_dropdown('template', $export_formats, '', '', '', '', '');
-
-	print "</td>
-		</tr>";
-
-	$display_text = array(
-		array('display' => __('Description'),          'align' => 'left'),
-		array('display' => __('Instances: available'), 'align' => 'right'),
-		array('display' => __('Instances: selected'),  'align' => 'right')
-	);
-
-	html_header($display_text, 2);
-
-	$ids = '';
-
-	foreach ($report_ids as $key => $value) {
-		$ids .= "$key,";
-	}
-
-	$ids = substr($ids, 0, strlen($ids)-1);
-
-	$report = db_fetch_assoc("SELECT id, description, scheduled, autoarchive
-		FROM plugin_reportit_reports
-		WHERE id IN ($ids)");
-
-	if (sizeof($reports)) {
-		foreach ($reports as $report) {
-			form_alternate_row();
-
-			print '<td>' . $report['description'] . '</td>';
-
-			$archive = info_xml_archive($report['id']);
-
-			if ($archive) {
-				print '<td class="right">' . sizeof($archive) . '</td>';
-			} else {
-				print '<td class="right">1</td>';
-			}
-
-			print '<td class="right">' . sizeof($_SESSION['reportit']['export'][$id]['ids']) . '</td>';
-
-			print '<td class="right">'
-				."<a href=\"reports.php?action=remove&id=$key\">"
-				.'<img src="../../images/delete_icon.gif" width="10" height="10" border="0" alt="Delete"></a></td>';
-
-			form_end_row();
-		}
-	} else {
-		print "<tr><td colspan='5'><em>" . __('No Reports Found') . "</em></td></tr>";
-	}
-
-	html_end_box();
-
-	html_form_button('view.php', 'create', 'id', false, '60%');
-}
-

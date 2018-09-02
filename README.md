@@ -81,6 +81,13 @@ At first it's recommend to discuss your feature request with the Cacti community
 ## Future Changes
 
 ## Changelog
+
+--- 1.0.2 ---
+* feature: PHP ZIP library pclzip.lib.php updated 2.8.2
+* removed: Support of php_rrdtool extension
+* removed: Support of RRDtool server
+* removed: Support of Graidle
+
 --- 1.0.1 ---
 * issue#2: Suppress display of 'Constant MAX_DISPLAY_PAGES is already defined'
 
