@@ -213,11 +213,6 @@ class PclZip
     //   created. Use create() for that.
     // --------------------------------------------------------------------------------
 
-    function PclZip($p_zipname)
-    {
-        self::__construct();
-    }
-
     function __construct($p_zipname)
     {
 
