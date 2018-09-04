@@ -74,18 +74,17 @@ function report_wizard() {
 	if (isset($_SESSION['reportit'])) unset($_SESSION['reportit']);
 	form_start('reports.php');
 
-	html_start_box(__('New Report'), '60%', '', '3', 'center', '');
+	html_start_box(__('New Report', 'reportit'), '60%', '', '3', 'center', '');
 
 	if (sizeof($templates_list) == 0) {
 		print "<tr class='even'>
 			<td>
-				<span class='textError'>" . __('There are no report templates available.') . "</span>
+				<span class='textError'>" . __('There are no report templates available.', 'reportit') . "</span>
 			</td>
 		</tr>";
-
-		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
+		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reports.php\")'>";
 	} else {
-		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Create a new report') . "'>";
+		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reports.php\")'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Create a new report', 'reportit') . "'>";
 
 		foreach($templates_list as $tmp) {
 			$templates[$tmp['id']] = $tmp['description'];
@@ -93,7 +92,7 @@ function report_wizard() {
 
 		print "<tr class='even'>
 			<td>
-				<p>" . __('Choose a template this report should depend on.') . "</p>
+				<p>" . __('Choose a template this report should depend on.', 'reportit') . "</p>
 			</td>
 		<td>";
 
@@ -353,20 +352,13 @@ function standard() {
 	report_filter();
 
 	$nav = html_nav_bar('reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports'), 'page', 'main');
-
 	print $nav;
 	form_start('reports.php');
 	html_start_box('', '100%', '', '3', 'center', '');
-
-
-
 	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
 
 	if (sizeof($report_list)) {
 		foreach($report_list as $report) {
-
-			//$description = filter_value($report['description'], get_request_var('filter'));
-
 			form_alternate_row( 'line' . $report['id'], true );
 			form_selectable_cell( $report['id'], $report['id'] );
 			form_selectable_cell( '<a class="linkEditMain" href="' . htmlspecialchars('reports.php?action=report_edit&id=' . $report['id']) . '">' . filter_value($report['description'], get_request_var('filter')) . '</a>', $report['id'], 'left' );
@@ -475,7 +467,6 @@ function form_save() {
 		break;
 	case 'admin':
 		input_validate_input_blacklist(get_request_var('id'),array(0));
-		input_validate_input_key(get_request_var('report_owner'), $owner);
 
 		if (read_config_option('reportit_operator')) {
 			input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
@@ -500,6 +491,7 @@ function form_save() {
 
 		break;
 	default:
+		input_validate_input_number(get_request_var('report_owner'));
 		input_validate_input_number(get_request_var('template_id'));
 		input_validate_input_key(get_request_var('preset_timespan'), $timespans, true);
 
@@ -579,7 +571,6 @@ function form_save() {
 		break;
 	case 'admin':
 		$report_data['id']               = get_request_var('id');
-		$report_data['user_id']          = get_request_var('report_owner');
 		$report_data['graph_permission'] = isset_request_var('report_graph_permission') ? 1 : 0;
 
 		/* save the settings for scheduled reporting if the admin is configured to do this job */
@@ -656,6 +647,9 @@ function form_save() {
 		break;
 	default:
 		$report_data['id']              = get_request_var('id');
+		if(get_request_var('report_owner')) {
+			$report_data['user_id']     = get_request_var('report_owner');
+		}
 		$report_data['description']     = get_request_var('report_description');
 		$report_data['template_id']     = get_request_var('template_id');
 		$report_data['public']          = isset_request_var('report_public') ? 1 : 0;
@@ -847,6 +841,7 @@ function report_edit() {
 	} else {
 		$header_label	= '[new]';
 		$report_data = array();
+		$report_data['user_id'] = my_id();
 	}
 
 	$id	= (isset_request_var('id') ? get_request_var('id') : '0');
@@ -916,11 +911,9 @@ function report_edit() {
 				" href='" . htmlspecialchars($config['url_path'] .  'plugins/reportit/reports.php?action=report_edit&id=' . $id .
 				'&tab=' . $tab_short_name) .
 				"'>" . $tabs[$tab_short_name] . "</a></li>\n";
-
-            $i++;
+			$i++;
 		}
-
-        print "</ul></nav></div>\n";
+		print "</ul></nav></div>\n";
 	}
 	form_start('reports.php');
 	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label), '100%', '', '2', 'center', '');

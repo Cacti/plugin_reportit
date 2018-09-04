@@ -95,34 +95,29 @@ function only_viewer() {
 	}
 }
 
+function user_auth_realm($realm_id, $user_id){
+	$verified = db_fetch_cell('
+		SELECT user_auth.id FROM user_auth
+			LEFT JOIN (
+				SELECT user_id from user_auth_realm WHERE realm_id = ' . $realm_id . '
+			) AS user_realm ON user_auth.id = user_realm.user_id
+			LEFT JOIN (
+				SELECT user_auth_group_members.user_id FROM user_auth_group_members
+				INNER JOIN user_auth_group_realm ON
+					user_auth_group_members.group_id = user_auth_group_realm.group_id
+				WHERE user_auth_group_realm.realm_id = ' . $realm_id . '
+			) AS group_member ON group_member.user_id = user_auth.id
+			WHERE user_auth.id = ' . $user_id . ' AND (group_member.user_id IS NOT NULL OR user_realm.user_id IS NOT NULL)'
+	);
+	return ($verified) ? true : false;
+}
+
 function re_owner(){
-	$id = my_id();
-
-	$report_owner = db_fetch_cell("SELECT *
-		FROM user_auth_realm
-		WHERE realm_id = " . REPORTIT_USER_OWNER . "
-		AND user_id = $id");
-
-	if ($report_owner == REPORTIT_USER_OWNER) {
-		return true;
-	} else {
-		return false;
-	}
+	return user_auth_realm(REPORTIT_USER_OWNER, my_id()) ? true : false;
 }
 
 function re_admin() {
-	$id = my_id();
-
-	$report_admin = db_fetch_cell("SELECT *
-		FROM user_auth_realm
-		WHERE realm_id = " . REPORTIT_USER_ADMIN . "
-		AND user_id = $id");
-
-	if ($report_admin == REPORTIT_USER_ADMIN) {
-		return true;
-	} else {
-		return false;
-	}
+	return user_auth_realm(REPORTIT_USER_ADMIN, my_id()) ? true : false;
 }
 
 function session_custom_error_message($field, $custom_message, $toplevel_message=2) {

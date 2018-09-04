@@ -125,7 +125,7 @@ function standard() {
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'id',
+			'default' => 'description',
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'sort_direction' => array(
@@ -133,11 +133,6 @@ function standard() {
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
 			),
-		'id' => array(
-			'filter' => FILTER_VALIDATE_INT,
-			'pageset' => true,
-			'default' => 0
-			)
 	);
 
 	validate_store_request_vars($filters, 'sess_rrdlist');
@@ -146,8 +141,13 @@ function standard() {
 	/* ==================== checkpoint ==================== */
 	my_report(get_request_var('id'));
 	locked(my_template(get_request_var('id')));
-	$rows = read_config_option('num_rows_table');
 	/* ==================================================== */
+
+	if (get_request_var('rows') == '-1') {
+		$rows = read_config_option('num_rows_table');
+	} else {
+		$rows = get_request_var('rows');
+	}
 
 	/* form the 'where' clause for our main sql query */
 	if (get_request_var('filter') != '') {
@@ -158,7 +158,7 @@ function standard() {
 
 	$total_rows = db_fetch_cell("SELECT COUNT(a.id)
 		FROM plugin_reportit_data_items AS a
-   		LEFT JOIN data_template_data as b
+		LEFT JOIN data_template_data as b
 		ON b.local_data_id = a.id
 		$sql_where");
 
@@ -172,35 +172,24 @@ function standard() {
 		$sql_where
 		$sql_order
 		$sql_limit");
-	
-	
+
+
 	$report_data = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array(get_request_var('id')));
-	
-	$header_label = __('Data Items [Report: %s %s [%d]', "<a class='pic' href='reports.php?action=report_edit&id=" . get_request_var('id') . '\'>', $report_data['0']['description'] . ']</a>', $total_rows);
+
+	$header_label = __('Data Items [Report: %s %s [%d]', "<a href='reports.php?action=report_edit&id=" . get_request_var('id') . '\'>', $report_data['0']['description'] . ']</a>', $total_rows);
 
 	/* define subheader description */
-	$description = array(
-		__('Description'),
-		__('Subhead'),
-		__('Shifttime (from - to)'),
-		__('Weekdays (from - to)'),
-		__('Time Zone')
+	$desc_array = array(
+		'id'                   => array('display' => __('Id'),          'sort' => 'ASC',  'align' => 'left'),
+		'name_cache'           => array('display' => __('Description'), 'sort' => 'ASC',  'align' => 'left'),
+		'description'          => array('display' => __('Subhead'),     'sort' => 'ASC',  'align' => 'left'),
+		'nosort1'              => array('display' => __('Shifttime (from - to)')),
+		'nosort2'              => array('display' => __('Weekdays (from - to)')),
+		'timezone'             => array('display' => __('Time Zone'),   'sort' => 'ASC',  'align' => 'left'),
 	);
-
-	if (!$enable_tmz) {
-		$description = array_values($description);
-		$link_array  = array_values($link_array);
-
-		unset($description[array_search('Time Zone', $description)]);
-		unset($link_array[array_search('timezone', $link_array)]);
-	}
-
-	$nav = html_nav_bar('rrdlist.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('RRDs'), 'page', 'main');
-
-	$columns = sizeof($link_array);
 
 	/* start with HTML output */
 	html_start_box($header_label, '100%', '', '2', 'center', 'items.php?&id=' . get_request_var('id'));
@@ -208,35 +197,35 @@ function standard() {
 	?>
 	<tr class='odd'>
 		<td>
-		<form id='form_rrdlist' method='get' action='rrdlist.php'>
+		<form id='form_rrdlist' action='rrdlist.php?id=<?php print get_request_var('id');?>'>
 			<table class='filterTable'>
 				<tr>
 					<td>
 						<?php print __('Search');?>
 					</td>
 					<td width='1'>
-						<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('RRDs');?>
 					</td>
 					<td>
-						<select id='rows'>
+						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach ($item_rows as $key => $value) {
-								print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
-							}
+								foreach ($item_rows as $key => $value) {
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
+								}
 							}
 							?>
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='submit' value='<?php print __('Go');?>'>
+						<input type='button' value='<?php print __esc_x('Button: use filter settings', 'Go');?>' id='refresh'>
 					</td>
 					<td>
-						<input id='clear' type='button' value='<?php print __('Clear');?>'>
+						<input type='button' value='<?php print __esc_x('Button: reset filter settings', 'Clear');?>' id='clear'>
 					</td>
 				</tr>
 			</table>
@@ -245,63 +234,60 @@ function standard() {
 		</td>
 	</tr>
 	<script type='text/javascript'>
-	function applyFilter() {
-		strURL = 'rrdlist.php?header=false&filter='+escape($('#filter').val())+'&rows='+$('#rows').val();
-		loadPageNoHeader(strURL);
-	}
+		function applyFilter() {
+			strURL = 'rrdlist.php?id=<?php print get_request_var('id');?>&header=false&filter='+escape($('#filter').val())+'&rows='+$('#rows').val();
+			loadPageNoHeader(strURL);
+		}
 
-	function clearFilter() {
-		strURL = 'rrdlist.php?clear=1&header=false';
-		loadPageNoHeader(strURL);
-	}
+		function clearFilter() {
+			strURL = 'rrdlist.php?clear=1&header=false&id=<?php print get_request_var('id');?>';
+			loadPageNoHeader(strURL);
+		}
 
-	$(function() {
-		$('#refresh').click(function() {
-			applyFilter();
+		$(function() {
+			$('#refresh').click(function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
+			});
+
+			$('#form_rrdlist').submit(function(event) {
+				event.preventDefault();
+				applyFilter();
+			});
 		});
-
-		$('#clear').click(function() {
-			clearFilter();
-		});
-
-		$('#form_rrdlist').submit(function(event) {
-			event.preventDefault();
-			applyFilter();
-		});
-	});
 	</script>
 	<?php
 
 	html_end_box();
 
+	$nav = html_nav_bar('rrdlist.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Items'), 'page', 'main');
+
 	print $nav;
-
+	form_start('rrdlist.php?id=' . get_request_var('id'));
 	html_start_box('', '100%', '', '3', 'center', '');
+	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'rrdlist.php?id=' . get_request_var('id'));
 
-	html_header_checkbox($description);
-	$i = 0;
-	
 	if (sizeof($rrdlist)) {
 		foreach($rrdlist as $rrd) {
-			form_alternate_row('line' . $rrd['id'], true);
-
-
+			form_alternate_row( 'line' . $rrd['id'], true );
+			form_selectable_cell( $rrd['id'], $rrd['id']);
 			if ($rrd['name_cache'] == NULL) {
 				form_selectable_cell(__('Does not exist anymore'), $rrd['id']);
 			} else {
-				form_selectable_cell("<a class='linkEditMain' 
-						href='rrdlist.php?action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id') . "'>" 
-						. $rrd['name_cache'] 
-						. "</a>", 
+				form_selectable_cell("<a class='linkEditMain'
+						href='rrdlist.php?action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id') . "'>"
+						. filter_value($rrd['name_cache'], get_request_var('filter'))
+						. "</a>",
 						$rrd['id']);
 			}
 
 			form_selectable_cell($rrd['description'], $rrd['id']);
 			form_selectable_cell($rrd['start_time'] . ' - ' . $rrd['end_time'], $rrd['id']);
 			form_selectable_cell($rrd['start_day']  . ' - ' . $rrd['end_day'],  $rrd['id']);
-
-			if ($enable_tmz) form_selectable_cell($rrd['timezone'], $rrd['id']);
-
+			form_selectable_cell($rrd['timezone'], $rrd['id']);
 			form_checkbox_cell(__('Select'), $rrd['id']);
 			form_end_row();
 		}
@@ -309,30 +295,13 @@ function standard() {
 		print "<tr><td colspan='6'><em>" . __('No data items found') . "</em></td></tr>";
 	}
 
-	html_end_box(false);
+	html_end_box(true);
 
 	if (sizeof($rrdlist)) {
 		print $nav;
 	}
-
-	/*remember report id */
-	$form_array = array(
-		'id' => array(
-			'method' => 'hidden_zero',
-			'value' => get_request_var('id')
-		)
-	);
-
-	draw_edit_form(
-		array(
-			'config' => array(),
-			'fields' => $form_array
-		)
-	);
-
-	html_end_box(true);
-
-	draw_actions_dropdown($rrdlist_actions, 'reports.php');
+	draw_actions_dropdown($rrdlist_actions);
+	form_end();
 }
 
 function rrdlist_edit() {
@@ -358,9 +327,11 @@ function rrdlist_edit() {
 		AND report_id = ?',
 		array(get_request_var('id'), get_request_var('report_id')));
 
-	$header_label = __('Data Object [edit: %s]', $rrdlist_data['name_cache']);
+	$header_label = __('Data Object [edit: %s]', $rrdlist_data['name_cache'], 'reportit');
 
 	/* start with HTML output */
+
+	form_start('rrdlist.php');
 	html_start_box($header_label, '100%', '', '2', 'center', '');
 
 	$form_array = array(
@@ -398,10 +369,6 @@ function rrdlist_edit() {
 			'fields' => $form_array
 		)
 	);
-
-	html_end_box();
-
-	html_start_box('', '100%', '', '2', 'center', '');
 
 	$shift_array = array(
 		'rrdlist_header2' => array(
@@ -441,10 +408,6 @@ function rrdlist_edit() {
 		)
 	);
 
-	html_end_box();
-
-	html_start_box('', '100%', '', '2', 'center', '');
-
 	$weekday_array = array(
 		'rrdlist_header3' => array(
 			'friendly_name' => __('Working Days'),
@@ -474,8 +437,7 @@ function rrdlist_edit() {
 	);
 
 	html_end_box();
-
-	form_save_button('rrdlist.php?&id='. get_request_var('report_id'));
+	form_save_button('rrdlist.php?id=' . get_request_var('report_id'));
 }
 
 function form_actions() {
@@ -540,8 +502,8 @@ function form_actions() {
 			input_validate_input_number($id);
 			// ====================================================
 
-            //Fetch rrd description
-            $rrd_description = db_fetch_cell_prepared('SELECT b.name_cache
+			//Fetch rrd description
+			$rrd_description = db_fetch_cell_prepared('SELECT b.name_cache
 				FROM plugin_reportit_data_items AS a
 				LEFT JOIN data_template_data AS b
 				ON b.local_data_id = a.id
@@ -554,8 +516,7 @@ function form_actions() {
 	}
 
 	top_header();
-
-	form_start('rrdlist.php');
+	form_start('rrdlist.php?id=' . get_request_var('id'));
 
 	html_start_box($rrdlist_actions{get_request_var('drp_action')}, '60%', '', '2', 'center', '');
 
@@ -592,8 +553,8 @@ function form_actions() {
 			print __('Selected data item as reference:');
 			print '<b><br>&#160' . $rrd_settings[0]['name_cache'] . '</b><p></p>';
 			print __('Time Zone:') . '<br>&#160 <b>' . $rrd_settings[0]['timezone'] . '</b><p></p>';
-			print __('Weekdays:')  . '<br>&#160 <b>' . ($rrd_settings[0]['start_day'] - $rrd_settings[0]['end_day'])   . '</b><p></p>';
-			print __('Shifttime:') . '<br>&#160 <b>' . ($rrd_settings[0]['start_time'] - $rrd_settings[0]['end_time']) . '</b><p></p>';
+			print __('Weekdays:')  . '<br>&#160 <b>' . ($rrd_settings[0]['start_day'] . '-' . $rrd_settings[0]['end_day'])   . '</b><p></p>';
+			print __('Shifttime:') . '<br>&#160 <b>' . ($rrd_settings[0]['start_time'] . '-' . $rrd_settings[0]['end_time']) . '</b><p></p>';
 
 			print '</td></tr>';
 		}
@@ -620,7 +581,7 @@ function form_actions() {
 	</tr>";
 
 	html_end_box();
-
+	form_end();
 	bottom_footer();
 }
 

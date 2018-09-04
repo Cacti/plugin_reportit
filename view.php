@@ -565,17 +565,17 @@ function show_report() {
 	?>
 	<tr class='odd'>
 		<td>
-		<form name='form_report' method='get'>
+		<form id='form_report' action='view.php'>
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'reportit');?>
 					</td>
 					<td>
 						<input id='filter' type='text' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Data Source');?>
+						<?php print __('Data Source', 'reportit');?>
 					</td>
 					<td>
 						<select id='data_source'>
@@ -590,7 +590,7 @@ function show_report() {
 						</select>
 					</td>
 					<td>
-						<?php print __('Measurand');?>
+						<?php print __('Measurand', 'reportit');?>
 					</td>
 					<td>
 						<select id='measurand'>
@@ -608,19 +608,19 @@ function show_report() {
 						<input id='subhead' type='checkbox'<?php print (get_request_var('subhead') == 1) ? ' checked':'';?>>
 					</td>
 					<td>
-						<label for='subhead'><?php print __('Show Subheads');?>
+						<label for='subhead'><?php print __('Show Subheads', 'reportit');?>
 					</td>
 					<td>
 						<input id='summary' type='checkbox'<?php print (get_request_var('summary') == 1) ? ' checked':'';?>>
 					</td>
 					<td>
-						<label for='summary'><?php print __('Summary');?>
+						<label for='summary'><?php print __('Summary', 'reportit');?>
 					</td>
 					<td>
-						<input id='refresh' type='submit' value='<?php print __('Go');?>'>
+						<input type='button' value='<?php print __esc_x('Button: use filter settings', 'Go');?>' id='refresh'>
 					</td>
 					<td>
-						<input id='clear' type='submit' value='<?php print __('Clear');?>'>
+						<input type='button' value='<?php print __esc_x('Button: reset filter settings', 'Clear');?>' id='clear'>
 					</td>
 				</tr>
 			</table>
@@ -643,6 +643,7 @@ function show_report() {
 					</td>
 					<td>
 						<select id='rows'>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
 							<?php
 							foreach ($item_rows as $key => $value) {
 							    print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . '</option>';
@@ -667,7 +668,7 @@ function show_report() {
 						</select>
 					</td>
 					<?php } else { ?>
-					<input id='archive' type='hidden' value='0'>
+					<input id='archive' type='hidden' value='-1'>
 					<?php } ?>
 				</tr>
 			</table>
@@ -690,7 +691,7 @@ function show_report() {
 		}
 
 		function clearFilter() {
-			strURL = 'view.php?action=show_report&clear=1&header=false';
+			strURL = 'view.php?action=show_report&id=<?php print get_request_var('id');?>&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
@@ -779,7 +780,7 @@ function show_report() {
 			form_alternate_row();
 
 			print '<td>
-				<a class="linkEditMain" href="view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . $result['name_cache'] . '</a>';
+				<a class="linkEditMain" href="view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . filter_value($result['name_cache'], get_request_var('filter')) . '</a>';
 
 			if (get_request_var('subhead') == 1) {
 				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);

@@ -1,7 +1,7 @@
 <?php
 /*
    +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
+   | Copyright (C) 2004-2018 The Cacti Group                                 |
    |                                                                         |
    | This program is free software; you can redistribute it and/or           |
    | modify it under the terms of the GNU General Public License             |
@@ -48,7 +48,7 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 
 	$no_http_headers = true;
 	include('./include/global.php');
-
+	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
     include_once(REPORTIT_BASE_PATH . '/setup.php');
     include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
     include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
@@ -97,8 +97,9 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
     if(($run_freq == '' & $run_id === false) || ($run_freq != '' & $run_id !== false)) help();
     if($run_id) run($run_id);
     else run($run_freq);
+}else {
+	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
 }
-
 
 function help() {
 	$info = plugin_reportit_version();
@@ -129,8 +130,6 @@ function help() {
 
 function run($frequency) {
 	global $run_verb, $email_counter, $export_counter;
-
-	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
 
 	$start = microtime();
     if(is_numeric($frequency)) {

@@ -445,8 +445,16 @@ $form_array_general = array(
 	'report_owner' => array(
 		'friendly_name' => __('Owner'),
 		'description' => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.'),
-		'method' => 'drop_sql',
-		'sql' => "SELECT DISTINCT a.id, a.username as name FROM user_auth AS a INNER JOIN user_auth_realm AS b ON a.id = b.user_id WHERE (b.realm_id = " . REPORTIT_USER_OWNER . " OR b.realm_id = " . REPORTIT_USER_VIEWER . ") ORDER BY username",
+		'method' => ( user_auth_realm( REPORTIT_USER_ADMIN, my_id() ) ? 'drop_sql' : 'hidden_zero'),
+		'sql' => 'SELECT user_auth.id, user_auth.username as name FROM user_auth LEFT JOIN ( SELECT user_id from user_auth_realm WHERE realm_id = ' . REPORTIT_USER_OWNER . ' ) AS user_realm ON user_auth.id = user_realm.user_id
+					LEFT JOIN (
+						SELECT user_auth_group_members.user_id FROM user_auth_group_members
+							INNER JOIN user_auth_group_realm ON
+						user_auth_group_members.group_id = user_auth_group_realm.group_id
+						WHERE user_auth_group_realm.realm_id = ' . REPORTIT_USER_OWNER . '
+					) as group_member
+					ON group_member.user_id = user_auth.id
+					WHERE group_member.user_id IS NOT NULL OR user_realm.user_id IS NOT NULL;',
 		'value' => '|arg1:user_id|',
 	),
 	'report_public' => array(
@@ -497,5 +505,5 @@ $form_array_general = array(
 	)
 );
 
-if (!read_config_option('reportit_operator')) $form_array_general = array_merge($form_array_general, $form_array_scheduling);
+$form_array_general = array_merge($form_array_general, $form_array_scheduling);
 

@@ -883,7 +883,7 @@ function load_external_libs($name){
 
 		break;
 		case 'cleanXML':
-			include_once(CACTI_BASE_PATH . '/plugins/reportit/lib_ext/xml/xml.lib.php');
+
 		break;
 	}
 }
@@ -919,8 +919,8 @@ function update_xml_archive($report_id) {
 	/* load report data */
 	$data = get_prepared_report_data($report_id, 'view');
 
-    /* transform the data source aliases to the old style */
-    $data['report_data']['data_template_alias'] = serialize($data['report_ds_alias']);
+	/* transform the data source aliases to the old style */
+	$data['report_data']['data_template_alias'] = serialize($data['report_ds_alias']);
 
 	/* use an output puffer for flushing */
 	ob_start();
@@ -981,8 +981,8 @@ function update_xml_archive($report_id) {
 	/* add XML output to the archive */
 	$v_list = $archive->add($tmpfile, PCLZIP_OPT_REMOVE_ALL_PATH);
 	if ($v_list == 0) {
-    	die("Error : ".$archive->errorInfo(true));
-  	}
+		die("Error : ".$archive->errorInfo(true));
+	}
 
 	/* change mode */
 	chmod($arc_file, 0644);
@@ -1006,8 +1006,9 @@ function cache_xml_file($report_id, $mtime){
 	$arc_file	= (($arc_path == '') ? REPORTIT_ARC_FD : $arc_path) . $report_id . '.zip';
 
 	/* check if cache is up to date */
-	$sql = "SHOW TABLES LIKE 'reportit_tmp_" . $cache_id . "'";
-	if (db_fetch_cell($sql) !== null) return;
+	$sql = "SHOW TABLES LIKE 'plugin_reportit_tmp_" . $cache_id . "'";
+
+	if (db_fetch_cell($sql)) return;
 
 	/* load zip file support */
 	load_external_libs('pclzip');
@@ -1023,13 +1024,11 @@ function cache_xml_file($report_id, $mtime){
 			break;
 		}
 	}
+
 	if ($index === false) die_html_custom_error("Report not found in archive.", true);
 	$data = $archive->extractByIndex($index, PCLZIP_OPT_EXTRACT_AS_STRING);
-
-	/* use external XML class to be compatible with PHP4 */
-	load_external_libs('cleanXML');
-	$xml = new Xml();
-	$archive = $xml->parse($data[0]['content'], NULL, 'ISO-8859-1');
+	$content = simplexml_load_string($data[0]['content']);
+	$archive = json_decode( json_encode($content), TRUE);
 
 	/* transform data and fill up the cache tables */
 	trans_array2sql($archive['report']['settings'], $columns, $values, $cache_id);
@@ -1088,7 +1087,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 								$columns .= ", `$sub_key`";
 							}
 
-							$sub_values .= (strpos($sub_value, '{{') !== false) ? ", ''" : ', ' . db_qstr($sub_value);
+							$sub_values .= (is_array($sub_value) && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
 						}
 
 						$keys = true;
@@ -1096,16 +1095,16 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 						$values .= $cache_id ? ",('$cache_id' $sub_values)" : ',(' . substr($sub_values, 1) .')';
 
 						$multi = true;
-				     }
+					}
 				} else {
 					foreach ($value as $sub_key => $sub_value) {
 						$columns .= ", `$sub_key`";
-						$values  .= (strpos($sub_value, '{{') !== false) ? ", ''" : ', ' . db_qstr($sub_value);
+						$values  .= (is_array($sub_value) && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
 					}
 				}
 			} else {
 				$columns .= ", `$key`";
-				$values	 .= (strpos($value, '{{') !== false) ? ", ''" : ', ' . db_qstr($value);
+				$values	 .= (is_array($value) && !$value) ? ", ''" : ', ' . db_qstr($value);
 			}
 		}
 	} else {

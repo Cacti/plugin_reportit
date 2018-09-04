@@ -141,48 +141,6 @@ $calc_functions_aliases = array(
 		'syntax'		=> '<i>integer</i> f_rnd <i>(float $var)</i>',
 		'examples'		=> 'f_rnd(69.50) = 70, f_rnd(69,49) = 69'
 	),
-	'f_eq' => array(
-		'title'			=> __('f_eq - Alias of f_cmp - IS EQUAL', 'reportit'),
-		'description'	=> __('Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
-		'params'		=> '$A, $B [, $C, $D]',
-		'syntax'		=> '<i>bool</i> f_eq <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_eq(5,6) = 0,  f_eq(6,6) = 1, f_eq(f_min,6) = 1 or 0, f_eq(6,6,f_min) = f_min, f_eq(6,5,f_min,f_max) = f_max'
-	),
-	'f_uq' => array(
-		'title'			=> __('f_uq - Alias of f_cmp - IS UNEQUAL', 'reportit'),
-		'description'	=> __('Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
-		'params'		=> '$A, $B [, $C, $D]',
-		'syntax'		=> '<i>bool</i> f_uq <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_uq(5,6) = 1,  f_uq(6,6) = 0, f_uq(f_min,6) = 1 or 0, f_uq(6,6,f_min) = 0, f_uq(6,5,f_min,f_max) = f_min'
-	),
-	'f_gt' => array(
-		'title'			=> __('f_gt - Alias of f_cmp - IS GREATER THAN', 'reportit'),
-		'description'	=> __('Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
-		'params'		=> '$A, $B [, $C, $D]',
-		'syntax'		=> '<i>bool</i> f_gt <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_gt(5,6) = 0,  f_gt(6,6) = 0, f_gt(f_min,6) = 1 or 0, f_gt(6,6,f_min) = 0, f_gt(6,5,f_min,f_max) = f_min'
-	),
-	'f_lt' => array(
-		'title'			=> __('f_lt - Alias of f_cmp - IS LOWER THAN', 'reportit'),
-		'description'	=> __('Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
-		'params'		=> '$A, $B [, $C, $D]',
-		'syntax'		=> '<i>bool</i> f_lt <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_lt(5,6) = 1,  f_lt(6,6) = 0, f_lt(f_min,6) = 1 or 0, f_lt(6,6,f_min) = 0, f_lt(6,5,f_min,f_max) = f_max()'
-	),
-	'f_ge' => array(
-		'title'			=> __('f_ge - Alias of f_cmp - IS GREATER OR EQUAL', 'reportit'),
-		'description'	=> __('Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
-		'params'		=> '$A, $B [, $C, $D]',
-		'syntax'		=> '<i>bool</i> f_ge <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_ge(5,6) = 0,  f_ge(6,6) = 1, f_ge(f_min,6) = 1 or 0, f_ge(6,6,f_min) = f_min, f_ge(6,5,f_min,f_max) = f_min'
-	),
-	'f_le' => array(
-		'title'			=> __('f_le - Alias of f_cmp - IS LOWER OR EQUAL', 'reportit'),
-		'description'	=> __('Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
-		'params'		=> '$A, $B [, $C, $D]',
-		'syntax'		=> '<i>bool</i> f_le <i>(float $A, float $B [, float $C, float $D])</i>',
-		'examples'		=> 'f_le(5,6) = 1,  f_le(6,6) = 1, f_le(f_min,6) = 1 or 0, f_le(6,6,f_min) = f_min, f_le(6,5,f_min,f_max) = f_max'
-	)
 );
 
 $calc_fct_aliases = array_keys($calc_functions_aliases);
@@ -258,13 +216,48 @@ $calc_functions_params = array(
 		'syntax'		=> '<i>bool</i> f_isNaN <i>(float $A [, float $B, float $C])</i>',
 		'examples'		=> 'f_isNaN(5) = 0, f_isNaN(f_min) = 1 or 0, f_isNaN(f_min,5) = 5 or 0, f_isNaN(f_min,5,10) = 5 or 10'
 	),
-	'f_cmp' => array(
-		'title'			=> __('f_cmp - Complex Comparison', 'reportit'),
-		'description'	=> __('Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional.', 'reportit'),
-		'params'		=> '$A [, $B, $C]',
-		'syntax'		=> '<i>bool</i> f_nan <i>(float $A [, float $B, float $C])</i>',
-		'examples'		=> 'f_nan(5) = 0, f_nan(f_min()) = 1 or 0, f_nan(f_min(),5) = 5 or 0, f_nan(f_min(),5,10) = 5 or 10'
-	)
+	'f_eq' => array(
+		'title'			=> __('f_eq - Alias of f_cmp - IS EQUAL', 'reportit'),
+		'description'	=> __('Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
+		'params'		=> '$A, $B [, $C, $D]',
+		'syntax'		=> '<i>bool</i> f_eq <i>(float $A, float $B [, float $C, float $D])</i>',
+		'examples'		=> 'f_eq(5,6) = 0,  f_eq(6,6) = 1, f_eq(f_min,6) = 1 or 0, f_eq(6,6,f_min) = f_min, f_eq(6,5,f_min,f_max) = f_max'
+	),
+	'f_uq' => array(
+		'title'			=> __('f_uq - Alias of f_cmp - IS UNEQUAL', 'reportit'),
+		'description'	=> __('Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
+		'params'		=> '$A, $B [, $C, $D]',
+		'syntax'		=> '<i>bool</i> f_uq <i>(float $A, float $B [, float $C, float $D])</i>',
+		'examples'		=> 'f_uq(5,6) = 1,  f_uq(6,6) = 0, f_uq(f_min,6) = 1 or 0, f_uq(6,6,f_min) = 0, f_uq(6,5,f_min,f_max) = f_min'
+	),
+	'f_gt' => array(
+		'title'			=> __('f_gt - Alias of f_cmp - IS GREATER THAN', 'reportit'),
+		'description'	=> __('Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
+		'params'		=> '$A, $B [, $C, $D]',
+		'syntax'		=> '<i>bool</i> f_gt <i>(float $A, float $B [, float $C, float $D])</i>',
+		'examples'		=> 'f_gt(5,6) = 0,  f_gt(6,6) = 0, f_gt(f_min,6) = 1 or 0, f_gt(6,6,f_min) = 0, f_gt(6,5,f_min,f_max) = f_min'
+	),
+	'f_lt' => array(
+		'title'			=> __('f_lt - Alias of f_cmp - IS LOWER THAN', 'reportit'),
+		'description'	=> __('Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
+		'params'		=> '$A, $B [, $C, $D]',
+		'syntax'		=> '<i>bool</i> f_lt <i>(float $A, float $B [, float $C, float $D])</i>',
+		'examples'		=> 'f_lt(5,6) = 1,  f_lt(6,6) = 0, f_lt(f_min,6) = 1 or 0, f_lt(6,6,f_min) = 0, f_lt(6,5,f_min,f_max) = f_max()'
+	),
+	'f_ge' => array(
+		'title'			=> __('f_ge - Alias of f_cmp - IS GREATER OR EQUAL', 'reportit'),
+		'description'	=> __('Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
+		'params'		=> '$A, $B [, $C, $D]',
+		'syntax'		=> '<i>bool</i> f_ge <i>(float $A, float $B [, float $C, float $D])</i>',
+		'examples'		=> 'f_ge(5,6) = 0,  f_ge(6,6) = 1, f_ge(f_min,6) = 1 or 0, f_ge(6,6,f_min) = f_min, f_ge(6,5,f_min,f_max) = f_min'
+	),
+	'f_le' => array(
+		'title'			=> __('f_le - Alias of f_cmp - IS LOWER OR EQUAL', 'reportit'),
+		'description'	=> __('Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional.', 'reportit'),
+		'params'		=> '$A, $B [, $C, $D]',
+		'syntax'		=> '<i>bool</i> f_le <i>(float $A, float $B [, float $C, float $D])</i>',
+		'examples'		=> 'f_le(5,6) = 1,  f_le(6,6) = 1, f_le(f_min,6) = 1 or 0, f_le(6,6,f_min) = f_min, f_le(6,5,f_min,f_max) = f_max'
+	),
 );
 
 $calc_fct_names_params	= array_keys($calc_functions_params);
