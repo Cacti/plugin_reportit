@@ -183,8 +183,8 @@ function standard() {
 
 	/* define subheader description */
 	$desc_array = array(
-		'id'                   => array('display' => __('Id'),          'sort' => 'ASC',  'align' => 'left'),
-		'name_cache'           => array('display' => __('Description'), 'sort' => 'ASC',  'align' => 'left'),
+		'id'                   => array('display' => __('ID'),          'sort' => 'ASC',  'align' => 'left'),
+		'name_cache'           => array('display' => __('Data Item Name'), 'sort' => 'ASC',  'align' => 'left'),
 		'description'          => array('display' => __('Subhead'),     'sort' => 'ASC',  'align' => 'left'),
 		'nosort1'              => array('display' => __('Shifttime (from - to)')),
 		'nosort2'              => array('display' => __('Weekdays (from - to)')),
@@ -327,7 +327,7 @@ function rrdlist_edit() {
 		AND report_id = ?',
 		array(get_request_var('id'), get_request_var('report_id')));
 
-	$header_label = __('Data Object [edit: %s]', $rrdlist_data['name_cache'], 'reportit');
+	$header_label = __('Data Item [edit: %s]', $rrdlist_data['name_cache'], 'reportit');
 
 	/* start with HTML output */
 
@@ -467,9 +467,8 @@ function form_actions() {
 			$reference_items = unserialize(stripslashes(get_request_var('reference_items')));
 
 			db_execute_prepared("UPDATE plugin_reportit_data_items
-				SET start_day = ?, end_day = ?, start_time = ?,
-				 end_time = ?, timezone = ?,
-				 WHERE report_id = ?",
+				SET `start_day` = ?, `end_day` = ?, `start_time` = ?,
+				 `end_time` = ?, `timezone` = ? WHERE `report_id` = ?",
 				array(
 					$reference_items[0]['start_day'],
 					$reference_items[0]['end_day'],
