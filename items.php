@@ -115,8 +115,8 @@ function save(){
 function standard() {
 	global $config, $link_array;
 
-    /* ================= input validation and session storage ================= */
-    $filters = array(
+	/* ================= input validation and session storage ================= */
+	$filters = array(
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -147,7 +147,7 @@ function standard() {
 			'default' => '-1'
 			)
 	);
-    $filters = api_plugin_hook_function('report_filters', $filters);
+	$filters = api_plugin_hook_function('report_filters', $filters);
 
 	validate_store_request_vars($filters, 'sess_items');
 	/* ================= input validation ================= */
@@ -170,31 +170,31 @@ function standard() {
 	$sql_where = get_graph_permissions_sql($current_owner['policy_graphs'], $current_owner['policy_hosts'], $current_owner['policy_graph_templates']);
 
 	/* load filter settings of that report template this report relies on */
-	$template_filter = db_fetch_assoc_prepared("SELECT rt.pre_filter, rt.data_template_id
+	$template_filter = db_fetch_assoc_prepared('SELECT rt.pre_filter, rt.data_template_id
 		FROM plugin_reportit_reports AS rr
 		INNER JOIN plugin_reportit_templates AS rt
 		ON rr.template_id = rt.id
-		WHERE rr.id = ?",
+		WHERE rr.id = ?',
 		array(get_request_var('id')));
 
 	/* start building the SQL syntax */
 	/* filter all RRDs which are not in RRD table and match with filter settings */
-	$sql = "SELECT DISTINCT a.local_data_id AS id, a.name_cache
+	$sql = 'SELECT DISTINCT a.local_data_id AS id, a.name_cache
 		FROM data_template_data AS a
 		LEFT JOIN plugin_reportit_data_items AS b
 		ON a.local_data_id = b.id
-		AND b.report_id = {get_request_var('id')}
+		AND b.report_id = ' . get_request_var('id') . '
 		LEFT JOIN data_local AS c
 		ON c.id = a.local_data_id
 		LEFT JOIN host AS d
-		ON d.id = c.host_id";
+		ON d.id = c.host_id';
 
 	/* use additional filter for graph permissions if necessary */
 	if (read_config_option("auth_method") != 0 & $report_data['graph_permission'] == 1) {
-		$sql_join = " LEFT JOIN graph_local ON (c.id = graph_local.host_id)
+		$sql_join = ' LEFT JOIN graph_local ON (c.id = graph_local.host_id)
 			LEFT JOIN graph_templates ON (graph_templates.id=graph_local.graph_template_id)
 			LEFT JOIN graph_templates_graph ON (graph_templates_graph.local_graph_id=graph_local.id)
-			LEFT JOIN user_auth_perms ON ((graph_templates_graph.local_graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=" . $report_data["user_id"] . ") OR (d.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $report_data["user_id"] . ") OR (graph_templates.id=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=" . $report_data["user_id"] . "))";
+			LEFT JOIN user_auth_perms ON ((graph_templates_graph.local_graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=' . $report_data["user_id"] . ') OR (d.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=' . $report_data["user_id"] . ') OR (graph_templates.id=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=' . $report_data["user_id"] . '))';
 		$sql .= $sql_join;
 	}
 
@@ -259,7 +259,7 @@ function standard() {
 
 	$nav = html_nav_bar('items.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
 
-	$header_label	= __('Data Objects [add to report: <a style="color:yellow" href="reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
+	$header_label	= __('Data Items [add to report: <a style="color:yellow" href="reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
 
 	/* show the Host Template Description in the header, if Host Template Id filter was set */
 	$ht_desc = db_fetch_cell_prepared('SELECT name
@@ -271,7 +271,7 @@ function standard() {
 		$ht_desc = __('None');
 	}
 
-	/* show the Data Source Filter in the heaser, if it has been defined */
+	/* show the Data Source Filter in the header, if it has been defined */
 	$ds_desc = $report_data['data_source_filter'];
 	if (!strlen($ds_desc)) {
 		$ds_desc = __('None');
@@ -283,9 +283,12 @@ function standard() {
 	form_start('items.php');
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	$desc_array = array(__('Description'));
+	$desc_array = array(
+		'id'                   => array('display' => __('ID', 'reportit'),              'sort' => 'ASC',  'align' => 'left'),
+		'name_cache'           => array('display' => __('Data Item Name', 'reportit'),  'sort' => 'ASC',  'align' => 'left'),
+	);
 
-	html_header_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'));
+	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'items.php?id=' . get_request_var('id'));
 
 	//Set preconditions
 	$i = 0;
@@ -293,12 +296,12 @@ function standard() {
 	if (sizeof($rrdlist)) {
 		foreach($rrdlist as $rrd) {
 			form_alternate_row('line' . $rrd['id'], true);
-			?><td><?php print $rrd['name_cache'];?></td><?php
+			form_selectable_cell( $rrd['id'], $rrd['id']);
+			form_selectable_cell( filter_value($rrd['name_cache'], get_request_var('filter')), $rrd['id'], 'left');
 			form_checkbox_cell("Select",$rrd["id"]);
-
 		}
 	} else {
-		print '<tr><td colspan="2"><em>' . __('No data items') . '</em></td></tr>';
+		print '<tr><td colspan="2"><em>' . __('No data items', 'reportit') . '</em></td></tr>';
 	}
 
 	/*remember report id */
@@ -321,7 +324,7 @@ function standard() {
 function items_filter($header_label) {
 	global $item_rows;
 
-	html_start_box($header_label, '100%', '', '3', 'center', 'items.php?action=edit');
+	html_start_box($header_label, '100%', '', '3', 'center','');
 	?>
 	<tr class='even'>
 		<td>
@@ -365,6 +368,7 @@ function items_filter($header_label) {
 		function applyFilter() {
 			strURL = 'items.php?id=<?php print get_request_var('id');?>'+'&filter='+
 				escape($('#filter').val())+
+				'&host_id='+$('#host_id').val()+
 				'&rows='+$('#rows').val()+
 				'&page='+$('#page').val()+
 				'&header=false';
@@ -372,7 +376,7 @@ function items_filter($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'items.php?clear=1&header=false';
+			strURL = 'items.php?id=<?php print get_request_var('id');?>&clear=1&header=false';
 			loadPageNoHeader(strURL);
 		}
 
