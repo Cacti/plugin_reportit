@@ -87,6 +87,7 @@ At first it's recommend to discuss your feature request with the Cacti community
 * removed: Support of php_rrdtool extension
 * removed: Support of RRDtool server
 * removed: Support of Graidle
+* issue#41: When creating a new Report Template, save fails and loses all data
 
 --- 1.0.1 ---
 * issue#2: Suppress display of 'Constant MAX_DISPLAY_PAGES is already defined'

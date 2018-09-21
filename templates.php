@@ -670,7 +670,7 @@ function form_save() {
 		}
 	}
 
-	/* check if we can unlock this template. */
+	/* check if we can lock this template. */
 	if ($template_data['locked'] == '') {
 		if (stat_autolock_template($template_data['id'])) {
 			raise_message('reportit_templates__3');

@@ -58,6 +58,7 @@ $fields_template_edit = array(
 		'method' => 'checkbox',
 		'description' => __('The status "locked" avoids any kind of modification to your report template as well as assigned measurands and variable definitions', 'reportit'),
 		'value' => '|arg1:locked|',
+		'default' => 'on',
 	),
 	'template_filter' => array(
 		'friendly_name' => __('Additional Pre-filter', 'reportit'),
