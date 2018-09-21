@@ -83,7 +83,7 @@ $fields_template_edit = array(
 	),
 	'template_data_template' => array(
 		'friendly_name' => __('Data Template', 'reportit'),
-		'method' => 'custom',
+		'method' => 'label',
 		'max_length' => '100',
 		'description' => __('The name of the data template this Report Template depends on.', 'reportit'),
 		'value' => '|arg1:data_template_name|'
