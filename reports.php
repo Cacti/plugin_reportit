@@ -71,6 +71,10 @@ function report_wizard() {
 		FROM plugin_reportit_templates
 		WHERE `locked` = '' AND `enabled` = 'on' ORDER BY description");
 
+	$templates_locked = db_fetch_cell("SELECT count(id) as rower
+		FROM plugin_reportit_templates
+		WHERE NOT (`locked` = '' AND `enabled` = 'on') ORDER BY description");
+
 	if (isset($_SESSION['reportit'])) unset($_SESSION['reportit']);
 	form_start('reports.php');
 
@@ -79,7 +83,7 @@ function report_wizard() {
 	if (sizeof($templates_list) == 0) {
 		print "<tr class='even'>
 			<td>
-				<span class='textError'>" . __('There are no report templates available.', 'reportit') . "</span>
+				<p><span class='textError'>" . __('There are no unlocked and enabled report templates available (%s locked or disabled).', $templates_locked, 'reportit') . "</span></p>
 			</td>
 		</tr>";
 		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reports.php\")'>";

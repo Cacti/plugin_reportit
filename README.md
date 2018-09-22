@@ -82,6 +82,9 @@ At first it's recommend to discuss your feature request with the Cacti community
 
 ## Changelog
 
+--- 1.0.3 ---
+* issue#44: Message should be clearer when unable to add a report due to no templates available
+
 --- 1.0.2 ---
 * feature: PHP ZIP library pclzip.lib.php updated 2.8.2
 * removed: Support of php_rrdtool extension
