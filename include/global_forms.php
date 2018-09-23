@@ -81,12 +81,19 @@ $fields_template_edit = array(
 		'method' => 'spacer',
 		'collapsible' => 'true'
 	),
-	'template_data_template' => array(
+	'template_data_template_label' => array(
 		'friendly_name' => __('Data Template', 'reportit'),
 		'method' => 'label',
 		'max_length' => '100',
 		'description' => __('The name of the data template this Report Template depends on.', 'reportit'),
 		'value' => '|arg1:data_template_name|'
+	),
+	'template_data_template' => array(
+		'friendly_name' => __('Data Template', 'reportit'),
+		'method' => 'hidden',
+		'max_length' => '100',
+		'description' => __('The name of the data template this Report Template depends on.', 'reportit'),
+		'value' => '|arg1:data_template_id|'
 	)
 );
 

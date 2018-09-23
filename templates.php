@@ -705,7 +705,7 @@ function form_save() {
 		/* return to list view if it was an existing report template */
 		if ($template_data['id'] != 0) {
 			raise_message(1);
-		}else {
+		} else {
 			raise_message(2);
 		}
 	}
