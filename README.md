@@ -84,6 +84,7 @@ At first it's recommend to discuss your feature request with the Cacti community
 
 --- 1.0.3 ---
 * issue#44: Message should be clearer when unable to add a report due to no templates available
+* issue#43: Error [] operator not supported for strings
 
 --- 1.0.2 ---
 * feature: PHP ZIP library pclzip.lib.php updated 2.8.2
