@@ -1,17 +1,5 @@
 # reportit
 
-Authors ........ Andreas Braun
-
-Contact ........ reportit@outlook.com
-
-Home Site ...... https://github.com/Cacti/plugin_reportit
-
-Program ........ "Cacti-ReportIt"
-
-Version ........ 1.0
-
-Purpose ........ Create reports
-
 ## Developers
 
 * Andreas Braun (aka browniebraun)
@@ -43,7 +31,9 @@ Before you install "ReportIt", check the following requirements:
 * Cacti 1.1.11 or higher.
 
 To upgrade "ReportIt" release 0.4.0 or higher is required.
+
 A prior version (0.1, 0.2, 0.3.0, 0.3.1, 0.3.2 or 0.4.0a) has to be completely uninstalled (mysql tables as well)!
+
 Therefore you can use uninstall.php.
 
 Optional:
@@ -62,9 +52,28 @@ The Installation of ReportIt is similar to other plugins:
 
 ## Upgrade
 
-To upgrade an existing version of ReportIt please ensure that its release number is v0.4.0 or above. It's strongly recommended to make a backup of your cacti database and your ReportIt folder before! If you're using the default archive folder of 0.6.x save it first!!!  After that replace your existing ReportIt folder with the new one stored in this download archive.  Go to the plugin management console and click on "install". The upgrade process will start automatically!  After it has finished you can enable ReportIt with a click on "enable".
+To upgrade an existing version of ReportIt please ensure that its release
+number is v0.4.0 or above. It's strongly recommended to make a backup of your
+cacti database and your ReportIt folder before! If you're using the default
+archive folder of 0.6.x save it first!!!  After that replace your existing
+ReportIt folder with the new one stored in this download archive.  Go to the
+plugin management console and click on "install". The upgrade process will
+start automatically!  After it has finished you can enable ReportIt with a
+click on "enable".
 
-ReportIt does not require that your webserver has write access to any folder.  But if the history function should be in use, you will have to ensure that the user, who executes the calculation of your scheduled reports via Crontab or another scheduler, will have write access to the folders called "tmp" and "archive".  Same has to be ensured for the export folder.  At least change to the Cacti Webinterface and check the settings under "Console->Settings->Reports".
+ReportIt does not require that your webserver has write access to any
+folder.  But if the history function should be in use, you will have to
+ensure that the user, who executes the calculation of your scheduled
+reports via Crontab or another scheduler, will have write access to the
+folders called "tmp" and "archive".  Same has to be ensured for the
+export folder.  At least change to the Cacti Webinterface and check
+the settings under "Console->Settings->Reports".
+
+## Authors
+ReportIt was created and written by Andreas Braun (browniebraun) with
+numerous contributors over the years.  Recent upgrades seen other
+contributors helping out including Jimmy Connor (cigamit), Mark
+Brugnoli-Vinten (netniV) and Carlimeunier.
 
 ## Additional Help?
 
@@ -72,11 +81,14 @@ If you need additional help, please goto http://forums.cacti.net/about19674.html
 
 ## Possible Bugs?
 
-If you figure out this problem, use the bug tracker under https://sourceforge.net/tracker/?group_id=201406&atid=977435, or post it to the main discussion (http://forums.cacti.net/viewtopic.php?t=18796), or send me a pm or an email.
+If you find any potential issues, please use the issue tracker
+on GitHub: https://github.com/cacti/plugin_reportit/issues/
 
 ## Feature Requests?
 
-At first it's recommend to discuss your feature request with the Cacti community.  After that you should open a feature request under https://sourceforge.net/tracker/?group_id=201406&atid=977438 to keep it in mind.
+At first it's recommend to discuss your feature request with the
+Cacti community.  After that you should open a feature request
+on GitHub: https://github.com/cacti/plugin_reportit/issues/
 
 ## Future Changes
 
