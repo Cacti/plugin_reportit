@@ -1183,7 +1183,7 @@ function form_actions() {
 	}
 
 	//Set preconditions
-	$ds_list = ''; $i = 0;
+	$ds_list = array(); $i = 0;
 
 	foreach($_POST as $key => $value) {
 		if (strstr($key, 'chk_')) {
@@ -1262,7 +1262,7 @@ function form_actions() {
 	}
 
 
-	if (!is_array($ds_list)) {
+	if ($ds_list === false || !sizeof($ds_list)) {
 		print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one report.') . "</span></td></tr>\n";
 		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
 	} else {
