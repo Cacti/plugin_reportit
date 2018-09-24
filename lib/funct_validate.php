@@ -108,7 +108,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 		$position = strpos($debug, $div);
 
 		if ($position !== FALSE) {
-		    return "Division by zero: <span style='color:blue'>$calc_formula<span>";
+			return "Division by zero: <span style='color:blue'>$calc_formula<span>";
 		}
 	}
 
@@ -332,7 +332,7 @@ function validate_uploaded_template(){
 			WHERE local_data_id=0
 			AND data_template_id = $data_template_id";
 
-        $ds_names = db_custom_fetch_assoc($sql,false,false,false);
+	$ds_names = db_custom_fetch_assoc($sql,false,false,false);
 
 		if (in_array($template_ds_names, $ds_names) === false) {
 			$compatible = true;

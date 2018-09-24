@@ -474,7 +474,7 @@ function form_actions() {
 	}
 
 	//Set preconditions
-	$ds_list = ''; $i = 0;
+	$ds_list = array(); $i = 0;
 
 	foreach($_POST as $key => $value) {
 		if(strstr($key, 'chk_')) {
@@ -518,7 +518,7 @@ function form_actions() {
 		print '</td>
 			</tr>';
 
-		if (!is_array($ds_list)) {
+		if (!is_array($ds_list) || empty($ds_list)) {
 			print "<tr>
 				<td class='textArea'>
 					<span class='textError'>" . __('You must select at least one measurand.', 'reportit') . '</span>

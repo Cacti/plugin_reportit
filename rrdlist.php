@@ -488,7 +488,7 @@ function form_actions() {
 	}
 
 	//Set preconditions
-	$ds_list = '';
+	$ds_list = array();
 	$rrd_ids = array();
 
 	foreach($_POST as $key => $value) {
@@ -559,7 +559,7 @@ function form_actions() {
 		}
 	}
 
-	if (!is_array($ds_list)) {
+	if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
 		print "<tr><td class='odd''><span class='textError'>" . __('You must select at least one Report.') . '</span></td></tr>';
 
 		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";

@@ -1262,7 +1262,7 @@ function form_actions() {
 	}
 
 
-	if ($ds_list === false || !sizeof($ds_list)) {
+	if ($ds_list === false || empty($ds_list)) {
 		print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one report.') . "</span></td></tr>\n";
 		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
 	} else {

@@ -403,7 +403,7 @@ function form_actions() {
 	}
 
 	//Set preconditions
-	$ds_list = ''; $i = 0;
+	$ds_list = array(); $i = 0;
 
 	foreach($_POST as $key => $value) {
 		if (strstr($key, 'chk_')) {
@@ -467,7 +467,7 @@ function form_actions() {
 		print '</td>
 		</tr>';
 
-		if (!is_array($ds_list) || $error == TRUE) {
+		if ($ds_list === false || empty($ds_list) || !is_array($ds_list) || $error == TRUE) {
 			if ($error) {
 				print "<tr><td class='odd'><span class='textError'>" . __('There are one or more variables in use.', 'reportit') . '</span></td></tr>';
 			} else {

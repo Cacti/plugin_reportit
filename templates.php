@@ -138,25 +138,25 @@ function template_wizard($action) {
 
 		session_custom_error_display();
 
+		form_start('templates.php', 'reportit_upload', true);
 		html_start_box(__('Import Report Template', 'reportit'), '60%', '', '3', 'center', '');
 
-		print "<form action='templates.php' autocomplete='off' method='post' enctype='multipart/form-data'>";
-
-		print "<tr class='textArea'>
-			<td>" . __('Select the XML file that contains your Report Template.', 'reportit') . "</td>
-			<td>
-				<input type='file' name='file' id='file' size='35' maxlength='50000' accept='xml'>
-			</td>
-		</tr>";
-
 		print "<tr>
+			<td class='textArea'>
+				<p>" . __('Select the XML file that contains your Report Template.', 'reportit') . "</p>
+				<p><input type='file' name='file' id='file' size='35' maxlength='50000' accept='xml'></p>
+			</td>
+		</tr>
+		<tr>
 			<td class='saveRow'>
 				<input type='hidden' name='action' value='template_import_wizard'>
-				<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Upload', 'reportit') . "' title='" . __esc('Upload Report Template', 'reportit') . "'>
 			</td>
 		</tr>";
 
+		form_save_button('', 'import', 'import', false);
+
 		html_end_box();
+
 		bottom_footer();
 
 		break;
@@ -176,37 +176,43 @@ function template_wizard($action) {
 
 			clean_xml_waste($info, '<i>unknown</i>');
 
-			html_start_box(__('Summary', 'reportit'), '60%', '', '3', 'center', '');
+			form_start('templates.php?action=template_import_wizard');
+			html_start_box(__('Summary', 'reportit'), '60%', '', '2', 'center', '');
 
-			form_start('templates.php');
-
-			print "<tr class='textArea'>
-				<td colspan='4'></td>
-			</tr>
+			print "
 			<tr class='textArea'>
 				<td>" . __('Template Name:', 'reportit') . "</td>
 				<td>" . $_SESSION['sess_reportit']['report_template']['settings']['description'] . "</td>
+			</tr>
+			<tr class='textArea'>
 				<td class='right'>" . __('Version:', 'reportit') . "</td>
 				<td>" . $info['version'] . "</td>
 			</tr>
 			<tr class='textArea'>
-				<td>" . __('Author:', 'reportit')  . "</td>
+				<td class='right'>" . __('Author:', 'reportit')  . "</td>
 				<td>" . $info['author'] . "</td>
-				<td class='right'>Contact:</td>
+			</tr>
+			<tr class='textArea'>
+				<td class='right'>" . __('Contact:', 'reportit') . "</td>
 				<td>" . $info['contact'] . "</td>
 			<tr>
 			<tr class='textArea'>
-				<td>" . __('Description:', 'reportit') . "</td>
-				<td colspan='3' width='85%'>" . nl2br($info['description']) ."</td>
+				<td class='right'>" . __('Description:', 'reportit') . "</td>
+				<td>" . nl2br($info['description']) ."</td>
 			</tr>
 			<tr class='textArea'>
-				<td>" . __('Compatible:', 'reportit') . "</td>
-				<td colspan='3'>" . $_SESSION['sess_reportit']['report_template']['analyse']['compatible'] . "</td>
+				<td class='right'>" . __('Compatible:', 'reportit') . "</td>
+				<td>" . $_SESSION['sess_reportit']['report_template']['analyse']['compatible'] . "</td>
 			</tr>
 			<tr class='textArea'>
 				<td>" . __('Data Template:', 'reportit') . "</td>
-				<td colspan='3'>";
-				($templates) ? form_dropdown('data_template', $templates, '', '', '', '', '') : print __('No Compatible Templates Found', 'reportit');
+				<td>";
+
+			if ($templates) {
+				form_dropdown('data_template', $templates, '', '', '', '', '');
+			} else {
+				print __('No Compatible Templates Found', 'reportit');
+			}
 
 			print '</tr>';
 
@@ -218,6 +224,7 @@ function template_wizard($action) {
 			</tr>";
 
 			html_end_box();
+			form_end();
 
 			bottom_footer();
 		} else {
@@ -879,7 +886,7 @@ function form_actions() {
 	}
 
 	//Set preconditions
-	$ds_list = ''; $i = 0;
+	$ds_list = array(); $i = 0;
 
 	foreach ($_POST as $key => $value) {
 		if (strstr($key, 'chk_')) {
@@ -972,7 +979,7 @@ function form_actions() {
 		</tr>';
 	}
 
-	if (!is_array($ds_list)) {
+	if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
 		print "<tr>
 			<td class='textArea'>
 				<span class='textError'>" . __('You must select at least one Report Template.', 'reportit') . '</span>
