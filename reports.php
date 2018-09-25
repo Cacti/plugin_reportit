@@ -1224,8 +1224,6 @@ function form_actions() {
 
 	html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
-
-
 	if (get_request_var('drp_action') == '2') { //DELETE REPORT
 		print "<tr>
 			<td class='textArea'>

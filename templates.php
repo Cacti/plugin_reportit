@@ -95,13 +95,11 @@ function template_wizard($action) {
 			$save_html = '<input type="button" value="' . __esc('Cancel', 'reportit') . '" onClick="cactiReturnTo(\'templates.php\')">&nbsp;<input type="submit" value="' . __esc('Continue', 'reportit') . '" title="' . __esc('Create a new Report Template', 'reportit') . '">';
 			print "<tr class='textArea'>
 				<td>
-					<p>" . __('Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden.', 'reportit') . "
-				</td>
+					<p>" . __('Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden.', 'reportit') . "</p><p>";
+			form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '');
+			print "</p></td>
 			</tr>";
 
-			print "<tr class='textArea'>
-				<td>" . form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '') . "</td>
-			</tr>";
 		}
 
 		print "<tr>
