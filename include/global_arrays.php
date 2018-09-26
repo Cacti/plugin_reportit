@@ -28,6 +28,7 @@ $report_template_actions = array(
 		2 => __('Duplicate', 'reportit'),
 		3 => __('Lock', 'reportit'),
 		4 => __('Unlock', 'reportit'),
+		5 => __('Export', 'reportit'),
 	),
 	'data_templates' => array(
 		1 => __('Delete', 'reportit'),
@@ -128,7 +129,7 @@ $variable_input_types = array(
 
 /* - Begin measurands - */
 $measurand_type_specifier = array(      //TODO update script: increase every value by one!
-   	0 => __('None', 'reportit'),
+	0 => __('None', 'reportit'),
 	1 => __('Binary', 'reportit'),
 	2 => __('Floating point', 'reportit'),
 	3 => __('Integer', 'reportit'),

@@ -116,21 +116,6 @@ function template_wizard($action) {
 		bottom_footer();
 
 		break;
-	case 'export':
-		top_header();
-		form_start('templates.php');
-		html_start_box( __('Export Report Template', 'reportit'), '100%', '', '2', 'center', '');
-		draw_edit_form(
-			array(
-				'config' => array('no_form_tag' => true),
-				'fields' => $fields_template_export
-			)
-		);
-		html_end_box();
-		form_save_button('templates.php', $force_type = 'export', '', false);
-		bottom_footer();
-
-		break;
 	case 'upload':
 		top_header();
 
@@ -236,29 +221,29 @@ function template_wizard($action) {
 }
 
 function template_export() {
-	/* ================= input validation ================= */
-	get_filter_request_var('template_id');
-	/* ==================================================== */
+	/* if we are to save this form, instead of display it */
+	if (isset_request_var('selected_items')) {
+		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
-	/* collect all additional information */
-	$info = array();
-	$info['description'] = get_request_var('template_description');
-	$info['author']      = get_request_var('template_author');
-	$info['version']     = get_request_var('template_version');
-	$info['contact']     = get_request_var('template_contact');
+		if ($selected_items != false) {
+			$output = '<?xml version="1.0" encoding="UTF-8"?><templates>' . PHP_EOL;
+			foreach ($selected_items as $id) {
+				if ($id > 0) {
+					/* collect all additional information */
+					$id_output = export_report_template(get_request_var('template_id'), $info);
+					if ($id_output != false) {
+						$output .= $id_output . PHP_EOL;
+					}
+				}
+			}
 
-	$output = export_report_template(get_request_var('template_id'), $info);
-	if ($output == false) {
-		die_html_custom_error('Internal error.',true);
+			$output .= "</templates>\n";
+			header('Content-type: application/xml');
+			header('Content-Disposition: attachment; filename=report_template_export_'.date('Ymd_His').'.xml');
+			print $output;
+		}
 	}
-
-	header('Cache-Control: public');
-	header('Content-Description: File Transfer');
-	header('Cache-Control: max-age=1');
-	header('Content-Type: application/xml');
-	header('Content-Disposition: attachment; filename=\'template.xml\'');
-
-	print '<?xml version="1.0" encoding="UTF-8"?>' . $output;
+	exit();
 }
 
 function template_import() {
@@ -413,9 +398,6 @@ function template_filter() {
 					</td>
 					<td>
 						<input id='import' type='button' value='<?php print __esc_x('Button: import button', 'Import', 'reportit');?>'>
-					</td>
-					<td>
-						<input id='export' type='button' value='<?php print __esc_x('Button: export button', 'Export', 'reportit');?>'>
 					</td>
 				</tr>
 			</table>
@@ -877,6 +859,41 @@ function form_actions() {
 					}
 				}
 			}
+		} elseif (get_request_var('drp_action') == '3') { //DUPLICATE REPORT TEMPLATE
+			for ($i=0;($i<count($selected_items));$i++) {
+				/* ================= input validation ================= */
+				input_validate_input_number($selected_items[$i]);
+				/* ==================================================== */
+
+				$template_data = db_fetch_row('SELECT * FROM plugin_reportit_templates WHERE id = ' . $selected_items[$i]);
+				if ($template_data === false || sizeof($template_data) == 0) {
+					raise_message(2);
+					header('Location: templates.php?header=false');
+					exit;
+				}
+			}
+
+			top_header();
+			print '<div id="downloading"><p>Please wait ... downloading ...</p></div>
+<script text="text/javascript">
+	function DownloadStart(url) {
+		document.getElementById("download_iframe").onload = function() {
+			document.location = "templates.php";
+		}
+		document.getElementById("download_iframe").src = url;
+		setTimeout(function() {
+			document.location = "templates.php";
+		}, 10000);
+	}
+
+	$(function() {
+		DownloadStart(\'templates.php?action=template_export&selected_items=' . get_nfilter_request_var('selected_items') . '\');
+	});
+</script>
+<iframe id="download_iframe" style="display:none;"></iframe>
+';
+			bottom_footer();
+			exit;
 		}
 
 		header('Location: templates.php?header=false');
@@ -975,8 +992,23 @@ function form_actions() {
 		print '</p>
 			</td>
 		</tr>';
+	} elseif (get_request_var('drp_action') == '3') {
+		/* export report template(s) */
+		print "<tr>
+			<td class='textArea'>
+				<p>" . __('Click \'Continue\' to Export the following Report Templates', 'reportit') . '</p>';
+
+		if (is_array($ds_list)) {
+			foreach($ds_list as $key => $value) {
+				print '<p>' . __('Template : %s', $key) . '</p>';
+			}
+		}
+
+		print '</td>
+		</tr>';
 	}
 
+	$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 	if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
 		print "<tr>
 			<td class='textArea'>
@@ -984,11 +1016,12 @@ function form_actions() {
 			</td>
 		</tr>';
 
-		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 	} elseif (get_request_var('drp_action') == '1') {
-		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Report Templates', 'reportit') . "'>";
-	} else {
-		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Duplicate Report Templates', 'reportit') . "'>";
+		$save_html .= "&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Report Templates', 'reportit') . "' class='ui-state-active'>";
+	} elseif (get_request_var('drp_action') == '2') {
+		$save_html = "&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Duplicate Report Templates', 'reportit') . "' class='ui-state-active'>";
+	} elseif (get_request_var('drp_action') == '3') {
+		$save_html = "&nbsp;<input type='submit' value='" . __esc('Export', 'reportit') . "' title='" . __esc('Export Report Templates', 'reportit') . " class='ui-state-active'>";
 	}
 
 	print "<tr>

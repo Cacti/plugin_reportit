@@ -27,7 +27,8 @@
 
 $template_actions = array(
 	1 => 'Delete',
-	2 => 'Duplicate'
+	2 => 'Duplicate',
+	3 => 'Export',
 );
 
 $desc_array = array(

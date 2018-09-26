@@ -36,7 +36,7 @@ function reportit_system_upgrade($old_version) {
 		$engine = 'InnoDB';
 	}
 
-	if (version_compare($old_version, '0.7.4', '>=') && version_compare($old_version, '1.0.0', '<')) {
+	if (version_compare($old_version, '1.0.0', '<')) {
 
 		/* we do not support older version any longer - users having something below 0.7.4
 		 * should upgrade ReportIt to 0.7.4, 0.7.5 or 0.7.5a first.
@@ -157,13 +157,13 @@ function reportit_system_upgrade($old_version) {
 			COMMENT='Table that Contains Data Template Group Definitions';
 		");
 
-
-
 #TODO change columns type frequency in reportit reports from var to numeric.
 #TODO drop column "scheduled", "sliding", "present"
 #TODO report description become report name
 
-	}else if (version_compare($old_version, '1.0.1', '>=') && version_compare($old_version, '1.2.0', '<')) {
+	}
+
+	if (version_compare($old_version, '1.0.2', '<')) {
 		/* migrate existing result tables */
 		$result_tables = db_fetch_assoc("SHOW TABLES FROM `$database_default` LIKE 'reportit_result%'");
 
@@ -172,5 +172,12 @@ function reportit_system_upgrade($old_version) {
 				db_execute("RENAME TABLE `$tbl` TO `plugin_$tbl`");
 			}
 		}
+	}
+
+	if (version_compare($old_version, '1.1.0', '<')) {
+		db_execute("ALTER TABLE `plugin_reportit_templates`
+			ADD `version` varchar(10) NOT NULL DEFAULT '' AFTER `description`,
+			ADD `author` varchar(100) NOT NULL DEFAULT '' AFTER `last_modified`,
+		");
 	}
 }

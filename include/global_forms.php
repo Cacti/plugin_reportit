@@ -40,12 +40,35 @@ $fields_template_edit = array(
 		'method' => 'spacer',
 		'collapsible' => 'true'
 	),
-	'template_description' => array(
+	'template_name' => array(
 		'friendly_name' => __('Name'),
 		'method' => 'textbox',
 		'max_length' => '100',
 		'description' => __('The unique name given to this Report Template.', 'reportit'),
+		'value' => '|arg1:name|'
+	),
+	'template_description' => array(
+		'friendly_name' => __('Description', 'reportit'),
+		'method' => 'textarea',
+		'max_length' => '255',
+		'description' => __('A longer description of this Report Template.', 'reportit'),
 		'value' => '|arg1:description|'
+	),
+	'template_version' => array(
+		'friendly_name' => __('Version', 'reportit'),
+		'method' => 'textbox',
+		'max_length' => '100',
+		'description' => __('A version number for this template', 'reportit'),
+		'default' => '1.0',
+		'value' => '|arg1:version|'
+	),
+	'template_author' => array(
+		'friendly_name' => __('Author', 'reportit'),
+		'method' => 'textbox',
+		'max_length' => '100',
+		'description' => __('The author of this template', 'reportit'),
+		'default' => get_username($_SESSION['sess_user_id']),
+		'value' => '|arg1:author|'
 	),
 	'template_enabled' => array(
 		'method' => 'checkbox',
