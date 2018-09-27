@@ -117,6 +117,14 @@ community.  After that you should open a feature request on
 
 ## Changelog
 
+--- 1.1.0 ---
+
+* issue#30: Unable to export templates
+
+* issue: Upgrading never runs upgrade code once enabled
+
+* feature: Allow multiple report templates to be exportable
+
 --- 1.0.3 ---
 
 * issue#39: Data Source combo appears in wrong location when creating new Report
