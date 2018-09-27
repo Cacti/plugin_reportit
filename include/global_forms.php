@@ -51,6 +51,8 @@ $fields_template_edit = array(
 		'friendly_name' => __('Description', 'reportit'),
 		'method' => 'textarea',
 		'max_length' => '255',
+		'textarea_cols' => '80',
+		'textarea_rows' => '5',
 		'description' => __('A longer description of this Report Template.', 'reportit'),
 		'value' => '|arg1:description|'
 	),

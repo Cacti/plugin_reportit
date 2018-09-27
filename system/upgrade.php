@@ -137,7 +137,7 @@ function reportit_system_upgrade($old_version) {
 			ADD `last_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `modified_by`,
 			ADD `description` varchar(255) NOT NULL DEFAULT '' AFTER `last_modified`,
 			MODIFY `locked` varchar(2) NOT NULL DEFAULT 'on',
-			ADD `enabled` varchar(2) NOT NULL DEFAULT '' AFTER `locked`,
+			ADD `enabled` varchar(2) NOT NULL DEFAULT '' AFTER `locked`
 		");
 		db_execute("UPDATE plugin_reportit_templates SET `locked` = 'on' WHERE `locked` = '1'");
 		db_execute("UPDATE plugin_reportit_templates SET `locked` = '' WHERE `locked` = '0'");
@@ -177,7 +177,16 @@ function reportit_system_upgrade($old_version) {
 	if (version_compare($old_version, '1.1.0', '<')) {
 		db_execute("ALTER TABLE `plugin_reportit_templates`
 			ADD `version` varchar(10) NOT NULL DEFAULT '' AFTER `description`,
-			ADD `author` varchar(100) NOT NULL DEFAULT '' AFTER `last_modified`,
+			ADD `author` varchar(100) NOT NULL DEFAULT '' AFTER `last_modified`
 		");
+
+		// Fix partial renaming that occurred in 1.0.x
+		db_execute("UPDATE `plugin_reportit_templates`
+			SET `name` = `description`
+			WHERE `name` = ''");
+
+		db_execute("UPDATE `plugin_reportit_templates`
+			SET `description` = `name`
+			WHERE `description` = ''");
 	}
 }

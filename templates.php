@@ -230,7 +230,7 @@ function template_export() {
 			foreach ($selected_items as $id) {
 				if ($id > 0) {
 					/* collect all additional information */
-					$id_output = export_report_template(get_request_var('template_id'), $info);
+					$id_output = export_report_template(get_request_var('template_id'));
 					if ($id_output != false) {
 						$output .= $id_output . PHP_EOL;
 					}
@@ -470,7 +470,7 @@ function standard() {
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'description',
+			'default' => 'name',
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'sort_direction' => array(
@@ -514,7 +514,9 @@ function standard() {
 
 	$display_text = array(
 		'id'          => array('display' => __('Id', 'reportit'),               'align' => 'left', 'sort' => 'ASC', 'tip' => __('The internal identifier of this Report Template.', 'reportit')),
-		'description' => array('display' => __('Name', 'reportit'),             'align' => 'left', 'sort' => 'ASC', 'tip' => __('The name of this Report Template.', 'reportit')),
+		'name'        => array('display' => __('Name', 'reportit'),             'align' => 'left', 'sort' => 'ASC', 'tip' => __('The name of this Report Template.', 'reportit')),
+		'author'      => array('display' => __('Author', 'reportit'),           'align' => 'left', 'sort' => 'ASC', 'tip' => __('The Author of this Report Template.', 'reportit')),
+		'version'     => array('display' => __('Version', 'reportit'),          'align' => 'left', 'sort' => 'ASC', 'tip' => __('The version of this Report Template.', 'reportit')),
 		'nosort'      => array('display' => __('Data Template', 'reportit'),    'align' => 'left'),
 		'enabled'     => array('display' => __('Published', 'reporit'),         'align' => 'left'),
 		'nosort2'     => array('display' => __('Locked', 'reportit'),           'align' => 'left'),
@@ -538,7 +540,9 @@ function standard() {
 		foreach($template_list as $template) {
 			form_alternate_row('line' . $template['id'], true);
 			form_selectable_cell($template['id'], $template['id']);
-			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('templates.php?action=template_edit&id=' . $template['id']) . '">' . filter_value($template['description'], get_request_var('filter')) . '</a>', $template['id'], 'left');
+			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('templates.php?action=template_edit&id=' . $template['id']) . '" title="' . htmlspecialchars($template['description']) . '">' . filter_value($template['name'], get_request_var('filter')) . '</a>', $template['id'], 'left');
+			form_selectable_cell(filter_value($template['author'], get_request_var('filter')), $template['id'], 'left');
+			form_selectable_cell(filter_value($template['version'], get_request_var('filter')), $template['id'], 'left');
 
 			if (isset($list_of_data_templates[$template['data_template_id']])) {
 				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars(URL_PATH . 'data_templates.php?action=template_edit&id=' . $template['data_template_id']) . '">' . $list_of_data_templates[$template['data_template_id']] . '</a>', $template['id']);
@@ -595,13 +599,15 @@ function form_save() {
 
 	$template_data = array();
 	$template_data['id']               = get_request_var('id');
+	$template_data['name']             = get_request_var('template_name');
 	$template_data['description']      = get_request_var('template_description');
+	$template_data['author']           = get_request_var('template_author');
+	$template_data['version']          = get_request_var('template_version');
 	$template_data['pre_filter']       = get_request_var('template_filter');
 	$template_data['data_template_id'] = get_request_var('data_template_id');
 	$template_data['enabled']          = isset_request_var('template_enabled') ? 'on' : '';
 	$template_data['locked']           = isset_request_var('template_locked') ? 'on' : '';
 	$template_data['export_folder']    = isset_request_var('template_export_folder') ? get_request_var('template_export_folder') : '';
-
 
 	$sql = "SELECT id, data_source_name
 		FROM data_template_rrd
@@ -914,12 +920,20 @@ function form_actions() {
 			// ====================================================
 
 			//Fetch Template description
-			$template_description = db_fetch_cell_prepared('SELECT description
+			$template = db_fetch_row_prepared('SELECT name, description
 				FROM plugin_reportit_templates
 				WHERE id = ?',
 				array($id));
 
-			$template_identifier = $template_description . " [<a href='./templates.php?action=template_edit&id=$id'>$id</a>]";
+			if ($template === false) {
+				$template = array('name' => 'Unknown Template', 'description' => '');
+			}
+
+			if (empty($template['name'])) {
+				$template['name'] = $template['description'];
+			}
+
+			$template_identifier = "<a href='templates.php?action=template_edit&id={$id}'>{$template['name']}</a>";
 			$ds_list[$template_identifier] = '';
 
 			//Fetch all descriptions of reports attached to this template
@@ -929,7 +943,7 @@ function form_actions() {
 				array($id));
 
 			foreach ($template_reports as $key => $value) {
-				$ds_list[$template_identifier][] = "[<a href='./reports.php?action=report_edit&id={$template_reports[$key]['id']}'>{$template_reports[$key]['id']}</a>] " . $template_reports[$key]['description'];
+				$ds_list[$template_identifier][] = "<a href='./reports.php?action=report_edit&id={$template_reports[$key]['id']}'>{$template_reports[$key]['name']}</a> (" . $template_reports[$key]['description'] . ')';
 			}
 		}
 	}
@@ -996,15 +1010,15 @@ function form_actions() {
 		/* export report template(s) */
 		print "<tr>
 			<td class='textArea'>
-				<p>" . __('Click \'Continue\' to Export the following Report Templates', 'reportit') . '</p>';
+				<p>" . __('Click \'Continue\' to Export the following Report Templates', 'reportit') . '</p><ul>';
 
 		if (is_array($ds_list)) {
 			foreach($ds_list as $key => $value) {
-				print '<p>' . __('Template : %s', $key) . '</p>';
+				print '<li>' . $key . '</li>';
 			}
 		}
 
-		print '</td>
+		print '</ul></td>
 		</tr>';
 	}
 

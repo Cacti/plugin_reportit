@@ -56,8 +56,8 @@ function plugin_reportit_check_config() {
 }
 
 function plugin_reportit_upgrade() {
-    reportit_check_upgrade();
-    return true;
+	reportit_check_upgrade();
+	return true;
 }
 
 function plugin_reportit_version() {
@@ -566,6 +566,7 @@ function reportit_config_settings() {
 
 function reportit_show_tab() {
 	global $config;
+	reportit_check_upgrade();
 	if (api_user_realm_auth('view.php')) {
 		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIt') . '"></a>';
 	}

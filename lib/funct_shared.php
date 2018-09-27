@@ -1312,7 +1312,7 @@ function send_scheduled_email($report_id){
 	return false;
 }
 
-function export_report_template($template_id, $info=false) {
+function export_report_template($template_id) {
     $eol      = "\r\n";
     $checksum = '';
 
@@ -1358,55 +1358,41 @@ function export_report_template($template_id, $info=false) {
 		ORDER BY id',
 		array($template_id));
 
-    $checksum .= convert_array2string($data_source_items_data);
+	$checksum .= convert_array2string($data_source_items_data);
 
-    /* add template version and hash the checksum */
+	/* add template version and hash the checksum */
 	$reportit_info = plugin_reportit_version();
 	$reportit = array('version' => $reportit_info['version'], 'type' => 1);
-    $checksum .= convert_array2string($reportit);
-    $reportit['hash'] = md5($checksum);
+	$checksum .= convert_array2string($reportit);
+
+	$reportit['hash'] = md5($checksum);
 
     /* use an output puffer for flushing */
-    ob_start();
+	$xml_array = array(
+		'report_template' => array(
+			'xml_data' => array(
+				'reportit'   => $reportit,
+				'general'    => $info,
+				'settings'   => $template_data,
+				'measurands' => array(
+					'xml_element' => 'measurand',
+					'xml_data'    => $masurands_data,
+				),
+				'variables'  => array(
+					'xml_element' => 'variable',
+					'xml_data'    => $variables_data,
+				),
+				'data_source_items' => array(
+					'xml_element' => 'data_source_item',
+					'xml_data'    => $data_source_items_data,
+				),
+			),
+		),
+	);
 
-    print "<cacti>$eol\t<report_template>$eol\t\t<reportit>$eol";
+	$content = utf8_encode(convert_array2xml($content));
 
-    foreach ($reportit as $key => $value) print "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-    print "\t\t</reportit>$eol\t\t<general>$eol";
-
-    if (is_array($info)) {
-        foreach ($info as $key => $value)  print "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-    }
-    print "\t\t</general>$eol\t\t<settings>$eol";
-
-    foreach ($template_data as $key => $value) print "\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-    print "\t\t</settings>$eol\t\t<measurands>$eol";
-
-    foreach ($measurands_data as $measurand){
-            print "\t\t\t<measurand>$eol";
-            foreach ($measurand as $key => $value) print "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-            print "\t\t\t</measurand>$eol";
-    }
-    print "\t\t</measurands>$eol\t\t<variables>$eol";
-
-    foreach ($variables_data as $variable) {
-            print "\t\t\t<variable>$eol";
-            foreach ($variable as $key => $value) print "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-            print "\t\t\t</variable>$eol";
-    }
-    print "\t\t</variables>$eol\t\t<data_source_items>$eol";
-
-    foreach ($data_source_items_data as $data_source_item) {
-            print "\t\t\t<data_source_item>$eol";
-            foreach ($data_source_item as $key => $value) print "\t\t\t\t<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>$eol";
-            print "\t\t\t</data_source_item>$eol";
-    }
-    print "\t\t</data_source_items>$eol\t</report_template>$eol</cacti>$eol";
-
-    $content = ob_get_clean();
-    $content = utf8_encode($content);
-
-    return $content;
+	return $content;
 }
 
 function convert_array2string($data) {
