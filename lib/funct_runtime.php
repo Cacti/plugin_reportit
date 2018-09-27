@@ -24,7 +24,7 @@
 
 function create_result_table($report_id) {
 	// Create the sql syntax
-    db_execute('CREATE TABLE IF NOT EXISTS plugin_reportit_results_' . $report_id . ' (
+	db_execute('CREATE TABLE IF NOT EXISTS plugin_reportit_results_' . $report_id . ' (
 		`id` 	int(11) NOT NULL DEFAULT 0,
 		PRIMARY KEY (`id`))
 		ENGINE=InnoDB');
@@ -37,18 +37,18 @@ function create_result_table($report_id) {
 }
 
 function &get_report_definitions($report_id) {
-    global $consolidation_functions;
+	global $consolidation_functions;
 
-    $report_definition = array();
+	$report_definition = array();
 
-    // Fetch report's definition
-    $report = db_fetch_row_prepared('SELECT *
+	// Fetch report's definition
+	$report = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 
-    // Fetch all RRD definitions
-    $data_items = db_fetch_assoc_prepared('SELECT c.field_value as `maxValue`, a.*
+	// Fetch all RRD definitions
+	$data_items = db_fetch_assoc_prepared('SELECT c.field_value as `maxValue`, a.*
 		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_local AS b
 		ON b.id=a.id
@@ -61,8 +61,8 @@ function &get_report_definitions($report_id) {
 		ORDER BY a.id',
 		array($report_id));
 
-    // Fetch all high counters
-    $high_counters = db_fetch_assoc_prepared('SELECT c.field_value as maxHighValue, a.id
+	// Fetch all high counters
+	$high_counters = db_fetch_assoc_prepared('SELECT c.field_value as maxHighValue, a.id
 		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_local AS b
 		ON b.id=a.id
@@ -76,18 +76,18 @@ function &get_report_definitions($report_id) {
 		array($report_id));
 
 	// Fetch all template informations
-    $template = db_fetch_row_prepared('SELECT *
+	$template = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_templates
 		WHERE id = ?',
 		array($report['template_id']));
 
-    // Fetch all all data source items
-    $sql = 'SELECT data_source_name
+	// Fetch all all data source items
+	$sql = 'SELECT data_source_name
 		FROM plugin_reportit_data_source_items
 		WHERE template_id = ' . $report['template_id'] . '
 		AND id != 0
 		ORDER BY id';
-    $ds_items = db_custom_fetch_flat_array($sql);
+	$ds_items = db_custom_fetch_flat_array($sql);
 
 	foreach ($ds_items as $key => $data_source_name) {
 		$maxRRDValues[$key] = db_fetch_assoc_prepared('SELECT b.id, a.rrd_maximum AS maxRRDValue
@@ -101,81 +101,81 @@ function &get_report_definitions($report_id) {
 			array($template['data_template_id'], $report_id, $data_source_name));
 	}
 
-    // Fetch all measurands
-    $measurands = db_fetch_assoc_prepared('SELECT *
+	// Fetch all measurands
+	$measurands = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id', array($report['template_id']));
 
-    // filter out all used consolidation function
-    $cf = array();
+	// filter out all used consolidation function
+	$cf = array();
 	if (sizeof($measurands)) {
 	    foreach ($measurands as $measurand) {
 			$cf[$measurand['cf']] = $consolidation_functions[$measurand['cf']];
 		}
 	}
 
-    // Fetch all variables
-    $rvars = db_fetch_assoc_prepared('SELECT variable_id AS id, value
+	// Fetch all variables
+	$rvars = db_fetch_assoc_prepared('SELECT variable_id AS id, value
 		FROM plugin_reportit_rvars
 		WHERE report_id = ?',
 		array($report_id));
 
-    // Fetch the data_source_type
-    $tmp = db_fetch_row_prepared('SELECT DISTINCT data_source_type_id AS ds_type, rrd_maximum AS maximum
+	// Fetch the data_source_type
+	$tmp = db_fetch_row_prepared('SELECT DISTINCT data_source_type_id AS ds_type, rrd_maximum AS maximum
 		FROM data_template_rrd
 		WHERE data_template_id = ?
 		AND local_data_id = 0',
 		array($template['data_template_id']));
 
-    $template['ds_type'] = $tmp['ds_type'];
-    $template['maximum'] = $tmp['maximum'];
+	$template['ds_type'] = $tmp['ds_type'];
+	$template['maximum'] = $tmp['maximum'];
 
-    // Fetch the standard rrd_step
-    $template['step'] = db_fetch_cell_prepared('SELECT DISTINCT rrd_step
+	// Fetch the standard rrd_step
+	$template['step'] = db_fetch_cell_prepared('SELECT DISTINCT rrd_step
 		FROM data_template_data
 		WHERE data_template_id = ?
 		AND local_data_id = 0',
 		array($template['data_template_id']));
 
-    // Fetch RRA definitions
-    $template['RRA'] = db_fetch_assoc('SELECT steps, timespan
+	// Fetch RRA definitions
+	$template['RRA'] = db_fetch_assoc('SELECT steps, timespan
 		FROM data_source_profiles_rra 
-    	WHERE data_source_profile_id=1
+		WHERE data_source_profile_id=1
 		ORDER BY timespan');
 
-    // Rebuild the variables
-    $variables = array();
-    foreach ($rvars as $key => $value) {
-        $name = 'c' . $value['id'] .'v';
-        $variables[$name] = $value['value'];
-    }
+	// Rebuild the variables
+	$variables = array();
+	foreach ($rvars as $key => $value) {
+		$name = 'c' . $value['id'] .'v';
+		$variables[$name] = $value['value'];
+	}
 
-    //Construct the return-array 'report_definitions'
-    $report_definitions['report']        = $report;
-    $report_definitions['data_items']    = $data_items;
-    $report_definitions['high_counters'] = $high_counters;
+	//Construct the return-array 'report_definitions'
+	$report_definitions['report']        = $report;
+	$report_definitions['data_items']    = $data_items;
+	$report_definitions['high_counters'] = $high_counters;
 	$report_definitions['maxRRDValues']  = $maxRRDValues;
-    $report_definitions['template']      = $template;
-    $report_definitions['measurands']    = $measurands;
-    $report_definitions['variables']     = $variables;
-    $report_definitions['cf']            = $cf;
-    $report_definitions['ds_items']      = $ds_items;
+	$report_definitions['template']      = $template;
+	$report_definitions['measurands']    = $measurands;
+	$report_definitions['variables']     = $variables;
+	$report_definitions['cf']            = $cf;
+	$report_definitions['ds_items']      = $ds_items;
 
-    return $report_definitions;
+	return $report_definitions;
 }
 
 function get_runtime($start_time, $end_time) {
-    // Calculate the time a script needs for execution
-    list($startmsec, $startsec) = explode(' ', $start_time);
-    list($endmsec, $endsec)     = explode(' ', $end_time);
-    $runtime = round(($endmsec+$endsec) - ($startmsec+$startsec), 1);
+	// Calculate the time a script needs for execution
+	list($startmsec, $startsec) = explode(' ', $start_time);
+	list($endmsec, $endsec)     = explode(' ', $end_time);
+	$runtime = round(($endmsec+$endsec) - ($startmsec+$startsec), 1);
 
-    return $runtime;
+	return $runtime;
 }
 
 function day_to_number($day) {
-    switch($day) {
+	switch($day) {
 	case __('Monday'):
 	    return 1; break;
 	case __('Tuesday'):
@@ -190,24 +190,24 @@ function day_to_number($day) {
 	    return 6; break;
 	case __('Sunday'):
 	    return 7; break;
-    }
+	}
 }
 
 function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_duration,
 	$rrd_sp, $rrd_ep, $rrd_step, $rrd_ds_cnt, $dst_support) {
 
-    /*-----------------------------------------------------------------------------------------------------------
-        Calculate all included weekdays
-        For a great report duration it's more efficient to use time vectors instead of 'get weekday function'
+	/*-----------------------------------------------------------------------------------------------------------
+		Calculate all included weekdays
+		For a great report duration it's more efficient to use time vectors instead of 'get weekday function'
 
-        Variables:  $wdays          => includes all ids of weekdays which are include
-                    $dis            => means the distance vector for all included days
-                    $off            => means the offset vector for all not included days
-                    $rrd_ad_data    => Return value of this function. An array that includes all important
-                                       information to grep the adapted data out of the rrd_data array.
-    -----------------------------------------------------------------------------------------------------------*/
+		Variables:  $wdays          => includes all ids of weekdays which are include
+					$dis            => means the distance vector for all included days
+					$off            => means the offset vector for all not included days
+					$rrd_ad_data    => Return value of this function. An array that includes all important
+									   information to grep the adapted data out of the rrd_data array.
+	-----------------------------------------------------------------------------------------------------------*/
 
-    //----- Calculate all included weekdays -----
+	//----- Calculate all included weekdays -----
 	switch ($startday) {
 	case $startday == $endday:                //e.g. 'Monday till Monday => includes only Monday!'
 		$wdays[] = ($startday == 7) ? 0 : $startday;
@@ -243,12 +243,12 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 		break;
 	}
 
-    if ($endday == 7) {
+	if ($endday == 7) {
 		$endday = 0;
 	}
 
 	// boost the calculation if all weekdays are required and step or shift are covering the whole day
-    if (($dis == 6 & $off == 1 & $shift_duration == 86400) || ($dis == 6 & $off ==1 & $rrd_step == 86400)) {
+	if (($dis == 6 & $off == 1 & $shift_duration == 86400) || ($dis == 6 & $off ==1 & $rrd_step == 86400)) {
 		$rrd_ad_data['index'][0] = abs(($rrd_ep-($rrd_sp-$rrd_step))/$rrd_step);
 
 		return $rrd_ad_data;
@@ -276,7 +276,7 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 			if ($date['hours'] != $nextday['hours']) {
 				$tmz_change = $date['hours']-$nextday['hours'];
 
-                if ($tmz_change < -1) {
+				if ($tmz_change < -1) {
 					$tmz_change += 24;
 				}
 
@@ -314,8 +314,8 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 			break;
 		}
 
-        //...correct the start point if we found one change of tmz
-        if ($tmz_change) {
+		//...correct the start point if we found one change of tmz
+		if ($tmz_change) {
 			$f_sp += $tmz_change*3600;
 		}
 	}
@@ -512,7 +512,7 @@ function transform(&$data, &$rrd_data, &$template) {
 	$rrd_data['start'] = substr($data[0][0],0,-1);
 	$rrd_data['end']   = substr($data[0][$last_timestamp], 0, -1);
 
-    //The step is needed, so if we've only one timespan then do this:
+	//The step is needed, so if we've only one timespan then do this:
 	if ($rrd_data['start'] == $rrd_data['end']) {
 		$diff = time()-$rrd_data['start'];
 
@@ -530,11 +530,11 @@ function transform(&$data, &$rrd_data, &$template) {
 		$step = $template['RRA'][$i]['steps'] * $template['step'];
 	}
 
-    $b = $rrd_data['ds_cnt'];
-    $a = 0;
+	$b = $rrd_data['ds_cnt'];
+	$a = 0;
 
-    $rrd_data['step']   = (isset($step)) ? $step : $data[0][$b+1] - $rrd_data['start'];
-    $rrd_data['start'] -= $rrd_data['step'];
+	$rrd_data['step']   = (isset($step)) ? $step : $data[0][$b+1] - $rrd_data['start'];
+	$rrd_data['start'] -= $rrd_data['step'];
 
 	//Delete all timestamps
 	while($a < $zahl) {

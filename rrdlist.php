@@ -106,8 +106,8 @@ function standard() {
 	$subhead    = '';
 	$enable_tmz = read_config_option('reportit_use_tmz');
 
-    /* ================= input validation and session storage ================= */
-    $filters = array(
+	/* ================= input validation and session storage ================= */
+	$filters = array(
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,

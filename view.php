@@ -329,8 +329,8 @@ function validate_report_vars() {
 	/* if the user pushed the 'clear' button */
 	$id = (read_graph_config_option('reportit_view_filter') == 'on') ? get_filter_request_var('id') : '';
 
-    /* ================= input validation and session storage ================= */
-    $filters = array(
+	/* ================= input validation and session storage ================= */
+	$filters = array(
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -450,8 +450,8 @@ function show_report() {
 
 	/* load report data */
 	$data = (get_request_var('archive') == -1)
-          ? get_prepared_report_data(get_request_var('id'),'view', $sql_affix)
-          : get_prepared_archive_data($cache_id, 'view', $sql_affix);
+		  ? get_prepared_report_data(get_request_var('id'),'view', $sql_affix)
+		  : get_prepared_archive_data($cache_id, 'view', $sql_affix);
 
 	/* get total number of rows (data items) */
 	$source = (get_request_var('archive') != -1)

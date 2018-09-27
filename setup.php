@@ -120,229 +120,229 @@ function reportit_upgrade_requirements() {
 
 
 function reportit_draw_navigation_text ($nav) {
-    $nav['reports.php:'] = array(
+	$nav['reports.php:'] = array(
 		'title' => __('Reports'),
 		'mapping' => 'index.php:',
 		'url' => 'reports.php',
 		'level' => '1');
 
-    $nav['reports.php:save'] = array(
+	$nav['reports.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,?',
 		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['reports.php:report_add'] = array(
+	$nav['reports.php:report_add'] = array(
 		'title' => __('Add'),
 		'mapping' => 'index.php:,?',
 		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['reports.php:report_edit'] = array(
+	$nav['reports.php:report_edit'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,?',
 		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['reports.php:actions'] = array(
+	$nav['reports.php:actions'] = array(
 		'title' => __('Actions'),
 		'mapping' => 'index.php:,?',
 		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['rrdlist.php:'] = array(
+	$nav['rrdlist.php:'] = array(
 		'title' => __('Data Items'),
 		'mapping' => 'index.php:,reports.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['rrdlist.php:save'] = array(
+	$nav['rrdlist.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['rrdlist.php:rrdlist_edit'] = array(
+	$nav['rrdlist.php:rrdlist_edit'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['rrdlist.php:actions'] = array(
+	$nav['rrdlist.php:actions'] = array(
 		'title' => __('Actions'),
 		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['items.php:'] = array(
+	$nav['items.php:'] = array(
 		'title' => __('Add'),
 		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url'  => 'templates.php',
 		'level' => '3');
 
-    $nav['items.php:save'] = array(
+	$nav['items.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '4');
 
-    $nav['templates.php:'] = array(
+	$nav['templates.php:'] = array(
 		'title' => __('Report Templates'),
 		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '1');
 
-    $nav['templates.php:save'] = array(
+	$nav['templates.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:template_edit'] = array(
+	$nav['templates.php:template_edit'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:template_new'] = array(
+	$nav['templates.php:template_new'] = array(
 		'title' => __('Add'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:template_import_wizard'] = array(
+	$nav['templates.php:template_import_wizard'] = array(
 		'title' => __('Import'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:template_upload_wizard'] = array(
+	$nav['templates.php:template_upload_wizard'] = array(
 		'title' => __('Import'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:template_import'] = array(
+	$nav['templates.php:template_import'] = array(
 		'title' => __('Export'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:template_export'] = array(
+	$nav['templates.php:template_export'] = array(
 		'title' => __('Export'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:template_export_wizard'] = array(
+	$nav['templates.php:template_export_wizard'] = array(
 		'title' => __('Export'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['templates.php:actions'] = array(
+	$nav['templates.php:actions'] = array(
 		'title' => __('Actions'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['measurands.php:'] = array(
+	$nav['measurands.php:'] = array(
 		'title' => __('Measurands'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['measurands.php:save'] = array(
+	$nav['measurands.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['measurands.php:measurand_edit'] = array(
+	$nav['measurands.php:measurand_edit'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['measurands.php:actions'] = array(
+	$nav['measurands.php:actions'] = array(
 		'title' => __('Actions'),
 		'mapping' => 'index.php:,templates.php:,measurands.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['variables.php:'] = array(
+	$nav['variables.php:'] = array(
 		'title' => __('Variables'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
-    $nav['variables.php:save'] = array(
+	$nav['variables.php:save'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['variables.php:variable_edit'] = array(
+	$nav['variables.php:variable_edit'] = array(
 		'title' => __('(Edit)'),
 		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['variables.php:actions'] = array(
+	$nav['variables.php:actions'] = array(
 		'title' => __('Actions'),
 		'mapping' => 'index.php:,templates.php:,variables.php:',
 		'url' => '',
 		'level' => '3');
 
-    $nav['run.php:calculation'] = array(
+	$nav['run.php:calculation'] = array(
 		'title' => __('Report Calculation'),
 		'mapping' => 'index.php:,reports.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['view.php:'] = array(
+	$nav['view.php:'] = array(
 		'title' => __('Public Reports'),
 		'mapping' => 'index.php:',
 		'url' => 'view.php',
 		'level' => '1');
 
-    $nav['view.php:show_report'] = array(
+	$nav['view.php:show_report'] = array(
 		'title' => __('Show Report'),
 		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['view.php:export'] = array(
+	$nav['view.php:export'] = array(
 		'title' => __('Export Report'),
 		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['view.php:show_graphs'] = array(
+	$nav['view.php:show_graphs'] = array(
 		'title' => __('Show Report'),
 		'mapping' => 'index.php:,view.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['charts.php:'] = array(
+	$nav['charts.php:'] = array(
 		'title' => __('Public Report Charts'),
 		'mapping' => 'index.php:',
 		'url' => 'graph.php',
 		'level' => '1');
 
-    $nav['charts.php:bar'] = array(
+	$nav['charts.php:bar'] = array(
 		'title' => __('Bar Chart'),
 		'mapping' => 'index.php:,graph.php:',
 		'url' => '',
 		'level' => '2');
 
-    $nav['charts.php:pie'] = array(
+	$nav['charts.php:pie'] = array(
 		'title' => __('Pie Chart'),
 		'mapping' => 'index.php:,graph.php:',
 		'url' => '',
 		'level' => '2');
 
-    return $nav;
+	return $nav;
 }
 
 function reportit_config_arrays() {
@@ -374,9 +374,9 @@ function reportit_config_arrays() {
 }
 
 function reportit_config_settings() {
-    reportit_define_constants();
+	reportit_define_constants();
 
-    global $tabs, $tabs_graphs, $settings, $graph_dateformats, $graph_datechar, $settings_graphs, $config;
+	global $tabs, $tabs_graphs, $settings, $graph_dateformats, $graph_datechar, $settings_graphs, $config;
 
 	/* presets */
 	$datetime              = array(__('local'), __('global'));
@@ -505,12 +505,12 @@ function reportit_config_settings() {
 		),
 	);
 
-    if (isset($settings['reports'])) {
-        $settings['reports'] = array_merge($settings_graphs, $temp);
-    } else {
-        $settings['reports'] = $temp;
-        unset($temp);
-    }
+	if (isset($settings['reports'])) {
+		$settings['reports'] = array_merge($settings_graphs, $temp);
+	} else {
+		$settings['reports'] = $temp;
+		unset($temp);
+	}
 
 	//Extension of graph settings
 	$tabs_graphs['reportit'] = __('ReportIt General Settings');
@@ -605,50 +605,50 @@ function reportit_define_constants(){
 }
 
 function reportit_poller_bottom() {
-    $str = '';
-    $ids = '';
-    $cnt = 0;
+	$str = '';
+	$ids = '';
+	$cnt = 0;
 
-    $lifecycle     = read_config_option('reportit_arc_lifecycle', TRUE);
-    $logging_level = read_config_option('log_verbosity', TRUE);
+	$lifecycle     = read_config_option('reportit_arc_lifecycle', TRUE);
+	$logging_level = read_config_option('log_verbosity', TRUE);
 
-    /* fetch all tables whose life cycle has been expired */
-    $sql =  "SHOW TABLE STATUS WHERE `Name` LIKE 'reportit_tmp_%'
+	/* fetch all tables whose life cycle has been expired */
+	$sql =  "SHOW TABLE STATUS WHERE `Name` LIKE 'reportit_tmp_%'
 		AND (UNIX_TIMESTAMP(`Update_time`) + $lifecycle) <= UNIX_TIMESTAMP()";
 
-    $tables = db_fetch_assoc($sql);
+	$tables = db_fetch_assoc($sql);
 
-    if (count($tables)) {
-        foreach($tables as $table) {
-            /* take care that we really do NOT delete others tables */
-            if (strpos($table['Name'], 'reportit_tmp_') !== FALSE) {
-                $str .= $table['Name'] . ', ';
-            $ids .= ",'" . substr($table['Name'], 13) . "'";
-                $cnt++;
-            }
-        }
-        if ($cnt == 0) exit;
+	if (count($tables)) {
+		foreach($tables as $table) {
+			/* take care that we really do NOT delete others tables */
+			if (strpos($table['Name'], 'reportit_tmp_') !== FALSE) {
+				$str .= $table['Name'] . ', ';
+			$ids .= ",'" . substr($table['Name'], 13) . "'";
+				$cnt++;
+			}
+		}
+		if ($cnt == 0) exit;
 
-        $ids = substr($ids, 1);
-        $str = substr($str, 0, -2);
-        if (db_execute("DROP TABLE IF EXISTS $str") == 1) {
-            db_execute("DELETE FROM plugin_reportit_cache_reports WHERE `cache_id` IN ($ids)");
-            db_execute("DELETE FROM plugin_reportit_cache_variables WHERE `cache_id` IN ($ids)");
-            db_execute("DELETE FROM plugin_reportit_cache_measurands WHERE `cache_id` IN ($ids)");
+		$ids = substr($ids, 1);
+		$str = substr($str, 0, -2);
+		if (db_execute("DROP TABLE IF EXISTS $str") == 1) {
+			db_execute("DELETE FROM plugin_reportit_cache_reports WHERE `cache_id` IN ($ids)");
+			db_execute("DELETE FROM plugin_reportit_cache_variables WHERE `cache_id` IN ($ids)");
+			db_execute("DELETE FROM plugin_reportit_cache_measurands WHERE `cache_id` IN ($ids)");
 
-            if ($cnt >= 5) {
-                db_execute('OPTIMIZE TABLE `plugin_reportit_cache_reports`');
-                db_execute('OPTIMIZE TABLE `plugin_reportit_cache_variables`');
-                db_execute('OPTIMIZE TABLE `plugin_reportit_cache_measurands`');
-            }
+			if ($cnt >= 5) {
+				db_execute('OPTIMIZE TABLE `plugin_reportit_cache_reports`');
+				db_execute('OPTIMIZE TABLE `plugin_reportit_cache_variables`');
+				db_execute('OPTIMIZE TABLE `plugin_reportit_cache_measurands`');
+			}
 
-            if ($logging_level != 'POLLER_VERBOSITY_NONE' && $logging_level != 'POLLER_VERBOSITY_LOW') {
-                cacti_log("REPORTIT STATS: Cache Life Cycle:$lifecycle"."s &nbsp;&nbsp;Number of drops:$cnt", false, 'PLUGIN');
-            }
-        } else {
-            if ($logging_level != 'POLLER_VERBOSITY_LOW') {
-                cacti_log('REPORTIT WARNING: Unable to clean up report cache', false, 'PLUGIN');
-            }
-        }
-    }
+			if ($logging_level != 'POLLER_VERBOSITY_NONE' && $logging_level != 'POLLER_VERBOSITY_LOW') {
+				cacti_log("REPORTIT STATS: Cache Life Cycle:$lifecycle"."s &nbsp;&nbsp;Number of drops:$cnt", false, 'PLUGIN');
+			}
+		} else {
+			if ($logging_level != 'POLLER_VERBOSITY_LOW') {
+				cacti_log('REPORTIT WARNING: Unable to clean up report cache', false, 'PLUGIN');
+			}
+		}
+	}
 }

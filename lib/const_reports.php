@@ -42,13 +42,13 @@ $report_states = array(
 $templates = db_fetch_assoc('SELECT * FROM plugin_reportit_templates WHERE locked = 0');
 
 if (!$templates) {
-    $templates['0'] = '- No template available -';
+	$templates['0'] = '- No template available -';
 }else {
-    foreach($templates as $key => $value) {
+	foreach($templates as $key => $value) {
 	$tmp[$templates[$key]['id']] = $templates[$key]['description'];
-    }
-    $templates = $tmp;
-    unset($tmp);
+	}
+	$templates = $tmp;
+	unset($tmp);
 }
 
 $weekday = array(

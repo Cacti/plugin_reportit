@@ -39,12 +39,12 @@ function my_report($report_id, $public = FALSE){
 	if (is_numeric($report_id) && $report_id != 0) {
 		$user_id  = my_id();
 
-        $user = db_fetch_row_prepared("SELECT user_id, public
+		$user = db_fetch_row_prepared("SELECT user_id, public
 			FROM plugin_reportit_reports
 			WHERE id = ?",
 			array($report_id));
 
-        if ($user == false) {
+		if ($user == false) {
 	    	if (!re_admin()) die_html_custom_error('Permission denied');
 		    die_html_custom_error('Not existing');
 		}
@@ -150,47 +150,47 @@ function is_error_message_field($field) {
 }
 
 function stat_autolock_template($template_id) {
-    $count = db_fetch_cell_prepared("SELECT COUNT(*)
+	$count = db_fetch_cell_prepared("SELECT COUNT(*)
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?",
 		array($template_id));
 
-    if ($count != 0) {
+	if ($count != 0) {
 		return false;
 	} else {
-    	return true;
+		return true;
 	}
 }
 
 function set_autolock_template($template_id) {
-    db_execute_prepared('UPDATE plugin_reportit_templates
+	db_execute_prepared('UPDATE plugin_reportit_templates
 		SET locked=1
 		WHERE id = ?',
 		array($template_id));
 }
 
 function update_formulas($array) {
-    foreach($array as $key => $value) {
+	foreach($array as $key => $value) {
 		db_execute_prepared('UPDATE plugin_reportit_measurands
 			SET calc_formula = ?
 			WHERE id = ?',
 			array($value['calc_formula'], $value['id']));
-    }
+	}
 }
 
 function try_autolock_template($template_id) {
-    $status = db_fetch_cell_prepared('SELECT COUNT(*)
+	$status = db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_reports
 		WHERE template_id = ?
 		AND state = 1',
 		array($template_id));
 
-    if ($status == 0) {
+	if ($status == 0) {
 		set_autolock_template($template_id);
 		return true;
-    } else {
+	} else {
 		return false;
-    }
+	}
 }
 
 function check_cacti_version($hash){

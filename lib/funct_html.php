@@ -101,34 +101,34 @@ function html_custom_header_box($title, $width, $div, $cell_padding, $align, $ad
 }
 
 function html_error_box($message, $site, $jump, $link){
-    html_wizard_header('Error', $site);
+	html_wizard_header('Error', $site);
 
-    print "<tr><td class='odd'><span class='textError'>$message</span></td></tr>\n";
+	print "<tr><td class='odd'><span class='textError'>$message</span></td></tr>\n";
 
-    html_wizard_footer($jump, $link, '');
+	html_wizard_footer($jump, $link, '');
 }
 
 
 function html_wizard_header($title, $site, $size='60%') {
-    html_start_box($title, $size, '', '2', 'center', '');
+	html_start_box($title, $size, '', '2', 'center', '');
 
-    print "<form action='$site' method='post' enctype='multipart/form-data'>\r\n";
+	print "<form action='$site' method='post' enctype='multipart/form-data'>\r\n";
 }
 
 function html_wizard_footer($jump, $link, $save_html, $colspan=1) {
 	global $config;
 
-    print "<tr>
+	print "<tr>
 		<td align='right' bgcolor='#eaeaea' colspan='$colspan'>
 		    <input type='hidden' name='action' value='$jump'>
 		    <a href='$link'><img src='../../images/button_cancel2.gif' alt='Chancel' align='absmiddle' border='0'></a>
 		    $save_html
 		</td>
-    </tr>";
+	</tr>";
 
-    html_end_box();
+	html_end_box();
 
-    include_once(CACTI_BASE_PATH . '/include/bottom_footer.php');
+	include_once(CACTI_BASE_PATH . '/include/bottom_footer.php');
 }
 
 function html_blue_link($data, $id=0) {
@@ -137,16 +137,16 @@ function html_blue_link($data, $id=0) {
 	foreach ($data as $link) {
 		print "<span class='linkmarker'>*</span><a class='hyperLink' href='" . htmlspecialchars($link['href']) . "'>{$link['text']}</a><br>";
 	}
-    	print '</td></tr></table><br>';
+		print '</td></tr></table><br>';
 	}
 }
 
 function html_checked_with_arrow($value) {
-    if ($value == true) {
+	if ($value == true) {
 		print '<b>&radic;</b>';
-    } else {
+	} else {
 		print '';
-    }
+	}
 }
 
 function html_checked_with_icon($value, $icon, $title='', $alternative='', $before='', $after='') {
@@ -165,20 +165,20 @@ function html_checked_with_icon($value, $icon, $title='', $alternative='', $befo
  * @param int $template_id contains the id of the template which contains the measurand
  */
 function html_calc_syntax($measurand_id, $template_id) {
-    global $rubrics;
+	global $rubrics;
 
-    $rubrics[__('Variables')] = get_possible_variables($template_id);
-    $dq_variables = array_flip(get_possible_data_query_variables($template_id));
-    $rubrics[__('Data Query Variables')] = $dq_variables;
+	$rubrics[__('Variables')] = get_possible_variables($template_id);
+	$dq_variables = array_flip(get_possible_data_query_variables($template_id));
+	$rubrics[__('Data Query Variables')] = $dq_variables;
 
-    $interim_results = array_flip(get_interim_results($measurand_id, $template_id, false));
-    $rubrics[__('Interim Results')] = $interim_results;
+	$interim_results = array_flip(get_interim_results($measurand_id, $template_id, false));
+	$rubrics[__('Interim Results')] = $interim_results;
 
-    $output = '';
-    foreach ($rubrics as $key => $value) {
-        $output .= "<div style='line-height: 1.5em;'><b>$key:</b></div><div style='line-height: 1.5em;'>";
-        $measurand = false;
-        foreach ($value as $name => $properties) {
+	$output = '';
+	foreach ($rubrics as $key => $value) {
+		$output .= "<div style='line-height: 1.5em;'><b>$key:</b></div><div style='line-height: 1.5em;'>";
+		$measurand = false;
+		foreach ($value as $name => $properties) {
 
 			if( $key == 'Interim Results') {
 				if($measurand === false) {
@@ -203,20 +203,20 @@ function html_calc_syntax($measurand_id, $template_id) {
 			}
 
 	       	$output .= '<a id="' . $name . '" class="linkOverDark1" title="' . $title . '" onClick=add_to_calc("' . $name . '") style="cursor:pointer;">' . $name . "&nbsp;&nbsp;</a>";
-        }
-        $output .= "</div>";
-    }
+		}
+		$output .= "</div>";
+	}
 	return $output;
 }
 
 function html_report_variables($report_id, $template_id) {
-    //Define some variables
-    $array           = array();
-    $form_array_vars = array();
-    $input_types     = array(1 => 'drop_array', 2 => 'textbox');
+	//Define some variables
+	$array           = array();
+	$form_array_vars = array();
+	$input_types     = array(1 => 'drop_array', 2 => 'textbox');
 
-    //Load the possible variables
-    $variables = db_fetch_assoc_prepared('SELECT a.*, b.value
+	//Load the possible variables
+	$variables = db_fetch_assoc_prepared('SELECT a.*, b.value
 		FROM plugin_reportit_variables AS a
 	    LEFT JOIN plugin_reportit_rvars AS b
 	    ON a.id = b.variable_id
@@ -224,28 +224,28 @@ function html_report_variables($report_id, $template_id) {
 	    WHERE a.template_id = ?',
 		array($report_id, $template_id));
 
-    if (count($variables) == 0) {
+	if (count($variables) == 0) {
 		$variables = db_fetch_assoc_prepared('SELECT *
 			FROM plugin_reportit_variables
 			WHERE template_id = ?',
 			array($template_id));
-    }
+	}
 
-    //Exit if there are no variables necessary for using this template
-    if (count($variables) == 0) {
+	//Exit if there are no variables necessary for using this template
+	if (count($variables) == 0) {
 		return false;
 	}
 
-    //Put the headerline in
-    $header = array(
+	//Put the headerline in
+	$header = array(
 		'friendly_name' => __('Variables'),
 		'method'        => 'spacer'
 	);
 
-    $form_array_vars['report_var_header'] =  $header;
+	$form_array_vars['report_var_header'] =  $header;
 
-    //Start with a transformation
-    foreach ($variables as $v) {
+	//Start with a transformation
+	foreach ($variables as $v) {
 		$value	= (isset($v['value']) ? $v['value'] : $v['default_value']);
 		$method = $input_types[$v['input_type']];
 		$index 	= 'var_' . $v['id'];
@@ -289,18 +289,18 @@ function html_report_variables($report_id, $template_id) {
 }
 
 /*
-    This function creates the necessary HTML output for several input boxes
-    displayed in the report template editor, which will be used to define
-    an alias for every internal data source item.
-    @arg                => report template id, if available (new template => 0)
-    @data_template_id   => internal Cacti id of the used data template
+	This function creates the necessary HTML output for several input boxes
+	displayed in the report template editor, which will be used to define
+	an alias for every internal data source item.
+	@arg                => report template id, if available (new template => 0)
+	@data_template_id   => internal Cacti id of the used data template
 */
 function html_template_ds_alias($template_id, $data_template_id) {
-    $form_array_alias  = array();
-    $data_source_items = array();
+	$form_array_alias  = array();
+	$data_source_items = array();
 
-    /* load information about defined data sources of that data template */
-    $data_source_items = db_fetch_assoc_prepared("SELECT a.id, a.data_source_name,
+	/* load information about defined data sources of that data template */
+	$data_source_items = db_fetch_assoc_prepared("SELECT a.id, a.data_source_name,
 		b.data_source_alias, b.id AS enabled
 		FROM data_template_rrd as a
 		LEFT JOIN (

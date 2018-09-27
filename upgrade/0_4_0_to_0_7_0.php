@@ -155,7 +155,7 @@ function upgrade_reportit_0_4_0_to_0_7_0(){
 		db_execute("ALTER TABLE reportit_measurands ADD `cf` int(11) NOT NULL default '1'");
 	}
 
-    /* Old definitions within ReportIt 0.4.x where no strict enough and some fields were to small */
+	/* Old definitions within ReportIt 0.4.x where no strict enough and some fields were to small */
 	db_execute("ALTER TABLE reportit_reports
 		MODIFY `description` varchar(255) NOT NULL default '',
 		MODIFY `user_id` int(11) NOT NULL default '0',

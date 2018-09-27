@@ -52,16 +52,16 @@ $link_array = array(
 $order_array = array('ASC', 'DESC');
 
 $sql = 'SELECT DISTINCT b.id, b.name FROM data_template_rrd AS a
-    INNER JOIN data_template as b
-    ON a.data_template_id = b.id
-    WHERE a.local_data_id != 0
-    ORDER BY b.name';
+	INNER JOIN data_template as b
+	ON a.data_template_id = b.id
+	WHERE a.local_data_id != 0
+	ORDER BY b.name';
 
 $data_templates            = array();
 $list_of_data_templates    = array();
 $data_templates            = db_fetch_assoc($sql);
 foreach($data_templates as $data_template) {
-    $list_of_data_templates[$data_template['id']] = $data_template['name'];
+	$list_of_data_templates[$data_template['id']] = $data_template['name'];
 }
 
 $hashes = array(

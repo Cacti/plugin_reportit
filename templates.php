@@ -451,8 +451,8 @@ function template_filter() {
 function standard() {
 	global  $config, $template_actions, $link_array, $desc_array, $consolidation_functions, $list_of_data_templates, $order_array;
 
-    /* ================= input validation and session storage ================= */
-    $filters = array(
+	/* ================= input validation and session storage ================= */
+	$filters = array(
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,

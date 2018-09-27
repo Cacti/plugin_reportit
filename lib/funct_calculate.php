@@ -288,10 +288,10 @@ function f_high(&$array, &$p_cache) {
 function f_low(&$array, &$p_cache) {
 	if (func_num_args() < 3 | empty($array)) {
 		$p_cache['f_low'] = REPORTIT_NAN;
-        return $p_cache['f_low'];
-    }
+		return $p_cache['f_low'];
+	}
 
-    $p_cache['f_low'] = min(array_slice(func_get_args(), 2));
+	$p_cache['f_low'] = min(array_slice(func_get_args(), 2));
 		return $p_cache['f_low'];
 	}
 
@@ -299,8 +299,8 @@ function f_low(&$array, &$p_cache) {
 function f_if(&$array, &$p_cache) {
 
 	if(func_num_args() != 5 | empty($array)) {
-        $p_cache['f_if'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_if'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		$p_cache['f_if'] = ($args[0]) ? $args[1] : $args[2];
 	}
@@ -310,8 +310,8 @@ function f_if(&$array, &$p_cache) {
 // "Greater than" logic supporting predefined return values for true and false
 function f_gt(&$array, &$p_cache) {
 	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
-        $p_cache['f_gt'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_gt'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'gt', $args);
 	}
@@ -320,8 +320,8 @@ function f_gt(&$array, &$p_cache) {
 /* Alias for f_cmp - "Lower than" logic */
 function f_lt(&$array, &$p_cache) {
 	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
-        $p_cache['f_lt'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_lt'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'lt', $args);
 	}
@@ -330,8 +330,8 @@ function f_lt(&$array, &$p_cache) {
 /* Alias for f_cmp - "Greater than or equal" logic */
 function f_ge(&$array, &$p_cache) {
 	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
-        $p_cache['f_ge'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_ge'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'ge', $args);
 	}
@@ -340,8 +340,8 @@ function f_ge(&$array, &$p_cache) {
 /* Alias for f_cmp - "Lower than or equal " logic */
 function f_le(&$array, &$p_cache) {
 	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
-        $p_cache['f_le'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_le'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'le', $args);
 	}
@@ -350,8 +350,8 @@ function f_le(&$array, &$p_cache) {
 /* Alias for f_cmp - "Equal" logic */
 function f_eq(&$array, &$p_cache) {
 	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
-        $p_cache['f_eq'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_eq'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'eq', $args);
 	}
@@ -360,8 +360,8 @@ function f_eq(&$array, &$p_cache) {
 /* Alias for f_cmp - "Equal" logic */
 function f_uq(&$array, &$p_cache) {
 	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
-        $p_cache['f_uq'] = REPORTIT_NAN;
-    }else {
+		$p_cache['f_uq'] = REPORTIT_NAN;
+	}else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'uq', $args);
 	}
