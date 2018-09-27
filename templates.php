@@ -226,20 +226,20 @@ function template_export() {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
-			$output = '<?xml version="1.0" encoding="UTF-8"?><templates>' . PHP_EOL;
+			$output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL . '<report_templates>' . PHP_EOL;
 			foreach ($selected_items as $id) {
 				if ($id > 0) {
 					/* collect all additional information */
-					$id_output = export_report_template(get_request_var('template_id'));
+					$id_output = export_report_template($id, 1);
 					if ($id_output != false) {
-						$output .= $id_output . PHP_EOL;
+						$output .= $id_output;
 					}
 				}
 			}
 
-			$output .= "</templates>\n";
+			$output .= "</report_templates>\n";
 			header('Content-type: application/xml');
-			header('Content-Disposition: attachment; filename=report_template_export_'.date('Ymd_His').'.xml');
+			header('Content-Disposition: attachment; filename=reportit_templates_export_'.date('Ymd_His').'.xml');
 			print $output;
 		}
 	}
@@ -1022,6 +1022,7 @@ function form_actions() {
 		</tr>';
 	}
 
+	$save_focus = ' class="ui-button ui-corner-all ui-widget ui-state-active"';
 	$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 	if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
 		print "<tr>
@@ -1031,11 +1032,11 @@ function form_actions() {
 		</tr>';
 
 	} elseif (get_request_var('drp_action') == '1') {
-		$save_html .= "&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Report Templates', 'reportit') . "' class='ui-state-active'>";
+		$save_html .= "&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Report Templates', 'reportit') . "'$save_focus>";
 	} elseif (get_request_var('drp_action') == '2') {
-		$save_html = "&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Duplicate Report Templates', 'reportit') . "' class='ui-state-active'>";
+		$save_html = "&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Duplicate Report Templates', 'reportit') . "'$save_focus>";
 	} elseif (get_request_var('drp_action') == '3') {
-		$save_html = "&nbsp;<input type='submit' value='" . __esc('Export', 'reportit') . "' title='" . __esc('Export Report Templates', 'reportit') . " class='ui-state-active'>";
+		$save_html = "&nbsp;<input type='submit' value='" . __esc('Export', 'reportit') . "' title='" . __esc('Export Report Templates', 'reportit') . "'$save_focus";
 	}
 
 	print "<tr>

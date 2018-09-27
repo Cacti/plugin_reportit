@@ -1312,8 +1312,7 @@ function send_scheduled_email($report_id){
 	return false;
 }
 
-function export_report_template($template_id) {
-	$eol      = "\r\n";
+function export_report_template($template_id, $indent = 0) {
 	$checksum = '';
 
 	/* load template data */
@@ -1370,29 +1369,57 @@ function export_report_template($template_id) {
 	/* use an output puffer for flushing */
 	$xml_array = array(
 		'report_template' => array(
-			'xml_data' => array(
-				'reportit'   => $reportit,
-				'general'    => $info,
-				'settings'   => $template_data,
-				'measurands' => array(
-					'xml_element' => 'measurand',
-					'xml_data'    => $masurands_data,
-				),
-				'variables'  => array(
-					'xml_element' => 'variable',
-					'xml_data'    => $variables_data,
-				),
-				'data_source_items' => array(
-					'xml_element' => 'data_source_item',
-					'xml_data'    => $data_source_items_data,
-				),
+			'reportit'   => $reportit,
+			'settings'   => $template_data,
+			'measurands' => array(
+				'xml_element' => 'measurand',
+				'xml_data'    => $measurands_data,
+			),
+			'variables'  => array(
+				'xml_element' => 'variable',
+				'xml_data'    => $variables_data,
+			),
+			'data_source_items' => array(
+				'xml_element' => 'data_source_item',
+				'xml_data'    => $data_source_items_data,
 			),
 		),
 	);
 
-	$content = utf8_encode(convert_array2xml($content));
+	$content = utf8_encode(convert_array2xml($xml_array, $indent));
 
 	return $content;
+}
+
+function convert_array2xml($data, $indent = 0) {
+	$output = '';
+	if ($indent < 0) {
+		$indent = 0;
+	}
+	$pad = str_repeat("\t", $indent);
+	if (is_array($data)) {
+		if (array_key_exists('xml_element', $data) &&
+		    array_key_existS('xml_data', $data)) {
+			$element = $data['xml_element'];
+			foreach ($data['xml_data'] as $xml_data) {
+				$output .= "$pad<$element>\n";
+				$output .= convert_array2xml($xml_data, $indent + 1);
+				$output .= "$pad</$element>\n";
+			}
+		} else {
+			foreach ($data as $key => $value) {
+				if (is_array($value)) {
+					$output .= "$pad<$key>\n";
+					$output .= convert_array2xml($value, $indent + 1);
+					$output .= "$pad</$key>\n";
+				} else {
+					$output .= "$pad<$key>" . htmlspecialchars($value, ENT_NOQUOTES) . "</$key>\n";
+				}
+			}
+		}
+	}
+
+	return $output;
 }
 
 function convert_array2string($data) {
