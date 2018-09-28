@@ -934,7 +934,7 @@ function form_actions() {
 			}
 
 			$template_identifier = "<a href='templates.php?action=template_edit&id={$id}'>{$template['name']}</a>";
-			$ds_list[$template_identifier] = '';
+			$ds_list[$template_identifier] = array();
 
 			//Fetch all descriptions of reports attached to this template
 			$template_reports = db_fetch_assoc_prepared('SELECT id, name, description
