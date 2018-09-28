@@ -937,7 +937,7 @@ function form_actions() {
 			$ds_list[$template_identifier] = '';
 
 			//Fetch all descriptions of reports attached to this template
-			$template_reports = db_fetch_assoc_prepared('SELECT id, description
+			$template_reports = db_fetch_assoc_prepared('SELECT id, name, description
 				FROM plugin_reportit_reports
 				WHERE template_id = ?',
 				array($id));

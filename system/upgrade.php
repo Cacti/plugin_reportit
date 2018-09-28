@@ -134,7 +134,7 @@ function reportit_system_upgrade($old_version) {
 			CHANGE `description` `name` varchar(255) NOT NULL DEFAULT '',
 			ADD `user_id` int(11) NOT NULL DEFAULT '0' AFTER `name`,
 			ADD `modified_by` int(11) NOT NULL DEFAULT '0' AFTER `user_id`,
-			ADD `last_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `modified_by`,
+			ADD `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `modified_by`,
 			ADD `description` varchar(255) NOT NULL DEFAULT '' AFTER `last_modified`,
 			MODIFY `locked` varchar(2) NOT NULL DEFAULT 'on',
 			ADD `enabled` varchar(2) NOT NULL DEFAULT '' AFTER `locked`
@@ -176,6 +176,7 @@ function reportit_system_upgrade($old_version) {
 
 	if (version_compare($old_version, '1.1.0', '<')) {
 		db_execute("ALTER TABLE `plugin_reportit_templates`
+			CHANGE `last_modified` `last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			ADD `version` varchar(10) NOT NULL DEFAULT '' AFTER `description`,
 			ADD `author` varchar(100) NOT NULL DEFAULT '' AFTER `last_modified`
 		");
