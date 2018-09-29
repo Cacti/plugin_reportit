@@ -551,7 +551,7 @@ function standard() {
 			}
 
 			form_selectable_cell( ($template['enabled']) ? __('yes', 'reportit') : __('no', 'reportit'), $template['id']);
-			form_selectable_cell( ($template['locked']) ? '<i class="fa fa-lock" ria-hidden="true"></i>' : '<i class="fa fa-unlock" ria-hidden="true"></i>', $template['id']);
+			form_selectable_cell( ($template['locked'] == 'on') ? '<i class="fa fa-lock" ria-hidden="true"></i>' : '<i class="fa fa-lock-open" ria-hidden="true"></i>', $template['id']);
 
 			if ($template['measurands'] != NULL) {
 				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?id=' . $template['id']) . '"><i class="fa fa-wrench" aria-hidden="true"></i> (' . $template['measurands'] . ')</a>', $template['id']);
@@ -592,6 +592,9 @@ function form_save() {
 	/* ================= input validation ================= */
 	input_validate_input_number(get_request_var('id'));
 	input_validate_input_number(get_request_var('template_data_template'));
+	form_input_validate(get_request_var('template_name'), 'template_name', '', false, 3);
+	form_input_validate(get_request_var('template_author'), 'template_author', '', false, 3);
+	form_input_validate(get_request_var('template_version'), 'template_version', '', false, 3);
 	form_input_validate(get_request_var('template_description'), 'template_description', '', false, 3);
 	form_input_validate(get_request_var('template_filter'), 'template_filter', '', true, 3);
 	#form_input_validate(get_request_var('data_template_id'));
@@ -721,6 +724,9 @@ function template_edit() {
 	} else {
 		$template_data['id'] = 0;
 		$header_label = __('Template Configuration [new]', 'reportit');
+
+		$fields_template_edit['template_locked']['value'] = 'on';
+		$fields_template_edit['template_locked']['method'] = 'hidden';
 	}
 
 	if (isset_request_var('data_template')) {
