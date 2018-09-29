@@ -393,7 +393,7 @@ function standard() {
 				form_checkbox_cell("Select",$report["id"]);
 
 			} else {
-				print '<td align="center"><i class="fa fa-lock" ria-hidden="true" title="' . __('Template has been locked') . '"></i></td>';
+				print '<td align="center"><i class="fa fa-lock" ria-hidden="true" title="' . __('Report has been locked') . '"></i></td>';
 			}
 
 			?>
