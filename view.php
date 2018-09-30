@@ -896,5 +896,5 @@ function show_graph_overview() {
 	$start	= strtotime($report_data['start_date']);
 	$end	= strtotime($report_data['end_date'] . ' 23:59:59');
 
-	header('Location: ' . $config['base_url'] . "/graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
+	header('Location: ' . $config['url_path'] . "/graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
 }

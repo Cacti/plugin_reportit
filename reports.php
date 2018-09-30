@@ -381,7 +381,7 @@ function standard() {
 			form_selectable_cell( html_check_icon($report['scheduled']), $report['id'], 'center');
 
 			$link = $report['ds_cnt'] != NULL ? "rrdlist.php?&id={$report['id']}" : "items.php?&id={$report['id']}";
-			print "<td><a class='linkEditMain' href='$link'>" . html_sources_icon($report['ds_cnt'], __('Add sources', 'reportit'), __('View sources', 'reportit')) . '</a></td>';
+			print "<td><a class='linkEditMain' href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
 
 			if (!$report['locked'] && $report['state'] < 1) {
 				form_checkbox_cell("Select",$report["id"]);

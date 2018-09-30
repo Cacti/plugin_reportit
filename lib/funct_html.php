@@ -378,5 +378,5 @@ function html_sources_icon($values, $title_on, $title_off) {
 	}
 	$value_text = ($values == NULL ? '' :  ' (' . $values . ')');
 	$value_on = ($values == NULL ? '' : 'on');
-	return html_onoff_icon($values, 'fa-plus', $title_on, 'fa-wrench', $title_off) . $value_text;
+	return html_onoff_icon($values, 'fa-plus', $title_off, 'fa-wrench', $title_on) . $value_text;
 }

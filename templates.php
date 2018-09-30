@@ -550,20 +550,21 @@ function standard() {
 				form_selectable_cell("<span class='textError'>" . __('Data template not available', 'reportit') . '</span>', $template['id']);
 			}
 
-			form_selectable_cell( ($template['enabled']) ? __('yes', 'reportit') : __('no', 'reportit'), $template['id']);
-			form_selectable_cell( ($template['locked'] == 'on') ? '<i class="fa fa-lock" ria-hidden="true"></i>' : '<i class="fa fa-lock-open" ria-hidden="true"></i>', $template['id']);
+			form_selectable_cell(html_check_icon($template['enabled']), $template['id']);
+			form_selectable_cell(html_lock_icon($template['locked']), $templat['id']);
 
-			if ($template['measurands'] != NULL) {
-				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?id=' . $template['id']) . '"><i class="fa fa-wrench" aria-hidden="true"></i> (' . $template['measurands'] . ')</a>', $template['id']);
-			} else {
-				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?action=measurand_edit&template_id=' . $template['id']) . '"><i class="fa fa-plus" aria-hidden="true"></i></a>', $template['id']);
-			}
+			$link = $template['measurands'] != NULL
+				? '<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?id=' . $template['id']) . '">'
+				: '<a class="linkEditMain" href="' . htmlspecialchars('measurands.php?action=measurand_edit&template_id=' . $template['id']) . '">';
 
-			if ($template['variables'] != NULL) {
-				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('variables.php?id=' . $template['id']) . '"><i class="fa fa-wrench" aria-hidden="true"></i> (' . $template['variables'] . ')</a>', $template['id']);
-			} else {
-				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('variables.php?action=variable_edit&template_id=' . $template['id']) . '"><i class="fa fa-plus" aria-hidden="true"></i></a>', $template['id']);
-			}
+			form_selectable_cell($link . html_sources_icon($template['measurands'], __('Edit measurands'), __('Add measurands')) . '</a>', $template['id']);
+
+			$link = $template['variables'] != NULL
+				? '<a class="linkEditMain" href="' . htmlspecialchars('variables.php?id=' . $template['id']) . '">'
+				: '<a class="linkEditMain" href="' . htmlspecialchars('variables.php?action=measurand_edit&template_id=' . $template['id']) . '">';
+
+			form_selectable_cell($link . html_sources_icon($template['variables'], __('Edit variables'), __('Add variables')) . '</a>', $template['id']);
+
 			form_selectable_cell( $template['reports'] ? $template['reports'] : '-', $template['id']);
 			form_checkbox_cell($template['description'], $template['id']);
 			form_end_row();
