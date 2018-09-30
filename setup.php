@@ -612,6 +612,16 @@ function reportit_poller_bottom() {
 	$lifecycle     = read_config_option('reportit_arc_lifecycle', TRUE);
 	$logging_level = read_config_option('log_verbosity', TRUE);
 
+	/* mark running reports which have run too long as failed */
+	$met = read_config_option('reportit_met');
+	$met = intval($met);
+	if ($met < 1) $met = 300;
+
+	db_execute_prepared('UPDATE `plugin_reportit_reports` SET
+		last_state = NOW(), state = -2
+		WHERE state = 1 AND last_state - NOW() < ?',
+		array($met));
+
 	/* fetch all tables whose life cycle has been expired */
 	$sql =  "SHOW TABLE STATUS WHERE `Name` LIKE 'reportit_tmp_%'
 		AND (UNIX_TIMESTAMP(`Update_time`) + $lifecycle) <= UNIX_TIMESTAMP()";

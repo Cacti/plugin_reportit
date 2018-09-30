@@ -358,3 +358,25 @@ function html_template_ds_alias($template_id, $data_template_id) {
 	return $form_array_alias;
 }
 
+function html_onoff_icon($value, $class_on, $title_on, $class_off, $title_off) {
+	return $value == 'on'
+		? "<i class='fa $class_on' ria-hidden='true' title='$title_on'></i>"
+		: "<i class='fa $class_off' ria-hidden='true' title='$title_off'></i>";
+}
+
+function html_lock_icon($value, $title_on = 'Locked', $title_off = 'Unlocked') {
+	return html_onoff_icon($value, 'fa-lock', $title_on, 'fa-lock-open', $title_off);
+}
+
+function html_check_icon($value, $title_on = 'Yes', $title_off = 'No') {
+	return html_onoff_icon($value, 'fa-check', $title_on, 'fa-times', $title_off);
+}
+
+function html_sources_icon($values, $title_on, $title_off) {
+	if (is_array($values)) {
+		$values = count($values);
+	}
+	$value_text = ($values == NULL ? '' :  ' (' . $values . ')');
+	$value_on = ($values == NULL ? '' : 'on');
+	return html_onoff_icon($values, 'fa-plus', $title_on, 'fa-wrench', $title_off) . $value_text;
+}

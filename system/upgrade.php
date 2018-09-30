@@ -53,6 +53,7 @@ function reportit_system_upgrade($old_version) {
 			MODIFY `graph_permission` varchar(2) NOT NULL DEFAULT 'on',
 			MODIFY `autoexport_no_formatting` varchar(2) NOT NULL DEFAULT 'on'
 		");
+
 		db_execute("UPDATE plugin_reportit_reports SET `public` = 'on' where `public` = '1'");
 		db_execute("UPDATE plugin_reportit_reports SET `public` = '' where `public` = '0'");
 		db_execute("UPDATE plugin_reportit_reports SET `sliding` = 'on' where `sliding` = '1'");
@@ -175,11 +176,36 @@ function reportit_system_upgrade($old_version) {
 	}
 
 	if (version_compare($old_version, '1.1.0', '<')) {
+		db_execute("UPDATE `plugin_reportit_templates` SET
+			last_modified = IF(CAST(last_modified as CHAR) = '0000-00-00 00:00:00', '1970-01-01 00:00:00', last_modified)");
+
 		db_execute("ALTER TABLE `plugin_reportit_templates`
 			CHANGE `last_modified` `last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			ADD `version` varchar(10) NOT NULL DEFAULT '' AFTER `description`,
 			ADD `author` varchar(100) NOT NULL DEFAULT '' AFTER `last_modified`
 		");
+
+		db_execute("UPDATE `plugin_reportit_templates` SET
+			last_modified = IF(CAST(last_modified as CHAR) = '1970-01-01 00:00:00', NULL, last_modified)");
+
+		db_execute("UPDATE `plugin_reportit_reports` SET
+			last_run = IF(CAST(last_run as CHAR) = '0000-00-00 00:00:00', '1970-01-01 00:00:00', last_run),
+			start_date = IF(CAST(start_date AS CHAR) = '0000-00-00', '1970-01-01', start_date),
+			end_date = IF(CAST(end_date AS CHAR)= '0000-00-00', '1970-01-01', end_date)");
+
+		db_execute("ALTER TABLE `plugin_reportit_reports`
+			ADD `last_state` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			CHANGE `last_run` `last_run` DATETIME NULL DEFAULT NULL,
+			CHANGE `start_date` `start_date` DATETIME NULL DEFAULT NULL,
+			CHANGE `end_date` `end_date` DATETIME NULL DEFAULT NULL");
+
+		db_execute("UPDATE `plugin_reportit_reports` SET
+			last_run = IF(CAST(last_run as CHAR) = '1970-01-01 00:00:00', NULL, last_run),
+			start_date = IF(CAST(start_date AS CHAR) = '1970-01-01', NULL, start_date),
+			end_date = IF(CAST(end_date AS CHAR)= '1970-01-01', NULL, end_date)");
+
+		db_execute("ALTER TABLE `plugin_reportit_reports`
+			ADD `last_state` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP");
 
 		// Fix partial renaming that occurred in 1.0.x
 		db_execute("UPDATE `plugin_reportit_templates`
@@ -189,5 +215,54 @@ function reportit_system_upgrade($old_version) {
 		db_execute("UPDATE `plugin_reportit_templates`
 			SET `description` = `name`
 			WHERE `description` = ''");
+
+		// Fix ON/OFF statuses that were corrupted in 1.0.x
+		db_execute("UPDATE plugin_reportit_reports SET `public` = 'on' where `public` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `public` = '' where `public` = '0'");
+		db_execute("UPDATE plugin_reportit_reports SET `sliding` = 'on' where `sliding` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `sliding` = '' where `sliding` = '0'");
+		db_execute("UPDATE plugin_reportit_reports SET `present` = 'on' where `present` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `present` = '' where `present` = '0'");
+		db_execute("UPDATE plugin_reportit_reports SET `scheduled` = 'on' where `scheduled` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `scheduled` = '' where `scheduled` = '0'");
+		db_execute("UPDATE plugin_reportit_reports SET `autorrdlist` = 'on' where `autorrdlist` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `autorrdlist` = '' where `autorrdlist` = '0'");
+		db_execute("UPDATE plugin_reportit_reports SET `auto_email` = 'on' where `auto_email` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `auto_email` = '' where `auto_email` = '0'");
+		db_execute("UPDATE plugin_reportit_reports SET `graph_permission` = 'on' where `graph_permission` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `graph_permission` = '' where `graph_permission` = '0'");
+		db_execute("UPDATE plugin_reportit_reports SET `autoexport_no_formatting` = 'on' where `autoexport_no_formatting` = '1'");
+		db_execute("UPDATE plugin_reportit_reports SET `autoexport_no_formatting` = '' where `autoexport_no_formatting` = '0'");
+
+		db_execute("UPDATE plugin_reportit_cache_reports SET `public` = 'on' where `public` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `public` = '' where `public` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `sliding` = 'on' where `sliding` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `sliding` = '' where `sliding` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `present` = 'on' where `present` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `present` = '' where `present` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `scheduled` = 'on' where `scheduled` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `scheduled` = '' where `scheduled` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `autorrdlist` = 'on' where `autorrdlist` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `autorrdlist` = '' where `autorrdlist` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `auto_email` = 'on' where `auto_email` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `auto_email` = '' where `auto_email` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `graph_permission` = 'on' where `graph_permission` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `graph_permission` = '' where `graph_permission` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `autoexport_no_formatting` = 'on' where `autoexport_no_formatting` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_reports SET `autoexport_no_formatting` = '' where `autoexport_no_formatting` = '0'");
+
+		db_execute("UPDATE plugin_reportit_measurands SET `visible` = 'on' where `visible` = '1'");
+		db_execute("UPDATE plugin_reportit_measurands SET `visible` = '' where `visible` = '0'");
+		db_execute("UPDATE plugin_reportit_measurands SET `spanned` = 'on' where `spanned` = '1'");
+		db_execute("UPDATE plugin_reportit_measurands SET `spanned` = '' where `spanned` = '0'");
+
+		db_execute("UPDATE plugin_reportit_cache_measurands SET `visible` = 'on' where `visible` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_measurands SET `visible` = '' where `visible` = '0'");
+		db_execute("UPDATE plugin_reportit_cache_measurands SET `spanned` = 'on' where `spanned` = '1'");
+		db_execute("UPDATE plugin_reportit_cache_measurands SET `spanned` = '' where `spanned` = '0'");
+
+		db_execute("UPDATE plugin_reportit_templates SET `locked` = 'on' WHERE `locked` = '1'");
+		db_execute("UPDATE plugin_reportit_templates SET `locked` = '' WHERE `locked` = '0'");
+		db_execute("UPDATE plugin_reportit_templates SET `enabled` = 'on' WHERE `locked` != 'on'");
 	}
 }

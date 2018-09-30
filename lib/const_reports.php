@@ -32,9 +32,10 @@ $report_actions = array(
 );
 
 $report_states = array(
-	'-1' => __('failed', 'reportit'),
-	'0'  => __('idle', 'reportit'),
-	'1'  => __('running', 'reportit')
+	'-2' => __('CRASHED', 'reportit'),
+	'-1' => __('FAILED', 'reportit'),
+	'0'  => __('Idle', 'reportit'),
+	'1'  => __('Running', 'reportit')
 );
 
 //$templates		- array, for dropdown menu

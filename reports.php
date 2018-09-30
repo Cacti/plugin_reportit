@@ -342,7 +342,7 @@ function standard() {
 
 	$desc_array = array(
 		'id'                   => array('display' => __('Id'),          'sort' => 'ASC',  'align' => 'left'),
-		'description'          => array('display' => __('Description'), 'sort' => 'ASC',  'align' => 'left'),
+		'description'          => array('display' => __('Name'), 'sort' => 'ASC',  'align' => 'left'),
 		'nosort0'              => array('display' => __("Period %s from - to", $tmz)),
 		'state'                => array('display' => __('State', 'reportit'), 'sort' => 'ASC',  'align' => 'left'),
 		'last_run'             => array('display' => __('Last run %s', $tmz, 'reportit'), 'sort' => 'ASC',  'align' => 'left'),
@@ -363,9 +363,11 @@ function standard() {
 
 	if (sizeof($report_list)) {
 		foreach($report_list as $report) {
+			$link = '<a class="linkEditMain" href="' . htmlspecialchars('reports.php?action=report_edit&id=' . $report['id']) . '">';
+
 			form_alternate_row( 'line' . $report['id'], true );
-			form_selectable_cell( $report['id'], $report['id'] );
-			form_selectable_cell( '<a class="linkEditMain" href="' . htmlspecialchars('reports.php?action=report_edit&id=' . $report['id']) . '">' . filter_value($report['description'], get_request_var('filter')) . '</a>', $report['id'], 'left' );
+			form_selectable_cell($link . filter_value($report['id'], get_request_var('filter')) . '</a>', $report['id'], 'left' );
+			form_selectable_cell($link . filter_value($report['description'], get_request_var('filter')) . '</a>', $report['id'], 'left' );
 			if ($report['sliding']== true && $report['last_run'] == 0) {
 				$dates = rp_get_timespan($report['preset_timespan'], $report['present'], $enable_tmz);
 				form_selectable_cell( date(config_date_format(), strtotime($dates['start_date'])) . " - " . date(config_date_format(), strtotime($dates['end_date'])), $report['id']);
@@ -374,26 +376,17 @@ function standard() {
 			}
 			form_selectable_cell( $report_states[$report['state']], $report['id'] );
 			form_selectable_cell( (($report['last_run'] == '0000-00-00 00:00:00') ? __('n/a') : '<a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '">' . $report['last_run'] . '</a>'), $report['id']);
-			form_selectable_cell( sprintf("%01.1f", $report['runtime']), $report['id']);
-			form_selectable_cell( ($report['public'] == 'on') ? __('yes', 'reportit') : __('no', 'reportit'), $report['id']);
-			form_selectable_cell( ($report['scheduled'] == 'on') ? __('yes', 'reportit') : __('no', 'reportit'), $report['id']);
+			form_selectable_cell( sprintf("%01.1f", $report['runtime']), $report['id'], 'center');
+			form_selectable_cell( html_check_icon($report['public']), $report['id'], 'center');
+			form_selectable_cell( html_check_icon($report['scheduled']), $report['id'], 'center');
 
+			$link = $report['ds_cnt'] != NULL ? "rrdlist.php?&id={$report['id']}" : "items.php?&id={$report['id']}";
+			print "<td><a class='linkEditMain' href='$link'>" . html_sources_icon($report['ds_cnt'], __('Add sources', 'reportit'), __('View sources', 'reportit')) . '</a></td>';
 
-			if ($report['ds_cnt'] != NULL) {
-				$link = "rrdlist.php?&id={$report['id']}";
-				$msg  = "edit ({$report['ds_cnt']})";
-			} else {
-				$link = "items.php?&id={$report['id']}";
-				$msg  = "add";
-			}
-
-			print "<td><a class='linkEditMain' href='$link'>$msg</a></td>";
-
-			if (!$report['locked'] && !$report['state']) {
+			if (!$report['locked'] && $report['state'] < 1) {
 				form_checkbox_cell("Select",$report["id"]);
-
 			} else {
-				print '<td align="center"><i class="fa fa-lock" ria-hidden="true" title="' . __('Report has been locked') . '"></i></td>';
+				print '<td align="center">' . html_lock_icon('on', __('Report has been locked')) . '</td>';
 			}
 
 			?>
@@ -401,7 +394,7 @@ function standard() {
 			<?php
 		}
 	} else {
-		print "<tr><td colspan='10'><em>" . __('No reports') . "</em></td></tr>\n";
+		print "<tr><td colspan='10'><em>" . __('No reports', 'reportit') . "</em></td></tr>\n";
 	}
 
 	html_end_box(true);
@@ -1098,7 +1091,25 @@ function form_actions() {
 	if (isset_request_var('selected_items')) {
 		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
 
-		if (get_request_var('drp_action') == '2') { // DELETE REPORT
+		//For running report jump to run.php!
+		if (get_request_var('drp_action') == '1') { // RUNNING REPORT
+			for ($i=0;($i<count($selected_items));$i++) {
+				/* ================= input validation ================= */
+				input_validate_input_number($selected_items[$i]);
+				/* ==================================================== */
+				//Only one report is allowed to run at the same time, so select the first one:
+				$report_id = $selected_items[$i];
+
+				if (intval($report_id) > 0) {
+					//Update $_SESSION
+					$_SESSION['run'] = '1';
+
+					//Jump to run.php
+					header('Location: run.php?action=calculation&id=' . $report_id);
+					exit;
+				}
+			}
+		} elseif (get_request_var('drp_action') == '2') { // DELETE REPORT
 			$report_datas = db_fetch_assoc('SELECT id
 				FROM plugin_reportit_reports
 				WHERE ' . array_to_sql_or($selected_items, 'id'));
@@ -1183,87 +1194,66 @@ function form_actions() {
 	}
 
 	//Set preconditions
-	$ds_list = array(); $i = 0;
+	$limit_state = (get_request_var('drp_action') == 1 ? ' LIMIT 1' : '');
 
+	$report_ids = array();
 	foreach($_POST as $key => $value) {
+		cacti_log("POST: $key => $value");
 		if (strstr($key, 'chk_')) {
 			//Fetch report id
 			$id = substr($key, 4);
-			$report_ids[] = $id;
 			// ================= input validation =================
 			input_validate_input_number($id);
 			// ====================================================
-
-			//Fetch report description
-			$report_description = db_fetch_cell_prepared('SELECT description
-				FROM plugin_reportit_reports
-				WHERE id = ?',
-				array($id));
-
-			$ds_list[] = $report_description;
+			$report_ids[] = $id;
 		}
 	}
 
-	//For running report jump to run.php!
-	if (get_request_var('drp_action') == '1') { // RUNNING REPORT
-		//Only one report is allowed to run at the same time, so select the first one:
-		if (isset($report_ids)) {
-			$report_id = $report_ids[0];
-
-			//Update $_SESSION
-			$_SESSION['run'] = '1';
-
-			//Jump to run.php
-			header('Location: run.php?action=calculation&id=' . $report_id);
-			exit;
-		}
+	//Fetch report details
+	if (sizeof($report_ids)) {
+		$reports_sql = "SELECT id, name, description, state
+			FROM plugin_reportit_reports
+			WHERE id IN (" . implode(',',$report_ids) . ")
+			AND state <> 1
+			$limit_state";
+		cacti_log('Report SQL: ' . $reports_sql);
+		$reports = db_fetch_assoc($reports_sql);
+	} else {
+		$reports = array();
 	}
+
+	global $report_states;
 
 	top_header();
 	form_start('reports.php');
 
 	html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
-	if (get_request_var('drp_action') == '2') { //DELETE REPORT
-		print "<tr>
-			<td class='textArea'>
-				<p>" . __('Click \'Continue\' to Delete the following Reports.') . '</p>';
-
-		if (is_array($ds_list)) {
-			print '<p>' . __('List of selected reports:') . '</p>';
-			print '<ul>';
-			foreach($ds_list as $key => $value) {
-				print '<li>' . __('|_Report: %s', $value) . '</li>';
-			}
-			print '</ul>';
+	if (sizeof($reports)) {
+		if (get_request_var('drp_action') == '1') {
+			$section = '<p>' . __('Click \'Continue\' to Run the following Report:') . '</p>';
+		} elseif (get_request_var('drp_action') == '2') { //DELETE REPORT
+			$section = '<p>' . __('Click \'Continue\' to Delete the following Reports:') . '</p>';
+		} elseif (get_request_var('drp_action') == '3') { // DUPLICATE REPORT
+			$section = '<p>' . __('Click \'Continue\' to duplicate the following Report configurations.  You may also change the title format during this operation.') . '</p>';
+			$section .= '<p>' . __('Title Format:') . '</p>';
+			$section .= '<p>' . form_text_box('report_addition', __('<report_title> (1)'), '', '255', '30', 'text') .'</p>';
 		}
-		print '</td>
-		</tr>';
-	} elseif (get_request_var('drp_action') == '3') { // DUPLICATE REPORT
-		print "<tr>
-			<td class='textArea'>
-				<p>" . __('Click \'Continue\' to duplicate the following Report configurations.  You may also change the title format during this operation.') . '</p>';
-
-		if (is_array($ds_list)) {
-			print '<p>' . __('List of selected Reports:') . '</p>';
-			print '<ul>';
-			foreach($ds_list as $key => $value) {
-				print '<li>' . __('|_Report: %s', $value) . '</li>';
-			}
-			print '</ul>';
-		}
-		print '<p>' . __('Title Format:') . '</p>';
-		print '<p>' . form_text_box('report_addition', __('<report_title> (1)'), '', '255', '30', 'text');
-		print '</p>
-		    </td>
-		</tr>';
 	}
 
-
-	if ($ds_list === false || empty($ds_list)) {
-		print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one report.') . "</span></td></tr>\n";
+	$report_ids = array();
+	if ($reports === false || empty($reports)) {
+		print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one unlocked, not running, report.') . "</span></td></tr>\n";
 		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
 	} else {
+		print "<tr><td class='textArea'>$section</td></tr><tr><td>";
+		print '<ul>';
+		foreach($reports as $report) {
+			print '<li>' . $report['description'] . '</li>';
+			$report_ids[] = $report['id'];
+		}
+		print '</ul>';
+		print '</td></tr>';
 		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "'>";
 	}
 

@@ -64,8 +64,8 @@ function calculation() {
 	$id = get_request_var('id');
 	$_SESSION['run'] = '0';
 
-	if (stat_process($id)) {
-		html_error_box(__('Report is just in process.'), 'run.php', '', 'reports.php');
+	if (stat_process($id) > 0) {
+		html_error_box(__('Report is alrady in progess.'), 'run.php', '', 'reports.php');
 		exit;
 	}
 
