@@ -533,7 +533,18 @@ function transform(&$data, &$rrd_data, &$template) {
 	$b = $rrd_data['ds_cnt'];
 	$a = 0;
 
-	$rrd_data['step']   = (isset($step)) ? $step : $data[0][$b+1] - $rrd_data['start'];
+	$step_value = 0;
+	if (isset($step)) {
+		$step_value = $step;
+	} else {
+		$step_value = $data[0][$b+1];
+	}
+
+	if (!is_numeric($step_value)) {
+		$step_value = intval($step_value);
+	}
+
+	$rrd_data['step']   = $step_value - $rrd_data['start'];
 	$rrd_data['start'] -= $rrd_data['step'];
 
 	//Delete all timestamps
