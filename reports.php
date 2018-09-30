@@ -656,31 +656,31 @@ function form_save() {
 		}
 		$report_data['description']     = get_request_var('report_description');
 		$report_data['template_id']     = get_request_var('template_id');
-		$report_data['public']          = isset_request_var('report_public') ? 1 : 0;
+		$report_data['public']          = get_request_var('report_public');
 
 		$report_data['preset_timespan'] = isset_request_var('report_timespan') ? $timespans[get_request_var('report_timespan')] : '';
 		$report_data['last_run']        = '0000-00-00 00:00:00';
 
-		$report_data['start_date']      = isset_request_var('report_start_date') ? get_request_var('report_start_date') : '0000-00-0';
-		$report_data['end_date']        = isset_request_var('report_end_date') ? get_request_var('report_end_date') : '0000-00-0';
+		$report_data['start_date']      = get_request_var('report_start_date');
+		$report_data['end_date']        = get_request_var('report_end_date');
 
-		$report_data['sliding']         = isset_request_var('report_dynamic') ? 1 : 0;
-		$report_data['present']         = isset_request_var('report_present') ? 1 : 0;
+		$report_data['sliding']         = get_request_var('report_dynamic');
+		$report_data['present']         = get_request_var('report_present');
 
 		/* define the owner if it's a new configuration */
 		if (get_request_var('id') == 0) $report_data['user_id'] = my_id();
 
 		/* save the settings for scheduled reporting if owner has the rights to do this */
 		if (!read_config_option('reportit_operator')) {
-			$report_data['scheduled']   = isset_request_var('report_schedule') ? 1 : 0;
-			$report_data['autorrdlist'] = isset_request_var('report_autorrdlist') ? 1 : 0;
-			$report_data['frequency']   = isset_request_var('report_schedule_frequency') ? $frequency[get_request_var('report_schedule_frequency')] : '';
-			$report_data['autoarchive'] = isset_request_var('report_autoarchive') ? get_request_var('report_autoarchive') : 0;
-			$report_data['auto_email']  = isset_request_var('report_email') ? 1 : 0;
-			$report_data['autoexport']  = isset_request_var('report_autoexport') ? get_request_var('report_autoexport') : '';
+			$report_data['scheduled']   = get_request_var('report_schedule');
+			$report_data['autorrdlist'] = get_request_var('report_autorrdlist');
+			$report_data['frequency']   = get_request_var('report_schedule_frequency');
+			$report_data['autoarchive'] = get_request_var('report_autoarchive');
+			$report_data['auto_email']  = get_request_var('report_email');
+			$report_data['autoexport']  = get_request_var('report_autoexport');
 
-			$report_data['autoexport_max_records']   = isset_request_var('report_autoexport_max_records') ? get_request_var('report_autoexport_max_records') : 0;
-			$report_data['autoexport_no_formatting'] = isset_request_var('report_autoexport_no_formatting') ? 1 : 0;
+			$report_data['autoexport_max_records']   = get_request_var('report_autoexport_max_records');
+			$report_data['autoexport_no_formatting'] = get_request_var('report_autoexport_no_formatting');
 		}
 
 		//Now we've to keep our variables
