@@ -76,6 +76,8 @@ function reportit_system_install() {
 	$data['columns'][] = array(	'name' => 'user_id', 			'type' => 'int(11)',		'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'modified_by', 		'type' => 'int(11)',		'NULL' => false, 'default' => '0');
 	$data['columns'][] = array(	'name' => 'last_modified', 		'type' => 'timestamp',		'NULL' => false, 'default' => '0000-00-00 00:00:00');
+	$data['columns'][] = array(	'name' => 'author',			'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
+	$data['columns'][] = array(	'name' => 'version',			'type' => 'varchar(10)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'description',		'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'pre_filter',			'type' => 'varchar(255)',	'NULL' => false, 'default' => '');
 	$data['columns'][] = array(	'name' => 'data_template_id', 	'type' => 'mediumint(8)',	'NULL' => false, 'default' => '0');
