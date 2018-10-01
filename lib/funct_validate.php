@@ -22,6 +22,8 @@
    +-------------------------------------------------------------------------+
 */
 
+include_once($config['base_path'] . '/lib/xml.php');
+
 $error = FALSE;
 
 function last_error($errno, $errstr) {
@@ -218,8 +220,51 @@ function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside
 	}
 }
 
+function validate_xml_template_section($xml_template, $section, &$valid, &$checksum) {
+	//echo "validate_xml_template_section:start(xml_template, $section, $valid, $checksum)\n";
+	if ($valid) {
+		if (isset($xml_template->$section) && is_object($xml_template->$section)) {
+			$checksum .= xml_to_string($xml_template->$section, false);
+		} else {
+			$valid = false;
+		}
+	}
 
-function validate_uploaded_template(){
+	//echo "validate_xml_template_section:end  (xml_template, $section, $valid, $checksum)\n";
+	return $valid;
+}
+
+function validate_xml_template($xml_template, &$valid, &$checksum) {
+	//echo "validate_xml_template:begin(xml_template, $valid, $checksum)\n";
+	if (isset($xml_template->reportit) && is_object($xml_template->reportit)) {
+		$count =0;
+		// Loop through the values of the first reportit element (there should be only one)
+		foreach ($xml_template->reportit[0] as $key => $value) {
+			if ($key == 'hash') {
+				// Lets do some magic and remove the hash, saving it for later
+				$hash = $value;
+				unset($xml_template->reportit[0]->{$key});
+				break;
+			}
+			$count++;
+		}
+	} else {
+		$valid = false;
+	}
+
+	validate_xml_template_section($xml_template, 'reportit', $valid, $checksum);
+	validate_xml_template_section($xml_template, 'settings', $valid, $checksum);
+	validate_xml_template_section($xml_template, 'variables', $valid, $checksum);
+	validate_xml_template_section($xml_template, 'measurands', $valid, $checksum);
+	validate_xml_template_section($xml_template, 'data_source_items', $valid, $checksum);
+
+	if (isset($hash)) {
+		$xml_template->reportit->hash = $hash;
+	}
+	//echo "validate_xml_template:end  (report_template, $valid, $checksum)\n";
+}
+
+function validate_uploaded_templates(){
 	/* check file tranfer if used */
 	if (isset($_FILES['file'])) {
 		/* check for errors first */
@@ -266,119 +311,111 @@ function validate_uploaded_template(){
 	}
 
 	/* try to parse the report template */
-	load_external_libs('cleanXML');
+	$xmldata    = simplexml_load_string($template_data);
+	$checksum   = '';
+	$valid      = true;
+	$hash       = false;
+	$compatible = false;
 
-	$xml  = new Xml();
-	$data = @$xml->parse($template_data, NULL, 'ISO-8859-1');
-
-	if (!is_array($data)) {
+	if (!is_object($xmldata)) {
 		session_custom_error_message('file', __('Unable to parse template file.'));
-		return false;
 	} else {
 		/* generate a hash to check the data structure and to find changes */
-		$checksum = '';
-		$valid    = true;
-		$hash     = false;
+		$report_count = 0;
+		foreach ($xmldata as $report_template) {
+			$report_count++;
+			$valid = true;
+			$report_compatible = false;
+			$checksum = '';
+			$hash = (string)$report_template->reportit->hash;
+			validate_xml_template($report_template, $valid, $checksum);
 
-		if (isset($data['report_template']['settings']) && is_array($data['report_template']['settings'])) {
-			$checksum = convert_array2string($data['report_template']['settings']);
-		} else {
-			$valid = false;
-		}
-
-		if (isset($data['report_template']['variables']['variable']) && is_array($data['report_template']['variables'])) {
-			$checksum .= convert_array2string($data['report_template']['variables']['variable']);
-		}
-
-		if (isset($data['report_template']['measurands']['measurand']) && is_array($data['report_template']['measurands']['measurand'])) {
-			$checksum .= convert_array2string($data['report_template']['measurands']['measurand']);
-		} else {
-			$valid = false;
-		}
-
-		if (isset($data['report_template']['data_source_items']['data_source_item']) && is_array($data['report_template']['data_source_items']['data_source_item'])) {
-			$checksum .= convert_array2string($data['report_template']['data_source_items']['data_source_item']);
-		} else {
-			$valid = false;
-		}
-
-		if (isset($data['report_template']['reportit']) && is_array($data['report_template']['reportit'])) {
-			if (isset($data['report_template']['reportit']['hash'])) {
-				$hash = $data['report_template']['reportit']['hash'];
-				unset($data['report_template']['reportit']['hash']);
-				$checksum .= convert_array2string($data['report_template']['reportit']);
-			}
-		} else {
-			$valid = false;
-		}
-
-		if ($hash == false | $hash !== md5($checksum) | $valid === false) {
-			session_custom_error_message('file', __('Checksum error.'), false);
-			return false;
-		}
-
-		/* check dependences with existing data templates... */
-		$compatible         = false;
-		$data_template_id   = $data['report_template']['settings']['data_template_id'];
-		$template_ds_items  = $data['report_template']['data_source_items']['data_source_item'];
-
-		foreach($template_ds_items as $template_ds_item) {
-			$template_ds_names[] = $template_ds_item['data_source_name'];
-		}
-
-		/* load information about defined data sources of that data template */
-		$sql = "SELECT data_source_name
-			FROM data_template_rrd
-			WHERE local_data_id=0
-			AND data_template_id = $data_template_id";
-
-	$ds_names = db_custom_fetch_assoc($sql,false,false,false);
-
-		if (in_array($template_ds_names, $ds_names) === false) {
-			$compatible = true;
-
-			$sql = ("SELECT id, name FROM data_template WHERE id = $data_template_id");
-			$data_templates = db_custom_fetch_assoc($sql, 'id', false);
-		} else {
-			/* try to find a compatible data template */
-			$names = '';
-
-			/* drop generic data source item 'overall' */
-			if (array_search('overall', $template_ds_names) !== false) {
-				unset($template_ds_names[array_search('overall', $template_ds_names)]);
+			if ($hash == false | $hash !== md5($checksum) | $valid === false) {
+				echo __('Checksum error with Template %s in XML file', $report_count) . PHP_EOL;
+				session_custom_error_message('file', __('Checksum error with Template %s in XML file', $report_count), false);
+				return false;
 			}
 
-			foreach($template_ds_names as $ds) {
-				$names .= "'$ds', ";
+			/* check dependences with existing data templates... */
+			$data_template_id   = $report_template->settings->data_template_id;
+			$template_ds_items  = $report_template->data_source_items[0];
+
+			foreach($template_ds_items as $template_ds_item) {
+				$template_ds_names[] = (string)$template_ds_item->data_source_name;
 			}
 
-			$names = substr($names, 0, -2);
+			/* load information about defined data sources of that data template */
+			$sql = "SELECT data_source_name
+				FROM data_template_rrd
+				WHERE local_data_id=0
+				AND data_template_id = $data_template_id";
 
-			$sql = "SELECT a.id, b.name
-				FROM (
-					SELECT data_template_id AS id, COUNT(*) as `cnt`
-					FROM `data_template_rrd`
-					WHERE local_data_id = 0
-					AND data_source_name IN ($names)
-					GROUP BY data_template_id
-				) AS a
-				INNER JOIN data_template as b
-				ON b.id = a.id
-				WHERE a.cnt >= " . count($template_ds_names);
+			$ds_names = db_custom_fetch_assoc($sql,false,false,false);
 
-			$data_templates = db_custom_fetch_assoc($sql, 'id', false);
+			if (in_array($template_ds_names, $ds_names) === false) {
+				$report_compatible = true;
 
-			if ($data_templates) {
+				$sql = ("SELECT id, name FROM data_template WHERE id = $data_template_id");
+				$data_templates = db_custom_fetch_assoc($sql, 'id', false);
+			} else {
+				/* try to find a compatible data template */
+				$names = '';
+
+				/* drop generic data source item 'overall' */
+				if (array_search('overall', $template_ds_names) !== false) {
+					unset($template_ds_names[array_search('overall', $template_ds_names)]);
+				}
+
+				foreach($template_ds_names as $ds) {
+					$names .= "'$ds', ";
+				}
+
+				$data_templates = false;
+				if (count($template_ds_names)) {
+					$names = substr($names, 0, -2);
+
+					$sql = "SELECT a.id, b.name
+						FROM (
+							SELECT data_template_id AS id, COUNT(*) as `cnt`
+							FROM `data_template_rrd`
+							WHERE local_data_id = 0
+							AND data_source_name IN ($names)
+							GROUP BY data_template_id
+						) AS a
+						INNER JOIN data_template as b
+						ON b.id = a.id
+						WHERE a.cnt >= " . count($template_ds_names);
+
+					$data_templates = db_custom_fetch_assoc($sql, 'id', false);
+				}
+
+				if ($data_templates) {
+					$report_compatible = true;
+				}
+			}
+
+			if ($report_compatible) {
+				$tmp_node = $report_template->addChild('data_templates','');
+				foreach ($data_templates as $id => $name) {
+					$tmp_child = $tmp_node->addChild('data_template', '');
+					$tmp_child->id = $id;
+					$tmp_child->name = $name;
+				}
+				$report_template->compatible = true;
 				$compatible = true;
+			} else {
+				$report_template->compatible = false;
 			}
 		}
+
+		/* save data in the user session */
+		if (!isset($_SESSION['sess_reportit'])) {
+			$_SESSION['sess_reportit'] = array();
+		}
+
+		$_SESSION['sess_reportit']['report_templates'] = xml_to_string($xmldata);
 	}
 
-	/* save data in the user session */
-	$_SESSION['sess_reportit'] = $data;
-	$_SESSION['sess_reportit']['report_template']['analyse']['compatible']  = ($compatible) ? 'yes' : 'no';
-	$_SESSION['sess_reportit']['report_template']['analyse']['templates']   = $data_templates;
-
-	return true;
+	return $valid && $compatible;
 }
 

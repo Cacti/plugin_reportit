@@ -1313,8 +1313,20 @@ function send_scheduled_email($report_id){
 	return false;
 }
 
+function xml_to_string($xml_object, $keep_spaces = true) {
+	$dom = new DOMDocument();
+	$dom->preserveWhiteSpace = false;
+	$dom->formatOutput = true;
+	$dom->loadXML($xml_object->asXml());
+
+	$output = $dom->saveXML($dom->firstChild);
+	if (!$keep_spaces) {
+		$output = preg_replace('/(\v|\s)+/','',$output);
+	}
+	return $output;
+}
+
 function export_report_template($template_id, $indent = 0) {
-	$checksum = '';
 
 	/* load template data */
 	$template_data = db_fetch_row_prepared('SELECT *
@@ -1330,17 +1342,12 @@ function export_report_template($template_id, $indent = 0) {
 	/* export folder should not be shared */
 	$template_data['export_folder'] = '';
 
-	/* add global template definition to checksum */
-	$checksum = convert_array2string($template_data);
-
 	/* load definitions of variables */
 	$variables_data = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_variables
 		WHERE template_id = ?
 		ORDER BY id',
 		array($template_id));
-
-	$checksum .= convert_array2string($variables_data);
 
 	/* load definitions of measurands */
 	$measurands_data = db_fetch_assoc_prepared('SELECT *
@@ -1349,8 +1356,6 @@ function export_report_template($template_id, $indent = 0) {
 		ORDER BY id',
 		array($template_id));
 
-	$checksum .= convert_array2string($measurands_data);
-
 	/* load definitions of data source items */
 	$data_source_items_data = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_data_source_items
@@ -1358,14 +1363,9 @@ function export_report_template($template_id, $indent = 0) {
 		ORDER BY id',
 		array($template_id));
 
-	$checksum .= convert_array2string($data_source_items_data);
-
 	/* add template version and hash the checksum */
 	$reportit_info = plugin_reportit_version();
 	$reportit = array('version' => $reportit_info['version'], 'type' => 1);
-	$checksum .= convert_array2string($reportit);
-
-	$reportit['hash'] = md5($checksum);
 
 	/* use an output puffer for flushing */
 	$xml_array = array(
@@ -1387,9 +1387,21 @@ function export_report_template($template_id, $indent = 0) {
 		),
 	);
 
-	$content = utf8_encode(convert_array2xml($xml_array, $indent));
 
-	return $content;
+	$xml_temp = convert_array2xml($xml_array, $indent);
+	$xml_obj  = simplexml_load_string($xml_temp);
+
+	$valid = true;
+	$checksum = '';
+
+	validate_xml_template($xml_obj, $valid, $checksum);
+
+	echo "Export Checksum: $checksum\n";
+	if (isset($xml_obj->reportit)) {
+		$xml_obj->reportit->addChild('hash', md5($checksum));
+	}
+
+	return xml_to_string($xml_obj);
 }
 
 function convert_array2xml($data, $indent = 0) {
