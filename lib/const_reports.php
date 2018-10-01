@@ -313,7 +313,7 @@ $form_array_admin = array(
 	),
 );
 
-if (read_config_option('reportit_operator')) {
+if (!read_config_option('reportit_operator')) {
 	$form_array_admin = array_merge($form_array_admin, $form_array_scheduling);
 }
 
@@ -506,5 +506,7 @@ $form_array_general = array(
 	)
 );
 
-$form_array_general = array_merge($form_array_general, $form_array_scheduling);
+if (read_config_option('reportit_operator')) {
+	$form_array_general = array_merge($form_array_general, $form_array_scheduling);
+}
 

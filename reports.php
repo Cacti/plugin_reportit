@@ -424,6 +424,24 @@ function remove_recipient() {
 	exit;
 }
 
+function save_schedule_data(&$report_data) {
+	global $frequency;
+	set_field_data($report_data, 'scheduled', 'report_schedule');
+	set_field_data($report_data, 'autorrdlist', 'report_autorrdlist');
+	set_field_data($report_data, 'autoarchive', 'report_autoarchive');
+	set_field_data($report_data, 'auto_email', 'report_email');
+	set_field_data($report_data, 'autoexport', 'report_autoexport');
+	set_field_data($report_data, 'autoexport_max_records', 'report_autoexport_max_records');
+	set_field_data($report_data, 'autoexport_no_formatting', 'report_autoexport_no_formatting');
+
+	if (isset_request_var('report_schedule_frequency')) {
+		$tmp_frequency = get_request_var('report_schedule_frequency');
+		if (array_key_exists($tmp_frequency, $frequency)) {
+			$report_data['frequency'] = $frequency[$tmp_frequency];
+		}
+	}
+}
+
 function form_save() {
 	global 	$templates, $timespans, $frequency, $timezone, $shifttime, $shifttime2, $weekday, $format;
 
@@ -468,11 +486,11 @@ function form_save() {
 		if (read_config_option('reportit_operator')) {
 			input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
 			input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
+		}
 
-			if (read_config_option('reportit_auto_export')) {
-				input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
-				input_validate_input_key(get_request_var('report_autoexport'), $format, true);
-			}
+		if (read_config_option('reportit_auto_export')) {
+			input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
+			input_validate_input_key(get_request_var('report_autoexport'), $format, true);
 		}
 
 		break;
@@ -525,12 +543,12 @@ function form_save() {
 
 		if (!read_config_option('reportit_operator')) {
 			input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
-		    input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
+			input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
+		}
 
-		    if (read_config_option('reportit_auto_export')) {
-				input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
-				input_validate_input_key(get_request_var('report_autoexport'), $format, true);
-		    }
+		if (read_config_option('reportit_auto_export')) {
+			input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
+			input_validate_input_key(get_request_var('report_autoexport'), $format, true);
 		}
 	}
 	/* ==================================================== */
@@ -568,19 +586,11 @@ function form_save() {
 		break;
 	case 'admin':
 		$report_data['id']               = get_request_var('id');
-		$report_data['graph_permission'] = isset_request_var('report_graph_permission') ? 1 : 0;
+
+		set_field_data($report_data, 'graph_permission', 'report_graph_permission');
 
 		/* save the settings for scheduled reporting if the admin is configured to do this job */
-		if (read_config_option('reportit_operator')) {
-			$report_data['scheduled']   = isset_request_var('report_schedule') ? 1 : 0;
-			$report_data['autorrdlist'] = isset_request_var('report_autorrdlist') ? 1 : 0;
-			$report_data['frequency']   = isset_request_var('report_schedule_frequency') ? $frequency[get_request_var('report_schedule_frequency')] : '';
-			$report_data['autoarchive'] = isset_request_var('report_autoarchive') ? get_request_var('report_autoarchive') : 0;
-			$report_data['auto_email']  = isset_request_var('report_email') ? 1 : 0;
-			$report_data['autoexport']  = isset_request_var('report_autoexport') ? get_request_var('report_autoexport') : '';
-			$report_data['autoexport_max_records']   = isset_request_var('report_autoexport_max_records') ? get_request_var('report_autoexport_max_records') : 0;
-			$report_data['autoexport_no_formatting'] = isset_request_var('report_autoexport_no_formatting') ? 1 : 0;
-		}
+		save_schedule_data($report_data);
 
 		/* save settings */
 		sql_save($report_data, 'plugin_reportit_reports');
@@ -664,17 +674,7 @@ function form_save() {
 		if (get_request_var('id') == 0) $report_data['user_id'] = my_id();
 
 		/* save the settings for scheduled reporting if owner has the rights to do this */
-		if (!read_config_option('reportit_operator')) {
-			$report_data['scheduled']   = get_request_var('report_schedule');
-			$report_data['autorrdlist'] = get_request_var('report_autorrdlist');
-			$report_data['frequency']   = get_request_var('report_schedule_frequency');
-			$report_data['autoarchive'] = get_request_var('report_autoarchive');
-			$report_data['auto_email']  = get_request_var('report_email');
-			$report_data['autoexport']  = get_request_var('report_autoexport');
-
-			$report_data['autoexport_max_records']   = get_request_var('report_autoexport_max_records');
-			$report_data['autoexport_no_formatting'] = get_request_var('report_autoexport_no_formatting');
-		}
+		save_schedule_data($report_data);
 
 		//Now we've to keep our variables
 		$vars     = array();

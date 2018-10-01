@@ -423,6 +423,12 @@ function reportit_config_settings() {
 			'method'                => 'checkbox',
 			'default'               => 'on',
 		),
+		'reportit_operator'         => array(
+			'friendly_name'         => __('Allow scheduling by Operators'),
+			'description'           => __('Enable/disable Operator\'s ability to schedule reports.  When disabled, only administrators may change scheduling.'),
+			'method'                => 'checkbox',
+			'default'               => '',
+		),
 		'reportit_use_IEC'          => array(
 			'friendly_name'         => __('SI-Prefixes'),
 			'description'           => __('Enable/disable the use of correct SI-Prefixes for binary multiples under the terms of <a href=\'http://www.ieee.org\'>IEEE 1541</a> and <a href=\'http://www.iec.ch/zone/si/si_bytes.htm\'>IEC 60027-2</a>.'),

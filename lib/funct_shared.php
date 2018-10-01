@@ -1452,3 +1452,11 @@ function clean_xml_waste(&$array, $replace = '') {
 		$array[$key] = preg_replace('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $replace, $value);
 	}
 }
+
+function set_field_data(&$array, $field_index, $field_html) {
+	cacti_log("set_field_data(array, $field_index, $field_html): set? " . (isset_request_var($field_html) ? 'Yes' : 'No'));
+	if (isset_request_var($field_html)) {
+		cacti_log("set_field_data(array, $field_index, $field_html): val: " . get_request_var($field_html));
+		$array[$field_index] = get_request_var($field_html);
+	}
+}
