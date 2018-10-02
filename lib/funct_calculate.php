@@ -407,7 +407,16 @@ function f_isNaN(&$array, &$p_cache) {
 	return $p_cache['f_nan'];
 }
 
+function calculate_handler() {
+	global $calculate_last_formula;
+	if (!empty($calculate_last_formula)) {
+		cacti_log('ERROR: Bad Formula: ' . $calculate_last_formula, false, 'REPORTIT');
+	}
+}
+
 /* ----- Main function for calculating ----- */
+
+global $caclulate_handler_set, $calculate_last_formula;
 
 //Normal way of calulation
 function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & $dr_cache, & $dp_cache, & $ds_cache) {
@@ -431,6 +440,13 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 
 	//Use reportit's error handler.
 	set_error_handler('last_error');
+
+	global $calculate_handler_set, $calculate_last_formula;
+
+	if (!$calculate_handler_set) {
+		register_shutdown_function('calculate_handler');
+		$calculte_handler_set = true;
+	}
 
 	//Build the calculation command and execute it
 	foreach ($m_cache as $k => $m) {
@@ -507,10 +523,13 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 
 			//calculate
 			$result = false;
+			$completed = false;
 
 			debug($debug, "Interpretation");
 
+			$calculate_last_formula = "$formula";
 			eval("\$result = $formula;");
+			$calculate_last_formula = "";
 
 			if ($result === false || is_nan($result) || is_null($result)) {
 				$result = 'NULL';

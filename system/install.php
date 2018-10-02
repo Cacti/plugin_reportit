@@ -29,7 +29,6 @@ function reportit_system_install() {
 	*/
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
-	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
@@ -94,7 +93,7 @@ function reportit_system_install() {
 	api_plugin_db_table_create ('reportit', 'plugin_reportit_templates', $data);
 
 	db_execute('ALTER TABLE `plugin_reportit_templates`
-		CHANGE `last_modified` `last_modified` TIMESTAMP NULL DEFAULT NULL');
+		CHANGE `last_modified` `last_modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP');
 
 	/*
 	* Table `plugin_reportit_measurands`

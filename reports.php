@@ -1198,7 +1198,6 @@ function form_actions() {
 
 	$report_ids = array();
 	foreach($_POST as $key => $value) {
-		cacti_log("POST: $key => $value");
 		if (strstr($key, 'chk_')) {
 			//Fetch report id
 			$id = substr($key, 4);
@@ -1211,14 +1210,14 @@ function form_actions() {
 
 	//Fetch report details
 	if (sizeof($report_ids)) {
-		$reports_sql = "SELECT id, name, description, state
+		$reports_sql = "SELECT id, description, state
 			FROM plugin_reportit_reports
 			WHERE id IN (" . implode(',',$report_ids) . ")
 			AND state <> 1
 			$limit_state";
-		cacti_log('Report SQL: ' . $reports_sql);
 		$reports = db_fetch_assoc($reports_sql);
 	} else {
+		$reports_sql = '';
 		$reports = array();
 	}
 
@@ -1243,7 +1242,7 @@ function form_actions() {
 
 	$report_ids = array();
 	if ($reports === false || empty($reports)) {
-		print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one unlocked, not running, report.') . "</span></td></tr>\n";
+		print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one unlocked, not running, report.') . "</span>$reports_sql</td></tr>\n";
 		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
 	} else {
 		print "<tr><td class='textArea'>$section</td></tr><tr><td>";

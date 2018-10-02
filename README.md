@@ -119,6 +119,12 @@ community.  After that you should open a feature request on
 
 ## Changelog
 
+--- 1.1.1 ---
+
+* issue: Upgraded database was incorrectly upgraded
+
+* Feature: Add shutdown handler to report last formula used
+
 --- 1.1.0 ---
 
 * issue#30: Unable to export templates
