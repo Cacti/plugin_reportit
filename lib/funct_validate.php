@@ -220,7 +220,7 @@ function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside
 	}
 }
 
-function validate_xml_template_section($xml_template, $section, &$valid, &$checksum) {
+function validate_xml_template_section(&$xml_template, $section, &$valid, &$checksum) {
 	//echo "validate_xml_template_section:start(xml_template, $section, $valid, $checksum)\n";
 	if ($valid) {
 		if (isset($xml_template->$section) && is_object($xml_template->$section)) {
@@ -234,7 +234,7 @@ function validate_xml_template_section($xml_template, $section, &$valid, &$check
 	return $valid;
 }
 
-function validate_xml_template($xml_template, &$valid, &$checksum) {
+function validate_xml_template(&$xml_template, &$valid, &$checksum) {
 	//echo "validate_xml_template:begin(xml_template, $valid, $checksum)\n";
 	if (isset($xml_template->reportit) && is_object($xml_template->reportit)) {
 		$count =0;
@@ -395,11 +395,11 @@ function validate_uploaded_templates(){
 			}
 
 			if ($report_compatible) {
-				$tmp_node = $report_template->addChild('data_templates','');
+				$tmp_node = $report_template->addChild('data_templates');
 				foreach ($data_templates as $id => $name) {
-					$tmp_child = $tmp_node->addChild('data_template', '');
-					$tmp_child->id = $id;
-					$tmp_child->name = $name;
+					$tmp_child = $tmp_node->addChild('data_template');
+					$tmp_child->addChild('id',$id);
+					$tmp_child->addChild('name',$name);
 				}
 				$report_template->compatible = true;
 				$compatible = true;
@@ -413,7 +413,8 @@ function validate_uploaded_templates(){
 			$_SESSION['sess_reportit'] = array();
 		}
 
-		$_SESSION['sess_reportit']['report_templates'] = xml_to_string($xmldata);
+		$xmlstring = xml_to_string($xmldata);
+		$_SESSION['sess_reportit']['report_templates'] = $xmlstring;
 	}
 
 	return $valid && $compatible;

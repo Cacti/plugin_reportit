@@ -1326,6 +1326,61 @@ function xml_to_string($xml_object, $keep_spaces = true) {
 	return $output;
 }
 
+function xml_to_array($xml_object, $indexed = false, $log = false) {
+	static $indent = -1;
+
+	$indent++;
+	$indent_char = str_repeat('  ',$indent);
+	$out = array();
+	if (!$xml_object) return '';
+	$count = 0;
+	foreach ($xml_object->children() as $node) {
+		if (count($node->children()) == 0) {
+			$out[$node->getName()] = strval($node);
+		} else {
+			$out[$node->getName()][] = xml_to_array($node);
+		}
+		/*
+		$index = $indexed ? $count : $key;
+		$is_object = is_object($node) || is_array($node);
+		$is_count  = count((array)$node) > 0;
+		$count++;
+
+		if ($is_object && !$is_count) {
+			$out[$index] = '';
+		} elseif ($is_object && $is_count) {
+			$out[$index] = xml_to_array($node, false, $log);
+		} else {
+			if ($log) {
+				echo "{$indent_char}xml_to_array($log, $key, $index, $count) = (" . clean_up_lines(var_export($node, true)) . ")\n";
+				echo "{$indent_char}xml_to_array($log, is_object: $is_object, is_count: $is_count)\n";
+			}
+			$out[$index] = (string)$node;
+		}
+		*/
+	}
+	/*
+	if ($indexed && !array_key_exists(0, $out)) {
+		if ($log) {
+			echo "{$indent_char}xml_to_array($log): making array\n";
+		}
+
+		$out = array($out);
+	}
+	*/
+
+	if ($indexed && count($out) == 1) {
+		$out = reset($out);
+	}
+
+	if ($log) {
+		echo "{$indent_char}xml_to_array($log, " . count($out) . "): " . clean_up_lines(var_export($out, true)) . "\n\n";
+	}
+
+	$indent--;
+	return $out;
+}
+
 function export_report_template($template_id, $indent = 0) {
 
 	/* load template data */
@@ -1396,7 +1451,6 @@ function export_report_template($template_id, $indent = 0) {
 
 	validate_xml_template($xml_obj, $valid, $checksum);
 
-	echo "Export Checksum: $checksum\n";
 	if (isset($xml_obj->reportit)) {
 		$xml_obj->reportit->addChild('hash', md5($checksum));
 	}
@@ -1470,5 +1524,59 @@ function set_field_data(&$array, $field_index, $field_html) {
 	if (isset_request_var($field_html)) {
 		cacti_log("set_field_data(array, $field_index, $field_html): val: " . get_request_var($field_html));
 		$array[$field_index] = get_request_var($field_html);
+	}
+}
+
+function import_template($report_template, $data_template_id) {
+	$values		= '';
+	$columns	= '';
+	$old		= array();
+	$new		= array();
+
+	//foreach ($xml_data[0] as $report_template) {
+	$template_data              = xml_to_array($report_template->{'settings'});
+	$template_variables         = xml_to_array($report_template->variables, true);
+	$template_measurands        = xml_to_array($report_template->measurands, true);
+	$template_data_source_items = xml_to_array($report_template->data_source_items, true);
+
+	$template_data['id'] = 0;
+	$template_data['data_template_id'] = $data_template_id;
+
+	clean_xml_waste($template_data);
+
+	$template_id = sql_save($template_data, 'plugin_reportit_templates');
+	foreach ($template_variables as $template_variable) {
+		$variable = $template_variable;
+		$variable['id'] = 0;
+		$variable['template_id'] = $template_id;
+		$new_id = sql_save($variable, 'plugin_reportit_variables');
+		$old[] = $variable['abbreviation'];
+		$abbr = 'c' . $new_id . 'v';
+		$new[] = $abbr;
+		db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+	}
+
+	foreach ($template_measurands as $template_measurand) {
+		$measurand = $template_measurand;
+		$measurand['id']           = 0;
+		$measurand['template_id']  = $template_id;
+		$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
+		sql_save($measurand, 'plugin_reportit_measurands');
+	}
+
+	foreach ($template_data_source_items as $template_data_source_item) {
+		$ds_item = $template_data_source_item;
+		clean_xml_waste($ds_item);
+
+		$ds_item['id'] = db_fetch_cell_prepared('SELECT id
+				FROM `data_template_rrd`
+				WHERE local_data_id = 0
+				AND data_template_id = ?
+				AND data_source_name = ?',
+				array(get_request_var('data_template'), $ds_item['data_source_name']));
+
+		$ds_item['template_id'] = $template_id;
+
+		sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
 	}
 }

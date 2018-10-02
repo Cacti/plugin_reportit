@@ -158,18 +158,20 @@ function template_wizard($action) {
 			$xmldata   = simplexml_load_string($data);
 
 			$header_array = array(
-				'name'        => array('display' => __('Name')),
-				'version'      => array('display' => __('Version')),
-				'author'      => array('display' => __('Author')),
-				'description' => array('display' => __('Description')),
-				'compatible'  => array('display' => __('Compatible')),
+				'name'          => array('display' => __('Name', 'reportit')),
+				'compatible'    => array('display' => __('Compatible', 'reportit')),
+				'version'       => array('display' => __('Version', 'reportit')),
+				'author'        => array('display' => __('Author', 'reportit')),
+				'data_template' => array('display' => __('Data Template', 'reportit')),
+				'description'   => array('display' => __('Description', 'reportit')),
 			);
 
 			form_start('templates.php?action=template_import_wizard');
-			html_start_box(__('Summary', 'reportit'), '60%', '', '2', 'center', '');
+			html_start_box(__('Summary', 'reportit'), '90%', '', '2', 'center', '');
 			html_header($header_array);
 
 			$compatible = false;
+			$report_count = 0;
 			foreach ($xmldata as $report_template) {
 				$info = $report_template->settings;
 				if ($report_template->compatible) {
@@ -179,33 +181,46 @@ function template_wizard($action) {
 				print "
 				<tr class='textArea'>
 					<td>$info->name</td>
+					<td>" . ($report_template->compatible?'Yes':'No') . "</td>
 					<td>$info->version</td>
 					<td>$info->author</td>
-					<td>$info->description</td>
-					<td>" . ($report_template->compatible?'Yes':'No') . "</td>
-				</tr>
-				<tr class='textArea'>
-				<td></td>
-				<td colspan='2'><i>" . __('Data Template:', 'reportit') . "</i></td>
-				<td colspan='2'><i>";
-				foreach ($report_template->data_templates[0] as $data_template) {
-					print "$data_template->name (";
-					$ds=0;
-					foreach ($report_template->data_source_items[0] as $data_source) {
-						print ($ds?', ': '') . $data_source->data_source_name;
-						$ds++;
+					<td>";
+
+				$data_templates = $report_template->data_templates;
+				if (count($data_templates->children()) == 1) {
+					print "<input type='hidden' name='tds$report_count' id='tds$report_count' value='" .
+						$report_template->data_templates->data_template->id .
+						"' />";
+					foreach ($report_template->data_templates->children() as $data_template) {
+						print $data_template->name;
+						/*
+						print "$data_template->name (";
+						$ds=0;
+						foreach ($report_template->data_source_items[0] as $data_source) {
+							print ($ds?', ': '') . $data_source->data_source_name;
+							$ds++;
+						}
+						print ")";
+						*/
 					}
-					print ")";
-				}
-/*
-				$templates = $report_template['templates'];
-				if ($templates) {
-					form_dropdown('data_template', $templates, '', '', '', '', '');
 				} else {
-					print __('No Compatible Templates Found', 'reportit');
+					$templates_array = xml_to_array($report_template->data_templates, true);
+					$templates = array();
+					foreach ($templates_array as $template_item) {
+						$templates[$template_item['id']] = $template_item['name'];
+					}
+
+					if ($templates) {
+						form_dropdown('tds' . $report_count, $templates, '', '', '', '', '');
+					} else {
+						print __('No Compatible Templates Found', 'reportit');
+						$compatible = false;
+					}
 				}
-*/
-				print '</i></td></tr>';
+				print "</td>
+					<td>$info->description</td>
+					</tr>";
+				$report_count++;
 			}
 
 			$save_html = ($compatible)
@@ -213,7 +228,7 @@ function template_wizard($action) {
 				: "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 
 			print "<tr>
-				<td class='saveRow' colspan='5'>
+				<td class='saveRow' colspan='6'>
 					<input type='hidden' name='action' value='template_import'>
 					$save_html
 				</td>
@@ -260,11 +275,6 @@ function template_export() {
 }
 
 function template_import() {
-	$values		= '';
-	$columns	= '';
-	$old		= array();
-	$new		= array();
-
 	header('Location: templates.php?action=template_upload_wizard');
 
 	/* ================= input validation ================= */
@@ -278,102 +288,14 @@ function template_import() {
 	$xml_string = $_SESSION['sess_reportit']['report_templates'];
 	$xml_data   = simplexml_load_string($xml_string);
 
-	//foreach ($xml_data[0] as $report_template) {
-	$template_data              = $report_template->settings;
-	$template_variables         = $report_template->variables;
-	$template_measurands        = $report_template->measurands;
-	$template_data_source_items = $report_template->data_source_items;
-
-	$template_data->id = 0;
-	$template_data['data_template_id'] = get_request_var('data_template');
-
-	clean_xml_waste($template_data);
-
-	$template_id = sql_save($template_data, 'plugin_reportit_templates');
-
-	if (is_array($template_variables)) {
-		if (!isset($template_variables['variable'][0])) {
-			$variable = $template_variables['variable'];
-			$variable['id'] = 0;
-			$variable['template_id'] = $template_id;
-			$new_id = sql_save($variable, 'plugin_reportit_variables');
-			$old[] = $variable['abbreviation'];
-			$abbr = 'c' . $new_id . 'v';
-			$new[] = $abbr;
-			db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
-		} else {
-			$template_variables = $template_variables['variable'];
-			foreach($template_variables as $variable) {
-				$variable['id'] = 0;
-				$variable['template_id']= $template_id;
-				$new_id = sql_save($variable, 'plugin_reportit_variables');
-				$old[] = $variable['abbreviation'];
-				$abbr = 'c' . $new_id . 'v';
-				$new[] = $abbr;
-				db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
-			 }
-		}
-	}
-
-	if (is_array($template_measurands)) {
-		if (!isset($template_measurands['measurand'][0])) {
-			$measurand                 = $template_measurands['measurand'];
-			$measurand['id']           = 0;
-			$measurand['template_id']  = $template_id;
-			$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
-
-			sql_save($measurand, 'plugin_reportit_measurands');
-		} else {
-			$template_measurands = $template_measurands['measurand'];
-
-			foreach($template_measurands as $measurand) {
-				$measurand['id']           = 0;
-				$measurand['template_id']  = $template_id;
-				$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
-
-				sql_save($measurand, 'plugin_reportit_measurands');
-			}
-		}
-	}
-
-	if (is_array($template_data_source_items)) {
-		if (!isset($template_data_source_items['data_source_item'][0])) {
-			$ds_item = $template_data_source_items['data_source_item'];
-
-			clean_xml_waste($ds_item);
-
-			$ds_item['id'] = db_fetch_cell_prepared('SELECT id
-				FROM `data_template_rrd`
-				WHERE local_data_id = 0
-				AND data_template_id = ?
-				AND data_source_name = ?',
-				array(get_request_var('data_template'), $ds_item['data_source_name']));
-
-			$ds_item['template_id'] = $template_id;
-
-			sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
-		} else {
-			$template_ds_items = $template_data_source_items['data_source_item'];
-
-			foreach($template_ds_items as $ds_item) {
-				clean_xml_waste($ds_item);
-
-				$ds_item['id'] = db_fetch_cell_prepared('SELECT id
-						FROM `data_template_rrd`
-						WHERE local_data_id = 0
-						AND data_template_id = ?
-						AND data_source_name = ?',
-						array(get_request_var('data_template'), $ds_item['data_source_name']));
-
-				$ds_item['template_id'] = $template_id;
-
-				sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
-			}
-		}
+	$report_count = 0;
+	foreach ($xml_data as $report_template) {
+		import_template($report_template, get_request_var('tds' . $report_count));
+		$report_count++;
 	}
 
 	/* destroy the template data saved in current session */
-	unset($_SESSION['sess_reportit']['report_template']);
+	unset($_SESSION['sess_reportit']['report_templates']);
 
 	header('Location: templates.php');
 }
