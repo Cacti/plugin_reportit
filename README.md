@@ -4,6 +4,8 @@
 
 * Andreas Braun (aka browniebraun)
 
+* Mark Brugnoli-Vinten (aka netniV)
+
 ## Purpose
 
 This plugin creates tabular reports which can be exported to CSV, SML and XML as
