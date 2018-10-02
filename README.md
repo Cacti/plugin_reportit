@@ -121,9 +121,21 @@ community.  After that you should open a feature request on
 
 * issue#30: Unable to export templates
 
+* issue#46: Reports marked as public not available to Everyone
+
+* issue#53: Database ON/OFF fields were being corrupted
+
+* issue#54: Crashed report can never be run again
+
 * issue: Upgrading never runs upgrade code once enabled
 
+* issue: Summary does not display correctly
+
+* issue#50: Data Source links do not show graphs
+
 * feature: Allow multiple report templates to be exportable
+
+* feature: Allow multiple report templates to be imported at once
 
 --- 1.0.3 ---
 
