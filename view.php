@@ -721,7 +721,7 @@ function show_report() {
 	html_end_box();
 
 	if (get_request_var('summary')) {
-		#html_graph_start_box(1, false);
+		html_start_box('', '100%', '', '3', 'center', '');
 		foreach ($report_summary as $array) {
 			print '<tr>';
 			foreach ($array as $key => $value) {
@@ -729,8 +729,7 @@ function show_report() {
 			}
 			print '</tr>';
 		}
-		#html_graph_end_box();
-		print '<br>';
+		html_end_box();
 	}
 
 	print $nav;
@@ -896,5 +895,6 @@ function show_graph_overview() {
 	$start	= strtotime($report_data['start_date']);
 	$end	= strtotime($report_data['end_date'] . ' 23:59:59');
 
-	header('Location: ' . $config['url_path'] . "/graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
+	header('Location: ' . $config['url_path'] . "graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
+	exit;
 }

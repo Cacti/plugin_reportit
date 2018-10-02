@@ -748,8 +748,8 @@ function get_template_status($template_id) {
 
 function in_process($report_id, $status = 1) {
 	$now = date("Y-m-d H:i:s");
-	$sql = "UPDATE plugin_reportit_reports SET state=$status, last_state=$now WHERE id=$report_id";
-	db_execute($sql);
+	$sql = "UPDATE plugin_reportit_reports SET state=?, last_state=? WHERE id=?";
+	db_execute_prepared($sql, array($status, $now, $report_id));
 }
 
 
