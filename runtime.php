@@ -38,6 +38,10 @@ $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
 
+if (!defined('REPORTIT_BASE_PATH')) {
+	include_once(__DIR__ . '/setup.php');
+	reportit_define_constants();
+}
 
 //----- Running on CLI? -----
 if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) {

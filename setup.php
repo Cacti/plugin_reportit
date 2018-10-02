@@ -348,6 +348,8 @@ function reportit_draw_navigation_text ($nav) {
 function reportit_config_arrays() {
 	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
 
+	reportit_define_constants();
+
 	/* register all realms of ReportIt */
 	api_plugin_register_realm('reportit', 'view.php,charts.php', __('View Reports'), 1);
 	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', __('Create Reports'), 1);
@@ -374,8 +376,6 @@ function reportit_config_arrays() {
 }
 
 function reportit_config_settings() {
-	reportit_define_constants();
-
 	global $tabs, $tabs_graphs, $settings, $graph_dateformats, $graph_datechar, $settings_graphs, $config;
 
 	/* presets */

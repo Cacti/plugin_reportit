@@ -25,6 +25,12 @@
 chdir('../../');
 
 include_once('./include/auth.php');
+
+if (!defined('REPORTIT_BASE_PATH')) {
+	include_once(__DIR__ . '/setup.php');
+	reportit_define_constants();
+}
+
 include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
