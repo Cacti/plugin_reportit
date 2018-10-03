@@ -77,7 +77,6 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'modified_by', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'last_modified', 'type' => 'timestamp', 'NULL' => true, 'default' => '1970-01-01 00:00:01');
 	$data['columns'][] = array('name' => 'author', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'version', 'type' => 'varchar(10)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
@@ -93,7 +92,7 @@ function reportit_system_install() {
 	api_plugin_db_table_create ('reportit', 'plugin_reportit_templates', $data);
 
 	db_execute('ALTER TABLE `plugin_reportit_templates`
-		CHANGE `last_modified` `last_modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP');
+		ADD `last_modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP');
 
 	/*
 	* Table `plugin_reportit_measurands`
