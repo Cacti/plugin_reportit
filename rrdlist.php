@@ -29,12 +29,12 @@ if (!defined('REPORTIT_BASE_PATH')) {
 	reportit_define_constants();
 }
 
-include_once(REPORTIT_BASE_PATH . 'lib/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . 'lib/funct_online.php');
-include_once(REPORTIT_BASE_PATH . 'lib/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . 'lib/funct_html.php');
-include_once(REPORTIT_BASE_PATH . 'lib/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . 'lib/const_rrdlist.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_rrdlist.php');
 
 set_default_action();
 
