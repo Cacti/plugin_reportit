@@ -77,7 +77,7 @@ switch (get_request_var('action')) {
 
 
 function template_wizard($action) {
-	global $config, $list_of_data_templates, $fields_template_export;
+	global $config, $list_of_data_templates, $known_data_templates, $fields_template_export;
 
 	switch ($action) {
 	case 'new':
@@ -394,7 +394,7 @@ function template_filter() {
 }
 
 function standard() {
-	global  $config, $template_actions, $link_array, $desc_array, $consolidation_functions, $list_of_data_templates, $order_array;
+	global  $config, $template_actions, $link_array, $desc_array, $consolidation_functions, $known_data_templates, $list_of_data_templates, $order_array;
 
 	/* ================= input validation and session storage ================= */
 	$filters = array(
@@ -491,6 +491,8 @@ function standard() {
 
 			if (isset($list_of_data_templates[$template['data_template_id']])) {
 				form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars(URL_PATH . 'data_templates.php?action=template_edit&id=' . $template['data_template_id']) . '">' . $list_of_data_templates[$template['data_template_id']] . '</a>', $template['id']);
+			} elseif (isset($known_data_templates[$template['data_template_id']])) {
+				form_selectable_cell("<span class='textWarning'>" . __('No matching data sources', 'reportit') . '</span>', $template['id']);
 			} else {
 				form_selectable_cell("<span class='textError'>" . __('Data template not available', 'reportit') . '</span>', $template['id']);
 			}

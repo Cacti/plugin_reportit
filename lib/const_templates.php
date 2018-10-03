@@ -64,6 +64,19 @@ foreach($data_templates as $data_template) {
 	$list_of_data_templates[$data_template['id']] = $data_template['name'];
 }
 
+$sql = 'SELECT DISTINCT b.id, b.name FROM data_template AS b
+	ORDER BY b.name';
+
+
+global $known_data_templates;
+$known_data_templates = array();
+
+$data_templates       = db_fetch_assoc($sql);
+foreach($data_templates as $data_template) {
+	$known_data_templates[$data_template['id']] = $data_template['name'];
+}
+
+
 $hashes = array(
 	'1' => array(
 		'reportit' => 'c0788d60041d96616d05b87892942948',
