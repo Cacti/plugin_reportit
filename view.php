@@ -1079,7 +1079,7 @@ function show_graph_view($data) {
 							form_alternate_row();
 							echo "<td title='$title'>$i</td>";
 							echo "<td title='$title'>
-										<a class='linkEditMain' href='cc_view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>
+										<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>
 										{$item['name_cache']}
 										</a>
 								  </td>";
