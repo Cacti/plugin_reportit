@@ -22,9 +22,9 @@
  +-------------------------------------------------------------------------+
 */
 
-require_once(__DIR__ . '/../../include/auth.php');
+chdir(__DIR__ . '/../../');
+require_once('include/auth.php');
 
-chdir($config['base_path']);
 if (!defined('REPORTIT_BASE_PATH')) {
 	include_once(__DIR__ . '/setup.php');
 	reportit_define_constants();
