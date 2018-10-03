@@ -1089,7 +1089,7 @@ function show_graph_view($data) {
 							}elseif ($value == 0) {
 								print $value;
 							}else {
-								print 'got: ' . get_unit($value, $rounding, $data_type, $data_precision);
+								print get_unit($value, $rounding, $data_type, $data_precision);
 							}
 							print "</td>";
 							form_end_row();
