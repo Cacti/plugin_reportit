@@ -76,8 +76,9 @@ function html_custom_header_box($title, $width, $div, $cell_padding, $align, $ad
 	if ($title != '') {
 		print "<div id='$table_id' class='cactiTable' style='width:$width;text-align:$align;'>";
 		print "<div>";
-		print "<div class='cactiTableTitle'><span>" . ($title != '' ? $title:'') . '</span></div>';
-		print "<div style='background: rgba(0,0,0,0.9);text-align: right;padding: 3px 0px;border-bottom: 1px solid rgba(0,0,0,0.5);font-weight: 700;font-size: 1em;'  class='' ><span>" . ($add_text != '' ? "<a href='" . html_escape($add_text) . "'>" . "<img src='./images/bar.gif' title='Graph View'>" . '</a>':'') . '</span></div>';
+		print "<div class='cactiTableTitle' style='width:$width'><span>" . ($title != '' ? $title:'') . '</span></div>';
+		print "<div></div>";
+		//print "<div style='background: rgba(0,0,0,0.9);text-align: right;padding: 3px 0px;border-bottom: 1px solid rgba(0,0,0,0.5);font-weight: 700;font-size: 1em;'  class='' ><span>" . ($add_text != '' ? "<a href='" . html_escape($add_text) . "'>" . "<img src='./images/bar.gif' title='Graph View'>" . '</a>':'') . '</span></div>';
 		print '</div>';
 
 		if ($div === true) {

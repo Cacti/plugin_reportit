@@ -46,11 +46,6 @@ switch (get_request_var('action')) {
 		show_report();
 		bottom_footer();
 		break;
-	case 'show_graphs':
-		general_header();
-		show_graphs();
-		bottom_footer();
-		break;
 	case 'show_graph_overview':
 		show_graph_overview();
 		break;
@@ -389,6 +384,12 @@ function validate_report_vars() {
 			'default' => false,
 			'options' => array('options' => 'sanitize_search_string'),
 			'pageset' => true
+			),
+		'graph_mode' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => false,
+			'options' => array('options' => 'sanitize_search_string'),
+			'pageset' => true
 			)
 	);
 
@@ -401,7 +402,6 @@ function validate_report_vars() {
 function show_report() {
 	global $config, $search, $t_limit, $add_info, $export_formats, $item_rows;;
 
-	$columns         = 1;
 	$limitation      = 0;
 	$num_of_sets     = 0;
 	$sql_where       = '';
@@ -439,6 +439,9 @@ function show_report() {
 	}
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_order = get_order_string();
+	if (!isempty_request_var('subhead')) {
+		$sql_order = str_replace('ORDER BY ', 'ORDER BY b.description, ', $sql_order);
+	}
 	$sql_affix = $sql_where . $sql_order . $sql_limit;
 
 	/* get informations about the archive if it exists */
@@ -467,86 +470,6 @@ function show_report() {
 		FROM $source
 		$sql_where");
 
-	$report_ds_alias = $data['report_ds_alias'];
-	$report_data     = $data['report_data'];
-	$report_results  = $data['report_results'];
-	$mea             = $data['report_measurands'];
-	$report_header   = $report_data['description'];
-
-	/* create a report summary */
-	if (get_request_var('summary')) {
-		$report_summary[1][__('Title')]   = $report_data['description'];
-		$report_summary[1][__('Runtime')] = $report_data['runtime'] . 's';
-
-		$report_summary[2][__('Owner')]              = $report_data['owner'];
-		$report_summary[2][__('Sliding Time Frame')] = ($report_data['sliding'] == '') ? 'disabled' : 'enabled (' . strtolower($report_data['preset_timespan']) .')';
-
-		$report_summary[3][__('Last Run')]  = $report_data['last_run'];
-		$report_summary[3][__('Scheduler')] = ($report_data['scheduled'] == '') ? 'disabled' : 'enabled (' . $report_data['frequency'] . ')';
-
-		$report_summary[4][__('Period')]                  = $report_data['start_date'] . ' - ' . $report_data['end_date'];
-		$report_summary[4][__('Auto Generated RRD list')] = ($report_data['autorrdlist'] == '')? 'disabled' : 'enabled';
-	}
-
-	/* extract result description */
-	list($rs_description, $count_rs) = explode('-', $report_data['rs_def']);
-	$rs_description = ($rs_description == '') ? false : explode('|', $rs_description);
-
-	if ($rs_description !== false) {
-		foreach ($rs_description as $key => $id) {
-			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
-				$count_rs--;
-				unset($rs_description[$key]);
-			} else {
-				if (get_request_var('data_source') != -2)
-					$measurands[$id] = $mea[$id]['abbreviation'];
-			}
-		}
-
-		if (get_request_var('measurand') != -1) {
-			if (in_array(get_request_var('measurand'), $rs_description)) {
-				$rs_description = array(get_request_var('measurand'));
-				$count_rs = 1;
-				$count_ov = 0;
-			}
-		}
-	}
-
-	/* extract 'Overall' description */
-	if (!isset($count_ov)) {
-		list($ov_description, $count_ov) = explode('-', $report_data['sp_def']);
-		$ov_description 	= ($ov_description == '') ? false : explode('|', $ov_description);
-		if ($ov_description !== false) {
-			foreach ($ov_description as $key => $id) {
-				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
-					$count_ov--;
-					unset($ov_description[$key]);
-				} elseif (get_request_var('data_source') == -1 || get_request_var('data_source') == -2) {
-					$measurands[$id] = $mea[$id]['abbreviation'];
-				}
-			}
-
-			if (get_request_var('measurand') != -1) {
-				if (in_array(get_request_var('measurand'), $ov_description)) {
-					$ov_description = array(get_request_var('measurand'));
-					$count_ov = 1;
-					$count_rs = 0;
-				}
-			}
-		}
-	}
-
-	/* extract datasource description */
-	if ($count_rs > 0) {
-		$ds_description = explode('|', $report_data['ds_description']);
-		$columns += sizeof($ds_description)*$count_rs;
-	}
-
-	if ($count_ov > 0) {
-		$ds_description[-2] = 'overall';
-		$columns += $count_ov;
-	}
-
 	/* save all data source names for the drop down menue.
 	if available use the data source alias instead of the internal names */
 	$data_sources = $ds_description;
@@ -560,9 +483,8 @@ function show_report() {
 		$ds_description = array($ds_description[get_request_var('data_source')]);
 	}
 
-	$nav = html_nav_bar('view.php?action=show_report&id=' . get_request_var('id'), 20, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
-
 	/* start HTML output */
+	$report_header = $data['report_data']['description'];
 	html_start_box(__($report_header), '100%', '', '2', 'center', '');
 	ob_start();
 	?>
@@ -607,18 +529,21 @@ function show_report() {
 							?>
 						</select>
 					</td>
-					<td>
-						<input id='subhead' type='checkbox'<?php print (get_request_var('subhead') == 1) ? ' checked':'';?>>
-					</td>
-					<td>
-						<label for='subhead'><?php print __('Show Subheads', 'reportit');?>
-					</td>
-					<td>
-						<input id='summary' type='checkbox'<?php print (get_request_var('summary') == 1) ? ' checked':'';?>>
-					</td>
-					<td>
-						<label for='summary'><?php print __('Summary', 'reportit');?>
-					</td>
+<?php
+					$chk_fields = array(
+						'graph_mode' => __('Show TOP10 Graphs', 'reportit'),
+						'subhead'    => __('Show Subheads', 'reportit'),
+						'summary'    => __('Show Summary', 'reportit'),
+					);
+					foreach ($chk_fields as $chk_name => $chk_desc) {
+						print "<td>";
+						$chk_value = get_request_var($chk_name);
+						$chk_set   = !isempty_request_var($chk_name) ? 'on' : '';
+						form_checkbox($chk_name, $chk_set, $chk_desc, '', '', '', '', $chk_desc, true);
+
+						print "</td>";
+					}
+?>
 					<td>
 						<input type='button' value='<?php print __esc_x('Button: use filter settings', 'Go');?>' id='refresh'>
 					</td>
@@ -688,8 +613,9 @@ function show_report() {
 			strURL += '&measurand='+$('#measurand').val();
 			strURL += '&data_source='+$('#data_source').val();
 			strURL += '&archive='+$('#archive').val();
-			strURL += '&summary='+$('#summary').is(':checked');
-			strURL += '&subhead='+$('#subhead').is(':checked');
+			strURL += '&graph_mode='+($('#graph_mode').is(':checked')?'on':'');
+			strURL += '&summary='+($('#summary').is(':checked')?'on':'');
+			strURL += '&subhead='+($('#subhead').is(':checked')?'on':'');
 			loadPageNoHeader(strURL);
 		}
 
@@ -703,7 +629,7 @@ function show_report() {
 				applyFilter();
 			});
 
-			$('#info, #rows, #measurand, #data_source, #archive, #summary, #subhead').change(function() {
+			$('#info, #rows, #measurand, #data_source, #archive, #graph_mode, #summary, #subhead').change(function() {
 				applyFilter();
 			});
 
@@ -723,7 +649,19 @@ function show_report() {
 
 	html_end_box();
 
-	if (get_request_var('summary')) {
+	if (!isempty_request_var('summary')) {
+		$report_summary[1][__('Title')]   = $data['report_data']['description'];
+		$report_summary[1][__('Runtime')] = $data['report_data']['runtime'] . 's';
+
+		$report_summary[2][__('Owner')]              = $data['report_data']['owner'];
+		$report_summary[2][__('Sliding Time Frame')] = ($data['report_data']['sliding'] == '') ? 'disabled' : 'enabled (' . strtolower($data['report_data']['preset_timespan']) .')';
+
+		$report_summary[3][__('Last Run')]  = $data['report_data']['last_run'];
+		$report_summary[3][__('Scheduler')] = ($data['report_data']['scheduled'] == '') ? 'disabled' : 'enabled (' . $data['report_data']['frequency'] . ')';
+
+		$report_summary[4][__('Period')]                  = $data['report_data']['start_date'] . ' - ' . $data['report_data']['end_date'];
+		$report_summary[4][__('Auto Generated RRD list')] = ($data['report_data']['autorrdlist'] == '')? 'disabled' : 'enabled';
+
 		html_start_box('', '100%', '', '3', 'center', '');
 		foreach ($report_summary as $array) {
 			print '<tr>';
@@ -733,6 +671,84 @@ function show_report() {
 			print '</tr>';
 		}
 		html_end_box();
+	}
+
+	if (isempty_request_var('graph_mode')) {
+		show_table_view($data, $rows, $total_rows); //$ds_description, $count_rs, $count_ov, $report_ds_alias);
+	} else {
+		show_graph_view($data);
+	}
+}
+
+function show_table_view($data, $rows, $total_rows) {
+	global $config, $search, $t_limit, $add_info, $export_formats, $item_rows;
+	$columns         = 1;
+
+	$report_ds_alias = $data['report_ds_alias'];
+	$report_data     = $data['report_data'];
+	$report_results  = $data['report_results'];
+	$mea             = $data['report_measurands'];
+	$report_header   = $report_data['description'];
+
+	$nav = html_nav_bar('view.php?action=show_report&id=' . get_request_var('id'), 20, get_request_var('page'), $rows, $total_rows, $columns, __('Reports'), 'page', 'main');
+
+	/* extract result description */
+	list($rs_description, $count_rs) = explode('-', $report_data['rs_def']);
+	$rs_description = ($rs_description == '') ? false : explode('|', $rs_description);
+
+	if ($rs_description !== false) {
+		foreach ($rs_description as $key => $id) {
+			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
+				$count_rs--;
+				unset($rs_description[$key]);
+			} else {
+				if (get_request_var('data_source') != -2)
+					$measurands[$id] = $mea[$id]['abbreviation'];
+			}
+		}
+
+		if (get_request_var('measurand') != -1) {
+			if (in_array(get_request_var('measurand'), $rs_description)) {
+				$rs_description = array(get_request_var('measurand'));
+				$count_rs = 1;
+				$count_ov = 0;
+			}
+		}
+	}
+
+	/* extract 'Overall' description */
+	if (!isset($count_ov)) {
+		list($ov_description, $count_ov) = explode('-', $report_data['sp_def']);
+		$ov_description 	= ($ov_description == '') ? false : explode('|', $ov_description);
+		if ($ov_description !== false) {
+			foreach ($ov_description as $key => $id) {
+				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
+					$count_ov--;
+					unset($ov_description[$key]);
+				} elseif (get_request_var('data_source') == -1 || get_request_var('data_source') == -2) {
+					$measurands[$id] = $mea[$id]['abbreviation'];
+				}
+			}
+
+			if (get_request_var('measurand') != -1) {
+				if (in_array(get_request_var('measurand'), $ov_description)) {
+					$ov_description = array(get_request_var('measurand'));
+					$count_ov = 1;
+					$count_rs = 0;
+				}
+			}
+		}
+	}
+
+	/* extract datasource description */
+	if ($count_rs > 0) {
+		$ds_description = explode('|', $report_data['ds_description']);
+		$columns += sizeof($ds_description)*$count_rs;
+	}
+
+	if ($count_ov > 0) {
+		$ds_description[-2] = 'overall';
+		$columns += $count_ov;
 	}
 
 	print $nav;
@@ -746,7 +762,7 @@ function show_report() {
 		if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
 				$description = $report_ds_alias[$description];
 		}
-		print "<td colspan='$counter' height='10' class='even'>$description</td>";
+		print "<td colspan='$counter' height='10' class='even' style='align: center;'>$description</td>";
 	}
 	print '</tr>';
 
@@ -774,21 +790,57 @@ function show_report() {
 		}
 	}
 
-	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), '1', 'view.php?action=show_report&id=' . get_request_var('id'));
+	if (isempty_request_var('graph_mode')) {
+		html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), '1', 'view.php?action=show_report&id=' . get_request_var('id'));
+	}
 
 	/* Set preconditions */
+	$last_subhead = '';
 	if (sizeof($report_results)) {
 		foreach ($report_results as $result) {
+			if (!isempty_request_var('subhead')) {
+				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+				$subhead = str_replace($search, $replace, $result['description']);
+				if (empty($subhead)) {
+					$subhead = __('-- NO SUBHEADING --', 'reportit');
+				}
+
+				if ($last_subhead != $subhead) {
+					$last_subhead = $subhead;
+					print '<tr><td>' . $subhead . '</td></tr>';
+				}
+			}
 			form_alternate_row();
 
 			print '<td>
 				<a class="linkEditMain" href="view.php?action=show_graph_overview&id=' . get_request_var('id') . '&rrd=' . $result['id'] . '&cache=' . get_request_var('archive') . '">' . filter_value($result['name_cache'], get_request_var('filter')) . '</a>';
 
-			if (get_request_var('subhead') == 1) {
-				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
-				$subhead = str_replace($search, $replace, $result['description']);
-				print '<br>' . $subhead;
+			//MBV: echo "<td colspan='2'><img src='./graph.php?id={get_request_var('id')}&source=overall' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'></td>";
+			/* extract result description */
+			list($rs_description, $count_rs) = explode('-', $report_data['rs_def']);
+			$rs_description = ($rs_description == '') ? false : explode('|', $rs_description);
+
+			if ($rs_description !== false) {
+				foreach ($rs_description as $key => $id) {
+					if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
+						$count_rs--;
+						unset($rs_description[$key]);
+					} else {
+						if (get_request_var('data_source') != -2) {
+							$measurands[$id] = $mea[$id]['abbreviation'];
+						}
+					}
+				}
 			}
+
+			if (get_request_var('measurand') != -1) {
+				if (in_array(get_request_var('measurand'), $rs_description)) {
+					$rs_description = array(get_request_var('measurand'));
+					$count_rs = 1;
+					$count_ov = 0;
+				}
+			}
+
 			print '</td>';
 
 			foreach ($ds_description as $datasource) {
@@ -818,38 +870,38 @@ function show_report() {
 
 	/* show additional informations if requested */
 	switch (get_request_var('info')) {
-	case '-2':
-		break;
-	case '-1':
-		print '<tr></tr>';
-		if (sizeof($additional)) {
-			for($a=1; $a<5; $a++) {
+		case '-2':
+			break;
+		case '-1':
+			print '<tr></tr>';
+			if (sizeof($additional)) {
+				for($a=1; $a<5; $a++) {
+					form_alternate_row();
+					$description = $add_info[$a][0];
+					$calc_fct    = $add_info[$a][1];
+
+					print '<td><strong>' . $description . '</strong></td>';
+					foreach ($additional as $array){
+						print '<td class="right">' . get_unit($calc_fct($array['values']), $array['rounding'], $array['data_type'], $array['data_precision']) . '</td>';
+					}
+				}
+			}
+
+			break;
+		default:
+			print '<tr></tr>';
+			if (sizeof($additional)) {
 				form_alternate_row();
-				$description = $add_info[$a][0];
-				$calc_fct    = $add_info[$a][1];
+				$description = $add_info[get_request_var('info')][0];
+				$calc_fct    = $add_info[get_request_var('info')][1];
 
 				print '<td><strong>' . $description . '</strong></td>';
 				foreach ($additional as $array){
 					print '<td class="right">' . get_unit($calc_fct($array['values']), $array['rounding'], $array['data_type'], $array['data_precision']) . '</td>';
 				}
 			}
-		}
 
-		break;
-	default:
-		print '<tr></tr>';
-		if (sizeof($additional)) {
-			form_alternate_row();
-			$description = $add_info[get_request_var('info')][0];
-			$calc_fct    = $add_info[get_request_var('info')][1];
-
-			print '<td><strong>' . $description . '</strong></td>';
-			foreach ($additional as $array){
-					print '<td class="right">' . get_unit($calc_fct($array['values']), $array['rounding'], $array['data_type'], $array['data_precision']) . '</td>';
-			}
-		}
-
-		break;
+			break;
 	}
 
 	html_end_box();
@@ -862,6 +914,197 @@ function show_report() {
 	draw_actions_dropdown($export_formats,0);
 	print '</form>';
 
+	ob_end_flush();
+}
+
+function show_graph_view($data) {
+	global $config, $colors, $graphs, $limit;
+
+	$columns          = 1;
+	$archive          = array();
+	$affix            = "";
+	$description	  = "";
+
+	$report_ds_alias  = $data['report_ds_alias'];
+	$report_data      = $data['report_data'];
+	$mea              = $data['report_measurands'];
+	$report_header    = $report_data['description'];
+
+	/* create a report summary */
+	if (!isempty_request_var('summary')) {
+		$report_summary[1]['Title'] = $report_data['description'];
+		$report_summary[1]['Runtime'] = $report_data['runtime'] . 's';
+		$report_summary[2]['Owner'] = $report_data['owner'];
+		$report_summary[2]['Sliding Time Frame'] = ($report_data['sliding'] == 0) ? 'disabled' : 'enabled (' . strtolower($report_data['preset_timespan']) .')';
+		$report_summary[3]['Last Run'] = $report_data['last_run'];
+		$report_summary[3]['Scheduler'] = ($report_data['scheduled'] == 0) ? 'disabled' : 'enabled (' . $report_data['frequency'] . ')';
+		$report_summary[4]['Period'] = $report_data['start_date'] . " - " . $report_data['end_date'];
+		$report_summary[4]['Auto Generated RRD list'] = ($report_data['autorrdlist'] == 0)? 'disabled' : 'enabled';
+	}
+
+	/* extract result description */
+	list($rs_description, $count_rs) = explode('-', $report_data['rs_def']);
+	$rs_description = ($rs_description == '') ? FALSE : explode('|', $rs_description);
+
+	if($rs_description !== FALSE) {
+		foreach($rs_description as $key => $id) {
+			if(!isset($mea[$id]['visible']) || $mea[$id]['visible'] != 'on') {
+				$count_rs--;
+				unset($rs_description[$key]);
+				print "removing rs_description[$key] ($id): {$mea[$id]['visible']}\n";
+			}else {
+				if(get_request_var('data_source') != -2) {
+					$measurands[$id] = $mea[$id]['abbreviation'];
+				}
+			}
+		}
+		if(get_request_var('measurand') != -1) {
+			if (in_array(get_request_var('measurand'), $rs_description)) {
+				$rs_description = array(get_request_var('measurand'));
+				$count_rs = 1;
+				$count_ov = 0;
+			}
+		}
+	}
+
+	/* extract 'Overall' description */
+	if (!isset($count_ov)) {
+		list($ov_description, $count_ov) = explode('-', $report_data['sp_def']);
+		$ov_description 	= ($ov_description == '') ? FALSE : explode('|', $ov_description);
+		if($ov_description !== FALSE) {
+			foreach($ov_description as $key => $id) {
+				if(!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == 0) {
+					$count_ov--;
+					unset($ov_description[$key]);
+				}else {
+					If(get_request_var('data_source') == -1 || get_request_var('data_source') == -2)
+						$measurands[$id] = $mea[$id]['abbreviation'];
+				}
+			}
+			if(get_request_var('measurand') != -1) {
+				if (in_array(get_request_var('measurand'), $ov_description)) {
+					$ov_description = array(get_request_var('measurand'));
+					$count_ov = 1;
+					$count_rs = 0;
+				}
+			}
+		}
+	}
+
+	/* extract datasource description */
+	$ds_description = array();
+	if ($count_rs > 0) {
+		$ds_description = explode('|', $report_data['ds_description']);
+		$columns += sizeof($ds_description)*$count_rs;
+	}
+
+	if ($count_ov > 0) {
+		$ds_description[-2] = 'overall';
+		$columns += $count_ov;
+	}
+
+	/* save all data source name for drop down menue */
+	$data_sources = $ds_description;
+	foreach($data_sources as $key => $value) {
+		if(is_array($report_ds_alias) && array_key_exists($value, $report_ds_alias) && $report_ds_alias[$value] != '')
+			$data_sources[$key] = $report_ds_alias[$value];
+	}
+
+	/* filter by data source */
+	if (get_request_var('data_source') != -1) {
+		$ds_description = array($ds_description[get_request_var('data_source')]);
+	}
+
+	/* Filter settings */
+	$order = (get_request_var('limit') < 0)? 'DESC' : 'ASC';
+	$limitation = abs(get_request_var('limit'))*5;
+	if ($limitation == 0) {
+		$limitation = 10;
+	}
+
+	print "</pre>";
+	if(!isempty_request_var('summary')) {
+	}
+
+	//html_graph_start_box(3, false);
+	print "<table>";
+	foreach($ds_description as $datasource) {
+		$description = (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias))
+						? ($report_ds_alias[$datasource] != '')
+							? $report_ds_alias[$datasource]
+							: $datasource
+						: $datasource;
+		//MBV: print "<tr bgcolor='#" . $colors["header_panel"] . "'><td colspan='3' class='textHeaderDark'><strong>Data Source:</strong> $description</td></tr>";
+		print "<tr bgcolor='#00000'><td colspan='3' class='textHeaderDark'><strong>Data Source:</strong> $description</td></tr>";
+
+		$name	= ($datasource != 'overall') ? $rs_description : $ov_description;
+		if($name !== FALSE) {
+			foreach($name as $id) {
+				$var			= ($datasource != 'overall') ? $datasource.'__'.$id : 'spanned__'.$id;
+				$title 			= $mea[$id]['description'];
+				$rounding		= $mea[$id]['rounding'];
+				$unit			= $mea[$id]['unit'];
+				$rounding		= $mea[$id]['rounding'];
+				$data_type		= $mea[$id]['data_type'];
+				$data_precision = $mea[$id]['data_precision'];
+				$order = 'DESC';
+				$suffix			= " ORDER BY a.$var $order LIMIT 0, $limitation";
+
+				if($mea[$id]['visible']) {
+					if (get_request_var('archive') == -1) {
+						$sql = 	"SELECT a.$var, b.*, c.name_cache FROM plugin_reportit_results_" . get_request_var('id') . " AS a
+								 INNER JOIN plugin_reportit_data_items AS b
+								 ON (b.id = a.id AND b.report_id = " . get_request_var('id') . ")
+								 INNER JOIN data_template_data AS c
+								 ON c.local_data_id = a.id
+								 $suffix";
+					}else {
+						$sql =	"SELECT * FROM plugin_reportit_tmp_" . get_request_var('id') . "_" . get_request_var('archive') . " AS a
+								 $suffix";
+					}
+
+					$data = db_fetch_assoc($sql);
+					echo "<tr bgcolor='#a9b7cb'><td colspan='3' class='textHeaderDark'><strong>Measurand:</strong> $title ({$mea[$id]['abbreviation']})</td></tr>";
+					//echo "<tr valign='top'><td colspan='2'><a href='./cc_graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'>hallo</a></td>";
+					echo "<tr valign='top'><td colspan='2'><img src='graph.php?id=" .get_request_var('id')  . "&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})' height='300px'></td>";
+					echo "<td colspan='1' width='100%'><table width='100%'>";
+					if (count($data)>0) {
+						//html_report_start_box();
+					html_header(array("Pos.","Description", "Results [$unit]"));
+						$i = 0;
+						foreach($data as $item){
+							$i++;
+							$value	= $item[$var];
+							$title 	= "{$item['start_day']}&nbsp;-&nbsp;{$item['end_day']}&nbsp;&#10;{$item['start_time']}&nbsp;-&nbsp;{$item['end_time']} {$item['timezone']}";
+							form_alternate_row();
+							echo "<td title='$title'>$i</td>";
+							echo "<td title='$title'>
+										<a class='linkEditMain' href='cc_view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>
+										{$item['name_cache']}
+										</a>
+								  </td>";
+							echo "<td title='$title' align='right'>";
+							if($value == NULL) {
+								print "NA";
+							}elseif ($value == 0) {
+								print $value;
+							}else {
+								print 'got: ' . get_unit($value, $rounding, $data_type, $data_precision);
+							}
+							print "</td>";
+							form_end_row();
+						}
+						echo "</table>";
+
+					}
+					echo "</td></tr>";
+				}
+			}
+		}
+	}
+
+	//html_graph_end_box();
+	print "</table>";
 	ob_end_flush();
 }
 

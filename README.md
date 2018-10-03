@@ -119,6 +119,22 @@ community.  After that you should open a feature request on
 
 ## Changelog
 
+--- 1.1.2 ---
+
+* issue: Errors reported by rrdlist.php when plugin disabled
+
+* Feature: Reintroduced Graphs (basic functionality)
+
+* Feature: Reintroduced Subheaders
+
+* Feature: Reintroduced Summary display
+
+Note: This version uses @netniV's forked version of PHPGraphLib both of which
+released under the MIT license for open source usage.
+
+@netniV's Fork: [https://github.com/netniv/phpgraphlib/](https://github.com/netniv/phpgraphlib/)
+@elliottb's Original: [https://github.com/elliottb/phpgraphlib/](https://github.com/elliottb/phpgraphlib)
+
 --- 1.1.1 ---
 
 * issue: Legacy database was incorrectly upgraded

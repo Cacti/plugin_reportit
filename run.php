@@ -104,7 +104,7 @@ function calculation() {
 		form_start('view.php?action=show_report&id=' . get_request_var('id'));
 
 		#html_graph_start_box();
-		html_start_box("test", '100%', '', '2', 'center', '');
+		html_start_box("test", '100%', '', '1', 'center', '');
 		?>
 		<tr>
 			<td><b> Runtime:&nbsp; <font color='0000FF'> <?php print $runtime; ?>s</font> </b></td>
