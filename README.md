@@ -121,7 +121,9 @@ community.  After that you should open a feature request on
 
 --- 1.1.1 ---
 
-* issue: Upgraded database was incorrectly upgraded
+* issue: Legacy database was incorrectly upgraded
+
+* issue#58: REPORTIT_BASE_PATH is not defined when PLUGIN is disabled
 
 * Feature: Add shutdown handler to report last formula used
 
