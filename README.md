@@ -123,6 +123,10 @@ community.  After that you should open a feature request on
 
 * issue: Errors reported by rrdlist.php when plugin disabled
 
+* issue#24: Unable to add email recipients to report
+
+* issue#51: Report viewing doesn't honor separated "measurand"
+
 * issue#56: Template shows Data template not available, when it is
 
 * Feature: Reintroduced Graphs (basic functionality)

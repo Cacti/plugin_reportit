@@ -53,6 +53,8 @@ switch (get_request_var('action')) {
 		report_wizard();
 		bottom_footer();
 		break;
+	case 'recipient_add':
+		$add_recipients = true;
 	case 'save':
 		form_save();
 		break;
@@ -448,7 +450,7 @@ function save_schedule_data(&$report_data) {
 }
 
 function form_save() {
-	global 	$templates, $timespans, $frequency, $timezone, $shifttime, $shifttime2, $weekday, $format;
+	global 	$templates, $timespans, $frequency, $timezone, $shifttime, $shifttime2, $weekday, $format, $add_recipients;
 
 	$owner 	= array();
 
@@ -468,8 +470,6 @@ function form_save() {
 	if (!re_owner()) die_html_custom_error(__('Not authorised'), true); //this should normally done by Cacti itself
 
 	/* check for the type of saving if it was sent through the email tab */
-	$add_recipients = (array_key_exists('add_recipients_x', $_REQUEST)) ? true : false;
-
 	switch(get_request_var('tab')) {
 	case 'presets':
 	 	input_validate_input_blacklist(get_request_var('id'),array(0));
@@ -615,6 +615,7 @@ function form_save() {
 			$columns = '(report_id, email, name)';
 			$values  = '';
 
+			$addresses = array();
 			if (strpos(get_request_var('report_email_address'),';')) {
 				$addresses = explode(';',get_request_var('report_email_address') );
 			} elseif (strpos(get_request_var('report_email_address'),',')) {
@@ -623,6 +624,7 @@ function form_save() {
 				$addresses[] = get_request_var('report_email_address');
 			}
 
+			$recipients = array();
 			if (strpos(get_request_var('report_email_recipient'),';')) {
 				$recipients = explode(';',get_request_var('report_email_recipient') );
 			} elseif (strpos(get_request_var('report_email_recipient'),',')) {
@@ -645,13 +647,14 @@ function form_save() {
 						$name = '';
 					}
 
-					$values .= "('$id', '$value', '$name'),";
+					$values .= "('$id', '$value', $name),";
 				}
 
 				$values = substr($values, 0, strlen($values)-1);
 
 				if (!is_error_message()) {
-					db_execute("INSERT INTO plugin_reportit_recipients $columns VALUES $values");
+					$sql = "INSERT INTO plugin_reportit_recipients $columns VALUES $values";
+					db_execute($sql);
 				}
 			}
 		}
@@ -949,9 +952,12 @@ function report_edit() {
 
 		html_end_box();
 
-		html_start_box('', '100%', '', '2', 'center', '');
+		html_start_box('Associated Recipients', '100%', '', '3', 'center', '');
 
-		$display_text = array('Name', 'Email', '');
+		$display_text = array(
+			'name' => array('display' => __('Name', 'reportit'), 'width' => '50%'),
+			'email' => array('display' => __('Email', 'reportit'))
+		);
 
 		html_header($display_text);
 
@@ -960,9 +966,8 @@ function report_edit() {
 				form_alternate_row();
 				print '<td>' . $recipient['name'] . '</td>';
 				print '<td>' . $recipient['email'] . '</td>';
-				print "<td class='right'><a class='pic fa fa-delete' href='reports.php?action=remove&id=" . get_request_var('id') . '&rec=' . $recipient['id'] . '></a></td>';
-
-				form_end_row();
+				//print "<td class='right'><a class='pic fa fa-delete' href='reports.php?action=remove&id=" . get_request_var('id') . '&rec=' . $recipient['id'] . '></a></td></tr>';
+				print '</tr>';
 			}
 		} else {
 			print '<tr><td colspan="3"><em>' . __('No recipients found') . '</em></td></tr>';
@@ -996,21 +1001,38 @@ function report_edit() {
 
 	?>
 	<script type='text/javascript'>
-$(function() {
-	if ($('#report_dynamic').length > 0) {
-		dyn_general_tab();
-		$('#report_dynamic').click(function() {
+	$(function() {
+		if ($('#report_dynamic').length > 0) {
 			dyn_general_tab();
-		});
-	}
+			$('#report_dynamic').click(function() {
+				dyn_general_tab();
+			});
+		}
 
-	if ($('#report_schedule').length > 0) {
-		dyn_admin_tab();
-		$('#report_schedule').click(function() {
+		if ($('#report_schedule').length > 0) {
 			dyn_admin_tab();
+			$('#report_schedule').click(function() {
+				dyn_admin_tab();
+			});
+		}
+
+		$('#add_recipients_x').click(function(e) {
+			e.preventDefault();
+			$.get('reports.php?header=false' +
+				'&tab=email&action=recipient_add&id=' + $('#id').val() +
+				'&report_email_address=' + encodeURI($('#report_email_address').val()) +
+				'&report_email_recipient=' + encodeURI($('#report_email_recipient').val()))
+			.done(function(data) {
+			        checkForLogout(data);
+
+		                $('#main').empty().hide();
+				$('div[class^="ui-"]').remove();
+				$('#main').html(data);
+				applySkin();
+			});
 		});
-	}
-});
+	});
+
 	function start_input(name) {
 		if (name == 'report_email_address') {
 			text = '<?php print __('- Email address of a recipient (or list of names) -');?>';
