@@ -38,11 +38,6 @@ $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
 
-if (!defined('REPORTIT_BASE_PATH')) {
-	include_once(__DIR__ . '/setup.php');
-	reportit_define_constants();
-}
-
 //----- Running on CLI? -----
 if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) {
 
@@ -102,6 +97,11 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 	if($run_id) run($run_id);
 	else run($run_freq);
 }else {
+	if (!defined('REPORTIT_BASE_PATH')) {
+		include_once(__DIR__ . '/setup.php');
+		reportit_define_constants();
+	}
+
 	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
 }
 
@@ -729,7 +729,7 @@ function runtime($report_id) {
 
 		/* create and send out an email */
 		if(read_config_option('reportit_email') == 'on') {
-			if($report_definitions['report']['auto_email'] && check_email_support()) {
+			if($report_definitions['report']['auto_email'] == 'on') {
 				$error = send_scheduled_email($report_id);
 				if($error) {
 					run_error(13, $report_id, 0, "EMAIL: $error");
