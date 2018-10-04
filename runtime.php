@@ -354,7 +354,7 @@ function runtime($report_id) {
 
 	$cache	= $report_definitions['measurands'];
 	foreach($cache as $mm) {
-		if($mm['spanned'] == 1) $ds_cache[$mm['abbreviation']] = FALSE;
+		if($mm['spanned'] == 'on') $ds_cache[$mm['abbreviation']] = FALSE;
 	}
 	debug($ds_cache, "Defined Cache -> Measurands (spanned)");
 	/************************************************************************************/

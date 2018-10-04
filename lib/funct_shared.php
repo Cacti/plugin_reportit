@@ -649,7 +649,7 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 
 	if (sizeof($array)) {
 	    foreach ($array as $interim_result) {
-			if ($interim_result['spanned'] == 0) {
+			if ($interim_result['spanned'] == '') {
 				foreach ($names as $name) {
 					$interim_results[] = $interim_result['abbreviation'] . ':' . $name;
 				}
