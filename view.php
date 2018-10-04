@@ -764,7 +764,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 		if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
 				$description = $report_ds_alias[$description];
 		}
-		print "<td colspan='$counter' height='10' class='even' style='align: center;'>$description</td>";
+		print "<td colspan='$counter' height='10' class='even' style='text-align: center;border-left: 1px solid black;'>$description</td>";
 	}
 	print '</tr>';
 
@@ -810,7 +810,16 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 
 				if ($last_subhead != $subhead) {
 					$last_subhead = $subhead;
-					print '<tr><td>' . $subhead . '</td></tr>';
+					print "<tr class='cactiTableTitle' style='float: none; display: table-row;'>";
+					print "<td class='textSubHeaderDark' style='float: none; display: table-cell; padding-left: 10px;'>$subhead</td>";
+					foreach ($ds_description as $description) {
+						$counter = ($description != 'overall') ? $count_rs : $count_ov;
+						if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
+							$description = $report_ds_alias[$description];
+						}
+						print "<td colspan='$counter' height='10' class='textSubHeaderDark' style='float: none; display: table-cell; text-align: center; border-left: 1px solid black;'>$description</td>";
+					}
+					print '</tr>';
 				}
 			}
 			form_alternate_row();
@@ -822,6 +831,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 			foreach ($ds_description as $datasource) {
 				$name = ($datasource != 'overall') ? $rs_description : $ov_description;
 
+				$first=' style="border-left: 1px solid black"';
 				foreach ($name as $id) {
 					$rounding       = $mea[$id]['rounding'];
 					$data_type      = $mea[$id]['data_type'];
@@ -834,9 +844,10 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 					$additional[$var]['data_type']      = $data_type;
 					$additional[$var]['data_precision'] = $data_precision;
 
-					print '<td class="right">';
+					print "<td class='right'$first>";
 					print get_unit($value, $rounding, $data_type, $data_precision);
 					print '</td>';
+					$first = '';
 				}
 			}
 		}

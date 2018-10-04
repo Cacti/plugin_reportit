@@ -129,6 +129,8 @@ community.  After that you should open a feature request on
 
 * issue#56: Template shows Data template not available, when it is
 
+* issue#61: Improve visual layout when viewing report
+
 * Feature: Reintroduced Graphs (basic functionality)
 
 * Feature: Reintroduced Subheaders
