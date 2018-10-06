@@ -139,13 +139,13 @@ function run($frequency) {
 	if(is_numeric($frequency)) {
 		$sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
 				INNER JOIN plugin_reportit_templates as b
-				ON b.locked = 0 and a.template_id = b.id
+				ON b.locked = '' and a.template_id = b.id
 				WHERE a.id = $frequency";
 	}else {
 		$sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
 				INNER JOIN plugin_reportit_templates as b
-				ON b.locked = 0 AND a.template_id = b.id
-				WHERE a.scheduled = 1 AND a.frequency = '$frequency'";
+				ON b.locked = '' AND a.template_id = b.id
+				WHERE a.scheduled = 'on' AND a.frequency = '$frequency'";
 	}
 
 	$reports = db_fetch_assoc($sql);

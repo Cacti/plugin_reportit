@@ -1204,22 +1204,11 @@ function get_mem_usage() {
 	print " Memory:  System: $memory_system   Used: $memory_used   Peak: $memory_peak\n";
 }
 
-/* Basical Email Functions */
-function check_email_support(){
-	if (function_exists('settings_version')) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
 function send_scheduled_email($report_id){
 	global $config;
 
 	$data 	= '';
 	$search = array('|title|', '|period|');
-
-	include_once(CACTI_BASE_PATH . '/plugins/settings/include/mailer.php');
 
 	/* load report based email settings */
 	$report_settings  = db_fetch_row_prepared('SELECT *
@@ -1227,90 +1216,53 @@ function send_scheduled_email($report_id){
 		WHERE id = ?',
 		array($report_id));
 
-	$replace          = array($report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']);
+	$replace    = array($report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']);
 
-	$email_subject    = ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
-	$email_subject    = str_replace($search, $replace, $email_subject);
-	$email_body       = ($report_settings['email_body'] != '') ? $report_settings['email_body'] : 'This is a scheduled report generated from Cacti.';
-	$email_format     = ($report_settings['email_format'] != '') ? $report_settings['email_format'] : 'CSV';
+	$subject    = ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
+	$subject    = str_replace($search, $replace, $subject);
+	$body       = ($report_settings['email_body'] != '') ? $report_settings['email_body'] : 'This is a scheduled report generated from Cacti.';
+	$format     = ($report_settings['email_format'] != '') ? $report_settings['email_format'] : 'CSV';
 
 	/* load list of recipients */
-	$file_type        = ($email_format != 'SML') ? strtolower($email_format) : 'xml';
-	$mine_type        = ($email_format != 'SML') ? 'application/' . strtolower($email_format) : 'application/' . 'vnd-ms-excel';
+	$file_type        = ($format != 'SML') ? strtolower($format) : 'xml';
+	$mime_type        = ($format != 'SML') ? 'application/' . strtolower($format) : 'application/' . 'vnd-ms-excel';
 
-	$email_recipients = db_fetch_assoc_prepared('SELECT email
+	$from = array();
+	$from[] = read_config_option('settings_from_email');
+	$from[] = read_config_option('settings_from_name');
+
+	$to = array_rekey(db_fetch_assoc_prepared('SELECT email, name
 		FROM plugin_reportit_recipients
 		WHERE report_id = ?',
-		array($report_id));
+		array($report_id)), 'email', 'name');
 
 	/* define additional attachment settings */
 	$filename         = str_replace('<report_id>', $report_id, read_config_option('reportit_exp_filename') . ".$file_type");
-	$export_function  = "export_to_" . $email_format;
-
-	/* load global settings provided by Jimmy Connor */
-	$how = read_config_option('settings_how');
-
-	switch($how){
-		case '1':
-			/* use Sendmail */
-			$sendmail = read_config_option('settings_sendmail_path');
-
-			$Mailer = new Mailer(
-				array(
-					'Type'              => 'DirectInject',
-					'DirectInject_Path' => $sendmail
-				)
-			);
-
-			break;
-		case '2':
-			/* use SNMP */
-			$smtp_host 		= read_config_option('settings_smtp_host');
-			$smtp_port 		= read_config_option('settings_smtp_port');
-			$smtp_username 	= read_config_option('settings_smtp_username');
-			$smtp_password 	= read_config_option('settings_smtp_password');
-
-			$Mailer = new Mailer(
-				array(
-					'Type'          => 'SMTP',
-					'SMTP_Host'     => $smtp_host,
-					'SMTP_Port'     => $smtp_port,
-					'SMTP_Username' => $smtp_username,
-					'SMTP_Password' => $smtp_password
-				)
-			);
-
-			break;
-		default:
-			/* use PHPmail as default */
-			$Mailer = new Mailer(array('Type' => 'PHP'));
-	}
-
-	$from 		= read_config_option('settings_from_email');
-	$fromname 	= read_config_option('settings_from_name');
-
-	if ($from == '' && isset($_SERVER['HOSTNAME'])) $from = 'Cacti@' . $_SERVER['HOSTNAME'];
-	if ($fromname == '') $fromname = 'Cacti';
-	$from = $Mailer->email_format($fromname, $from);
-
-	/* setup email header */
-	if ($Mailer->header_set('From', $from) === false) return $Mailer->error();
-	if (!$Mailer->header_set('Subject', $email_subject)) return $Mailer->error();
-
-	foreach ($email_recipients as $to) {
-		if (!$Mailer->header_set('To', $to)) return $Mailer->error();
-	}
+	$export_function  = "export_to_" . $format;
 
 	/* load export data and define the attachment file */
+	$attachment = array();
+	$data = '';
 	if (function_exists($export_function)) {
-	    $data = get_prepared_report_data($report_id,'export');
-	    if ($data == '') return('Export failed');
-	    $data = $export_function($data);
-	    if ($Mailer->attach($data, $filename, $mine_type) == false) return $Mailer->error();
+		$data = get_prepared_report_data($report_id, 'export');
+		if ($data == '') return('Export failed');
+		$data = $export_function($data);
+		$attachment = array(
+			'attachmet' => $filename,
+			'mime_type' => $mime_type,
+			'inline'    => 'attachment',
+		);
+	}
+	file_put_contents($filename, $data);
+
+	if (cacti_version_compare(CACTI_VERSION, '1.2.0', '>')) {
+		$mailer_func = "mailer";
+	} else {
+		include_once(__DIR__ . '/funct_mailer.php');
+		$mailer_func = "mailer_v1_2_0";
 	}
 
-	if ($Mailer->send($email_body) == false) return $Mailer->error();
-	return false;
+	return $mailer_func($from, $to, '', '', '', $subject, $body, '', $attachment, '', true);
 }
 
 function xml_to_string($xml_object, $keep_spaces = true) {
