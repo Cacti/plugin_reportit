@@ -34,7 +34,7 @@ if (!defined('REPORTIT_BASE_PATH')) {
 include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
-require_once(REPORTIT_BASE_PATH . '/lib_ext/phpgraphlib/phpgraphlib.php');
+require_once(REPORTIT_BASE_PATH . '/include/vendor/phpgraphlib/phpgraphlib.php');
 
 /* start with graphing */
 create_chart();

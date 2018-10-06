@@ -1,4 +1,5 @@
-/** mailer - function to send mails to users
+<?php
+/** mailer - function v1_2_0_to send mails to users
  *  @arg $from - single contact (see below)
  *  @arg $to - single or multiple contacts (see below)
  *  @arg $cc - single or multiple contacts (see below)
@@ -6,7 +7,7 @@ either a string of comma delimited email addresses, or an array of addresses in 
  *  @arg $bcc - either a string of comma delimited email addresses, or an array of addresses in email_address => name format
  *  @arg $replyto - a string email address, or an array in array(email_address, name format)
  *  @arg $subject - the email subject
- *  @arg $body - the email body, in HTML format.  If content_text is not set, the function will attempt to extract
+ *  @arg $body - the email body, in HTML format.  If content_text is not set, the function v1_2_0_will attempt to extract
  *       from the HTML format.
  *  @arg $body_text - the email body in TEXT format.  If set, it will override the stripping tags method
  *  @arg $attachments - the emails attachments as an array
@@ -34,15 +35,15 @@ either a string of comma delimited email addresses, or an array of addresses in 
  *  inline      : Whether to attach 'inline' (default for graph mode) or as 'attachment' (default for all others)
  *  encoding    : Encoding type, normally base64
  */
-function mailer_v1_2_0($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text = '', $attachments = '', $headers = '', $html = true) {
+function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text = '', $attachments = '', $headers = '', $html = true) {
 	global $config;
-
-	include_once($config['include_path'] . '/vendor/phpmailer/PHPMailerAutoload.php');
 
 	// Set the to information
 	if (empty($to)) {
 		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.');
 	}
+
+	include_once($config['include_path'] . '/vendor/phpmailer/PHPMailerAutoload.php');
 
 	// Create the PHPMailer instance
 	$mail = new PHPMailer;
@@ -112,7 +113,7 @@ function mailer_v1_2_0($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	 * - if email is blank, use setting's email, otherwise default to
 	 *   cacti@<server> or cacti@cacti.net if no known server name
 	 */
-	$from = parse_email_details($from, 1);
+	$from = v1_2_0_parse_email_details($from, 1);
 
 	// from name was empty, use value in settings
 	if (empty($from['name'])) {
@@ -144,7 +145,7 @@ function mailer_v1_2_0($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	}
 
 	// Convert $to variable to proper array structure
-	$to        = parse_email_details($to);
+	$to        = v1_2_0_parse_email_details($to);
 	$toText    = add_email_details($to, $result, array($mail,'addAddress'));
 
 	if ($result == false) {
@@ -152,7 +153,7 @@ function mailer_v1_2_0($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 		return $mail->ErrorInfo;
 	}
 
-	$cc        = parse_email_details($cc);
+	$cc        = v1_2_0_parse_email_details($cc);
 	$ccText    = add_email_details($cc, $result, array($mail,'addCC'));
 
 	if ($result == false) {
@@ -160,7 +161,7 @@ function mailer_v1_2_0($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 		return $mail->ErrorInfo;
 	}
 
-	$bcc       = parse_email_details($bcc);
+	$bcc       = v1_2_0_parse_email_details($bcc);
 	$bccText   = add_email_details($bcc, $result, array($mail,'addBCC'));
 
 	if ($result == false) {
@@ -168,7 +169,7 @@ function mailer_v1_2_0($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 		return $mail->ErrorInfo;
 	}
 
-	$replyto   = parse_email_details($replyto);
+	$replyto   = v1_2_0_parse_email_details($replyto);
 	$replyText = add_email_details($replyto, $result, array($mail,'addReplyTo'));
 
 	if ($result == false) {
@@ -311,7 +312,7 @@ function mailer_v1_2_0($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	return $error;
 }
 
-function add_email_details($emails, &$result, callable $addFunc) {
+function v1_2_0_add_email_details($emails, &$result, callable $addFunc) {
 	$arrText = array();
 	foreach ($emails as $e) {
 		if (!empty($e['email'])) {
@@ -327,7 +328,7 @@ function add_email_details($emails, &$result, callable $addFunc) {
 	return $text;
 }
 
-function parse_email_details($emails, $max_records = 0, $details = array()) {
+function v1_2_0_parse_email_details($emails, $max_records = 0, $details = array()) {
 	if (!is_array($emails)) {
 		$emails = array($emails);
 	}
@@ -379,7 +380,7 @@ function parse_email_details($emails, $max_records = 0, $details = array()) {
 	return $results;
 }
 
-function split_emaildetail($input) {
+function v1_2_0_split_emaildetail($input) {
 	if (!is_array($input)) {
 		$sPattern = '/(?<address><[\w\.]+@([\w\d-]+\.)+[\w]{2,4}>)$/';
 		$aMatch = preg_split($sPattern, trim($input), -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -401,7 +402,7 @@ function split_emaildetail($input) {
 	return array('name' => trim($name), 'email' => trim($email));
 }
 
-function create_emailtext($e) {
+function v1_2_0_create_emailtext($e) {
 	if (empty($e['email'])) {
 		$text = '';
 	} else {

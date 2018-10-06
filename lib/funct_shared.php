@@ -878,7 +878,10 @@ function load_external_libs($name){
 	switch ($name) {
 		case 'pclzip':
 			if (!defined('PCLZIP_TEMPORARY_DIR')) define( 'PCLZIP_TEMPORARY_DIR', REPORTIT_TMP_FD);
-			include_once(CACTI_BASE_PATH . '/plugins/reportit/lib_ext/pclzip/pclzip.lib.php');
+			include_once(REPORTIT_BASE_PATH . '/include/vendor/pclzip/pclzip.lib.php');
+		case 'phpgraphlib':
+			if (!defined('PCLZIP_TEMPORARY_DIR')) define( 'PCLZIP_TEMPORARY_DIR', REPORTIT_TMP_FD);
+			include_once(REPORTIT_BASE_PATH . '/include/vendor/phpgraphlib/phpgraphlib.php');
 		break;
 		case 'graidle':
 
@@ -1259,7 +1262,7 @@ function send_scheduled_email($report_id){
 		$mailer_func = "mailer";
 	} else {
 		include_once(__DIR__ . '/funct_mailer.php');
-		$mailer_func = "mailer_v1_2_0";
+		$mailer_func = "v1_2_0_mailer";
 	}
 
 	return $mailer_func($from, $to, '', '', '', $subject, $body, '', $attachment, '', true);

@@ -1,3 +1,4 @@
-archive/*
+warchive/*
 tmp/*
-
+exports/*
+*.swp

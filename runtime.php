@@ -46,8 +46,10 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 	chdir('../../');
 
 	$no_http_headers = true;
-	include('./include/global.php');
-	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
+	require_once('include/global.php');
+	include_once($config['base_path'] . '/lib/rrd.php');
+	@define('REPORTIT_BASE_PATH', $path);
+	@define('CACTI_BASE_PATH', __DIR__);
 	include_once(REPORTIT_BASE_PATH . '/setup.php');
 	include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
 	include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
@@ -717,7 +719,9 @@ function runtime($report_id) {
 	//----- Archive / Email -----
 	if($run_scheduled) {
 		/* update the XML Archive */
-		if(read_config_option('reportit_archive') == 'on') update_xml_archive($report_id);
+		if(read_config_option('reportit_archive') == 'on') {
+			update_xml_archive($report_id);
+		}
 
 		/* export report to custom format */
 		if(read_config_option('reportit_auto_export') == 'on'
@@ -728,9 +732,12 @@ function runtime($report_id) {
 		}
 
 		/* create and send out an email */
-		if(read_config_option('reportit_email') == 'on') {
+		if(read_config_option('reportit_email') == 'bad') {
+			echo "Report:\n";
+			var_dump($report_definitions['report']);
 			if($report_definitions['report']['auto_email'] == 'on') {
 				$error = send_scheduled_email($report_id);
+				echo "$error = send_scheduled_email($report_id);\n";
 				if($error) {
 					run_error(13, $report_id, 0, "EMAIL: $error");
 				}else {

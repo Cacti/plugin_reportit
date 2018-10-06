@@ -878,8 +878,6 @@ function report_edit() {
 		WHERE id = ?',
 		array($template_id));
 
-	if (!array_key_exists('auto_email',$report_data)) $report_data['auto_email'] = '';
-
 	/* start with HTML output */
 	if ($id != 0) {
 
