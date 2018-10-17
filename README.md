@@ -126,6 +126,8 @@ community.  After that you should open a feature request on
 * issue#71: Backported mailer() function uses function only defined in Cacti
   1.2+
 
+* issue#72: Non well formed numeric value issued by pclzip.lib.php
+
 --- 1.1.2 ---
 
 * issue: Errors reported by rrdlist.php when plugin disabled
