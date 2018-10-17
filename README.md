@@ -121,6 +121,8 @@ community.  After that you should open a feature request on
 
 --- 1.1.3 ---
 
+* issue#69: Report-based filters should be cleared when switching reports
+
 * issue#71: Backported mailer() function uses function only defined in Cacti
   1.2+
 

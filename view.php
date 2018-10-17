@@ -304,7 +304,7 @@ function standard() {
 
 			form_alternate_row();
 
-			print '<td><a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '">' . filter_value($report['description'], get_request_var('filter')) . '</a></td>';
+			print '<td><a class="linkEditMain" href="view.php?action=show_report&clear=1&id=' . $report['id'] . '">' . filter_value($report['description'], get_request_var('filter')) . '</a></td>';
 			print '<td>' . other_name($ownerId) . '</td>';
 			print '<td>' . $report['template_description'] . '</td>';
 			print '<td>' . (date(config_date_format(), strtotime($report['start_date'])) . ' - ' . date(config_date_format(), strtotime($report['end_date']))) . '</td>';
