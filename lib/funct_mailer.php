@@ -209,7 +209,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 		$attachments = array('attachment' => $attachments);
 	}
 
-	if (is_array($attachments) && cacti_sizeof($attachments)) {
+	if (is_array($attachments) && sizeof($attachments)) {
 		$graph_mode = (substr_count($body, '<GRAPH>') > 0);
 		$graph_ids = (substr_count($body, '<GRAPH:') > 0);
 
@@ -276,7 +276,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	}
 
 	/* process custom headers */
-	if (is_array($headers) && cacti_sizeof($headers)) {
+	if (is_array($headers) && sizeof($headers)) {
 		foreach($headers as $name => $value) {
 			$mail->addCustomHeader($name, $value);
 		}
@@ -330,6 +330,10 @@ function v1_2_0_add_email_details($emails, &$result, callable $addFunc) {
 function v1_2_0_parse_email_details($emails, $max_records = 0, $details = array()) {
 	if (!is_array($emails)) {
 		$emails = array($emails);
+	}
+
+	if (!is_array($details)) {
+		$details = array($details);
 	}
 
 	$update = array();

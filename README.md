@@ -119,6 +119,11 @@ community.  After that you should open a feature request on
 
 ## Changelog
 
+--- 1.1.3 ---
+
+* issue#71: Backported mailer() function uses function only defined in Cacti
+  1.2+
+
 --- 1.1.2 ---
 
 * issue: Errors reported by rrdlist.php when plugin disabled
