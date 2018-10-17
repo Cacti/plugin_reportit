@@ -29,7 +29,7 @@ function plugin_reportit_install() {
 	api_plugin_register_hook('reportit', 'config_arrays',         'reportit_config_arrays',        'setup.php');
 	api_plugin_register_hook('reportit', 'config_settings',       'reportit_config_settings',      'setup.php');
 	api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
-
+	api_plugin_register_hook('reportit', 'clog_regex_array',      'reportit_clog_regex_array',     'setup.php');
 	reportit_system_setup();
 }
 
@@ -667,4 +667,70 @@ function reportit_poller_bottom() {
 			}
 		}
 	}
+}
+
+function reportit_clog_regex_array($regex_array) {
+	$regex_array[] = array('name' => 'RIReport', 'regex' => '( RIReport\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_report');
+	$regex_array[] = array('name' => 'RIDataItem', 'regex' => '( RIDataItem\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_dataitem');
+	return $regex_array;
+}
+
+function reportit_clog_regex_report($matches) {
+	global $config;
+
+	$result = $matches[0];
+
+	$report_ids = explode(',',str_replace(" ","",$matches[2]));
+	if (cacti_sizeof($report_ids)) {
+		$result = '';
+		$reports = db_fetch_assoc_prepared('SELECT id, description
+			FROM plugin_reportit_reports
+			WHERE id in (?)',
+			array(implode(',',$report_ids)));
+
+		$reportDescriptions = array();
+		if (cacti_sizeof($reports)) {
+			foreach ($reports as $report) {
+				$reportDescriptions[$report['id']] = html_escape($report['description']);
+			}
+		}
+
+		foreach ($report_ids as $report_id) {
+			$result .= $matches[1].'<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/reports.php?action=report_edit&id=' . $report_id) . '\'>' . (isset($reportDescriptions[$report_id]) ? $reportDescriptions[$report_id]:$report_id) . '</a>' . $matches[3];
+		}
+	}
+
+	return $result;
+}
+
+function reportit_clog_regex_dataitem($matches) {
+	global $config;
+
+	$result = $matches[0];
+
+	$dataitem_ids = explode(',',str_replace(" ","",$matches[2]));
+	if (cacti_sizeof($dataitem_ids)) {
+		$result = '';
+		$dataitems = db_fetch_assoc_prepared('SELECT a.id, a.report_id, b.name_cache as description
+			FROM plugin_reportit_data_items AS a
+			LEFT JOIN data_template_data AS b
+			ON b.local_data_id = a.id
+			WHERE a.id in (?)',
+			array(implode(',',$dataitem_ids)));
+
+		$dataitemDescriptions = array();
+		$dataitemReports = array();
+		if (cacti_sizeof($dataitems)) {
+			foreach ($dataitems as $dataitem) {
+				$dataitemReports[$dataitem['id']] = $dataitem['report_id'];
+				$dataitemDescriptions[$dataitem['id']] = html_escape($dataitem['description']);
+			}
+		}
+
+		foreach ($dataitem_ids as $dataitem_id) {
+			$result .= $matches[1].'<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/rrdlist.php?action=rrdlist_edit&id=' . $dataitem_id) . '\'>' . (isset($dataitemDescriptions[$dataitem_id]) ? $dataitemDescriptions[$dataitem_id]:$dataitem_id) . '</a>' . $matches[3];
+		}
+	}
+
+	return $result;
 }

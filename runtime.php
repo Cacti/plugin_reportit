@@ -194,23 +194,20 @@ function run_error($code, $RID = 0, $DID = 0, $notice='') {
 	$run_repl_view  = array( $notice, $PATH_RID_VIEW, $PATH_DID_VIEW);
 	$run_repl_fin   = array( $notice, $RID, $DID);
 
-	if($run_scheduled) {
-		$run_logging = str_replace($run_search, $run_repl_log, $runtime_messages[$code]);
-		$run_logging = str_replace($run_search, $run_repl_fin, $run_logging);
+	$run_logging = str_replace($run_search, $run_repl_fin, $runtime_messages[$code]);
 
-		if( (strpos($run_logging, 'ERROR:')!== false & read_config_option('log_verbosity', true)>POLLER_VERBOSITY_NONE) |
-			(strpos($run_logging, 'WARNING:') !== false & read_config_option('log_verbosity', true)>POLLER_VERBOSITY_LOW) |
-			(strpos($run_logging, 'NOTICE:') !== false & read_config_option('log_verbosity', true)>POLLER_VERBOSITY_LOW)
-		   ) {
-			cacti_log($run_logging, false, 'PLUGIN');
-		}
+	$log_level = POLLER_VERBOSITY_NONE;
+	if (strpos($run_logging, 'ERROR:') !== false) {
+		$log_level = POLLER_VERBOSITY_LOW;
+	} elseif (strpos($run_logging, 'WARNING:') !== false) {
+		$log_level = POLLER_VERBOSITY_MEDIUM;
+	} elseif (strpos($run_logging, 'NOTICE:') !== false) {
+		$log_level = POLLER_VERBOSITY_MEDIUM;
+	}
 
-		if($run_verb) {
-			$date     = date("m/d/Y h:i:s A");
-			$output     = "$date - " . str_replace($run_search, $run_repl_fin, $runtime_messages[$code]) . "\n";
-			print $output;
-		}
-	}else {
+	cacti_log($run_logging, $run_verb, 'PLUGIN', $log_level);
+
+	if(!$run_scheduled) {
 		$run_output      = str_replace($run_search, $run_repl_view, $runtime_messages[$code]);
 		$run_output      = str_replace($run_search, $run_repl_fin, $run_output);
 		$run_return[]    = $run_output;
@@ -732,12 +729,9 @@ function runtime($report_id) {
 		}
 
 		/* create and send out an email */
-		if(read_config_option('reportit_email') == 'bad') {
-			echo "Report:\n";
-			var_dump($report_definitions['report']);
+		if(read_config_option('reportit_email') == 'on') {
 			if($report_definitions['report']['auto_email'] == 'on') {
 				$error = send_scheduled_email($report_id);
-				echo "$error = send_scheduled_email($report_id);\n";
 				if($error) {
 					run_error(13, $report_id, 0, "EMAIL: $error");
 				}else {

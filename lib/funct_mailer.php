@@ -1,18 +1,18 @@
 <?php
-/** mailer - function v1_2_0_to send mails to users
- *  @arg $from - single contact (see below)
- *  @arg $to - single or multiple contacts (see below)
- *  @arg $cc - single or multiple contacts (see below)
-either a string of comma delimited email addresses, or an array of addresses in email_address => name format
- *  @arg $bcc - either a string of comma delimited email addresses, or an array of addresses in email_address => name format
- *  @arg $replyto - a string email address, or an array in array(email_address, name format)
- *  @arg $subject - the email subject
- *  @arg $body - the email body, in HTML format.  If content_text is not set, the function v1_2_0_will attempt to extract
- *       from the HTML format.
- *  @arg $body_text - the email body in TEXT format.  If set, it will override the stripping tags method
+/** mailer - function to send mails to users
+ *  @arg $from        - single contact (see below)
+ *  @arg $to          - single or multiple contacts (see below)
+ *  @arg $cc          - none, single or multiple contacts (see below)
+ *  @arg $bcc         - none, single or multiple contacts (see below)
+ *  @arg $replyto     - none, single or multiple contacts (see below)
+ *                      note that this value is used when hitting reply (overriding the default of using from)
+ *  @arg $subject     - the email subject
+ *  @arg $body        - the email body, in HTML format.  If content_text is not set, the function will attempt to extract
+ *                      from the HTML format.
+ *  @arg $body_text   - the email body in TEXT format.  If set, it will override the stripping tags method
  *  @arg $attachments - the emails attachments as an array
- *  @arg $headers - an array of name value pairs representing custom headers.
- *  @arg $html - if set to true, html is the default, otherwise text format will be used
+ *  @arg $headers     - an array of name value pairs representing custom headers.
+ *  @arg $html        - if set to true, html is the default, otherwise text format will be used
  *
  *  For contact parameters, they can accept arrays containing zero or more values in the forms of:
  *      'email@email.com,email2@email.com,email3@email.com'
@@ -20,9 +20,9 @@ either a string of comma delimited email addresses, or an array of addresses in 
  *      array(array('email' => 'email1@email.com', 'name' => 'My email'), array('email' => 'email2@email.com',
  *          'name' => 'Your email'), array('email' => 'email3@email.com', 'name' => 'Whose email'))
  *
- *  The $from and $replyto field will only use the first contact specified.  If no contact is provided for $replyto
+ *  The $from field will only use the first contact specified.  If no contact is provided for $replyto
  *  then $from is used for that too. If $from is empty, it will default to cacti@<server> or if no server name can
- *  be found, it will use cacti@cacit.net
+ *  be found, it will use cacti@cacti.net
  *
  *  The $attachments parameter may either be a single string, or a list of attachments
  *  either as strings or an array.  The array can have the following keys:
@@ -38,12 +38,12 @@ either a string of comma delimited email addresses, or an array of addresses in 
 function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text = '', $attachments = '', $headers = '', $html = true) {
 	global $config;
 
+	include_once($config['include_path'] . '/phpmailer/PHPMailerAutoload.php');
+
 	// Set the to information
 	if (empty($to)) {
 		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.');
 	}
-
-	include_once($config['include_path'] . '/vendor/phpmailer/PHPMailerAutoload.php');
 
 	// Create the PHPMailer instance
 	$mail = new PHPMailer;
@@ -57,7 +57,6 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	}
 
 	$how = read_config_option('settings_how');
-	echo "how = $how\n";
 	if ($how < 0 || $how > 2) {
 		$how = 0;
 	}
@@ -137,7 +136,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 		}
 	}
 
-	$fromText  = add_email_details(array($from), $result, array($mail, 'setFrom'));
+	$fromText  = v1_2_0_add_email_details(array($from), $result, array($mail, 'setFrom'));
 
 	if ($result == false) {
 		cacti_log('ERROR: ' . $mail->ErrorInfo, false, 'MAILER');
@@ -146,7 +145,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 
 	// Convert $to variable to proper array structure
 	$to        = v1_2_0_parse_email_details($to);
-	$toText    = add_email_details($to, $result, array($mail,'addAddress'));
+	$toText    = v1_2_0_add_email_details($to, $result, array($mail,'addAddress'));
 
 	if ($result == false) {
 		cacti_log('ERROR: ' . $mail->ErrorInfo, false, 'MAILER');
@@ -154,7 +153,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	}
 
 	$cc        = v1_2_0_parse_email_details($cc);
-	$ccText    = add_email_details($cc, $result, array($mail,'addCC'));
+	$ccText    = v1_2_0_add_email_details($cc, $result, array($mail,'addCC'));
 
 	if ($result == false) {
 		cacti_log('ERROR: ' . $mail->ErrorInfo, false, 'MAILER');
@@ -162,7 +161,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	}
 
 	$bcc       = v1_2_0_parse_email_details($bcc);
-	$bccText   = add_email_details($bcc, $result, array($mail,'addBCC'));
+	$bccText   = v1_2_0_add_email_details($bcc, $result, array($mail,'addBCC'));
 
 	if ($result == false) {
 		cacti_log('ERROR: ' . $mail->ErrorInfo, false, 'MAILER');
@@ -170,7 +169,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	}
 
 	$replyto   = v1_2_0_parse_email_details($replyto);
-	$replyText = add_email_details($replyto, $result, array($mail,'addReplyTo'));
+	$replyText = v1_2_0_add_email_details($replyto, $result, array($mail,'addReplyTo'));
 
 	if ($result == false) {
 		cacti_log('ERROR: ' . $mail->ErrorInfo, false, 'MAILER');
@@ -206,8 +205,8 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 	$i = 0;
 
 	// Handle Graph Attachments
-	if (!empty($attachments)) {
-		$attachments = array($attachments);
+	if (!empty($attachments) && !is_array($attachments)) {
+		$attachments = array('attachment' => $attachments);
 	}
 
 	if (is_array($attachments) && cacti_sizeof($attachments)) {
@@ -320,7 +319,7 @@ function v1_2_0_add_email_details($emails, &$result, callable $addFunc) {
 			if (!empty($addFunc)) {
 				$result = $addFunc($e['email'], $e['name']);
 			}
-			$arrText[] = create_emailtext($e);
+			$arrText[] = v1_2_0_create_emailtext($e);
 		}
 	}
 	$text = implode(',', $arrText);
@@ -344,7 +343,7 @@ function v1_2_0_parse_email_details($emails, $max_records = 0, $details = array(
 				foreach($emails as $email) {
 					//echo "parse_email_details(): checking '" . trim($email) . "' ... \n";
 					$e = trim($email);
-					$d = split_emaildetail($e);
+					$d = v1_2_0_split_emaildetail($e);
 					$details[] = $d;
 				}
 			} else {

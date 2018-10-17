@@ -328,10 +328,12 @@ function rrdlist_edit() {
 		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_template_data AS b
 		ON b.local_data_id=a.id
-		WHERE a.id = ?
-		AND report_id = ?',
-		array(get_request_var('id'), get_request_var('report_id')));
+		WHERE a.id = ?',
+		array(get_request_var('id')));
 
+	if ($rrdlist_data !== false && sizeof($rrdlist_data)) {
+		set_request_var('report_id', $rrdlist_data['report_id']);
+	}
 	$header_label = __('Data Item [edit: %s]', $rrdlist_data['name_cache'], 'reportit');
 
 	/* start with HTML output */

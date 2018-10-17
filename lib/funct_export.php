@@ -55,17 +55,20 @@ function export_to_CSV(&$data) {
 	$report_measurands = $data['report_measurands'];
 	$report_variables  = $data['report_variables'];
 
+	$csv_column_s = read_config_option('reportit_csv_column_s');
+	$csv_decimal_s = read_config_option('reportit_csv_decimal_s');
+
 	/* load user settings */
 	if ($run_scheduled !== true) {
 		/* request via web */
 		$no_formatting = 0;
-		$c_sep = $csv_c_sep[read_config_option('reportit_csv_column_s')];
-		$d_sep = $csv_d_sep[read_config_option('reportit_csv_decimal_s')];
+		$c_sep = $csv_c_sep[$csv_column_s];
+		$d_sep = $csv_d_sep[$csv_decimal_s];
 	} else {
 		/* request via cli */
 		$no_formatting = $report_data['autoexport_no_formatting'];
-		$c_sep = $csv_c_sep[get_graph_config_option('reportit_csv_column_s', $report_data['user_id'])];
-		$d_sep = $csv_d_sep[get_graph_config_option('reportit_csv_decimal_s', $report_data['user_id'])];
+		$c_sep = $csv_c_sep[$csv_column_s];
+		$d_sep = $csv_d_sep[$csv_decimal_s];
 	}
 	/* plugin version */
 	$info = plugin_reportit_version();

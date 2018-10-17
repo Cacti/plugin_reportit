@@ -1234,29 +1234,47 @@ function send_scheduled_email($report_id){
 	$from[] = read_config_option('settings_from_email');
 	$from[] = read_config_option('settings_from_name');
 
-	$to = array_rekey(db_fetch_assoc_prepared('SELECT email, name
+	$to = db_fetch_assoc_prepared('SELECT email, name
 		FROM plugin_reportit_recipients
 		WHERE report_id = ?',
-		array($report_id)), 'email', 'name');
+		array($report_id));
 
-	/* define additional attachment settings */
-	$filename         = str_replace('<report_id>', $report_id, read_config_option('reportit_exp_filename') . ".$file_type");
-	$export_function  = "export_to_" . $format;
-
-	/* load export data and define the attachment file */
 	$attachment = array();
 	$data = '';
-	if (function_exists($export_function)) {
-		$data = get_prepared_report_data($report_id, 'export');
-		if ($data == '') return('Export failed');
-		$data = $export_function($data);
-		$attachment = array(
-			'attachmet' => $filename,
-			'mime_type' => $mime_type,
-			'inline'    => 'attachment',
-		);
+
+	if ($format != 'None') {
+		/* define additional attachment settings */
+		$filebase         = read_config_option('reportit_exp_filename');
+		if (empty($filebase)) {
+			$filebase = 'report_<report_id>';
+		}
+
+		$dirbase = dirname($filebase);
+		if (empty($dirbase) || $dirbase == '.') {
+			$dirbase = sys_get_temp_dir();
+		}
+
+		$filebase         = $dirbase . '/' . $filebase . ".$file_type";
+		$filename         = str_replace('<report_id>', $report_id, $filebase);
+		$export_function  = "export_to_" . $format;
+
+		echo "Attachment: $filename\n";
+
+		/* load export data and define the attachment file */
+		if (function_exists($export_function)) {
+			$data = get_prepared_report_data($report_id, 'export');
+			if ($data == '') return('Export failed');
+			$data = $export_function($data);
+			$attachment = array(
+				'attachment' => $filename,
+				'mime_type' => $mime_type,
+				'inline'    => 'attachment',
+			);
+			file_put_contents($filename, $data);
+		} else {
+			echo "Missing function '$export_function'\n";
+		}
 	}
-	file_put_contents($filename, $data);
 
 	if (cacti_version_compare(CACTI_VERSION, '1.2.0', '>')) {
 		$mailer_func = "mailer";
@@ -1265,7 +1283,7 @@ function send_scheduled_email($report_id){
 		$mailer_func = "v1_2_0_mailer";
 	}
 
-	return $mailer_func($from, $to, '', '', '', $subject, $body, '', $attachment, '', true);
+	return $mailer_func($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
 }
 
 function xml_to_string($xml_object, $keep_spaces = true) {

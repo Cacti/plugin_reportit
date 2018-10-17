@@ -131,6 +131,19 @@ community.  After that you should open a feature request on
 
 * issue#61: Improve visual layout when viewing report
 
+* issue#64: Running a scheduled report via crontab doesn't work
+
+* issue#66: Fix to issue causing reportit plugin to error / disable
+
+* Feature: Log reporting now utilises CLOG's regex parsing hooks to provide
+  direct links to the report/data item from the CLOG tabs in a similar mode to
+  the base Cacti methods
+
+* Feature: Email format can be set to None, so no attachment but still get
+  notification of report generation.
+
+* Feature: Reintroduced Emailing Functionality
+
 * Feature: Reintroduced Graphs (basic functionality)
 
 * Feature: Reintroduced Subheaders
