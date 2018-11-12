@@ -584,6 +584,12 @@ function reportit_system_setup() {
 	reportit_system_install();
 }
 
+function reportit_define($constant, $value) {
+	if (!defined($constant)) {
+		@define($value, 100+$view);
+	}
+}
+
 function reportit_define_constants(){
 	global $config;
 
@@ -592,22 +598,22 @@ function reportit_define_constants(){
 	$create 		= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%reports.php%'");
 	$administrate 	= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%templates.php%'");
 
-	@define('REPORTIT_USER_VIEWER', 100+$view);
-	@define('REPORTIT_USER_OWNER', 100+$create);
-	@define('REPORTIT_USER_ADMIN', 100+$administrate);
+	reportit_define('REPORTIT_USER_VIEWER', 100+$view);
+	reportit_define('REPORTIT_USER_OWNER', 100+$create);
+	reportit_define('REPORTIT_USER_ADMIN', 100+$administrate);
 
 	/* define ReportIt's base paths */
-	@define('REPORTIT_BASE_PATH', $config['base_path'] . '/plugins/reportit');
+	reportit_define('REPORTIT_BASE_PATH', $config['base_path'] . '/plugins/reportit');
 
-	@define('CACTI_BASE_PATH', $config['base_path']);
-	@define('CACTI_INCLUDE_PATH', CACTI_BASE_PATH . '/include/');
+	reportit_define('CACTI_BASE_PATH', $config['base_path']);
+	reportit_define('CACTI_INCLUDE_PATH', CACTI_BASE_PATH . '/include/');
 
 	/* path where PCLZIP will save temporary files */
-	@define('REPORTIT_TMP_FD', REPORTIT_BASE_PATH . '/tmp/');
+	reportit_define('REPORTIT_TMP_FD', REPORTIT_BASE_PATH . '/tmp/');
 	/* path where archives will be saved per default */
-	@define('REPORTIT_ARC_FD', REPORTIT_BASE_PATH . '/archive/');
+	reportit_define('REPORTIT_ARC_FD', REPORTIT_BASE_PATH . '/archive/');
 	/* path where exports will be saved per default */
-	@define('REPORTIT_EXP_FD', REPORTIT_BASE_PATH . '/exports/');
+	reportit_define('REPORTIT_EXP_FD', REPORTIT_BASE_PATH . '/exports/');
 }
 
 function reportit_poller_bottom() {

@@ -128,6 +128,8 @@ community.  After that you should open a feature request on
 
 * issue#72: Non well formed numeric value issued by pclzip.lib.php
 
+* issue#75: Error 'Constant REPORTIT_BASE_PATH already defined' appears in logs
+
 --- 1.1.2 ---
 
 * issue: Errors reported by rrdlist.php when plugin disabled
