@@ -586,7 +586,7 @@ function reportit_system_setup() {
 
 function reportit_define($constant, $value) {
 	if (!defined($constant)) {
-		@define($value, 100+$view);
+		@define($constant, $value);
 	}
 }
 
