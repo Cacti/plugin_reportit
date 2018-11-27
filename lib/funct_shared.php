@@ -1283,6 +1283,7 @@ function send_scheduled_email($report_id){
 		$mailer_func = "v1_2_0_mailer";
 	}
 
+	debug($mailer_func, '', 'Using mailer');
 	return $mailer_func($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
 }
 
