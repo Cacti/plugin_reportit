@@ -199,11 +199,11 @@ $form_array_email = array(
 		'default' => 'false',
 		'value' => "<div style='line-height: 1.5em;'>
 				<div>
-					<input type='text' id='report_email_address' name='report_email_address' size='60' maxlength='2500' value='- Email address of a recipient (or list of names) -' style='text-align: center' align='top' onfocus=start_input('report_email_address') onblur=leave_input('report_email_address')>
+					<input type='text' id='report_email_address' name='report_email_address' size='60' maxlength='2500' align='top'>
 					<input type='submit' id='add_recipients_x' name='add_recipients_x' value='add' title='Add recipients'>
 				</div>
 				<div>
-					<input type='text' id='report_email_recipient' name='report_email_recipient' size='60' maxlength='2500' value='[OPTIONAL] - Name of a recipient (or list of names) -' style='text-align: center' align='top' onfocus=start_input('report_email_recipient') onblur=leave_input('report_email_recipient')>
+					<input type='text' id='report_email_recipient' name='report_email_recipient' size='60' maxlength='2500' align='top'>
 				</div>
 		</div>",
 	)

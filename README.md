@@ -130,6 +130,8 @@ community.  After that you should open a feature request on
 
 * issue#75: Error 'Constant REPORTIT_BASE_PATH already defined' appears in logs
 
+* issue#79: Issue adding recipient whilst the optional field is empty
+
 --- 1.1.2 ---
 
 * issue: Errors reported by rrdlist.php when plugin disabled

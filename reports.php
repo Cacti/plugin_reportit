@@ -638,23 +638,26 @@ function form_save() {
 					$value = trim($value);
 
 					if (!preg_match("/(^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\\.[a-zA-Z]{2,3}$)/", $value)) {
+						cacti_log('WARNING: Unable to add email address "' . $value . '" to RIReport[' . $id . ']', false, 'REPORTIT');
 						session_custom_error_message('report_email_address', 'Invalid email address');
-					}
-
-					if (array_key_exists($key, $recipients) && $recipients[$key] != '[OPTIONAL] - Name of a recipient (or list of names) -') {
-						$name = db_qstr($recipients[$key]);
 					} else {
-						$name = '';
-					}
+						if (array_key_exists($key, $recipients) && $recipients[$key][1] != '[') {
+							$name = db_qstr($recipients[$key]);
+						} else {
+							$name = '';
+						}
 
-					$values .= "('$id', '$value', $name),";
+						$values .= "('$id', '$value', '$name'),";
+					}
 				}
 
-				$values = substr($values, 0, strlen($values)-1);
+				if (strlen($values)) {
+					$values = substr($values, 0, strlen($values)-1);
 
-				if (!is_error_message()) {
-					$sql = "INSERT INTO plugin_reportit_recipients $columns VALUES $values";
-					db_execute($sql);
+					if (!is_error_message()) {
+						$sql = "INSERT INTO plugin_reportit_recipients $columns VALUES $values";
+						db_execute($sql);
+					}
 				}
 			}
 		}
@@ -1027,35 +1030,15 @@ function report_edit() {
 				$('div[class^="ui-"]').remove();
 				$('#main').html(data);
 				applySkin();
+
+				$('#report_email_address').attr('placeholder','<?php print __('- Email address of a recipient (or list of names) -');?>');
+				$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] - Name of a recipient (or list of names) -');?>');
 			});
 		});
+
+		$('#report_email_address').attr('placeholder','<?php print __('- Email address of a recipient (or list of names) -');?>');
+		$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] - Name of a recipient (or list of names) -');?>');
 	});
-
-	function start_input(name) {
-		if (name == 'report_email_address') {
-			text = '<?php print __('- Email address of a recipient (or list of names) -');?>';
-		} else {
-			text = '<?php print __('[OPTIONAL] - Name of a recipient (or list of names) -');?>';
-		}
-
-		if ($('#'+name).val() == text) {
-			$('#'+name).val('');
-			$('#'+name).css('text-align', 'left');
-		}
-	}
-
-	function leave_input(name) {
-		if (name == 'report_email_address') {
-			text = '<?php print __('- Email address of a recipient (or list of names) -');?>';
-		} else {
-			text = '<?php print __('[OPTIONAL] - Name of a recipient (or list of names) -');?>';
-		}
-
-		if ($('#'+name).val() == '') {
-			$('#'+name).val(test);
-			$('#'+name).css('text-align', 'center');
-		}
-	}
 
 	function dyn_general_tab() {
 		if ($('#report_dynamic').is(':checked')) {
