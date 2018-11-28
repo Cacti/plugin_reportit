@@ -1277,10 +1277,10 @@ function send_scheduled_email($report_id){
 	}
 
 	if (cacti_version_compare(CACTI_VERSION, '1.2.0', '<')) {
-		$mailer_func = "mailer";
-	} else {
 		include_once(__DIR__ . '/funct_mailer.php');
 		$mailer_func = "v1_2_0_mailer";
+	} else {
+		$mailer_func = "mailer";
 	}
 
 	debug($mailer_func, '', 'Using mailer');

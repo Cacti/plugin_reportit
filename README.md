@@ -130,6 +130,8 @@ community.  After that you should open a feature request on
 
 * issue#75: Error 'Constant REPORTIT_BASE_PATH already defined' appears in logs
 
+* issue#77: Wrong mailer() function is used when CACTI_VERSION is below 1.2.0
+
 * issue#79: Issue adding recipient whilst the optional field is empty
 
 --- 1.1.2 ---
