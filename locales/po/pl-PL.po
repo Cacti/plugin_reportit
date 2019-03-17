@@ -1,0 +1,1821 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-01 23:43-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pl-PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../variables.php:187
+#, php-format
+msgid "Variable Configuration [edit: %s]"
+msgstr ""
+
+#: ../variables.php:190
+msgid "Variable Configuration [new]"
+msgstr ""
+
+#: ../rrdlist.php:180
+#, php-format
+msgid "Data Items [Report: %s %s [%d]"
+msgstr ""
+
+#: ../rrdlist.php:184 ../items.php:282 ../view.php:289
+#: ../view.php:1267 ../view.php:1342 ../reports.php:359
+#: ../reports.php:372
+msgid "Description"
+msgstr ""
+
+#: ../rrdlist.php:185
+msgid "Subhead"
+msgstr ""
+
+#: ../rrdlist.php:186
+msgid "Shifttime (from - to)"
+msgstr ""
+
+#: ../rrdlist.php:187
+msgid "Weekdays (from - to)"
+msgstr ""
+
+#: ../rrdlist.php:188 ../rrdlist.php:376
+#: ../lib/const_reports.php:355
+msgid "Time Zone"
+msgstr ""
+
+#: ../rrdlist.php:199 ../rrdlist.php:219
+msgid "RRDs"
+msgstr ""
+
+#: ../rrdlist.php:213 ../templates.php:414 ../items.php:332
+#: ../view.php:211 ../view.php:575 ../view.php:912
+#: ../reports.php:132
+msgid "Search"
+msgstr ""
+
+#: ../rrdlist.php:223 ../templates.php:424 ../templates.php:560
+#: ../items.php:343 ../view.php:230 ../lib/const_variables.php:56
+#: ../reports.php:142
+msgid "Default"
+msgstr ""
+
+#: ../rrdlist.php:234 ../view.php:241 ../view.php:623
+#: ../view.php:948
+msgid "Go"
+msgstr ""
+
+#: ../rrdlist.php:237 ../view.php:244 ../view.php:626
+#: ../view.php:951
+msgid "Clear"
+msgstr ""
+
+#: ../rrdlist.php:286
+msgid "Does not exist anymore"
+msgstr ""
+
+#: ../rrdlist.php:297 ../items.php:295
+msgid "Select"
+msgstr ""
+
+#: ../rrdlist.php:301
+msgid "No data items found"
+msgstr ""
+
+#: ../rrdlist.php:353
+#, php-format
+msgid "Data Object [edit: %s]"
+msgstr ""
+
+#: ../rrdlist.php:360 ../templates.php:778 ../setup.php:427
+#: ../lib/const_reports.php:124 ../lib/const_reports.php:167
+#: ../lib/const_reports.php:306 ../lib/const_reports.php:339
+#: ../lib/const_reports.php:445
+msgid "General"
+msgstr ""
+
+#: ../rrdlist.php:364 ../lib/const_reports.php:343
+msgid "Subhead (optional)"
+msgstr ""
+
+#: ../rrdlist.php:365 ../lib/const_reports.php:344
+msgid ""
+"Define an additional subhead that should be on display under the interface "
+"description.<br> Following variables will be supported (without quotes): '|"
+"t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr ""
+
+#: ../rrdlist.php:377 ../lib/const_reports.php:356
+msgid ""
+"Select the time zone your following shifttime informations will be based on."
+msgstr ""
+
+#: ../rrdlist.php:400 ../lib/const_reports.php:380
+msgid "Working Time"
+msgstr ""
+
+#: ../rrdlist.php:404 ../rrdlist.php:446
+#: ../lib/const_reports.php:392 ../lib/const_reports.php:412
+msgid "From"
+msgstr ""
+
+#: ../rrdlist.php:405 ../lib/const_reports.php:393
+msgid "The startpoint of duration you want to analyse"
+msgstr ""
+
+#: ../rrdlist.php:412 ../rrdlist.php:453
+#: ../lib/const_reports.php:400 ../lib/const_reports.php:420
+msgid "To"
+msgstr ""
+
+#: ../rrdlist.php:413 ../lib/const_reports.php:401
+msgid "The end of analysing time."
+msgstr ""
+
+#: ../rrdlist.php:442 ../lib/const_reports.php:408
+msgid "Working Days"
+msgstr ""
+
+#: ../rrdlist.php:447 ../lib/const_reports.php:413
+msgid "Define the band of days where shift STARTS!"
+msgstr ""
+
+#: ../rrdlist.php:454 ../lib/const_reports.php:422
+msgid ""
+"Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to "
+"Friday"
+msgstr ""
+
+#: ../rrdlist.php:556
+msgid "Click 'Continue' to Remove the following Data Items."
+msgstr ""
+
+#: ../rrdlist.php:559
+msgid "List of selected data items:"
+msgstr ""
+
+#: ../rrdlist.php:562
+#, php-format
+msgid "&#160 |_Data Item : %s<br>"
+msgstr ""
+
+#: ../rrdlist.php:582
+msgid "Click 'Continue' to Copy the Settings to the other Data Items"
+msgstr ""
+
+#: ../rrdlist.php:584
+msgid "Selected data item as reference:"
+msgstr ""
+
+#: ../rrdlist.php:586
+msgid "Time Zone:"
+msgstr ""
+
+#: ../rrdlist.php:587
+msgid "Weekdays:"
+msgstr ""
+
+#: ../rrdlist.php:588
+msgid "Shifttime:"
+msgstr ""
+
+#: ../rrdlist.php:595
+msgid "You must select at least one Report."
+msgstr ""
+
+#: ../rrdlist.php:597 ../rrdlist.php:599 ../templates.php:93
+#: ../templates.php:95 ../templates.php:1056 ../templates.php:1058
+#: ../templates.php:1060 ../reports.php:89 ../reports.php:91
+#: ../reports.php:1299 ../reports.php:1301
+msgid "Cancel"
+msgstr ""
+
+#: ../rrdlist.php:600 ../templates.php:95 ../templates.php:1058
+#: ../templates.php:1060 ../reports.php:91 ../reports.php:1301
+msgid "Continue"
+msgstr ""
+
+#: ../templates.php:95
+msgid "Create a new report template"
+msgstr ""
+
+#: ../templates.php:98
+msgid ""
+"Choose a data template this report template should depend on.<br>Unused data "
+"templates are hidden."
+msgstr ""
+
+#: ../templates.php:123
+msgid "Export Report Template"
+msgstr ""
+
+#: ../templates.php:406 ../setup.php:209
+msgid "Report Templates"
+msgstr ""
+
+#: ../templates.php:420 ../templates.php:564 ../setup.php:378
+msgid "Templates"
+msgstr ""
+
+#: ../templates.php:556 ../templates.php:782
+#: ../lib/const_variables.php:52 ../lib/const_reports.php:449
+msgid "Name"
+msgstr ""
+
+#: ../templates.php:557 ../lib/const_variables.php:53
+msgid "Internal Name"
+msgstr ""
+
+#: ../templates.php:558 ../lib/const_view.php:101
+#: ../lib/const_variables.php:54
+msgid "Maximum"
+msgstr ""
+
+#: ../templates.php:559 ../lib/const_view.php:100
+#: ../lib/const_variables.php:55
+msgid "Minimum"
+msgstr ""
+
+#: ../templates.php:561 ../lib/const_variables.php:57
+msgid "Input Type"
+msgstr ""
+
+#: ../templates.php:583
+msgid "Data template not available"
+msgstr ""
+
+#: ../templates.php:605
+msgid "No templates"
+msgstr ""
+
+#: ../templates.php:750
+#, php-format
+msgid "Template Configuration [edit: %s]"
+msgstr ""
+
+#: ../templates.php:752
+msgid "Template Configuration [new]"
+msgstr ""
+
+#: ../templates.php:785
+msgid "The unique name given to this report template."
+msgstr ""
+
+#: ../templates.php:789
+msgid "Locked"
+msgstr ""
+
+#: ../templates.php:792
+msgid ""
+"Define this template as locked (default), so that power users <br> can't use "
+"it until you have checked its functionality. During that time they are<br> "
+"also not allowed to modify or run reports based on this template."
+msgstr ""
+
+#: ../templates.php:796
+msgid "Additional Pre-filter"
+msgstr ""
+
+#: ../templates.php:799
+msgid ""
+"Optional: The syntax to filter the available list of data items<br> by their "
+"description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr ""
+
+#: ../templates.php:807 ../setup.php:558
+msgid "Export Path"
+msgstr ""
+
+#: ../templates.php:808
+msgid ""
+"Optional: The path to an folder for saving the exports.  If it does not "
+"exist ReportIT automatically tries to create it during the first scheduled "
+"calculation, else it will try to create a new subfolder within the main "
+"export folder using the template id."
+msgstr ""
+
+#: ../templates.php:820 ../templates.php:824
+msgid "Data Template"
+msgstr ""
+
+#: ../templates.php:827
+msgid "The name of the data template this report template depends on."
+msgstr ""
+
+#: ../templates.php:842
+msgid "Create a new variable"
+msgstr ""
+
+#: ../templates.php:846
+msgid "Create a new measurand"
+msgstr ""
+
+#: ../templates.php:1006
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr ""
+
+#: ../templates.php:1009
+msgid "WARNING:"
+msgstr ""
+
+#: ../templates.php:1009
+msgid "Every report that belongs to these templates will be deleted too!"
+msgstr ""
+
+#: ../templates.php:1016
+#, php-format
+msgid "&#160 |_Report: %s<br>"
+msgstr ""
+
+#: ../templates.php:1019
+msgid "&#160 |_Report: <i>none</i><br>"
+msgstr ""
+
+#: ../templates.php:1030
+msgid ""
+"Click 'Continue' to Duplicate the following Report Templates.  You can "
+"optionally change the Title for the new Report Templates."
+msgstr ""
+
+#: ../templates.php:1033
+msgid "List of selected templates:"
+msgstr ""
+
+#: ../templates.php:1036
+#, php-format
+msgid "&#160 |_Template : %s<br>"
+msgstr ""
+
+#: ../templates.php:1040
+msgid "Title:"
+msgstr ""
+
+#: ../templates.php:1042
+msgid "<template_title> (1)"
+msgstr ""
+
+#: ../templates.php:1052
+msgid "You must select at least one report template."
+msgstr ""
+
+#: ../templates.php:1058
+msgid "Delete Report Templates"
+msgstr ""
+
+#: ../templates.php:1060
+msgid "Duplicate Report Templates"
+msgstr ""
+
+#: ../items.php:256 ../view.php:645
+msgid "Items"
+msgstr ""
+
+#: ../items.php:258
+#, php-format
+msgid ""
+"Data Objects [add to report: <a style=\"color:yellow\" href=\"reports.php?"
+"action=report_edit&id=%d\">%s</a>]"
+msgstr ""
+
+#: ../items.php:267 ../items.php:273 ../lib/const_view.php:97
+#: ../lib/const_reports.php:159 ../lib/const_measurands.php:96
+msgid "None"
+msgstr ""
+
+#: ../items.php:301 ../view.php:817
+msgid "No data items"
+msgstr ""
+
+#: ../items.php:339 ../view.php:199 ../view.php:226
+#: ../view.php:559 ../setup.php:143 ../setup.php:377 ../setup.php:423
+#: ../reports.php:138 ../reports.php:351
+msgid "Reports"
+msgstr ""
+
+#: ../view.php:202
+#, php-format
+msgid "Reports [%s]"
+msgstr ""
+
+#: ../view.php:217 ../view.php:964
+msgid "Type"
+msgstr ""
+
+#: ../view.php:221 ../setup.php:323
+msgid "Public Reports"
+msgstr ""
+
+#: ../view.php:222
+msgid "My Reports"
+msgstr ""
+
+#: ../view.php:290 ../view.php:477 ../lib/funct_export.php:79
+#: ../lib/funct_export.php:444 ../reports.php:360
+msgid "Owner"
+msgstr ""
+
+#: ../view.php:291 ../lib/funct_export.php:80
+#: ../lib/funct_export.php:445 ../lib/const_reports.php:456
+#: ../reports.php:361 ../reports.php:373
+msgid "Template"
+msgstr ""
+
+#: ../view.php:292 ../reports.php:362 ../reports.php:374
+#, php-format
+msgid "Period %s from - to"
+msgstr ""
+
+#: ../view.php:293
+#, php-format
+msgid "Last run %s / Runtime [s]"
+msgstr ""
+
+#: ../view.php:319 ../view.php:1384
+msgid "No Reports Found"
+msgstr ""
+
+#: ../view.php:474
+msgid "Title"
+msgstr ""
+
+#: ../view.php:475
+msgid "Runtime"
+msgstr ""
+
+#: ../view.php:478 ../lib/const_reports.php:475
+msgid "Sliding Time Frame"
+msgstr ""
+
+#: ../view.php:480 ../lib/funct_export.php:83
+#: ../lib/funct_export.php:448
+msgid "Last Run"
+msgstr ""
+
+#: ../view.php:481
+msgid "Scheduler"
+msgstr ""
+
+#: ../view.php:483
+msgid "Period"
+msgstr ""
+
+#: ../view.php:484
+msgid "Auto Generated RRD list"
+msgstr ""
+
+#: ../view.php:581 ../view.php:918
+msgid "Data Source"
+msgstr ""
+
+#: ../view.php:585 ../view.php:600 ../view.php:922 ../view.php:937
+#: ../lib/const_view.php:89 ../lib/const_view.php:98
+msgid "Any"
+msgstr ""
+
+#: ../view.php:596 ../view.php:933
+msgid "Measurand"
+msgstr ""
+
+#: ../view.php:614
+msgid "Show Subheads"
+msgstr ""
+
+#: ../view.php:620 ../view.php:957
+msgid "Summary"
+msgstr ""
+
+#: ../view.php:633
+msgid "Additional"
+msgstr ""
+
+#: ../view.php:658 ../view.php:989
+msgid "Archive"
+msgstr ""
+
+#: ../view.php:662 ../view.php:993
+msgid "Current"
+msgstr ""
+
+#: ../view.php:754
+msgid "Data Description"
+msgstr ""
+
+#: ../view.php:976
+msgid "Graphs"
+msgstr ""
+
+#: ../view.php:1221
+msgid "Data Source:"
+msgstr ""
+
+#: ../view.php:1266
+msgid "Pos."
+msgstr ""
+
+#: ../view.php:1268
+#, php-format
+msgid "Results [%s]"
+msgstr ""
+
+#: ../view.php:1333
+msgid "Choose a template your report should depends on."
+msgstr ""
+
+#: ../view.php:1334
+msgid "Available report templates"
+msgstr ""
+
+#: ../view.php:1343
+msgid "Instances: available"
+msgstr ""
+
+#: ../view.php:1344
+msgid "Instances: selected"
+msgstr ""
+
+#: ../setup.php:149 ../setup.php:161 ../setup.php:179 ../setup.php:185
+#: ../setup.php:203 ../setup.php:215 ../setup.php:221 ../setup.php:275
+#: ../setup.php:281 ../setup.php:299 ../setup.php:305
+msgid "(Edit)"
+msgstr ""
+
+#: ../setup.php:155 ../setup.php:197 ../setup.php:227
+#: ../lib/const_rrdlist.php:33
+msgid "Add"
+msgstr ""
+
+#: ../setup.php:167 ../setup.php:191 ../setup.php:263 ../setup.php:287
+#: ../setup.php:311
+msgid "Actions"
+msgstr ""
+
+#: ../setup.php:173 ../reports.php:366
+msgid "Data Items"
+msgstr ""
+
+#: ../setup.php:233 ../setup.php:239
+msgid "Import"
+msgstr ""
+
+#: ../setup.php:245 ../setup.php:251 ../setup.php:257
+msgid "Export"
+msgstr ""
+
+#: ../setup.php:269
+msgid "Measurands"
+msgstr ""
+
+#: ../setup.php:293 ../lib/const_measurands.php:73
+msgid "Variables"
+msgstr ""
+
+#: ../setup.php:317
+msgid "Report Calculation"
+msgstr ""
+
+#: ../setup.php:329 ../setup.php:341
+msgid "Show Report"
+msgstr ""
+
+#: ../setup.php:335
+msgid "Export Report"
+msgstr ""
+
+#: ../setup.php:347
+msgid "Public Report Charts"
+msgstr ""
+
+#: ../setup.php:353
+msgid "Bar Chart"
+msgstr ""
+
+#: ../setup.php:359
+msgid "Pie Chart"
+msgstr ""
+
+#: ../setup.php:371
+msgid "View Reports"
+msgstr ""
+
+#: ../setup.php:372
+msgid "Create Reports"
+msgstr ""
+
+#: ../setup.php:373
+msgid "Administrate Reports"
+msgstr ""
+
+#: ../setup.php:377
+msgid "Management"
+msgstr ""
+
+#: ../setup.php:378
+msgid "Report"
+msgstr ""
+
+#: ../setup.php:388
+msgid "local"
+msgstr ""
+
+#: ../setup.php:388
+msgid "global"
+msgstr ""
+
+#: ../setup.php:393
+msgid "PHP BINDINGS (FAST)"
+msgstr ""
+
+#: ../setup.php:394
+msgid "RRDTOOL CACTI (SLOW)"
+msgstr ""
+
+#: ../setup.php:395
+msgid "RRDTOOL SERVER (SLOW)"
+msgstr ""
+
+#: ../setup.php:399
+msgid "LOW"
+msgstr ""
+
+#: ../setup.php:400
+msgid "MEDIUM"
+msgstr ""
+
+#: ../setup.php:401
+msgid "HIGH"
+msgstr ""
+
+#: ../setup.php:402
+msgid "ULTIMATE"
+msgstr ""
+
+#: ../setup.php:406
+msgid "Power User (Report Owner)"
+msgstr ""
+
+#: ../setup.php:407
+msgid "Super User (Report Admin)"
+msgstr ""
+
+#: ../setup.php:411 ../lib/const_graphs.php:62
+msgid "Bar (vertical)"
+msgstr ""
+
+#: ../setup.php:412 ../lib/const_graphs.php:68
+msgid "Bar (horizontal)"
+msgstr ""
+
+#: ../setup.php:413 ../lib/const_graphs.php:74
+msgid "Line"
+msgstr ""
+
+#: ../setup.php:414 ../lib/const_graphs.php:80
+msgid "Area"
+msgstr ""
+
+#: ../setup.php:415
+msgid "Pie"
+msgstr ""
+
+#: ../setup.php:416 ../lib/const_view.php:74
+#: ../lib/const_graphs.php:91
+msgid "Spider"
+msgstr ""
+
+#: ../setup.php:431
+msgid "Maximum Execution Time (in seconds)"
+msgstr ""
+
+#: ../setup.php:432
+msgid "Optional: Maximum execution time of one calculation."
+msgstr ""
+
+#: ../setup.php:438
+msgid "Maximum Record Count Change"
+msgstr ""
+
+#: ../setup.php:439
+msgid ""
+"Optional (Auto-Generate RRD List): Do not change RRD List of any Report if "
+"Record Count Change is greater than this Number This is to avoid unwanted "
+"and disastrous changes on RRD Lists"
+msgstr ""
+
+#: ../setup.php:445
+msgid "Time Zones"
+msgstr ""
+
+#: ../setup.php:446
+msgid ""
+"Enable/disable the use of time zones for data item's configuration and "
+"report calculation.  In the former case server time has to be set up to GMT/"
+"UTC!"
+msgstr ""
+
+#: ../setup.php:451
+msgid "Show Local Time Zone"
+msgstr ""
+
+#: ../setup.php:452
+msgid "Enable/disable to display server's timezone on the headlines."
+msgstr ""
+
+#: ../setup.php:457
+msgid "SI-Prefixes"
+msgstr ""
+
+#: ../setup.php:458
+msgid ""
+"Enable/disable the use of correct SI-Prefixes for binary multiples under the "
+"terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www."
+"iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr ""
+
+#: ../setup.php:463
+msgid "Operator for Scheduled Reporting"
+msgstr ""
+
+#: ../setup.php:464
+msgid ""
+"Choose the level which is necessary to configure all options of scheduled "
+"reporting in a report configuration."
+msgstr ""
+
+#: ../setup.php:470
+msgid "RRDtool"
+msgstr ""
+
+#: ../setup.php:474
+msgid "RRDtool Connection"
+msgstr ""
+
+#: ../setup.php:475
+msgid "Choose the way to connect to RRDtool."
+msgstr ""
+
+#: ../setup.php:481
+msgid "RRDtool Server IP"
+msgstr ""
+
+#: ../setup.php:482
+msgid "Optional: Configured IP address of the RRDtool server."
+msgstr ""
+
+#: ../setup.php:488
+msgid "RRDtool Server Port"
+msgstr ""
+
+#: ../setup.php:489
+msgid "Optional: Configured port setting of RRDtool server."
+msgstr ""
+
+#: ../setup.php:495
+msgid "Export Settings"
+msgstr ""
+
+#: ../setup.php:499
+msgid "Filename Format"
+msgstr ""
+
+#: ../setup.php:500
+msgid "The name format for the export files created on demand."
+msgstr ""
+
+#: ../setup.php:506
+msgid "Export Header"
+msgstr ""
+
+#: ../setup.php:507
+msgid "The header description for export files"
+msgstr ""
+
+#: ../setup.php:514
+msgid "Auto Archiving"
+msgstr ""
+
+#: ../setup.php:518 ../setup.php:552 ../setup.php:569
+msgid "Enabled"
+msgstr ""
+
+#: ../setup.php:519
+msgid ""
+"If enabled the result of every scheduled report will be archived "
+"automatically"
+msgstr ""
+
+#: ../setup.php:524
+msgid "Cache Life Cyle (in seconds)"
+msgstr ""
+
+#: ../setup.php:525
+msgid "Number of seconds an archived report will be cached without any hit."
+msgstr ""
+
+#: ../setup.php:531
+msgid "Archive Path"
+msgstr ""
+
+#: ../setup.php:532
+msgid ""
+"Optional: The path to an archive folder for saving. If not defined subfolder "
+"'archive' will be used."
+msgstr ""
+
+#: ../setup.php:538
+msgid "Auto E-Mailing"
+msgstr ""
+
+#: ../setup.php:542 ../lib/const_reports.php:235
+msgid "Enable"
+msgstr ""
+
+#: ../setup.php:543
+msgid ""
+"If enabled scheduled reports can be emailed automatically to a list of "
+"recipients.<br> This feature requires a configured version of the 'Settings "
+"Plugin'."
+msgstr ""
+
+#: ../setup.php:548
+msgid "Auto Exporting"
+msgstr ""
+
+#: ../setup.php:553
+msgid ""
+"If enabled scheduled reports can be exported automatically to a specified "
+"folder.<br> Therefore a full structured path architecture will be used:<br> "
+"Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> "
+"Report"
+msgstr ""
+
+#: ../setup.php:559
+msgid ""
+"Optional: The main path to an export folder for saving the exports. If not "
+"defined subfolder 'exports' will be used."
+msgstr ""
+
+#: ../setup.php:565
+msgid "Graph Settings"
+msgstr ""
+
+#: ../setup.php:570
+msgid "Enable/disable graph functionality"
+msgstr ""
+
+#: ../setup.php:575
+msgid "Maximum Graph Height"
+msgstr ""
+
+#: ../setup.php:576
+msgid ""
+"The maximum height of ReportIT graphs in pixels.<br> Warning! GD functions "
+"are very memory intensive. Be sure to set 'memory_limit' high enough."
+msgstr ""
+
+#: ../setup.php:582
+msgid "Maximum Graph Width"
+msgstr ""
+
+#: ../setup.php:583
+msgid ""
+"The maximum width of ReportIT graphs in pixels.<br> Warning! GD functions "
+"are very memory intensive. Be sure to set 'memory_limit' high enough."
+msgstr ""
+
+#: ../setup.php:589
+msgid "Quality Level"
+msgstr ""
+
+#: ../setup.php:590
+msgid ""
+"Choose the level of quality.<br> Warning! A higher quality setting has a "
+"lower calculation speed and requires more memory."
+msgstr ""
+
+#: ../setup.php:596
+msgid "Monospace Fonts"
+msgstr ""
+
+#: ../setup.php:597
+msgid ""
+"It's recommend to use monospace fonts like Lucida, Courier, Vera or DejaVu "
+"instead of the other types."
+msgstr ""
+
+#: ../setup.php:602
+msgid "Title Font File"
+msgstr ""
+
+#: ../setup.php:603
+msgid "Define font file to use for graph titles"
+msgstr ""
+
+#: ../setup.php:609
+msgid "Axis Font File"
+msgstr ""
+
+#: ../setup.php:610
+msgid "Define font file to use for graph axis"
+msgstr ""
+
+#: ../setup.php:625
+msgid "ReportIT General Settings"
+msgstr ""
+
+#: ../setup.php:628
+msgid "Separate Report View Filter"
+msgstr ""
+
+#: ../setup.php:629
+msgid "Enable/disable the use of an individual filter per report."
+msgstr ""
+
+#: ../setup.php:634
+msgid "Rows Per Page"
+msgstr ""
+
+#: ../setup.php:635
+msgid "The number of rows to display on a single page."
+msgstr ""
+
+#: ../setup.php:641
+msgid "ReportIT Export Settings"
+msgstr ""
+
+#: ../setup.php:645
+msgid "CSV Column Separator"
+msgstr ""
+
+#: ../setup.php:646
+msgid "The column seperator to be used for CSV exports."
+msgstr ""
+
+#: ../setup.php:652
+msgid "CSV Decimal Separator"
+msgstr ""
+
+#: ../setup.php:653
+msgid ""
+"The symbol indicating the end of the integer part and the beginning of the "
+"fractional part."
+msgstr ""
+
+#: ../setup.php:659
+msgid "ReportIT Graph Settings"
+msgstr ""
+
+#: ../setup.php:663
+msgid "Default Chart"
+msgstr ""
+
+#: ../setup.php:664
+msgid "Define your default chart that should be shown first"
+msgstr ""
+
+#: ../setup.php:670
+msgid "Graph Height"
+msgstr ""
+
+#: ../setup.php:671
+msgid "The height of ReportIT graphs in pixel."
+msgstr ""
+
+#: ../setup.php:677
+msgid "Graph Width"
+msgstr ""
+
+#: ../setup.php:678
+msgid "The width of ReportIT graphs in pixel."
+msgstr ""
+
+#: ../setup.php:684
+msgid "Show Graph Grid"
+msgstr ""
+
+#: ../setup.php:685
+msgid "Enable/disable Graph Grid for ReportIT Graphs."
+msgstr ""
+
+#: ../lib/const_view.php:37 ../lib/const_reports.php:160
+msgid "Text CSV (.csv)"
+msgstr ""
+
+#: ../lib/const_view.php:38 ../lib/const_reports.php:162
+msgid "Raw XML (.xml)"
+msgstr ""
+
+#: ../lib/const_view.php:39 ../lib/const_reports.php:161
+msgid "MS Excel 2003 XML (.xml)"
+msgstr ""
+
+#: ../lib/const_view.php:69
+msgid "Bar chart: vertical"
+msgstr ""
+
+#: ../lib/const_view.php:70
+msgid "Bar chart: horizontal"
+msgstr ""
+
+#: ../lib/const_view.php:71
+msgid "Line chart"
+msgstr ""
+
+#: ../lib/const_view.php:72
+msgid "Area chart"
+msgstr ""
+
+#: ../lib/const_view.php:73
+msgid "Pie chart: 3D"
+msgstr ""
+
+#: ../lib/const_view.php:78 ../lib/const_view.php:79
+#: ../lib/const_view.php:80 ../lib/const_view.php:81
+#, php-format
+msgid "%s Hi"
+msgstr ""
+
+#: ../lib/const_view.php:82 ../lib/const_view.php:83
+#: ../lib/const_view.php:84 ../lib/const_view.php:85
+#, php-format
+msgid "%s Lo"
+msgstr ""
+
+#: ../lib/const_view.php:99
+msgid "Sum"
+msgstr ""
+
+#: ../lib/const_view.php:102
+msgid "Average"
+msgstr ""
+
+#: ../lib/funct_shared.php:36
+msgid "Unknown Owner"
+msgstr ""
+
+#: ../lib/const_graphs.php:87
+msgid "Pie chart 3D"
+msgstr ""
+
+#: ../lib/const_variables.php:29 ../lib/const_rrdlist.php:28
+#: ../lib/const_reports.php:30 ../measurands.php:36
+msgid "Delete"
+msgstr ""
+
+#: ../lib/const_variables.php:33
+msgid "Dropdown"
+msgstr ""
+
+#: ../lib/const_variables.php:34
+msgid "Input field"
+msgstr ""
+
+#: ../lib/funct_export.php:78 ../lib/funct_export.php:443
+msgid "Report title"
+msgstr ""
+
+#: ../lib/funct_export.php:81 ../lib/funct_export.php:446
+msgid "Start"
+msgstr ""
+
+#: ../lib/funct_export.php:82 ../lib/funct_export.php:447
+msgid "End"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:29
+msgid "Copy settings to all"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:54 ../lib/const_reports.php:69
+#: ../lib/funct_runtime.php:178
+msgid "Monday"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:55 ../lib/const_reports.php:70
+#: ../lib/funct_runtime.php:180
+msgid "Tuesday"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:56 ../lib/const_reports.php:71
+#: ../lib/funct_runtime.php:182
+msgid "Wednesday"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:57 ../lib/const_reports.php:72
+#: ../lib/funct_runtime.php:184
+msgid "Thursday"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:58 ../lib/const_reports.php:73
+#: ../lib/funct_runtime.php:186
+msgid "Friday"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:59 ../lib/const_reports.php:74
+#: ../lib/funct_runtime.php:188
+msgid "Saturday"
+msgstr ""
+
+#: ../lib/const_rrdlist.php:60 ../lib/const_reports.php:75
+#: ../lib/funct_runtime.php:190
+msgid "Sunday"
+msgstr ""
+
+#: ../lib/funct_validate.php:227 ../lib/funct_validate.php:230
+msgid "The file is to big."
+msgstr ""
+
+#: ../lib/funct_validate.php:233
+msgid "Incomplete file transfer."
+msgstr ""
+
+#: ../lib/funct_validate.php:236 ../lib/funct_validate.php:262
+msgid "No file uploaded."
+msgstr ""
+
+#: ../lib/funct_validate.php:239
+msgid "Temporary folder missing."
+msgstr ""
+
+#: ../lib/funct_validate.php:242
+msgid "Failed to write file to disk"
+msgstr ""
+
+#: ../lib/funct_validate.php:245
+msgid "File upload stopped by extension"
+msgstr ""
+
+#: ../lib/funct_validate.php:256
+msgid "Invalid file extension."
+msgstr ""
+
+#: ../lib/funct_validate.php:273
+msgid "Unable to parse template file."
+msgstr ""
+
+#: ../lib/funct_validate.php:314
+msgid "Checksum error."
+msgstr ""
+
+#: ../lib/const_reports.php:29
+msgid "Run Report"
+msgstr ""
+
+#: ../lib/const_reports.php:31
+msgid "Duplicate"
+msgstr ""
+
+#: ../lib/const_reports.php:81
+msgid "Today"
+msgstr ""
+
+#: ../lib/const_reports.php:82
+msgid "Last 1 Day"
+msgstr ""
+
+#: ../lib/const_reports.php:83
+msgid "Last 2 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:84
+msgid "Last 3 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:85
+msgid "Last 4 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:86
+msgid "Last 5 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:87
+msgid "Last 6 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:88
+msgid "Last 7 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:89
+msgid "Last Week (Sun - Sat)"
+msgstr ""
+
+#: ../lib/const_reports.php:90
+msgid "Last Week (Mon - Sun)"
+msgstr ""
+
+#: ../lib/const_reports.php:91
+msgid "Last 14 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:92
+msgid "Last 21 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:93
+msgid "Last 28 Days"
+msgstr ""
+
+#: ../lib/const_reports.php:94
+msgid "Current Month"
+msgstr ""
+
+#: ../lib/const_reports.php:95
+msgid "Last Month"
+msgstr ""
+
+#: ../lib/const_reports.php:96
+msgid "Last 2 Months"
+msgstr ""
+
+#: ../lib/const_reports.php:97
+msgid "Last 3 Months"
+msgstr ""
+
+#: ../lib/const_reports.php:98
+msgid "Last 4 Months"
+msgstr ""
+
+#: ../lib/const_reports.php:99
+msgid "Last 5 Months"
+msgstr ""
+
+#: ../lib/const_reports.php:100
+msgid "Last 6 Months"
+msgstr ""
+
+#: ../lib/const_reports.php:101
+msgid "Current Year"
+msgstr ""
+
+#: ../lib/const_reports.php:102
+msgid "Last Year"
+msgstr ""
+
+#: ../lib/const_reports.php:103
+msgid "Last 2 Years"
+msgstr ""
+
+#: ../lib/const_reports.php:125
+msgid "Data Item Presets"
+msgstr ""
+
+#: ../lib/const_reports.php:126
+msgid "Email"
+msgstr ""
+
+#: ../lib/const_reports.php:127
+msgid "Administration"
+msgstr ""
+
+#: ../lib/const_reports.php:179
+msgid "Subject"
+msgstr ""
+
+#: ../lib/const_reports.php:180
+msgid ""
+"Enter the subject of your email.<br> Following variables will be supported "
+"(without quotes): '|title|' and '|period|'"
+msgstr ""
+
+#: ../lib/const_reports.php:184
+msgid "Scheduled report - |title| - |period|"
+msgstr ""
+
+#: ../lib/const_reports.php:188
+msgid "Body (optional)"
+msgstr ""
+
+#: ../lib/const_reports.php:189
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr ""
+
+#: ../lib/const_reports.php:193
+msgid "This is a scheduled report generated from Cacti."
+msgstr ""
+
+#: ../lib/const_reports.php:197
+msgid "Attachment"
+msgstr ""
+
+#: ../lib/const_reports.php:199
+msgid ""
+"Only to receive an email as a notification that a new report is available "
+"choose 'None'.<br> Otherwise select the format the report should be attached "
+"as."
+msgstr ""
+
+#: ../lib/const_reports.php:205
+msgid "Email Recipients"
+msgstr ""
+
+#: ../lib/const_reports.php:209
+msgid "New Email Recipients"
+msgstr ""
+
+#: ../lib/const_reports.php:210
+msgid ""
+"To add a new recipient enter a valid email address (required) and a name "
+"(optional).<br> For a faster setup use a list of adresses/names where the "
+"names/addresses are separated with one of the following delemiters: ';' or "
+"','"
+msgstr ""
+
+#: ../lib/const_reports.php:231
+msgid "Scheduled Reporting"
+msgstr ""
+
+#: ../lib/const_reports.php:236
+msgid ""
+"Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr ""
+
+#: ../lib/const_reports.php:242
+msgid "Frequency"
+msgstr ""
+
+#: ../lib/const_reports.php:243
+msgid ""
+"Select the frequency for processing this report. Be sure that there's a "
+"cronjob (or scheduled task) running for the choice you made. This won't be "
+"done automatically by ReportIT."
+msgstr ""
+
+#: ../lib/const_reports.php:249
+msgid "Auto Generated Data Items"
+msgstr ""
+
+#: ../lib/const_reports.php:250
+msgid ""
+"Enable/disable automatic creation of all data items based on given filters."
+"This will be called before report execution.  Obsolete RRDs will be deleted "
+"and all RRDs matching the filter settings will be added."
+msgstr ""
+
+#: ../lib/const_reports.php:259
+msgid "Auto Generated Archive"
+msgstr ""
+
+#: ../lib/const_reports.php:260
+msgid ""
+"Define the maximum number of instances which should be archived before the "
+"first one will be overwritten.  Choose \"off\" if you want to deactivate "
+"that RoundRobbin principle (default, but not recommend).  If you define a "
+"lower value of instances than the current archive contains then it will get "
+"shrinked automatically within the next run."
+msgstr ""
+
+#: ../lib/const_reports.php:270
+msgid "Auto Generated Email"
+msgstr ""
+
+#: ../lib/const_reports.php:271
+msgid ""
+"If enabled tab 'Email' will be activated and all recipients defined under "
+"that section will receive automatically an email containing this scheduled "
+"report."
+msgstr ""
+
+#: ../lib/const_reports.php:280
+msgid "Auto Generated Export"
+msgstr ""
+
+#: ../lib/const_reports.php:281
+msgid ""
+"If enabled the report will be automatically exported to a separate "
+"subfolder.  This will be placed within the export folder defined in the "
+"report template."
+msgstr ""
+
+#: ../lib/const_reports.php:288
+msgid "Export Limitation"
+msgstr ""
+
+#: ../lib/const_reports.php:289
+msgid ""
+"Define the maximum number of instances which should be archived before the "
+"first one will be overwritten.  Choose 'off' if you want to deactivate that "
+"RoundRobbin principle (default, but not recommend).  If you define a lower "
+"value of instances than the current export folder contains then it will get "
+"shrinked automatically within the next run."
+msgstr ""
+
+#: ../lib/const_reports.php:296
+msgid "Raw Data Export"
+msgstr ""
+
+#: ../lib/const_reports.php:297
+msgid ""
+"If enabled auto generated exports will contain raw data only. The formatting "
+"of measurands will be ignored."
+msgstr ""
+
+#: ../lib/const_reports.php:318
+msgid "Change Report Owner"
+msgstr ""
+
+#: ../lib/const_reports.php:319
+msgid ""
+"Change the owner of this report. Only users with a minimum of reporting "
+"rights ('View' or higher) can be selected."
+msgstr ""
+
+#: ../lib/const_reports.php:325
+msgid "Enable Use of Graph Permissions"
+msgstr ""
+
+#: ../lib/const_reports.php:326
+msgid ""
+"If enabled (default) the list of available data items will be filtered "
+"automatically by owner's graph permission: 'by device'."
+msgstr ""
+
+#: ../lib/const_reports.php:365
+msgid "Host Template Filter (optional)"
+msgstr ""
+
+#: ../lib/const_reports.php:366
+msgid ""
+"Use those data items only, which belong to hosts of this host template."
+"<br>Select 'None' (default) to deactivate this filter setting."
+msgstr ""
+
+#: ../lib/const_reports.php:373
+msgid "Data Items Filter (optional)"
+msgstr ""
+
+#: ../lib/const_reports.php:374
+msgid ""
+"Allows additional filtering on the data items descriptions.<br> Use SQL "
+"wildcards like % and/or _. No regular Expressions!"
+msgstr ""
+
+#: ../lib/const_reports.php:450
+msgid "The name given to this report"
+msgstr ""
+
+#: ../lib/const_reports.php:457
+msgid "The template your configuration depends on"
+msgstr ""
+
+#: ../lib/const_reports.php:464 ../reports.php:364
+#: ../reports.php:376
+msgid "Public"
+msgstr ""
+
+#: ../lib/const_reports.php:465
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr ""
+
+#: ../lib/const_reports.php:471
+msgid "Reporting Period"
+msgstr ""
+
+#: ../lib/const_reports.php:476
+msgid ""
+"If checked the reporting period will be configured automatically in relation "
+"to the point of time the calculation starts."
+msgstr ""
+
+#: ../lib/const_reports.php:482
+msgid "Time Frames"
+msgstr ""
+
+#: ../lib/const_reports.php:483
+msgid ""
+"The time frame you want to analyse in relation to the point of time the "
+"calculation starts.<br>This means calendar days, calendar months and "
+"calendar years."
+msgstr ""
+
+#: ../lib/const_reports.php:489
+msgid "Up To The Day of Calculation"
+msgstr ""
+
+#: ../lib/const_reports.php:490
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr ""
+
+#: ../lib/const_reports.php:496
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr ""
+
+#: ../lib/const_reports.php:497
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr ""
+
+#: ../lib/const_reports.php:503
+msgid "Fixed Time Frame - End Date (To)"
+msgstr ""
+
+#: ../lib/const_reports.php:504
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr ""
+
+#: ../lib/const_measurands.php:28
+msgid "Returns the average value.&#10;(sum of values /number of values)"
+msgstr ""
+
+#: ../lib/const_measurands.php:29
+msgid "Returns the highest value"
+msgstr ""
+
+#: ../lib/const_measurands.php:30
+msgid "Returns the lowest value"
+msgstr ""
+
+#: ../lib/const_measurands.php:31
+msgid ""
+"Returns the sum of all values.&#10;(1.Value + 2.Value + 3.Value + ... + n."
+"Value)"
+msgstr ""
+
+#: ../lib/const_measurands.php:32
+msgid "Returns the number of values"
+msgstr ""
+
+#: ../lib/const_measurands.php:33
+msgid "Returns the gradient of a straight line by using linear regression"
+msgstr ""
+
+#: ../lib/const_measurands.php:34
+msgid "Returns the last measured value"
+msgstr ""
+
+#: ../lib/const_measurands.php:35
+msgid "Returns the first measured value"
+msgstr ""
+
+#: ../lib/const_measurands.php:41
+msgid ""
+"Returns the xth percentitle.&#10; Description: float f_xth(float $variable)"
+"&#10; Variable has to be between 0 and 100&#10; Example: f_xth(95)"
+msgstr ""
+
+#: ../lib/const_measurands.php:42
+msgid ""
+"Returns the duration over a defined threshold in percent.&#10; Description: "
+"float f_dot(float $variable)&#10; Example: f_dot(10000000)"
+msgstr ""
+
+#: ../lib/const_measurands.php:43
+msgid ""
+"Returns the sum of values over a defined threshold.&#10 Description: float "
+"f_sot(float $variable)&#10; Example: f_sot(750000)"
+msgstr ""
+
+#: ../lib/const_measurands.php:44
+msgid "Returns float as integer"
+msgstr ""
+
+#: ../lib/const_measurands.php:45
+msgid "Returns float as rounded integer value"
+msgstr ""
+
+#: ../lib/const_measurands.php:46
+msgid "Returns the highest value of a given list of parameters"
+msgstr ""
+
+#: ../lib/const_measurands.php:47
+msgid "Returns the lowest value of a given list of parameters"
+msgstr ""
+
+#: ../lib/const_measurands.php:53
+msgid "Addition"
+msgstr ""
+
+#: ../lib/const_measurands.php:54
+msgid "Subtraction"
+msgstr ""
+
+#: ../lib/const_measurands.php:55
+msgid "Multiplication"
+msgstr ""
+
+#: ../lib/const_measurands.php:56
+msgid "Division"
+msgstr ""
+
+#: ../lib/const_measurands.php:60
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr ""
+
+#: ../lib/const_measurands.php:61
+msgid ""
+"Contains the maximum value that has been defined for the specific data "
+"source item under \\\"Data Sources\\\"."
+msgstr ""
+
+#: ../lib/const_measurands.php:62
+msgid "Contains the number of seconds between two measured values."
+msgstr ""
+
+#: ../lib/const_measurands.php:63
+msgid "Contains the number of NAN's during the reporting period."
+msgstr ""
+
+#: ../lib/const_measurands.php:70
+msgid "Functions"
+msgstr ""
+
+#: ../lib/const_measurands.php:71
+msgid "Functions with parameters"
+msgstr ""
+
+#: ../lib/const_measurands.php:72
+msgid "Operators"
+msgstr ""
+
+#: ../lib/const_measurands.php:74
+msgid "Data Query Variables"
+msgstr ""
+
+#: ../lib/const_measurands.php:75
+msgid "Interim Results"
+msgstr ""
+
+#: ../lib/const_measurands.php:79
+msgid "off"
+msgstr ""
+
+#: ../lib/const_measurands.php:80
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr ""
+
+#: ../lib/const_measurands.php:81
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr ""
+
+#: ../lib/const_measurands.php:85
+msgid "Binary"
+msgstr ""
+
+#: ../lib/const_measurands.php:86
+msgid "Floating point"
+msgstr ""
+
+#: ../lib/const_measurands.php:87
+msgid "Integer"
+msgstr ""
+
+#: ../lib/const_measurands.php:88
+msgid "Integer (unsigned)"
+msgstr ""
+
+#: ../lib/const_measurands.php:89
+msgid "Hexadecimal (lower-case)"
+msgstr ""
+
+#: ../lib/const_measurands.php:90
+msgid "Hexadecimal (upper-case)"
+msgstr ""
+
+#: ../lib/const_measurands.php:91
+msgid "Octal"
+msgstr ""
+
+#: ../lib/const_measurands.php:92
+msgid "Scientific Notation"
+msgstr ""
+
+#: ../lib/const_measurands.php:106
+msgid "Unchanged"
+msgstr ""
+
+#: ../run.php:71
+msgid "Report is just in process."
+msgstr ""
+
+#: ../run.php:94
+msgid "Report calculation failed"
+msgstr ""
+
+#: ../run.php:94
+msgid "List Data Items"
+msgstr ""
+
+#: ../run.php:98
+msgid "Report statistics"
+msgstr ""
+
+#: ../run.php:98
+msgid "Report configurations"
+msgstr ""
+
+#: ../reports.php:78
+msgid "New Report"
+msgstr ""
+
+#: ../reports.php:85
+msgid "There are no report templates available."
+msgstr ""
+
+#: ../reports.php:91
+msgid "Create a new report"
+msgstr ""
+
+#: ../reports.php:99
+msgid "Choose a template this report should depend on."
+msgstr ""
+
+#: ../reports.php:124
+msgid "Report Filters"
+msgstr ""
+
+#: ../reports.php:363 ../reports.php:375
+#, php-format
+msgid "Last run %s/ Runtime [s]"
+msgstr ""
+
+#: ../reports.php:365
+msgid "Scheduled"
+msgstr ""
+
+#: ../reports.php:377
+msgid "Data Objects"
+msgstr ""
+
+#: ../reports.php:390
+msgid "*In process*"
+msgstr ""
+
+#: ../reports.php:409
+msgid "- not available -"
+msgstr ""
+
+#: ../reports.php:442
+msgid "Template has been locked temporarily"
+msgstr ""
+
+#: ../reports.php:451
+msgid "No reports"
+msgstr ""
+
+#: ../reports.php:497
+msgid "Not authorised"
+msgstr ""
+
+#: ../reports.php:883
+msgid "Add data items"
+msgstr ""
+
+#: ../reports.php:957
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr ""
+
+#: ../reports.php:1004
+msgid "No recipients found"
+msgstr ""
+
+#: ../reports.php:1051 ../reports.php:1064
+msgid "- Email address of a recipient (or list of names) -"
+msgstr ""
+
+#: ../reports.php:1053 ../reports.php:1066
+msgid "[OPTIONAL] - Name of a recipient (or list of names) -"
+msgstr ""
+
+#: ../reports.php:1264
+msgid "Click 'Continue' to Delete the following Reports."
+msgstr ""
+
+#: ../reports.php:1267
+msgid "List of selected reports:"
+msgstr ""
+
+#: ../reports.php:1270 ../reports.php:1285
+#, php-format
+msgid "|_Report: %s"
+msgstr ""
+
+#: ../reports.php:1279
+msgid ""
+"Click 'Continue' to duplicate the following Report configurations.  You may "
+"also change the title format during this operation."
+msgstr ""
+
+#: ../reports.php:1282
+msgid "List of selected Reports:"
+msgstr ""
+
+#: ../reports.php:1289
+msgid "Title Format:"
+msgstr ""
+
+#: ../reports.php:1290
+msgid "<report_title> (1)"
+msgstr ""
+
+#: ../reports.php:1298
+msgid "You must select at least one report."
+msgstr ""
