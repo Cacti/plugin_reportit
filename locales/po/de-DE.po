@@ -5,1367 +5,1751 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-01 23:43-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: de-DE\n"
+"PO-Revision-Date: 2019-03-17 12:45-0400\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../variables.php:187
-#, php-format
+#, fuzzy, php-format
 msgid "Variable Configuration [edit: %s]"
-msgstr ""
+msgstr "Variablenkonfiguration[Bearbeiten: %s]"
 
 #: ../variables.php:190
+#, fuzzy
 msgid "Variable Configuration [new]"
-msgstr ""
+msgstr "Variablenkonfiguration[neu]"
 
 #: ../rrdlist.php:180
-#, php-format
+#, fuzzy, php-format
 msgid "Data Items [Report: %s %s [%d]"
-msgstr ""
+msgstr "Datenelemente[Bericht: %s %s %s %s[%d]"
 
-#: ../rrdlist.php:184 ../items.php:282 ../view.php:289
-#: ../view.php:1267 ../view.php:1342 ../reports.php:359
-#: ../reports.php:372
+#: ../rrdlist.php:184 ../items.php:282 ../view.php:289 ../view.php:1267
+#: ../view.php:1342 ../reports.php:359 ../reports.php:372
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: ../rrdlist.php:185
+#, fuzzy
 msgid "Subhead"
-msgstr ""
+msgstr "Zwischenüberschrift"
 
 #: ../rrdlist.php:186
+#, fuzzy
 msgid "Shifttime (from - to)"
-msgstr ""
+msgstr "Schichtzeit (von - bis)"
 
 #: ../rrdlist.php:187
+#, fuzzy
 msgid "Weekdays (from - to)"
-msgstr ""
+msgstr "Wochentage (von - bis)"
 
-#: ../rrdlist.php:188 ../rrdlist.php:376
-#: ../lib/const_reports.php:355
+#: ../rrdlist.php:188 ../rrdlist.php:376 ../lib/const_reports.php:355
+#, fuzzy
 msgid "Time Zone"
-msgstr ""
+msgstr "Zeitzone"
 
 #: ../rrdlist.php:199 ../rrdlist.php:219
+#, fuzzy
 msgid "RRDs"
-msgstr ""
+msgstr "RRDs"
 
-#: ../rrdlist.php:213 ../templates.php:414 ../items.php:332
-#: ../view.php:211 ../view.php:575 ../view.php:912
-#: ../reports.php:132
+#: ../rrdlist.php:213 ../templates.php:414 ../items.php:332 ../view.php:211
+#: ../view.php:575 ../view.php:912 ../reports.php:132
+#, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: ../rrdlist.php:223 ../templates.php:424 ../templates.php:560
 #: ../items.php:343 ../view.php:230 ../lib/const_variables.php:56
 #: ../reports.php:142
+#, fuzzy
 msgid "Default"
-msgstr ""
+msgstr "Voreinstellung"
 
-#: ../rrdlist.php:234 ../view.php:241 ../view.php:623
-#: ../view.php:948
+#: ../rrdlist.php:234 ../view.php:241 ../view.php:623 ../view.php:948
+#, fuzzy
 msgid "Go"
-msgstr ""
+msgstr "Anwenden"
 
-#: ../rrdlist.php:237 ../view.php:244 ../view.php:626
-#: ../view.php:951
+#: ../rrdlist.php:237 ../view.php:244 ../view.php:626 ../view.php:951
+#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "Löschen"
 
 #: ../rrdlist.php:286
+#, fuzzy
 msgid "Does not exist anymore"
-msgstr ""
+msgstr "Existiert nicht mehr"
 
 #: ../rrdlist.php:297 ../items.php:295
+#, fuzzy
 msgid "Select"
-msgstr ""
+msgstr "Baum Ansicht auswählen"
 
 #: ../rrdlist.php:301
+#, fuzzy
 msgid "No data items found"
-msgstr ""
+msgstr "Keine Datenelemente gefunden"
 
 #: ../rrdlist.php:353
-#, php-format
+#, fuzzy, php-format
 msgid "Data Object [edit: %s]"
-msgstr ""
+msgstr "Datenobjekt [bearbeiten: %s]"
 
 #: ../rrdlist.php:360 ../templates.php:778 ../setup.php:427
 #: ../lib/const_reports.php:124 ../lib/const_reports.php:167
 #: ../lib/const_reports.php:306 ../lib/const_reports.php:339
 #: ../lib/const_reports.php:445
+#, fuzzy
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: ../rrdlist.php:364 ../lib/const_reports.php:343
+#, fuzzy
 msgid "Subhead (optional)"
-msgstr ""
+msgstr "Zwischenüberschrift (optional)"
 
 #: ../rrdlist.php:365 ../lib/const_reports.php:344
+#, fuzzy
 msgid ""
 "Define an additional subhead that should be on display under the interface "
 "description.<br> Following variables will be supported (without quotes): '|"
 "t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 msgstr ""
+"Definieren Sie eine zusätzliche Unterüberschrift, die unter der Interface-"
+"Beschreibung angezeigt werden soll. <br> Folgende Variablen werden "
+"unterstützt (ohne Anführungszeichen): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|''."
 
 #: ../rrdlist.php:377 ../lib/const_reports.php:356
+#, fuzzy
 msgid ""
 "Select the time zone your following shifttime informations will be based on."
 msgstr ""
+"Wählen Sie die Zeitzone, auf der Ihre folgenden Schichtzeitinformationen "
+"basieren sollen."
 
 #: ../rrdlist.php:400 ../lib/const_reports.php:380
+#, fuzzy
 msgid "Working Time"
-msgstr ""
+msgstr "Arbeitszeit"
 
-#: ../rrdlist.php:404 ../rrdlist.php:446
-#: ../lib/const_reports.php:392 ../lib/const_reports.php:412
+#: ../rrdlist.php:404 ../rrdlist.php:446 ../lib/const_reports.php:392
+#: ../lib/const_reports.php:412
+#, fuzzy
 msgid "From"
-msgstr ""
+msgstr "Von"
 
 #: ../rrdlist.php:405 ../lib/const_reports.php:393
+#, fuzzy
 msgid "The startpoint of duration you want to analyse"
-msgstr ""
+msgstr "Der Startpunkt der Dauer, die Sie analysieren möchten."
 
-#: ../rrdlist.php:412 ../rrdlist.php:453
-#: ../lib/const_reports.php:400 ../lib/const_reports.php:420
+#: ../rrdlist.php:412 ../rrdlist.php:453 ../lib/const_reports.php:400
+#: ../lib/const_reports.php:420
+#, fuzzy
 msgid "To"
-msgstr ""
+msgstr "Bis"
 
 #: ../rrdlist.php:413 ../lib/const_reports.php:401
+#, fuzzy
 msgid "The end of analysing time."
-msgstr ""
+msgstr "Das Ende der Analysedauer."
 
 #: ../rrdlist.php:442 ../lib/const_reports.php:408
+#, fuzzy
 msgid "Working Days"
-msgstr ""
+msgstr "Arbeitstage"
 
 #: ../rrdlist.php:447 ../lib/const_reports.php:413
+#, fuzzy
 msgid "Define the band of days where shift STARTS!"
-msgstr ""
+msgstr "Definieren Sie die Tagesspanne, in der die Schicht beginnt!"
 
 #: ../rrdlist.php:454 ../lib/const_reports.php:422
+#, fuzzy
 msgid ""
 "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to "
 "Friday"
 msgstr ""
+"Beispiel: Für eine Nachtschicht von Mo(22:30) bis Sa(06:30) definieren Sie "
+"Montag bis Freitag."
 
 #: ../rrdlist.php:556
+#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Items."
 msgstr ""
+"Klicken Sie auf \"Weiter\", um die folgenden Datenelemente zu entfernen."
 
 #: ../rrdlist.php:559
+#, fuzzy
 msgid "List of selected data items:"
-msgstr ""
+msgstr "Liste der ausgewählten Datenelemente:"
 
 #: ../rrdlist.php:562
-#, php-format
+#, fuzzy, php-format
 msgid "&#160 |_Data Item : %s<br>"
-msgstr ""
+msgstr "&#160 |_Datenelement : %s<br>"
 
 #: ../rrdlist.php:582
+#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Items"
 msgstr ""
+"Klicken Sie auf \"Weiter\", um die Einstellungen in die anderen "
+"Datenelemente zu kopieren."
 
 #: ../rrdlist.php:584
+#, fuzzy
 msgid "Selected data item as reference:"
-msgstr ""
+msgstr "Ausgewähltes Datenelement als Referenz:"
 
 #: ../rrdlist.php:586
+#, fuzzy
 msgid "Time Zone:"
-msgstr ""
+msgstr "Zeitzone:"
 
 #: ../rrdlist.php:587
+#, fuzzy
 msgid "Weekdays:"
-msgstr ""
+msgstr "Wochentage:"
 
 #: ../rrdlist.php:588
+#, fuzzy
 msgid "Shifttime:"
-msgstr ""
+msgstr "Schichtzeit:"
 
 #: ../rrdlist.php:595
+#, fuzzy
 msgid "You must select at least one Report."
-msgstr ""
+msgstr "Sie müssen mindestens einen Bericht auswählen."
 
 #: ../rrdlist.php:597 ../rrdlist.php:599 ../templates.php:93
 #: ../templates.php:95 ../templates.php:1056 ../templates.php:1058
 #: ../templates.php:1060 ../reports.php:89 ../reports.php:91
 #: ../reports.php:1299 ../reports.php:1301
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: ../rrdlist.php:600 ../templates.php:95 ../templates.php:1058
 #: ../templates.php:1060 ../reports.php:91 ../reports.php:1301
+#, fuzzy
 msgid "Continue"
-msgstr ""
+msgstr "Fortsetzen"
 
 #: ../templates.php:95
+#, fuzzy
 msgid "Create a new report template"
-msgstr ""
+msgstr "Erstellen einer neuen Berichtsvorlage"
 
 #: ../templates.php:98
+#, fuzzy
 msgid ""
 "Choose a data template this report template should depend on.<br>Unused data "
 "templates are hidden."
 msgstr ""
+"Wählen Sie eine Datenvorlage aus, von der diese Berichtsvorlage abhängen "
+"soll.<br>Ungenutzte Datenvorlagen sind ausgeblendet."
 
 #: ../templates.php:123
+#, fuzzy
 msgid "Export Report Template"
-msgstr ""
+msgstr "Berichtsvorlage exportieren"
 
 #: ../templates.php:406 ../setup.php:209
+#, fuzzy
 msgid "Report Templates"
-msgstr ""
+msgstr "Berichtsvorlagen"
 
 #: ../templates.php:420 ../templates.php:564 ../setup.php:378
+#, fuzzy
 msgid "Templates"
-msgstr ""
+msgstr "Schablonen"
 
-#: ../templates.php:556 ../templates.php:782
-#: ../lib/const_variables.php:52 ../lib/const_reports.php:449
+#: ../templates.php:556 ../templates.php:782 ../lib/const_variables.php:52
+#: ../lib/const_reports.php:449
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: ../templates.php:557 ../lib/const_variables.php:53
+#, fuzzy
 msgid "Internal Name"
-msgstr ""
+msgstr "Interner Name"
 
-#: ../templates.php:558 ../lib/const_view.php:101
-#: ../lib/const_variables.php:54
+#: ../templates.php:558 ../lib/const_view.php:101 ../lib/const_variables.php:54
+#, fuzzy
 msgid "Maximum"
-msgstr ""
+msgstr "Maximale Größe für das Log"
 
-#: ../templates.php:559 ../lib/const_view.php:100
-#: ../lib/const_variables.php:55
+#: ../templates.php:559 ../lib/const_view.php:100 ../lib/const_variables.php:55
+#, fuzzy
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 #: ../templates.php:561 ../lib/const_variables.php:57
+#, fuzzy
 msgid "Input Type"
-msgstr ""
+msgstr "Eingabetyp"
 
 #: ../templates.php:583
+#, fuzzy
 msgid "Data template not available"
-msgstr ""
+msgstr "Datenvorlage nicht verfügbar"
 
 #: ../templates.php:605
+#, fuzzy
 msgid "No templates"
-msgstr ""
+msgstr "Schablonen"
 
 #: ../templates.php:750
-#, php-format
+#, fuzzy, php-format
 msgid "Template Configuration [edit: %s]"
-msgstr ""
+msgstr "Template-Konfiguration[Bearbeiten: %s]"
 
 #: ../templates.php:752
+#, fuzzy
 msgid "Template Configuration [new]"
-msgstr ""
+msgstr "Vorlagenkonfiguration[neu]"
 
 #: ../templates.php:785
+#, fuzzy
 msgid "The unique name given to this report template."
-msgstr ""
+msgstr "Der eindeutige Name, der dieser Berichtsvorlage gegeben wurde."
 
 #: ../templates.php:789
+#, fuzzy
 msgid "Locked"
-msgstr ""
+msgstr "Gesperrt"
 
 #: ../templates.php:792
+#, fuzzy
 msgid ""
 "Define this template as locked (default), so that power users <br> can't use "
 "it until you have checked its functionality. During that time they are<br> "
 "also not allowed to modify or run reports based on this template."
 msgstr ""
+"Definieren Sie diese Vorlage als gesperrt (Standard), so dass Power-User "
+"<br> sie erst verwenden können, wenn Sie ihre Funktionalität überprüft "
+"haben. Während dieser Zeit sind sie auch nicht berechtigt, Berichte auf "
+"Basis dieser Vorlage zu ändern oder auszuführen."
 
 #: ../templates.php:796
+#, fuzzy
 msgid "Additional Pre-filter"
-msgstr ""
+msgstr "Zusätzlicher Vorfilter"
 
 #: ../templates.php:799
+#, fuzzy
 msgid ""
 "Optional: The syntax to filter the available list of data items<br> by their "
 "description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr ""
+"Optional: Die Syntax, um die verfügbare Liste der Datenelemente<br> nach "
+"ihrer Beschreibung zu filtern. Verwenden Sie SQL-Wildcards wie % und/oder _. "
+"Keine regulären Ausdrücke!"
 
 #: ../templates.php:807 ../setup.php:558
+#, fuzzy
 msgid "Export Path"
-msgstr ""
+msgstr "Exportpfad"
 
 #: ../templates.php:808
+#, fuzzy
 msgid ""
 "Optional: The path to an folder for saving the exports.  If it does not "
 "exist ReportIT automatically tries to create it during the first scheduled "
 "calculation, else it will try to create a new subfolder within the main "
 "export folder using the template id."
 msgstr ""
+"Optional: Der Pfad zu einem Ordner zum Speichern der Exporte.  Wenn es nicht "
+"vorhanden ist, versucht ReportIT automatisch, es während der ersten "
+"geplanten Berechnung zu erstellen, andernfalls wird es versuchen, einen "
+"neuen Unterordner innerhalb des Hauptexportordners mit der Vorlagen-ID zu "
+"erstellen."
 
 #: ../templates.php:820 ../templates.php:824
+#, fuzzy
 msgid "Data Template"
-msgstr ""
+msgstr "Element der Datenschablone"
 
 #: ../templates.php:827
+#, fuzzy
 msgid "The name of the data template this report template depends on."
 msgstr ""
+"Der Name der Datenvorlage, von der diese Berichtsvorlage abhängt, ist "
+"abhängig."
 
 #: ../templates.php:842
+#, fuzzy
 msgid "Create a new variable"
-msgstr ""
+msgstr "Erstellen Sie eine neue Variable"
 
 #: ../templates.php:846
+#, fuzzy
 msgid "Create a new measurand"
-msgstr ""
+msgstr "Erstellen einer neuen Messgröße"
 
 #: ../templates.php:1006
+#, fuzzy
 msgid "Click 'Continue' to Delete the following Report Templates"
 msgstr ""
+"Klicken Sie auf \"Weiter\", um die folgenden Berichtsvorlagen zu löschen."
 
 #: ../templates.php:1009
+#, fuzzy
 msgid "WARNING:"
-msgstr ""
+msgstr "WARNUNG:"
 
 #: ../templates.php:1009
+#, fuzzy
 msgid "Every report that belongs to these templates will be deleted too!"
-msgstr ""
+msgstr "Jeder Bericht, der zu diesen Vorlagen gehört, wird ebenfalls gelöscht!"
 
 #: ../templates.php:1016
-#, php-format
+#, fuzzy, php-format
 msgid "&#160 |_Report: %s<br>"
-msgstr ""
+msgstr "&#160 |_Bericht: %s<br>"
 
 #: ../templates.php:1019
+#, fuzzy
 msgid "&#160 |_Report: <i>none</i><br>"
-msgstr ""
+msgstr "&#160 |_Bericht: <i>keine</i><br><br>"
 
 #: ../templates.php:1030
+#, fuzzy
 msgid ""
 "Click 'Continue' to Duplicate the following Report Templates.  You can "
 "optionally change the Title for the new Report Templates."
 msgstr ""
+"Klicken Sie auf \"Weiter\", um die folgenden Berichtsvorlagen zu "
+"duplizieren.  Sie können optional den Titel für die neuen Berichtsvorlagen "
+"ändern."
 
 #: ../templates.php:1033
+#, fuzzy
 msgid "List of selected templates:"
-msgstr ""
+msgstr "Liste der ausgewählten Vorlagen:"
 
 #: ../templates.php:1036
-#, php-format
+#, fuzzy, php-format
 msgid "&#160 |_Template : %s<br>"
-msgstr ""
+msgstr "&#160 |_Template : %s<br>"
 
 #: ../templates.php:1040
+#, fuzzy
 msgid "Title:"
-msgstr ""
+msgstr "Titel"
 
 #: ../templates.php:1042
+#, fuzzy
 msgid "<template_title> (1)"
-msgstr ""
+msgstr "<vorlage_titel> (1)"
 
 #: ../templates.php:1052
+#, fuzzy
 msgid "You must select at least one report template."
-msgstr ""
+msgstr "Sie müssen mindestens eine Berichtsvorlage auswählen."
 
 #: ../templates.php:1058
+#, fuzzy
 msgid "Delete Report Templates"
-msgstr ""
+msgstr "Berichtsvorlagen löschen"
 
 #: ../templates.php:1060
+#, fuzzy
 msgid "Duplicate Report Templates"
-msgstr ""
+msgstr "Duplizieren von Berichtsvorlagen"
 
 #: ../items.php:256 ../view.php:645
+#, fuzzy
 msgid "Items"
-msgstr ""
+msgstr "Elemente"
 
 #: ../items.php:258
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Data Objects [add to report: <a style=\"color:yellow\" href=\"reports.php?"
 "action=report_edit&id=%d\">%s</a>]"
 msgstr ""
+"Datenobjekte[zum Bericht hinzufügen: <a style=\"color:yellow\" href="
+"\"reports.php?action=report_edit&id=%d\">%s</a>]]"
 
 #: ../items.php:267 ../items.php:273 ../lib/const_view.php:97
 #: ../lib/const_reports.php:159 ../lib/const_measurands.php:96
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Nichts"
 
 #: ../items.php:301 ../view.php:817
+#, fuzzy
 msgid "No data items"
-msgstr ""
+msgstr "Keine Datenelemente"
 
-#: ../items.php:339 ../view.php:199 ../view.php:226
-#: ../view.php:559 ../setup.php:143 ../setup.php:377 ../setup.php:423
-#: ../reports.php:138 ../reports.php:351
+#: ../items.php:339 ../view.php:199 ../view.php:226 ../view.php:559
+#: ../setup.php:143 ../setup.php:377 ../setup.php:423 ../reports.php:138
+#: ../reports.php:351
+#, fuzzy
 msgid "Reports"
-msgstr ""
+msgstr "Berichte"
 
 #: ../view.php:202
-#, php-format
+#, fuzzy, php-format
 msgid "Reports [%s]"
-msgstr ""
+msgstr "Berichte [%s]"
 
 #: ../view.php:217 ../view.php:964
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: ../view.php:221 ../setup.php:323
+#, fuzzy
 msgid "Public Reports"
-msgstr ""
+msgstr "Öffentliche Berichte"
 
 #: ../view.php:222
+#, fuzzy
 msgid "My Reports"
-msgstr ""
+msgstr "Meine Berichte"
 
 #: ../view.php:290 ../view.php:477 ../lib/funct_export.php:79
 #: ../lib/funct_export.php:444 ../reports.php:360
+#, fuzzy
 msgid "Owner"
-msgstr ""
+msgstr "Inhaber"
 
-#: ../view.php:291 ../lib/funct_export.php:80
-#: ../lib/funct_export.php:445 ../lib/const_reports.php:456
-#: ../reports.php:361 ../reports.php:373
+#: ../view.php:291 ../lib/funct_export.php:80 ../lib/funct_export.php:445
+#: ../lib/const_reports.php:456 ../reports.php:361 ../reports.php:373
+#, fuzzy
 msgid "Template"
-msgstr ""
+msgstr "Vorlage"
 
 #: ../view.php:292 ../reports.php:362 ../reports.php:374
-#, php-format
+#, fuzzy, php-format
 msgid "Period %s from - to"
-msgstr ""
+msgstr "Zeitraum %s von - bis - bis"
 
 #: ../view.php:293
-#, php-format
+#, fuzzy, php-format
 msgid "Last run %s / Runtime [s]"
-msgstr ""
+msgstr "Letzter Lauf %s / Laufzeit[s]"
 
 #: ../view.php:319 ../view.php:1384
+#, fuzzy
 msgid "No Reports Found"
-msgstr ""
+msgstr "Keine Berichte gefunden"
 
 #: ../view.php:474
+#, fuzzy
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: ../view.php:475
+#, fuzzy
 msgid "Runtime"
-msgstr ""
+msgstr "Detaillierte Laufzeitwerte:"
 
 #: ../view.php:478 ../lib/const_reports.php:475
+#, fuzzy
 msgid "Sliding Time Frame"
-msgstr ""
+msgstr "Verschieblicher Zeitrahmen"
 
-#: ../view.php:480 ../lib/funct_export.php:83
-#: ../lib/funct_export.php:448
+#: ../view.php:480 ../lib/funct_export.php:83 ../lib/funct_export.php:448
+#, fuzzy
 msgid "Last Run"
-msgstr ""
+msgstr "Letzte Ausführung"
 
 #: ../view.php:481
+#, fuzzy
 msgid "Scheduler"
-msgstr ""
+msgstr "Planer"
 
 #: ../view.php:483
+#, fuzzy
 msgid "Period"
-msgstr ""
+msgstr "Zeitraum"
 
 #: ../view.php:484
+#, fuzzy
 msgid "Auto Generated RRD list"
-msgstr ""
+msgstr "Automatisch generierte RRD-Liste"
 
 #: ../view.php:581 ../view.php:918
+#, fuzzy
 msgid "Data Source"
-msgstr ""
+msgstr "Datenquelle"
 
 #: ../view.php:585 ../view.php:600 ../view.php:922 ../view.php:937
 #: ../lib/const_view.php:89 ../lib/const_view.php:98
+#, fuzzy
 msgid "Any"
-msgstr ""
+msgstr "Beliebig"
 
 #: ../view.php:596 ../view.php:933
+#, fuzzy
 msgid "Measurand"
-msgstr ""
+msgstr "Messgröße"
 
 #: ../view.php:614
+#, fuzzy
 msgid "Show Subheads"
-msgstr ""
+msgstr "Untertitel anzeigen"
 
 #: ../view.php:620 ../view.php:957
+#, fuzzy
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #: ../view.php:633
+#, fuzzy
 msgid "Additional"
-msgstr ""
+msgstr "Zusätzliche Adressdetails für diese Lokation."
 
 #: ../view.php:658 ../view.php:989
+#, fuzzy
 msgid "Archive"
-msgstr ""
+msgstr "Archiv"
 
 #: ../view.php:662 ../view.php:993
+#, fuzzy
 msgid "Current"
-msgstr ""
+msgstr "Aktuell"
 
 #: ../view.php:754
+#, fuzzy
 msgid "Data Description"
-msgstr ""
+msgstr "Datenbeschreibung"
 
 #: ../view.php:976
+#, fuzzy
 msgid "Graphs"
-msgstr ""
+msgstr "Diagramme"
 
 #: ../view.php:1221
+#, fuzzy
 msgid "Data Source:"
-msgstr ""
+msgstr "Datenquelle"
 
 #: ../view.php:1266
+#, fuzzy
 msgid "Pos."
-msgstr ""
+msgstr "Pos."
 
 #: ../view.php:1268
-#, php-format
+#, fuzzy, php-format
 msgid "Results [%s]"
-msgstr ""
+msgstr "Ergebnisse [%s]"
 
 #: ../view.php:1333
+#, fuzzy
 msgid "Choose a template your report should depends on."
-msgstr ""
+msgstr "Wählen Sie eine Vorlage, von der Ihr Bericht abhängen soll."
 
 #: ../view.php:1334
+#, fuzzy
 msgid "Available report templates"
-msgstr ""
+msgstr "Verfügbare Berichtsvorlagen"
 
 #: ../view.php:1343
+#, fuzzy
 msgid "Instances: available"
-msgstr ""
+msgstr "Instanzen: verfügbar"
 
 #: ../view.php:1344
+#, fuzzy
 msgid "Instances: selected"
-msgstr ""
+msgstr "Instanzen: ausgewählt"
 
 #: ../setup.php:149 ../setup.php:161 ../setup.php:179 ../setup.php:185
 #: ../setup.php:203 ../setup.php:215 ../setup.php:221 ../setup.php:275
 #: ../setup.php:281 ../setup.php:299 ../setup.php:305
+#, fuzzy
 msgid "(Edit)"
-msgstr ""
+msgstr "(Verändern)"
 
 #: ../setup.php:155 ../setup.php:197 ../setup.php:227
 #: ../lib/const_rrdlist.php:33
+#, fuzzy
 msgid "Add"
-msgstr ""
+msgstr "Hinzufügen"
 
 #: ../setup.php:167 ../setup.php:191 ../setup.php:263 ../setup.php:287
 #: ../setup.php:311
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 #: ../setup.php:173 ../reports.php:366
+#, fuzzy
 msgid "Data Items"
-msgstr ""
+msgstr "Datenelemente"
 
 #: ../setup.php:233 ../setup.php:239
+#, fuzzy
 msgid "Import"
-msgstr ""
+msgstr "Daten importieren"
 
 #: ../setup.php:245 ../setup.php:251 ../setup.php:257
+#, fuzzy
 msgid "Export"
-msgstr ""
+msgstr "Exportieren"
 
 #: ../setup.php:269
+#, fuzzy
 msgid "Measurands"
-msgstr ""
+msgstr "Messgrößen"
 
 #: ../setup.php:293 ../lib/const_measurands.php:73
+#, fuzzy
 msgid "Variables"
-msgstr ""
+msgstr "Variablen"
 
 #: ../setup.php:317
+#, fuzzy
 msgid "Report Calculation"
-msgstr ""
+msgstr "Berichtsberechnung"
 
 #: ../setup.php:329 ../setup.php:341
+#, fuzzy
 msgid "Show Report"
-msgstr ""
+msgstr "Bericht anzeigen"
 
 #: ../setup.php:335
+#, fuzzy
 msgid "Export Report"
-msgstr ""
+msgstr "Liste exportieren"
 
 #: ../setup.php:347
+#, fuzzy
 msgid "Public Report Charts"
-msgstr ""
+msgstr "Charts für öffentliche Berichte"
 
 #: ../setup.php:353
+#, fuzzy
 msgid "Bar Chart"
-msgstr ""
+msgstr "Balkendiagramm"
 
 #: ../setup.php:359
+#, fuzzy
 msgid "Pie Chart"
-msgstr ""
+msgstr "Kreisdiagramm"
 
 #: ../setup.php:371
+#, fuzzy
 msgid "View Reports"
-msgstr ""
+msgstr "Berichte anzeigen"
 
 #: ../setup.php:372
+#, fuzzy
 msgid "Create Reports"
-msgstr ""
+msgstr "Berichte erstellen"
 
 #: ../setup.php:373
+#, fuzzy
 msgid "Administrate Reports"
-msgstr ""
+msgstr "Berichte verwalten"
 
 #: ../setup.php:377
+#, fuzzy
 msgid "Management"
-msgstr ""
+msgstr "Verwaltung"
 
 #: ../setup.php:378
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "Melden"
 
 #: ../setup.php:388
+#, fuzzy
 msgid "local"
-msgstr ""
+msgstr "Lokal"
 
 #: ../setup.php:388
+#, fuzzy
 msgid "global"
-msgstr ""
+msgstr "Global"
 
 #: ../setup.php:393
+#, fuzzy
 msgid "PHP BINDINGS (FAST)"
-msgstr ""
+msgstr "PHP-BINDUNGEN (SCHNELL)"
 
 #: ../setup.php:394
+#, fuzzy
 msgid "RRDTOOL CACTI (SLOW)"
-msgstr ""
+msgstr "RRDTOOL KAKTEEN (LANGSAM)"
 
 #: ../setup.php:395
+#, fuzzy
 msgid "RRDTOOL SERVER (SLOW)"
-msgstr ""
+msgstr "RRDTOOL SERVER (LANGSAM)"
 
 #: ../setup.php:399
+#, fuzzy
 msgid "LOW"
-msgstr ""
+msgstr "NIEDRIG"
 
 #: ../setup.php:400
+#, fuzzy
 msgid "MEDIUM"
-msgstr ""
+msgstr "MITTEL"
 
 #: ../setup.php:401
+#, fuzzy
 msgid "HIGH"
-msgstr ""
+msgstr "HOCH"
 
 #: ../setup.php:402
+#, fuzzy
 msgid "ULTIMATE"
-msgstr ""
+msgstr "ULTIMIEREN"
 
 #: ../setup.php:406
+#, fuzzy
 msgid "Power User (Report Owner)"
-msgstr ""
+msgstr "Hauptbenutzer (Berichtsverantwortlicher)"
 
 #: ../setup.php:407
+#, fuzzy
 msgid "Super User (Report Admin)"
-msgstr ""
+msgstr "Superuser (Berichtsadministrator)"
 
 #: ../setup.php:411 ../lib/const_graphs.php:62
+#, fuzzy
 msgid "Bar (vertical)"
-msgstr ""
+msgstr "Stange (vertikal)"
 
 #: ../setup.php:412 ../lib/const_graphs.php:68
+#, fuzzy
 msgid "Bar (horizontal)"
-msgstr ""
+msgstr "Stange (horizontal)"
 
 #: ../setup.php:413 ../lib/const_graphs.php:74
+#, fuzzy
 msgid "Line"
-msgstr ""
+msgstr "Linie"
 
 #: ../setup.php:414 ../lib/const_graphs.php:80
+#, fuzzy
 msgid "Area"
-msgstr ""
+msgstr "Bereich"
 
 #: ../setup.php:415
+#, fuzzy
 msgid "Pie"
-msgstr ""
+msgstr "Kreis"
 
-#: ../setup.php:416 ../lib/const_view.php:74
-#: ../lib/const_graphs.php:91
+#: ../setup.php:416 ../lib/const_view.php:74 ../lib/const_graphs.php:91
+#, fuzzy
 msgid "Spider"
-msgstr ""
+msgstr "Spinne"
 
 #: ../setup.php:431
+#, fuzzy
 msgid "Maximum Execution Time (in seconds)"
-msgstr ""
+msgstr "Maximale Ausführungszeit (in Sekunden)"
 
 #: ../setup.php:432
+#, fuzzy
 msgid "Optional: Maximum execution time of one calculation."
-msgstr ""
+msgstr "Optional: Maximale Ausführungszeit einer Berechnung."
 
 #: ../setup.php:438
+#, fuzzy
 msgid "Maximum Record Count Change"
-msgstr ""
+msgstr "Maximale Änderung der Anzahl der Datensätze"
 
 #: ../setup.php:439
+#, fuzzy
 msgid ""
 "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if "
 "Record Count Change is greater than this Number This is to avoid unwanted "
 "and disastrous changes on RRD Lists"
 msgstr ""
+"Optional (Automatische Generierung der RRD-Liste): Ändern Sie die RRD-Liste "
+"eines Berichts nicht, wenn die Änderung der Datensatzanzahl größer als diese "
+"Zahl ist. Dies dient dazu, unerwünschte und katastrophale Änderungen in den "
+"RRD-Listen zu vermeiden."
 
 #: ../setup.php:445
+#, fuzzy
 msgid "Time Zones"
-msgstr ""
+msgstr "Zeitzonen"
 
 #: ../setup.php:446
+#, fuzzy
 msgid ""
 "Enable/disable the use of time zones for data item's configuration and "
 "report calculation.  In the former case server time has to be set up to GMT/"
 "UTC!"
 msgstr ""
+"Aktivieren/Deaktivieren der Verwendung von Zeitzonen für die Konfiguration "
+"und Berichtsberechnung von Datenelementen.  Im ersten Fall muss die "
+"Serverzeit auf GMT/UTC eingestellt werden!"
 
 #: ../setup.php:451
+#, fuzzy
 msgid "Show Local Time Zone"
-msgstr ""
+msgstr "Lokale Zeitzone anzeigen"
 
 #: ../setup.php:452
+#, fuzzy
 msgid "Enable/disable to display server's timezone on the headlines."
 msgstr ""
+"Aktivieren/Deaktivieren, um die Zeitzone des Servers in den Schlagzeilen "
+"anzuzeigen."
 
 #: ../setup.php:457
+#, fuzzy
 msgid "SI-Prefixes"
-msgstr ""
+msgstr "SI-Präfixe"
 
 #: ../setup.php:458
+#, fuzzy
 msgid ""
 "Enable/disable the use of correct SI-Prefixes for binary multiples under the "
 "terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www."
 "iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr ""
+"Aktivieren/Deaktivieren der Verwendung korrekter SI-Präfixe für binäre "
+"Multiplikatoren unter den Bedingungen von <a href='http://www.ieee.org'>IEEE "
+"1541</a> und <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</"
+"a>."
 
 #: ../setup.php:463
+#, fuzzy
 msgid "Operator for Scheduled Reporting"
-msgstr ""
+msgstr "Operator für planmäßige Berichterstattung"
 
 #: ../setup.php:464
+#, fuzzy
 msgid ""
 "Choose the level which is necessary to configure all options of scheduled "
 "reporting in a report configuration."
 msgstr ""
+"Wählen Sie die Ebene, die notwendig ist, um alle Optionen des geplanten "
+"Berichtswesens in einer Berichtskonfiguration zu konfigurieren."
 
 #: ../setup.php:470
+#, fuzzy
 msgid "RRDtool"
-msgstr ""
+msgstr "RRDtool"
 
 #: ../setup.php:474
+#, fuzzy
 msgid "RRDtool Connection"
-msgstr ""
+msgstr "RRDtool-Anschluss"
 
 #: ../setup.php:475
+#, fuzzy
 msgid "Choose the way to connect to RRDtool."
-msgstr ""
+msgstr "Wählen Sie die Art und Weise, wie Sie sich mit RRDtool verbinden."
 
 #: ../setup.php:481
+#, fuzzy
 msgid "RRDtool Server IP"
-msgstr ""
+msgstr "RRDtool Server IP Adresse"
 
 #: ../setup.php:482
+#, fuzzy
 msgid "Optional: Configured IP address of the RRDtool server."
-msgstr ""
+msgstr "Optional: Konfigurierte IP-Adresse des RRDtool-Servers."
 
 #: ../setup.php:488
+#, fuzzy
 msgid "RRDtool Server Port"
-msgstr ""
+msgstr "RRDtool Server-Port"
 
 #: ../setup.php:489
+#, fuzzy
 msgid "Optional: Configured port setting of RRDtool server."
-msgstr ""
+msgstr "Optional: Konfigurierte Port-Einstellung des RRDtool-Servers."
 
 #: ../setup.php:495
+#, fuzzy
 msgid "Export Settings"
-msgstr ""
+msgstr "Export Einstellungen"
 
 #: ../setup.php:499
+#, fuzzy
 msgid "Filename Format"
-msgstr ""
+msgstr "Dateinamenformat"
 
 #: ../setup.php:500
+#, fuzzy
 msgid "The name format for the export files created on demand."
-msgstr ""
+msgstr "Das Namensformat für die bei Bedarf erstellten Exportdateien."
 
 #: ../setup.php:506
+#, fuzzy
 msgid "Export Header"
-msgstr ""
+msgstr "Exportkopf"
 
 #: ../setup.php:507
+#, fuzzy
 msgid "The header description for export files"
-msgstr ""
+msgstr "Die Headerbeschreibung für Exportdateien"
 
 #: ../setup.php:514
+#, fuzzy
 msgid "Auto Archiving"
-msgstr ""
+msgstr "Automatische Archivierung"
 
 #: ../setup.php:518 ../setup.php:552 ../setup.php:569
+#, fuzzy
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 #: ../setup.php:519
+#, fuzzy
 msgid ""
 "If enabled the result of every scheduled report will be archived "
 "automatically"
 msgstr ""
+"Wenn aktiviert, wird das Ergebnis jedes geplanten Berichts automatisch "
+"archiviert."
 
 #: ../setup.php:524
+#, fuzzy
 msgid "Cache Life Cyle (in seconds)"
-msgstr ""
+msgstr "Cache-Lebenszyklus (in Sekunden)"
 
 #: ../setup.php:525
+#, fuzzy
 msgid "Number of seconds an archived report will be cached without any hit."
 msgstr ""
+"Anzahl der Sekunden, in denen ein archivierter Bericht ohne Treffer "
+"zwischengespeichert wird."
 
 #: ../setup.php:531
+#, fuzzy
 msgid "Archive Path"
-msgstr ""
+msgstr "Archivierungspfad"
 
 #: ../setup.php:532
+#, fuzzy
 msgid ""
 "Optional: The path to an archive folder for saving. If not defined subfolder "
 "'archive' will be used."
 msgstr ""
+"Optional: Der Pfad zu einem Archivordner zum Speichern. Wenn nicht "
+"definiert, wird der Unterordner'archive' verwendet."
 
 #: ../setup.php:538
+#, fuzzy
 msgid "Auto E-Mailing"
-msgstr ""
+msgstr "Automatisches E-Mailing"
 
 #: ../setup.php:542 ../lib/const_reports.php:235
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 #: ../setup.php:543
+#, fuzzy
 msgid ""
 "If enabled scheduled reports can be emailed automatically to a list of "
 "recipients.<br> This feature requires a configured version of the 'Settings "
 "Plugin'."
 msgstr ""
+"Wenn aktiviert, können geplante Berichte automatisch an eine Liste von "
+"Empfängern gesendet werden.<br> Diese Funktion erfordert eine konfigurierte "
+"Version des'Settings Plugin'."
 
 #: ../setup.php:548
+#, fuzzy
 msgid "Auto Exporting"
-msgstr ""
+msgstr "Automatischer Export"
 
 #: ../setup.php:553
+#, fuzzy
 msgid ""
 "If enabled scheduled reports can be exported automatically to a specified "
 "folder.<br> Therefore a full structured path architecture will be used:<br> "
 "Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> "
 "Report"
 msgstr ""
+"Wenn aktiviert, können geplante Berichte automatisch in einen bestimmten "
+"Ordner exportiert werden. <br> Daher wird eine vollständig strukturierte "
+"Pfadarchitektur verwendet:<br> Hauptverzeichnis -> Vorlagenordner (falls "
+"definiert) oder Vorlagen-ID -> Berichts-ID -> Bericht"
 
 #: ../setup.php:559
+#, fuzzy
 msgid ""
 "Optional: The main path to an export folder for saving the exports. If not "
 "defined subfolder 'exports' will be used."
 msgstr ""
+"Optional: Der Hauptpfad zu einem Exportordner zum Speichern der Exporte. "
+"Wenn nicht definiert, wird der Unterordner \"exports\" verwendet."
 
 #: ../setup.php:565
+#, fuzzy
 msgid "Graph Settings"
-msgstr ""
+msgstr "Diagramm Einstellungen"
 
 #: ../setup.php:570
+#, fuzzy
 msgid "Enable/disable graph functionality"
-msgstr ""
+msgstr "Aktivieren/Deaktivieren der Grafikfunktionalität"
 
 #: ../setup.php:575
+#, fuzzy
 msgid "Maximum Graph Height"
-msgstr ""
+msgstr "Maximale Diagrammhöhe"
 
 #: ../setup.php:576
+#, fuzzy
 msgid ""
 "The maximum height of ReportIT graphs in pixels.<br> Warning! GD functions "
 "are very memory intensive. Be sure to set 'memory_limit' high enough."
 msgstr ""
+"Die maximale Höhe der ReportIT-Grafiken in Pixeln.<br> Achtung! GD-"
+"Funktionen sind sehr speicherintensiv. Stellen Sie sicher, dass Sie "
+"das'memory_limit' hoch genug einstellen."
 
 #: ../setup.php:582
+#, fuzzy
 msgid "Maximum Graph Width"
-msgstr ""
+msgstr "Maximale Diagrammbreite"
 
 #: ../setup.php:583
+#, fuzzy
 msgid ""
 "The maximum width of ReportIT graphs in pixels.<br> Warning! GD functions "
 "are very memory intensive. Be sure to set 'memory_limit' high enough."
 msgstr ""
+"Die maximale Breite der ReportIT-Grafiken in Pixeln.<br> Achtung! GD-"
+"Funktionen sind sehr speicherintensiv. Stellen Sie sicher, dass Sie "
+"das'memory_limit' hoch genug einstellen."
 
 #: ../setup.php:589
+#, fuzzy
 msgid "Quality Level"
-msgstr ""
+msgstr "Qualitätsstufe"
 
 #: ../setup.php:590
+#, fuzzy
 msgid ""
 "Choose the level of quality.<br> Warning! A higher quality setting has a "
 "lower calculation speed and requires more memory."
 msgstr ""
+"Wählen Sie die Qualitätsstufe.<br> Achtung! Eine qualitativ hochwertigere "
+"Einstellung hat eine geringere Rechengeschwindigkeit und erfordert mehr "
+"Speicherplatz."
 
 #: ../setup.php:596
+#, fuzzy
 msgid "Monospace Fonts"
-msgstr ""
+msgstr "Monospace-Schriften"
 
 #: ../setup.php:597
+#, fuzzy
 msgid ""
 "It's recommend to use monospace fonts like Lucida, Courier, Vera or DejaVu "
 "instead of the other types."
 msgstr ""
+"Es wird empfohlen, Monospace-Schriften wie Lucida, Courier, Vera oder DejaVu "
+"anstelle der anderen Typen zu verwenden."
 
 #: ../setup.php:602
+#, fuzzy
 msgid "Title Font File"
-msgstr ""
+msgstr "Überschrift Schriftartdatei"
 
 #: ../setup.php:603
+#, fuzzy
 msgid "Define font file to use for graph titles"
 msgstr ""
+"Definieren Sie eine Schriftartdatei, die für Grafiktitel verwendet werden "
+"soll."
 
 #: ../setup.php:609
+#, fuzzy
 msgid "Axis Font File"
-msgstr ""
+msgstr "Font Datei für Achsenbeschriftung"
 
 #: ../setup.php:610
+#, fuzzy
 msgid "Define font file to use for graph axis"
 msgstr ""
+"Definieren Sie die Schriftdatei, die für die Diagrammachse verwendet werden "
+"soll."
 
 #: ../setup.php:625
+#, fuzzy
 msgid "ReportIT General Settings"
-msgstr ""
+msgstr "ReportIT Allgemeine Einstellungen"
 
 #: ../setup.php:628
+#, fuzzy
 msgid "Separate Report View Filter"
-msgstr ""
+msgstr "Separater Filter für die Berichtsansicht"
 
 #: ../setup.php:629
+#, fuzzy
 msgid "Enable/disable the use of an individual filter per report."
 msgstr ""
+"Aktivieren/Deaktivieren der Verwendung eines einzelnen Filters pro Bericht."
 
 #: ../setup.php:634
+#, fuzzy
 msgid "Rows Per Page"
-msgstr ""
+msgstr "Spalten per Seite"
 
 #: ../setup.php:635
+#, fuzzy
 msgid "The number of rows to display on a single page."
 msgstr ""
+"Die Anzahl der Zeilen, die auf einer einzigen Seite angezeigt werden sollen."
 
 #: ../setup.php:641
+#, fuzzy
 msgid "ReportIT Export Settings"
-msgstr ""
+msgstr "ReportIT Export Einstellungen"
 
 #: ../setup.php:645
+#, fuzzy
 msgid "CSV Column Separator"
-msgstr ""
+msgstr "CSV Kolonnentrenner"
 
 #: ../setup.php:646
+#, fuzzy
 msgid "The column seperator to be used for CSV exports."
-msgstr ""
+msgstr "Der Spaltentrenner, der für CSV-Exporte verwendet werden soll."
 
 #: ../setup.php:652
+#, fuzzy
 msgid "CSV Decimal Separator"
-msgstr ""
+msgstr "CSV Dezimaltrenner"
 
 #: ../setup.php:653
+#, fuzzy
 msgid ""
 "The symbol indicating the end of the integer part and the beginning of the "
 "fractional part."
 msgstr ""
+"Das Symbol, das das Ende des ganzzahligen Teils und den Anfang des "
+"Bruchteils anzeigt."
 
 #: ../setup.php:659
+#, fuzzy
 msgid "ReportIT Graph Settings"
-msgstr ""
+msgstr "Einstellungen für die ReportIT-Grafik"
 
 #: ../setup.php:663
+#, fuzzy
 msgid "Default Chart"
-msgstr ""
+msgstr "Standard-Diagramm"
 
 #: ../setup.php:664
+#, fuzzy
 msgid "Define your default chart that should be shown first"
 msgstr ""
+"Definieren Sie Ihr Standard-Diagramm, das zuerst angezeigt werden soll."
 
 #: ../setup.php:670
+#, fuzzy
 msgid "Graph Height"
-msgstr ""
+msgstr "Diagramm Höhe"
 
 #: ../setup.php:671
+#, fuzzy
 msgid "The height of ReportIT graphs in pixel."
-msgstr ""
+msgstr "Die Höhe der ReportIT-Grafiken in Pixel."
 
 #: ../setup.php:677
+#, fuzzy
 msgid "Graph Width"
-msgstr ""
+msgstr "Diagramm Breite"
 
 #: ../setup.php:678
+#, fuzzy
 msgid "The width of ReportIT graphs in pixel."
-msgstr ""
+msgstr "Die Breite von ReportIT-Diagrammen in Pixel."
 
 #: ../setup.php:684
+#, fuzzy
 msgid "Show Graph Grid"
-msgstr ""
+msgstr "Grafikraster anzeigen"
 
 #: ../setup.php:685
+#, fuzzy
 msgid "Enable/disable Graph Grid for ReportIT Graphs."
-msgstr ""
+msgstr "Diagrammraster für ReportIT-Grafiken aktivieren/deaktivieren."
 
 #: ../lib/const_view.php:37 ../lib/const_reports.php:160
+#, fuzzy
 msgid "Text CSV (.csv)"
-msgstr ""
+msgstr "Text CSV (.csv)"
 
 #: ../lib/const_view.php:38 ../lib/const_reports.php:162
+#, fuzzy
 msgid "Raw XML (.xml)"
-msgstr ""
+msgstr "Roh-XML (.xml)"
 
 #: ../lib/const_view.php:39 ../lib/const_reports.php:161
+#, fuzzy
 msgid "MS Excel 2003 XML (.xml)"
-msgstr ""
+msgstr "MS Excel 2003 XML (.xml)"
 
 #: ../lib/const_view.php:69
+#, fuzzy
 msgid "Bar chart: vertical"
-msgstr ""
+msgstr "Balkendiagramm: vertikal"
 
 #: ../lib/const_view.php:70
+#, fuzzy
 msgid "Bar chart: horizontal"
-msgstr ""
+msgstr "Balkendiagramm: horizontal"
 
 #: ../lib/const_view.php:71
+#, fuzzy
 msgid "Line chart"
-msgstr ""
+msgstr "Liniendiagramm"
 
 #: ../lib/const_view.php:72
+#, fuzzy
 msgid "Area chart"
-msgstr ""
+msgstr "Flächendiagramm"
 
 #: ../lib/const_view.php:73
+#, fuzzy
 msgid "Pie chart: 3D"
-msgstr ""
+msgstr "Tortendiagramm: 3D"
 
-#: ../lib/const_view.php:78 ../lib/const_view.php:79
-#: ../lib/const_view.php:80 ../lib/const_view.php:81
-#, php-format
+#: ../lib/const_view.php:78 ../lib/const_view.php:79 ../lib/const_view.php:80
+#: ../lib/const_view.php:81
+#, fuzzy, php-format
 msgid "%s Hi"
-msgstr ""
+msgstr "%s Hi"
 
-#: ../lib/const_view.php:82 ../lib/const_view.php:83
-#: ../lib/const_view.php:84 ../lib/const_view.php:85
-#, php-format
+#: ../lib/const_view.php:82 ../lib/const_view.php:83 ../lib/const_view.php:84
+#: ../lib/const_view.php:85
+#, fuzzy, php-format
 msgid "%s Lo"
-msgstr ""
+msgstr "%s Lo"
 
 #: ../lib/const_view.php:99
+#, fuzzy
 msgid "Sum"
-msgstr ""
+msgstr "Summe"
 
 #: ../lib/const_view.php:102
+#, fuzzy
 msgid "Average"
-msgstr ""
+msgstr "Durchschnittlich"
 
 #: ../lib/funct_shared.php:36
+#, fuzzy
 msgid "Unknown Owner"
-msgstr ""
+msgstr "Unbekannter Eigentümer"
 
 #: ../lib/const_graphs.php:87
+#, fuzzy
 msgid "Pie chart 3D"
-msgstr ""
+msgstr "Kreisdiagramm 3D"
 
 #: ../lib/const_variables.php:29 ../lib/const_rrdlist.php:28
 #: ../lib/const_reports.php:30 ../measurands.php:36
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: ../lib/const_variables.php:33
+#, fuzzy
 msgid "Dropdown"
-msgstr ""
+msgstr "Dropdown"
 
 #: ../lib/const_variables.php:34
+#, fuzzy
 msgid "Input field"
-msgstr ""
+msgstr "Eingabefeld"
 
 #: ../lib/funct_export.php:78 ../lib/funct_export.php:443
+#, fuzzy
 msgid "Report title"
-msgstr ""
+msgstr "Berichtstitel"
 
 #: ../lib/funct_export.php:81 ../lib/funct_export.php:446
+#, fuzzy
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 #: ../lib/funct_export.php:82 ../lib/funct_export.php:447
+#, fuzzy
 msgid "End"
-msgstr ""
+msgstr "Ende der Tagesverschiebung"
 
 #: ../lib/const_rrdlist.php:29
+#, fuzzy
 msgid "Copy settings to all"
-msgstr ""
+msgstr "Einstellungen in alle kopieren"
 
 #: ../lib/const_rrdlist.php:54 ../lib/const_reports.php:69
 #: ../lib/funct_runtime.php:178
+#, fuzzy
 msgid "Monday"
-msgstr ""
+msgstr "Montag"
 
 #: ../lib/const_rrdlist.php:55 ../lib/const_reports.php:70
 #: ../lib/funct_runtime.php:180
+#, fuzzy
 msgid "Tuesday"
-msgstr ""
+msgstr "Dienstag"
 
 #: ../lib/const_rrdlist.php:56 ../lib/const_reports.php:71
 #: ../lib/funct_runtime.php:182
+#, fuzzy
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
 #: ../lib/const_rrdlist.php:57 ../lib/const_reports.php:72
 #: ../lib/funct_runtime.php:184
+#, fuzzy
 msgid "Thursday"
-msgstr ""
+msgstr "Donnerstag"
 
 #: ../lib/const_rrdlist.php:58 ../lib/const_reports.php:73
 #: ../lib/funct_runtime.php:186
+#, fuzzy
 msgid "Friday"
-msgstr ""
+msgstr "Freitag"
 
 #: ../lib/const_rrdlist.php:59 ../lib/const_reports.php:74
 #: ../lib/funct_runtime.php:188
+#, fuzzy
 msgid "Saturday"
-msgstr ""
+msgstr "Samstag"
 
 #: ../lib/const_rrdlist.php:60 ../lib/const_reports.php:75
 #: ../lib/funct_runtime.php:190
+#, fuzzy
 msgid "Sunday"
-msgstr ""
+msgstr "Sonntag"
 
 #: ../lib/funct_validate.php:227 ../lib/funct_validate.php:230
+#, fuzzy
 msgid "The file is to big."
-msgstr ""
+msgstr "Die Datei ist zu groß."
 
 #: ../lib/funct_validate.php:233
+#, fuzzy
 msgid "Incomplete file transfer."
-msgstr ""
+msgstr "Unvollständige Dateiübertragung."
 
 #: ../lib/funct_validate.php:236 ../lib/funct_validate.php:262
+#, fuzzy
 msgid "No file uploaded."
-msgstr ""
+msgstr "Es wurde keine Datei hochgeladen."
 
 #: ../lib/funct_validate.php:239
+#, fuzzy
 msgid "Temporary folder missing."
-msgstr ""
+msgstr "Temporärer Ordner fehlt."
 
 #: ../lib/funct_validate.php:242
+#, fuzzy
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Fehler beim Schreiben der Datei"
 
 #: ../lib/funct_validate.php:245
+#, fuzzy
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Datei-Upload durch Erweiterung gestoppt"
 
 #: ../lib/funct_validate.php:256
+#, fuzzy
 msgid "Invalid file extension."
-msgstr ""
+msgstr "Ungültige Dateiendung."
 
 #: ../lib/funct_validate.php:273
+#, fuzzy
 msgid "Unable to parse template file."
-msgstr ""
+msgstr "Es ist nicht möglich, die Vorlagendatei zu analysieren."
 
 #: ../lib/funct_validate.php:314
+#, fuzzy
 msgid "Checksum error."
-msgstr ""
+msgstr "Prüfsummenfehler."
 
 #: ../lib/const_reports.php:29
+#, fuzzy
 msgid "Run Report"
-msgstr ""
+msgstr "Bericht ausführen"
 
 #: ../lib/const_reports.php:31
+#, fuzzy
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplizieren"
 
 #: ../lib/const_reports.php:81
+#, fuzzy
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 #: ../lib/const_reports.php:82
+#, fuzzy
 msgid "Last 1 Day"
-msgstr ""
+msgstr "Letzter 1 Tag"
 
 #: ../lib/const_reports.php:83
+#, fuzzy
 msgid "Last 2 Days"
-msgstr ""
+msgstr "Letzte 2 Tage"
 
 #: ../lib/const_reports.php:84
+#, fuzzy
 msgid "Last 3 Days"
-msgstr ""
+msgstr "Letzte 3 Tage"
 
 #: ../lib/const_reports.php:85
+#, fuzzy
 msgid "Last 4 Days"
-msgstr ""
+msgstr "Letzte 4 Tage"
 
 #: ../lib/const_reports.php:86
+#, fuzzy
 msgid "Last 5 Days"
-msgstr ""
+msgstr "Letzte 5 Tage"
 
 #: ../lib/const_reports.php:87
+#, fuzzy
 msgid "Last 6 Days"
-msgstr ""
+msgstr "Letzte 6 Tage"
 
 #: ../lib/const_reports.php:88
+#, fuzzy
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Letzte 7 Tage"
 
 #: ../lib/const_reports.php:89
+#, fuzzy
 msgid "Last Week (Sun - Sat)"
-msgstr ""
+msgstr "Letzte Woche (So - Sa - Sa)"
 
 #: ../lib/const_reports.php:90
+#, fuzzy
 msgid "Last Week (Mon - Sun)"
-msgstr ""
+msgstr "Letzte Woche (Mo - So)"
 
 #: ../lib/const_reports.php:91
+#, fuzzy
 msgid "Last 14 Days"
-msgstr ""
+msgstr "Letzte 14 Tage"
 
 #: ../lib/const_reports.php:92
+#, fuzzy
 msgid "Last 21 Days"
-msgstr ""
+msgstr "Letzte 21 Tage"
 
 #: ../lib/const_reports.php:93
+#, fuzzy
 msgid "Last 28 Days"
-msgstr ""
+msgstr "Letzte 28 Tage"
 
 #: ../lib/const_reports.php:94
+#, fuzzy
 msgid "Current Month"
-msgstr ""
+msgstr "Aktueller Monat"
 
 #: ../lib/const_reports.php:95
+#, fuzzy
 msgid "Last Month"
-msgstr ""
+msgstr "Letzter Monat"
 
 #: ../lib/const_reports.php:96
+#, fuzzy
 msgid "Last 2 Months"
-msgstr ""
+msgstr "Letzte 2 Monate"
 
 #: ../lib/const_reports.php:97
+#, fuzzy
 msgid "Last 3 Months"
-msgstr ""
+msgstr "Letzten 3 Monate"
 
 #: ../lib/const_reports.php:98
+#, fuzzy
 msgid "Last 4 Months"
-msgstr ""
+msgstr "Letzte 4 Monate"
 
 #: ../lib/const_reports.php:99
+#, fuzzy
 msgid "Last 5 Months"
-msgstr ""
+msgstr "Letzte 5 Monate"
 
 #: ../lib/const_reports.php:100
+#, fuzzy
 msgid "Last 6 Months"
-msgstr ""
+msgstr "Letzte 6 Monate"
 
 #: ../lib/const_reports.php:101
+#, fuzzy
 msgid "Current Year"
-msgstr ""
+msgstr "Aktuelles Jahr"
 
 #: ../lib/const_reports.php:102
+#, fuzzy
 msgid "Last Year"
-msgstr ""
+msgstr "Letztes Jahr"
 
 #: ../lib/const_reports.php:103
+#, fuzzy
 msgid "Last 2 Years"
-msgstr ""
+msgstr "Letzte 2 Jahre"
 
 #: ../lib/const_reports.php:125
+#, fuzzy
 msgid "Data Item Presets"
-msgstr ""
+msgstr "Voreinstellungen für Datenelemente"
 
 #: ../lib/const_reports.php:126
+#, fuzzy
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
 #: ../lib/const_reports.php:127
+#, fuzzy
 msgid "Administration"
-msgstr ""
+msgstr "Log Verwaltung"
 
 #: ../lib/const_reports.php:179
+#, fuzzy
 msgid "Subject"
-msgstr ""
+msgstr "Betreff"
 
 #: ../lib/const_reports.php:180
+#, fuzzy
 msgid ""
 "Enter the subject of your email.<br> Following variables will be supported "
 "(without quotes): '|title|' and '|period|'"
 msgstr ""
+"Geben Sie den Betreff Ihrer E-Mail ein.<br> Folgende Variablen werden "
+"unterstützt (ohne Anführungszeichen): '|title|' und '|period|'."
 
 #: ../lib/const_reports.php:184
+#, fuzzy
 msgid "Scheduled report - |title| - |period|"
-msgstr ""
+msgstr "Geplanter Bericht - |Titel| - |Periode|"
 
 #: ../lib/const_reports.php:188
+#, fuzzy
 msgid "Body (optional)"
-msgstr ""
+msgstr "Gehäuse (optional)"
 
 #: ../lib/const_reports.php:189
+#, fuzzy
 msgid "Enter a message which will be displayed in the body of your email"
-msgstr ""
+msgstr "Geben Sie eine Nachricht ein, die im Text Ihrer E-Mail angezeigt wird."
 
 #: ../lib/const_reports.php:193
+#, fuzzy
 msgid "This is a scheduled report generated from Cacti."
-msgstr ""
+msgstr "Dies ist ein geplanter Bericht, der von Cacti erstellt wurde."
 
 #: ../lib/const_reports.php:197
+#, fuzzy
 msgid "Attachment"
-msgstr ""
+msgstr "Anhang"
 
 #: ../lib/const_reports.php:199
+#, fuzzy
 msgid ""
 "Only to receive an email as a notification that a new report is available "
 "choose 'None'.<br> Otherwise select the format the report should be attached "
 "as."
 msgstr ""
+"Nur um eine E-Mail als Benachrichtigung zu erhalten, dass ein neuer Bericht "
+"verfügbar ist, wählen Sie 'Keine'.<br> Andernfalls wählen Sie das Format, in "
+"dem der Bericht angehängt werden soll."
 
 #: ../lib/const_reports.php:205
+#, fuzzy
 msgid "Email Recipients"
-msgstr ""
+msgstr "E-Mail-Empfänger"
 
 #: ../lib/const_reports.php:209
+#, fuzzy
 msgid "New Email Recipients"
-msgstr ""
+msgstr "Neue E-Mail-Empfänger"
 
 #: ../lib/const_reports.php:210
+#, fuzzy
 msgid ""
 "To add a new recipient enter a valid email address (required) and a name "
 "(optional).<br> For a faster setup use a list of adresses/names where the "
 "names/addresses are separated with one of the following delemiters: ';' or "
 "','"
 msgstr ""
+"Um einen neuen Empfänger hinzuzufügen, geben Sie eine gültige E-Mail-Adresse "
+"(erforderlich) und einen Namen (optional) ein.<br> Für eine schnellere "
+"Einrichtung verwenden Sie eine Liste von Adressen/Namen, bei denen die Namen/"
+"Adressen durch einen der folgenden Delemitter getrennt sind: ';' oder ','."
 
 #: ../lib/const_reports.php:231
+#, fuzzy
 msgid "Scheduled Reporting"
-msgstr ""
+msgstr "Geplante Berichterstattung"
 
 #: ../lib/const_reports.php:236
+#, fuzzy
 msgid ""
 "Enable/disable scheduled reporting. Sliding time frame should be enabled."
 msgstr ""
+"Aktivieren/Deaktivieren von geplanten Berichten. Der Gleitzeitrahmen sollte "
+"aktiviert sein."
 
 #: ../lib/const_reports.php:242
+#, fuzzy
 msgid "Frequency"
-msgstr ""
+msgstr "Häufigkeit"
 
 #: ../lib/const_reports.php:243
+#, fuzzy
 msgid ""
 "Select the frequency for processing this report. Be sure that there's a "
 "cronjob (or scheduled task) running for the choice you made. This won't be "
 "done automatically by ReportIT."
 msgstr ""
+"Wählen Sie die Häufigkeit für die Bearbeitung dieses Berichts aus. Stellen "
+"Sie sicher, dass ein Cronjob (oder eine geplante Aufgabe) für die von Ihnen "
+"getroffene Wahl ausgeführt wird. Dies wird von ReportIT nicht automatisch "
+"durchgeführt."
 
 #: ../lib/const_reports.php:249
+#, fuzzy
 msgid "Auto Generated Data Items"
-msgstr ""
+msgstr "Automatisch generierte Datenelemente"
 
 #: ../lib/const_reports.php:250
+#, fuzzy
 msgid ""
 "Enable/disable automatic creation of all data items based on given filters."
 "This will be called before report execution.  Obsolete RRDs will be deleted "
 "and all RRDs matching the filter settings will be added."
 msgstr ""
+"Aktiviert/deaktiviert die automatische Erstellung aller Datenelemente "
+"basierend auf vorgegebenen Filtern, die vor der Berichtsausführung "
+"aufgerufen werden.  Veraltete RRDs werden gelöscht und alle RRDs, die den "
+"Filtereinstellungen entsprechen, hinzugefügt."
 
 #: ../lib/const_reports.php:259
+#, fuzzy
 msgid "Auto Generated Archive"
-msgstr ""
+msgstr "Automatisch generiertes Archiv"
 
 #: ../lib/const_reports.php:260
+#, fuzzy
 msgid ""
 "Define the maximum number of instances which should be archived before the "
 "first one will be overwritten.  Choose \"off\" if you want to deactivate "
@@ -1373,34 +1757,52 @@ msgid ""
 "lower value of instances than the current archive contains then it will get "
 "shrinked automatically within the next run."
 msgstr ""
+"Definieren Sie die maximale Anzahl der Instanzen, die archiviert werden "
+"sollen, bevor die erste überschrieben wird.  Wählen Sie \"Aus\", wenn Sie "
+"das RoundRobbin-Prinzip deaktivieren möchten (Standard, aber nicht "
+"empfohlen).  Wenn Sie einen niedrigeren Wert für Instanzen definieren, als "
+"das aktuelle Archiv enthält, wird es beim nächsten Lauf automatisch "
+"verkleinert."
 
 #: ../lib/const_reports.php:270
+#, fuzzy
 msgid "Auto Generated Email"
-msgstr ""
+msgstr "Automatisch generierte E-Mail"
 
 #: ../lib/const_reports.php:271
+#, fuzzy
 msgid ""
 "If enabled tab 'Email' will be activated and all recipients defined under "
 "that section will receive automatically an email containing this scheduled "
 "report."
 msgstr ""
+"Wenn die Registerkarte'E-Mail' aktiviert ist, wird aktiviert und alle in "
+"diesem Abschnitt definierten Empfänger erhalten automatisch eine E-Mail mit "
+"diesem geplanten Bericht."
 
 #: ../lib/const_reports.php:280
+#, fuzzy
 msgid "Auto Generated Export"
-msgstr ""
+msgstr "Automatisch generierter Export"
 
 #: ../lib/const_reports.php:281
+#, fuzzy
 msgid ""
 "If enabled the report will be automatically exported to a separate "
 "subfolder.  This will be placed within the export folder defined in the "
 "report template."
 msgstr ""
+"Wenn aktiviert, wird der Bericht automatisch in einen separaten Unterordner "
+"exportiert.  Diese wird in den in der Berichtsvorlage definierten "
+"Exportordner gelegt."
 
 #: ../lib/const_reports.php:288
+#, fuzzy
 msgid "Export Limitation"
-msgstr ""
+msgstr "Exportbeschränkung"
 
 #: ../lib/const_reports.php:289
+#, fuzzy
 msgid ""
 "Define the maximum number of instances which should be archived before the "
 "first one will be overwritten.  Choose 'off' if you want to deactivate that "
@@ -1408,414 +1810,555 @@ msgid ""
 "value of instances than the current export folder contains then it will get "
 "shrinked automatically within the next run."
 msgstr ""
+"Definieren Sie die maximale Anzahl der Instanzen, die archiviert werden "
+"sollen, bevor die erste überschrieben wird.  Wählen Sie \"Aus\", wenn Sie "
+"das RoundRobbin-Prinzip deaktivieren möchten (Standard, aber nicht "
+"empfohlen).  Wenn Sie einen niedrigeren Wert für Instanzen definieren, als "
+"der aktuelle Exportordner enthält, wird er beim nächsten Lauf automatisch "
+"verkleinert."
 
 #: ../lib/const_reports.php:296
+#, fuzzy
 msgid "Raw Data Export"
-msgstr ""
+msgstr "Rohdaten-Export"
 
 #: ../lib/const_reports.php:297
+#, fuzzy
 msgid ""
 "If enabled auto generated exports will contain raw data only. The formatting "
 "of measurands will be ignored."
 msgstr ""
+"Wenn aktiviert, werden automatisch generierte Exporte nur Rohdaten "
+"enthalten. Die Formatierung von Messwerten wird ignoriert."
 
 #: ../lib/const_reports.php:318
+#, fuzzy
 msgid "Change Report Owner"
-msgstr ""
+msgstr "Berichtsbesitzer ändern"
 
 #: ../lib/const_reports.php:319
+#, fuzzy
 msgid ""
 "Change the owner of this report. Only users with a minimum of reporting "
 "rights ('View' or higher) can be selected."
 msgstr ""
+"Ändern Sie den Besitzer dieses Berichts. Es können nur Benutzer mit einem "
+"Minimum an Reporting-Rechten (\"Ansicht\" oder höher) ausgewählt werden."
 
 #: ../lib/const_reports.php:325
+#, fuzzy
 msgid "Enable Use of Graph Permissions"
-msgstr ""
+msgstr "Verwendung von Grafikberechtigungen aktivieren"
 
 #: ../lib/const_reports.php:326
+#, fuzzy
 msgid ""
 "If enabled (default) the list of available data items will be filtered "
 "automatically by owner's graph permission: 'by device'."
 msgstr ""
+"Wenn aktiviert (Standard), wird die Liste der verfügbaren Datenelemente "
+"automatisch durch die Graphenberechtigung des Eigentümers gefiltert: \"nach "
+"Gerät\"."
 
 #: ../lib/const_reports.php:365
+#, fuzzy
 msgid "Host Template Filter (optional)"
-msgstr ""
+msgstr "Host-Vorlagenfilter (optional)"
 
 #: ../lib/const_reports.php:366
+#, fuzzy
 msgid ""
 "Use those data items only, which belong to hosts of this host template."
 "<br>Select 'None' (default) to deactivate this filter setting."
 msgstr ""
+"Verwenden Sie nur die Datenelemente, die zu den Hosts dieser Host-Vorlage "
+"gehören.<br>Auswählen Sie'Keine' (Standard), um diese Filtereinstellung zu "
+"deaktivieren."
 
 #: ../lib/const_reports.php:373
+#, fuzzy
 msgid "Data Items Filter (optional)"
-msgstr ""
+msgstr "Datenelemente-Filter (optional)"
 
 #: ../lib/const_reports.php:374
+#, fuzzy
 msgid ""
 "Allows additional filtering on the data items descriptions.<br> Use SQL "
 "wildcards like % and/or _. No regular Expressions!"
 msgstr ""
+"Ermöglicht zusätzliche Filterung bei den Beschreibungen der Datenelemente."
+"<br> SQL-Wildcards wie % und/oder _ verwenden. Keine regulären Ausdrücke!"
 
 #: ../lib/const_reports.php:450
+#, fuzzy
 msgid "The name given to this report"
-msgstr ""
+msgstr "Der Name, der diesem Bericht gegeben wurde."
 
 #: ../lib/const_reports.php:457
+#, fuzzy
 msgid "The template your configuration depends on"
 msgstr ""
+"Welche Vorlage für Ihre Konfiguration verwendet wird, hängt von folgenden "
+"Faktoren ab"
 
-#: ../lib/const_reports.php:464 ../reports.php:364
-#: ../reports.php:376
+#: ../lib/const_reports.php:464 ../reports.php:364 ../reports.php:376
+#, fuzzy
 msgid "Public"
 msgstr ""
+"Dieses Programm ist freie Software: Sie können sie weitergeben und/oder "
+"verändern unter den Bedingungen der GNU General Public License, wie von der "
+"Free Software Foundation veröffentlicht; entweder Version 2 der Lizenz oder "
+"(nach Ihrer Wahl) jeder späteren Version."
 
 #: ../lib/const_reports.php:465
+#, fuzzy
 msgid "If enabled everyone can see your report under tab 'reports'"
 msgstr ""
+"Wenn aktiviert, kann jeder Ihren Bericht unter der Registerkarte'Berichte' "
+"sehen."
 
 #: ../lib/const_reports.php:471
+#, fuzzy
 msgid "Reporting Period"
-msgstr ""
+msgstr "Berichtsperiode"
 
 #: ../lib/const_reports.php:476
+#, fuzzy
 msgid ""
 "If checked the reporting period will be configured automatically in relation "
 "to the point of time the calculation starts."
 msgstr ""
+"Wenn diese Option aktiviert ist, wird der Berichtszeitraum automatisch in "
+"Bezug auf den Zeitpunkt, zu dem die Berechnung beginnt, konfiguriert."
 
 #: ../lib/const_reports.php:482
+#, fuzzy
 msgid "Time Frames"
-msgstr ""
+msgstr "Zeitraum"
 
 #: ../lib/const_reports.php:483
+#, fuzzy
 msgid ""
 "The time frame you want to analyse in relation to the point of time the "
 "calculation starts.<br>This means calendar days, calendar months and "
 "calendar years."
 msgstr ""
+"Der Zeitraum, den Sie analysieren möchten, bezogen auf den Zeitpunkt, zu dem "
+"die Berechnung beginnt.<br>Dies sind Kalendertage, Kalendermonate und "
+"Kalenderjahre."
 
 #: ../lib/const_reports.php:489
+#, fuzzy
 msgid "Up To The Day of Calculation"
-msgstr ""
+msgstr "Bis zum Tag der Berechnung"
 
 #: ../lib/const_reports.php:490
+#, fuzzy
 msgid "Extend the sliding time frame up to the day the calculation runs."
-msgstr ""
+msgstr "Verlängern Sie den Gleitzeitrahmen bis zum Tag der Berechnung."
 
 #: ../lib/const_reports.php:496
+#, fuzzy
 msgid "Fixed Time Frame - Start Date (From)"
-msgstr ""
+msgstr "Fester Zeitrahmen - Startdatum (von)"
 
 #: ../lib/const_reports.php:497
+#, fuzzy
 msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
 msgstr ""
+"Um das Startdatum zu definieren, verwenden Sie das folgende Format: <b>yyyyy-"
+"mm-dd-dd</b>"
 
 #: ../lib/const_reports.php:503
+#, fuzzy
 msgid "Fixed Time Frame - End Date (To)"
-msgstr ""
+msgstr "Fester Zeitrahmen - Enddatum (To)"
 
 #: ../lib/const_reports.php:504
+#, fuzzy
 msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr ""
+"Um das Enddatum zu definieren, verwenden Sie das folgende Format: <b>yyyyy-"
+"mm-dd-dd</b>"
 
 #: ../lib/const_measurands.php:28
+#, fuzzy
 msgid "Returns the average value.&#10;(sum of values /number of values)"
-msgstr ""
+msgstr "Liefert den Durchschnittswert.&#10;(Summe der Werte /Anzahl der Werte)"
 
 #: ../lib/const_measurands.php:29
+#, fuzzy
 msgid "Returns the highest value"
-msgstr ""
+msgstr "Liefert den höchsten Wert zurück"
 
 #: ../lib/const_measurands.php:30
+#, fuzzy
 msgid "Returns the lowest value"
-msgstr ""
+msgstr "Liefert den niedrigsten Wert zurück"
 
 #: ../lib/const_measurands.php:31
+#, fuzzy
 msgid ""
 "Returns the sum of all values.&#10;(1.Value + 2.Value + 3.Value + ... + n."
 "Value)"
 msgstr ""
+"Liefert die Summe aller Werte. &#10;(1.Wert + 2.Wert + 3.Wert + 3.Wert "
+"+ .... + n.Wert)"
 
 #: ../lib/const_measurands.php:32
+#, fuzzy
 msgid "Returns the number of values"
-msgstr ""
+msgstr "Liefert die Anzahl der Werte zurück."
 
 #: ../lib/const_measurands.php:33
+#, fuzzy
 msgid "Returns the gradient of a straight line by using linear regression"
 msgstr ""
+"Liefert den Gradienten einer Geraden unter Verwendung der linearen "
+"Regression."
 
 #: ../lib/const_measurands.php:34
+#, fuzzy
 msgid "Returns the last measured value"
-msgstr ""
+msgstr "Liefert den letzten Messwert zurück"
 
 #: ../lib/const_measurands.php:35
+#, fuzzy
 msgid "Returns the first measured value"
-msgstr ""
+msgstr "Liefert den ersten Messwert zurück"
 
 #: ../lib/const_measurands.php:41
+#, fuzzy
 msgid ""
-"Returns the xth percentitle.&#10; Description: float f_xth(float $variable)"
-"&#10; Variable has to be between 0 and 100&#10; Example: f_xth(95)"
+"Returns the xth percentitle.&#10; Description: float f_xth(float "
+"$variable)&#10; Variable has to be between 0 and 100&#10; Example: f_xth(95)"
 msgstr ""
+"Liefert den x-ten Prozenttitel.&#10; Beschreibung: float f_xth(float "
+"$variable)&#10; Variable muss zwischen 0 und 100&#10 liegen; Beispiel: "
+"f_xth(95)"
 
 #: ../lib/const_measurands.php:42
+#, fuzzy
 msgid ""
 "Returns the duration over a defined threshold in percent.&#10; Description: "
 "float f_dot(float $variable)&#10; Example: f_dot(10000000)"
 msgstr ""
+"Liefert die Dauer über einen definierten Schwellenwert in Prozent.&#10; "
+"Beschreibung: float f_dot(float $variable)&#10; Beispiel: f_dot(10000000)"
 
 #: ../lib/const_measurands.php:43
+#, fuzzy
 msgid ""
 "Returns the sum of values over a defined threshold.&#10 Description: float "
 "f_sot(float $variable)&#10; Example: f_sot(750000)"
 msgstr ""
+"Liefert die Summe der Werte über einen definierten Schwellenwert. &#10 "
+"Beschreibung: float f_sot(float $variable)&#10; Beispiel: f_sot(75000000)"
 
 #: ../lib/const_measurands.php:44
+#, fuzzy
 msgid "Returns float as integer"
-msgstr ""
+msgstr "Liefert float als Ganzzahl zurück"
 
 #: ../lib/const_measurands.php:45
+#, fuzzy
 msgid "Returns float as rounded integer value"
-msgstr ""
+msgstr "Liefert float als gerundeten ganzzahligen Wert."
 
 #: ../lib/const_measurands.php:46
+#, fuzzy
 msgid "Returns the highest value of a given list of parameters"
-msgstr ""
+msgstr "Liefert den höchsten Wert einer gegebenen Liste von Parametern."
 
 #: ../lib/const_measurands.php:47
+#, fuzzy
 msgid "Returns the lowest value of a given list of parameters"
-msgstr ""
+msgstr "Liefert den niedrigsten Wert einer gegebenen Liste von Parametern."
 
 #: ../lib/const_measurands.php:53
+#, fuzzy
 msgid "Addition"
-msgstr ""
+msgstr "Zusatz"
 
 #: ../lib/const_measurands.php:54
+#, fuzzy
 msgid "Subtraction"
-msgstr ""
+msgstr "Subtraktion"
 
 #: ../lib/const_measurands.php:55
+#, fuzzy
 msgid "Multiplication"
-msgstr ""
+msgstr "Multiplikation"
 
 #: ../lib/const_measurands.php:56
+#, fuzzy
 msgid "Division"
-msgstr ""
+msgstr "Division"
 
 #: ../lib/const_measurands.php:60
+#, fuzzy
 msgid "Contains the maximum bandwidth if 'ifspeed' is available."
-msgstr ""
+msgstr "Enthält die maximale Bandbreite, wenn'ifspeed' verfügbar ist."
 
 #: ../lib/const_measurands.php:61
+#, fuzzy
 msgid ""
 "Contains the maximum value that has been defined for the specific data "
 "source item under \\\"Data Sources\\\"."
 msgstr ""
+"Enthält den Maximalwert, der für das jeweilige Datenquellenelement unter \\"
+"\"Datenquellen\\\" definiert wurde."
 
 #: ../lib/const_measurands.php:62
+#, fuzzy
 msgid "Contains the number of seconds between two measured values."
-msgstr ""
+msgstr "Enthält die Anzahl der Sekunden zwischen zwei Messwerten."
 
 #: ../lib/const_measurands.php:63
+#, fuzzy
 msgid "Contains the number of NAN's during the reporting period."
-msgstr ""
+msgstr "Enthält die Anzahl der NAN's während des Berichtszeitraums."
 
 #: ../lib/const_measurands.php:70
+#, fuzzy
 msgid "Functions"
-msgstr ""
+msgstr "Funktionen"
 
 #: ../lib/const_measurands.php:71
+#, fuzzy
 msgid "Functions with parameters"
-msgstr ""
+msgstr "Funktionen mit Parametern"
 
 #: ../lib/const_measurands.php:72
+#, fuzzy
 msgid "Operators"
-msgstr ""
+msgstr "Operatoren"
 
 #: ../lib/const_measurands.php:74
+#, fuzzy
 msgid "Data Query Variables"
-msgstr ""
+msgstr "Datenabfragevariablen"
 
 #: ../lib/const_measurands.php:75
+#, fuzzy
 msgid "Interim Results"
-msgstr ""
+msgstr "Zwischenergebnisse"
 
 #: ../lib/const_measurands.php:79
+#, fuzzy
 msgid "off"
-msgstr ""
+msgstr "aus"
 
 #: ../lib/const_measurands.php:80
+#, fuzzy
 msgid "Binary SI-Prefixes (Base 1024)"
-msgstr ""
+msgstr "Binäre SI-Präfixe (Basis 1024)"
 
 #: ../lib/const_measurands.php:81
+#, fuzzy
 msgid "Decimal SI-Prefixes (Base 1000)"
-msgstr ""
+msgstr "Dezimale SI-Präfixe (Basis 1000)"
 
 #: ../lib/const_measurands.php:85
+#, fuzzy
 msgid "Binary"
-msgstr ""
+msgstr "Binär"
 
 #: ../lib/const_measurands.php:86
+#, fuzzy
 msgid "Floating point"
-msgstr ""
+msgstr "Gleitkomma"
 
 #: ../lib/const_measurands.php:87
+#, fuzzy
 msgid "Integer"
-msgstr ""
+msgstr "Ganzzahl"
 
 #: ../lib/const_measurands.php:88
+#, fuzzy
 msgid "Integer (unsigned)"
-msgstr ""
+msgstr "Ganzzahl (ohne Vorzeichen)"
 
 #: ../lib/const_measurands.php:89
+#, fuzzy
 msgid "Hexadecimal (lower-case)"
-msgstr ""
+msgstr "Hexadezimal (Kleinschreibung)"
 
 #: ../lib/const_measurands.php:90
+#, fuzzy
 msgid "Hexadecimal (upper-case)"
-msgstr ""
+msgstr "Hexadezimal (Großbuchstaben)"
 
 #: ../lib/const_measurands.php:91
+#, fuzzy
 msgid "Octal"
-msgstr ""
+msgstr "Oktal"
 
 #: ../lib/const_measurands.php:92
+#, fuzzy
 msgid "Scientific Notation"
-msgstr ""
+msgstr "Wissenschaftliche Notation"
 
 #: ../lib/const_measurands.php:106
+#, fuzzy
 msgid "Unchanged"
-msgstr ""
+msgstr "[Unverändert]"
 
 #: ../run.php:71
+#, fuzzy
 msgid "Report is just in process."
-msgstr ""
+msgstr "Der Bericht ist gerade in Bearbeitung."
 
 #: ../run.php:94
+#, fuzzy
 msgid "Report calculation failed"
-msgstr ""
+msgstr "Berichtsberechnung fehlgeschlagen"
 
 #: ../run.php:94
+#, fuzzy
 msgid "List Data Items"
-msgstr ""
+msgstr "Datenelemente auflisten"
 
 #: ../run.php:98
+#, fuzzy
 msgid "Report statistics"
-msgstr ""
+msgstr "Berichtsstatistiken"
 
 #: ../run.php:98
+#, fuzzy
 msgid "Report configurations"
-msgstr ""
+msgstr "Berichtskonfigurationen"
 
 #: ../reports.php:78
+#, fuzzy
 msgid "New Report"
-msgstr ""
+msgstr "Neuer Bericht"
 
 #: ../reports.php:85
+#, fuzzy
 msgid "There are no report templates available."
-msgstr ""
+msgstr "Es sind keine Berichtsvorlagen verfügbar."
 
 #: ../reports.php:91
+#, fuzzy
 msgid "Create a new report"
-msgstr ""
+msgstr "Einen neuen Bericht erstellen"
 
 #: ../reports.php:99
+#, fuzzy
 msgid "Choose a template this report should depend on."
-msgstr ""
+msgstr "Wählen Sie eine Vorlage, von der dieser Bericht abhängen soll."
 
 #: ../reports.php:124
+#, fuzzy
 msgid "Report Filters"
-msgstr ""
+msgstr "Berichtsfilter"
 
 #: ../reports.php:363 ../reports.php:375
-#, php-format
+#, fuzzy, php-format
 msgid "Last run %s/ Runtime [s]"
-msgstr ""
+msgstr "Letzter Lauf %s/ Laufzeit[s]"
 
 #: ../reports.php:365
+#, fuzzy
 msgid "Scheduled"
-msgstr ""
+msgstr "Geplant"
 
 #: ../reports.php:377
+#, fuzzy
 msgid "Data Objects"
-msgstr ""
+msgstr "Datenobjekte"
 
 #: ../reports.php:390
+#, fuzzy
 msgid "*In process*"
-msgstr ""
+msgstr "*In Bearbeitung*"
 
 #: ../reports.php:409
+#, fuzzy
 msgid "- not available -"
-msgstr ""
+msgstr "- nicht verfügbar -"
 
 #: ../reports.php:442
+#, fuzzy
 msgid "Template has been locked temporarily"
-msgstr ""
+msgstr "Die Vorlage wurde vorübergehend gesperrt."
 
 #: ../reports.php:451
+#, fuzzy
 msgid "No reports"
-msgstr ""
+msgstr "Berichte"
 
 #: ../reports.php:497
+#, fuzzy
 msgid "Not authorised"
-msgstr ""
+msgstr "Nicht autorisiert"
 
 #: ../reports.php:883
+#, fuzzy
 msgid "Add data items"
-msgstr ""
+msgstr "Datenelemente hinzufügen"
 
 #: ../reports.php:957
-#, php-format
+#, fuzzy, php-format
 msgid "Report Configuration (%s) %s"
-msgstr ""
+msgstr "Berichtskonfiguration (%s) %s %s"
 
 #: ../reports.php:1004
+#, fuzzy
 msgid "No recipients found"
-msgstr ""
+msgstr "Keine Empfänger gefunden"
 
 #: ../reports.php:1051 ../reports.php:1064
+#, fuzzy
 msgid "- Email address of a recipient (or list of names) -"
-msgstr ""
+msgstr "- E-Mail-Adresse eines Empfängers (oder Liste der Namen) -"
 
 #: ../reports.php:1053 ../reports.php:1066
+#, fuzzy
 msgid "[OPTIONAL] - Name of a recipient (or list of names) -"
-msgstr ""
+msgstr "[OPTIONAL] - Name eines Empfängers (oder Liste der Namen) -"
 
 #: ../reports.php:1264
+#, fuzzy
 msgid "Click 'Continue' to Delete the following Reports."
-msgstr ""
+msgstr "Klicken Sie auf \"Weiter\", um die folgenden Berichte zu löschen."
 
 #: ../reports.php:1267
+#, fuzzy
 msgid "List of selected reports:"
-msgstr ""
+msgstr "Liste der ausgewählten Berichte:"
 
 #: ../reports.php:1270 ../reports.php:1285
-#, php-format
+#, fuzzy, php-format
 msgid "|_Report: %s"
-msgstr ""
+msgstr "|Bericht: %s"
 
 #: ../reports.php:1279
+#, fuzzy
 msgid ""
 "Click 'Continue' to duplicate the following Report configurations.  You may "
 "also change the title format during this operation."
 msgstr ""
+"Klicken Sie auf \"Weiter\", um die folgenden Berichtskonfigurationen zu "
+"duplizieren.  Sie können das Titelformat auch während dieses Vorgangs ändern."
 
 #: ../reports.php:1282
+#, fuzzy
 msgid "List of selected Reports:"
-msgstr ""
+msgstr "Liste der ausgewählten Berichte:"
 
 #: ../reports.php:1289
+#, fuzzy
 msgid "Title Format:"
-msgstr ""
+msgstr "Titelzeile:"
 
 #: ../reports.php:1290
+#, fuzzy
 msgid "<report_title> (1)"
-msgstr ""
+msgstr "<report_title> (1)"
 
 #: ../reports.php:1298
+#, fuzzy
 msgid "You must select at least one report."
-msgstr ""
+msgstr "Sie müssen mindestens einen Bericht auswählen."
