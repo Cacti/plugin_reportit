@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-03-20 08:49+0000\n"
-"Last-Translator: Mark Brugnoli-Vinten <netniv@cacti.net>\n"
+"PO-Revision-Date: 2019-04-01 21:12+0000\n"
+"Last-Translator: Javier Pobeda <javier.pobeda@pm.me>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/reportit/"
 "es-ES/>\n"
 "Language: es-ES\n"
@@ -1198,7 +1198,7 @@ msgstr ""
 
 #: lib/const_reports.php:38
 msgid "Running"
-msgstr ""
+msgstr "Ejecutando"
 
 #: lib/const_reports.php:56 lib/const_rrdlist.php:54 lib/funct_runtime.php:179
 #, fuzzy
@@ -2052,7 +2052,6 @@ msgstr "Debe seleccionar al menos un Informe."
 #: reports.php:1254 reports.php:1264 rrdlist.php:572 rrdlist.php:574
 #: templates.php:98 templates.php:100 templates.php:232 templates.php:233
 #: templates.php:981 variables.php:482 variables.php:484
-#, fuzzy
 msgid "Cancel"
 msgstr "Cancelar"
 
