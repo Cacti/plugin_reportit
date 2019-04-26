@@ -6,16 +6,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-03-18 16:26-0400\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2019-04-26 10:12+0000\n"
+"Last-Translator: whsir <wh@whsir.com>\n"
+"Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
+"cacti/reportit/zh-CN/>\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -317,7 +319,7 @@ msgstr "输入字段"
 #: lib/const_view.php:97
 #, fuzzy
 msgid "None"
-msgstr "没有"
+msgstr "无"
 
 #: include/global_arrays.php:133 lib/const_measurands.php:369
 #, fuzzy
@@ -2021,7 +2023,6 @@ msgstr "取消"
 
 #: measurands.php:535 reports.php:98 reports.php:1264 rrdlist.php:575
 #: templates.php:100 templates.php:990 templates.php:992 variables.php:484
-#, fuzzy
 msgid "Continue"
 msgstr "继续"
 
@@ -3011,7 +3012,7 @@ msgstr "我的报销单"
 #: view.php:240
 #, fuzzy
 msgid "Go"
-msgstr "启动"
+msgstr "Go"
 
 #: view.php:243
 #, fuzzy
