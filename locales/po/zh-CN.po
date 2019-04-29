@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-04-26 10:12+0000\n"
+"PO-Revision-Date: 2019-04-29 03:12+0000\n"
 "Last-Translator: whsir <wh@whsir.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
 "cacti/reportit/zh-CN/>\n"
@@ -246,7 +246,7 @@ msgstr "本月"
 #: include/global_arrays.php:105 lib/const_reports.php:82
 #, fuzzy
 msgid "Last Month"
-msgstr "过去 1 个月"
+msgstr "最近 1 个月"
 
 #: include/global_arrays.php:106 lib/const_reports.php:83
 #, fuzzy
@@ -281,12 +281,12 @@ msgstr "今年"
 #: include/global_arrays.php:112 lib/const_reports.php:89
 #, fuzzy
 msgid "Last Year"
-msgstr "过去 1 年"
+msgstr "去年"
 
 #: include/global_arrays.php:113 lib/const_reports.php:90
 #, fuzzy
 msgid "Last 2 Years"
-msgstr "过去两年"
+msgstr "前年"
 
 #: include/global_arrays.php:118
 msgid "daily"
