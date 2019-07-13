@@ -1,7 +1,7 @@
 <?php
 /*
    +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2018 The Cacti Group                                 |
+   | Copyright (C) 2004-2019 The Cacti Group                                 |
    |                                                                         |
    | This program is free software; you can redistribute it and/or           |
    | modify it under the terms of the GNU General Public License             |
@@ -111,7 +111,7 @@ function help() {
 	$info = plugin_reportit_version();
 
 	print "\n---------------------------------------------------------------------------------------------------\n";
-	print " Copyright (C) 2004-2018 The Cacti Group\n";
+	print " Copyright (C) 2004-2019 The Cacti Group\n";
 	print " Project:         ReportIt\n";
 	print " Project site:    {$info['homepage']}\n";
 	print " Version:         v{$info['version']}\n";
