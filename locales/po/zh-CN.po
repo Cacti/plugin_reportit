@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-04-29 03:12+0000\n"
-"Last-Translator: whsir <wh@whsir.com>\n"
+"PO-Revision-Date: 2019-07-13 03:14+0000\n"
+"Last-Translator: tomcat <luis_126@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
 "cacti/reportit/zh-CN/>\n"
 "Language: zh-CN\n"
@@ -1081,7 +1081,6 @@ msgstr "50,0002,000个数据源项目(默认)"
 
 #: items.php:340 reports.php:142 rrdlist.php:209 templates.php:319 view.php:210
 #: view.php:561
-#, fuzzy
 msgid "Search"
 msgstr "搜索"
 
@@ -3010,12 +3009,10 @@ msgid "My Reports"
 msgstr "我的报销单"
 
 #: view.php:240
-#, fuzzy
 msgid "Go"
 msgstr "Go"
 
 #: view.php:243
-#, fuzzy
 msgid "Clear"
 msgstr "清除"
 
