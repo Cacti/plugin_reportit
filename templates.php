@@ -85,7 +85,7 @@ function template_wizard($action) {
 		top_header();
 		if (isset($_SESSION['reportit_tWizard'])) unset($_SESSION['reportit_tWizard']);
 
-		form_start('templates.php');
+		form_start('templates.php','chk');
 
 		html_start_box(__('New Report Template', 'reportit'), '60%', '', '3', 'left', '');
 
