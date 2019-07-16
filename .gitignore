@@ -2,3 +2,4 @@ archive/*
 tmp/*
 exports/*
 *.swp
+locales/po/*.mo
