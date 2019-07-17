@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-07-13 03:14+0000\n"
+"PO-Revision-Date: 2019-07-16 13:15+0000\n"
 "Last-Translator: tomcat <luis_126@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
 "cacti/reportit/zh-CN/>\n"
@@ -1935,7 +1935,6 @@ msgid "Formatting"
 msgstr ""
 
 #: measurands.php:346 variables.php:341 view.php:216
-#, fuzzy
 msgid "Type"
 msgstr "类型"
 
