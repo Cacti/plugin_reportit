@@ -8,42 +8,38 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2019-03-18 13:34-0400\n"
+"PO-Revision-Date: 2020-12-12 22:56-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
 #: include/global_arrays.php:44 lib/const_reports.php:30
 #: lib/const_rrdlist.php:28 lib/const_variables.php:29 measurands.php:41
 #: variables.php:42
-#, fuzzy
 msgid "Delete"
 msgstr "削除"
 
 #: include/global_arrays.php:28 include/global_arrays.php:41
 #: include/global_arrays.php:45 lib/const_reports.php:31
-#, fuzzy
 msgid "Duplicate"
 msgstr "複製"
 
 #: include/global_arrays.php:29
-#, fuzzy
 msgid "Lock"
-msgstr "ロック中"
+msgstr "ロック"
 
 #: include/global_arrays.php:30
 msgid "Unlock"
-msgstr ""
+msgstr "ロック解除"
 
 #: include/global_arrays.php:31 setup.php:226 setup.php:232 setup.php:238
 #: templates.php:994
-#, fuzzy
 msgid "Export"
 msgstr "エクスポート"
 
@@ -51,7 +47,6 @@ msgstr "エクスポート"
 #: include/global_forms.php:44 lib/const_reports.php:432
 #: lib/const_variables.php:52 measurands.php:93 reports.php:352 reports.php:959
 #: templates.php:166 templates.php:463 variables.php:65 variables.php:304
-#, fuzzy
 msgid "Name"
 msgstr "名前"
 
@@ -62,78 +57,77 @@ msgstr "内部名"
 
 #: include/global_arrays.php:53 lib/const_variables.php:54
 #: lib/const_view.php:101 variables.php:67
-#, fuzzy
 msgid "Maximum"
 msgstr "最大"
 
 #: include/global_arrays.php:54 lib/const_variables.php:55
 #: lib/const_view.php:100 variables.php:68
-#, fuzzy
 msgid "Minimum"
 msgstr "最小"
 
 #: include/global_arrays.php:55 items.php:351 lib/const_variables.php:56
 #: reports.php:152 rrdlist.php:219 templates.php:329 variables.php:69
 #: view.php:229 view.php:638
-#, fuzzy
 msgid "Default"
 msgstr "デフォルト"
 
 #: include/global_arrays.php:56 variables.php:70 variables.php:348
+#, fuzzy
 msgid "Stepping"
-msgstr ""
+msgstr "ステッピング"
 
 #: include/global_arrays.php:57 lib/const_variables.php:57 variables.php:71
-#, fuzzy
 msgid "Input Type"
 msgstr "入力タイプ"
 
 #: include/global_arrays.php:58 variables.php:72
-#, fuzzy
 msgid "Options"
-msgstr "操作"
+msgstr "オプション"
 
 #: include/global_arrays.php:61 include/global_arrays.php:71 items.php:292
 #: rrdlist.php:191
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: include/global_arrays.php:62 measurands.php:94 measurands.php:301
-#, fuzzy
 msgid "Abbreviation"
-msgstr "引き算"
+msgstr "略語"
 
 #: include/global_arrays.php:63
 msgid "Group"
-msgstr ""
+msgstr "グループ"
 
 #: include/global_arrays.php:64 measurands.php:95 measurands.php:308
 msgid "Unit"
-msgstr ""
+msgstr "単位"
 
 #: include/global_arrays.php:65 measurands.php:96
+#, fuzzy
 msgid "Consolidation Function"
-msgstr ""
+msgstr "統合機能"
 
 #: include/global_arrays.php:66 measurands.php:97 measurands.php:323
+#, fuzzy
 msgid "Visible"
-msgstr ""
+msgstr "表示"
 
 #: include/global_arrays.php:67 measurands.php:98 measurands.php:332
 msgid "Separate"
-msgstr ""
+msgstr "セパレート"
 
 #: include/global_arrays.php:68 measurands.php:99 measurands.php:372
+#, fuzzy
 msgid "Calculation Formula"
-msgstr ""
+msgstr "計算式"
 
 #: include/global_arrays.php:73
+#, fuzzy
 msgid "Generic ID"
-msgstr ""
+msgstr "ジェネリックID"
 
 #: include/global_arrays.php:74
 msgid "Elements"
-msgstr ""
+msgstr "要素"
 
 #: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:250
 #: templates.php:469
@@ -151,7 +145,6 @@ msgstr "データテンプレート"
 #: lib/const_reports.php:289 lib/const_reports.php:322
 #: lib/const_reports.php:428 measurands.php:289 rrdlist.php:346 setup.php:396
 #: variables.php:293
-#, fuzzy
 msgid "General"
 msgstr "一般"
 
@@ -162,7 +155,7 @@ msgstr "データテンプレート"
 
 #: include/global_arrays.php:83
 msgid "Groups"
-msgstr ""
+msgstr "グループ"
 
 #: include/global_arrays.php:85 include/global_arrays.php:533
 #: lib/const_measurands.php:357 lib/funct_html.php:171 lib/funct_html.php:242
@@ -172,7 +165,6 @@ msgid "Variables"
 msgstr "変数"
 
 #: include/global_arrays.php:91 lib/const_reports.php:68
-#, fuzzy
 msgid "Today"
 msgstr "今日"
 
@@ -207,7 +199,6 @@ msgid "Last 6 Days"
 msgstr "過去6日間"
 
 #: include/global_arrays.php:98 lib/const_reports.php:75
-#, fuzzy
 msgid "Last 7 Days"
 msgstr "過去7日間"
 
@@ -237,12 +228,10 @@ msgid "Last 28 Days"
 msgstr "過去28日間"
 
 #: include/global_arrays.php:104 lib/const_reports.php:81
-#, fuzzy
 msgid "Current Month"
 msgstr "今月"
 
 #: include/global_arrays.php:105 lib/const_reports.php:82
-#, fuzzy
 msgid "Last Month"
 msgstr "先月"
 
@@ -252,7 +241,6 @@ msgid "Last 2 Months"
 msgstr "過去2ヶ月"
 
 #: include/global_arrays.php:107 lib/const_reports.php:84
-#, fuzzy
 msgid "Last 3 Months"
 msgstr "3ヶ月"
 
@@ -267,17 +255,14 @@ msgid "Last 5 Months"
 msgstr "過去5ヶ月"
 
 #: include/global_arrays.php:110 lib/const_reports.php:87
-#, fuzzy
 msgid "Last 6 Months"
 msgstr "過去6か月"
 
 #: include/global_arrays.php:111 lib/const_reports.php:88
-#, fuzzy
 msgid "Current Year"
 msgstr "今年"
 
 #: include/global_arrays.php:112 lib/const_reports.php:89
-#, fuzzy
 msgid "Last Year"
 msgstr "去年"
 
@@ -288,22 +273,21 @@ msgstr "過去2年間"
 
 #: include/global_arrays.php:118
 msgid "daily"
-msgstr ""
+msgstr "毎日"
 
 #: include/global_arrays.php:119
 msgid "weekly"
-msgstr ""
+msgstr "毎週"
 
 #: include/global_arrays.php:120
 msgid "monthly"
-msgstr ""
+msgstr "毎月"
 
 #: include/global_arrays.php:121
 msgid "yearly"
-msgstr ""
+msgstr "毎年"
 
 #: include/global_arrays.php:126 lib/const_variables.php:33 variables.php:46
-#, fuzzy
 msgid "Dropdown"
 msgstr "ドロップダウン"
 
@@ -315,7 +299,6 @@ msgstr "入力フィールド"
 #: include/global_arrays.php:132 include/global_arrays.php:144 items.php:276
 #: items.php:282 lib/const_measurands.php:380 lib/const_reports.php:146
 #: lib/const_view.php:97
-#, fuzzy
 msgid "None"
 msgstr "なし"
 
@@ -330,7 +313,6 @@ msgid "Floating point"
 msgstr "浮動小数点"
 
 #: include/global_arrays.php:135 lib/const_measurands.php:371
-#, fuzzy
 msgid "Integer"
 msgstr "整数"
 
@@ -360,12 +342,10 @@ msgid "Scientific Notation"
 msgstr "科学表記"
 
 #: include/global_arrays.php:154 lib/const_measurands.php:390
-#, fuzzy
 msgid "Unchanged"
 msgstr "変更しない"
 
 #: include/global_arrays.php:158 lib/const_measurands.php:363
-#, fuzzy
 msgid "off"
 msgstr "オフ"
 
@@ -380,8 +360,9 @@ msgid "Decimal SI-Prefixes (Base 1000)"
 msgstr "10進数のSIプレフィックス（基本1000）"
 
 #: include/global_arrays.php:166 lib/const_measurands.php:27
+#, fuzzy
 msgid "f_avg - Arithmetic Average"
-msgstr ""
+msgstr "f_avg-算術平均"
 
 #: include/global_arrays.php:167 lib/const_measurands.php:28
 #, fuzzy
@@ -403,11 +384,12 @@ msgstr "平均値を返します。 （値の合計/値の数）"
 #: lib/const_measurands.php:99 lib/const_measurands.php:106
 #: lib/const_measurands.php:113 lib/const_measurands.php:120
 msgid "none"
-msgstr ""
+msgstr "なし"
 
 #: include/global_arrays.php:173 lib/const_measurands.php:34
+#, fuzzy
 msgid "f_max - Maximum Value"
-msgstr ""
+msgstr "f_max-最大値"
 
 #: include/global_arrays.php:174 lib/const_measurands.php:35
 #, fuzzy
@@ -415,8 +397,9 @@ msgid "Returns the highest measured value per DS"
 msgstr "最初の測定値を返します"
 
 #: include/global_arrays.php:180 lib/const_measurands.php:41
+#, fuzzy
 msgid "f_min - Minimum Value"
-msgstr ""
+msgstr "f_min-最小値"
 
 #: include/global_arrays.php:181 lib/const_measurands.php:42
 #, fuzzy
@@ -424,8 +407,9 @@ msgid "Returns the lowest measured value per DS"
 msgstr "最後の測定値を返します"
 
 #: include/global_arrays.php:187 lib/const_measurands.php:48
+#, fuzzy
 msgid "f_sum - Sum"
-msgstr ""
+msgstr "f_sum-合計"
 
 #: include/global_arrays.php:188 lib/const_measurands.php:49
 #, fuzzy
@@ -433,8 +417,9 @@ msgid "Returns the sum of all measured values per DS"
 msgstr "最後の測定値を返します"
 
 #: include/global_arrays.php:194 lib/const_measurands.php:55
+#, fuzzy
 msgid "f_num - Number of Values (Not NaN)"
-msgstr ""
+msgstr "f_num-値の数（NaNではない）"
 
 #: include/global_arrays.php:195 lib/const_measurands.php:56
 #, fuzzy
@@ -442,8 +427,9 @@ msgid "Returns the number of valid measured values per DS"
 msgstr "値の数を返します"
 
 #: include/global_arrays.php:201 lib/const_measurands.php:62
+#, fuzzy
 msgid "f_grd - Gradient"
-msgstr ""
+msgstr "f_grd-グラデーション"
 
 #: include/global_arrays.php:202 lib/const_measurands.php:63
 #, fuzzy
@@ -451,8 +437,9 @@ msgid "Returns the gradient of a straight line by using linear regression per DS
 msgstr "線形回帰を使用して直線の勾配を返します"
 
 #: include/global_arrays.php:208 lib/const_measurands.php:69
+#, fuzzy
 msgid "f_last - Last Value"
-msgstr ""
+msgstr "f_last-最後の値"
 
 #: include/global_arrays.php:209 lib/const_measurands.php:70
 #, fuzzy
@@ -460,8 +447,9 @@ msgid "Returns the last valid measured value per DS"
 msgstr "最後の測定値を返します"
 
 #: include/global_arrays.php:215 lib/const_measurands.php:76
+#, fuzzy
 msgid "f_1st - First Value"
-msgstr ""
+msgstr "f_1st-最初の値"
 
 #: include/global_arrays.php:216 lib/const_measurands.php:77
 #, fuzzy
@@ -469,8 +457,9 @@ msgid "Returns the first valid measured value per DS"
 msgstr "最初の測定値を返します"
 
 #: include/global_arrays.php:222 lib/const_measurands.php:83
+#, fuzzy
 msgid "f_nan - Number of NaNs"
-msgstr ""
+msgstr "f_nan-NaNの数"
 
 #: include/global_arrays.php:223 lib/const_measurands.php:84
 #, fuzzy
@@ -478,32 +467,39 @@ msgid "Returns the number of NaNs stored per DS"
 msgstr "値の数を返します"
 
 #: include/global_arrays.php:229 lib/const_measurands.php:90
+#, fuzzy
 msgid "f_median - Median"
-msgstr ""
+msgstr "f_median-中央値"
 
 #: include/global_arrays.php:230 lib/const_measurands.php:91
+#, fuzzy
 msgid "Returns that value that separates the higher half from the lower half per DS"
-msgstr ""
+msgstr "DSごとに上半分と下半分を区切る値を返します"
 
 #: include/global_arrays.php:236 lib/const_measurands.php:104
+#, fuzzy
 msgid "f_range - Range"
-msgstr ""
+msgstr "f_range-範囲"
 
 #: include/global_arrays.php:237 lib/const_measurands.php:105
+#, fuzzy
 msgid "Returns the difference between the largest and the smallest value per DS"
-msgstr ""
+msgstr "DSごとの最大値と最小値の差を返します"
 
 #: include/global_arrays.php:243 lib/const_measurands.php:111
+#, fuzzy
 msgid "f_iqr - Interquartile Range"
-msgstr ""
+msgstr "f_iqr-四分位範囲"
 
 #: include/global_arrays.php:244 lib/const_measurands.php:112
+#, fuzzy
 msgid "Returns the distance of the middle50&#037; around the median per DS"
-msgstr ""
+msgstr "DSごとの中央値の周りの中央値50％の距離を返します"
 
 #: include/global_arrays.php:250 lib/const_measurands.php:118
+#, fuzzy
 msgid "f_sd - Standard Deviation"
-msgstr ""
+msgstr "f_sd-標準偏差"
 
 #: include/global_arrays.php:251 lib/const_measurands.php:119
 #, fuzzy
@@ -511,8 +507,9 @@ msgid "Returns the square root per data source variance"
 msgstr "最後の測定値を返します"
 
 #: include/global_arrays.php:257
+#, fuzzy
 msgid "f_var - Variance"
-msgstr ""
+msgstr "f_var-分散"
 
 #: include/global_arrays.php:258
 #, fuzzy
@@ -520,8 +517,9 @@ msgid "Returns the variance per DS"
 msgstr "float型を整数として返します"
 
 #: include/global_arrays.php:266 lib/const_measurands.php:150
+#, fuzzy
 msgid "f_xth - Xth Percentile"
-msgstr ""
+msgstr "f_xth-Xパーセンタイル"
 
 #: include/global_arrays.php:267 lib/const_measurands.php:151
 #, fuzzy
@@ -529,25 +527,30 @@ msgid "Returns the xth percentitle."
 msgstr "最後の測定値を返します"
 
 #: include/global_arrays.php:268 lib/const_measurands.php:152
+#, fuzzy
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
-msgstr ""
+msgstr "$ var：パーセント単位のしきい値。範囲：[0＆lt; $var≤100]"
 
 #: include/global_arrays.php:274 lib/const_measurands.php:157
+#, fuzzy
 msgid "f_dot - Duration Over Threshold"
-msgstr ""
+msgstr "f_dot-しきい値を超える期間"
 
 #: include/global_arrays.php:275 lib/const_measurands.php:158
+#, fuzzy
 msgid "Returns the duration over a defined threshold in percent."
-msgstr ""
+msgstr "定義されたしきい値を超える期間をパーセントで返します。"
 
 #: include/global_arrays.php:276 include/global_arrays.php:284
 #: lib/const_measurands.php:159 lib/const_measurands.php:166
+#, fuzzy
 msgid "$var: threshold (absolute)"
-msgstr ""
+msgstr "$ var：しきい値（絶対）"
 
 #: include/global_arrays.php:282 lib/const_measurands.php:164
+#, fuzzy
 msgid "f_sot - Sum Over Threshold"
-msgstr ""
+msgstr "f_sot-合計がしきい値を超えています"
 
 #: include/global_arrays.php:283 lib/const_measurands.php:165
 #, fuzzy
@@ -555,31 +558,37 @@ msgid "Returns the sum of values over a defined threshold."
 msgstr "値の数を返します"
 
 #: include/global_arrays.php:290 lib/const_measurands.php:171
+#, fuzzy
 msgid "f_floor - Round Fractions Down"
-msgstr ""
+msgstr "f_floor-端数を切り捨てる"
 
 #: include/global_arrays.php:291 include/global_arrays.php:357
 #: lib/const_measurands.php:132 lib/const_measurands.php:172
+#, fuzzy
 msgid "Returns the next lowest integer value by rounding down value if necessary."
-msgstr ""
+msgstr "必要に応じて値を切り捨てて、次に小さい整数値を返します。"
 
 #: include/global_arrays.php:292 include/global_arrays.php:300
 #: include/global_arrays.php:358 lib/const_measurands.php:133
 #: lib/const_measurands.php:173 lib/const_measurands.php:180
+#, fuzzy
 msgid "$var: float"
-msgstr ""
+msgstr "$ var：float"
 
 #: include/global_arrays.php:298 lib/const_measurands.php:178
+#, fuzzy
 msgid "f_ceil - Round Fractions Up"
-msgstr ""
+msgstr "f_ceil-端数を切り上げる"
 
 #: include/global_arrays.php:299 lib/const_measurands.php:179
+#, fuzzy
 msgid "Returns the next highest integer value by rounding up value if necessary."
-msgstr ""
+msgstr "必要に応じて値を切り上げて、次に大きい整数値を返します。"
 
 #: include/global_arrays.php:306 lib/const_measurands.php:185
+#, fuzzy
 msgid "f_round - Round A Float"
-msgstr ""
+msgstr "f_round-ラウンドAフロート"
 
 #: include/global_arrays.php:307 include/global_arrays.php:365
 #: lib/const_measurands.php:139 lib/const_measurands.php:186
@@ -589,12 +598,14 @@ msgstr "与えられたパラメータリストの最小値を返します"
 
 #: include/global_arrays.php:308 include/global_arrays.php:366
 #: lib/const_measurands.php:140 lib/const_measurands.php:187
+#, fuzzy
 msgid "$var: float or string value"
-msgstr ""
+msgstr "$ var：浮動小数点数または文字列値"
 
 #: include/global_arrays.php:314 lib/const_measurands.php:192
+#, fuzzy
 msgid "f_high - Find Highest Value"
-msgstr ""
+msgstr "f_high-最高値を見つける"
 
 #: include/global_arrays.php:315 lib/const_measurands.php:193
 #, fuzzy
@@ -603,12 +614,14 @@ msgstr "与えられたパラメータリストの最大値を返します"
 
 #: include/global_arrays.php:316 include/global_arrays.php:324
 #: lib/const_measurands.php:194 lib/const_measurands.php:201
+#, fuzzy
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr ""
+msgstr "$ var1、$ var2、$ var3 ...：比較する値"
 
 #: include/global_arrays.php:322 lib/const_measurands.php:199
+#, fuzzy
 msgid "f_high - Find Lowest Value"
-msgstr ""
+msgstr "f_high-最小値を見つける"
 
 #: include/global_arrays.php:323 lib/const_measurands.php:200
 #, fuzzy
@@ -616,81 +629,100 @@ msgid "Returns the lowest value of a given list of parameters"
 msgstr "与えられたパラメータリストの最小値を返します"
 
 #: include/global_arrays.php:330 lib/const_measurands.php:206
+#, fuzzy
 msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
-msgstr ""
+msgstr "f_if-条件付き操作-IF-THEN-ELSEロジック"
 
 #: include/global_arrays.php:331 lib/const_measurands.php:207
+#, fuzzy
 msgid "Returns B if A is true or C if A is false"
-msgstr ""
+msgstr "Aが真の場合はBを返し、Aが偽の場合はCを返します"
 
 #: include/global_arrays.php:338 lib/const_measurands.php:213
+#, fuzzy
 msgid "f_isNaN - Find whether a value is not a number"
-msgstr ""
+msgstr "f_isNaN-値が数値でないかどうかを調べます"
 
 #: include/global_arrays.php:339 include/global_arrays.php:347
 #: lib/const_measurands.php:214
+#, fuzzy
 msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
-msgstr ""
+msgstr "A === NaNの場合は1（またはB）を返し、そうでない場合は0（またはC）を返します。パラメータBおよびCはオプションです。"
 
 #: include/global_arrays.php:346
+#, fuzzy
 msgid "f_cmp - Complex Comparison"
-msgstr ""
+msgstr "f_cmp-複雑な比較"
 
 #: include/global_arrays.php:356 lib/const_measurands.php:131
+#, fuzzy
 msgid "f_int - Alias of f_floor"
-msgstr ""
+msgstr "f_int-f_floorのエイリアス"
 
 #: include/global_arrays.php:364 lib/const_measurands.php:138
+#, fuzzy
 msgid "f_rnd - Alias of f_round"
-msgstr ""
+msgstr "f_rnd-f_roundのエイリアス"
 
 #: include/global_arrays.php:372 lib/const_measurands.php:220
+#, fuzzy
 msgid "f_eq - Alias of f_cmp - IS EQUAL"
-msgstr ""
+msgstr "f_eq-f_cmpのエイリアス-同等です"
 
 #: include/global_arrays.php:373 lib/const_measurands.php:221
+#, fuzzy
 msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "A == Bの場合は1（またはC）を返し、そうでない場合は0（またはD）を返します。パラメータCおよびDはオプションです。"
 
 #: include/global_arrays.php:380 lib/const_measurands.php:227
+#, fuzzy
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
-msgstr ""
+msgstr "f_uq-f_cmpのエイリアス-不等"
 
 #: include/global_arrays.php:381 lib/const_measurands.php:228
+#, fuzzy
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "A！= Bの場合は1（またはC）を返し、そうでない場合は0（またはD）を返します。パラメータCおよびDはオプションです。"
 
 #: include/global_arrays.php:388 lib/const_measurands.php:234
+#, fuzzy
 msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
-msgstr ""
+msgstr "f_gt-f_cmpのエイリアス-より大きい"
 
 #: include/global_arrays.php:389 lib/const_measurands.php:235
+#, fuzzy
 msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "A> Bの場合は1（またはC）を返し、そうでない場合は0（またはD）を返します。パラメータCおよびDはオプションです。"
 
 #: include/global_arrays.php:396 lib/const_measurands.php:241
+#, fuzzy
 msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
-msgstr ""
+msgstr "f_lt-f_cmpのエイリアス-より低い"
 
 #: include/global_arrays.php:397 lib/const_measurands.php:242
+#, fuzzy
 msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "A <Bの場合は1（またはC）を返し、そうでない場合は0（またはD）を返します。パラメータCおよびDはオプションです。"
 
 #: include/global_arrays.php:404 lib/const_measurands.php:248
+#, fuzzy
 msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
-msgstr ""
+msgstr "f_ge-f_cmpのエイリアス-より大きいまたは等しい"
 
 #: include/global_arrays.php:405 lib/const_measurands.php:249
+#, fuzzy
 msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "A> = Bの場合は1（またはC）を返し、そうでない場合は0（またはD）を返します。パラメータCおよびDはオプションです。"
 
 #: include/global_arrays.php:412 lib/const_measurands.php:255
+#, fuzzy
 msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
-msgstr ""
+msgstr "f_le-f_cmpのエイリアス-低いか等しい"
 
 #: include/global_arrays.php:413 lib/const_measurands.php:256
+#, fuzzy
 msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "A <= Bの場合は1（またはC）を返し、そうでない場合は0（またはD）を返します。パラメータCおよびDはオプションです。"
 
 #: include/global_arrays.php:422 lib/const_measurands.php:267
 #, fuzzy
@@ -698,8 +730,9 @@ msgid "Addition"
 msgstr "添加"
 
 #: include/global_arrays.php:423 lib/const_measurands.php:268
+#, fuzzy
 msgid "Mathematical Operation to return the sum of two or more summands"
-msgstr ""
+msgstr "2つ以上の被加数の合計を返す数学演算"
 
 #: include/global_arrays.php:429 lib/const_measurands.php:274
 #, fuzzy
@@ -707,8 +740,9 @@ msgid "Subtraction"
 msgstr "引き算"
 
 #: include/global_arrays.php:430 lib/const_measurands.php:275
+#, fuzzy
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
-msgstr ""
+msgstr "被減数と減数の差を返す数学演算"
 
 #: include/global_arrays.php:436 lib/const_measurands.php:281
 #, fuzzy
@@ -716,33 +750,38 @@ msgid "Multiplication"
 msgstr "乗算"
 
 #: include/global_arrays.php:437 lib/const_measurands.php:282
+#, fuzzy
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
-msgstr ""
+msgstr "乗数と乗数の積を返す数学演算"
 
 #: include/global_arrays.php:443 lib/const_measurands.php:288
-#, fuzzy
 msgid "Division"
-msgstr "部門"
+msgstr "分割"
 
 #: include/global_arrays.php:444 lib/const_measurands.php:289
+#, fuzzy
 msgid "Mathematical Operation to return the fraction of divident and divisor"
-msgstr ""
+msgstr "除数と除数の分数を返す数学演算"
 
 #: include/global_arrays.php:450 lib/const_measurands.php:295
+#, fuzzy
 msgid "Modulus"
-msgstr ""
+msgstr "係数"
 
 #: include/global_arrays.php:451 lib/const_measurands.php:296
+#, fuzzy
 msgid "Mathematical Operation to return the remainder of a division of two integers"
-msgstr ""
+msgstr "2つの整数の除算の余りを返す数学演算"
 
 #: include/global_arrays.php:457 lib/const_measurands.php:302
+#, fuzzy
 msgid "Exponentiation - PHP5.6 or above required"
-msgstr ""
+msgstr "べき乗-PHP5.6以上が必要"
 
 #: include/global_arrays.php:458 lib/const_measurands.php:303
+#, fuzzy
 msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
-msgstr ""
+msgstr "基数の指数による繰り返しの乗算（または除算）を返す数学演算。"
 
 #: include/global_arrays.php:466
 #, fuzzy
@@ -755,42 +794,51 @@ msgid "Decimal Mark used to separate the integer part from the fractional part"
 msgstr "整数部の終わりと小数部の始まりを示す記号。"
 
 #: include/global_arrays.php:475
+#, fuzzy
 msgid "Round Bracket"
-msgstr ""
+msgstr "丸括弧"
 
 #: include/global_arrays.php:476 lib/const_measurands.php:313
 #: lib/const_measurands.php:320
+#, fuzzy
 msgid "Used to override normal precedence or to mark the first level of nesting"
-msgstr ""
+msgstr "通常の優先順位を上書きするため、またはネストの最初のレベルをマークするために使用されます"
 
 #: include/global_arrays.php:483
+#, fuzzy
 msgid "Square Bracket"
-msgstr ""
+msgstr "角括弧"
 
 #: include/global_arrays.php:484 lib/const_measurands.php:327
 #: lib/const_measurands.php:334
+#, fuzzy
 msgid "Used to override normal precedence or to mark the second level of nesting"
-msgstr ""
+msgstr "通常の優先順位を上書きするため、またはネストの2番目のレベルをマークするために使用されます"
 
 #: include/global_arrays.php:491
+#, fuzzy
 msgid "Punctuation mark"
-msgstr ""
+msgstr "句読点"
 
 #: include/global_arrays.php:492
+#, fuzzy
 msgid "Used to separate arguments forwarded to a function"
-msgstr ""
+msgstr "関数に転送される引数を区切るために使用されます"
 
 #: include/global_arrays.php:501
+#, fuzzy
 msgid "The minimum value of data that is allowed to be collected."
-msgstr ""
+msgstr "収集できるデータの最小値。"
 
 #: include/global_arrays.php:502 include/global_arrays.php:510
+#, fuzzy
 msgid "WARNING! This variable can be set to zero or unlimited"
-msgstr ""
+msgstr "警告！この変数はゼロまたは無制限に設定できます"
 
 #: include/global_arrays.php:509
+#, fuzzy
 msgid "The maximum value of data that is allowed to be collected."
-msgstr ""
+msgstr "収集できるデータの最大値。"
 
 #: include/global_arrays.php:517 lib/const_measurands.php:344
 #, fuzzy
@@ -809,20 +857,19 @@ msgstr "パラメータを持つ関数"
 
 #: include/global_arrays.php:529 lib/const_measurands.php:354
 msgid "Aliases"
-msgstr ""
+msgstr "仮名（エイリアス）"
 
 #: include/global_arrays.php:530 lib/const_measurands.php:355
-#, fuzzy
 msgid "Operators"
 msgstr "オペレータ"
 
 #: include/global_arrays.php:531
 msgid "Numbers"
-msgstr ""
+msgstr "数"
 
 #: include/global_arrays.php:532
 msgid "Others"
-msgstr ""
+msgstr "その他"
 
 #: include/global_arrays.php:534 lib/const_measurands.php:358
 #: lib/funct_html.php:173
@@ -838,7 +885,7 @@ msgstr "中間結果"
 
 #: include/global_arrays.php:539
 msgid "Unlimited"
-msgstr ""
+msgstr "無制限"
 
 #: include/global_arrays.php:540
 #, fuzzy
@@ -882,14 +929,14 @@ msgstr "データソース"
 
 #: include/global_arrays.php:552
 msgid "1 Minute"
-msgstr ""
+msgstr "1分"
 
 #: include/global_arrays.php:553 include/global_arrays.php:554
 #: include/global_arrays.php:555 include/global_arrays.php:556
 #: include/global_arrays.php:557
-#, php-format
+#, fuzzy, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d 分"
 
 #: include/global_forms.php:47
 #, fuzzy
@@ -898,7 +945,6 @@ msgstr "このレポートテンプレートに付けられた一意の名前。
 
 #: include/global_forms.php:51 measurands.php:294 templates.php:171
 #: variables.php:311 view.php:288
-#, fuzzy
 msgid "Description"
 msgstr "説明"
 
@@ -909,7 +955,7 @@ msgstr "このレポートテンプレートに付けられた一意の名前。
 
 #: include/global_forms.php:60 templates.php:168 templates.php:465
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 #: include/global_forms.php:63
 #, fuzzy
@@ -918,29 +964,30 @@ msgstr "利用可能なレポートテンプレート"
 
 #: include/global_forms.php:68 templates.php:169 templates.php:464
 msgid "Author"
-msgstr ""
+msgstr "投稿者"
 
 #: include/global_forms.php:71
+#, fuzzy
 msgid "The author of this template"
-msgstr ""
+msgstr "このテンプレートの作成者"
 
 #: include/global_forms.php:77
-#, fuzzy
 msgid "Publish"
 msgstr "公開"
 
 #: include/global_forms.php:78
+#, fuzzy
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
-msgstr ""
+msgstr "このレポートテンプレートは、ユーザーがアクセスできるように公開する必要がありますか？新しいテンプレートや変更をテストする場合は、このチェックボックスをオフにする必要があります。"
 
 #: include/global_forms.php:82 templates.php:468
-#, fuzzy
 msgid "Locked"
 msgstr "ロック中"
 
 #: include/global_forms.php:84
+#, fuzzy
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
-msgstr ""
+msgstr "ステータスが「ロック済み」の場合、レポートテンプレート、および割り当てられた測定値と変数定義に対するいかなる種類の変更も回避されます。"
 
 #: include/global_forms.php:88
 #, fuzzy
@@ -979,8 +1026,9 @@ msgid "Report Template"
 msgstr "レポートテンプレート"
 
 #: include/global_forms.php:131
+#, fuzzy
 msgid "Choose one of your Report Templates to export to XML."
-msgstr ""
+msgstr "XMLにエクスポートするレポートテンプレートの1つを選択します。"
 
 #: include/global_forms.php:140
 #, fuzzy
@@ -988,28 +1036,32 @@ msgid "[Optional] Description"
 msgstr "データの説明"
 
 #: include/global_forms.php:141
+#, fuzzy
 msgid "Describe the characteristics of your report template"
-msgstr ""
+msgstr "レポートテンプレートの特徴を説明してください"
 
 #: include/global_forms.php:150
+#, fuzzy
 msgid "[Optional] Author"
-msgstr ""
+msgstr "[オプション]作成者"
 
 #: include/global_forms.php:151 include/global_forms.php:159
 #: include/global_forms.php:167
+#, fuzzy
 msgid "Add your name or nick here."
-msgstr ""
+msgstr "ここにあなたの名前またはニックネームを追加してください。"
 
 #: include/global_forms.php:158
+#, fuzzy
 msgid "[Optional] Version"
-msgstr ""
+msgstr "[オプション]バージョン"
 
 #: include/global_forms.php:166
+#, fuzzy
 msgid "[Optional] Contact"
-msgstr ""
+msgstr "[オプション]連絡先"
 
 #: items.php:265 view.php:634
-#, fuzzy
 msgid "Items"
 msgstr "アイテム"
 
@@ -1030,25 +1082,21 @@ msgstr "データ項目なし"
 
 #: items.php:340 reports.php:142 rrdlist.php:209 templates.php:319 view.php:210
 #: view.php:561
-#, fuzzy
 msgid "Search"
 msgstr "検索"
 
 #: items.php:347 reports.php:148 reports.php:365 setup.php:124 setup.php:360
 #: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
 #: view.php:755
-#, fuzzy
 msgid "Reports"
 msgstr "レポート"
 
 #: items.php:362 reports.php:163 rrdlist.php:230 templates.php:340 view.php:612
-#, fuzzy
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Go"
 
 #: items.php:365 reports.php:166 rrdlist.php:233 templates.php:343 view.php:615
-#, fuzzy
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "クリア"
@@ -1064,12 +1112,10 @@ msgid "Bar (horizontal)"
 msgstr "バー（横）"
 
 #: lib/const_graphs.php:74
-#, fuzzy
 msgid "Line"
 msgstr "ライン"
 
 #: lib/const_graphs.php:80
-#, fuzzy
 msgid "Area"
 msgstr "エリア"
 
@@ -1079,13 +1125,13 @@ msgid "Pie chart 3D"
 msgstr "円グラフ3D"
 
 #: lib/const_graphs.php:91 lib/const_view.php:74
-#, fuzzy
 msgid "Spider"
-msgstr "クモ"
+msgstr "スパイダー"
 
 #: lib/const_measurands.php:97
+#, fuzzy
 msgid "f_mode - Mode"
-msgstr ""
+msgstr "f_mode-モード"
 
 #: lib/const_measurands.php:98
 #, fuzzy
@@ -1093,20 +1139,24 @@ msgid "Returns the value that appears most often per DS"
 msgstr "与えられたパラメータリストの最小値を返します"
 
 #: lib/const_measurands.php:312
+#, fuzzy
 msgid "Left (Opening) parenthesis"
-msgstr ""
+msgstr "左（開始）括弧"
 
 #: lib/const_measurands.php:319
+#, fuzzy
 msgid "Right (Closing) parenthesis"
-msgstr ""
+msgstr "右（閉じ）括弧"
 
 #: lib/const_measurands.php:326
+#, fuzzy
 msgid "Left (Opening) Square Bracket"
-msgstr ""
+msgstr "左（開口部）角括弧"
 
 #: lib/const_measurands.php:333
+#, fuzzy
 msgid "Right (Closing) Square Bracket"
-msgstr ""
+msgstr "右（閉）角括弧"
 
 #: lib/const_measurands.php:342
 #, fuzzy
@@ -1125,61 +1175,54 @@ msgstr "レポート期間中のNANの数が含まれています。"
 
 #: lib/const_measurands.php:356
 msgid "Parentheses"
-msgstr ""
+msgstr "カッコ"
 
 #: lib/const_reports.php:29
-#, fuzzy
 msgid "Run"
-msgstr "ランタイム"
+msgstr "実行"
 
 #: lib/const_reports.php:35
+#, fuzzy
 msgid "CRASHED"
-msgstr ""
+msgstr "クラッシュ"
 
 #: lib/const_reports.php:36
 msgid "FAILED"
-msgstr ""
+msgstr "失敗"
 
 #: lib/const_reports.php:37
 msgid "Idle"
-msgstr ""
+msgstr "待機"
 
 #: lib/const_reports.php:38
 msgid "Running"
-msgstr ""
+msgstr "実行中"
 
 #: lib/const_reports.php:56 lib/const_rrdlist.php:54 lib/funct_runtime.php:179
-#, fuzzy
 msgid "Monday"
 msgstr "月曜日"
 
 #: lib/const_reports.php:57 lib/const_rrdlist.php:55 lib/funct_runtime.php:181
-#, fuzzy
 msgid "Tuesday"
 msgstr "火曜日"
 
 #: lib/const_reports.php:58 lib/const_rrdlist.php:56 lib/funct_runtime.php:183
-#, fuzzy
 msgid "Wednesday"
 msgstr "水曜日"
 
 #: lib/const_reports.php:59 lib/const_rrdlist.php:57 lib/funct_runtime.php:185
-#, fuzzy
 msgid "Thursday"
 msgstr "木曜日"
 
 #: lib/const_reports.php:60 lib/const_rrdlist.php:58 lib/funct_runtime.php:187
-#, fuzzy
 msgid "Friday"
 msgstr "金曜日"
 
 #: lib/const_reports.php:61 lib/const_rrdlist.php:59 lib/funct_runtime.php:189
-#, fuzzy
 msgid "Saturday"
 msgstr "土曜日"
 
 #: lib/const_reports.php:62 lib/const_rrdlist.php:60 lib/funct_runtime.php:191
-#, fuzzy
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -1189,12 +1232,10 @@ msgid "Data Item Presets"
 msgstr "データ項目のプリセット"
 
 #: lib/const_reports.php:113 reports.php:960
-#, fuzzy
 msgid "Email"
 msgstr "メールアドレス"
 
 #: lib/const_reports.php:114
-#, fuzzy
 msgid "Administration"
 msgstr "行政"
 
@@ -1214,7 +1255,6 @@ msgid "Raw XML (.xml)"
 msgstr "生のXML（.xml）"
 
 #: lib/const_reports.php:166
-#, fuzzy
 msgid "Subject"
 msgstr "件名"
 
@@ -1244,7 +1284,6 @@ msgid "This is a scheduled report generated from Cacti."
 msgstr "これはCactiから生成された定時レポートです。"
 
 #: lib/const_reports.php:184
-#, fuzzy
 msgid "Attachment"
 msgstr "添付ファイル"
 
@@ -1254,9 +1293,8 @@ msgid "Only to receive an email as a notification that a new report is available
 msgstr "新しいレポートが利用可能であるという通知として電子メールを受信するには、[なし]を選択します。 <br>それ以外の場合は、レポートを添付する形式を選択します。"
 
 #: lib/const_reports.php:192
-#, fuzzy
 msgid "Email Recipients"
-msgstr "受信者"
+msgstr "メール受信者"
 
 #: lib/const_reports.php:196
 #, fuzzy
@@ -1274,7 +1312,6 @@ msgid "Scheduled Reporting"
 msgstr "定期レポート"
 
 #: lib/const_reports.php:218 setup.php:489
-#, fuzzy
 msgid "Enable"
 msgstr "有効"
 
@@ -1284,7 +1321,6 @@ msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled.
 msgstr "定期レポートを有効/無効にします。スライディングタイムフレームを有効にする必要があります。"
 
 #: lib/const_reports.php:225
-#, fuzzy
 msgid "Frequency"
 msgstr "回数"
 
@@ -1384,7 +1420,6 @@ msgid "Define an additional subhead that should be on display under the interfac
 msgstr "インターフェース記述の下に表示される追加のサブヘッドを定義してください。 <br>以下の変数がサポートされます（引用符なしで）。 '| t2 |' '| tmz |' '| d1 |' '| d2 |'"
 
 #: lib/const_reports.php:338 rrdlist.php:196 rrdlist.php:362
-#, fuzzy
 msgid "Time Zone"
 msgstr "タイムゾーン"
 
@@ -1420,7 +1455,6 @@ msgstr "労働時間"
 
 #: lib/const_reports.php:375 lib/const_reports.php:395 rrdlist.php:386
 #: rrdlist.php:424
-#, fuzzy
 msgid "From"
 msgstr "から"
 
@@ -1431,7 +1465,6 @@ msgstr "分析したい期間の開始点"
 
 #: lib/const_reports.php:383 lib/const_reports.php:403 rrdlist.php:394
 #: rrdlist.php:431
-#, fuzzy
 msgid "To"
 msgstr "まで"
 
@@ -1462,7 +1495,6 @@ msgstr "このレポートに付けられた名前"
 
 #: lib/const_reports.php:439 lib/funct_export.php:85 lib/funct_export.php:452
 #: view.php:290
-#, fuzzy
 msgid "Template"
 msgstr "テンプレート"
 
@@ -1473,7 +1505,6 @@ msgstr "設定が依存するテンプレート"
 
 #: lib/const_reports.php:447 lib/funct_export.php:84 lib/funct_export.php:451
 #: view.php:289 view.php:720
-#, fuzzy
 msgid "Owner"
 msgstr "所有者"
 
@@ -1483,7 +1514,6 @@ msgid "Change the owner of this report. Only users with the permission \"view\" 
 msgstr "このレポートの所有者を変更してください。最低限の報告権限（「表示」以上）を持つユーザーのみ選択できます。"
 
 #: lib/const_reports.php:462 reports.php:357
-#, fuzzy
 msgid "Public"
 msgstr "公開"
 
@@ -1554,7 +1584,6 @@ msgstr "設定をすべてにコピー"
 
 #: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:136 setup.php:178
 #: setup.php:208
-#, fuzzy
 msgid "Add"
 msgstr "追加"
 
@@ -1569,7 +1598,6 @@ msgid "Bar chart: horizontal"
 msgstr "棒グラフ：水平"
 
 #: lib/const_view.php:71
-#, fuzzy
 msgid "Line chart"
 msgstr "折れ線グラフ"
 
@@ -1596,17 +1624,14 @@ msgid "%s Lo"
 msgstr "％s Lo"
 
 #: lib/const_view.php:89 lib/const_view.php:98 view.php:571 view.php:586
-#, fuzzy
 msgid "Any"
 msgstr "任意"
 
 #: lib/const_view.php:99
-#, fuzzy
 msgid "Sum"
 msgstr "合計"
 
 #: lib/const_view.php:102
-#, fuzzy
 msgid "Average"
 msgstr "平均"
 
@@ -1616,19 +1641,16 @@ msgid "Report title"
 msgstr "報告書のタイトル"
 
 #: lib/funct_export.php:86 lib/funct_export.php:453
-#, fuzzy
 msgid "Start"
 msgstr "開始"
 
 #: lib/funct_export.php:87 lib/funct_export.php:454
-#, fuzzy
 msgid "End"
 msgstr "終了"
 
 #: lib/funct_export.php:88 lib/funct_export.php:455 view.php:723
-#, fuzzy
 msgid "Last Run"
-msgstr "ラストラン"
+msgstr "前回の実行"
 
 #: lib/funct_html.php:319
 #, fuzzy, php-format
@@ -1636,9 +1658,9 @@ msgid "Enable [%s]"
 msgstr "有効"
 
 #: lib/funct_html.php:320
-#, php-format
+#, fuzzy, php-format
 msgid "Activate data source item '%s' for the calculation process."
-msgstr ""
+msgstr "計算プロセスのデータソースアイテム '%s'を有効化します。"
 
 #: lib/funct_html.php:329
 #, fuzzy
@@ -1646,21 +1668,24 @@ msgid "Data Source Alias"
 msgstr "データソース"
 
 #: lib/funct_html.php:330
-#, php-format
+#, fuzzy, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
-msgstr ""
+msgstr "オプション：レポートで内部データソース名「%s」の代わりに表示するエイリアスを定義できます。"
 
 #: lib/funct_html.php:349
+#, fuzzy
 msgid "Separate Group Title [overall]"
-msgstr ""
+msgstr "個別のグループタイトル[全体]"
 
 #: lib/funct_html.php:350
+#, fuzzy
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
-msgstr ""
+msgstr "オプション：レポート内のすべての個別の測定値のタイトルとして表示されるグループ名を定義できます。"
 
 #: lib/funct_mailer.php:45
+#, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting."
-msgstr ""
+msgstr "メーラーエラー： <b>TO</b>アドレスが設定されていません!!<br><i>テストメール</i>リンクを使用する場合は、<b>アラート電子メール</b>設定を設定してください。"
 
 #: lib/funct_shared.php:36
 #, fuzzy
@@ -1670,7 +1695,7 @@ msgstr "不明なオーナー"
 #: lib/funct_validate.php:274 lib/funct_validate.php:277
 #, fuzzy
 msgid "The file is to big."
-msgstr "ファイルは大きすぎます。"
+msgstr "ファイルの容量が越えています。"
 
 #: lib/funct_validate.php:280
 #, fuzzy
@@ -1678,7 +1703,6 @@ msgid "Incomplete file transfer."
 msgstr "不完全なファイル転送"
 
 #: lib/funct_validate.php:283 lib/funct_validate.php:309
-#, fuzzy
 msgid "No file uploaded."
 msgstr "ファイルがアップロードされていません。"
 
@@ -1688,14 +1712,12 @@ msgid "Temporary folder missing."
 msgstr "一時フォルダがありません。"
 
 #: lib/funct_validate.php:289
-#, fuzzy
 msgid "Failed to write file to disk"
 msgstr "ディスクへのファイルの書き込みに失敗しました"
 
 #: lib/funct_validate.php:292
-#, fuzzy
 msgid "File upload stopped by extension"
-msgstr "拡張モジュールによってファイルアップロードが停止されました"
+msgstr "ファイルをアップロードする"
 
 #: lib/funct_validate.php:303
 #, fuzzy
@@ -1708,13 +1730,14 @@ msgid "Unable to parse template file."
 msgstr "テンプレートファイルを解析できません。"
 
 #: lib/funct_validate.php:334 lib/funct_validate.php:335
-#, php-format
+#, fuzzy, php-format
 msgid "Checksum error with Template %s in XML file"
-msgstr ""
+msgstr "XMLファイルのテンプレート%sのチェックサムエラー"
 
 #: measurands.php:87
+#, fuzzy
 msgid "Measurands [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id="
-msgstr ""
+msgstr "Measurands [テンプレート：<a class = 'linkEditMain' href = 'templates.php？action = template_edit＆id ="
 
 #: measurands.php:118
 #, fuzzy
@@ -1722,12 +1745,14 @@ msgid "No Measurands Found"
 msgstr "測定量"
 
 #: measurands.php:166
+#, fuzzy
 msgid "Duplicate abbreviation"
-msgstr ""
+msgstr "重複する略語"
 
 #: measurands.php:221
+#, fuzzy
 msgid "Interim results are used by other measurands."
-msgstr ""
+msgstr "中間結果は他の測定者によって使用されます。"
 
 #: measurands.php:270
 #, fuzzy, php-format
@@ -1740,12 +1765,14 @@ msgid "Measurand Configuration [new]"
 msgstr "変数の設定[new]"
 
 #: measurands.php:295
+#, fuzzy
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
-msgstr ""
+msgstr "この測定対象に与えられた説明。これは、エクスポート内の凡例として、およびレポート自体のプレゼンテーション内のツールチップとして表示されます。"
 
 #: measurands.php:302
+#, fuzzy
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
-msgstr ""
+msgstr "この測定値の一意の略語をmaxで定義します。 8文字/数字。"
 
 #: measurands.php:309
 #, fuzzy
@@ -1753,58 +1780,65 @@ msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "このレポートに付けられた名前"
 
 #: measurands.php:315
+#, fuzzy
 msgid "Consolidation function"
-msgstr ""
+msgstr "統合機能"
 
 #: measurands.php:316
+#, fuzzy
 msgid "The name of the consolidation function to define which CDPs should be read out."
-msgstr ""
+msgstr "どのCDPを読み取るかを定義する統合機能の名前。"
 
 #: measurands.php:324
+#, fuzzy
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
-msgstr ""
+msgstr "この測定値を最終レポート出力の一部にする必要がある場合は、「有効」を選択します。この測定値が補助計算としてのみ使用される場合は、フラグを付けないでください。"
 
 #: measurands.php:333
+#, fuzzy
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
-msgstr ""
+msgstr "この測定値の結果がデータソースアイテムごとに1つではなく、合計で1つしかない場合は、「有効」を選択します。結果です<br>個別に表示されます。エンドユーザーに表示されずに他の測定値の計算内で再利用する必要がある中間結果のみを保持する測定値を探している場合は、このオプションを「表示」=「オフ」と組み合わせて使用します。"
 
 #: measurands.php:341
 msgid "Formatting"
-msgstr ""
+msgstr "書式設定"
 
 #: measurands.php:346 variables.php:341 view.php:216
-#, fuzzy
 msgid "Type"
 msgstr "タイプ"
 
 #: measurands.php:349
+#, fuzzy
 msgid "Defines as what type the data should be treated as."
-msgstr ""
+msgstr "データをどのタイプとして扱うかを定義します。"
 
 #: measurands.php:353
+#, fuzzy
 msgid "Precision"
-msgstr ""
+msgstr "精度"
 
 #: measurands.php:354
+#, fuzzy
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
-msgstr ""
+msgstr "浮動小数点数に表示する10進数の数を定義します。"
 
 #: measurands.php:360
-#, fuzzy
 msgid "Prefixes"
-msgstr "SIプレフィックス"
+msgstr "プレフィックス"
 
 #: measurands.php:361
+#, fuzzy
 msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
-msgstr ""
+msgstr "結果のフォーマットに使用するプレフィックスビーのタイプを選択します。 10進プレフィックス「1024」を使用すると、「1.024k」にフォーマットされ、2進プレフィックスオプションは「1ki」を返します。 「オフ」を選択して生データを表示します。ここでは「1024」です。"
 
 #: measurands.php:367
 msgid "Formula"
-msgstr ""
+msgstr "数式"
 
 #: measurands.php:373
+#, fuzzy
 msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
-msgstr ""
+msgstr "この測定量の数学的定義。数学の規則に従って、以下にリストされている演算子とオペランドのすべての組み合わせが許可されます。丸括弧と角括弧を使用して、複雑な用語と操作の順序を示します。"
 
 #: measurands.php:378
 #, fuzzy
@@ -1812,12 +1846,14 @@ msgid "Operators & Operands"
 msgstr "オペレータ"
 
 #: measurands.php:379
+#, fuzzy
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
-msgstr ""
+msgstr "リストされている演算子またはオペランドの1つをクリックして、それらを計算式に追加します。ツールチップには、説明、戻り値、引数、使用法などの追加情報が表示されます。"
 
 #: measurands.php:513
+#, fuzzy
 msgid "Click 'Continue' to Delete the following Measurands.  Notice: If there are no other Measurands left after this process, the Report Template will be locked automatically."
-msgstr ""
+msgstr "[続行]をクリックして、次の測定値を削除します。注意：このプロセスの後に他の測定値が残っていない場合、レポートテンプレートは自動的にロックされます。"
 
 #: measurands.php:516
 #, fuzzy
@@ -1838,13 +1874,11 @@ msgstr "少なくとも1つのレポートを選択する必要があります�
 #: reports.php:1254 reports.php:1264 rrdlist.php:572 rrdlist.php:574
 #: templates.php:98 templates.php:100 templates.php:232 templates.php:233
 #: templates.php:981 variables.php:482 variables.php:484
-#, fuzzy
 msgid "Cancel"
 msgstr "取り消し"
 
 #: measurands.php:535 reports.php:98 reports.php:1264 rrdlist.php:575
 #: templates.php:100 templates.php:990 templates.php:992 variables.php:484
-#, fuzzy
 msgid "Continue"
 msgstr "続ける"
 
@@ -1854,9 +1888,8 @@ msgid "Delete Template Measurands"
 msgstr "レポートテンプレートを削除する"
 
 #: reports.php:88
-#, fuzzy
 msgid "New Report"
-msgstr "新しい報告"
+msgstr "管理者に報告"
 
 #: reports.php:93
 #, fuzzy, php-format
@@ -1874,13 +1907,12 @@ msgid "Choose a template this report should depend on."
 msgstr "このレポートが依存する必要があるテンプレートを選択してください。"
 
 #: reports.php:134
-#, fuzzy
 msgid "Report Filters"
 msgstr "レポートのフィルター"
 
 #: reports.php:351 templates.php:462
 msgid "Id"
-msgstr ""
+msgstr "ID"
 
 #: reports.php:353
 #, fuzzy, php-format
@@ -1889,7 +1921,7 @@ msgstr "- からまでの期間％s"
 
 #: reports.php:354
 msgid "State"
-msgstr ""
+msgstr "都道府県"
 
 #: reports.php:355 view.php:292
 #, fuzzy, php-format
@@ -1902,7 +1934,6 @@ msgid "Runtime [s]"
 msgstr "ランタイム"
 
 #: reports.php:358
-#, fuzzy
 msgid "Scheduled"
 msgstr "予定済み"
 
@@ -1913,11 +1944,12 @@ msgstr "データ項目"
 
 #: reports.php:385
 msgid "n/a"
-msgstr ""
+msgstr "該当なし"
 
 #: reports.php:391
+#, fuzzy
 msgid "Add sources"
-msgstr ""
+msgstr "ソースを追加"
 
 #: reports.php:391
 #, fuzzy
@@ -1980,7 +2012,6 @@ msgid "Click 'Continue' to duplicate the following Report configurations.  You m
 msgstr "次のレポート設定を複製するには、[続行]をクリックします。この操作中にタイトルフォーマットを変更することもできます。"
 
 #: reports.php:1246
-#, fuzzy
 msgid "Title Format:"
 msgstr "題名の書式:"
 
@@ -2025,7 +2056,6 @@ msgid "Does not exist anymore"
 msgstr "もう存在しない"
 
 #: rrdlist.php:296
-#, fuzzy
 msgid "Select"
 msgstr "選択"
 
@@ -2065,9 +2095,8 @@ msgid "Selected data item as reference:"
 msgstr "参照として選択されたデータ項目："
 
 #: rrdlist.php:561
-#, fuzzy
 msgid "Time Zone:"
-msgstr "タイムゾーン"
+msgstr "時間帯："
 
 #: rrdlist.php:562
 #, fuzzy
@@ -2100,29 +2129,26 @@ msgid "Report configurations"
 msgstr "レポート設定"
 
 #: run.php:124
-#, php-format
+#, fuzzy, php-format
 msgid "Number of errors <font class=\"deviceDown\"> (%s)</font>"
-msgstr ""
+msgstr "エラー数<font class=\"deviceDown\">（%s）</font>"
 
 #: run.php:142
-#, php-format
+#, fuzzy, php-format
 msgid "Number of warnings <font class=\"deviceDown\"> (%s)</font>"
-msgstr ""
+msgstr "警告の数<font class=\"deviceDown\">（%s）</font>"
 
 #: run.php:165
-#, fuzzy
 msgid "View Report"
-msgstr "レポートを表示"
+msgstr "レポートを表示する"
 
 #: setup.php:130 setup.php:142 setup.php:160 setup.php:166 setup.php:184
 #: setup.php:196 setup.php:202 setup.php:256 setup.php:262 setup.php:280
 #: setup.php:286
-#, fuzzy
 msgid "(Edit)"
 msgstr "(編集)"
 
 #: setup.php:148 setup.php:172 setup.php:244 setup.php:268 setup.php:292
-#, fuzzy
 msgid "Actions"
 msgstr "操作"
 
@@ -2132,7 +2158,6 @@ msgid "Report Templates"
 msgstr "レポートテンプレート"
 
 #: setup.php:214 setup.php:220 templates.php:146 templates.php:232
-#, fuzzy
 msgid "Import"
 msgstr "インポート"
 
@@ -2152,7 +2177,6 @@ msgid "Show Report"
 msgstr "レポートを表示"
 
 #: setup.php:316
-#, fuzzy
 msgid "Export Report"
 msgstr "レポートのエクスポート"
 
@@ -2162,17 +2186,14 @@ msgid "Public Report Charts"
 msgstr "公開報告書チャート"
 
 #: setup.php:334
-#, fuzzy
 msgid "Bar Chart"
 msgstr "棒グラフ"
 
 #: setup.php:340
-#, fuzzy
 msgid "Pie Chart"
 msgstr "円グラフ"
 
 #: setup.php:354
-#, fuzzy
 msgid "View Reports"
 msgstr "レポートを表示"
 
@@ -2187,17 +2208,14 @@ msgid "Administrate Reports"
 msgstr "レポート管理"
 
 #: setup.php:360
-#, fuzzy
 msgid "Management"
 msgstr "マネジメント"
 
 #: setup.php:361
-#, fuzzy
 msgid "Report"
 msgstr "レポート"
 
 #: setup.php:361 templates.php:325 templates.php:474
-#, fuzzy
 msgid "Templates"
 msgstr "テンプレート"
 
@@ -2207,12 +2225,14 @@ msgid "No data source item selected"
 msgstr "データ項目なし"
 
 #: setup.php:368
+#, fuzzy
 msgid "Unselected data source items are still in use"
-msgstr ""
+msgstr "選択されていないデータソースアイテムはまだ使用中です"
 
 #: setup.php:371
+#, fuzzy
 msgid "Unable to unlock this template without defined measurands"
-msgstr ""
+msgstr "定義された測定値がないと、このテンプレートのロックを解除できません"
 
 #: setup.php:382
 #, fuzzy
@@ -2220,7 +2240,6 @@ msgid "global"
 msgstr "グローバル"
 
 #: setup.php:382
-#, fuzzy
 msgid "local"
 msgstr "ローカル"
 
@@ -2255,9 +2274,8 @@ msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report i
 msgstr "オプション（RRDリストの自動生成）：レコード数の変更がこの数値より大きい場合は、レポートのRRDリストを変更しないでください。これは、RRDリストに対する不要で悲惨な変更を避けるためです。"
 
 #: setup.php:415
-#, fuzzy
 msgid "Time Zones"
-msgstr "時間帯"
+msgstr "タイム ゾーン"
 
 #: setup.php:416
 #, fuzzy
@@ -2275,12 +2293,14 @@ msgid "Enable/disable to display server's timezone on the headlines."
 msgstr "見出しにサーバーのタイムゾーンを表示するかどうかを設定します。"
 
 #: setup.php:427
+#, fuzzy
 msgid "Allow scheduling by Operators"
-msgstr ""
+msgstr "オペレーターによるスケジューリングを許可する"
 
 #: setup.php:428
+#, fuzzy
 msgid "Enable/disable Operator's ability to schedule reports.  When disabled, only administrators may change scheduling."
-msgstr ""
+msgstr "レポートをスケジュールするオペレーターの機能を有効/無効にします。無効にすると、管理者のみがスケジュールを変更できます。"
 
 #: setup.php:433
 #, fuzzy
@@ -2293,7 +2313,6 @@ msgid "Enable/disable the use of correct SI-Prefixes for binary multiples under 
 msgstr "<a href='http://www.ieee.org'>IEEE 1541</a>および<a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2の</a>条件のもとで、2進数の正しいSI接頭辞の使用を有効または無効にします。"
 
 #: setup.php:439
-#, fuzzy
 msgid "Export Settings"
 msgstr "設定のエクスポート"
 
@@ -2318,8 +2337,9 @@ msgid "The header description for export files"
 msgstr "エクスポートファイルのヘッダの説明"
 
 #: setup.php:456
+#, fuzzy
 msgid "# Your report header\\n# <cacti_version> <reportit_version>"
-msgstr ""
+msgstr "＃レポートヘッダー\\ n＃<cacti_version> <reportit_version>"
 
 #: setup.php:459
 #, fuzzy
@@ -2327,7 +2347,6 @@ msgid "Auto Archiving"
 msgstr "自動アーカイブ"
 
 #: setup.php:464 setup.php:500
-#, fuzzy
 msgid "Enabled"
 msgstr "有効"
 
@@ -2397,7 +2416,6 @@ msgid "Enable/disable the use of an individual filter per report."
 msgstr "レポートごとに個別のフィルタの使用を有効または無効にします。"
 
 #: setup.php:531
-#, fuzzy
 msgid "Rows Per Page"
 msgstr "ページ毎の行数"
 
@@ -2473,19 +2491,18 @@ msgstr "レポートテンプレートのエクスポート"
 
 #: templates.php:167
 msgid "Compatible"
-msgstr ""
+msgstr "互換"
 
 #: templates.php:175
-#, fuzzy
 msgid "Summary"
 msgstr "概要"
 
 #: templates.php:221
+#, fuzzy
 msgid "No Compatible Templates Found"
-msgstr ""
+msgstr "互換性のあるテンプレートが見つかりません"
 
 #: templates.php:346
-#, fuzzy
 msgctxt "Button: import button"
 msgid "Import"
 msgstr "インポート"
@@ -2511,9 +2528,8 @@ msgid "The version of this Report Template."
 msgstr "このレポートテンプレートに付けられた一意の名前。"
 
 #: templates.php:467
-#, fuzzy
 msgid "Published"
-msgstr "公開"
+msgstr "公開済み"
 
 #: templates.php:471
 #, fuzzy
@@ -2521,8 +2537,9 @@ msgid "The total number of reports using this report template."
 msgstr "このレポートテンプレートに付けられた一意の名前。"
 
 #: templates.php:496
+#, fuzzy
 msgid "No matching data sources"
-msgstr ""
+msgstr "一致するデータソースがありません"
 
 #: templates.php:498
 #, fuzzy
@@ -2550,9 +2567,8 @@ msgid "Edit variables"
 msgstr "変数"
 
 #: templates.php:521
-#, fuzzy
 msgid "No templates"
-msgstr "テンプレート"
+msgstr "テンプレートはありません。"
 
 #: templates.php:672
 #, fuzzy, php-format
@@ -2565,7 +2581,6 @@ msgid "Template Configuration [new]"
 msgstr "テンプレート設定[new]"
 
 #: templates.php:701
-#, fuzzy
 msgid "Create a new variable"
 msgstr "新しい変数を作成する"
 
@@ -2577,7 +2592,7 @@ msgstr "新しい測定量を作成する"
 #: templates.php:760
 #, fuzzy
 msgid "<template_title>"
-msgstr "<template_title> （1）"
+msgstr "テンプレート タイトル"
 
 #: templates.php:916
 #, fuzzy
@@ -2615,9 +2630,8 @@ msgid "List of selected report templates:"
 msgstr "選択されたテンプレートのリスト"
 
 #: templates.php:957
-#, fuzzy
 msgid "Title:"
-msgstr "題名"
+msgstr "タイトル:"
 
 #: templates.php:959
 #, fuzzy
@@ -2650,8 +2664,9 @@ msgid "Export Report Templates"
 msgstr "レポートテンプレートのエクスポート"
 
 #: variables.php:126
+#, fuzzy
 msgid "Variables [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id="
-msgstr ""
+msgstr "変数[テンプレート：<a class = 'linkEditMain' href = 'templates.php？action = template_edit＆id ="
 
 #: variables.php:166
 #, fuzzy
@@ -2659,12 +2674,14 @@ msgid "No Variables Found"
 msgstr "変数"
 
 #: variables.php:209
+#, fuzzy
 msgid "Maximum has to be greater than minimum."
-msgstr ""
+msgstr "最大値は最小値より大きくなければなりません。"
 
 #: variables.php:213
+#, fuzzy
 msgid "Default value is out of values range."
-msgstr ""
+msgstr "デフォルト値が値の範囲外です。"
 
 #: variables.php:273
 #, fuzzy, php-format
@@ -2677,21 +2694,23 @@ msgid "Variable Configuration [new]"
 msgstr "変数の設定[new]"
 
 #: variables.php:297
-#, fuzzy
 msgid "Internal name"
 msgstr "内部名"
 
 #: variables.php:298
+#, fuzzy
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
-msgstr ""
+msgstr "ReportIt自体によって作成される一意の識別子。計算式の定義内でこのIDを使用して、レポートユーザーが個別に定義した値を含めます。"
 
 #: variables.php:305
+#, fuzzy
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
-msgstr ""
+msgstr "たとえば、レポート構成内の見出しとして使用する必要がある「しきい値」などの名前。"
 
 #: variables.php:312
+#, fuzzy
 msgid "A short, pithy description that explains the sense of this variable."
-msgstr ""
+msgstr "この変数の意味を説明する簡潔で簡潔な説明。"
 
 #: variables.php:316
 #, fuzzy
@@ -2704,22 +2723,22 @@ msgid "Maximum Value"
 msgstr "最大"
 
 #: variables.php:321
+#, fuzzy
 msgid "Defines the upper limit of this variable."
-msgstr ""
+msgstr "この変数の上限を定義します。"
 
 #: variables.php:327
-#, fuzzy
 msgid "Minimum Value"
-msgstr "最小"
+msgstr "最小値"
 
 #: variables.php:328
+#, fuzzy
 msgid "Defines the lower limit of this variable."
-msgstr ""
+msgstr "この変数の下限を定義します。"
 
 #: variables.php:334
-#, fuzzy
 msgid "Default Value"
-msgstr "デフォルト"
+msgstr "初期値"
 
 #: variables.php:335
 #, fuzzy
@@ -2727,12 +2746,14 @@ msgid "Sets the default value."
 msgstr "最小値を返します"
 
 #: variables.php:342
+#, fuzzy
 msgid "The method the report owner should use to define this variable."
-msgstr ""
+msgstr "レポート所有者がこの変数を定義するために使用する必要があるメソッド。"
 
 #: variables.php:349
+#, fuzzy
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
-msgstr ""
+msgstr "メソッド「DropDown」が選択されている場合、2つの値の間の距離を定義します。ドロップダウンフィールドに含まれるオプションの数を間接的に定義するため、この値の設定が低すぎないことを確認してください。たとえば、次のパラメータ：MAX：100、MIN：0、STEP：0.01は、10.001オプションの選択ボックスになります。これは、クライアント側のCPU負荷が高いため、劇的なパフォーマンスの問題を引き起こす可能性があります。 1000未満に保つようにしてください。"
 
 #: variables.php:440
 #, fuzzy
@@ -2765,17 +2786,14 @@ msgid "Delete Template Variables"
 msgstr "レポートテンプレートを削除する"
 
 #: view.php:221
-#, fuzzy
 msgid "My Reports"
 msgstr "レポート一覧"
 
 #: view.php:240
-#, fuzzy
 msgid "Go"
 msgstr "Go"
 
 #: view.php:243
-#, fuzzy
 msgid "Clear"
 msgstr "クリア"
 
@@ -2790,7 +2808,6 @@ msgid "No Reports Found"
 msgstr "レポートが見つかりません"
 
 #: view.php:567
-#, fuzzy
 msgid "Data Source"
 msgstr "データソース"
 
@@ -2810,42 +2827,34 @@ msgid "Show Subheads"
 msgstr "サブヘッドを表示"
 
 #: view.php:600
-#, fuzzy
 msgid "Show Summary"
-msgstr "概要"
+msgstr "概要を表示"
 
 #: view.php:622
-#, fuzzy
 msgid "Additional"
-msgstr "追加の"
+msgstr "追加"
 
 #: view.php:648
-#, fuzzy
 msgid "Archive"
 msgstr "アーカイブ"
 
 #: view.php:652
-#, fuzzy
 msgid "Current"
 msgstr "現在"
 
 #: view.php:717
-#, fuzzy
 msgid "Title"
 msgstr "題名"
 
 #: view.php:718
-#, fuzzy
 msgid "Runtime"
 msgstr "ランタイム"
 
 #: view.php:724
-#, fuzzy
 msgid "Scheduler"
 msgstr "スケジュール:"
 
 #: view.php:726
-#, fuzzy
 msgid "Period"
 msgstr "期間"
 
@@ -2860,8 +2869,9 @@ msgid "Data Description"
 msgstr "データの説明"
 
 #: view.php:808
+#, fuzzy
 msgid "-- NO SUBHEADING --"
-msgstr ""
+msgstr "-小見出しなし-"
 
 #: view.php:855
 #, fuzzy

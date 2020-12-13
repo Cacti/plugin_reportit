@@ -8,42 +8,38 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2019-03-18 13:46-0400\n"
+"PO-Revision-Date: 2020-12-12 22:58-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
 #: include/global_arrays.php:44 lib/const_reports.php:30
 #: lib/const_rrdlist.php:28 lib/const_variables.php:29 measurands.php:41
 #: variables.php:42
-#, fuzzy
 msgid "Delete"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
 #: include/global_arrays.php:28 include/global_arrays.php:41
 #: include/global_arrays.php:45 lib/const_reports.php:31
-#, fuzzy
 msgid "Duplicate"
 msgstr "Dupliceer"
 
 #: include/global_arrays.php:29
-#, fuzzy
 msgid "Lock"
-msgstr "Geblokkeerd"
+msgstr "Vergrendelen"
 
 #: include/global_arrays.php:30
 msgid "Unlock"
-msgstr ""
+msgstr "Ontgrendelen"
 
 #: include/global_arrays.php:31 setup.php:226 setup.php:232 setup.php:238
 #: templates.php:994
-#, fuzzy
 msgid "Export"
 msgstr "Exporteer"
 
@@ -51,7 +47,6 @@ msgstr "Exporteer"
 #: include/global_forms.php:44 lib/const_reports.php:432
 #: lib/const_variables.php:52 measurands.php:93 reports.php:352 reports.php:959
 #: templates.php:166 templates.php:463 variables.php:65 variables.php:304
-#, fuzzy
 msgid "Name"
 msgstr "Naam"
 
@@ -62,78 +57,76 @@ msgstr "Interne naam"
 
 #: include/global_arrays.php:53 lib/const_variables.php:54
 #: lib/const_view.php:101 variables.php:67
-#, fuzzy
 msgid "Maximum"
-msgstr "Maximum aantal rijen:"
+msgstr "Maximum"
 
 #: include/global_arrays.php:54 lib/const_variables.php:55
 #: lib/const_view.php:100 variables.php:68
-#, fuzzy
 msgid "Minimum"
-msgstr "Minimale lengte"
+msgstr "Minimum"
 
 #: include/global_arrays.php:55 items.php:351 lib/const_variables.php:56
 #: reports.php:152 rrdlist.php:219 templates.php:329 variables.php:69
 #: view.php:229 view.php:638
-#, fuzzy
 msgid "Default"
 msgstr "Standaard"
 
 #: include/global_arrays.php:56 variables.php:70 variables.php:348
+#, fuzzy
 msgid "Stepping"
-msgstr ""
+msgstr "Stappen"
 
 #: include/global_arrays.php:57 lib/const_variables.php:57 variables.php:71
-#, fuzzy
 msgid "Input Type"
 msgstr "Invoer type"
 
 #: include/global_arrays.php:58 variables.php:72
-#, fuzzy
 msgid "Options"
-msgstr "Acties"
+msgstr "Opties"
 
 #: include/global_arrays.php:61 include/global_arrays.php:71 items.php:292
 #: rrdlist.php:191
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: include/global_arrays.php:62 measurands.php:94 measurands.php:301
-#, fuzzy
 msgid "Abbreviation"
-msgstr "Afmelden"
+msgstr "Afkorting"
 
 #: include/global_arrays.php:63
 msgid "Group"
-msgstr ""
+msgstr "Groep"
 
 #: include/global_arrays.php:64 measurands.php:95 measurands.php:308
 msgid "Unit"
-msgstr ""
+msgstr "Eenheid"
 
 #: include/global_arrays.php:65 measurands.php:96
+#, fuzzy
 msgid "Consolidation Function"
-msgstr ""
+msgstr "Kies een of meerdere consolidatie functie(s)"
 
 #: include/global_arrays.php:66 measurands.php:97 measurands.php:323
 msgid "Visible"
-msgstr ""
+msgstr "Zichtbaar"
 
 #: include/global_arrays.php:67 measurands.php:98 measurands.php:332
 msgid "Separate"
-msgstr ""
+msgstr "Apart"
 
 #: include/global_arrays.php:68 measurands.php:99 measurands.php:372
+#, fuzzy
 msgid "Calculation Formula"
-msgstr ""
+msgstr "Rekenformule"
 
 #: include/global_arrays.php:73
+#, fuzzy
 msgid "Generic ID"
-msgstr ""
+msgstr "Generieke ID"
 
 #: include/global_arrays.php:74
 msgid "Elements"
-msgstr ""
+msgstr "Elementen"
 
 #: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:250
 #: templates.php:469
@@ -142,37 +135,32 @@ msgid "Measurands"
 msgstr "Meters"
 
 #: include/global_arrays.php:76
-#, fuzzy
 msgid "Associated Data Templates"
-msgstr "Data template"
+msgstr "Gekoppelde data templates"
 
 #: include/global_arrays.php:81 include/global_forms.php:39
 #: lib/const_reports.php:111 lib/const_reports.php:154
 #: lib/const_reports.php:289 lib/const_reports.php:322
 #: lib/const_reports.php:428 measurands.php:289 rrdlist.php:346 setup.php:396
 #: variables.php:293
-#, fuzzy
 msgid "General"
 msgstr "Generiek"
 
 #: include/global_arrays.php:82
-#, fuzzy
 msgid "Data Templates"
-msgstr "Data template"
+msgstr "Data templates"
 
 #: include/global_arrays.php:83
 msgid "Groups"
-msgstr ""
+msgstr "Groepen"
 
 #: include/global_arrays.php:85 include/global_arrays.php:533
 #: lib/const_measurands.php:357 lib/funct_html.php:171 lib/funct_html.php:242
 #: setup.php:274 templates.php:470
-#, fuzzy
 msgid "Variables"
-msgstr "Kies een naam voor deze data bron. Het kan variabelen bevatten zoals |host_description| of | query_fieldName|. Voor een complete lijst van ondersteunde variabelen, bekijk alstublieft de Cacti documentatie."
+msgstr "Variabelen"
 
 #: include/global_arrays.php:91 lib/const_reports.php:68
-#, fuzzy
 msgid "Today"
 msgstr "Vandaag"
 
@@ -207,7 +195,6 @@ msgid "Last 6 Days"
 msgstr "Laatste 6 dagen"
 
 #: include/global_arrays.php:98 lib/const_reports.php:75
-#, fuzzy
 msgid "Last 7 Days"
 msgstr "Afgelopen 7 dagen"
 
@@ -237,12 +224,10 @@ msgid "Last 28 Days"
 msgstr "Laatste 28 dagen"
 
 #: include/global_arrays.php:104 lib/const_reports.php:81
-#, fuzzy
 msgid "Current Month"
 msgstr "Huidige maand"
 
 #: include/global_arrays.php:105 lib/const_reports.php:82
-#, fuzzy
 msgid "Last Month"
 msgstr "Afgelopen maand"
 
@@ -252,9 +237,8 @@ msgid "Last 2 Months"
 msgstr "Laatste 2 Maanden"
 
 #: include/global_arrays.php:107 lib/const_reports.php:84
-#, fuzzy
 msgid "Last 3 Months"
-msgstr "Afgelopen 3 maanden"
+msgstr "Afgelopen 3 Maanden"
 
 #: include/global_arrays.php:108 lib/const_reports.php:85
 #, fuzzy
@@ -267,17 +251,14 @@ msgid "Last 5 Months"
 msgstr "Laatste 5 Maanden"
 
 #: include/global_arrays.php:110 lib/const_reports.php:87
-#, fuzzy
 msgid "Last 6 Months"
 msgstr "Afgelopen 6 maanden"
 
 #: include/global_arrays.php:111 lib/const_reports.php:88
-#, fuzzy
 msgid "Current Year"
-msgstr "Huidig jaar"
+msgstr "Dit jaar"
 
 #: include/global_arrays.php:112 lib/const_reports.php:89
-#, fuzzy
 msgid "Last Year"
 msgstr "Afgelopen jaar"
 
@@ -288,22 +269,21 @@ msgstr "Laatste 2 jaar"
 
 #: include/global_arrays.php:118
 msgid "daily"
-msgstr ""
+msgstr "dagelijks"
 
 #: include/global_arrays.php:119
 msgid "weekly"
-msgstr ""
+msgstr "wekelijks"
 
 #: include/global_arrays.php:120
 msgid "monthly"
-msgstr ""
+msgstr "maandelijks"
 
 #: include/global_arrays.php:121
 msgid "yearly"
-msgstr ""
+msgstr "jaarlijks"
 
 #: include/global_arrays.php:126 lib/const_variables.php:33 variables.php:46
-#, fuzzy
 msgid "Dropdown"
 msgstr "Dropdown"
 
@@ -315,7 +295,6 @@ msgstr "Invoer veld"
 #: include/global_arrays.php:132 include/global_arrays.php:144 items.php:276
 #: items.php:282 lib/const_measurands.php:380 lib/const_reports.php:146
 #: lib/const_view.php:97
-#, fuzzy
 msgid "None"
 msgstr "Geen"
 
@@ -325,12 +304,10 @@ msgid "Binary"
 msgstr "Binair"
 
 #: include/global_arrays.php:134 lib/const_measurands.php:370
-#, fuzzy
 msgid "Floating point"
-msgstr "Drijvend punt"
+msgstr "Kommagetallen"
 
 #: include/global_arrays.php:135 lib/const_measurands.php:371
-#, fuzzy
 msgid "Integer"
 msgstr "Geheel getal"
 
@@ -360,14 +337,12 @@ msgid "Scientific Notation"
 msgstr "Wetenschappelijke notatie"
 
 #: include/global_arrays.php:154 lib/const_measurands.php:390
-#, fuzzy
 msgid "Unchanged"
-msgstr "[ongewijzigd]"
+msgstr "Ongewijzigd"
 
 #: include/global_arrays.php:158 lib/const_measurands.php:363
-#, fuzzy
 msgid "off"
-msgstr "Data bron debug modus uitschakelen."
+msgstr "uit"
 
 #: include/global_arrays.php:159 lib/const_measurands.php:364
 #, fuzzy
@@ -380,8 +355,9 @@ msgid "Decimal SI-Prefixes (Base 1000)"
 msgstr "Decimale SI-voorvoegsels (Base 1000)"
 
 #: include/global_arrays.php:166 lib/const_measurands.php:27
+#, fuzzy
 msgid "f_avg - Arithmetic Average"
-msgstr ""
+msgstr "f_avg - Rekenkundig gemiddelde"
 
 #: include/global_arrays.php:167 lib/const_measurands.php:28
 #, fuzzy
@@ -403,11 +379,12 @@ msgstr "Geeft als resultaat de gemiddelde waarde.&#10;(som van waarden / aantal 
 #: lib/const_measurands.php:99 lib/const_measurands.php:106
 #: lib/const_measurands.php:113 lib/const_measurands.php:120
 msgid "none"
-msgstr ""
+msgstr "geen"
 
 #: include/global_arrays.php:173 lib/const_measurands.php:34
+#, fuzzy
 msgid "f_max - Maximum Value"
-msgstr ""
+msgstr "f_max - Maximale waarde"
 
 #: include/global_arrays.php:174 lib/const_measurands.php:35
 #, fuzzy
@@ -415,8 +392,9 @@ msgid "Returns the highest measured value per DS"
 msgstr "Geeft als resultaat de eerste gemeten waarde"
 
 #: include/global_arrays.php:180 lib/const_measurands.php:41
+#, fuzzy
 msgid "f_min - Minimum Value"
-msgstr ""
+msgstr "f_min - Minimumwaarde"
 
 #: include/global_arrays.php:181 lib/const_measurands.php:42
 #, fuzzy
@@ -424,8 +402,9 @@ msgid "Returns the lowest measured value per DS"
 msgstr "Geeft als resultaat de laatst gemeten waarde"
 
 #: include/global_arrays.php:187 lib/const_measurands.php:48
+#, fuzzy
 msgid "f_sum - Sum"
-msgstr ""
+msgstr "f_sum - Som"
 
 #: include/global_arrays.php:188 lib/const_measurands.php:49
 #, fuzzy
@@ -433,8 +412,9 @@ msgid "Returns the sum of all measured values per DS"
 msgstr "Geeft als resultaat de laatst gemeten waarde"
 
 #: include/global_arrays.php:194 lib/const_measurands.php:55
+#, fuzzy
 msgid "f_num - Number of Values (Not NaN)"
-msgstr ""
+msgstr "f_num - aantal waarden (niet NaN)"
 
 #: include/global_arrays.php:195 lib/const_measurands.php:56
 #, fuzzy
@@ -442,8 +422,9 @@ msgid "Returns the number of valid measured values per DS"
 msgstr "Geeft als resultaat het aantal waarden"
 
 #: include/global_arrays.php:201 lib/const_measurands.php:62
+#, fuzzy
 msgid "f_grd - Gradient"
-msgstr ""
+msgstr "f_grd - Verloop"
 
 #: include/global_arrays.php:202 lib/const_measurands.php:63
 #, fuzzy
@@ -451,8 +432,9 @@ msgid "Returns the gradient of a straight line by using linear regression per DS
 msgstr "Geeft als resultaat het verloop van een rechte lijn door gebruik te maken van lineaire regressie"
 
 #: include/global_arrays.php:208 lib/const_measurands.php:69
+#, fuzzy
 msgid "f_last - Last Value"
-msgstr ""
+msgstr "f_last - Laatste waarde"
 
 #: include/global_arrays.php:209 lib/const_measurands.php:70
 #, fuzzy
@@ -460,8 +442,9 @@ msgid "Returns the last valid measured value per DS"
 msgstr "Geeft als resultaat de laatst gemeten waarde"
 
 #: include/global_arrays.php:215 lib/const_measurands.php:76
+#, fuzzy
 msgid "f_1st - First Value"
-msgstr ""
+msgstr "f_1st - Eerste waarde"
 
 #: include/global_arrays.php:216 lib/const_measurands.php:77
 #, fuzzy
@@ -469,8 +452,9 @@ msgid "Returns the first valid measured value per DS"
 msgstr "Geeft als resultaat de eerste gemeten waarde"
 
 #: include/global_arrays.php:222 lib/const_measurands.php:83
+#, fuzzy
 msgid "f_nan - Number of NaNs"
-msgstr ""
+msgstr "f_nan - aantal NaNs"
 
 #: include/global_arrays.php:223 lib/const_measurands.php:84
 #, fuzzy
@@ -478,32 +462,39 @@ msgid "Returns the number of NaNs stored per DS"
 msgstr "Geeft als resultaat het aantal waarden"
 
 #: include/global_arrays.php:229 lib/const_measurands.php:90
+#, fuzzy
 msgid "f_median - Median"
-msgstr ""
+msgstr "f_median - Mediaan"
 
 #: include/global_arrays.php:230 lib/const_measurands.php:91
+#, fuzzy
 msgid "Returns that value that separates the higher half from the lower half per DS"
-msgstr ""
+msgstr "Retourneert die waarde die de hogere helft van de onderste helft scheidt per DS"
 
 #: include/global_arrays.php:236 lib/const_measurands.php:104
+#, fuzzy
 msgid "f_range - Range"
-msgstr ""
+msgstr "f_range - Bereik"
 
 #: include/global_arrays.php:237 lib/const_measurands.php:105
+#, fuzzy
 msgid "Returns the difference between the largest and the smallest value per DS"
-msgstr ""
+msgstr "Retourneert het verschil tussen de grootste en de kleinste waarde per DS"
 
 #: include/global_arrays.php:243 lib/const_measurands.php:111
+#, fuzzy
 msgid "f_iqr - Interquartile Range"
-msgstr ""
+msgstr "f_iqr - Interkwartielbereik"
 
 #: include/global_arrays.php:244 lib/const_measurands.php:112
+#, fuzzy
 msgid "Returns the distance of the middle50&#037; around the median per DS"
-msgstr ""
+msgstr "Geeft als resultaat de afstand van de middelste 50% rond de mediaan per DS"
 
 #: include/global_arrays.php:250 lib/const_measurands.php:118
+#, fuzzy
 msgid "f_sd - Standard Deviation"
-msgstr ""
+msgstr "f_sd - standaarddeviatie"
 
 #: include/global_arrays.php:251 lib/const_measurands.php:119
 #, fuzzy
@@ -511,8 +502,9 @@ msgid "Returns the square root per data source variance"
 msgstr "Geeft als resultaat de laatst gemeten waarde"
 
 #: include/global_arrays.php:257
+#, fuzzy
 msgid "f_var - Variance"
-msgstr ""
+msgstr "f_var - Variantie"
 
 #: include/global_arrays.php:258
 #, fuzzy
@@ -520,8 +512,9 @@ msgid "Returns the variance per DS"
 msgstr "Geeft als resultaat float als geheel getal"
 
 #: include/global_arrays.php:266 lib/const_measurands.php:150
+#, fuzzy
 msgid "f_xth - Xth Percentile"
-msgstr ""
+msgstr "f_xth - Xth Percentiel"
 
 #: include/global_arrays.php:267 lib/const_measurands.php:151
 #, fuzzy
@@ -529,25 +522,30 @@ msgid "Returns the xth percentitle."
 msgstr "Geeft als resultaat de laatst gemeten waarde"
 
 #: include/global_arrays.php:268 lib/const_measurands.php:152
+#, fuzzy
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
-msgstr ""
+msgstr "$ var: drempelwaarde in procent. Bereik: [0 & lt; $ var ≤100]"
 
 #: include/global_arrays.php:274 lib/const_measurands.php:157
+#, fuzzy
 msgid "f_dot - Duration Over Threshold"
-msgstr ""
+msgstr "f_dot - Duur boven drempel"
 
 #: include/global_arrays.php:275 lib/const_measurands.php:158
+#, fuzzy
 msgid "Returns the duration over a defined threshold in percent."
-msgstr ""
+msgstr "Retourneert de duur boven een gedefinieerde drempel in procenten."
 
 #: include/global_arrays.php:276 include/global_arrays.php:284
 #: lib/const_measurands.php:159 lib/const_measurands.php:166
+#, fuzzy
 msgid "$var: threshold (absolute)"
-msgstr ""
+msgstr "$ var: drempel (absoluut)"
 
 #: include/global_arrays.php:282 lib/const_measurands.php:164
+#, fuzzy
 msgid "f_sot - Sum Over Threshold"
-msgstr ""
+msgstr "f_sot - Som boven drempel"
 
 #: include/global_arrays.php:283 lib/const_measurands.php:165
 #, fuzzy
@@ -555,31 +553,37 @@ msgid "Returns the sum of values over a defined threshold."
 msgstr "Geeft als resultaat het aantal waarden"
 
 #: include/global_arrays.php:290 lib/const_measurands.php:171
+#, fuzzy
 msgid "f_floor - Round Fractions Down"
-msgstr ""
+msgstr "f_floor - Ronde breuken omlaag"
 
 #: include/global_arrays.php:291 include/global_arrays.php:357
 #: lib/const_measurands.php:132 lib/const_measurands.php:172
+#, fuzzy
 msgid "Returns the next lowest integer value by rounding down value if necessary."
-msgstr ""
+msgstr "Retourneert de eerstvolgende laagste gehele waarde door de waarde indien nodig naar beneden af te ronden."
 
 #: include/global_arrays.php:292 include/global_arrays.php:300
 #: include/global_arrays.php:358 lib/const_measurands.php:133
 #: lib/const_measurands.php:173 lib/const_measurands.php:180
+#, fuzzy
 msgid "$var: float"
-msgstr ""
+msgstr "$ var: zweven"
 
 #: include/global_arrays.php:298 lib/const_measurands.php:178
+#, fuzzy
 msgid "f_ceil - Round Fractions Up"
-msgstr ""
+msgstr "f_ceil - Ronde breuken omhoog"
 
 #: include/global_arrays.php:299 lib/const_measurands.php:179
+#, fuzzy
 msgid "Returns the next highest integer value by rounding up value if necessary."
-msgstr ""
+msgstr "Retourneert de volgende hoogste gehele waarde door de waarde indien nodig naar boven af te ronden."
 
 #: include/global_arrays.php:306 lib/const_measurands.php:185
+#, fuzzy
 msgid "f_round - Round A Float"
-msgstr ""
+msgstr "f_round - Round A Float"
 
 #: include/global_arrays.php:307 include/global_arrays.php:365
 #: lib/const_measurands.php:139 lib/const_measurands.php:186
@@ -589,12 +593,14 @@ msgstr "Geeft als resultaat de laagste waarde van een bepaalde lijst van paramet
 
 #: include/global_arrays.php:308 include/global_arrays.php:366
 #: lib/const_measurands.php:140 lib/const_measurands.php:187
+#, fuzzy
 msgid "$var: float or string value"
-msgstr ""
+msgstr "$ var: float of string-waarde"
 
 #: include/global_arrays.php:314 lib/const_measurands.php:192
+#, fuzzy
 msgid "f_high - Find Highest Value"
-msgstr ""
+msgstr "f_high - Vind de hoogste waarde"
 
 #: include/global_arrays.php:315 lib/const_measurands.php:193
 #, fuzzy
@@ -603,12 +609,14 @@ msgstr "Geeft als resultaat de hoogste waarde van een gegeven lijst van paramete
 
 #: include/global_arrays.php:316 include/global_arrays.php:324
 #: lib/const_measurands.php:194 lib/const_measurands.php:201
+#, fuzzy
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr ""
+msgstr "$ var1, $ var2, $ var3 ...: waarden die moeten worden vergeleken"
 
 #: include/global_arrays.php:322 lib/const_measurands.php:199
+#, fuzzy
 msgid "f_high - Find Lowest Value"
-msgstr ""
+msgstr "f_high - Vind de laagste waarde"
 
 #: include/global_arrays.php:323 lib/const_measurands.php:200
 #, fuzzy
@@ -616,99 +624,118 @@ msgid "Returns the lowest value of a given list of parameters"
 msgstr "Geeft als resultaat de laagste waarde van een bepaalde lijst van parameters"
 
 #: include/global_arrays.php:330 lib/const_measurands.php:206
+#, fuzzy
 msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
-msgstr ""
+msgstr "f_if - Voorwaardelijke werking - IF-THEN-ELSE Logic"
 
 #: include/global_arrays.php:331 lib/const_measurands.php:207
+#, fuzzy
 msgid "Returns B if A is true or C if A is false"
-msgstr ""
+msgstr "Geeft B terug als A waar is of C als A niet waar is"
 
 #: include/global_arrays.php:338 lib/const_measurands.php:213
+#, fuzzy
 msgid "f_isNaN - Find whether a value is not a number"
-msgstr ""
+msgstr "f_isNaN - Zoek uit of een waarde geen getal is"
 
 #: include/global_arrays.php:339 include/global_arrays.php:347
 #: lib/const_measurands.php:214
+#, fuzzy
 msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
-msgstr ""
+msgstr "Geeft 1 (of B) terug als A === NaN of 0 (of C) indien niet. Parameters B en C zijn optioneel."
 
 #: include/global_arrays.php:346
+#, fuzzy
 msgid "f_cmp - Complex Comparison"
-msgstr ""
+msgstr "f_cmp - Complexe vergelijking"
 
 #: include/global_arrays.php:356 lib/const_measurands.php:131
+#, fuzzy
 msgid "f_int - Alias of f_floor"
-msgstr ""
+msgstr "f_int - Alias van f_floor"
 
 #: include/global_arrays.php:364 lib/const_measurands.php:138
+#, fuzzy
 msgid "f_rnd - Alias of f_round"
-msgstr ""
+msgstr "f_rnd - Alias van f_round"
 
 #: include/global_arrays.php:372 lib/const_measurands.php:220
+#, fuzzy
 msgid "f_eq - Alias of f_cmp - IS EQUAL"
-msgstr ""
+msgstr "f_eq - Alias van f_cmp - IS GELIJK"
 
 #: include/global_arrays.php:373 lib/const_measurands.php:221
+#, fuzzy
 msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "Geeft 1 (of C) terug als A == B of 0 (of D) indien niet. Parameters C en D zijn optioneel."
 
 #: include/global_arrays.php:380 lib/const_measurands.php:227
+#, fuzzy
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
-msgstr ""
+msgstr "f_uq - Alias van f_cmp - IS ONGELIJK"
 
 #: include/global_arrays.php:381 lib/const_measurands.php:228
+#, fuzzy
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "Geeft 1 (of C) terug als A! = B of 0 (of D) als dat niet het geval is. Parameters C en D zijn optioneel."
 
 #: include/global_arrays.php:388 lib/const_measurands.php:234
+#, fuzzy
 msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
-msgstr ""
+msgstr "f_gt - Alias van f_cmp - IS GROTER DAN"
 
 #: include/global_arrays.php:389 lib/const_measurands.php:235
+#, fuzzy
 msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "Geeft 1 (of C) terug als A> B of 0 (of D) als dat niet het geval is. Parameters C en D zijn optioneel."
 
 #: include/global_arrays.php:396 lib/const_measurands.php:241
+#, fuzzy
 msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
-msgstr ""
+msgstr "f_lt - Alias van f_cmp - IS LAGER DAN"
 
 #: include/global_arrays.php:397 lib/const_measurands.php:242
+#, fuzzy
 msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "Geeft 1 (of C) terug als A <B of 0 (of D) indien niet. Parameters C en D zijn optioneel."
 
 #: include/global_arrays.php:404 lib/const_measurands.php:248
+#, fuzzy
 msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
-msgstr ""
+msgstr "f_ge - Alias van f_cmp - IS GROTER OF GELIJK"
 
 #: include/global_arrays.php:405 lib/const_measurands.php:249
+#, fuzzy
 msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "Geeft 1 (of C) terug als A> = B of 0 (of D) indien niet. Parameters C en D zijn optioneel."
 
 #: include/global_arrays.php:412 lib/const_measurands.php:255
+#, fuzzy
 msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
-msgstr ""
+msgstr "f_le - Alias van f_cmp - IS LAGER OF GELIJK"
 
 #: include/global_arrays.php:413 lib/const_measurands.php:256
+#, fuzzy
 msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "Geeft 1 (of C) terug als A <= B of 0 (of D) indien niet. Parameters C en D zijn optioneel."
 
 #: include/global_arrays.php:422 lib/const_measurands.php:267
-#, fuzzy
 msgid "Addition"
 msgstr "Toevoeging"
 
 #: include/global_arrays.php:423 lib/const_measurands.php:268
+#, fuzzy
 msgid "Mathematical Operation to return the sum of two or more summands"
-msgstr ""
+msgstr "Wiskundige bewerking om de som van twee of meer optellingen te retourneren"
 
 #: include/global_arrays.php:429 lib/const_measurands.php:274
-#, fuzzy
 msgid "Subtraction"
 msgstr "Afmelden"
 
 #: include/global_arrays.php:430 lib/const_measurands.php:275
+#, fuzzy
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
-msgstr ""
+msgstr "Wiskundige bewerking om het verschil tussen minuend en aftrekker terug te geven"
 
 #: include/global_arrays.php:436 lib/const_measurands.php:281
 #, fuzzy
@@ -716,33 +743,37 @@ msgid "Multiplication"
 msgstr "Vermenigvuldiging"
 
 #: include/global_arrays.php:437 lib/const_measurands.php:282
+#, fuzzy
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
-msgstr ""
+msgstr "Wiskundige bewerking om het product van vermenigvuldiger en vermenigvuldiger te retourneren"
 
 #: include/global_arrays.php:443 lib/const_measurands.php:288
-#, fuzzy
 msgid "Division"
-msgstr "Werkt bij"
+msgstr "Divisie"
 
 #: include/global_arrays.php:444 lib/const_measurands.php:289
+#, fuzzy
 msgid "Mathematical Operation to return the fraction of divident and divisor"
-msgstr ""
+msgstr "Wiskundige bewerking om de breuk van deler en deler terug te geven"
 
 #: include/global_arrays.php:450 lib/const_measurands.php:295
 msgid "Modulus"
-msgstr ""
+msgstr "Modulus"
 
 #: include/global_arrays.php:451 lib/const_measurands.php:296
+#, fuzzy
 msgid "Mathematical Operation to return the remainder of a division of two integers"
-msgstr ""
+msgstr "Wiskundige bewerking om de rest van een deling van twee gehele getallen te retourneren"
 
 #: include/global_arrays.php:457 lib/const_measurands.php:302
+#, fuzzy
 msgid "Exponentiation - PHP5.6 or above required"
-msgstr ""
+msgstr "Exponentiatie - PHP5.6 of hoger vereist"
 
 #: include/global_arrays.php:458 lib/const_measurands.php:303
+#, fuzzy
 msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
-msgstr ""
+msgstr "Wiskundige bewerking om de herhaalde vermenigvuldiging (of deling) van een basis door zijn exponent terug te geven."
 
 #: include/global_arrays.php:466
 #, fuzzy
@@ -755,42 +786,49 @@ msgid "Decimal Mark used to separate the integer part from the fractional part"
 msgstr "Het symbool dat het einde van het gehele getal en het begin van het breukdeel aangeeft."
 
 #: include/global_arrays.php:475
+#, fuzzy
 msgid "Round Bracket"
-msgstr ""
+msgstr "Ronde beugel"
 
 #: include/global_arrays.php:476 lib/const_measurands.php:313
 #: lib/const_measurands.php:320
+#, fuzzy
 msgid "Used to override normal precedence or to mark the first level of nesting"
-msgstr ""
+msgstr "Wordt gebruikt om de normale prioriteit te overschrijven of om het eerste niveau van nesten te markeren"
 
 #: include/global_arrays.php:483
+#, fuzzy
 msgid "Square Bracket"
-msgstr ""
+msgstr "Vierkant haakje"
 
 #: include/global_arrays.php:484 lib/const_measurands.php:327
 #: lib/const_measurands.php:334
+#, fuzzy
 msgid "Used to override normal precedence or to mark the second level of nesting"
-msgstr ""
+msgstr "Wordt gebruikt om de normale prioriteit te overschrijven of om het tweede niveau van nesten te markeren"
 
 #: include/global_arrays.php:491
+#, fuzzy
 msgid "Punctuation mark"
-msgstr ""
+msgstr "Leesteken"
 
 #: include/global_arrays.php:492
+#, fuzzy
 msgid "Used to separate arguments forwarded to a function"
-msgstr ""
+msgstr "Wordt gebruikt om argumenten te scheiden die naar een functie worden doorgestuurd"
 
 #: include/global_arrays.php:501
 msgid "The minimum value of data that is allowed to be collected."
-msgstr ""
+msgstr "De minimale toegestane waarde van de verzamelde data."
 
 #: include/global_arrays.php:502 include/global_arrays.php:510
+#, fuzzy
 msgid "WARNING! This variable can be set to zero or unlimited"
-msgstr ""
+msgstr "WAARSCHUWING! Deze variabele kan op nul of onbeperkt worden ingesteld"
 
 #: include/global_arrays.php:509
 msgid "The maximum value of data that is allowed to be collected."
-msgstr ""
+msgstr "De maximale toegestane waarde van de verzamelde data."
 
 #: include/global_arrays.php:517 lib/const_measurands.php:344
 #, fuzzy
@@ -809,20 +847,19 @@ msgstr "Functies met parameters"
 
 #: include/global_arrays.php:529 lib/const_measurands.php:354
 msgid "Aliases"
-msgstr ""
+msgstr "Aliassen"
 
 #: include/global_arrays.php:530 lib/const_measurands.php:355
-#, fuzzy
 msgid "Operators"
 msgstr "Operators"
 
 #: include/global_arrays.php:531
 msgid "Numbers"
-msgstr ""
+msgstr "Nummers"
 
 #: include/global_arrays.php:532
 msgid "Others"
-msgstr ""
+msgstr "Anderen"
 
 #: include/global_arrays.php:534 lib/const_measurands.php:358
 #: lib/funct_html.php:173
@@ -838,7 +875,7 @@ msgstr "Tussentijdse resultaten"
 
 #: include/global_arrays.php:539
 msgid "Unlimited"
-msgstr ""
+msgstr "Onbeperkt"
 
 #: include/global_arrays.php:540
 #, fuzzy
@@ -856,9 +893,8 @@ msgid "2,000 Data Items"
 msgstr "50000 Data bron items (Standaard)"
 
 #: include/global_arrays.php:543
-#, fuzzy
 msgid "5,000 Data Source Items"
-msgstr "Data bron"
+msgstr "5000 Data bron items"
 
 #: include/global_arrays.php:544
 #, fuzzy
@@ -866,30 +902,27 @@ msgid "7,500 Data Source Items"
 msgstr "Data bron"
 
 #: include/global_arrays.php:545
-#, fuzzy
 msgid "10,000 Data Source Items"
-msgstr "Data bron"
+msgstr "10000 Data bron items"
 
 #: include/global_arrays.php:546
-#, fuzzy
 msgid "15,000 Data Source Items"
-msgstr "Data bron"
+msgstr "15000 Data bron items"
 
 #: include/global_arrays.php:547 include/global_arrays.php:548
-#, fuzzy
 msgid "25,000 Data Source Items"
-msgstr "Data bron"
+msgstr "25000 Data bron items"
 
 #: include/global_arrays.php:552
 msgid "1 Minute"
-msgstr ""
+msgstr "1 Minuut"
 
 #: include/global_arrays.php:553 include/global_arrays.php:554
 #: include/global_arrays.php:555 include/global_arrays.php:556
 #: include/global_arrays.php:557
 #, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d Minuten"
 
 #: include/global_forms.php:47
 #, fuzzy
@@ -898,7 +931,6 @@ msgstr "De unieke naam die aan dit rapportsjabloon is gegeven."
 
 #: include/global_forms.php:51 measurands.php:294 templates.php:171
 #: variables.php:311 view.php:288
-#, fuzzy
 msgid "Description"
 msgstr "Omschrijving"
 
@@ -909,7 +941,7 @@ msgstr "De unieke naam die aan dit rapportsjabloon is gegeven."
 
 #: include/global_forms.php:60 templates.php:168 templates.php:465
 msgid "Version"
-msgstr ""
+msgstr "Versie"
 
 #: include/global_forms.php:63
 #, fuzzy
@@ -918,29 +950,30 @@ msgstr "Beschikbare rapportsjablonen"
 
 #: include/global_forms.php:68 templates.php:169 templates.php:464
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: include/global_forms.php:71
+#, fuzzy
 msgid "The author of this template"
-msgstr ""
+msgstr "De auteur van deze sjabloon"
 
 #: include/global_forms.php:77
-#, fuzzy
 msgid "Publish"
-msgstr "Dit programma is gratis; je mag het distribueren of aanpassen onder de termen van de GNU General Public License zoals gepubliceerd door de Free Software Foundation; uitsluitend versie 2 van de licentie, of enig latere versie."
+msgstr "Publiceren"
 
 #: include/global_forms.php:78
+#, fuzzy
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
-msgstr ""
+msgstr "Moet dit rapportsjabloon worden gepubliceerd zodat gebruikers er toegang toe hebben? Om nieuwe sjablonen of wijzigingen te testen, dient u dit vakje uit te vinken."
 
 #: include/global_forms.php:82 templates.php:468
-#, fuzzy
 msgid "Locked"
 msgstr "Geblokkeerd"
 
 #: include/global_forms.php:84
+#, fuzzy
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
-msgstr ""
+msgstr "De status \"vergrendeld\" vermijdt elke vorm van wijziging aan uw rapportsjabloon, evenals toegewezen meetgroottes en variabeledefinities"
 
 #: include/global_forms.php:88
 #, fuzzy
@@ -964,7 +997,6 @@ msgstr "Optioneel: Het pad naar een map voor het opslaan van de exporten.  Als h
 
 #: include/global_forms.php:104 include/global_forms.php:109
 #: include/global_forms.php:116 templates.php:170 templates.php:466
-#, fuzzy
 msgid "Data Template"
 msgstr "Data template"
 
@@ -979,8 +1011,9 @@ msgid "Report Template"
 msgstr "Rapportsjablonen"
 
 #: include/global_forms.php:131
+#, fuzzy
 msgid "Choose one of your Report Templates to export to XML."
-msgstr ""
+msgstr "Kies een van uw rapportsjablonen om naar XML te exporteren."
 
 #: include/global_forms.php:140
 #, fuzzy
@@ -988,28 +1021,32 @@ msgid "[Optional] Description"
 msgstr "Beschrijving van de gegevens"
 
 #: include/global_forms.php:141
+#, fuzzy
 msgid "Describe the characteristics of your report template"
-msgstr ""
+msgstr "Beschrijf de kenmerken van uw rapportsjabloon"
 
 #: include/global_forms.php:150
+#, fuzzy
 msgid "[Optional] Author"
-msgstr ""
+msgstr "[Optioneel] Auteur"
 
 #: include/global_forms.php:151 include/global_forms.php:159
 #: include/global_forms.php:167
+#, fuzzy
 msgid "Add your name or nick here."
-msgstr ""
+msgstr "Voeg hier je naam of nickname toe."
 
 #: include/global_forms.php:158
+#, fuzzy
 msgid "[Optional] Version"
-msgstr ""
+msgstr "[Optioneel] Versie"
 
 #: include/global_forms.php:166
+#, fuzzy
 msgid "[Optional] Contact"
-msgstr ""
+msgstr "[Optioneel] Contact"
 
 #: items.php:265 view.php:634
-#, fuzzy
 msgid "Items"
 msgstr "Items"
 
@@ -1030,25 +1067,21 @@ msgstr "50000 Data bron items (Standaard)"
 
 #: items.php:340 reports.php:142 rrdlist.php:209 templates.php:319 view.php:210
 #: view.php:561
-#, fuzzy
 msgid "Search"
 msgstr "Zoeken"
 
 #: items.php:347 reports.php:148 reports.php:365 setup.php:124 setup.php:360
 #: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
 #: view.php:755
-#, fuzzy
 msgid "Reports"
 msgstr "Rapportages"
 
 #: items.php:362 reports.php:163 rrdlist.php:230 templates.php:340 view.php:612
-#, fuzzy
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Ga"
 
 #: items.php:365 reports.php:166 rrdlist.php:233 templates.php:343 view.php:615
-#, fuzzy
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "Herstel"
@@ -1064,12 +1097,10 @@ msgid "Bar (horizontal)"
 msgstr "Bar (horizontaal)"
 
 #: lib/const_graphs.php:74
-#, fuzzy
 msgid "Line"
 msgstr "Regel"
 
 #: lib/const_graphs.php:80
-#, fuzzy
 msgid "Area"
 msgstr "Oppervlakte"
 
@@ -1084,8 +1115,9 @@ msgid "Spider"
 msgstr "Spin"
 
 #: lib/const_measurands.php:97
+#, fuzzy
 msgid "f_mode - Mode"
-msgstr ""
+msgstr "f_mode - Mode"
 
 #: lib/const_measurands.php:98
 #, fuzzy
@@ -1093,20 +1125,24 @@ msgid "Returns the value that appears most often per DS"
 msgstr "Geeft als resultaat de laagste waarde van een bepaalde lijst van parameters"
 
 #: lib/const_measurands.php:312
+#, fuzzy
 msgid "Left (Opening) parenthesis"
-msgstr ""
+msgstr "Linker haakje (openen)"
 
 #: lib/const_measurands.php:319
+#, fuzzy
 msgid "Right (Closing) parenthesis"
-msgstr ""
+msgstr "Rechter (sluitend) haakje"
 
 #: lib/const_measurands.php:326
+#, fuzzy
 msgid "Left (Opening) Square Bracket"
-msgstr ""
+msgstr "Linker (opening) vierkante beugel"
 
 #: lib/const_measurands.php:333
+#, fuzzy
 msgid "Right (Closing) Square Bracket"
-msgstr ""
+msgstr "Rechter (sluitende) vierkante beugel"
 
 #: lib/const_measurands.php:342
 #, fuzzy
@@ -1124,62 +1160,56 @@ msgid "Contains the number of NAN's during the reporting period."
 msgstr "Bevat het aantal NAN's tijdens de verslagperiode."
 
 #: lib/const_measurands.php:356
+#, fuzzy
 msgid "Parentheses"
-msgstr ""
+msgstr "Haakjes"
 
 #: lib/const_reports.php:29
-#, fuzzy
 msgid "Run"
-msgstr "Maximaal toegestande runtime:"
+msgstr "Uitvoeren"
 
 #: lib/const_reports.php:35
+#, fuzzy
 msgid "CRASHED"
-msgstr ""
+msgstr "VERPLETTERD"
 
 #: lib/const_reports.php:36
 msgid "FAILED"
-msgstr ""
+msgstr "MISLUKT"
 
 #: lib/const_reports.php:37
 msgid "Idle"
-msgstr ""
+msgstr "Inactief"
 
 #: lib/const_reports.php:38
 msgid "Running"
-msgstr ""
+msgstr "Actief"
 
 #: lib/const_reports.php:56 lib/const_rrdlist.php:54 lib/funct_runtime.php:179
-#, fuzzy
 msgid "Monday"
 msgstr "Maandag"
 
 #: lib/const_reports.php:57 lib/const_rrdlist.php:55 lib/funct_runtime.php:181
-#, fuzzy
 msgid "Tuesday"
 msgstr "Dinsdag"
 
 #: lib/const_reports.php:58 lib/const_rrdlist.php:56 lib/funct_runtime.php:183
-#, fuzzy
 msgid "Wednesday"
 msgstr "Woensdag"
 
 #: lib/const_reports.php:59 lib/const_rrdlist.php:57 lib/funct_runtime.php:185
-#, fuzzy
 msgid "Thursday"
 msgstr "Donderdag"
 
 #: lib/const_reports.php:60 lib/const_rrdlist.php:58 lib/funct_runtime.php:187
-#, fuzzy
 msgid "Friday"
 msgstr "Vrijdag"
 
 #: lib/const_reports.php:61 lib/const_rrdlist.php:59 lib/funct_runtime.php:189
-#, fuzzy
 msgid "Saturday"
 msgstr "Zaterdag"
 
 #: lib/const_reports.php:62 lib/const_rrdlist.php:60 lib/funct_runtime.php:191
-#, fuzzy
 msgid "Sunday"
 msgstr "Zondag"
 
@@ -1189,14 +1219,12 @@ msgid "Data Item Presets"
 msgstr "Vooraf ingestelde datapunten"
 
 #: lib/const_reports.php:113 reports.php:960
-#, fuzzy
 msgid "Email"
 msgstr "E-mail"
 
 #: lib/const_reports.php:114
-#, fuzzy
 msgid "Administration"
-msgstr "Log beheer"
+msgstr "Administratie"
 
 #: lib/const_reports.php:147 lib/const_view.php:37
 #, fuzzy
@@ -1214,7 +1242,6 @@ msgid "Raw XML (.xml)"
 msgstr "Ruw XML (.xml)"
 
 #: lib/const_reports.php:166
-#, fuzzy
 msgid "Subject"
 msgstr "Onderwerp"
 
@@ -1244,7 +1271,6 @@ msgid "This is a scheduled report generated from Cacti."
 msgstr "Dit is een gepland rapport gegenereerd door Cacti."
 
 #: lib/const_reports.php:184
-#, fuzzy
 msgid "Attachment"
 msgstr "Bijlage"
 
@@ -1274,7 +1300,6 @@ msgid "Scheduled Reporting"
 msgstr "Geplande rapportage"
 
 #: lib/const_reports.php:218 setup.php:489
-#, fuzzy
 msgid "Enable"
 msgstr "Inschakelen"
 
@@ -1284,7 +1309,6 @@ msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled.
 msgstr "Geplande rapportage inschakelen/uitschakelen. De schuifkalender moet ingeschakeld zijn."
 
 #: lib/const_reports.php:225
-#, fuzzy
 msgid "Frequency"
 msgstr "Frequentie"
 
@@ -1384,7 +1408,6 @@ msgid "Define an additional subhead that should be on display under the interfac
 msgstr "Definieer een extra subhead die moet worden weergegeven onder de interfacebeschrijving.<br> De volgende variabelen worden ondersteund (zonder aanhalingstekens): '|t1|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'."
 
 #: lib/const_reports.php:338 rrdlist.php:196 rrdlist.php:362
-#, fuzzy
 msgid "Time Zone"
 msgstr "Tijdzone"
 
@@ -1414,13 +1437,11 @@ msgid "Allows additional filtering on the data items descriptions.<br> Use SQL w
 msgstr "Staat extra filtering toe op de beschrijvingen van de gegevensitems.<br> Gebruik SQL wildcards zoals % en/of _. Geen reguliere uitdrukkingen!"
 
 #: lib/const_reports.php:363 rrdlist.php:382
-#, fuzzy
 msgid "Working Time"
 msgstr "Opvangplan"
 
 #: lib/const_reports.php:375 lib/const_reports.php:395 rrdlist.php:386
 #: rrdlist.php:424
-#, fuzzy
 msgid "From"
 msgstr "Van"
 
@@ -1431,7 +1452,6 @@ msgstr "Het startpunt van de duur die u wilt analyseren"
 
 #: lib/const_reports.php:383 lib/const_reports.php:403 rrdlist.php:394
 #: rrdlist.php:431
-#, fuzzy
 msgid "To"
 msgstr "Tot"
 
@@ -1462,7 +1482,6 @@ msgstr "De naam die aan dit verslag is gegeven"
 
 #: lib/const_reports.php:439 lib/funct_export.php:85 lib/funct_export.php:452
 #: view.php:290
-#, fuzzy
 msgid "Template"
 msgstr "Template"
 
@@ -1473,7 +1492,6 @@ msgstr "De template waar uw configuratie van afhangt, is afhankelijk van"
 
 #: lib/const_reports.php:447 lib/funct_export.php:84 lib/funct_export.php:451
 #: view.php:289 view.php:720
-#, fuzzy
 msgid "Owner"
 msgstr "Eigenaar"
 
@@ -1483,9 +1501,8 @@ msgid "Change the owner of this report. Only users with the permission \"view\" 
 msgstr "Wijzig de eigenaar van dit rapport. Alleen gebruikers met een minimum aan rapportagerechten ('View' of hoger) kunnen worden geselecteerd."
 
 #: lib/const_reports.php:462 reports.php:357
-#, fuzzy
 msgid "Public"
-msgstr "Dit programma is gratis; je mag het distribueren of aanpassen onder de termen van de GNU General Public License zoals gepubliceerd door de Free Software Foundation; uitsluitend versie 2 van de licentie, of enig latere versie."
+msgstr "Openbaar"
 
 #: lib/const_reports.php:463
 #, fuzzy
@@ -1554,7 +1571,6 @@ msgstr "Kopieer instellingen naar alle"
 
 #: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:136 setup.php:178
 #: setup.php:208
-#, fuzzy
 msgid "Add"
 msgstr "Toevoegen"
 
@@ -1596,7 +1612,6 @@ msgid "%s Lo"
 msgstr "%s Lo"
 
 #: lib/const_view.php:89 lib/const_view.php:98 view.php:571 view.php:586
-#, fuzzy
 msgid "Any"
 msgstr "Alle"
 
@@ -1606,7 +1621,6 @@ msgid "Sum"
 msgstr "Totaal"
 
 #: lib/const_view.php:102
-#, fuzzy
 msgid "Average"
 msgstr "Gemiddeld"
 
@@ -1616,17 +1630,14 @@ msgid "Report title"
 msgstr "Rapportage titel"
 
 #: lib/funct_export.php:86 lib/funct_export.php:453
-#, fuzzy
 msgid "Start"
-msgstr "Laatste starttijd:"
+msgstr "Start"
 
 #: lib/funct_export.php:87 lib/funct_export.php:454
-#, fuzzy
 msgid "End"
-msgstr "Einde werkdag"
+msgstr "Tot"
 
 #: lib/funct_export.php:88 lib/funct_export.php:455 view.php:723
-#, fuzzy
 msgid "Last Run"
 msgstr "Laatste run"
 
@@ -1636,9 +1647,9 @@ msgid "Enable [%s]"
 msgstr "Inschakelen"
 
 #: lib/funct_html.php:320
-#, php-format
+#, fuzzy, php-format
 msgid "Activate data source item '%s' for the calculation process."
-msgstr ""
+msgstr "Activeer gegevensbronitem '%s' voor het berekeningsproces."
 
 #: lib/funct_html.php:329
 #, fuzzy
@@ -1646,21 +1657,24 @@ msgid "Data Source Alias"
 msgstr "Data bron"
 
 #: lib/funct_html.php:330
-#, php-format
+#, fuzzy, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
-msgstr ""
+msgstr "Optioneel: u kunt een alias definiëren die moet worden weergegeven in plaats van de naam van de interne gegevensbron '%s' in de rapporten."
 
 #: lib/funct_html.php:349
+#, fuzzy
 msgid "Separate Group Title [overall]"
-msgstr ""
+msgstr "Afzonderlijke groepstitel [algemeen]"
 
 #: lib/funct_html.php:350
+#, fuzzy
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
-msgstr ""
+msgstr "Optioneel: u kunt een groepsnaam definiëren die moet worden weergegeven als de titel voor alle afzonderlijke meetgrootten in de rapporten."
 
 #: lib/funct_mailer.php:45
+#, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting."
-msgstr ""
+msgstr "Mailer Error: No <b>aan te</b> pakken set !!<br> Als u de <i>testmail-</i> link gebruikt, moet u de instelling <b>Alert e-mail</b> instellen."
 
 #: lib/funct_shared.php:36
 #, fuzzy
@@ -1678,7 +1692,6 @@ msgid "Incomplete file transfer."
 msgstr "Onvolledige bestandsoverdracht."
 
 #: lib/funct_validate.php:283 lib/funct_validate.php:309
-#, fuzzy
 msgid "No file uploaded."
 msgstr "Geen bestand geüpload."
 
@@ -1688,17 +1701,14 @@ msgid "Temporary folder missing."
 msgstr "Tijdelijke map ontbreekt."
 
 #: lib/funct_validate.php:289
-#, fuzzy
 msgid "Failed to write file to disk"
 msgstr "Kan bestand niet schrijven naar schijf"
 
 #: lib/funct_validate.php:292
-#, fuzzy
 msgid "File upload stopped by extension"
 msgstr "Het uploaden is gestopt door de extensie"
 
 #: lib/funct_validate.php:303
-#, fuzzy
 msgid "Invalid file extension."
 msgstr "Ongeldige bestandsextensie."
 
@@ -1708,13 +1718,14 @@ msgid "Unable to parse template file."
 msgstr "Niet in staat om een sjabloonbestand te parseren."
 
 #: lib/funct_validate.php:334 lib/funct_validate.php:335
-#, php-format
+#, fuzzy, php-format
 msgid "Checksum error with Template %s in XML file"
-msgstr ""
+msgstr "Checksum-fout met sjabloon %s in XML-bestand"
 
 #: measurands.php:87
+#, fuzzy
 msgid "Measurands [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id="
-msgstr ""
+msgstr "Measurands [Template: <a class = 'linkEditMain' href = 'templates.php? Action = template_edit & id ="
 
 #: measurands.php:118
 #, fuzzy
@@ -1722,12 +1733,14 @@ msgid "No Measurands Found"
 msgstr "Meters"
 
 #: measurands.php:166
+#, fuzzy
 msgid "Duplicate abbreviation"
-msgstr ""
+msgstr "Dubbele afkorting"
 
 #: measurands.php:221
+#, fuzzy
 msgid "Interim results are used by other measurands."
-msgstr ""
+msgstr "Tussentijdse resultaten worden gebruikt door andere meetgrootheden."
 
 #: measurands.php:270
 #, fuzzy, php-format
@@ -1740,12 +1753,14 @@ msgid "Measurand Configuration [new]"
 msgstr "Variabele configuratie [nieuw]"
 
 #: measurands.php:295
+#, fuzzy
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
-msgstr ""
+msgstr "De uitleg die aan deze meetgrootheid wordt gegeven. Dit wordt getoond als een legenda binnen exports en als tooltip binnen de presentatie van een rapport zelf."
 
 #: measurands.php:302
+#, fuzzy
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
-msgstr ""
+msgstr "Definieer een unieke afkorting voor deze meetgrootheid met max. 8 letters / cijfers."
 
 #: measurands.php:309
 #, fuzzy
@@ -1753,41 +1768,47 @@ msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "De naam die aan dit verslag is gegeven"
 
 #: measurands.php:315
+#, fuzzy
 msgid "Consolidation function"
-msgstr ""
+msgstr "Kies een of meerdere consolidatie functie(s)"
 
 #: measurands.php:316
+#, fuzzy
 msgid "The name of the consolidation function to define which CDPs should be read out."
-msgstr ""
+msgstr "De naam van de consolidatiefunctie om te bepalen welke CDP's moeten worden uitgelezen."
 
 #: measurands.php:324
+#, fuzzy
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
-msgstr ""
+msgstr "Kies 'inschakelen' als deze meeteenheid onderdeel moet worden van de uitvoer van het eindrapport. Laat het ongemarkeerd als deze meetgrootten alleen als hulpberekening worden gebruikt."
 
 #: measurands.php:333
+#, fuzzy
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
-msgstr ""
+msgstr "Kies 'inschakelen' als deze meeteenheid in totaal slechts één resultaat zal hebben in plaats van één voor elk gegevensbronitem. Het is resultaat<br> wordt apart getoond. Gebruik deze optie in combinatie met \"Visible\" = \"off\" als u op zoek bent naar een meetwaarde en alleen een tussentijds resultaat wilt behouden dat moet worden hergebruikt binnen de berekening van andere meetgrootheden zonder zichtbaar te zijn voor eindgebruikers."
 
 #: measurands.php:341
 msgid "Formatting"
-msgstr ""
+msgstr "Opmaak"
 
 #: measurands.php:346 variables.php:341 view.php:216
-#, fuzzy
 msgid "Type"
 msgstr "Type"
 
 #: measurands.php:349
+#, fuzzy
 msgid "Defines as what type the data should be treated as."
-msgstr ""
+msgstr "Bepaalt als welk type de gegevens moeten worden behandeld."
 
 #: measurands.php:353
+#, fuzzy
 msgid "Precision"
-msgstr ""
+msgstr "Precisie"
 
 #: measurands.php:354
+#, fuzzy
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
-msgstr ""
+msgstr "Bepaalt hoeveel decimale cijfers moeten worden weergegeven voor getallen met drijvende komma."
 
 #: measurands.php:360
 #, fuzzy
@@ -1795,16 +1816,18 @@ msgid "Prefixes"
 msgstr "SI-voorvoegsels"
 
 #: measurands.php:361
+#, fuzzy
 msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
-msgstr ""
+msgstr "Kies het type voorvoegsel dat wordt gebruikt om het resultaat op te maken. Met het gebruik van decimale prefixen wordt '1024' opgemaakt naar '1.024k' terwijl de optie binaire prefixen '1ki' retourneert. Selecteer 'uit' om de onbewerkte gegevens weer te geven, hier '1024'."
 
 #: measurands.php:367
 msgid "Formula"
-msgstr ""
+msgstr "Formule"
 
 #: measurands.php:373
+#, fuzzy
 msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
-msgstr ""
+msgstr "De wiskundige definitie van deze meetgrootheid. Toegestaan zijn alle combinaties van operatoren en operanden die hieronder worden vermeld volgens de regels van de wiskunde. Gebruik ronde en vierkante haken om complexe termen en de volgorde van bewerkingen aan te duiden."
 
 #: measurands.php:378
 #, fuzzy
@@ -1812,12 +1835,14 @@ msgid "Operators & Operands"
 msgstr "Operators"
 
 #: measurands.php:379
+#, fuzzy
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
-msgstr ""
+msgstr "Klik op een van de vermelde operatoren of operand om ze aan uw calucalionformule toe te voegen. De tooltip toont u aanvullende informatie zoals beschrijving, retourwaarde, argumenten en gebruik."
 
 #: measurands.php:513
+#, fuzzy
 msgid "Click 'Continue' to Delete the following Measurands.  Notice: If there are no other Measurands left after this process, the Report Template will be locked automatically."
-msgstr ""
+msgstr "Klik op 'Doorgaan' om de volgende meetwaarden te verwijderen. Opmerking: Als er na dit proces geen andere Measurands meer zijn, wordt de Report Template automatisch vergrendeld."
 
 #: measurands.php:516
 #, fuzzy
@@ -1838,13 +1863,11 @@ msgstr "U moet ten minste één rapport selecteren."
 #: reports.php:1254 reports.php:1264 rrdlist.php:572 rrdlist.php:574
 #: templates.php:98 templates.php:100 templates.php:232 templates.php:233
 #: templates.php:981 variables.php:482 variables.php:484
-#, fuzzy
 msgid "Cancel"
 msgstr "Annuleer"
 
 #: measurands.php:535 reports.php:98 reports.php:1264 rrdlist.php:575
 #: templates.php:100 templates.php:990 templates.php:992 variables.php:484
-#, fuzzy
 msgid "Continue"
 msgstr "Volgende"
 
@@ -1854,7 +1877,6 @@ msgid "Delete Template Measurands"
 msgstr "Rapportsjablonen verwijderen"
 
 #: reports.php:88
-#, fuzzy
 msgid "New Report"
 msgstr "Nieuwe rapportage"
 
@@ -1880,7 +1902,7 @@ msgstr "Rapportfilters"
 
 #: reports.php:351 templates.php:462
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 #: reports.php:353
 #, fuzzy, php-format
@@ -1889,7 +1911,7 @@ msgstr "Periode %s van - tot"
 
 #: reports.php:354
 msgid "State"
-msgstr ""
+msgstr "Staat"
 
 #: reports.php:355 view.php:292
 #, fuzzy, php-format
@@ -1902,7 +1924,6 @@ msgid "Runtime [s]"
 msgstr "Maximaal toegestande runtime:"
 
 #: reports.php:358
-#, fuzzy
 msgid "Scheduled"
 msgstr "Ingepland"
 
@@ -1913,11 +1934,12 @@ msgstr "50000 Data bron items (Standaard)"
 
 #: reports.php:385
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 #: reports.php:391
+#, fuzzy
 msgid "Add sources"
-msgstr ""
+msgstr "Voeg bronnen toe"
 
 #: reports.php:391
 #, fuzzy
@@ -1980,7 +2002,6 @@ msgid "Click 'Continue' to duplicate the following Report configurations.  You m
 msgstr "Klik op 'Doorgaan' om de volgende Rapportconfiguraties te dupliceren.  U kunt ook het titelformaat wijzigen tijdens deze bewerking."
 
 #: reports.php:1246
-#, fuzzy
 msgid "Title Format:"
 msgstr "Titel formaat:"
 
@@ -2025,9 +2046,8 @@ msgid "Does not exist anymore"
 msgstr "Bestaat niet meer"
 
 #: rrdlist.php:296
-#, fuzzy
 msgid "Select"
-msgstr "Selecteer de dag(en) van de week"
+msgstr "Selecteer"
 
 #: rrdlist.php:300
 #, fuzzy
@@ -2070,7 +2090,6 @@ msgid "Time Zone:"
 msgstr "Tijdzone:"
 
 #: rrdlist.php:562
-#, fuzzy
 msgid "Weekdays:"
 msgstr "Weekdagen:"
 
@@ -2100,29 +2119,26 @@ msgid "Report configurations"
 msgstr "Rapportconfiguraties"
 
 #: run.php:124
-#, php-format
+#, fuzzy, php-format
 msgid "Number of errors <font class=\"deviceDown\"> (%s)</font>"
-msgstr ""
+msgstr "Aantal fouten <font class=\"deviceDown\">(%s)</font>"
 
 #: run.php:142
-#, php-format
+#, fuzzy, php-format
 msgid "Number of warnings <font class=\"deviceDown\"> (%s)</font>"
-msgstr ""
+msgstr "Aantal waarschuwingen <font class=\"deviceDown\">(%s)</font>"
 
 #: run.php:165
-#, fuzzy
 msgid "View Report"
-msgstr "Rapporten weergeven"
+msgstr "Bekijk rapport"
 
 #: setup.php:130 setup.php:142 setup.php:160 setup.php:166 setup.php:184
 #: setup.php:196 setup.php:202 setup.php:256 setup.php:262 setup.php:280
 #: setup.php:286
-#, fuzzy
 msgid "(Edit)"
 msgstr "(Wijzig)"
 
 #: setup.php:148 setup.php:172 setup.php:244 setup.php:268 setup.php:292
-#, fuzzy
 msgid "Actions"
 msgstr "Acties"
 
@@ -2132,7 +2148,6 @@ msgid "Report Templates"
 msgstr "Rapportsjablonen"
 
 #: setup.php:214 setup.php:220 templates.php:146 templates.php:232
-#, fuzzy
 msgid "Import"
 msgstr "Importeren"
 
@@ -2147,7 +2162,6 @@ msgid "Public Reports"
 msgstr "Publieke verslagen"
 
 #: setup.php:310 setup.php:322
-#, fuzzy
 msgid "Show Report"
 msgstr "Rapport weergeven"
 
@@ -2162,17 +2176,14 @@ msgid "Public Report Charts"
 msgstr "Openbare rapportagetabellen"
 
 #: setup.php:334
-#, fuzzy
 msgid "Bar Chart"
 msgstr "Staafdiagram"
 
 #: setup.php:340
-#, fuzzy
 msgid "Pie Chart"
 msgstr "Cirkeldiagram"
 
 #: setup.php:354
-#, fuzzy
 msgid "View Reports"
 msgstr "Rapporten weergeven"
 
@@ -2187,17 +2198,14 @@ msgid "Administrate Reports"
 msgstr "Rapporten beheren"
 
 #: setup.php:360
-#, fuzzy
 msgid "Management"
 msgstr "Onderhoud"
 
 #: setup.php:361
-#, fuzzy
 msgid "Report"
 msgstr "Rapport"
 
 #: setup.php:361 templates.php:325 templates.php:474
-#, fuzzy
 msgid "Templates"
 msgstr "Templates"
 
@@ -2207,22 +2215,22 @@ msgid "No data source item selected"
 msgstr "50000 Data bron items (Standaard)"
 
 #: setup.php:368
+#, fuzzy
 msgid "Unselected data source items are still in use"
-msgstr ""
+msgstr "Niet-geselecteerde gegevensbronitems zijn nog steeds in gebruik"
 
 #: setup.php:371
+#, fuzzy
 msgid "Unable to unlock this template without defined measurands"
-msgstr ""
+msgstr "Kan deze sjabloon niet ontgrendelen zonder gedefinieerde meetgrootten"
 
 #: setup.php:382
-#, fuzzy
 msgid "global"
 msgstr "overschrijf algemene Instellingen"
 
 #: setup.php:382
-#, fuzzy
 msgid "local"
-msgstr "Lokaal"
+msgstr "lokaal"
 
 #: setup.php:387
 #, fuzzy
@@ -2275,12 +2283,14 @@ msgid "Enable/disable to display server's timezone on the headlines."
 msgstr "Inschakelen/uitschakelen om de tijdzone van de server op de krantenkoppen weer te geven."
 
 #: setup.php:427
+#, fuzzy
 msgid "Allow scheduling by Operators"
-msgstr ""
+msgstr "Sta planning door operators toe"
 
 #: setup.php:428
+#, fuzzy
 msgid "Enable/disable Operator's ability to schedule reports.  When disabled, only administrators may change scheduling."
-msgstr ""
+msgstr "Schakel de mogelijkheid van de operator om rapporten te plannen in / uit. Indien uitgeschakeld, kunnen alleen beheerders de planning wijzigen."
 
 #: setup.php:433
 #, fuzzy
@@ -2293,7 +2303,6 @@ msgid "Enable/disable the use of correct SI-Prefixes for binary multiples under 
 msgstr "Schakel het gebruik van correcte SI-Prefixen voor binaire multiples in/uit onder de voorwaarden van <a href='http://www.ieee.org'>IEEE 1541</a> en <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
 #: setup.php:439
-#, fuzzy
 msgid "Export Settings"
 msgstr "Exporteer instellingen"
 
@@ -2318,8 +2327,9 @@ msgid "The header description for export files"
 msgstr "De koptekstbeschrijving voor exportbestanden"
 
 #: setup.php:456
+#, fuzzy
 msgid "# Your report header\\n# <cacti_version> <reportit_version>"
-msgstr ""
+msgstr "# Uw rapportkop \\ n # <cacti_version> <reportit_version>"
 
 #: setup.php:459
 #, fuzzy
@@ -2327,7 +2337,6 @@ msgid "Auto Archiving"
 msgstr "Automatisch archiveren"
 
 #: setup.php:464 setup.php:500
-#, fuzzy
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
@@ -2397,7 +2406,6 @@ msgid "Enable/disable the use of an individual filter per report."
 msgstr "Het gebruik van een individueel filter per rapport inschakelen/uitschakelen."
 
 #: setup.php:531
-#, fuzzy
 msgid "Rows Per Page"
 msgstr "Rijen per pagina"
 
@@ -2472,20 +2480,20 @@ msgid "Import Report Templates"
 msgstr "Exporteren Rapportsjabloon"
 
 #: templates.php:167
+#, fuzzy
 msgid "Compatible"
-msgstr ""
+msgstr "Niet compatible"
 
 #: templates.php:175
-#, fuzzy
 msgid "Summary"
 msgstr "Samenvatting"
 
 #: templates.php:221
+#, fuzzy
 msgid "No Compatible Templates Found"
-msgstr ""
+msgstr "Geen compatibele sjablonen gevonden"
 
 #: templates.php:346
-#, fuzzy
 msgctxt "Button: import button"
 msgid "Import"
 msgstr "Importeren"
@@ -2511,9 +2519,8 @@ msgid "The version of this Report Template."
 msgstr "De unieke naam die aan dit rapportsjabloon is gegeven."
 
 #: templates.php:467
-#, fuzzy
 msgid "Published"
-msgstr "Dit programma is gratis; je mag het distribueren of aanpassen onder de termen van de GNU General Public License zoals gepubliceerd door de Free Software Foundation; uitsluitend versie 2 van de licentie, of enig latere versie."
+msgstr "Gepubliceerd"
 
 #: templates.php:471
 #, fuzzy
@@ -2521,8 +2528,9 @@ msgid "The total number of reports using this report template."
 msgstr "De unieke naam die aan dit rapportsjabloon is gegeven."
 
 #: templates.php:496
+#, fuzzy
 msgid "No matching data sources"
-msgstr ""
+msgstr "Geen overeenkomende gegevensbronnen"
 
 #: templates.php:498
 #, fuzzy
@@ -2552,7 +2560,7 @@ msgstr "Kies een naam voor deze data bron. Het kan variabelen bevatten zoals |ho
 #: templates.php:521
 #, fuzzy
 msgid "No templates"
-msgstr "Templates"
+msgstr "Geen templates"
 
 #: templates.php:672
 #, fuzzy, php-format
@@ -2577,7 +2585,7 @@ msgstr "Creëer een nieuwe meetlat"
 #: templates.php:760
 #, fuzzy
 msgid "<template_title>"
-msgstr "<template_titel> (1)"
+msgstr "Templatetitel"
 
 #: templates.php:916
 #, fuzzy
@@ -2592,7 +2600,7 @@ msgstr "Elk rapport dat bij deze sjablonen hoort, wordt ook verwijderd!"
 #: templates.php:922
 #, fuzzy, php-format
 msgid "Template : %s"
-msgstr "Templates"
+msgstr "Data template - %s"
 
 #: templates.php:927
 #, fuzzy, php-format
@@ -2615,9 +2623,8 @@ msgid "List of selected report templates:"
 msgstr "Lijst van geselecteerde sjablonen:"
 
 #: templates.php:957
-#, fuzzy
 msgid "Title:"
-msgstr "Titel (--title)"
+msgstr "Titel:"
 
 #: templates.php:959
 #, fuzzy
@@ -2650,8 +2657,9 @@ msgid "Export Report Templates"
 msgstr "Exporteren Rapportsjabloon"
 
 #: variables.php:126
+#, fuzzy
 msgid "Variables [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id="
-msgstr ""
+msgstr "Variabelen [Template: <a class = 'linkEditMain' href = 'templates.php? Action = template_edit & id ="
 
 #: variables.php:166
 #, fuzzy
@@ -2659,12 +2667,14 @@ msgid "No Variables Found"
 msgstr "Kies een naam voor deze data bron. Het kan variabelen bevatten zoals |host_description| of | query_fieldName|. Voor een complete lijst van ondersteunde variabelen, bekijk alstublieft de Cacti documentatie."
 
 #: variables.php:209
+#, fuzzy
 msgid "Maximum has to be greater than minimum."
-msgstr ""
+msgstr "Maximum moet groter zijn dan minimum."
 
 #: variables.php:213
+#, fuzzy
 msgid "Default value is out of values range."
-msgstr ""
+msgstr "De standaardwaarde valt buiten het waardenbereik."
 
 #: variables.php:273
 #, fuzzy, php-format
@@ -2677,21 +2687,23 @@ msgid "Variable Configuration [new]"
 msgstr "Variabele configuratie [nieuw]"
 
 #: variables.php:297
-#, fuzzy
 msgid "Internal name"
 msgstr "Interne naam"
 
 #: variables.php:298
+#, fuzzy
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
-msgstr ""
+msgstr "Een unieke identificatie die door ReportIt zelf wordt aangemaakt. Gebruik deze ID binnen de definitie van uw berekeningsformules om die waarde op te nemen die de rapportgebruiker er afzonderlijk voor heeft gedefinieerd."
 
 #: variables.php:305
+#, fuzzy
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
-msgstr ""
+msgstr "Een naam als \"Threshold\" bijvoorbeeld die moet worden gebruikt als kop binnen de rapportconfiguratie."
 
 #: variables.php:312
+#, fuzzy
 msgid "A short, pithy description that explains the sense of this variable."
-msgstr ""
+msgstr "Een korte, kernachtige beschrijving die de betekenis van deze variabele verklaart."
 
 #: variables.php:316
 #, fuzzy
@@ -2699,27 +2711,26 @@ msgid "Your description"
 msgstr "Omschrijving"
 
 #: variables.php:320
-#, fuzzy
 msgid "Maximum Value"
-msgstr "Maximum aantal rijen:"
+msgstr "Maximale Waarde"
 
 #: variables.php:321
+#, fuzzy
 msgid "Defines the upper limit of this variable."
-msgstr ""
+msgstr "Bepaalt de bovengrens van deze variabele."
 
 #: variables.php:327
-#, fuzzy
 msgid "Minimum Value"
-msgstr "Minimale lengte"
+msgstr "Minimale Waarde"
 
 #: variables.php:328
+#, fuzzy
 msgid "Defines the lower limit of this variable."
-msgstr ""
+msgstr "Bepaalt de ondergrens van deze variabele."
 
 #: variables.php:334
-#, fuzzy
 msgid "Default Value"
-msgstr "Standaard"
+msgstr "﻿Standaardwaarde"
 
 #: variables.php:335
 #, fuzzy
@@ -2727,12 +2738,14 @@ msgid "Sets the default value."
 msgstr "Geeft als resultaat de laagste waarde"
 
 #: variables.php:342
+#, fuzzy
 msgid "The method the report owner should use to define this variable."
-msgstr ""
+msgstr "De methode die de rapporteigenaar moet gebruiken om deze variabele te definiëren."
 
 #: variables.php:349
+#, fuzzy
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
-msgstr ""
+msgstr "Definieert de afstand tussen twee waarden als methode \"DropDown\" is gekozen. Zorg ervoor dat deze waarde niet te laag is ingesteld, omdat deze indirect het aantal opties definieert dat het dropdown-veld zal hebben. Bijvoorbeeld de volgende parameters: MAX: 100, MIN: 0, STEP: 0,01 resulteren in een selectievakje met 10,001 opties. Dit kan dramatische prestatieproblemen veroorzaken vanwege een hoge CPU-belasting aan de kant van de klant. Probeer het onder de 1000 te houden."
 
 #: variables.php:440
 #, fuzzy
@@ -2770,12 +2783,10 @@ msgid "My Reports"
 msgstr "Mijn rapporten"
 
 #: view.php:240
-#, fuzzy
 msgid "Go"
 msgstr "Ga"
 
 #: view.php:243
-#, fuzzy
 msgid "Clear"
 msgstr "Herstel"
 
@@ -2785,12 +2796,10 @@ msgid "Period (from - to)"
 msgstr "Periode %s van - tot"
 
 #: view.php:317
-#, fuzzy
 msgid "No Reports Found"
 msgstr "Geen rapportages gevonden"
 
 #: view.php:567
-#, fuzzy
 msgid "Data Source"
 msgstr "Data bron"
 
@@ -2810,42 +2819,34 @@ msgid "Show Subheads"
 msgstr "Toon Subheads"
 
 #: view.php:600
-#, fuzzy
 msgid "Show Summary"
-msgstr "Samenvatting"
+msgstr "Samenvatting tonen"
 
 #: view.php:622
-#, fuzzy
 msgid "Additional"
-msgstr "Optionele adresgegevens voor de locatie."
+msgstr "Aanvullend"
 
 #: view.php:648
-#, fuzzy
 msgid "Archive"
-msgstr "Archief"
+msgstr "Archiveren"
 
 #: view.php:652
-#, fuzzy
 msgid "Current"
 msgstr "Huidig"
 
 #: view.php:717
-#, fuzzy
 msgid "Title"
 msgstr "Titel"
 
 #: view.php:718
-#, fuzzy
 msgid "Runtime"
-msgstr "Maximaal toegestande runtime:"
+msgstr "Gebruikstijd"
 
 #: view.php:724
-#, fuzzy
 msgid "Scheduler"
 msgstr "Agenda"
 
 #: view.php:726
-#, fuzzy
 msgid "Period"
 msgstr "Periode"
 
@@ -2860,8 +2861,9 @@ msgid "Data Description"
 msgstr "Beschrijving van de gegevens"
 
 #: view.php:808
+#, fuzzy
 msgid "-- NO SUBHEADING --"
-msgstr ""
+msgstr "- GEEN ONDERVERDELING -"
 
 #: view.php:855
 #, fuzzy
