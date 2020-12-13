@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 09:50+0000\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2020-12-12 22:16-0500\n"
 "PO-Revision-Date: 2019-03-18 16:16-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -447,8 +447,7 @@ msgstr ""
 
 #: include/global_arrays.php:202 lib/const_measurands.php:63
 #, fuzzy
-msgid ""
-"Returns the gradient of a straight line by using linear regression per DS"
+msgid "Returns the gradient of a straight line by using linear regression per DS"
 msgstr "Trả về độ dốc của một đường thẳng bằng cách sử dụng hồi quy tuyến tính"
 
 #: include/global_arrays.php:208 lib/const_measurands.php:69
@@ -483,8 +482,7 @@ msgid "f_median - Median"
 msgstr ""
 
 #: include/global_arrays.php:230 lib/const_measurands.php:91
-msgid ""
-"Returns that value that separates the higher half from the lower half per DS"
+msgid "Returns that value that separates the higher half from the lower half per DS"
 msgstr ""
 
 #: include/global_arrays.php:236 lib/const_measurands.php:104
@@ -492,8 +490,7 @@ msgid "f_range - Range"
 msgstr ""
 
 #: include/global_arrays.php:237 lib/const_measurands.php:105
-msgid ""
-"Returns the difference between the largest and the smallest value per DS"
+msgid "Returns the difference between the largest and the smallest value per DS"
 msgstr ""
 
 #: include/global_arrays.php:243 lib/const_measurands.php:111
@@ -563,8 +560,7 @@ msgstr ""
 
 #: include/global_arrays.php:291 include/global_arrays.php:357
 #: lib/const_measurands.php:132 lib/const_measurands.php:172
-msgid ""
-"Returns the next lowest integer value by rounding down value if necessary."
+msgid "Returns the next lowest integer value by rounding down value if necessary."
 msgstr ""
 
 #: include/global_arrays.php:292 include/global_arrays.php:300
@@ -578,8 +574,7 @@ msgid "f_ceil - Round Fractions Up"
 msgstr ""
 
 #: include/global_arrays.php:299 lib/const_measurands.php:179
-msgid ""
-"Returns the next highest integer value by rounding up value if necessary."
+msgid "Returns the next highest integer value by rounding up value if necessary."
 msgstr ""
 
 #: include/global_arrays.php:306 lib/const_measurands.php:185
@@ -634,9 +629,7 @@ msgstr ""
 
 #: include/global_arrays.php:339 include/global_arrays.php:347
 #: lib/const_measurands.php:214
-msgid ""
-"Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are "
-"optional."
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
 msgstr ""
 
 #: include/global_arrays.php:346
@@ -656,9 +649,7 @@ msgid "f_eq - Alias of f_cmp - IS EQUAL"
 msgstr ""
 
 #: include/global_arrays.php:373 lib/const_measurands.php:221
-msgid ""
-"Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are "
-"optional."
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
 msgstr ""
 
 #: include/global_arrays.php:380 lib/const_measurands.php:227
@@ -666,9 +657,7 @@ msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
 msgstr ""
 
 #: include/global_arrays.php:381 lib/const_measurands.php:228
-msgid ""
-"Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are "
-"optional."
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
 msgstr ""
 
 #: include/global_arrays.php:388 lib/const_measurands.php:234
@@ -676,9 +665,7 @@ msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
 msgstr ""
 
 #: include/global_arrays.php:389 lib/const_measurands.php:235
-msgid ""
-"Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are "
-"optional."
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
 msgstr ""
 
 #: include/global_arrays.php:396 lib/const_measurands.php:241
@@ -686,9 +673,7 @@ msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
 msgstr ""
 
 #: include/global_arrays.php:397 lib/const_measurands.php:242
-msgid ""
-"Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are "
-"optional."
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
 msgstr ""
 
 #: include/global_arrays.php:404 lib/const_measurands.php:248
@@ -696,9 +681,7 @@ msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
 msgstr ""
 
 #: include/global_arrays.php:405 lib/const_measurands.php:249
-msgid ""
-"Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are "
-"optional."
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr ""
 
 #: include/global_arrays.php:412 lib/const_measurands.php:255
@@ -706,9 +689,7 @@ msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
 msgstr ""
 
 #: include/global_arrays.php:413 lib/const_measurands.php:256
-msgid ""
-"Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are "
-"optional."
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr ""
 
 #: include/global_arrays.php:422 lib/const_measurands.php:267
@@ -726,8 +707,7 @@ msgid "Subtraction"
 msgstr "Phép trừ"
 
 #: include/global_arrays.php:430 lib/const_measurands.php:275
-msgid ""
-"Mathematical Operation to return the difference of minuend and subtrahend"
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
 msgstr ""
 
 #: include/global_arrays.php:436 lib/const_measurands.php:281
@@ -736,8 +716,7 @@ msgid "Multiplication"
 msgstr "Phép nhân"
 
 #: include/global_arrays.php:437 lib/const_measurands.php:282
-msgid ""
-"Mathematical Operation to return the product of multiplier and multiplicant"
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
 msgstr ""
 
 #: include/global_arrays.php:443 lib/const_measurands.php:288
@@ -754,8 +733,7 @@ msgid "Modulus"
 msgstr ""
 
 #: include/global_arrays.php:451 lib/const_measurands.php:296
-msgid ""
-"Mathematical Operation to return the remainder of a division of two integers"
+msgid "Mathematical Operation to return the remainder of a division of two integers"
 msgstr ""
 
 #: include/global_arrays.php:457 lib/const_measurands.php:302
@@ -763,9 +741,7 @@ msgid "Exponentiation - PHP5.6 or above required"
 msgstr ""
 
 #: include/global_arrays.php:458 lib/const_measurands.php:303
-msgid ""
-"Mathematical Operation to return the repeated multiplication (or division) "
-"of a base by its exponent."
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
 msgstr ""
 
 #: include/global_arrays.php:466
@@ -776,8 +752,7 @@ msgstr "Dấu tách thập phân CSV"
 #: include/global_arrays.php:467
 #, fuzzy
 msgid "Decimal Mark used to separate the integer part from the fractional part"
-msgstr ""
-"Biểu tượng cho biết sự kết thúc của phần nguyên và phần đầu của phần phân số."
+msgstr "Biểu tượng cho biết sự kết thúc của phần nguyên và phần đầu của phần phân số."
 
 #: include/global_arrays.php:475
 msgid "Round Bracket"
@@ -785,8 +760,7 @@ msgstr ""
 
 #: include/global_arrays.php:476 lib/const_measurands.php:313
 #: lib/const_measurands.php:320
-msgid ""
-"Used to override normal precedence or to mark the first level of nesting"
+msgid "Used to override normal precedence or to mark the first level of nesting"
 msgstr ""
 
 #: include/global_arrays.php:483
@@ -795,8 +769,7 @@ msgstr ""
 
 #: include/global_arrays.php:484 lib/const_measurands.php:327
 #: lib/const_measurands.php:334
-msgid ""
-"Used to override normal precedence or to mark the second level of nesting"
+msgid "Used to override normal precedence or to mark the second level of nesting"
 msgstr ""
 
 #: include/global_arrays.php:491
@@ -957,9 +930,7 @@ msgid "Publish"
 msgstr "Công khai"
 
 #: include/global_forms.php:78
-msgid ""
-"Should this report template be published for users to access? For testing "
-"purposes of new templates or modifications you should uncheck this box."
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
 msgstr ""
 
 #: include/global_forms.php:82 templates.php:468
@@ -968,9 +939,7 @@ msgid "Locked"
 msgstr "Đã khóa"
 
 #: include/global_forms.php:84
-msgid ""
-"The status \"locked\" avoids any kind of modification to your report "
-"template as well as assigned measurands and variable definitions"
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
 msgstr ""
 
 #: include/global_forms.php:88
@@ -980,13 +949,8 @@ msgstr "Bộ lọc trước bổ sung"
 
 #: include/global_forms.php:91
 #, fuzzy
-msgid ""
-"Optional: The syntax to filter the available list of data items by their "
-"description. Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr ""
-"Tùy chọn: Cú pháp để lọc danh sách các mục dữ liệu có sẵn <br> theo mô tả "
-"của họ. Sử dụng các ký tự đại diện SQL như% và / hoặc _. Không có biểu hiện "
-"thường xuyên!"
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Tùy chọn: Cú pháp để lọc danh sách các mục dữ liệu có sẵn <br> theo mô tả của họ. Sử dụng các ký tự đại diện SQL như% và / hoặc _. Không có biểu hiện thường xuyên!"
 
 #: include/global_forms.php:96 setup.php:506
 #, fuzzy
@@ -995,16 +959,8 @@ msgstr "Đường dẫn xuất"
 
 #: include/global_forms.php:97
 #, fuzzy
-msgid ""
-"Optional: The path to an folder for saving the exports.  If it does not "
-"exist ReportIt automatically tries to create it during the first scheduled "
-"calculation, else it will try to create a new subfolder within the main "
-"export folder using the template id."
-msgstr ""
-"Tùy chọn: Đường dẫn đến một thư mục để lưu các bản xuất. Nếu nó không tồn "
-"tại, thì Báo cáo tự động cố gắng tạo nó trong phép tính được lên lịch đầu "
-"tiên, nếu không, nó sẽ cố gắng tạo một thư mục con mới trong thư mục xuất "
-"chính bằng id mẫu."
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Tùy chọn: Đường dẫn đến một thư mục để lưu các bản xuất. Nếu nó không tồn tại, thì Báo cáo tự động cố gắng tạo nó trong phép tính được lên lịch đầu tiên, nếu không, nó sẽ cố gắng tạo một thư mục con mới trong thư mục xuất chính bằng id mẫu."
 
 #: include/global_forms.php:104 include/global_forms.php:109
 #: include/global_forms.php:116 templates.php:170 templates.php:466
@@ -1059,12 +1015,8 @@ msgstr "Sản phẩm"
 
 #: items.php:267
 #, fuzzy, php-format
-msgid ""
-"Data Items [add to report: <a style=\"color:yellow\" href=\"reports.php?"
-"action=report_edit&id=%d\">%s</a>]"
-msgstr ""
-"Đối tượng dữ liệu [thêm vào báo cáo: <a style=\"color:yellow\" href="
-"\"reports.php?action=report_edit&id=%d\"> %s</a> ]"
+msgid "Data Items [add to report: <a style=\"color:yellow\" href=\"reports.php?action=report_edit&id=%d\">%s</a>]"
+msgstr "Đối tượng dữ liệu [thêm vào báo cáo: <a style=\"color:yellow\" href=\"reports.php?action=report_edit&id=%d\"> %s</a> ]"
 
 #: items.php:293 rrdlist.php:192
 #, fuzzy
@@ -1163,12 +1115,8 @@ msgstr "Chứa băng thông tối đa nếu 'ifspeed' khả dụng."
 
 #: lib/const_measurands.php:343
 #, fuzzy
-msgid ""
-"Contains the maximum value that has been defined for the specific data "
-"source item under \\\"Data Sources\\\"."
-msgstr ""
-"Chứa giá trị tối đa đã được xác định cho mục nguồn dữ liệu cụ thể trong \\ "
-"\"Nguồn dữ liệu \\\"."
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Chứa giá trị tối đa đã được xác định cho mục nguồn dữ liệu cụ thể trong \\ \"Nguồn dữ liệu \\\"."
 
 #: lib/const_measurands.php:345
 #, fuzzy
@@ -1272,12 +1220,8 @@ msgstr "Tiêu đề"
 
 #: lib/const_reports.php:167
 #, fuzzy
-msgid ""
-"Enter the subject of your email.<br> Following variables will be supported "
-"(without quotes): '|title|' and '|period|'"
-msgstr ""
-"Nhập chủ đề của email của bạn. <br> Các biến sau sẽ được hỗ trợ (không có "
-"dấu ngoặc kép): '| title |' và '| giai đoạn |'"
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Nhập chủ đề của email của bạn. <br> Các biến sau sẽ được hỗ trợ (không có dấu ngoặc kép): '| title |' và '| giai đoạn |'"
 
 #: lib/const_reports.php:171
 #, fuzzy
@@ -1306,13 +1250,8 @@ msgstr "Tập tin đính kèm"
 
 #: lib/const_reports.php:186
 #, fuzzy
-msgid ""
-"Only to receive an email as a notification that a new report is available "
-"choose 'None'.<br> Otherwise select the format the report should be attached "
-"as."
-msgstr ""
-"Chỉ để nhận email dưới dạng thông báo rằng có báo cáo mới, hãy chọn 'Không'. "
-"<br> Nếu không, chọn định dạng báo cáo nên được đính kèm là."
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Chỉ để nhận email dưới dạng thông báo rằng có báo cáo mới, hãy chọn 'Không'. <br> Nếu không, chọn định dạng báo cáo nên được đính kèm là."
 
 #: lib/const_reports.php:192
 #, fuzzy
@@ -1326,16 +1265,8 @@ msgstr "Người nhận email mới"
 
 #: lib/const_reports.php:197
 #, fuzzy
-msgid ""
-"To add a new recipient enter a valid email address (required) and a name "
-"(optional).<br> For a faster setup use a list of adresses/names where the "
-"names/addresses are separated with one of the following delemiters: ';' or "
-"','"
-msgstr ""
-"Để thêm người nhận mới, hãy nhập địa chỉ email hợp lệ (bắt buộc) và tên (tùy "
-"chọn). <br> Để thiết lập nhanh hơn, hãy sử dụng danh sách các địa chỉ / tên "
-"trong đó tên / địa chỉ được phân tách bằng một trong các dấu phân cách sau: "
-"';' hoặc là ','"
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
+msgstr "Để thêm người nhận mới, hãy nhập địa chỉ email hợp lệ (bắt buộc) và tên (tùy chọn). <br> Để thiết lập nhanh hơn, hãy sử dụng danh sách các địa chỉ / tên trong đó tên / địa chỉ được phân tách bằng một trong các dấu phân cách sau: ';' hoặc là ','"
 
 #: lib/const_reports.php:214
 #, fuzzy
@@ -1349,10 +1280,8 @@ msgstr "Bật"
 
 #: lib/const_reports.php:219
 #, fuzzy
-msgid ""
-"Enable/disable scheduled reporting. Sliding time frame should be enabled."
-msgstr ""
-"Bật / tắt báo cáo theo lịch trình. Khung thời gian trượt nên được kích hoạt."
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Bật / tắt báo cáo theo lịch trình. Khung thời gian trượt nên được kích hoạt."
 
 #: lib/const_reports.php:225
 #, fuzzy
@@ -1361,14 +1290,8 @@ msgstr "Tần số"
 
 #: lib/const_reports.php:226
 #, fuzzy
-msgid ""
-"Select the frequency for processing this report. Be sure that there's a "
-"cronjob (or scheduled task) running for the choice you made. This won't be "
-"done automatically by ReportIT."
-msgstr ""
-"Chọn tần suất để xử lý báo cáo này. Hãy chắc chắn rằng có một cronjob (hoặc "
-"tác vụ theo lịch trình) đang chạy cho sự lựa chọn bạn đã thực hiện. Điều này "
-"sẽ không được thực hiện tự động bởi ReportIT."
+msgid "Select the frequency for processing this report. Be sure that there's a cronjob (or scheduled task) running for the choice you made. This won't be done automatically by ReportIT."
+msgstr "Chọn tần suất để xử lý báo cáo này. Hãy chắc chắn rằng có một cronjob (hoặc tác vụ theo lịch trình) đang chạy cho sự lựa chọn bạn đã thực hiện. Điều này sẽ không được thực hiện tự động bởi ReportIT."
 
 #: lib/const_reports.php:232
 #, fuzzy
@@ -1377,14 +1300,8 @@ msgstr "Mục dữ liệu được tạo tự động"
 
 #: lib/const_reports.php:233
 #, fuzzy
-msgid ""
-"Enable/disable automatic creation of all data items based on given filters."
-"This will be called before report execution.  Obsolete RRDs will be deleted "
-"and all RRDs matching the filter settings will be added."
-msgstr ""
-"Bật / tắt tự động tạo tất cả các mục dữ liệu dựa trên các bộ lọc đã cho. "
-"Điều này sẽ được gọi trước khi thực hiện báo cáo. RRD lỗi thời sẽ bị xóa và "
-"tất cả RRD phù hợp với cài đặt bộ lọc sẽ được thêm vào."
+msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Bật / tắt tự động tạo tất cả các mục dữ liệu dựa trên các bộ lọc đã cho. Điều này sẽ được gọi trước khi thực hiện báo cáo. RRD lỗi thời sẽ bị xóa và tất cả RRD phù hợp với cài đặt bộ lọc sẽ được thêm vào."
 
 #: lib/const_reports.php:242
 #, fuzzy
@@ -1393,18 +1310,8 @@ msgstr "Lưu trữ tự động tạo"
 
 #: lib/const_reports.php:243
 #, fuzzy
-msgid ""
-"Define the maximum number of instances which should be archived before the "
-"first one will be overwritten.  Choose \"off\" if you want to deactivate "
-"that RoundRobbin principle (default, but not recommend).  If you define a "
-"lower value of instances than the current archive contains then it will get "
-"shrinked automatically within the next run."
-msgstr ""
-"Xác định số lượng phiên bản tối đa sẽ được lưu trữ trước khi phiên bản đầu "
-"tiên được ghi đè. Chọn \"tắt\" nếu bạn muốn hủy kích hoạt nguyên tắc "
-"RoundRobbin đó (mặc định, nhưng không khuyến nghị). Nếu bạn xác định giá trị "
-"cá thể thấp hơn so với kho lưu trữ hiện tại thì nó sẽ tự động bị thu hẹp "
-"trong lần chạy tiếp theo."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrinked automatically within the next run."
+msgstr "Xác định số lượng phiên bản tối đa sẽ được lưu trữ trước khi phiên bản đầu tiên được ghi đè. Chọn \"tắt\" nếu bạn muốn hủy kích hoạt nguyên tắc RoundRobbin đó (mặc định, nhưng không khuyến nghị). Nếu bạn xác định giá trị cá thể thấp hơn so với kho lưu trữ hiện tại thì nó sẽ tự động bị thu hẹp trong lần chạy tiếp theo."
 
 #: lib/const_reports.php:253
 #, fuzzy
@@ -1413,13 +1320,8 @@ msgstr "Email tự động tạo"
 
 #: lib/const_reports.php:254
 #, fuzzy
-msgid ""
-"If enabled tab 'Email' will be activated and all recipients defined under "
-"that section will receive automatically an email containing this scheduled "
-"report."
-msgstr ""
-"Nếu tab được bật 'Email' sẽ được kích hoạt và tất cả người nhận được xác "
-"định trong phần đó sẽ tự động nhận email có chứa báo cáo được lập lịch này."
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Nếu tab được bật 'Email' sẽ được kích hoạt và tất cả người nhận được xác định trong phần đó sẽ tự động nhận email có chứa báo cáo được lập lịch này."
 
 #: lib/const_reports.php:263
 #, fuzzy
@@ -1428,13 +1330,8 @@ msgstr "Tự động tạo xuất"
 
 #: lib/const_reports.php:264
 #, fuzzy
-msgid ""
-"If enabled the report will be automatically exported to a separate "
-"subfolder.  This will be placed within the export folder defined in the "
-"report template."
-msgstr ""
-"Nếu được bật, báo cáo sẽ được tự động xuất sang thư mục con riêng. Điều này "
-"sẽ được đặt trong thư mục xuất được xác định trong mẫu báo cáo."
+msgid "If enabled the report will be automatically exported to a separate subfolder.  This will be placed within the export folder defined in the report template."
+msgstr "Nếu được bật, báo cáo sẽ được tự động xuất sang thư mục con riêng. Điều này sẽ được đặt trong thư mục xuất được xác định trong mẫu báo cáo."
 
 #: lib/const_reports.php:271
 #, fuzzy
@@ -1443,18 +1340,8 @@ msgstr "Hạn chế xuất khẩu"
 
 #: lib/const_reports.php:272
 #, fuzzy
-msgid ""
-"Define the maximum number of instances which should be archived before the "
-"first one will be overwritten.  Choose 'off' if you want to deactivate that "
-"RoundRobbin principle (default, but not recommend).  If you define a lower "
-"value of instances than the current export folder contains then it will get "
-"shrinked automatically within the next run."
-msgstr ""
-"Xác định số lượng phiên bản tối đa sẽ được lưu trữ trước khi phiên bản đầu "
-"tiên được ghi đè. Chọn 'tắt' nếu bạn muốn hủy kích hoạt nguyên tắc "
-"RoundRobbin đó (mặc định, nhưng không khuyến nghị). Nếu bạn xác định giá trị "
-"phiên bản thấp hơn thư mục xuất hiện tại thì nó sẽ tự động bị thu hẹp trong "
-"lần chạy tiếp theo."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrinked automatically within the next run."
+msgstr "Xác định số lượng phiên bản tối đa sẽ được lưu trữ trước khi phiên bản đầu tiên được ghi đè. Chọn 'tắt' nếu bạn muốn hủy kích hoạt nguyên tắc RoundRobbin đó (mặc định, nhưng không khuyến nghị). Nếu bạn xác định giá trị phiên bản thấp hơn thư mục xuất hiện tại thì nó sẽ tự động bị thu hẹp trong lần chạy tiếp theo."
 
 #: lib/const_reports.php:279
 #, fuzzy
@@ -1463,12 +1350,8 @@ msgstr "Xuất dữ liệu thô"
 
 #: lib/const_reports.php:280
 #, fuzzy
-msgid ""
-"If enabled auto generated exports will contain raw data only. The formatting "
-"of measurands will be ignored."
-msgstr ""
-"Nếu được bật, tự động xuất sẽ chỉ chứa dữ liệu thô. Định dạng của máy đo sẽ "
-"bị bỏ qua."
+msgid "If enabled auto generated exports will contain raw data only. The formatting of measurands will be ignored."
+msgstr "Nếu được bật, tự động xuất sẽ chỉ chứa dữ liệu thô. Định dạng của máy đo sẽ bị bỏ qua."
 
 #: lib/const_reports.php:301
 #, fuzzy
@@ -1477,12 +1360,8 @@ msgstr "Thay đổi chủ sở hữu báo cáo"
 
 #: lib/const_reports.php:302
 #, fuzzy
-msgid ""
-"Change the owner of this report. Only users with a minimum of reporting "
-"rights ('View' or higher) can be selected."
-msgstr ""
-"Thay đổi chủ sở hữu của báo cáo này. Chỉ những người dùng có tối thiểu quyền "
-"báo cáo ('Xem' hoặc cao hơn) mới có thể được chọn."
+msgid "Change the owner of this report. Only users with a minimum of reporting rights ('View' or higher) can be selected."
+msgstr "Thay đổi chủ sở hữu của báo cáo này. Chỉ những người dùng có tối thiểu quyền báo cáo ('Xem' hoặc cao hơn) mới có thể được chọn."
 
 #: lib/const_reports.php:308
 #, fuzzy
@@ -1491,12 +1370,8 @@ msgstr "Cho phép sử dụng quyền biểu đồ"
 
 #: lib/const_reports.php:309
 #, fuzzy
-msgid ""
-"If enabled (default) the list of available data items will be filtered "
-"automatically by owner's graph permission: 'by device'."
-msgstr ""
-"Nếu được bật (mặc định), danh sách các mục dữ liệu khả dụng sẽ được lọc tự "
-"động theo quyền của biểu đồ của chủ sở hữu: 'theo thiết bị'."
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Nếu được bật (mặc định), danh sách các mục dữ liệu khả dụng sẽ được lọc tự động theo quyền của biểu đồ của chủ sở hữu: 'theo thiết bị'."
 
 #: lib/const_reports.php:326 rrdlist.php:350
 #, fuzzy
@@ -1505,14 +1380,8 @@ msgstr "Tiêu đề phụ (tùy chọn)"
 
 #: lib/const_reports.php:327 rrdlist.php:351
 #, fuzzy
-msgid ""
-"Define an additional subhead that should be on display under the interface "
-"description.<br> Following variables will be supported (without quotes): '|"
-"t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
-msgstr ""
-"Xác định một tiêu đề phụ bổ sung sẽ được hiển thị dưới phần mô tả giao diện. "
-"<br> Các biến sau sẽ được hỗ trợ (không có dấu ngoặc kép): '| t1 |' '| t2 |' "
-"'| tmz |' '| d1 |' '| d2 |'"
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Xác định một tiêu đề phụ bổ sung sẽ được hiển thị dưới phần mô tả giao diện. <br> Các biến sau sẽ được hỗ trợ (không có dấu ngoặc kép): '| t1 |' '| t2 |' '| tmz |' '| d1 |' '| d2 |'"
 
 #: lib/const_reports.php:338 rrdlist.php:196 rrdlist.php:362
 #, fuzzy
@@ -1521,8 +1390,7 @@ msgstr "Múi giờ"
 
 #: lib/const_reports.php:339 rrdlist.php:363
 #, fuzzy
-msgid ""
-"Select the time zone your following shifttime informations will be based on."
+msgid "Select the time zone your following shifttime informations will be based on."
 msgstr "Chọn múi giờ thông tin shifttime sau đây của bạn sẽ được dựa trên."
 
 #: lib/const_reports.php:348
@@ -1532,12 +1400,8 @@ msgstr "Bộ lọc mẫu máy chủ (tùy chọn)"
 
 #: lib/const_reports.php:349
 #, fuzzy
-msgid ""
-"Use those data items only, which belong to hosts of this host template."
-"<br>Select 'None' (default) to deactivate this filter setting."
-msgstr ""
-"Chỉ sử dụng các mục dữ liệu đó, thuộc về các máy chủ của mẫu máy chủ này. "
-"<br> Chọn 'Không' (mặc định) để tắt cài đặt bộ lọc này."
+msgid "Use those data items only, which belong to hosts of this host template.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Chỉ sử dụng các mục dữ liệu đó, thuộc về các máy chủ của mẫu máy chủ này. <br> Chọn 'Không' (mặc định) để tắt cài đặt bộ lọc này."
 
 #: lib/const_reports.php:356
 #, fuzzy
@@ -1546,12 +1410,8 @@ msgstr "Bộ lọc mục dữ liệu (tùy chọn)"
 
 #: lib/const_reports.php:357
 #, fuzzy
-msgid ""
-"Allows additional filtering on the data items descriptions.<br> Use SQL "
-"wildcards like % and/or _. No regular Expressions!"
-msgstr ""
-"Cho phép lọc bổ sung trên các mô tả mục dữ liệu. <br> Sử dụng các ký tự đại "
-"diện SQL như% và / hoặc _. Không có biểu hiện thường xuyên!"
+msgid "Allows additional filtering on the data items descriptions.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Cho phép lọc bổ sung trên các mô tả mục dữ liệu. <br> Sử dụng các ký tự đại diện SQL như% và / hoặc _. Không có biểu hiện thường xuyên!"
 
 #: lib/const_reports.php:363 rrdlist.php:382
 #, fuzzy
@@ -1592,12 +1452,8 @@ msgstr "Xác định ban nhạc của những ngày thay đổi NGÔI SAO!"
 
 #: lib/const_reports.php:405 rrdlist.php:432
 #, fuzzy
-msgid ""
-"Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to "
-"Friday"
-msgstr ""
-"Ví dụ: Đối với một ca đêm từ Mo (22:30) đến Sat (06:30) xác định Thứ Hai đến "
-"Thứ Sáu"
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Ví dụ: Đối với một ca đêm từ Mo (22:30) đến Sat (06:30) xác định Thứ Hai đến Thứ Sáu"
 
 #: lib/const_reports.php:433
 #, fuzzy
@@ -1623,12 +1479,8 @@ msgstr "Chủ sở hữu"
 
 #: lib/const_reports.php:448
 #, fuzzy
-msgid ""
-"Change the owner of this report. Only users with the permission \"view\" or "
-"above can be chosen."
-msgstr ""
-"Thay đổi chủ sở hữu của báo cáo này. Chỉ những người dùng có tối thiểu quyền "
-"báo cáo ('Xem' hoặc cao hơn) mới có thể được chọn."
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Thay đổi chủ sở hữu của báo cáo này. Chỉ những người dùng có tối thiểu quyền báo cáo ('Xem' hoặc cao hơn) mới có thể được chọn."
 
 #: lib/const_reports.php:462 reports.php:357
 #, fuzzy
@@ -1638,8 +1490,7 @@ msgstr "Công khai"
 #: lib/const_reports.php:463
 #, fuzzy
 msgid "If enabled everyone can see your report under tab 'reports'"
-msgstr ""
-"Nếu được bật, mọi người đều có thể xem báo cáo của bạn trong tab 'báo cáo'"
+msgstr "Nếu được bật, mọi người đều có thể xem báo cáo của bạn trong tab 'báo cáo'"
 
 #: lib/const_reports.php:469
 #, fuzzy
@@ -1653,12 +1504,8 @@ msgstr "Khung thời gian trượt"
 
 #: lib/const_reports.php:474
 #, fuzzy
-msgid ""
-"If checked the reporting period will be configured automatically in relation "
-"to the point of time the calculation starts."
-msgstr ""
-"Nếu được chọn, giai đoạn báo cáo sẽ được cấu hình tự động liên quan đến thời "
-"điểm tính toán bắt đầu."
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Nếu được chọn, giai đoạn báo cáo sẽ được cấu hình tự động liên quan đến thời điểm tính toán bắt đầu."
 
 #: lib/const_reports.php:480
 #, fuzzy
@@ -1667,14 +1514,8 @@ msgstr "Khung thời gian"
 
 #: lib/const_reports.php:481
 #, fuzzy
-msgid ""
-"The time frame you want to analyse in relation to the point of time the "
-"calculation starts.<br>This means calendar days, calendar months and "
-"calendar years."
-msgstr ""
-"Khung thời gian bạn muốn phân tích liên quan đến thời điểm tính toán bắt "
-"đầu. <br> Điều này có nghĩa là ngày dương lịch, tháng dương lịch và năm "
-"dương lịch."
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Khung thời gian bạn muốn phân tích liên quan đến thời điểm tính toán bắt đầu. <br> Điều này có nghĩa là ngày dương lịch, tháng dương lịch và năm dương lịch."
 
 #: lib/const_reports.php:487
 #, fuzzy
@@ -1704,8 +1545,7 @@ msgstr "Khung thời gian cố định - Ngày kết thúc (Tới)"
 #: lib/const_reports.php:502
 #, fuzzy
 msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
-msgstr ""
-"Để xác định ngày kết thúc, hãy sử dụng định dạng sau: <b>yyyy-mm-dd</b>"
+msgstr "Để xác định ngày kết thúc, hãy sử dụng định dạng sau: <b>yyyy-mm-dd</b>"
 
 #: lib/const_rrdlist.php:29
 #, fuzzy
@@ -1807,9 +1647,7 @@ msgstr "Nguồn dữ liệu"
 
 #: lib/funct_html.php:330
 #, php-format
-msgid ""
-"Optional: You can define an alias which should be displayed instead of the "
-"internal data source name '%s' in the reports."
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
 msgstr ""
 
 #: lib/funct_html.php:349
@@ -1817,15 +1655,11 @@ msgid "Separate Group Title [overall]"
 msgstr ""
 
 #: lib/funct_html.php:350
-msgid ""
-"Optional: You can define an group name which should be displayed as the "
-"title for all separate measurands within the reports."
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr ""
 
 #: lib/funct_mailer.php:45
-msgid ""
-"Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> "
-"link, please set the <b>Alert e-mail</b> setting."
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting."
 msgstr ""
 
 #: lib/funct_shared.php:36
@@ -1879,9 +1713,7 @@ msgid "Checksum error with Template %s in XML file"
 msgstr ""
 
 #: measurands.php:87
-msgid ""
-"Measurands [Template: <a class='linkEditMain' href='templates.php?"
-"action=template_edit&id="
+msgid "Measurands [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id="
 msgstr ""
 
 #: measurands.php:118
@@ -1908,14 +1740,11 @@ msgid "Measurand Configuration [new]"
 msgstr "Cấu hình biến [mới]"
 
 #: measurands.php:295
-msgid ""
-"The explanation given to this measurand. This will be shown as legend within "
-"exports as well as a tooltip within the presentation of a report itself."
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
 msgstr ""
 
 #: measurands.php:302
-msgid ""
-"Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
 msgstr ""
 
 #: measurands.php:309
@@ -1928,25 +1757,15 @@ msgid "Consolidation function"
 msgstr ""
 
 #: measurands.php:316
-msgid ""
-"The name of the consolidation function to define which CDPs should be read "
-"out."
+msgid "The name of the consolidation function to define which CDPs should be read out."
 msgstr ""
 
 #: measurands.php:324
-msgid ""
-"Choose 'enable' if this measurand should be become part of the final report "
-"output. Leave it unflagged if this measurands will only be used as an "
-"auxiliary calculation."
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
 msgstr ""
 
 #: measurands.php:333
-msgid ""
-"Choose 'enable' if this measurand will only have one result in total instead "
-"of one for every Data Source Item. It's result<br>will be shown separately. "
-"Use this option in combination with \"Visible\" = \"off\" if you are looking "
-"for a measurand keeping an interim result only that should be reused within "
-"the calculation of other measurands without being visible for end users."
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
 msgstr ""
 
 #: measurands.php:341
@@ -1967,9 +1786,7 @@ msgid "Precision"
 msgstr ""
 
 #: measurands.php:354
-msgid ""
-"Defines how many decimal digits should be displayed for floating-point "
-"numbers."
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
 msgstr ""
 
 #: measurands.php:360
@@ -1978,11 +1795,7 @@ msgid "Prefixes"
 msgstr "Tiền tố SI"
 
 #: measurands.php:361
-msgid ""
-"Choose the type of prefix beeing used to format the result. With the use of "
-"decimal prefixes '1024' will be formatted to '1.024k' while the binary "
-"prefixes option returns '1ki'. Select 'off' to display the raw data, here "
-"'1024'."
+msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr ""
 
 #: measurands.php:367
@@ -1990,11 +1803,7 @@ msgid "Formula"
 msgstr ""
 
 #: measurands.php:373
-msgid ""
-"The mathematical definion of this measurand. Allowed are all combinations of "
-"operators and operands listed below following the rules of mathematics. Use "
-"round and square brackets to signify complex terms and the order of "
-"operations."
+msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr ""
 
 #: measurands.php:378
@@ -2003,17 +1812,11 @@ msgid "Operators & Operands"
 msgstr "Người vận hành"
 
 #: measurands.php:379
-msgid ""
-"Click on one of the listed operators or operand to append them to your "
-"calucalion formula. The tooltip will show you additional information like "
-"description, return value, arguments and usage."
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
 msgstr ""
 
 #: measurands.php:513
-msgid ""
-"Click 'Continue' to Delete the following Measurands.  Notice: If there are "
-"no other Measurands left after this process, the Report Template will be "
-"locked automatically."
+msgid "Click 'Continue' to Delete the following Measurands.  Notice: If there are no other Measurands left after this process, the Report Template will be locked automatically."
 msgstr ""
 
 #: measurands.php:516
@@ -2057,9 +1860,7 @@ msgstr "Báo cáo mới"
 
 #: reports.php:93
 #, fuzzy, php-format
-msgid ""
-"There are no unlocked and enabled report templates available (%s locked or "
-"disabled)."
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "Không có mẫu báo cáo có sẵn."
 
 #: reports.php:98
@@ -2175,12 +1976,8 @@ msgstr "Nhấp vào 'Tiếp tục' để xóa các báo cáo sau."
 
 #: reports.php:1245
 #, fuzzy
-msgid ""
-"Click 'Continue' to duplicate the following Report configurations.  You may "
-"also change the title format during this operation."
-msgstr ""
-"Nhấp vào 'Tiếp tục' để nhân đôi các cấu hình Báo cáo sau. Bạn cũng có thể "
-"thay đổi định dạng tiêu đề trong hoạt động này."
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Nhấp vào 'Tiếp tục' để nhân đôi các cấu hình Báo cáo sau. Bạn cũng có thể thay đổi định dạng tiêu đề trong hoạt động này."
 
 #: reports.php:1246
 #, fuzzy
@@ -2454,14 +2251,8 @@ msgstr "Thay đổi số lượng bản ghi tối đa"
 
 #: setup.php:409
 #, fuzzy
-msgid ""
-"Optional (Auto-Generate RRD List): Do not change RRD List of any Report if "
-"Record Count Change is greater than this Number This is to avoid unwanted "
-"and disastrous changes on RRD Lists"
-msgstr ""
-"Tùy chọn (Tự động tạo danh sách RRD): Không thay đổi Danh sách RRD của bất "
-"kỳ Báo cáo nào nếu Thay đổi số lượng bản ghi lớn hơn Số này Điều này để "
-"tránh những thay đổi không mong muốn và tai hại trên Danh sách RRD"
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Tùy chọn (Tự động tạo danh sách RRD): Không thay đổi Danh sách RRD của bất kỳ Báo cáo nào nếu Thay đổi số lượng bản ghi lớn hơn Số này Điều này để tránh những thay đổi không mong muốn và tai hại trên Danh sách RRD"
 
 #: setup.php:415
 #, fuzzy
@@ -2470,14 +2261,8 @@ msgstr "Múi giờ"
 
 #: setup.php:416
 #, fuzzy
-msgid ""
-"Enable/disable the use of time zones for data item's configuration and "
-"report calculation.  In the former case server time has to be set up to GMT/"
-"UTC!"
-msgstr ""
-"Cho phép / vô hiệu hóa việc sử dụng múi giờ để tính toán cấu hình và báo cáo "
-"của mục dữ liệu. Trong trường hợp trước đây, thời gian máy chủ phải được "
-"thiết lập thành GMT / UTC!"
+msgid "Enable/disable the use of time zones for data item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Cho phép / vô hiệu hóa việc sử dụng múi giờ để tính toán cấu hình và báo cáo của mục dữ liệu. Trong trường hợp trước đây, thời gian máy chủ phải được thiết lập thành GMT / UTC!"
 
 #: setup.php:421
 #, fuzzy
@@ -2494,9 +2279,7 @@ msgid "Allow scheduling by Operators"
 msgstr ""
 
 #: setup.php:428
-msgid ""
-"Enable/disable Operator's ability to schedule reports.  When disabled, only "
-"administrators may change scheduling."
+msgid "Enable/disable Operator's ability to schedule reports.  When disabled, only administrators may change scheduling."
 msgstr ""
 
 #: setup.php:433
@@ -2506,14 +2289,8 @@ msgstr "Tiền tố SI"
 
 #: setup.php:434
 #, fuzzy
-msgid ""
-"Enable/disable the use of correct SI-Prefixes for binary multiples under the "
-"terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www."
-"iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr ""
-"Cho phép / vô hiệu hóa việc sử dụng Tiền tố SI chính xác cho bội số nhị phân "
-"theo các điều khoản của <a href='http://www.ieee.org'>IEEE 1541</a> và <a "
-"href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> ."
+msgid "Enable/disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Cho phép / vô hiệu hóa việc sử dụng Tiền tố SI chính xác cho bội số nhị phân theo các điều khoản của <a href='http://www.ieee.org'>IEEE 1541</a> và <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> ."
 
 #: setup.php:439
 #, fuzzy
@@ -2556,11 +2333,8 @@ msgstr "Bật"
 
 #: setup.php:465
 #, fuzzy
-msgid ""
-"If enabled the result of every scheduled report will be archived "
-"automatically"
-msgstr ""
-"Nếu được bật, kết quả của mọi báo cáo được lên lịch sẽ được lưu trữ tự động"
+msgid "If enabled the result of every scheduled report will be archived automatically"
+msgstr "Nếu được bật, kết quả của mọi báo cáo được lên lịch sẽ được lưu trữ tự động"
 
 #: setup.php:470
 #, fuzzy
@@ -2570,9 +2344,7 @@ msgstr "Cache cuộc sống Cyle (tính bằng giây)"
 #: setup.php:471
 #, fuzzy
 msgid "Number of seconds an archived report will be cached without any hit."
-msgstr ""
-"Số giây một báo cáo được lưu trữ sẽ được lưu vào bộ nhớ cache mà không có "
-"bất kỳ lần nhấn nào."
+msgstr "Số giây một báo cáo được lưu trữ sẽ được lưu vào bộ nhớ cache mà không có bất kỳ lần nhấn nào."
 
 #: setup.php:477
 #, fuzzy
@@ -2582,9 +2354,7 @@ msgstr "Đường dẫn lưu trữ"
 #: setup.php:478
 #, fuzzy
 msgid "The path to an archive folder where archives have to be stored."
-msgstr ""
-"Tùy chọn: Đường dẫn đến thư mục lưu trữ để lưu. Nếu không được xác định thư "
-"mục con 'archive' sẽ được sử dụng."
+msgstr "Tùy chọn: Đường dẫn đến thư mục lưu trữ để lưu. Nếu không được xác định thư mục con 'archive' sẽ được sử dụng."
 
 #: setup.php:484
 #, fuzzy
@@ -2593,14 +2363,8 @@ msgstr "Tự động gửi thư điện tử"
 
 #: setup.php:490
 #, fuzzy
-msgid ""
-"If enabled scheduled reports can be emailed automatically to a list of "
-"recipients.<br> This feature requires a configured version of the 'Settings "
-"Plugin'."
-msgstr ""
-"Nếu kích hoạt báo cáo theo lịch trình có thể được gửi qua email tự động đến "
-"một danh sách người nhận. <br> Tính năng này yêu cầu phiên bản được cấu hình "
-"của 'Plugin cài đặt'."
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Nếu kích hoạt báo cáo theo lịch trình có thể được gửi qua email tự động đến một danh sách người nhận. <br> Tính năng này yêu cầu phiên bản được cấu hình của 'Plugin cài đặt'."
 
 #: setup.php:495
 #, fuzzy
@@ -2609,23 +2373,13 @@ msgstr "Tự động xuất"
 
 #: setup.php:501
 #, fuzzy
-msgid ""
-"If enabled scheduled reports can be exported automatically to a specified "
-"folder.<br> Therefore a full structured path architecture will be used:<br> "
-"Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> "
-"Report"
-msgstr ""
-"Nếu kích hoạt báo cáo theo lịch trình có thể được xuất tự động vào một thư "
-"mục được chỉ định. <br> Do đó, một kiến trúc đường dẫn có cấu trúc đầy đủ sẽ "
-"được sử dụng: <br> Thư mục chính -> Thư mục mẫu (nếu được xác định) hoặc ID "
-"mẫu -> ID báo cáo -> Báo cáo"
+msgid "If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> Report"
+msgstr "Nếu kích hoạt báo cáo theo lịch trình có thể được xuất tự động vào một thư mục được chỉ định. <br> Do đó, một kiến trúc đường dẫn có cấu trúc đầy đủ sẽ được sử dụng: <br> Thư mục chính -> Thư mục mẫu (nếu được xác định) hoặc ID mẫu -> ID báo cáo -> Báo cáo"
 
 #: setup.php:507
 #, fuzzy
 msgid "The main path to an export folder for saving the exports."
-msgstr ""
-"Tùy chọn: Đường dẫn chính đến thư mục xuất để lưu xuất. Nếu không được xác "
-"định, thư mục con 'xuất khẩu' sẽ được sử dụng."
+msgstr "Tùy chọn: Đường dẫn chính đến thư mục xuất để lưu xuất. Nếu không được xác định, thư mục con 'xuất khẩu' sẽ được sử dụng."
 
 #: setup.php:522
 #, fuzzy
@@ -2674,11 +2428,8 @@ msgstr "Dấu tách thập phân CSV"
 
 #: setup.php:551
 #, fuzzy
-msgid ""
-"The symbol indicating the end of the integer part and the beginning of the "
-"fractional part."
-msgstr ""
-"Biểu tượng cho biết sự kết thúc của phần nguyên và phần đầu của phần phân số."
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Biểu tượng cho biết sự kết thúc của phần nguyên và phần đầu của phần phân số."
 
 #: setup.php:577
 #, fuzzy
@@ -2702,12 +2453,8 @@ msgstr "Tạo một mẫu báo cáo mới"
 
 #: templates.php:103
 #, fuzzy
-msgid ""
-"Choose a Data Template this Report Template should depend on.  Unused Data "
-"Templates are hidden."
-msgstr ""
-"Chọn một mẫu dữ liệu mẫu báo cáo này sẽ phụ thuộc vào. <br> Mẫu dữ liệu "
-"không sử dụng được ẩn."
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Chọn một mẫu dữ liệu mẫu báo cáo này sẽ phụ thuộc vào. <br> Mẫu dữ liệu không sử dụng được ẩn."
 
 #: templates.php:135 templates.php:232
 #, fuzzy
@@ -2839,8 +2586,7 @@ msgstr "Nhấp vào 'Tiếp tục' để xóa các mẫu báo cáo sau"
 
 #: templates.php:919
 #, fuzzy
-msgid ""
-"WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
 msgstr "Mỗi báo cáo thuộc về các mẫu này cũng sẽ bị xóa!"
 
 #: templates.php:922
@@ -2860,12 +2606,8 @@ msgstr "| _Báo cáo: <i>không có</i> <br>"
 
 #: templates.php:943
 #, fuzzy
-msgid ""
-"Click 'Continue' to duplicate the following report templates. You can "
-"optionally change the title of those duplicates."
-msgstr ""
-"Nhấp vào 'Tiếp tục' để Sao chép Mẫu Báo cáo sau. Bạn có thể tùy ý thay đổi "
-"Tiêu đề cho Mẫu báo cáo mới."
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Nhấp vào 'Tiếp tục' để Sao chép Mẫu Báo cáo sau. Bạn có thể tùy ý thay đổi Tiêu đề cho Mẫu báo cáo mới."
 
 #: templates.php:946
 #, fuzzy
@@ -2908,9 +2650,7 @@ msgid "Export Report Templates"
 msgstr "Xuất mẫu báo cáo"
 
 #: variables.php:126
-msgid ""
-"Variables [Template: <a class='linkEditMain' href='templates.php?"
-"action=template_edit&id="
+msgid "Variables [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id="
 msgstr ""
 
 #: variables.php:166
@@ -2942,16 +2682,11 @@ msgid "Internal name"
 msgstr "tên nội địa"
 
 #: variables.php:298
-msgid ""
-"A unique identifier which will be created by ReportIt itself. Use this ID "
-"within the definition of your calculation formulas to include that value the "
-"report user has defined individually for it."
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
 msgstr ""
 
 #: variables.php:305
-msgid ""
-"A name like \"Threshold\" for example which should be used as a headline "
-"within the report config."
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
 msgstr ""
 
 #: variables.php:312
@@ -2996,13 +2731,7 @@ msgid "The method the report owner should use to define this variable."
 msgstr ""
 
 #: variables.php:349
-msgid ""
-"Defines the distance between two values if method \"DropDown\" has been "
-"chosen. Please ensure that this value is not set too low, because it defines "
-"indirectly the number of options the dropdown field will have. For example "
-"the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select "
-"box of 10.001 options. This can cause dramatical performance issues due to a "
-"high CPU load at the clients side. Try to keep it under 1000."
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
 msgstr ""
 
 #: variables.php:440
@@ -3140,318 +2869,273 @@ msgid "No Data Items"
 msgstr "Các mục dữ liệu"
 
 #, fuzzy
-#~ msgid ""
-#~ "Define this template as locked (default), so that power users <br> can't "
-#~ "use it until you have checked its functionality. During that time they "
-#~ "are<br> also not allowed to modify or run reports based on this template."
-#~ msgstr ""
-#~ "Xác định mẫu này là bị khóa (mặc định), để cung cấp năng lượng cho người "
-#~ "dùng <br> không thể sử dụng nó cho đến khi bạn đã kiểm tra chức năng của "
-#~ "nó. Trong thời gian đó họ <br> cũng không được phép sửa đổi hoặc chạy các "
-#~ "báo cáo dựa trên mẫu này."
-
-#, fuzzy
-#~ msgid "WARNING:"
-#~ msgstr "Cảnh báo"
-
-#, fuzzy
-#~ msgid "&#160 |_Report: %s<br>"
-#~ msgstr "| _Báo cáo: %s <br>"
-
-#, fuzzy
-#~ msgid "&#160 |_Template : %s<br>"
-#~ msgstr "| _Nhận xét: %s <br>"
-
-#, fuzzy
-#~ msgid "Reports [%s]"
-#~ msgstr "Báo cáo [ %s]"
-
-#, fuzzy
-#~ msgid "Last run %s / Runtime [s]"
-#~ msgstr "Lần chạy cuối cùng %s / Runtime [s]"
-
-#, fuzzy
-#~ msgid "Graphs"
-#~ msgstr "Đồ thị"
-
-#, fuzzy
-#~ msgid "Data Source:"
-#~ msgstr "Nguồn dữ liệu:"
-
-#, fuzzy
-#~ msgid "Pos."
-#~ msgstr "Pos."
-
-#, fuzzy
-#~ msgid "Results [%s]"
-#~ msgstr "Kết quả [ %s]"
-
-#, fuzzy
-#~ msgid "Choose a template your report should depends on."
-#~ msgstr "Chọn một mẫu báo cáo của bạn nên phụ thuộc vào."
-
-#, fuzzy
-#~ msgid "Instances: available"
-#~ msgstr "Trường hợp: có sẵn"
-
-#, fuzzy
-#~ msgid "Instances: selected"
-#~ msgstr "Trường hợp: đã chọn"
-
-#, fuzzy
-#~ msgid "PHP BINDINGS (FAST)"
-#~ msgstr "BINDING PHP (NHANH CHÓNG)"
-
-#, fuzzy
-#~ msgid "RRDTOOL CACTI (SLOW)"
-#~ msgstr "RRDTOOL CACTI (CHẬM)"
-
-#, fuzzy
-#~ msgid "RRDTOOL SERVER (SLOW)"
-#~ msgstr "MÁY CHỦ RRDTOOL (SLOW)"
-
-#, fuzzy
-#~ msgid "LOW"
-#~ msgstr "THẤP"
-
-#, fuzzy
-#~ msgid "MEDIUM"
-#~ msgstr "TRUNG BÌNH"
-
-#, fuzzy
-#~ msgid "HIGH"
-#~ msgstr "CAO"
-
-#, fuzzy
-#~ msgid "ULTIMATE"
-#~ msgstr "TỐI HẬU"
-
-#, fuzzy
-#~ msgid "Pie"
-#~ msgstr "Bánh"
-
-#, fuzzy
-#~ msgid "Operator for Scheduled Reporting"
-#~ msgstr "Toán tử cho báo cáo theo lịch trình"
-
-#, fuzzy
-#~ msgid ""
-#~ "Choose the level which is necessary to configure all options of scheduled "
-#~ "reporting in a report configuration."
-#~ msgstr ""
-#~ "Chọn mức cần thiết để định cấu hình tất cả các tùy chọn báo cáo được lập "
-#~ "lịch trong cấu hình báo cáo."
-
-#, fuzzy
-#~ msgid "RRDtool"
-#~ msgstr "RRDtool"
-
-#, fuzzy
-#~ msgid "RRDtool Connection"
-#~ msgstr "Kết nối RRDtool"
-
-#, fuzzy
-#~ msgid "Choose the way to connect to RRDtool."
-#~ msgstr "Chọn cách kết nối với RRDtool."
-
-#, fuzzy
-#~ msgid "RRDtool Server IP"
-#~ msgstr "IP máy chủ RRDtool"
-
-#, fuzzy
-#~ msgid "Optional: Configured IP address of the RRDtool server."
-#~ msgstr "Tùy chọn: Cấu hình địa chỉ IP của máy chủ RRDtool."
-
-#, fuzzy
-#~ msgid "RRDtool Server Port"
-#~ msgstr "Cổng máy chủ RRDtool"
-
-#, fuzzy
-#~ msgid "Optional: Configured port setting of RRDtool server."
-#~ msgstr "Tùy chọn: Cấu hình cài đặt cổng của máy chủ RRDtool."
-
-#, fuzzy
-#~ msgid "Graph Settings"
-#~ msgstr "Cài đặt đồ thị"
-
-#, fuzzy
-#~ msgid "Enable/disable graph functionality"
-#~ msgstr "Bật / tắt chức năng đồ thị"
-
-#, fuzzy
-#~ msgid "Maximum Graph Height"
-#~ msgstr "Chiều cao đồ thị tối đa"
-
-#, fuzzy
-#~ msgid ""
-#~ "The maximum height of ReportIT graphs in pixels.<br> Warning! GD "
-#~ "functions are very memory intensive. Be sure to set 'memory_limit' high "
-#~ "enough."
-#~ msgstr ""
-#~ "Chiều cao tối đa của đồ thị ReportIT tính bằng pixel. <br> Cảnh báo! Các "
-#~ "chức năng GD rất tốn bộ nhớ. Đảm bảo đặt 'memory_limit' đủ cao."
-
-#, fuzzy
-#~ msgid "Maximum Graph Width"
-#~ msgstr "Chiều rộng đồ thị tối đa"
-
-#, fuzzy
-#~ msgid ""
-#~ "The maximum width of ReportIT graphs in pixels.<br> Warning! GD functions "
-#~ "are very memory intensive. Be sure to set 'memory_limit' high enough."
-#~ msgstr ""
-#~ "Độ rộng tối đa của đồ thị ReportIT tính bằng pixel. <br> Cảnh báo! Các "
-#~ "chức năng GD rất tốn bộ nhớ. Đảm bảo đặt 'memory_limit' đủ cao."
-
-#, fuzzy
-#~ msgid "Quality Level"
-#~ msgstr "Trinh độ cao"
-
-#, fuzzy
-#~ msgid ""
-#~ "Choose the level of quality.<br> Warning! A higher quality setting has a "
-#~ "lower calculation speed and requires more memory."
-#~ msgstr ""
-#~ "Chọn mức độ chất lượng. <br> Cảnh báo! Cài đặt chất lượng cao hơn có tốc "
-#~ "độ tính toán thấp hơn và cần nhiều bộ nhớ hơn."
-
-#, fuzzy
-#~ msgid "Monospace Fonts"
-#~ msgstr "Phông chữ không gian"
-
-#, fuzzy
-#~ msgid ""
-#~ "It's recommend to use monospace fonts like Lucida, Courier, Vera or "
-#~ "DejaVu instead of the other types."
-#~ msgstr ""
-#~ "Chúng tôi khuyên bạn nên sử dụng các phông chữ đơn cách như Lucida, "
-#~ "Courier, Vera hoặc DejaVu thay vì các loại khác."
-
-#, fuzzy
-#~ msgid "Title Font File"
-#~ msgstr "Tập tin phông chữ"
-
-#, fuzzy
-#~ msgid "Define font file to use for graph titles"
-#~ msgstr "Xác định tệp phông chữ để sử dụng cho tiêu đề biểu đồ"
-
-#, fuzzy
-#~ msgid "Axis Font File"
-#~ msgstr "Tệp phông chữ trục"
-
-#, fuzzy
-#~ msgid "Define font file to use for graph axis"
-#~ msgstr "Xác định tệp phông chữ để sử dụng cho trục đồ thị"
-
-#, fuzzy
-#~ msgid "ReportIT Graph Settings"
-#~ msgstr "Cài đặt đồ thị báo cáo"
-
-#, fuzzy
-#~ msgid "Default Chart"
-#~ msgstr "Biểu đồ mặc định"
-
-#, fuzzy
-#~ msgid "Define your default chart that should be shown first"
-#~ msgstr "Xác định biểu đồ mặc định của bạn sẽ được hiển thị đầu tiên"
-
-#, fuzzy
-#~ msgid "Graph Height"
-#~ msgstr "Chiều cao đồ thị"
-
-#, fuzzy
-#~ msgid "The height of ReportIT graphs in pixel."
-#~ msgstr "Chiều cao của đồ thị Báo cáo theo pixel."
-
-#, fuzzy
-#~ msgid "Graph Width"
-#~ msgstr "Đồ thị chiều rộng"
-
-#, fuzzy
-#~ msgid "The width of ReportIT graphs in pixel."
-#~ msgstr "Độ rộng của đồ thị Báo cáo theo pixel."
-
-#, fuzzy
-#~ msgid "Enable/disable Graph Grid for ReportIT Graphs."
-#~ msgstr "Kích hoạt / vô hiệu hóa biểu đồ lưới cho biểu đồ báo cáo."
-
-#, fuzzy
-#~ msgid "Checksum error."
-#~ msgstr "Kiểm tra lỗi."
-
-#, fuzzy
-#~ msgid "Run Report"
-#~ msgstr "Chạy báo cáo"
-
-#, fuzzy
-#~ msgid "Returns the highest value"
-#~ msgstr "Trả về giá trị cao nhất"
-
-#, fuzzy
-#~ msgid ""
-#~ "Returns the sum of all values.&#10;(1.Value + 2.Value + 3.Value + ... + n."
-#~ "Value)"
-#~ msgstr ""
-#~ "Trả về tổng của tất cả các giá trị. (1. Giá trị + 2. Giá trị + 3. Giá trị "
-#~ "+ ... + n.Giá trị)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Returns the xth percentitle.&#10; Description: float f_xth(float "
-#~ "$variable)&#10; Variable has to be between 0 and 100&#10; Example: "
-#~ "f_xth(95)"
-#~ msgstr ""
-#~ "Trả về phần trăm thứ x. Mô tả: float f_xth (float $ biến) Biến phải nằm "
-#~ "trong khoảng từ 0 đến 100 Ví dụ: f_xth (95)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Returns the duration over a defined threshold in percent.&#10; "
-#~ "Description: float f_dot(float $variable)&#10; Example: f_dot(10000000)"
-#~ msgstr ""
-#~ "Trả về thời lượng trên một ngưỡng xác định theo phần trăm. Mô tả: float "
-#~ "f_dot (float $ biến) Ví dụ: f_dot (10000000)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Returns the sum of values over a defined threshold.&#10 Description: "
-#~ "float f_sot(float $variable)&#10; Example: f_sot(750000)"
-#~ msgstr ""
-#~ "Trả về tổng giá trị trên một ngưỡng xác định. Mô tả: float f_sot (float $ "
-#~ "biến) Ví dụ: f_sot (750000)"
-
-#, fuzzy
-#~ msgid "Returns float as rounded integer value"
-#~ msgstr "Trả về float dưới dạng giá trị nguyên tròn"
-
-#, fuzzy
-#~ msgid "Functions"
-#~ msgstr "Functions"
-
-#, fuzzy
-#~ msgid "Report calculation failed"
-#~ msgstr "Báo cáo tính toán thất bại"
-
-#, fuzzy
-#~ msgid "Report statistics"
-#~ msgstr "Báo cáo thống kê"
-
-#, fuzzy
-#~ msgid "Last run %s/ Runtime [s]"
-#~ msgstr "Lần chạy cuối cùng %s / Runtime [s]"
-
-#, fuzzy
-#~ msgid "Data Objects"
-#~ msgstr "Đối tượng dữ liệu"
-
-#, fuzzy
-#~ msgid "*In process*"
-#~ msgstr "*Đang tiến hành*"
+#~ msgid "List of selected Reports:"
+#~ msgstr "Danh sách các báo cáo được chọn:"
 
 #, fuzzy
 #~ msgid "- not available -"
 #~ msgstr "- Không có sẵn -"
 
 #, fuzzy
-#~ msgid "List of selected Reports:"
-#~ msgstr "Danh sách các báo cáo được chọn:"
+#~ msgid "*In process*"
+#~ msgstr "*Đang tiến hành*"
+
+#, fuzzy
+#~ msgid "Data Objects"
+#~ msgstr "Đối tượng dữ liệu"
+
+#, fuzzy
+#~ msgid "Last run %s/ Runtime [s]"
+#~ msgstr "Lần chạy cuối cùng %s / Runtime [s]"
+
+#, fuzzy
+#~ msgid "Report statistics"
+#~ msgstr "Báo cáo thống kê"
+
+#, fuzzy
+#~ msgid "Report calculation failed"
+#~ msgstr "Báo cáo tính toán thất bại"
+
+#, fuzzy
+#~ msgid "Functions"
+#~ msgstr "Functions"
+
+#, fuzzy
+#~ msgid "Returns float as rounded integer value"
+#~ msgstr "Trả về float dưới dạng giá trị nguyên tròn"
+
+#, fuzzy
+#~ msgid "Returns the sum of values over a defined threshold.&#10 Description: float f_sot(float $variable)&#10; Example: f_sot(750000)"
+#~ msgstr "Trả về tổng giá trị trên một ngưỡng xác định. Mô tả: float f_sot (float $ biến) Ví dụ: f_sot (750000)"
+
+#, fuzzy
+#~ msgid "Returns the duration over a defined threshold in percent.&#10; Description: float f_dot(float $variable)&#10; Example: f_dot(10000000)"
+#~ msgstr "Trả về thời lượng trên một ngưỡng xác định theo phần trăm. Mô tả: float f_dot (float $ biến) Ví dụ: f_dot (10000000)"
+
+#, fuzzy
+#~ msgid "Returns the xth percentitle.&#10; Description: float f_xth(float $variable)&#10; Variable has to be between 0 and 100&#10; Example: f_xth(95)"
+#~ msgstr "Trả về phần trăm thứ x. Mô tả: float f_xth (float $ biến) Biến phải nằm trong khoảng từ 0 đến 100 Ví dụ: f_xth (95)"
+
+#, fuzzy
+#~ msgid "Returns the sum of all values.&#10;(1.Value + 2.Value + 3.Value + ... + n.Value)"
+#~ msgstr "Trả về tổng của tất cả các giá trị. (1. Giá trị + 2. Giá trị + 3. Giá trị + ... + n.Giá trị)"
+
+#, fuzzy
+#~ msgid "Returns the highest value"
+#~ msgstr "Trả về giá trị cao nhất"
+
+#, fuzzy
+#~ msgid "Run Report"
+#~ msgstr "Chạy báo cáo"
+
+#, fuzzy
+#~ msgid "Checksum error."
+#~ msgstr "Kiểm tra lỗi."
+
+#, fuzzy
+#~ msgid "Enable/disable Graph Grid for ReportIT Graphs."
+#~ msgstr "Kích hoạt / vô hiệu hóa biểu đồ lưới cho biểu đồ báo cáo."
+
+#, fuzzy
+#~ msgid "The width of ReportIT graphs in pixel."
+#~ msgstr "Độ rộng của đồ thị Báo cáo theo pixel."
+
+#, fuzzy
+#~ msgid "Graph Width"
+#~ msgstr "Đồ thị chiều rộng"
+
+#, fuzzy
+#~ msgid "The height of ReportIT graphs in pixel."
+#~ msgstr "Chiều cao của đồ thị Báo cáo theo pixel."
+
+#, fuzzy
+#~ msgid "Graph Height"
+#~ msgstr "Chiều cao đồ thị"
+
+#, fuzzy
+#~ msgid "Define your default chart that should be shown first"
+#~ msgstr "Xác định biểu đồ mặc định của bạn sẽ được hiển thị đầu tiên"
+
+#, fuzzy
+#~ msgid "Default Chart"
+#~ msgstr "Biểu đồ mặc định"
+
+#, fuzzy
+#~ msgid "ReportIT Graph Settings"
+#~ msgstr "Cài đặt đồ thị báo cáo"
+
+#, fuzzy
+#~ msgid "Define font file to use for graph axis"
+#~ msgstr "Xác định tệp phông chữ để sử dụng cho trục đồ thị"
+
+#, fuzzy
+#~ msgid "Axis Font File"
+#~ msgstr "Tệp phông chữ trục"
+
+#, fuzzy
+#~ msgid "Define font file to use for graph titles"
+#~ msgstr "Xác định tệp phông chữ để sử dụng cho tiêu đề biểu đồ"
+
+#, fuzzy
+#~ msgid "Title Font File"
+#~ msgstr "Tập tin phông chữ"
+
+#, fuzzy
+#~ msgid "It's recommend to use monospace fonts like Lucida, Courier, Vera or DejaVu instead of the other types."
+#~ msgstr "Chúng tôi khuyên bạn nên sử dụng các phông chữ đơn cách như Lucida, Courier, Vera hoặc DejaVu thay vì các loại khác."
+
+#, fuzzy
+#~ msgid "Monospace Fonts"
+#~ msgstr "Phông chữ không gian"
+
+#, fuzzy
+#~ msgid "Choose the level of quality.<br> Warning! A higher quality setting has a lower calculation speed and requires more memory."
+#~ msgstr "Chọn mức độ chất lượng. <br> Cảnh báo! Cài đặt chất lượng cao hơn có tốc độ tính toán thấp hơn và cần nhiều bộ nhớ hơn."
+
+#, fuzzy
+#~ msgid "Quality Level"
+#~ msgstr "Trinh độ cao"
+
+#, fuzzy
+#~ msgid "The maximum width of ReportIT graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set 'memory_limit' high enough."
+#~ msgstr "Độ rộng tối đa của đồ thị ReportIT tính bằng pixel. <br> Cảnh báo! Các chức năng GD rất tốn bộ nhớ. Đảm bảo đặt 'memory_limit' đủ cao."
+
+#, fuzzy
+#~ msgid "Maximum Graph Width"
+#~ msgstr "Chiều rộng đồ thị tối đa"
+
+#, fuzzy
+#~ msgid "The maximum height of ReportIT graphs in pixels.<br> Warning! GD functions are very memory intensive. Be sure to set 'memory_limit' high enough."
+#~ msgstr "Chiều cao tối đa của đồ thị ReportIT tính bằng pixel. <br> Cảnh báo! Các chức năng GD rất tốn bộ nhớ. Đảm bảo đặt 'memory_limit' đủ cao."
+
+#, fuzzy
+#~ msgid "Maximum Graph Height"
+#~ msgstr "Chiều cao đồ thị tối đa"
+
+#, fuzzy
+#~ msgid "Enable/disable graph functionality"
+#~ msgstr "Bật / tắt chức năng đồ thị"
+
+#, fuzzy
+#~ msgid "Graph Settings"
+#~ msgstr "Cài đặt đồ thị"
+
+#, fuzzy
+#~ msgid "Optional: Configured port setting of RRDtool server."
+#~ msgstr "Tùy chọn: Cấu hình cài đặt cổng của máy chủ RRDtool."
+
+#, fuzzy
+#~ msgid "RRDtool Server Port"
+#~ msgstr "Cổng máy chủ RRDtool"
+
+#, fuzzy
+#~ msgid "Optional: Configured IP address of the RRDtool server."
+#~ msgstr "Tùy chọn: Cấu hình địa chỉ IP của máy chủ RRDtool."
+
+#, fuzzy
+#~ msgid "RRDtool Server IP"
+#~ msgstr "IP máy chủ RRDtool"
+
+#, fuzzy
+#~ msgid "Choose the way to connect to RRDtool."
+#~ msgstr "Chọn cách kết nối với RRDtool."
+
+#, fuzzy
+#~ msgid "RRDtool Connection"
+#~ msgstr "Kết nối RRDtool"
+
+#, fuzzy
+#~ msgid "RRDtool"
+#~ msgstr "RRDtool"
+
+#, fuzzy
+#~ msgid "Choose the level which is necessary to configure all options of scheduled reporting in a report configuration."
+#~ msgstr "Chọn mức cần thiết để định cấu hình tất cả các tùy chọn báo cáo được lập lịch trong cấu hình báo cáo."
+
+#, fuzzy
+#~ msgid "Operator for Scheduled Reporting"
+#~ msgstr "Toán tử cho báo cáo theo lịch trình"
+
+#, fuzzy
+#~ msgid "Pie"
+#~ msgstr "Bánh"
+
+#, fuzzy
+#~ msgid "ULTIMATE"
+#~ msgstr "TỐI HẬU"
+
+#, fuzzy
+#~ msgid "HIGH"
+#~ msgstr "CAO"
+
+#, fuzzy
+#~ msgid "MEDIUM"
+#~ msgstr "TRUNG BÌNH"
+
+#, fuzzy
+#~ msgid "LOW"
+#~ msgstr "THẤP"
+
+#, fuzzy
+#~ msgid "RRDTOOL SERVER (SLOW)"
+#~ msgstr "MÁY CHỦ RRDTOOL (SLOW)"
+
+#, fuzzy
+#~ msgid "RRDTOOL CACTI (SLOW)"
+#~ msgstr "RRDTOOL CACTI (CHẬM)"
+
+#, fuzzy
+#~ msgid "PHP BINDINGS (FAST)"
+#~ msgstr "BINDING PHP (NHANH CHÓNG)"
+
+#, fuzzy
+#~ msgid "Instances: selected"
+#~ msgstr "Trường hợp: đã chọn"
+
+#, fuzzy
+#~ msgid "Instances: available"
+#~ msgstr "Trường hợp: có sẵn"
+
+#, fuzzy
+#~ msgid "Choose a template your report should depends on."
+#~ msgstr "Chọn một mẫu báo cáo của bạn nên phụ thuộc vào."
+
+#, fuzzy
+#~ msgid "Pos."
+#~ msgstr "Pos."
+
+#, fuzzy
+#~ msgid "Data Source:"
+#~ msgstr "Nguồn dữ liệu:"
+
+#, fuzzy
+#~ msgid "Graphs"
+#~ msgstr "Đồ thị"
+
+#, fuzzy
+#~ msgid "Last run %s / Runtime [s]"
+#~ msgstr "Lần chạy cuối cùng %s / Runtime [s]"
+
+#, fuzzy
+#~ msgid "Reports [%s]"
+#~ msgstr "Báo cáo [ %s]"
+
+#, fuzzy
+#~ msgid "&#160 |_Template : %s<br>"
+#~ msgstr "| _Nhận xét: %s <br>"
+
+#, fuzzy
+#~ msgid "&#160 |_Report: %s<br>"
+#~ msgstr "| _Báo cáo: %s <br>"
+
+#, fuzzy
+#~ msgid "WARNING:"
+#~ msgstr "Cảnh báo"
+
+#, fuzzy
+#~ msgid "Define this template as locked (default), so that power users <br> can't use it until you have checked its functionality. During that time they are<br> also not allowed to modify or run reports based on this template."
+#~ msgstr "Xác định mẫu này là bị khóa (mặc định), để cung cấp năng lượng cho người dùng <br> không thể sử dụng nó cho đến khi bạn đã kiểm tra chức năng của nó. Trong thời gian đó họ <br> cũng không được phép sửa đổi hoặc chạy các báo cáo dựa trên mẫu này."
+
+#, fuzzy
+#~ msgid "Results [%s]"
+#~ msgstr "Kết quả [ %s]"
