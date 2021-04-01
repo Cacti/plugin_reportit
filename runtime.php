@@ -579,7 +579,7 @@ function runtime($report_id) {
 							"WHERE `host_id`=" . $data_local['host_id'] .
 							" AND `snmp_query_id`=" . $data_local['snmp_query_id'] .
 							" AND `field_name`='$dq_variable' " .
-							" AND `snmp_index`='" . $data_local['snmp_index'] . "'"
+							" AND `snmp_index`='" . $data_local['snmp_index'] . "'" .
 							" AND `present` > 0";
 					// and update the value for the given data query cache variable
 					$dq_variable_value = db_fetch_cell($sql);
