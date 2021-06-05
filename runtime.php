@@ -575,12 +575,12 @@ function runtime($report_id) {
 				if (isset($data_local['id'])) {
 					// now fetch the cached data for given query variable
 					$sql = "SELECT `host_snmp_cache`.`field_value` " .
-                                                        "FROM `host_snmp_cache` " .
-                                                        "WHERE `host_id`= ?" .
-                                                        " AND `snmp_query_id`=?" .
-                                                        " AND `field_name`=? " .
-                                                        " AND `snmp_index`=?" .
-                                                        " AND `present` > 0";
+							"FROM `host_snmp_cache` " .
+							"WHERE `host_id`= ?" .
+							" AND `snmp_query_id`=?" .
+							" AND `field_name`=? " .
+							" AND `snmp_index`=?" .
+							" AND `present` > 0";
 					// and update the value for the given data query cache variable
 					$dq_variable_value = db_fetch_cell_prepared($sql,array($data_local['host_id'],$data_local['snmp_query_id'],$dq_variable,$data_local['snmp_index']));
 					$variables[$dq_variable] = ($dq_variable_value === false) ? REPORTIT_NAN : $dq_variable_value;
