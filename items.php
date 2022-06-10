@@ -172,7 +172,10 @@ function standard() {
 		WHERE id = ?',
 		array($report_data['user_id']));
 
-	$sql_where = get_graph_permissions_sql($current_owner['policy_graphs'], $current_owner['policy_hosts'], $current_owner['policy_graph_templates']);
+
+	// TODO create a get_allowed_data_source() function to achieve
+	// identical results to the current other graph and template
+	// based functions.
 
 	/* load filter settings of that report template this report relies on */
 	$template_filter = db_fetch_assoc_prepared('SELECT rt.pre_filter, rt.data_template_id
@@ -193,15 +196,6 @@ function standard() {
 		ON c.id = a.local_data_id
 		LEFT JOIN host AS d
 		ON d.id = c.host_id';
-
-	/* use additional filter for graph permissions if necessary */
-	if (read_config_option("auth_method") != 0 & $report_data['graph_permission'] == 1) {
-		$sql_join = ' LEFT JOIN graph_local ON (c.id = graph_local.host_id)
-			LEFT JOIN graph_templates ON (graph_templates.id=graph_local.graph_template_id)
-			LEFT JOIN graph_templates_graph ON (graph_templates_graph.local_graph_id=graph_local.id)
-			LEFT JOIN user_auth_perms ON ((graph_templates_graph.local_graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=' . $report_data["user_id"] . ') OR (d.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=' . $report_data["user_id"] . ') OR (graph_templates.id=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=' . $report_data["user_id"] . '))';
-		$sql .= $sql_join;
-	}
 
 	/* apply Host Template Id filter, if selected in report configuration*/
 	if ($report_data['host_template_id'] != 0) {
