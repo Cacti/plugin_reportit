@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-06-11 03:50+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/reportit/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-06-21 05:25+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/reportit/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -1061,7 +1061,7 @@ msgstr "Veri öğesi yok"
 #: items.php:340 reports.php:142 rrdlist.php:209 templates.php:319 view.php:210
 #: view.php:561
 msgid "Search"
-msgstr "Arama"
+msgstr "Ara"
 
 #: items.php:347 reports.php:148 reports.php:365 setup.php:124 setup.php:360
 #: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
