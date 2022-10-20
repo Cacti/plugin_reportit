@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
+"POT-Creation-Date: 2022-10-19 20:47-0400\n"
 "PO-Revision-Date: 2019-03-18 12:33-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,15 +19,15 @@ msgstr ""
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
-#: include/global_arrays.php:44 lib/const_reports.php:30
-#: lib/const_rrdlist.php:28 lib/const_variables.php:29 measurands.php:41
+#: include/global_arrays.php:44 lib/const_reports.php:29
+#: lib/const_rrdlist.php:28 lib/const_variables.php:28 measurands.php:41
 #: variables.php:42
 #, fuzzy
 msgid "Delete"
 msgstr "हटाना"
 
 #: include/global_arrays.php:28 include/global_arrays.php:41
-#: include/global_arrays.php:45 lib/const_reports.php:31
+#: include/global_arrays.php:45 lib/const_reports.php:30
 #, fuzzy
 msgid "Duplicate"
 msgstr "प्रतिलिपि"
@@ -48,42 +48,42 @@ msgid "Export"
 msgstr "निर्यात"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
-#: include/global_forms.php:44 lib/const_reports.php:432
-#: lib/const_variables.php:52 measurands.php:93 reports.php:352 reports.php:959
-#: templates.php:166 templates.php:463 variables.php:65 variables.php:304
+#: include/global_forms.php:44 lib/const_reports.php:431
+#: lib/const_variables.php:51 measurands.php:93 reports.php:352 reports.php:959
+#: templates.php:166 templates.php:463 variables.php:65 variables.php:303
 #, fuzzy
 msgid "Name"
 msgstr "नाम"
 
-#: include/global_arrays.php:52 lib/const_variables.php:53 variables.php:66
+#: include/global_arrays.php:52 lib/const_variables.php:52 variables.php:66
 #, fuzzy
 msgid "Internal Name"
 msgstr "आंतरिक नाम"
 
-#: include/global_arrays.php:53 lib/const_variables.php:54
+#: include/global_arrays.php:53 lib/const_variables.php:53
 #: lib/const_view.php:101 variables.php:67
 #, fuzzy
 msgid "Maximum"
 msgstr "ज्यादा से ज्यादा"
 
-#: include/global_arrays.php:54 lib/const_variables.php:55
+#: include/global_arrays.php:54 lib/const_variables.php:54
 #: lib/const_view.php:100 variables.php:68
 #, fuzzy
 msgid "Minimum"
 msgstr "न्यूनतम"
 
-#: include/global_arrays.php:55 items.php:351 lib/const_variables.php:56
-#: reports.php:152 rrdlist.php:219 templates.php:329 variables.php:69
+#: include/global_arrays.php:55 items.php:345 lib/const_variables.php:55
+#: reports.php:152 rrdlist.php:239 templates.php:329 variables.php:69
 #: view.php:229 view.php:638
 #, fuzzy
 msgid "Default"
 msgstr "चूक"
 
-#: include/global_arrays.php:56 variables.php:70 variables.php:348
+#: include/global_arrays.php:56 variables.php:70 variables.php:347
 msgid "Stepping"
 msgstr ""
 
-#: include/global_arrays.php:57 lib/const_variables.php:57 variables.php:71
+#: include/global_arrays.php:57 lib/const_variables.php:56 variables.php:71
 #, fuzzy
 msgid "Input Type"
 msgstr "निवेष का प्रकार"
@@ -93,12 +93,12 @@ msgstr "निवेष का प्रकार"
 msgid "Options"
 msgstr "कार्रवाइयाँ"
 
-#: include/global_arrays.php:61 include/global_arrays.php:71 items.php:292
-#: rrdlist.php:191
+#: include/global_arrays.php:61 include/global_arrays.php:71 items.php:286
+#: rrdlist.php:192
 msgid "ID"
 msgstr ""
 
-#: include/global_arrays.php:62 measurands.php:94 measurands.php:301
+#: include/global_arrays.php:62 measurands.php:94 measurands.php:300
 #, fuzzy
 msgid "Abbreviation"
 msgstr "घटाना"
@@ -107,7 +107,7 @@ msgstr "घटाना"
 msgid "Group"
 msgstr ""
 
-#: include/global_arrays.php:64 measurands.php:95 measurands.php:308
+#: include/global_arrays.php:64 measurands.php:95 measurands.php:307
 msgid "Unit"
 msgstr ""
 
@@ -115,15 +115,15 @@ msgstr ""
 msgid "Consolidation Function"
 msgstr ""
 
-#: include/global_arrays.php:66 measurands.php:97 measurands.php:323
+#: include/global_arrays.php:66 measurands.php:97 measurands.php:322
 msgid "Visible"
 msgstr ""
 
-#: include/global_arrays.php:67 measurands.php:98 measurands.php:332
+#: include/global_arrays.php:67 measurands.php:98 measurands.php:331
 msgid "Separate"
 msgstr ""
 
-#: include/global_arrays.php:68 measurands.php:99 measurands.php:372
+#: include/global_arrays.php:68 measurands.php:99 measurands.php:371
 msgid "Calculation Formula"
 msgstr ""
 
@@ -147,10 +147,10 @@ msgid "Associated Data Templates"
 msgstr "डेटा टेम्प्लेट"
 
 #: include/global_arrays.php:81 include/global_forms.php:39
-#: lib/const_reports.php:111 lib/const_reports.php:154
-#: lib/const_reports.php:289 lib/const_reports.php:322
-#: lib/const_reports.php:428 measurands.php:289 rrdlist.php:346 setup.php:396
-#: variables.php:293
+#: lib/const_reports.php:110 lib/const_reports.php:153
+#: lib/const_reports.php:288 lib/const_reports.php:321
+#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:396
+#: variables.php:292
 #, fuzzy
 msgid "General"
 msgstr "सामान्य"
@@ -164,124 +164,124 @@ msgstr "डेटा टेम्प्लेट"
 msgid "Groups"
 msgstr ""
 
-#: include/global_arrays.php:85 include/global_arrays.php:533
+#: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:357 lib/funct_html.php:171 lib/funct_html.php:242
 #: setup.php:274 templates.php:470
 #, fuzzy
 msgid "Variables"
 msgstr "चर"
 
-#: include/global_arrays.php:91 lib/const_reports.php:68
+#: include/global_arrays.php:91 lib/const_reports.php:67
 #, fuzzy
 msgid "Today"
 msgstr "आज"
 
-#: include/global_arrays.php:92 lib/const_reports.php:69
+#: include/global_arrays.php:92 lib/const_reports.php:68
 #, fuzzy
 msgid "Last 1 Day"
 msgstr "अंतिम 1 दिन"
 
-#: include/global_arrays.php:93 lib/const_reports.php:70
+#: include/global_arrays.php:93 lib/const_reports.php:69
 #, fuzzy
 msgid "Last 2 Days"
 msgstr "अंतिम 2 दिन"
 
-#: include/global_arrays.php:94 lib/const_reports.php:71
+#: include/global_arrays.php:94 lib/const_reports.php:70
 #, fuzzy
 msgid "Last 3 Days"
 msgstr "अंतिम 3 दिन"
 
-#: include/global_arrays.php:95 lib/const_reports.php:72
+#: include/global_arrays.php:95 lib/const_reports.php:71
 #, fuzzy
 msgid "Last 4 Days"
 msgstr "अंतिम 4 दिन"
 
-#: include/global_arrays.php:96 lib/const_reports.php:73
+#: include/global_arrays.php:96 lib/const_reports.php:72
 #, fuzzy
 msgid "Last 5 Days"
 msgstr "अंतिम 5 दिन"
 
-#: include/global_arrays.php:97 lib/const_reports.php:74
+#: include/global_arrays.php:97 lib/const_reports.php:73
 #, fuzzy
 msgid "Last 6 Days"
 msgstr "अंतिम 6 दिन"
 
-#: include/global_arrays.php:98 lib/const_reports.php:75
+#: include/global_arrays.php:98 lib/const_reports.php:74
 #, fuzzy
 msgid "Last 7 Days"
 msgstr "आखिरी 7 दिन"
 
-#: include/global_arrays.php:99 lib/const_reports.php:76
+#: include/global_arrays.php:99 lib/const_reports.php:75
 #, fuzzy
 msgid "Last Week (Sun - Sat)"
 msgstr "अंतिम सप्ताह (सूर्य - शनि)"
 
-#: include/global_arrays.php:100 lib/const_reports.php:77
+#: include/global_arrays.php:100 lib/const_reports.php:76
 #, fuzzy
 msgid "Last Week (Mon - Sun)"
 msgstr "अंतिम सप्ताह (सोम - सूर्य)"
 
-#: include/global_arrays.php:101 lib/const_reports.php:78
+#: include/global_arrays.php:101 lib/const_reports.php:77
 #, fuzzy
 msgid "Last 14 Days"
 msgstr "अंतिम 14 दिन"
 
-#: include/global_arrays.php:102 lib/const_reports.php:79
+#: include/global_arrays.php:102 lib/const_reports.php:78
 #, fuzzy
 msgid "Last 21 Days"
 msgstr "अंतिम 21 दिन"
 
-#: include/global_arrays.php:103 lib/const_reports.php:80
+#: include/global_arrays.php:103 lib/const_reports.php:79
 #, fuzzy
 msgid "Last 28 Days"
 msgstr "अंतिम 28 दिन"
 
-#: include/global_arrays.php:104 lib/const_reports.php:81
+#: include/global_arrays.php:104 lib/const_reports.php:80
 #, fuzzy
 msgid "Current Month"
 msgstr "मौज़ूदा माह"
 
-#: include/global_arrays.php:105 lib/const_reports.php:82
+#: include/global_arrays.php:105 lib/const_reports.php:81
 #, fuzzy
 msgid "Last Month"
 msgstr "पिछले माह"
 
-#: include/global_arrays.php:106 lib/const_reports.php:83
+#: include/global_arrays.php:106 lib/const_reports.php:82
 #, fuzzy
 msgid "Last 2 Months"
 msgstr "पिछले 2 महीने"
 
-#: include/global_arrays.php:107 lib/const_reports.php:84
+#: include/global_arrays.php:107 lib/const_reports.php:83
 #, fuzzy
 msgid "Last 3 Months"
 msgstr "पिछले 3 महीने"
 
-#: include/global_arrays.php:108 lib/const_reports.php:85
+#: include/global_arrays.php:108 lib/const_reports.php:84
 #, fuzzy
 msgid "Last 4 Months"
 msgstr "पिछले 4 महीने"
 
-#: include/global_arrays.php:109 lib/const_reports.php:86
+#: include/global_arrays.php:109 lib/const_reports.php:85
 #, fuzzy
 msgid "Last 5 Months"
 msgstr "पिछले 5 महीने"
 
-#: include/global_arrays.php:110 lib/const_reports.php:87
+#: include/global_arrays.php:110 lib/const_reports.php:86
 #, fuzzy
 msgid "Last 6 Months"
 msgstr "पिछले 6 महीने"
 
-#: include/global_arrays.php:111 lib/const_reports.php:88
+#: include/global_arrays.php:111 lib/const_reports.php:87
 #, fuzzy
 msgid "Current Year"
 msgstr "वर्तमान साल"
 
-#: include/global_arrays.php:112 lib/const_reports.php:89
+#: include/global_arrays.php:112 lib/const_reports.php:88
 #, fuzzy
 msgid "Last Year"
 msgstr "पिछले साल"
 
-#: include/global_arrays.php:113 lib/const_reports.php:90
+#: include/global_arrays.php:113 lib/const_reports.php:89
 #, fuzzy
 msgid "Last 2 Years"
 msgstr "पिछले 2 साल"
@@ -302,18 +302,18 @@ msgstr ""
 msgid "yearly"
 msgstr ""
 
-#: include/global_arrays.php:126 lib/const_variables.php:33 variables.php:46
+#: include/global_arrays.php:126 lib/const_variables.php:32 variables.php:46
 #, fuzzy
 msgid "Dropdown"
 msgstr "ड्रॉप डाउन"
 
-#: include/global_arrays.php:127 lib/const_variables.php:34 variables.php:47
+#: include/global_arrays.php:127 lib/const_variables.php:33 variables.php:47
 #, fuzzy
 msgid "Input field"
 msgstr "इनपुट क्षेत्र"
 
-#: include/global_arrays.php:132 include/global_arrays.php:144 items.php:276
-#: items.php:282 lib/const_measurands.php:380 lib/const_reports.php:146
+#: include/global_arrays.php:132 include/global_arrays.php:144 items.php:270
+#: items.php:276 lib/const_measurands.php:380 lib/const_reports.php:145
 #: lib/const_view.php:97
 #, fuzzy
 msgid "None"
@@ -797,96 +797,96 @@ msgstr ""
 msgid "Contains the number of seconds between two measured values."
 msgstr "दो मापा मूल्यों के बीच सेकंड की संख्या शामिल है।"
 
-#: include/global_arrays.php:527 lib/const_measurands.php:352
+#: include/global_arrays.php:526 lib/const_measurands.php:352
 #, fuzzy
 msgid "Functions w/o parameters"
 msgstr "मापदंडों के साथ कार्य"
 
-#: include/global_arrays.php:528 lib/const_measurands.php:353
+#: include/global_arrays.php:527 lib/const_measurands.php:353
 #, fuzzy
 msgid "Functions with parameters"
 msgstr "मापदंडों के साथ कार्य"
 
-#: include/global_arrays.php:529 lib/const_measurands.php:354
+#: include/global_arrays.php:528 lib/const_measurands.php:354
 msgid "Aliases"
 msgstr ""
 
-#: include/global_arrays.php:530 lib/const_measurands.php:355
+#: include/global_arrays.php:529 lib/const_measurands.php:355
 #, fuzzy
 msgid "Operators"
 msgstr "ऑपरेटर्स"
 
-#: include/global_arrays.php:531
+#: include/global_arrays.php:530
 msgid "Numbers"
 msgstr ""
 
-#: include/global_arrays.php:532
+#: include/global_arrays.php:531
 msgid "Others"
 msgstr ""
 
-#: include/global_arrays.php:534 lib/const_measurands.php:358
+#: include/global_arrays.php:533 lib/const_measurands.php:358
 #: lib/funct_html.php:173
 #, fuzzy
 msgid "Data Query Variables"
 msgstr "डेटा क्वेरी चर"
 
-#: include/global_arrays.php:535 lib/const_measurands.php:359
+#: include/global_arrays.php:534 lib/const_measurands.php:359
 #: lib/funct_html.php:176
 #, fuzzy
 msgid "Interim Results"
 msgstr "अंतरिम परिणाम"
 
-#: include/global_arrays.php:539
+#: include/global_arrays.php:538
 msgid "Unlimited"
 msgstr ""
 
-#: include/global_arrays.php:540
+#: include/global_arrays.php:539
 #, fuzzy
 msgid "500 Data Items"
 msgstr "डेटा आइटम"
 
-#: include/global_arrays.php:541
+#: include/global_arrays.php:540
 #, fuzzy
 msgid "1,000 Data Items"
 msgstr "डेटा आइटम"
 
-#: include/global_arrays.php:542
+#: include/global_arrays.php:541
 #, fuzzy
 msgid "2,000 Data Items"
 msgstr "डेटा आइटम"
 
-#: include/global_arrays.php:543
+#: include/global_arrays.php:542
 #, fuzzy
 msgid "5,000 Data Source Items"
 msgstr "डेटा स्रोत"
 
-#: include/global_arrays.php:544
+#: include/global_arrays.php:543
 #, fuzzy
 msgid "7,500 Data Source Items"
 msgstr "डेटा स्रोत"
 
-#: include/global_arrays.php:545
+#: include/global_arrays.php:544
 #, fuzzy
 msgid "10,000 Data Source Items"
 msgstr "डेटा स्रोत"
 
-#: include/global_arrays.php:546
+#: include/global_arrays.php:545
 #, fuzzy
 msgid "15,000 Data Source Items"
 msgstr "डेटा स्रोत"
 
-#: include/global_arrays.php:547 include/global_arrays.php:548
+#: include/global_arrays.php:546 include/global_arrays.php:547
 #, fuzzy
 msgid "25,000 Data Source Items"
 msgstr "डेटा स्रोत"
 
-#: include/global_arrays.php:552
+#: include/global_arrays.php:551
 msgid "1 Minute"
 msgstr ""
 
-#: include/global_arrays.php:553 include/global_arrays.php:554
-#: include/global_arrays.php:555 include/global_arrays.php:556
-#: include/global_arrays.php:557
+#: include/global_arrays.php:552 include/global_arrays.php:553
+#: include/global_arrays.php:554 include/global_arrays.php:555
+#: include/global_arrays.php:556
 #, php-format
 msgid "%d Minutes"
 msgstr ""
@@ -896,8 +896,8 @@ msgstr ""
 msgid "The unique name given to this Report Template."
 msgstr "इस रिपोर्ट टेम्प्लेट को दिया गया विशिष्ट नाम।"
 
-#: include/global_forms.php:51 measurands.php:294 templates.php:171
-#: variables.php:311 view.php:288
+#: include/global_forms.php:51 measurands.php:293 templates.php:171
+#: variables.php:310 view.php:288
 #, fuzzy
 msgid "Description"
 msgstr "विवरण"
@@ -1008,46 +1008,46 @@ msgstr ""
 msgid "[Optional] Contact"
 msgstr ""
 
-#: items.php:265 view.php:634
+#: items.php:259 view.php:634
 #, fuzzy
 msgid "Items"
 msgstr "आइटम"
 
-#: items.php:267
+#: items.php:261
 #, fuzzy, php-format
 msgid "Data Items [add to report: <a style=\"color:yellow\" href=\"reports.php?action=report_edit&id=%d\">%s</a>]"
 msgstr "डेटा ऑब्जेक्ट [रिपोर्ट में जोड़ें: <a style=\"color:yellow\" href=\"reports.php?action=report_edit&id=%d\"> %s</a> ]"
 
-#: items.php:293 rrdlist.php:192
+#: items.php:287 rrdlist.php:197
 #, fuzzy
 msgid "Data Item Name"
 msgstr "डेटा आइटम"
 
-#: items.php:309
+#: items.php:303
 #, fuzzy
 msgid "No data items"
 msgstr "कोई डेटा आइटम नहीं"
 
-#: items.php:340 reports.php:142 rrdlist.php:209 templates.php:319 view.php:210
+#: items.php:334 reports.php:142 rrdlist.php:229 templates.php:319 view.php:210
 #: view.php:561
 #, fuzzy
 msgid "Search"
 msgstr "खोज"
 
-#: items.php:347 reports.php:148 reports.php:365 setup.php:124 setup.php:360
+#: items.php:341 reports.php:148 reports.php:365 setup.php:124 setup.php:360
 #: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
 #: view.php:755
 #, fuzzy
 msgid "Reports"
 msgstr "रिपोर्ट"
 
-#: items.php:362 reports.php:163 rrdlist.php:230 templates.php:340 view.php:612
+#: items.php:356 reports.php:163 rrdlist.php:250 templates.php:340 view.php:612
 #, fuzzy
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "चले जाओ"
 
-#: items.php:365 reports.php:166 rrdlist.php:233 templates.php:343 view.php:615
+#: items.php:359 reports.php:166 rrdlist.php:253 templates.php:343 view.php:615
 #, fuzzy
 msgctxt "Button: reset filter settings"
 msgid "Clear"
@@ -1127,422 +1127,422 @@ msgstr "रिपोर्टिंग अवधि के दौरान NAN �
 msgid "Parentheses"
 msgstr ""
 
-#: lib/const_reports.php:29
+#: lib/const_reports.php:28
 #, fuzzy
 msgid "Run"
 msgstr "क्रम"
 
-#: lib/const_reports.php:35
+#: lib/const_reports.php:34
 msgid "CRASHED"
 msgstr ""
 
-#: lib/const_reports.php:36
+#: lib/const_reports.php:35
 msgid "FAILED"
 msgstr ""
 
-#: lib/const_reports.php:37
+#: lib/const_reports.php:36
 msgid "Idle"
 msgstr ""
 
-#: lib/const_reports.php:38
+#: lib/const_reports.php:37
 msgid "Running"
 msgstr ""
 
-#: lib/const_reports.php:56 lib/const_rrdlist.php:54 lib/funct_runtime.php:179
+#: lib/const_reports.php:55 lib/const_rrdlist.php:54 lib/funct_runtime.php:179
 #, fuzzy
 msgid "Monday"
 msgstr "सोमवार"
 
-#: lib/const_reports.php:57 lib/const_rrdlist.php:55 lib/funct_runtime.php:181
+#: lib/const_reports.php:56 lib/const_rrdlist.php:55 lib/funct_runtime.php:182
 #, fuzzy
 msgid "Tuesday"
 msgstr "मंगलवार"
 
-#: lib/const_reports.php:58 lib/const_rrdlist.php:56 lib/funct_runtime.php:183
+#: lib/const_reports.php:57 lib/const_rrdlist.php:56 lib/funct_runtime.php:185
 #, fuzzy
 msgid "Wednesday"
 msgstr "बुधवार"
 
-#: lib/const_reports.php:59 lib/const_rrdlist.php:57 lib/funct_runtime.php:185
+#: lib/const_reports.php:58 lib/const_rrdlist.php:57 lib/funct_runtime.php:188
 #, fuzzy
 msgid "Thursday"
 msgstr "गुरूवार"
 
-#: lib/const_reports.php:60 lib/const_rrdlist.php:58 lib/funct_runtime.php:187
+#: lib/const_reports.php:59 lib/const_rrdlist.php:58 lib/funct_runtime.php:191
 #, fuzzy
 msgid "Friday"
 msgstr "शुक्रवार"
 
-#: lib/const_reports.php:61 lib/const_rrdlist.php:59 lib/funct_runtime.php:189
+#: lib/const_reports.php:60 lib/const_rrdlist.php:59 lib/funct_runtime.php:194
 #, fuzzy
 msgid "Saturday"
 msgstr "शनिवार"
 
-#: lib/const_reports.php:62 lib/const_rrdlist.php:60 lib/funct_runtime.php:191
+#: lib/const_reports.php:61 lib/const_rrdlist.php:60 lib/funct_runtime.php:197
 #, fuzzy
 msgid "Sunday"
 msgstr "रविवार"
 
-#: lib/const_reports.php:112
+#: lib/const_reports.php:111
 #, fuzzy
 msgid "Data Item Presets"
 msgstr "डेटा आइटम प्रीसेट"
 
-#: lib/const_reports.php:113 reports.php:960
+#: lib/const_reports.php:112 reports.php:960
 #, fuzzy
 msgid "Email"
 msgstr "ईमेल"
 
-#: lib/const_reports.php:114
+#: lib/const_reports.php:113
 #, fuzzy
 msgid "Administration"
 msgstr "शासन प्रबंध"
 
-#: lib/const_reports.php:147 lib/const_view.php:37
+#: lib/const_reports.php:146 lib/const_view.php:37
 #, fuzzy
 msgid "Text CSV (.csv)"
 msgstr "पाठ CSV (.csv)"
 
-#: lib/const_reports.php:148 lib/const_view.php:39
+#: lib/const_reports.php:147 lib/const_view.php:39
 #, fuzzy
 msgid "MS Excel 2003 XML (.xml)"
 msgstr "MS Excel 2003 XML (.xml)"
 
-#: lib/const_reports.php:149 lib/const_view.php:38
+#: lib/const_reports.php:148 lib/const_view.php:38
 #, fuzzy
 msgid "Raw XML (.xml)"
 msgstr "कच्चा XML (.xml)"
 
-#: lib/const_reports.php:166
+#: lib/const_reports.php:165
 #, fuzzy
 msgid "Subject"
 msgstr "विषय"
 
-#: lib/const_reports.php:167
+#: lib/const_reports.php:166
 #, fuzzy
 msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
 msgstr "अपने ईमेल का विषय दर्ज करें। <br> निम्नलिखित चर (उद्धरण के बिना) का समर्थन किया जाएगा: '| शीर्षक | और 'अवधि |'"
 
-#: lib/const_reports.php:171
+#: lib/const_reports.php:170
 #, fuzzy
 msgid "Scheduled report - |title| - |period|"
 msgstr "निर्धारित रिपोर्ट - शीर्षक | - अवधि |"
 
-#: lib/const_reports.php:175
+#: lib/const_reports.php:174
 #, fuzzy
 msgid "Body (optional)"
 msgstr "शरीर (वैकल्पिक)"
 
-#: lib/const_reports.php:176
+#: lib/const_reports.php:175
 #, fuzzy
 msgid "Enter a message which will be displayed in the body of your email"
 msgstr "एक संदेश दर्ज करें जो आपके ईमेल के शरीर में प्रदर्शित होगा"
 
-#: lib/const_reports.php:180
+#: lib/const_reports.php:179
 #, fuzzy
 msgid "This is a scheduled report generated from Cacti."
 msgstr "यह कैक्टि से उत्पन्न एक निर्धारित रिपोर्ट है।"
 
-#: lib/const_reports.php:184
+#: lib/const_reports.php:183
 #, fuzzy
 msgid "Attachment"
 msgstr "आसक्ति"
 
-#: lib/const_reports.php:186
+#: lib/const_reports.php:185
 #, fuzzy
 msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
 msgstr "केवल एक सूचना के रूप में एक ईमेल प्राप्त करने के लिए कि एक नई रिपोर्ट उपलब्ध है, 'कोई नहीं' चुनें। <br> अन्यथा रिपोर्ट के रूप में संलग्न किया जाना चाहिए प्रारूप का चयन करें।"
 
-#: lib/const_reports.php:192
+#: lib/const_reports.php:191
 #, fuzzy
 msgid "Email Recipients"
 msgstr "ईमेल प्राप्तकर्ता"
 
-#: lib/const_reports.php:196
+#: lib/const_reports.php:195
 #, fuzzy
 msgid "New Email Recipients"
 msgstr "नए ईमेल प्राप्तकर्ता"
 
-#: lib/const_reports.php:197
+#: lib/const_reports.php:196
 #, fuzzy
 msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
 msgstr "नया प्राप्तकर्ता जोड़ने के लिए एक वैध ईमेल पता (आवश्यक) और एक नाम (वैकल्पिक) दर्ज करें। <br> तेज़ सेटअप के लिए, उन नामों / नामों की एक सूची का उपयोग करें, जहाँ नाम / पते निम्नलिखित डीलेयर्स में से एक के साथ अलग किए गए हैं; '' या ','"
 
-#: lib/const_reports.php:214
+#: lib/const_reports.php:213
 #, fuzzy
 msgid "Scheduled Reporting"
 msgstr "अनुसूचित रिपोर्टिंग"
 
-#: lib/const_reports.php:218 setup.php:489
+#: lib/const_reports.php:217 setup.php:489
 #, fuzzy
 msgid "Enable"
 msgstr "सक्षम करें"
 
-#: lib/const_reports.php:219
+#: lib/const_reports.php:218
 #, fuzzy
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
 msgstr "अनुसूचित रिपोर्टिंग को सक्षम / अक्षम करें। स्लाइडिंग समय सीमा सक्षम होनी चाहिए।"
 
-#: lib/const_reports.php:225
+#: lib/const_reports.php:224
 #, fuzzy
 msgid "Frequency"
 msgstr "आवृत्ति"
 
-#: lib/const_reports.php:226
+#: lib/const_reports.php:225
 #, fuzzy
 msgid "Select the frequency for processing this report. Be sure that there's a cronjob (or scheduled task) running for the choice you made. This won't be done automatically by ReportIT."
 msgstr "इस रिपोर्ट को संसाधित करने की आवृत्ति का चयन करें। सुनिश्चित करें कि आपके द्वारा बनाई गई पसंद के लिए एक क्रोनजॉब (या अनुसूचित कार्य) चल रहा है। यह स्वचालित रूप से ReportIT द्वारा नहीं किया जाएगा।"
 
-#: lib/const_reports.php:232
+#: lib/const_reports.php:231
 #, fuzzy
 msgid "Auto Generated Data Items"
 msgstr "ऑटो उत्पन्न डेटा आइटम"
 
-#: lib/const_reports.php:233
+#: lib/const_reports.php:232
 #, fuzzy
 msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
 msgstr "दिए गए फ़िल्टरों के आधार पर सभी डेटा आइटम्स के स्वचालित निर्माण को सक्षम / अक्षम करें। रिपोर्ट निष्पादन से पहले इसे कॉल किया जाएगा। अप्रचलित आरआरडी को हटा दिया जाएगा और फ़िल्टर सेटिंग्स से मेल खाने वाले सभी आरआरडी को जोड़ दिया जाएगा।"
 
-#: lib/const_reports.php:242
+#: lib/const_reports.php:241
 #, fuzzy
 msgid "Auto Generated Archive"
 msgstr "ऑटो उत्पन्न पुरालेख"
 
-#: lib/const_reports.php:243
+#: lib/const_reports.php:242
 #, fuzzy
 msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrinked automatically within the next run."
 msgstr "उन उदाहरणों की अधिकतम संख्या को परिभाषित करें, जिन्हें पहले लिखे जाने से पहले संग्रहीत किया जाना चाहिए। यदि आप उस राउंडरोबिन सिद्धांत को निष्क्रिय करना चाहते हैं तो \"ऑफ\" चुनें (डिफ़ॉल्ट, लेकिन अनुशंसा नहीं)। यदि आप वर्तमान संग्रह की तुलना में उदाहरणों के निम्न मान को परिभाषित करते हैं तो यह अगले रन के भीतर अपने आप सिकुड़ जाएगा।"
 
-#: lib/const_reports.php:253
+#: lib/const_reports.php:252
 #, fuzzy
 msgid "Auto Generated Email"
 msgstr "ऑटो उत्पन्न ईमेल"
 
-#: lib/const_reports.php:254
+#: lib/const_reports.php:253
 #, fuzzy
 msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
 msgstr "यदि सक्षम टैब 'ईमेल' सक्रिय हो जाएगा और उस खंड के तहत परिभाषित सभी प्राप्तकर्ता स्वचालित रूप से इस निर्धारित रिपोर्ट वाले ईमेल को प्राप्त करेंगे।"
 
-#: lib/const_reports.php:263
+#: lib/const_reports.php:262
 #, fuzzy
 msgid "Auto Generated Export"
 msgstr "ऑटो उत्पन्न निर्यात"
 
-#: lib/const_reports.php:264
+#: lib/const_reports.php:263
 #, fuzzy
 msgid "If enabled the report will be automatically exported to a separate subfolder.  This will be placed within the export folder defined in the report template."
 msgstr "सक्षम होने पर रिपोर्ट स्वचालित रूप से एक अलग सबफ़ोल्डर को निर्यात की जाएगी। इसे रिपोर्ट टेम्पलेट में परिभाषित निर्यात फ़ोल्डर के भीतर रखा जाएगा।"
 
-#: lib/const_reports.php:271
+#: lib/const_reports.php:270
 #, fuzzy
 msgid "Export Limitation"
 msgstr "निर्यात की सीमा"
 
-#: lib/const_reports.php:272
+#: lib/const_reports.php:271
 #, fuzzy
 msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrinked automatically within the next run."
 msgstr "उन उदाहरणों की अधिकतम संख्या को परिभाषित करें, जिन्हें पहले लिखे जाने से पहले संग्रहीत किया जाना चाहिए। यदि आप उस राउंडरोबिन सिद्धांत को निष्क्रिय करना चाहते हैं, तो 'बंद' चुनें (अनुशंसित नहीं)। यदि आप वर्तमान निर्यात फ़ोल्डर की तुलना में उदाहरणों के निम्न मान को परिभाषित करते हैं तो यह अगले रन के भीतर अपने आप सिकुड़ जाएगा।"
 
-#: lib/const_reports.php:279
+#: lib/const_reports.php:278
 #, fuzzy
 msgid "Raw Data Export"
 msgstr "कच्चा डेटा निर्यात"
 
-#: lib/const_reports.php:280
+#: lib/const_reports.php:279
 #, fuzzy
 msgid "If enabled auto generated exports will contain raw data only. The formatting of measurands will be ignored."
 msgstr "यदि सक्षम ऑटो जेनरेट किए गए निर्यात में केवल कच्चा डेटा होगा। खसरे के प्रारूपण को नजरअंदाज किया जाएगा।"
 
-#: lib/const_reports.php:301
+#: lib/const_reports.php:300
 #, fuzzy
 msgid "Change Report Owner"
 msgstr "रिपोर्ट स्वामी बदलें"
 
-#: lib/const_reports.php:302
+#: lib/const_reports.php:301
 #, fuzzy
 msgid "Change the owner of this report. Only users with a minimum of reporting rights ('View' or higher) can be selected."
 msgstr "इस रिपोर्ट के स्वामी को बदलें। न्यूनतम रिपोर्टिंग अधिकार ('दृश्य' या उच्चतर) वाले उपयोगकर्ताओं को ही चुना जा सकता है।"
 
-#: lib/const_reports.php:308
+#: lib/const_reports.php:307
 #, fuzzy
 msgid "Enable Use of Graph Permissions"
 msgstr "ग्राफ़ अनुमतियां का उपयोग सक्षम करें"
 
-#: lib/const_reports.php:309
+#: lib/const_reports.php:308
 #, fuzzy
 msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
 msgstr "यदि सक्षम (डिफ़ॉल्ट) उपलब्ध डेटा आइटम्स की सूची को स्वामी की ग्राफ़ अनुमति द्वारा स्वचालित रूप से फ़िल्टर्ड किया जाएगा: 'डिवाइस द्वारा'।"
 
-#: lib/const_reports.php:326 rrdlist.php:350
+#: lib/const_reports.php:325 rrdlist.php:370
 #, fuzzy
 msgid "Subhead (optional)"
 msgstr "उपशाखा (वैकल्पिक)"
 
-#: lib/const_reports.php:327 rrdlist.php:351
+#: lib/const_reports.php:326 rrdlist.php:371
 #, fuzzy
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 msgstr "एक अतिरिक्त सबहेड को परिभाषित करें जो इंटरफ़ेस विवरण के तहत प्रदर्शन पर होना चाहिए। <br> निम्नलिखित चर का समर्थन किया जाएगा (उद्धरण के बिना): '| t1 | '| T2 |' '| Tmz |' '| D1 |' '| D2 |'"
 
-#: lib/const_reports.php:338 rrdlist.php:196 rrdlist.php:362
+#: lib/const_reports.php:337 rrdlist.php:213 rrdlist.php:382
 #, fuzzy
 msgid "Time Zone"
 msgstr "समय क्षेत्र"
 
-#: lib/const_reports.php:339 rrdlist.php:363
+#: lib/const_reports.php:338 rrdlist.php:383
 #, fuzzy
 msgid "Select the time zone your following shifttime informations will be based on."
 msgstr "उस समय क्षेत्र का चयन करें, जिस पर आपका निम्न शिफ्ट समय आधारित होगा।"
 
-#: lib/const_reports.php:348
+#: lib/const_reports.php:347
 #, fuzzy
 msgid "Host Template Filter (optional)"
 msgstr "होस्ट टेम्पलेट फ़िल्टर (वैकल्पिक)"
 
-#: lib/const_reports.php:349
+#: lib/const_reports.php:348
 #, fuzzy
 msgid "Use those data items only, which belong to hosts of this host template.<br>Select 'None' (default) to deactivate this filter setting."
 msgstr "केवल उन डेटा आइटम का उपयोग करें, जो इस होस्ट टेम्पलेट के होस्ट से संबंधित हैं। <br> इस फ़िल्टर सेटिंग को निष्क्रिय करने के लिए 'कोई नहीं' (डिफ़ॉल्ट) चुनें।"
 
-#: lib/const_reports.php:356
+#: lib/const_reports.php:355
 #, fuzzy
 msgid "Data Items Filter (optional)"
 msgstr "डेटा आइटम फ़िल्टर (वैकल्पिक)"
 
-#: lib/const_reports.php:357
+#: lib/const_reports.php:356
 #, fuzzy
 msgid "Allows additional filtering on the data items descriptions.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "डेटा आइटम विवरण पर अतिरिक्त फ़िल्टरिंग की अनुमति देता है। <br> % और / या _ जैसे SQL वाइल्डकार्ड का उपयोग करें। कोई नियमित अभिव्यक्ति नहीं!"
 
-#: lib/const_reports.php:363 rrdlist.php:382
+#: lib/const_reports.php:362 rrdlist.php:402
 #, fuzzy
 msgid "Working Time"
 msgstr "काम का समय"
 
-#: lib/const_reports.php:375 lib/const_reports.php:395 rrdlist.php:386
-#: rrdlist.php:424
+#: lib/const_reports.php:374 lib/const_reports.php:394 rrdlist.php:406
+#: rrdlist.php:444
 #, fuzzy
 msgid "From"
 msgstr "और से"
 
-#: lib/const_reports.php:376 rrdlist.php:387
+#: lib/const_reports.php:375 rrdlist.php:407
 #, fuzzy
 msgid "The startpoint of duration you want to analyse"
 msgstr "आप जिस अवधि का विश्लेषण करना चाहते हैं, उसका प्रारंभ"
 
-#: lib/const_reports.php:383 lib/const_reports.php:403 rrdlist.php:394
-#: rrdlist.php:431
+#: lib/const_reports.php:382 lib/const_reports.php:402 rrdlist.php:414
+#: rrdlist.php:451
 #, fuzzy
 msgid "To"
 msgstr "सेवा मेरे"
 
-#: lib/const_reports.php:384 rrdlist.php:395
+#: lib/const_reports.php:383 rrdlist.php:415
 #, fuzzy
 msgid "The end of analysing time."
 msgstr "समय के विश्लेषण का अंत।"
 
-#: lib/const_reports.php:391 rrdlist.php:420
+#: lib/const_reports.php:390 rrdlist.php:440
 #, fuzzy
 msgid "Working Days"
 msgstr "कार्य दिवस"
 
-#: lib/const_reports.php:396 rrdlist.php:425
+#: lib/const_reports.php:395 rrdlist.php:445
 #, fuzzy
 msgid "Define the band of days where shift STARTS!"
 msgstr "उन दिनों के बैंड को परिभाषित करें जहाँ STARTS शिफ्ट हों!"
 
-#: lib/const_reports.php:405 rrdlist.php:432
+#: lib/const_reports.php:404 rrdlist.php:452
 #, fuzzy
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
 msgstr "उदाहरण: Mo (22:30) से एक रात के अंतराल के लिए Sat (06:30) सोमवार से शुक्रवार तक परिभाषित होता है"
 
-#: lib/const_reports.php:433
+#: lib/const_reports.php:432
 #, fuzzy
 msgid "The name given to this report"
 msgstr "इस रिपोर्ट को दिया गया नाम"
 
-#: lib/const_reports.php:439 lib/funct_export.php:85 lib/funct_export.php:452
+#: lib/const_reports.php:438 lib/funct_export.php:84 lib/funct_export.php:451
 #: view.php:290
 #, fuzzy
 msgid "Template"
 msgstr "खाका"
 
-#: lib/const_reports.php:440
+#: lib/const_reports.php:439
 #, fuzzy
 msgid "The template your configuration depends on"
 msgstr "आपका कॉन्फ़िगरेशन जिस टेम्पलेट पर निर्भर करता है"
 
-#: lib/const_reports.php:447 lib/funct_export.php:84 lib/funct_export.php:451
+#: lib/const_reports.php:446 lib/funct_export.php:83 lib/funct_export.php:450
 #: view.php:289 view.php:720
 #, fuzzy
 msgid "Owner"
 msgstr "मालिक"
 
-#: lib/const_reports.php:448
+#: lib/const_reports.php:447
 #, fuzzy
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "इस रिपोर्ट के स्वामी को बदलें। न्यूनतम रिपोर्टिंग अधिकार ('दृश्य' या उच्चतर) वाले उपयोगकर्ताओं को ही चुना जा सकता है।"
 
-#: lib/const_reports.php:462 reports.php:357
+#: lib/const_reports.php:461 reports.php:357
 #, fuzzy
 msgid "Public"
 msgstr "जनता"
 
-#: lib/const_reports.php:463
+#: lib/const_reports.php:462
 #, fuzzy
 msgid "If enabled everyone can see your report under tab 'reports'"
 msgstr "यदि सक्षम है तो हर कोई आपकी रिपोर्ट को टैब 'रिपोर्ट' के तहत देख सकता है"
 
-#: lib/const_reports.php:469
+#: lib/const_reports.php:468
 #, fuzzy
 msgid "Reporting Period"
 msgstr "रिपोर्टिंग अवधी"
 
-#: lib/const_reports.php:473 view.php:721
+#: lib/const_reports.php:472 view.php:721
 #, fuzzy
 msgid "Sliding Time Frame"
 msgstr "स्लाइडिंग टाइम फ्रेम"
 
-#: lib/const_reports.php:474
+#: lib/const_reports.php:473
 #, fuzzy
 msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
 msgstr "यदि जाँच अवधि की गणना शुरू होने के समय के संबंध में जाँच की अवधि अपने आप कॉन्फ़िगर हो जाएगी।"
 
-#: lib/const_reports.php:480
+#: lib/const_reports.php:479
 #, fuzzy
 msgid "Time Frames"
 msgstr "समय फ्रेम्स"
 
-#: lib/const_reports.php:481
+#: lib/const_reports.php:480
 #, fuzzy
 msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
 msgstr "गणना शुरू होने के समय के संबंध में आप जिस समय सीमा का विश्लेषण करना चाहते हैं। <br> इसका अर्थ है कैलेंडर दिन, कैलेंडर महीने और कैलेंडर वर्ष।"
 
-#: lib/const_reports.php:487
+#: lib/const_reports.php:486
 #, fuzzy
 msgid "Up To The Day of Calculation"
 msgstr "गणना के दिन तक"
 
-#: lib/const_reports.php:488
+#: lib/const_reports.php:487
 #, fuzzy
 msgid "Extend the sliding time frame up to the day the calculation runs."
 msgstr "गणना रन के दिन तक स्लाइडिंग समय सीमा बढ़ाएं।"
 
-#: lib/const_reports.php:494
+#: lib/const_reports.php:493
 #, fuzzy
 msgid "Fixed Time Frame - Start Date (From)"
 msgstr "निश्चित समय सीमा - प्रारंभ तिथि (से)"
 
-#: lib/const_reports.php:495
+#: lib/const_reports.php:494
 #, fuzzy
 msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "प्रारंभ दिनांक को परिभाषित करने के लिए निम्नलिखित प्रारूप का उपयोग करें: <b>yyyy-mm-dd</b>"
 
-#: lib/const_reports.php:501
+#: lib/const_reports.php:500
 #, fuzzy
 msgid "Fixed Time Frame - End Date (To)"
 msgstr "निश्चित समय सीमा - अंतिम तिथि ()"
 
-#: lib/const_reports.php:502
+#: lib/const_reports.php:501
 #, fuzzy
 msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "अंतिम तिथि को परिभाषित करने के लिए निम्नलिखित प्रारूप का उपयोग करें: <b>yyyy-mm-dd</b>"
@@ -1610,22 +1610,22 @@ msgstr "योग"
 msgid "Average"
 msgstr "औसत"
 
-#: lib/funct_export.php:83 lib/funct_export.php:450
+#: lib/funct_export.php:82 lib/funct_export.php:449
 #, fuzzy
 msgid "Report title"
 msgstr "रिपोर्ट का शीर्षक"
 
-#: lib/funct_export.php:86 lib/funct_export.php:453
+#: lib/funct_export.php:85 lib/funct_export.php:452
 #, fuzzy
 msgid "Start"
 msgstr "शुरु"
 
-#: lib/funct_export.php:87 lib/funct_export.php:454
+#: lib/funct_export.php:86 lib/funct_export.php:453
 #, fuzzy
 msgid "End"
 msgstr "समाप्त"
 
-#: lib/funct_export.php:88 lib/funct_export.php:455 view.php:723
+#: lib/funct_export.php:87 lib/funct_export.php:454 view.php:723
 #, fuzzy
 msgid "Last Run"
 msgstr "आखरी बार"
@@ -1739,116 +1739,116 @@ msgstr "परिवर्तनीय विन्यास [संपादि
 msgid "Measurand Configuration [new]"
 msgstr "चर विन्यास [नया]"
 
-#: measurands.php:295
+#: measurands.php:294
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
 msgstr ""
 
-#: measurands.php:302
+#: measurands.php:301
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
 msgstr ""
 
-#: measurands.php:309
+#: measurands.php:308
 #, fuzzy
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "इस रिपोर्ट को दिया गया नाम"
 
-#: measurands.php:315
+#: measurands.php:314
 msgid "Consolidation function"
 msgstr ""
 
-#: measurands.php:316
+#: measurands.php:315
 msgid "The name of the consolidation function to define which CDPs should be read out."
 msgstr ""
 
-#: measurands.php:324
+#: measurands.php:323
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
 msgstr ""
 
-#: measurands.php:333
+#: measurands.php:332
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
 msgstr ""
 
-#: measurands.php:341
+#: measurands.php:340
 msgid "Formatting"
 msgstr ""
 
-#: measurands.php:346 variables.php:341 view.php:216
+#: measurands.php:345 variables.php:340 view.php:216
 #, fuzzy
 msgid "Type"
 msgstr "प्रकार"
 
-#: measurands.php:349
+#: measurands.php:348
 msgid "Defines as what type the data should be treated as."
 msgstr ""
 
-#: measurands.php:353
+#: measurands.php:352
 msgid "Precision"
 msgstr ""
 
-#: measurands.php:354
+#: measurands.php:353
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
 msgstr ""
 
-#: measurands.php:360
+#: measurands.php:359
 #, fuzzy
 msgid "Prefixes"
 msgstr "एसआई-उपसर्गों"
 
-#: measurands.php:361
+#: measurands.php:360
 msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr ""
 
-#: measurands.php:367
+#: measurands.php:366
 msgid "Formula"
 msgstr ""
 
-#: measurands.php:373
+#: measurands.php:372
 msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr ""
 
-#: measurands.php:378
+#: measurands.php:377
 #, fuzzy
 msgid "Operators & Operands"
 msgstr "ऑपरेटर्स"
 
-#: measurands.php:379
+#: measurands.php:378
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
 msgstr ""
 
-#: measurands.php:513
+#: measurands.php:511
 msgid "Click 'Continue' to Delete the following Measurands.  Notice: If there are no other Measurands left after this process, the Report Template will be locked automatically."
 msgstr ""
 
-#: measurands.php:516
+#: measurands.php:514
 #, fuzzy
 msgid "List of selected measurands:"
 msgstr "चयनित रिपोर्ट की सूची:"
 
-#: measurands.php:519
+#: measurands.php:517
 #, fuzzy, php-format
 msgid "Measurand: %s"
 msgstr "Measurands"
 
-#: measurands.php:529
+#: measurands.php:528
 #, fuzzy
 msgid "You must select at least one measurand."
 msgstr "आपको कम से कम एक रिपोर्ट का चयन करना होगा।"
 
-#: measurands.php:533 measurands.php:535 reports.php:96 reports.php:98
-#: reports.php:1254 reports.php:1264 rrdlist.php:572 rrdlist.php:574
+#: measurands.php:532 measurands.php:534 reports.php:96 reports.php:98
+#: reports.php:1254 reports.php:1264 rrdlist.php:592 rrdlist.php:594
 #: templates.php:98 templates.php:100 templates.php:232 templates.php:233
-#: templates.php:981 variables.php:482 variables.php:484
+#: templates.php:981 variables.php:481 variables.php:483
 #, fuzzy
 msgid "Cancel"
 msgstr "कैंसिल करें"
 
-#: measurands.php:535 reports.php:98 reports.php:1264 rrdlist.php:575
-#: templates.php:100 templates.php:990 templates.php:992 variables.php:484
+#: measurands.php:534 reports.php:98 reports.php:1264 rrdlist.php:595
+#: templates.php:100 templates.php:990 templates.php:992 variables.php:483
 #, fuzzy
 msgid "Continue"
 msgstr "जारी रखें"
 
-#: measurands.php:535
+#: measurands.php:534
 #, fuzzy
 msgid "Delete Template Measurands"
 msgstr "रिपोर्ट टेम्पलेट हटाएं"
@@ -1906,7 +1906,7 @@ msgstr "क्रम"
 msgid "Scheduled"
 msgstr "अनुसूचित"
 
-#: reports.php:359 rrdlist.php:271 setup.php:154
+#: reports.php:359 rrdlist.php:291 setup.php:154
 #, fuzzy
 msgid "Data Items"
 msgstr "डेटा आइटम"
@@ -1999,87 +1999,87 @@ msgstr "आपको कम से कम एक रिपोर्ट का �
 msgid "Data Items [Report: %s %s [%d]"
 msgstr "डेटा आइटम [रिपोर्ट: %s %s [% d]"
 
-#: rrdlist.php:193
+#: rrdlist.php:202
 #, fuzzy
 msgid "Subhead"
 msgstr "दूसरा नाम"
 
-#: rrdlist.php:194
+#: rrdlist.php:207
 #, fuzzy
 msgid "Shifttime (from - to)"
 msgstr "शिफ्टटाइम (से -)"
 
-#: rrdlist.php:195
+#: rrdlist.php:210
 #, fuzzy
 msgid "Weekdays (from - to)"
 msgstr "सप्ताहांत (से -)"
 
-#: rrdlist.php:215
+#: rrdlist.php:235
 #, fuzzy
 msgid "RRDs"
 msgstr "RRDs"
 
-#: rrdlist.php:283
+#: rrdlist.php:303
 #, fuzzy
 msgid "Does not exist anymore"
 msgstr "अब मौजूद नहीं है"
 
-#: rrdlist.php:296
+#: rrdlist.php:316
 #, fuzzy
 msgid "Select"
 msgstr "चुनते हैं"
 
-#: rrdlist.php:300
+#: rrdlist.php:320
 #, fuzzy
 msgid "No data items found"
 msgstr "कोई डेटा आइटम नहीं मिला"
 
-#: rrdlist.php:337
+#: rrdlist.php:357
 #, fuzzy, php-format
 msgid "Data Item [edit: %s]"
 msgstr "डेटा ऑब्जेक्ट [संपादित करें: %s]"
 
-#: rrdlist.php:531
+#: rrdlist.php:551
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Items."
 msgstr "निम्न डेटा आइटम को निकालने के लिए 'जारी रखें' पर क्लिक करें।"
 
-#: rrdlist.php:534
+#: rrdlist.php:554
 #, fuzzy
 msgid "List of selected data items:"
 msgstr "चयनित डेटा आइटम्स की सूची:"
 
-#: rrdlist.php:537
+#: rrdlist.php:557
 #, fuzzy, php-format
 msgid "&#160 |_Data Item : %s<br>"
 msgstr "| _Data आइटम: %s <br>"
 
-#: rrdlist.php:557
+#: rrdlist.php:577
 #, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Items"
 msgstr "अन्य डेटा आइटम पर सेटिंग्स कॉपी करने के लिए 'जारी रखें' पर क्लिक करें"
 
-#: rrdlist.php:559
+#: rrdlist.php:579
 #, fuzzy
 msgid "Selected data item as reference:"
 msgstr "संदर्भ के रूप में चयनित डेटा आइटम:"
 
-#: rrdlist.php:561
+#: rrdlist.php:581
 #, fuzzy
 msgid "Time Zone:"
 msgstr "समय क्षेत्र:"
 
-#: rrdlist.php:562
+#: rrdlist.php:582
 #, fuzzy
 msgid "Weekdays:"
 msgstr "सप्ताह के दिन:"
 
-#: rrdlist.php:563
+#: rrdlist.php:583
 #, fuzzy
 msgid "Shifttime:"
 msgstr "पाली का समय:"
 
-#: rrdlist.php:570
+#: rrdlist.php:590
 #, fuzzy
 msgid "You must select at least one Report."
 msgstr "आपको कम से कम एक रिपोर्ट का चयन करना होगा।"
@@ -2653,113 +2653,113 @@ msgstr "निर्यात रिपोर्ट टेम्पलेट"
 msgid "Variables [Template: <a class='linkEditMain' href='templates.php?action=template_edit&id="
 msgstr ""
 
-#: variables.php:166
+#: variables.php:165
 #, fuzzy
 msgid "No Variables Found"
 msgstr "चर"
 
-#: variables.php:209
+#: variables.php:208
 msgid "Maximum has to be greater than minimum."
 msgstr ""
 
-#: variables.php:213
+#: variables.php:212
 msgid "Default value is out of values range."
 msgstr ""
 
-#: variables.php:273
+#: variables.php:272
 #, fuzzy, php-format
 msgid "Variable Configuration [edit: %s]"
 msgstr "परिवर्तनीय विन्यास [संपादित करें: %s]"
 
-#: variables.php:275
+#: variables.php:274
 #, fuzzy
 msgid "Variable Configuration [new]"
 msgstr "चर विन्यास [नया]"
 
-#: variables.php:297
+#: variables.php:296
 #, fuzzy
 msgid "Internal name"
 msgstr "आंतरिक नाम"
 
-#: variables.php:298
+#: variables.php:297
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
 msgstr ""
 
-#: variables.php:305
+#: variables.php:304
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
 msgstr ""
 
-#: variables.php:312
+#: variables.php:311
 msgid "A short, pithy description that explains the sense of this variable."
 msgstr ""
 
-#: variables.php:316
+#: variables.php:315
 #, fuzzy
 msgid "Your description"
 msgstr "विवरण"
 
-#: variables.php:320
+#: variables.php:319
 #, fuzzy
 msgid "Maximum Value"
 msgstr "ज्यादा से ज्यादा"
 
-#: variables.php:321
+#: variables.php:320
 msgid "Defines the upper limit of this variable."
 msgstr ""
 
-#: variables.php:327
+#: variables.php:326
 #, fuzzy
 msgid "Minimum Value"
 msgstr "न्यूनतम"
 
-#: variables.php:328
+#: variables.php:327
 msgid "Defines the lower limit of this variable."
 msgstr ""
 
-#: variables.php:334
+#: variables.php:333
 #, fuzzy
 msgid "Default Value"
 msgstr "चूक"
 
-#: variables.php:335
+#: variables.php:334
 #, fuzzy
 msgid "Sets the default value."
 msgstr "सबसे कम मूल्य देता है"
 
-#: variables.php:342
+#: variables.php:341
 msgid "The method the report owner should use to define this variable."
 msgstr ""
 
-#: variables.php:349
+#: variables.php:348
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
 msgstr ""
 
-#: variables.php:440
+#: variables.php:439
 #, fuzzy
 msgid "Click 'Continue to Delete the following variables."
 msgstr "निम्नलिखित रिपोर्ट हटाने के लिए 'जारी रखें' पर क्लिक करें।"
 
-#: variables.php:463
+#: variables.php:462
 #, fuzzy
 msgid "List of selected variables:"
 msgstr "चयनित रिपोर्ट की सूची:"
 
-#: variables.php:466
+#: variables.php:465
 #, fuzzy, php-format
 msgid "Variable : %s"
 msgstr "चर"
 
-#: variables.php:477
+#: variables.php:476
 #, fuzzy
 msgid "There are one or more variables in use."
 msgstr "कोई रिपोर्ट टेम्पलेट उपलब्ध नहीं हैं।"
 
-#: variables.php:479
+#: variables.php:478
 #, fuzzy
 msgid "You must select at least one variable."
 msgstr "आपको कम से कम एक रिपोर्ट का चयन करना होगा।"
 
-#: variables.php:484
+#: variables.php:483
 #, fuzzy
 msgid "Delete Template Variables"
 msgstr "रिपोर्ट टेम्पलेट हटाएं"
