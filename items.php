@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -84,7 +84,7 @@ function save(){
 			WHERE id = ?',
 			array(get_request_var('id')));
 
-		if (sizeof($presets)) {
+		if (cacti_sizeof($presets)) {
 			$presets['report_id'] = get_request_var('id');
 
 			foreach($presets as $key => $value) {
@@ -215,7 +215,7 @@ function standard() {
 	/* check host filter defined by form */
 	if (get_request_var('host_id') == '-1') {
 		/* filter nothing */
-	}elseif (!isempty_request_var('host_id')) {
+	} elseif (!isempty_request_var('host_id')) {
 		/* show only data items of selected host */
 		$sql .= ' AND c.host_id =' . get_request_var('host_id');
 	}
@@ -256,9 +256,9 @@ function standard() {
 
 	$rrdlist = db_fetch_assoc($sql);
 
-	$nav = html_nav_bar('items.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items'), 'page', 'main');
+	$nav = html_nav_bar('items.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Items', 'reportit'), 'page', 'main');
 
-	$header_label	= __('Data Items [add to report: <a style="color:yellow" href="reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description']);
+	$header_label	= __('Data Items [add to report: <a style="color:yellow" href="reports.php?action=report_edit&id=%d">%s</a>]', get_request_var('id'), $report_data['description'], 'reportit');
 
 	/* show the Host Template Description in the header, if Host Template Id filter was set */
 	$ht_desc = db_fetch_cell_prepared('SELECT name
@@ -267,13 +267,13 @@ function standard() {
 		array($report_data['host_template_id']));
 
 	if (!strlen($ht_desc)) {
-		$ht_desc = __('None');
+		$ht_desc = __('None', 'reportit');
 	}
 
 	/* show the Data Source Filter in the header, if it has been defined */
 	$ds_desc = $report_data['data_source_filter'];
 	if (!strlen($ds_desc)) {
-		$ds_desc = __('None');
+		$ds_desc = __('None', 'reportit');
 	}
 
 	items_filter($header_label);
@@ -292,7 +292,7 @@ function standard() {
 	//Set preconditions
 	$i = 0;
 
-	if (sizeof($rrdlist)) {
+	if (cacti_sizeof($rrdlist)) {
 		foreach($rrdlist as $rrd) {
 			form_alternate_row('line' . $rrd['id'], true);
 			form_selectable_cell( $rrd['id'], $rrd['id']);
@@ -331,20 +331,20 @@ function items_filter($header_label) {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'reportit');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
-						<?php print __('Reports');?>
+						<?php print __('Reports', 'reportit');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default', 'reportit');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
 								print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 							}

@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -30,14 +30,13 @@ function reportit_system_upgrade($old_version) {
 		$default_engine = db_fetch_row("SHOW GLOBAL VARIABLES LIKE 'storage_engine'");
 	}
 
-	if (sizeof($default_engine)) {
+	if (cacti_sizeof($default_engine)) {
 		$engine = $default_engine['Value'];
 	} else {
 		$engine = 'InnoDB';
 	}
 
 	if (cacti_version_compare($old_version, '1.0.0', '<')) {
-
 		/* we do not support older version any longer - users having something below 0.7.4
 		 * should upgrade ReportIt to 0.7.4, 0.7.5 or 0.7.5a first.
 		 */

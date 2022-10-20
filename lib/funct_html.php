@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 
@@ -60,7 +60,7 @@ function html_custom_header_box($title, $width, $div, $cell_padding, $align, $ad
 	static $table_suffix = 1;
 
 	if ($add_label === false) {
-		$add_label = __('Add');
+		$add_label = __('Add', 'reportit');
 	}
 
 	$table_prefix = basename(get_current_page(), '.php');;
@@ -133,7 +133,7 @@ function html_wizard_footer($jump, $link, $save_html, $colspan=1) {
 }
 
 function html_blue_link($data, $id=0) {
-	if($id) {
+	if ($id) {
 	    print "<table width=" . '100%' . " align='center'><tr><td class='textinfo' valign='top' align='right'>";
 	foreach ($data as $link) {
 		print "<span class='linkmarker'>*</span><a class='hyperLink' href='" . htmlspecialchars($link['href']) . "'>{$link['text']}</a><br>";
@@ -168,12 +168,12 @@ function html_checked_with_icon($value, $icon, $title='', $alternative='', $befo
 function html_calc_syntax($measurand_id, $template_id) {
 	global $rubrics;
 
-	$rubrics[__('Variables')] = get_possible_variables($template_id);
+	$rubrics[__('Variables', 'reportit')] = get_possible_variables($template_id);
 	$dq_variables = array_flip(get_possible_data_query_variables($template_id));
-	$rubrics[__('Data Query Variables')] = $dq_variables;
+	$rubrics[__('Data Query Variables', 'reportit')] = $dq_variables;
 
 	$interim_results = array_flip(get_interim_results($measurand_id, $template_id, false));
-	$rubrics[__('Interim Results')] = $interim_results;
+	$rubrics[__('Interim Results', 'reportit')] = $interim_results;
 
 	$output = '';
 	foreach ($rubrics as $key => $value) {
@@ -181,12 +181,12 @@ function html_calc_syntax($measurand_id, $template_id) {
 		$measurand = false;
 		foreach ($value as $name => $properties) {
 
-			if( $key == 'Interim Results') {
-				if($measurand === false) {
+			if ( $key == 'Interim Results') {
+				if ($measurand === false) {
 					$measurand = $name;
-				}else {
+				} else {
 					$temp = str_replace($measurand, '', $name);
-					if(strpos($temp, ':') !== 0 && strlen($name) !== 0 ) {
+					if (strpos($temp, ':') !== 0 && strlen($name) !== 0 ) {
 						$output .='<br>';
 						$measurand = $name;
 					}
@@ -195,7 +195,7 @@ function html_calc_syntax($measurand_id, $template_id) {
 
 			$title  = "<div class='header'>" . (isset($properties['title']) ? $properties['title'] : $name) . "</div>";
 
-			if(isset($properties['description'])) {
+			if (isset($properties['description'])) {
 				$title .= "<div class='content preformatted'>"
 				. "Description: " . $properties['description'] . "<br>"
 				. "Syntax:      " . $properties['syntax'] . "<br>"
@@ -239,7 +239,7 @@ function html_report_variables($report_id, $template_id) {
 
 	//Put the headerline in
 	$header = array(
-		'friendly_name' => __('Variables'),
+		'friendly_name' => __('Variables', 'reportit'),
 		'method'        => 'spacer'
 	);
 
@@ -313,11 +313,11 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		array($template_id, $data_template_id));
 
 	/* create the necessary input field for defining the alias */
-	if (sizeof($data_source_items)) {
+	if (cacti_sizeof($data_source_items)) {
 		foreach ($data_source_items as $data_source_item) {
 			$item = array(
-				'friendly_name' => __('Enable [%s]', $data_source_item['data_source_name']),
-				'description' => __('Activate data source item \'%s\' for the calculation process.', $data_source_item['data_source_name']),
+				'friendly_name' => __('Enable [%s]', $data_source_item['data_source_name'], 'reportit'),
+				'description' => __('Activate data source item \'%s\' for the calculation process.', $data_source_item['data_source_name'], 'reportit'),
 				'method' => 'checkbox',
 				'default' => 'on',
 				'value' => ($data_source_item['enabled'] == true) ? 'on' : 'off'
@@ -326,8 +326,8 @@ function html_template_ds_alias($template_id, $data_template_id) {
 			$form_array_alias['ds_enabled__' . $data_source_item['id']] = $item;
 
 			$var = array(
-				'friendly_name' => __('Data Source Alias'),
-				'description' => __('Optional: You can define an alias which should be displayed instead of the internal data source name \'%s\' in the reports.', $data_source_item['data_source_name']),
+				'friendly_name' => __('Data Source Alias', 'reportit'),
+				'description' => __('Optional: You can define an alias which should be displayed instead of the internal data source name \'%s\' in the reports.', $data_source_item['data_source_name'], 'reportit'),
 				'method' => 'textbox',
 				'max_length' => '25',
 				'default' => '',
@@ -346,8 +346,8 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		array($template_id));
 
 	$var = array(
-		'friendly_name' => __('Separate Group Title [overall]'),
-		'description' => __('Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports.'),
+		'friendly_name' => __('Separate Group Title [overall]', 'reportit'),
+		'description' => __('Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports.', 'reportit'),
 		'method' => 'textbox',
 		'max_length' => '25',
 		'default' => '',

@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 function owner($report_id) {
@@ -30,10 +30,10 @@ function owner($report_id) {
 		WHERE a.id = ?' ,
 		array($report_id));
 
-	if (sizeof($tmp)) {
+	if (cacti_sizeof($tmp)) {
 		return $tmp['full_name'] . ' (' . $tmp['username'] . ')';
 	} else {
-		return __('Unknown Owner');
+		return __('Unknown Owner', 'reportit');
 	}
 }
 
@@ -151,7 +151,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 		WHERE cache_id = ?',
 		array($cache_id));
 
-	if (sizeof($tmps)) {
+	if (cacti_sizeof($tmps)) {
 		foreach ($tmps as $tmp) {
 			$report_measurands[$tmp['id']] = $tmp;
 		}
@@ -216,7 +216,7 @@ function db_custom_fetch_assoc($sql, $index = false, $multi = true, $assoc = tru
 
 	$raw_data = db_fetch_assoc($sql);
 
-	if (sizeof($raw_data)) {
+	if (cacti_sizeof($raw_data)) {
 		foreach ($raw_data as $row_key => $row) {
 			if ($index !== false && !array_key_exists($index, $row)) {
 				return false;
@@ -257,7 +257,7 @@ function db_custom_fetch_flat_array($sql){
 
 	$raw_data = db_fetch_assoc($sql);
 
-	if (sizeof($raw_data)> 0) {
+	if (cacti_sizeof($raw_data)> 0) {
 		foreach ($raw_data as $row) {
 			foreach ($row as $value) {
 				 $srt_data[] = $value;
@@ -283,7 +283,7 @@ function db_custom_fetch_flat_string($sql, $delimiter = ','){
 
 	$raw_data = db_fetch_assoc($sql);
 
-	if (sizeof($raw_data)> 0) {
+	if (cacti_sizeof($raw_data)> 0) {
 		foreach ($raw_data as $row) {
 			foreach ($row as $value) {
 				$srt_data .= $value . $delimiter;
@@ -575,7 +575,7 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 		WHERE template_id = ?',
 		array($template_id));
 
-	if (sizeof($ids)) {
+	if (cacti_sizeof($ids)) {
 		$list = '';
 
 		foreach ($ids as $id) {
@@ -647,14 +647,14 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 
 	$array = db_fetch_assoc($sql);
 
-	if (sizeof($array)) {
+	if (cacti_sizeof($array)) {
 	    foreach ($array as $interim_result) {
 			if ($interim_result['spanned'] == '') {
 				foreach ($names as $name) {
 					$interim_results[] = $interim_result['abbreviation'] . ':' . $name;
 				}
 			}
-		    	if($ln) $interim_result['abbreviation'] .= '<br>';
+		    	if ($ln) $interim_result['abbreviation'] .= '<br>';
 			$interim_results[] = $interim_result['abbreviation'];
 		}
 	}
@@ -715,7 +715,7 @@ function get_possible_data_query_variables($template_id) {
 	// in case there is no data query, have $names initialized
 	$names = array();
 
-	if (sizeof($available_data_queries)) {
+	if (cacti_sizeof($available_data_queries)) {
 		$data_query_list = 'snmp_query_id IN (';
 		foreach($available_data_queries as $data_queries) {
 			$data_query_list .= $data_queries['snmp_query_id'] . ',';
@@ -758,7 +758,7 @@ function stat_process($report_id) {
 	return db_fetch_cell($sql);
 }
 
-function config_date_format($no_time=TRUE) {
+function config_date_format($no_time=true) {
 	$date_fmt = read_graph_config_option("default_date_format");
 	$datechar = read_graph_config_option("default_datechar");
 
@@ -1032,7 +1032,7 @@ function cache_xml_file($report_id, $mtime){
 	if ($index === false) die_html_custom_error("Report not found in archive.", true);
 	$data = $archive->extractByIndex($index, PCLZIP_OPT_EXTRACT_AS_STRING);
 	$content = simplexml_load_string($data[0]['content']);
-	$archive = json_decode( json_encode($content), TRUE);
+	$archive = json_decode( json_encode($content), true);
 
 	/* transform data and fill up the cache tables */
 	trans_array2sql($archive['report']['settings'], $columns, $values, $cache_id);
@@ -1079,7 +1079,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 		return false;
 	}
 
-	if (sizeof($array)) {
+	if (cacti_sizeof($array)) {
 		foreach ($array as $key => $value) {
 			if (is_array($value)) {
 				if (isset($value[0])) {
@@ -1154,7 +1154,7 @@ function info_xml_archive($report_id) {
 
 
 function average($array) {
-	if (sizeof($array)== 0) {
+	if (cacti_sizeof($array)== 0) {
 		return '';
 	}
 
@@ -1258,7 +1258,7 @@ function send_scheduled_email($report_id){
 		$filename         = str_replace('<report_id>', $report_id, $filebase);
 		$export_function  = "export_to_" . $format;
 
-		echo "Attachment: $filename\n";
+		print "Attachment: $filename\n";
 
 		/* load export data and define the attachment file */
 		if (function_exists($export_function)) {
@@ -1272,7 +1272,7 @@ function send_scheduled_email($report_id){
 			);
 			file_put_contents($filename, $data);
 		} else {
-			echo "Missing function '$export_function'\n";
+			print "Missing function '$export_function'\n";
 		}
 	}
 
@@ -1326,8 +1326,8 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 			$out[$index] = xml_to_array($node, false, $log);
 		} else {
 			if ($log) {
-				echo "{$indent_char}xml_to_array($log, $key, $index, $count) = (" . clean_up_lines(var_export($node, true)) . ")\n";
-				echo "{$indent_char}xml_to_array($log, is_object: $is_object, is_count: $is_count)\n";
+				print "{$indent_char}xml_to_array($log, $key, $index, $count) = (" . clean_up_lines(var_export($node, true)) . ")\n";
+				print "{$indent_char}xml_to_array($log, is_object: $is_object, is_count: $is_count)\n";
 			}
 			$out[$index] = (string)$node;
 		}
@@ -1336,7 +1336,7 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 	/*
 	if ($indexed && !array_key_exists(0, $out)) {
 		if ($log) {
-			echo "{$indent_char}xml_to_array($log): making array\n";
+			print "{$indent_char}xml_to_array($log): making array\n";
 		}
 
 		$out = array($out);
@@ -1348,7 +1348,7 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 	}
 
 	if ($log) {
-		echo "{$indent_char}xml_to_array($log, " . count($out) . "): " . clean_up_lines(var_export($out, true)) . "\n\n";
+		print "{$indent_char}xml_to_array($log, " . count($out) . "): " . clean_up_lines(var_export($out, true)) . "\n\n";
 	}
 
 	$indent--;

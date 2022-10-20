@@ -42,7 +42,7 @@ function v1_2_0_mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_t
 
 	// Set the to information
 	if (empty($to)) {
-		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.');
+		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.', 'reportit');
 	}
 
 	// Create the PHPMailer instance
@@ -323,7 +323,7 @@ function v1_2_0_add_email_details($emails, &$result, callable $addFunc) {
 		}
 	}
 	$text = implode(',', $arrText);
-	//echo "add_email_sw_details(): $text\n";
+	//print "add_email_sw_details(): $text\n";
 	return $text;
 }
 
@@ -337,15 +337,15 @@ function v1_2_0_parse_email_details($emails, $max_records = 0, $details = array(
 	}
 
 	$update = array();
-	//echo "parse_email_details(): max is $max_records\n";
+	//print "parse_email_details(): max is $max_records\n";
 	//var_dump($emails);
 	foreach ($emails as $key => $input) {
-		//echo "parse_email_details(): input is " . clean_up_lines(var_export($input, true)) . "\n";
+		//print "parse_email_details(): input is " . clean_up_lines(var_export($input, true)) . "\n";
 		if (!empty($input)) {
 			if (!is_array($input)) {
 				$emails = explode(',', $input);
 				foreach($emails as $email) {
-					//echo "parse_email_details(): checking '" . trim($email) . "' ... \n";
+					//print "parse_email_details(): checking '" . trim($email) . "' ... \n";
 					$e = trim($email);
 					$d = v1_2_0_split_emaildetail($e);
 					$details[] = $d;
@@ -387,9 +387,9 @@ function v1_2_0_split_emaildetail($input) {
 	if (!is_array($input)) {
 		$sPattern = '/(?<address><[\w\.]+@([\w\d-]+\.)+[\w]{2,4}>)$/';
 		$aMatch = preg_split($sPattern, trim($input), -1, PREG_SPLIT_DELIM_CAPTURE);
-		//echo "\n------[REGEX]------\n";
+		//print "\n------[REGEX]------\n";
 		//print_r($aMatch);
-		//echo "\n------[REGEX]------\n";
+		//print "\n------[REGEX]------\n";
 		if (isset($aMatch[2])) {
 			$name = $aMatch[0];
 			$email = trim($aMatch[1],'<> ');

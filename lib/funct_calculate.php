@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 /* ----- Functions without external parameters ----- */
@@ -102,17 +102,17 @@ function f_grd(&$array, &$f_cache) {
 
 //returns the median
 function f_median(&$array, &$f_cache) {
-	if($f_cache['f_median'] === FALSE) {
-		if(empty($array)) {
+	if ($f_cache['f_median'] === false) {
+		if (empty($array)) {
 			$f_cache['f_median'] = REPORTIT_NAN;
-		}else {
+		} else {
 			$cnt = f_num($array, $f_cache);
 			$values = $array;
 			sort($values);
-			if($cnt % 2 == 1) {
+			if ($cnt % 2 == 1) {
 				$index = (($cnt + 1) / 2 ) - 1;
 				$f_cache['f_median'] = $values[$index];
-			}else {
+			} else {
 				$index = (($cnt) / 2 ) -1;
 				$f_cache['f_median'] = 0.5*($values[$index]+$values[$index+1]);
 			}
@@ -123,7 +123,7 @@ function f_median(&$array, &$f_cache) {
 
 //returns the distance between the highest and lowest measured value
 function f_range(&$array, &$f_cache) {
-	if($f_cache['f_range'] === FALSE) {
+	if ($f_cache['f_range'] === false) {
 		$f_cache['f_range'] = empty($array) ? REPORTIT_NAN : f_max($array, $f_cache)-f_min($array, $f_cache);
 	}
 	return $f_cache['f_range'];
@@ -131,10 +131,10 @@ function f_range(&$array, &$f_cache) {
 
 //returns the interquartile range
 function f_iqr(&$array, &$f_cache){
-	if($f_cache['f_iqr'] === FALSE) {
-		if(empty($array)) {
+	if ($f_cache['f_iqr'] === false) {
+		if (empty($array)) {
 			$f_cache['f_iqr'] = REPORTIT_NAN;
-		}else {
+		} else {
 			$cnt = f_num($array, $f_cache);
 			$first_quartile = ((0.25*$cnt)%1 == 0) ? 0.5*(0.25*$cnt+(0.25*$cnt+1)) : intval(0.25*$cnt+1);
 			$fourth_quartile = ((0.25*$cnt)%1 == 0) ? 0.5*(0.75*$cnt+(0.75*$cnt+1)) : intval(0.75*$cnt+1);
@@ -146,10 +146,10 @@ function f_iqr(&$array, &$f_cache){
 
 //returns the variance
 function f_var(&$array, &$f_cache){
-	if($f_cache['f_var'] === FALSE) {
-		if(empty($array)) {
+	if ($f_cache['f_var'] === false) {
+		if (empty($array)) {
 			$f_cache['f_var'] = REPORTIT_NAN;
-		}else {
+		} else {
 			$avg = f_avg($array, $f_cache);
 			$num = f_num($array, $f_cache);
 			$numerator = 0;
@@ -164,10 +164,10 @@ function f_var(&$array, &$f_cache){
 
 //returns the standard deviation
 function f_sd(&$array, &$f_cache) {
-	if($f_cache['f_sd'] === FALSE) {
-		if(empty($array)) {
+	if ($f_cache['f_sd'] === false) {
+		if (empty($array)) {
 			$f_cache['f_sd'] = REPORTIT_NAN;
-		}else {
+		} else {
 			$variance = f_var($array, $f_cache);
 			$f_cache['f_sd'] = ($variance !== REPORTIT_NAN ) ? sqrt($variance) : REPORTIT_NAN;
 		}
@@ -179,7 +179,7 @@ function f_sd(&$array, &$f_cache) {
 
 //Xth percentitle
 function f_xth(&$array, &$p_cache, $value) {
-	if($value > 100 || $value <= 0) return REPORTIT_NAN;
+	if ($value > 100 || $value <= 0) return REPORTIT_NAN;
 
 	if (empty($array)) {
 		$p_cache['f_xth'] = REPORTIT_NAN;
@@ -208,7 +208,7 @@ function f_sot(&$array, &$p_cache, $threshold) {
 	foreach ($array as $value) {
 		if ($value != 0) {
 			$value -= $threshold;
-			if($value > 0) $over_threshold += $value;
+			if ($value > 0) $over_threshold += $value;
 		}
 	}
 
@@ -229,7 +229,7 @@ function f_dot(&$array, &$p_cache, $threshold) {
 	foreach ($array as $value) {
 		if ($value != 0) {
 			$value -= $threshold;
-			if($value > 0) $i++;
+			if ($value > 0) $i++;
 			}
 		}
 	$p_cache['f_dot'] = ($i/count($array))*100;
@@ -296,11 +296,11 @@ function f_low(&$array, &$p_cache) {
 	}
 
 //If then else logic .. If arg1 is true then return arg2 else arg3
-function f_if(&$array, &$p_cache) {
+function f_if (&$array, &$p_cache) {
 
-	if(func_num_args() != 5 | empty($array)) {
+	if (func_num_args() != 5 | empty($array)) {
 		$p_cache['f_if'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
 		$p_cache['f_if'] = ($args[0]) ? $args[1] : $args[2];
 	}
@@ -309,9 +309,9 @@ function f_if(&$array, &$p_cache) {
 
 // "Greater than" logic supporting predefined return values for true and false
 function f_gt(&$array, &$p_cache) {
-	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+	if (func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
 		$p_cache['f_gt'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'gt', $args);
 	}
@@ -319,9 +319,9 @@ function f_gt(&$array, &$p_cache) {
 
 /* Alias for f_cmp - "Lower than" logic */
 function f_lt(&$array, &$p_cache) {
-	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+	if (func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
 		$p_cache['f_lt'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'lt', $args);
 	}
@@ -329,9 +329,9 @@ function f_lt(&$array, &$p_cache) {
 
 /* Alias for f_cmp - "Greater than or equal" logic */
 function f_ge(&$array, &$p_cache) {
-	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+	if (func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
 		$p_cache['f_ge'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'ge', $args);
 	}
@@ -339,9 +339,9 @@ function f_ge(&$array, &$p_cache) {
 
 /* Alias for f_cmp - "Lower than or equal " logic */
 function f_le(&$array, &$p_cache) {
-	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+	if (func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
 		$p_cache['f_le'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'le', $args);
 	}
@@ -349,9 +349,9 @@ function f_le(&$array, &$p_cache) {
 
 /* Alias for f_cmp - "Equal" logic */
 function f_eq(&$array, &$p_cache) {
-	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+	if (func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
 		$p_cache['f_eq'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'eq', $args);
 	}
@@ -359,9 +359,9 @@ function f_eq(&$array, &$p_cache) {
 
 /* Alias for f_cmp - "Equal" logic */
 function f_uq(&$array, &$p_cache) {
-	if(func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
+	if (func_num_args() < 4 | func_num_args() > 6 | empty($array)) {
 		$p_cache['f_uq'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
 		return f_cmp($array, $p_cache, 'uq', $args);
 	}
@@ -373,13 +373,13 @@ function f_cmp(&$array, &$p_cache, $function, $args) {
 
 	$condition = 'return (' . $args[0] .  $operators[$function] . $args[1] . ') ? true : false;';
 
-	if(sizeof($args) == 2) {
+	if (cacti_sizeof($args) == 2) {
 		/* no return value given - return 1 or 0 if true or false */
 		$p_cache['f_'.$function] = eval($condition) ? 1 : 0;
-	}else if(sizeof($args) == 3) {
+	} else if (cacti_sizeof($args) == 3) {
 		/* pos. return value given - return third argument if true or 0 if false */
 		$p_cache['f_'.$function] = eval($condition) ? $args[2] : 0;
-	}else {
+	} else {
 		/* pos. return value given - return third argument if true
 		   neg. return value given - return fourth argument if false */
 		$p_cache['f_'.$function] = eval($condition) ? $args[2] : $args[3];
@@ -388,17 +388,17 @@ function f_cmp(&$array, &$p_cache, $function, $args) {
 }
 
 function f_isNaN(&$array, &$p_cache) {
-	if(func_num_args() < 3 | func_num_args() > 5 | empty($array)) {
+	if (func_num_args() < 3 | func_num_args() > 5 | empty($array)) {
 		$p_cache['f_nan'] = REPORTIT_NAN;
-	}else {
+	} else {
 		$args = array_slice(func_get_args(), 2);
-		if(sizeof($args) == 2) {
+		if (cacti_sizeof($args) == 2) {
 			/* no return value given - return 1 or 0 if true or false */
 			$p_cache['f_nan'] = (is_nan($args[0]) | is_null($args[0])) ? 1 : 0;
-		}else if(sizeof($args) == 3) {
+		} else if (cacti_sizeof($args) == 3) {
 			/* pos. return value given - return third argument if true or 0 if false */
 			$p_cache['f_nan'] = (is_nan($args[0]) | is_null($args[0])) ? $args[2] : 0;
-		}else {
+		} else {
 			/* pos. return value given - return third argument if true
 			   neg. return value given - return fourth argument if false */
 			$p_cache['f_nan'] = (is_nan($args[0]) | is_null($args[0])) ? $args[2] : $args[3];

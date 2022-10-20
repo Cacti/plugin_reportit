@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -70,7 +70,7 @@ function calculation() {
 	$_SESSION['run'] = '0';
 
 	if (stat_process($id) > 0) {
-		html_error_box(__('Report is alrady in progess.'), 'run.php', '', 'reports.php');
+		html_error_box(__('Report is alrady in progess.', 'reportit'), 'run.php', '', 'reports.php');
 		exit;
 	}
 
@@ -94,12 +94,12 @@ function calculation() {
 
 	if (!isset($result['runtime'])) {
 		#html_custom_header_box($report_informations['description'], __('Report calculation failed'), 'rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
-		html_custom_header_box($report_informations['description'], '100%', '', '2', 'center','rrdlist.php?&id=' . get_request_var('id'), __('List Data Items'));
+		html_custom_header_box($report_informations['description'], '100%', '', '2', 'center','rrdlist.php?&id=' . get_request_var('id'), __('List Data Items', 'reportit'));
 		html_end_box(false);
-	}else {
+	} else {
 		$runtime = $result['runtime'];
 		#html_custom_header_box($report_informations['description'], __('Report statistics'), 'reports.php', __('Report configurations'));
-		html_custom_header_box($report_informations['description'], '100%', '', '2', 'center','reports.php', __('Report configurations'));
+		html_custom_header_box($report_informations['description'], '100%', '', '2', 'center','reports.php', __('Report configurations', 'reportit'));
 		html_end_box(false);
 
 		form_start('view.php?action=show_report&id=' . get_request_var('id'));
@@ -121,7 +121,7 @@ function calculation() {
 
 		?>
 		<tr>
-			<td style='vertical-align:top;'><b><?php print __('Number of errors <font class="deviceDown"> (%s)</font>', $number_of_errors);?></b></td>
+			<td style='vertical-align:top;'><b><?php print __('Number of errors <font class="deviceDown"> (%s)</font>', $number_of_errors, 'reportit');?></b></td>
 			<td class='left'><b> <font color='FF0000'><ul><?php
 			foreach($result as $error) {
 				if (substr_count($error, 'ERROR')) print "<li>$error</li>";
@@ -139,7 +139,7 @@ function calculation() {
 
 		?>
 		<tr>
-			<td style='vertical-align:top;'><b><?php print __('Number of warnings <font class="deviceDown"> (%s)</font>', $number_of_warnings);?></b></td>
+			<td style='vertical-align:top;'><b><?php print __('Number of warnings <font class="deviceDown"> (%s)</font>', $number_of_warnings, 'reportit');?></b></td>
 			<td class='left'><b><ul><?php
 			foreach($result as $warning) {
 				if (substr_count($warning, 'WARNING')) {
@@ -162,7 +162,7 @@ function calculation() {
 					<img type='image' src='../../images/arrow.gif'>
 				</td>
 				<td class='right'>
-					<input type='submit' value='<?php print __('View Report');?>'>
+					<input type='submit' value='<?php print __('View Report', 'reportit');?>'>
 				</td>
 			</tr>
 

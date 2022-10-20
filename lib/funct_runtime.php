@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 function create_result_table($report_id) {
@@ -109,7 +109,7 @@ function &get_report_definitions($report_id) {
 
 	// filter out all used consolidation function
 	$cf = array();
-	if (sizeof($measurands)) {
+	if (cacti_sizeof($measurands)) {
 	    foreach ($measurands as $measurand) {
 			$cf[$measurand['cf']] = $consolidation_functions[$measurand['cf']];
 		}
@@ -140,7 +140,7 @@ function &get_report_definitions($report_id) {
 
 	// Fetch RRA definitions
 	$template['RRA'] = db_fetch_assoc('SELECT steps, timespan
-		FROM data_source_profiles_rra 
+		FROM data_source_profiles_rra
 		WHERE data_source_profile_id=1
 		ORDER BY timespan');
 
@@ -176,20 +176,27 @@ function get_runtime($start_time, $end_time) {
 
 function day_to_number($day) {
 	switch($day) {
-	case __('Monday'):
-	    return 1; break;
-	case __('Tuesday'):
-	    return 2; break;
-	case __('Wednesday'):
-	    return 3; break;
-	case __('Thursday'):
-	    return 4; break;
-	case __('Friday'):
-	    return 5; break;
-	case __('Saturday'):
-	    return 6; break;
-	case __('Sunday'):
-	    return 7; break;
+	case __('Monday', 'reportit'):
+	    return 1;
+		break;
+	case __('Tuesday', 'reportit'):
+	    return 2;
+		break;
+	case __('Wednesday', 'reportit'):
+	    return 3;
+		break;
+	case __('Thursday', 'reportit'):
+	    return 4;
+		break;
+	case __('Friday', 'reportit'):
+	    return 5;
+		break;
+	case __('Saturday', 'reportit'):
+	    return 6;
+		break;
+	case __('Sunday', 'reportit'):
+	    return 7;
+		break;
 	}
 }
 
@@ -348,7 +355,7 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 
 			//Number of steps
 			$steps      = $rrd_ad_data['steps'];
-			$tmz_change = FALSE;
+			$tmz_change = false;
 
 			if ($dst_support) {
 				//If the timezone changes between the current and the following day than...

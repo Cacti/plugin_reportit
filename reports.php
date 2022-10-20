@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -87,7 +87,7 @@ function report_wizard() {
 
 	html_start_box(__('New Report', 'reportit'), '60%', '', '3', 'center', '');
 
-	if (sizeof($templates_list) == 0) {
+	if (cacti_sizeof($templates_list) == 0) {
 		print "<tr class='even'>
 			<td>
 				<p><span class='textError'>" . __('There are no unlocked and enabled report templates available (%s locked or disabled).', $templates_locked, 'reportit') . "</span></p>
@@ -151,7 +151,7 @@ function report_filter() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 								}
@@ -279,7 +279,7 @@ function standard() {
 			$sql .= ' WHERE a.user_id = ' . get_request_var('owner') . ' ORDER BY b.description';
 			$templatelist = db_fetch_assoc($sql);
 
-			if (sizeof($templatelist)>0) {
+			if (cacti_sizeof($templatelist)>0) {
 				foreach($templatelist as $template) {
 					if ($template['id'] == get_request_var('template')) {
 						$a = 1;
@@ -368,7 +368,7 @@ function standard() {
 	html_start_box('', '100%', '', '3', 'center', '');
 	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
 
-	if (sizeof($report_list)) {
+	if (cacti_sizeof($report_list)) {
 		foreach($report_list as $report) {
 			$link = '<a class="linkEditMain" href="' . htmlspecialchars('reports.php?action=report_edit&id=' . $report['id']) . '">';
 
@@ -633,7 +633,7 @@ function form_save() {
 				$recipients[] = get_request_var('report_email_recipient');
 			}
 
-			if (sizeof($addresses)>0) {
+			if (cacti_sizeof($addresses)>0) {
 				foreach($addresses as $key => $value) {
 					$value = trim($value);
 
@@ -665,7 +665,7 @@ function form_save() {
 		break;
 	default:
 		$report_data['id']              = get_request_var('id');
-		if(get_request_var('report_owner')) {
+		if (get_request_var('report_owner')) {
 			$report_data['user_id']     = get_request_var('report_owner');
 		}
 		$report_data['description']     = get_request_var('report_description');
@@ -906,7 +906,7 @@ function report_edit() {
 	/* draw the categories tabs on the top of the page */
 	$current_tab = get_request_var('tab');
 
-	if (sizeof($tabs)) {
+	if (cacti_sizeof($tabs)) {
 		$i = 0;
 
 		/* draw the tabs */
@@ -962,7 +962,7 @@ function report_edit() {
 
 		html_header($display_text);
 
-		if (sizeof($report_recipients)) {
+		if (cacti_sizeof($report_recipients)) {
 			foreach ($report_recipients as $recipient) {
 				form_alternate_row();
 				print '<td>' . $recipient['name'] . '</td>';
@@ -1122,7 +1122,7 @@ function form_actions() {
 				FROM plugin_reportit_reports
 				WHERE ' . array_to_sql_or($selected_items, 'id'));
 
-			if (sizeof($report_datas) > 0) {
+			if (cacti_sizeof($report_datas) > 0) {
 				$counter_data_items = 0;
 				foreach ($report_datas as $report_data) {
 					$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
@@ -1162,7 +1162,7 @@ function form_actions() {
 					WHERE report_id = ?',
 					array($selected_items[$i]));
 
-				if (sizeof($data_items)) {
+				if (cacti_sizeof($data_items)) {
 					foreach($data_items as $data_item) {
 						$data_item['report_id']=$new_id;
 						sql_save($data_item, 'plugin_reportit_data_items', array('id', 'report_id'), false);
@@ -1184,7 +1184,7 @@ function form_actions() {
 					WHERE report_id = ?',
 					array($selected_items[$i]));
 
-				if (sizeof($report_recipients)) {
+				if (cacti_sizeof($report_recipients)) {
 					foreach($report_recipients as $recipient) {
 						$recipient['id'] = 0;
 						$recipient['report_id']=$new_id;
@@ -1217,7 +1217,7 @@ function form_actions() {
 	}
 
 	//Fetch report details
-	if (sizeof($report_ids)) {
+	if (cacti_sizeof($report_ids)) {
 		$reports_sql = "SELECT id, description, state
 			FROM plugin_reportit_reports
 			WHERE id IN (" . implode(',',$report_ids) . ")
@@ -1236,7 +1236,7 @@ function form_actions() {
 
 	html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
-	if (sizeof($reports)) {
+	if (cacti_sizeof($reports)) {
 		if (get_request_var('drp_action') == '1') {
 			$section = '<p>' . __('Click \'Continue\' to Run the following Report:') . '</p>';
 		} elseif (get_request_var('drp_action') == '2') { //DELETE REPORT

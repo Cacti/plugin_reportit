@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -89,7 +89,7 @@ function template_wizard($action) {
 
 		html_start_box(__('New Report Template', 'reportit'), '60%', '', '3', 'left', '');
 
-		if (sizeof($list_of_data_templates) == 0) {
+		if (cacti_sizeof($list_of_data_templates) == 0) {
 			print "<tr class='textArea'>
 				<td>
 					<span class='textError'>" . __('There are no Data Templates in use.', 'reportit') . "</span>
@@ -328,7 +328,7 @@ function template_filter() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default', 'reportit');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
 								print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 							}
@@ -482,7 +482,7 @@ function standard() {
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'));
 
-	if (sizeof($template_list)) {
+	if (cacti_sizeof($template_list)) {
 		foreach($template_list as $template) {
 			form_alternate_row('line' . $template['id'], true);
 			form_selectable_cell($template['id'], $template['id']);
@@ -523,7 +523,7 @@ function standard() {
 
 	html_end_box(true);
 
-	if (sizeof($template_list)) {
+	if (cacti_sizeof($template_list)) {
 		print $nav;
 	}
 
@@ -536,7 +536,7 @@ function form_save() {
 
 	$ds_items = array();
 	$used_data_sources = '';
-	$unused_data_sources = FALSE;
+	$unused_data_sources = false;
 
 	/* ================= input validation ================= */
 	input_validate_input_number(get_request_var('id'));
@@ -595,7 +595,7 @@ function form_save() {
 	}
 
 	/* check if there are data sources unselected although they are used in one of the defined measurands. */
-	if ($template_data['id'] != 0 & $unused_data_sources !== FALSE) {
+	if ($template_data['id'] != 0 & $unused_data_sources !== false) {
 		/* get the list of unused data sources */
 		$sql = "SELECT data_source_name
 				FROM data_template_rrd
@@ -610,7 +610,7 @@ function form_save() {
 				AND `calc_formula` REGEXP '($pattern)'";
 		$measurands = db_custom_fetch_flat_string($sql, ', ');
 
-		if ($measurands !== FALSE) {
+		if ($measurands !== false) {
 			raise_message('reportit_templates__2');
 		}
 	}
@@ -728,7 +728,7 @@ function form_actions() {
 		if (get_request_var('drp_action') == '1') { // DELETE REPORT TEMPLATE
 			$template_datas = db_fetch_assoc('SELECT id FROM plugin_reportit_templates WHERE ' . array_to_sql_or($selected_items, 'id'));
 
-			if (sizeof($template_datas) > 0) {
+			if (cacti_sizeof($template_datas) > 0) {
 				foreach ($template_datas as $template_data) {
 					db_execute('DELETE FROM plugin_reportit_templates WHERE id=' . $template_data['id']);
 					db_execute('DELETE FROM plugin_reportit_variables WHERE template_id=' . $template_data['id']);
@@ -770,7 +770,7 @@ function form_actions() {
 					ORDER BY id',
 					array($selected_items[$i]));
 
-				if (sizeof($template_variables)) {
+				if (cacti_sizeof($template_variables)) {
 					foreach($template_variables as $variable) {
 						$variable['id']          = 0;
 						$variable['template_id'] = $template_id;
@@ -795,7 +795,7 @@ function form_actions() {
 					ORDER BY id',
 					array($selected_items[$i]));
 
-				if (sizeof($template_measurands)) {
+				if (cacti_sizeof($template_measurands)) {
 					foreach($template_measurands as $measurand) {
 						$measurand['id']           = 0;
 						$measurand['template_id']  = $template_id;
@@ -812,7 +812,7 @@ function form_actions() {
 					ORDER BY id',
 					array($selected_items[$i]));
 
-				if (sizeof($template_ds_items)) {
+				if (cacti_sizeof($template_ds_items)) {
 					foreach($template_ds_items as $data_source_item) {
 						$data_source_item['template_id'] = $template_id;
 
@@ -907,7 +907,7 @@ function form_actions() {
 
 	form_start('templates.php');
 
-	html_start_box($template_actions{get_request_var('drp_action')}, '60%', '', '3', 'center', '');
+	html_start_box($template_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 	if (get_request_var('drp_action') == '1') {
 		/* delete report template(s) */
@@ -945,7 +945,7 @@ function form_actions() {
 		if (is_array($ds_list)) {
 			print	'<p>' . __('List of selected report templates:', 'reportit') . '</p>';
 
-			if (sizeof($ds_list)) {
+			if (cacti_sizeof($ds_list)) {
 				print '<ul>';
 				foreach($ds_list as $key => $value) {
 					print '<li>' . $key . '</li>';

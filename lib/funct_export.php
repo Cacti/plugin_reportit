@@ -1,27 +1,26 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
-
 
 function export_to_PDF(&$data) {
 
@@ -80,12 +79,12 @@ function export_to_CSV(&$data) {
 
 	/* compose additional informations */
 	$report_settings = array(
-		__('Report title') => "{$report_data['description']}",
-		__('Owner')        => "{$report_data['owner']}",
-		__('Template')     => "{$report_data['template_name']}",
-		__('Start')        => "{$report_data['start_date']}",
-		__('End')          => "{$report_data['end_date']}",
-		__('Last Run')     => "{$report_data['last_run']}"
+		__('Report title', 'reportit') => "{$report_data['description']}",
+		__('Owner', 'reportit')        => "{$report_data['owner']}",
+		__('Template', 'reportit')     => "{$report_data['template_name']}",
+		__('Start', 'reportit')        => "{$report_data['start_date']}",
+		__('End', 'reportit')          => "{$report_data['end_date']}",
+		__('Last Run', 'reportit')     => "{$report_data['last_run']}"
 	);
 
 	$ds_description = explode('|', $report_data['ds_description']);
@@ -447,12 +446,12 @@ function new_worksheet(&$data, &$styles){
 
 	/* compose additional informations */
 	$report_settings = array(
-		__('Report title') => $report_data['description'],
-		__('Owner')        => $report_data['owner'],
-		__('Template')     => $report_data['template_name'],
-		__('Start')        => $report_data['start_date'],
-		__('End')          => $report_data['end_date'],
-		__('Last Run')     => $report_data['last_run']
+		__('Report title', 'reportit') => $report_data['description'],
+		__('Owner', 'reportit')        => $report_data['owner'],
+		__('Template', 'reportit')     => $report_data['template_name'],
+		__('Start', 'reportit')        => $report_data['start_date'],
+		__('End', 'reportit')          => $report_data['end_date'],
+		__('Last Run', 'reportit')     => $report_data['last_run']
 	);
 
 	$ds_description = explode('|', $report_data['ds_description']);

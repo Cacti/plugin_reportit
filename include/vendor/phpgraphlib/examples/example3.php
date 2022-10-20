@@ -1,10 +1,19 @@
 <?php
 include('../phpgraphlib.php');
 $graph = new PHPGraphLib(350,280);
-$data = array("Roger" => 145, "Ralph" => 102, "Rhonda" => 123,
-	"Ronaldo" => 137, "Rosario" => 149, "Robin" => 99,
-	"Robert" => 88, "Rustof" => 111);
-$graph->setBackgroundColor("black");
+
+$data = array(
+	'Roger' => 145,
+	'Ralph' => 102,
+	'Rhonda' => 123,
+	'Ronaldo' => 137,
+	'Rosario' => 149,
+	'Robin' => 99,
+	'Robert' => 88,
+	'Rustof' => 111
+);
+
+$graph->setBackgroundColor('black');
 $graph->addData($data);
 $graph->setBarColor('255, 255, 204');
 $graph->setTitle('IQ Scores');

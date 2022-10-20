@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -78,11 +78,11 @@ $report_template_display_text = array(
 );
 
 $report_template_tabs = array(
-	'general'       		=> __esc('General', 'reportit'),
-	'data_templates'		=> __esc('Data Templates', 'reportit'),
-	'groups'				=> __esc('Groups', 'reportit'),
-	'measurands' 			=> __esc('Measurands', 'reportit'),
-	'variables' 			=> __esc('Variables', 'reportit'),
+	'general'        => __esc('General', 'reportit'),
+	'data_templates' => __esc('Data Templates', 'reportit'),
+	'groups'         => __esc('Groups', 'reportit'),
+	'measurands'     => __esc('Measurands', 'reportit'),
+	'variables'      => __esc('Variables', 'reportit'),
 );
 
 
@@ -162,42 +162,42 @@ $measurand_rounding = array(
 
 $measurand_ops_and_opds = array(
 	0 => array(
-		'f_avg'  => array(
+		'f_avg' => array(
 			'title'			=> __('f_avg - Arithmetic Average', 'reportit'),
 			'description'	=> __('Returns the average value of all measured values per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_avg',
 			'examples'		=> 'f_avg*8'
 		),
-		'f_max'  => array(
+		'f_max' => array(
 			'title'			=> __('f_max - Maximum Value', 'reportit'),
 			'description'	=> __('Returns the highest measured value per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_max',
 			'examples'		=> '(f_max-f_min)*8'
 		),
-		'f_min'  => array(
+		'f_min' => array(
 			'title'			=> __('f_min - Minimum Value', 'reportit'),
 			'description'	=> __('Returns the lowest measured value per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_min',
 			'examples'		=> 'f_min*8'
 		),
-		'f_sum'  => array(
+		'f_sum' => array(
 			'title'			=> __('f_sum - Sum', 'reportit'),
 			'description'	=> __('Returns the sum of all measured values per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_sum',
 			'examples'		=> 'f_sum*8'
 		),
-		'f_num'  => array(
+		'f_num' => array(
 			'title'			=> __('f_num - Number of Values (Not NaN)', 'reportit'),
 			'description'	=> __('Returns the number of valid measured values per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>int</i> f_num',
 			'examples'		=> 'f_num'
 		),
-		'f_grd'  => array(
+		'f_grd' => array(
 			'title'			=> __('f_grd - Gradient', 'reportit'),
 			'description'	=> __('Returns the gradient of a straight line by using linear regression per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
@@ -211,14 +211,14 @@ $measurand_ops_and_opds = array(
 			'syntax'		=> '<i>float</i> f_last',
 			'examples'		=> 'f_last*16/2'
 		),
-		'f_1st'  => array(
+		'f_1st' => array(
 			'title'			=> __('f_1st - First Value', 'reportit'),
 			'description'	=> __('Returns the first valid measured value per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_1st',
 			'examples'		=> 'f_1st*2*(5.5-1.5)'
 		),
-		'f_nan'  => array(
+		'f_nan' => array(
 			'title'			=> __('f_nan - Number of NaNs', 'reportit'),
 			'description'	=> __('Returns the number of NaNs stored per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
@@ -232,28 +232,28 @@ $measurand_ops_and_opds = array(
 			'syntax'		=> '<i>float</i> f_median',
 			'examples'		=> 'f_median'
 		),
-		'f_range'  => array(
+		'f_range' => array(
 			'title'			=> __('f_range - Range', 'reportit'),
 			'description'	=> __('Returns the difference between the largest and the smallest value per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_range',
 			'examples'		=> 'f_range'
 		),
-		'f_iqr'  => array(
+		'f_iqr' => array(
 			'title'			=> __('f_iqr - Interquartile Range', 'reportit'),
 			'description'	=> __('Returns the distance of the middle50&#037; around the median per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_iqr',
 			'examples'		=> 'f_iqr'
 		),
-		'f_sd'  => array(
+		'f_sd' => array(
 			'title'			=> __('f_sd - Standard Deviation', 'reportit'),
 			'description'	=> __('Returns the square root per data source variance', 'reportit'),
 			'params'		=> __('none', 'reportit'),
 			'syntax'		=> '<i>float</i> f_sd',
 			'examples'		=> 'f_sd'
 		),
-		'f_var'  => array(
+		'f_var' => array(
 			'title'			=> __('f_var - Variance', 'reportit'),
 			'description'	=> __('Returns the variance per DS', 'reportit'),
 			'params'		=> __('none', 'reportit'),
@@ -331,7 +331,7 @@ $measurand_ops_and_opds = array(
 			'description'	=> __('Returns B if A is true or C if A is false', 'reportit'),
 			'params'		=> '$A, $B, $C',
 			'syntax'		=> '<i>bool</i> f_if <i>(float $A, float $B, float $C)</i>',
-			'examples'		=> 'f_if(0,1,2) = 2, f_if(1,1,2) = 1, f_if(f_low(0,1),f_1st, f_last) = f_last',
+			'examples'		=> 'f_if (0,1,2) = 2, f_if(1,1,2) = 1, f_if(f_low(0,1),f_1st, f_last) = f_last',
 			'parentheses'	=> true
 		),
 		'f_isNaN' => array(
@@ -518,8 +518,7 @@ $measurand_ops_and_opds = array(
 			'params'		=> 'none',
 			'syntax'		=> '-',
 			'examples'		=> '-',
-
-		),
+		)
 	)
 );
 
@@ -536,23 +535,24 @@ $measurands_rubrics = array(
 );
 
 $settings_max_record_per_report = array(
-	'0'			=> __('Unlimited', 'reportit'),
-	'500' 		=> __('500 Data Items', 'reportit'),
-	'1000' 		=> __('1,000 Data Items', 'reportit'),
-	'2000' 		=> __('2,000 Data Items', 'reportit'),
-	'5000' 		=> __('5,000 Data Source Items', 'reportit'),
-	'7500' 		=> __('7,500 Data Source Items', 'reportit'),
-	'10000' 	=> __('10,000 Data Source Items', 'reportit'),
-	'15000' 	=> __('15,000 Data Source Items', 'reportit'),
-	'25000' 	=> __('25,000 Data Source Items', 'reportit'),
-	'30000' 	=> __('25,000 Data Source Items', 'reportit')
+	'0'     => __('Unlimited', 'reportit'),
+	'500'   => __('500 Data Items', 'reportit'),
+	'1000'  => __('1,000 Data Items', 'reportit'),
+	'2000'  => __('2,000 Data Items', 'reportit'),
+	'5000'  => __('5,000 Data Source Items', 'reportit'),
+	'7500'  => __('7,500 Data Source Items', 'reportit'),
+	'10000' => __('10,000 Data Source Items', 'reportit'),
+	'15000' => __('15,000 Data Source Items', 'reportit'),
+	'25000' => __('25,000 Data Source Items', 'reportit'),
+	'30000' => __('25,000 Data Source Items', 'reportit')
 );
 
 $settings_max_cache_life_time = array(
-	60 		=> __('1 Minute', 'reportit'),
-	120 	=> __('%d Minutes', 2, 'reportit'),
-	300 	=> __('%d Minutes', 5, 'reportit'),
-	600 	=> __('%d Minutes', 10, 'reportit'),
-	1200 	=> __('%d Minutes', 20, 'reportit'),
-	1800 	=> __('%d Minutes', 30, 'reportit'),
+	60   => __('1 Minute', 'reportit'),
+	120  => __('%d Minutes', 2, 'reportit'),
+	300  => __('%d Minutes', 5, 'reportit'),
+	600  => __('%d Minutes', 10, 'reportit'),
+	1200 => __('%d Minutes', 20, 'reportit'),
+	1800 => __('%d Minutes', 30, 'reportit'),
 );
+

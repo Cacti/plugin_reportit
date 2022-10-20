@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2017 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -25,15 +25,15 @@
 function upgrade_reportit_0_4_0_to_0_7_0(){
 	global $config, $database_default;
 
-	include_once($config["base_path"] . '/plugins/reportit/setup.php');
-	include_once($config["base_path"] . "/plugins/reportit/lib_int/funct_shared.php");
+	include_once($config['base_path'] . '/plugins/reportit/setup.php');
+	include_once($config['base_path'] . '/plugins/reportit/lib_int/funct_shared.php');
 
 
 	/* install default tables */
 	reportit_setup_table('upgrade');
 
 	/* Update table reportit_tables */
-	$result_col = db_fetch_assoc("show columns from reportit_reports");
+	$result_col = db_fetch_assoc('show columns from reportit_reports');
 
 	foreach ($result_col as $index => $arr) {
 		foreach ($arr as $col) {
@@ -221,11 +221,11 @@ function upgrade_reportit_0_4_0_to_0_7_0(){
 
 	foreach ($result as $index => $arr) {
 		foreach ($arr as $tbl) {
-			if (strpos( $tbl, 'reportit_rrdlist_') !== FALSE) $tables[] = $tbl;
+			if (strpos( $tbl, 'reportit_rrdlist_') !== false) $tables[] = $tbl;
 		}
 	}
 
-	if (sizeof($tables)) {
+	if (cacti_sizeof($tables)) {
 		foreach ($tables as $table) {
 			$add  = false;
 			$copy = false;

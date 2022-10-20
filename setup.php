@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -79,10 +79,10 @@ function reportit_check_upgrade() {
 	$old     = db_fetch_row("SELECT * FROM plugin_config WHERE directory='reportit'");
 	$tables  = db_fetch_assoc("SHOW TABLE STATUS WHERE `Name` LIKE 'reportit%'");
 
-	if (sizeof($old) && $current == $old['version']){
+	if (cacti_sizeof($old) && $current == $old['version']){
 		/* ReportIt is up to date */
 		return true;
-	}elseif (sizeof($old) && $current != $old['version']) {
+	} elseif (cacti_sizeof($old) && $current != $old['version']) {
 		if ($old['status'] == 1 || $old['status'] == 4) {
 			/* re-register hooks */
 			//plugin_reportit_install();
@@ -564,7 +564,7 @@ function reportit_config_settings() {
 	unset($temp);
 
 	foreach ($settings['reportit'] as $key => $value ){
-		if( array_key_exists('default', $value) ){
+		if ( array_key_exists('default', $value) ){
 			set_config_option($key,$value['default']);
 		}
 	}
@@ -621,8 +621,8 @@ function reportit_poller_bottom() {
 	$ids = '';
 	$cnt = 0;
 
-	$lifecycle     = read_config_option('reportit_arc_lifecycle', TRUE);
-	$logging_level = read_config_option('log_verbosity', TRUE);
+	$lifecycle     = read_config_option('reportit_arc_lifecycle', true);
+	$logging_level = read_config_option('log_verbosity', true);
 
 	/* mark running reports which have run too long as failed */
 	$met = read_config_option('reportit_met');
@@ -643,7 +643,7 @@ function reportit_poller_bottom() {
 	if (count($tables)) {
 		foreach($tables as $table) {
 			/* take care that we really do NOT delete others tables */
-			if (strpos($table['Name'], 'reportit_tmp_') !== FALSE) {
+			if (strpos($table['Name'], 'reportit_tmp_') !== false) {
 				$str .= $table['Name'] . ', ';
 			$ids .= ",'" . substr($table['Name'], 13) . "'";
 				$cnt++;

@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -228,7 +228,7 @@ function standard() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 								}
@@ -298,7 +298,7 @@ function standard() {
 	$i = 0;
 
 	// Build report list
-	if (sizeof($report_list)) {
+	if (cacti_sizeof($report_list)) {
 		foreach ($report_list as $report) {
 			$ownerId = $report['user_id'];
 
@@ -319,7 +319,7 @@ function standard() {
 
 	html_end_box();
 
-	if (sizeof($report_list)) {
+	if (cacti_sizeof($report_list)) {
 		print $nav;
 	}
 }
@@ -437,7 +437,7 @@ function show_report() {
 
 	if (get_request_var('filter') != '') {
 		$sql_where = 'WHERE ' . $table . ".name_cache LIKE '%" . get_request_var('filter') . "%'";
-	}else{
+	} else {
 		$sql_where = '';
 	}
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
@@ -479,20 +479,20 @@ function show_report() {
 	$report_data     = $data['report_data'];
 	$mea             = $data['report_measurands'];
 	list($rs_description, $count_rs) = explode('-', $report_data['rs_def']);
-	$rs_description = ($rs_description == '') ? FALSE : explode('|', $rs_description);
+	$rs_description = ($rs_description == '') ? false : explode('|', $rs_description);
 
-	if($rs_description !== false) {
+	if ($rs_description !== false) {
 		foreach ($rs_description as $key => $id) {
-			if(!isset($mea[$id]['visible']) || $mea[$id]['visible'] == '') {
+			if (!isset($mea[$id]['visible']) || $mea[$id]['visible'] == '') {
 				$count_rs--;
 				unset($rs_description[$key]);
-			}else {
-				if(get_request_var('data_source') != -2) {
+			} else {
+				if (get_request_var('data_source') != -2) {
 					$measurands[$id] = $mea[$id]['abbreviation'];
 				}
 			}
 		}
-		if(get_request_var('measurand') != -1) {
+		if (get_request_var('measurand') != -1) {
 			if (in_array(get_request_var('measurand'), $rs_description)) {
 				$rs_description = array(get_request_var('measurand'));
 				$count_rs = 1;
@@ -505,7 +505,7 @@ function show_report() {
 	if (!isset($count_ov)) {
 		list($ov_description, $count_ov) = explode('-', $report_data['sp_def']);
 		$ov_description = ($ov_description == '') ? false : explode('|', $ov_description);
-		if($ov_description !== false) {
+		if ($ov_description !== false) {
 			foreach ($ov_description as $key => $id) {
 				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$count_ov--;
@@ -516,7 +516,7 @@ function show_report() {
 					}
 				}
 			}
-			if(get_request_var('measurand') != -1) {
+			if (get_request_var('measurand') != -1) {
 				if (in_array(get_request_var('measurand'), $ov_description)) {
 					$ov_description = array(get_request_var('measurand'));
 					$count_ov = 1;
@@ -570,7 +570,7 @@ function show_report() {
 						<select id='data_source'>
 							<option value='-1'<?php if (get_request_var('data_source') == '-1') {?> selected<?php }?>><?php print __('Any');?></option>
 							<?php
-							if (sizeof($ds_description)) {
+							if (cacti_sizeof($ds_description)) {
 								foreach ($data_sources as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('data_source') == $key) { print ' selected'; } print '>' . $value . '</option>';
 								}
@@ -585,7 +585,7 @@ function show_report() {
 						<select id='measurand'>
 							<option value='-1'<?php if (get_request_var('measurand') == '-1') {?> selected<?php }?>><?php print __('Any');?></option>
 							<?php
-							if (sizeof($measurands)) {
+							if (cacti_sizeof($measurands)) {
 								foreach ($measurands as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('measurand') == $key) { print ' selected'; } print '>' . $value . '</option>';
 								}
@@ -651,7 +651,7 @@ function show_report() {
 						<select id='archive'>
 							<option value='-1'<?php if (get_request_var('archive') == '-1') {?> selected<?php }?>><?php print __('Current');?></option>
 							<?php
-							if (sizeof($archive)) {
+							if (cacti_sizeof($archive)) {
 								foreach ($archive as $key => $value) {
 								    print "<option value='" . $key . "'"; if (get_request_var('archive') == $key) { print ' selected'; } print '>' . $value . '</option>';
 								}
@@ -799,7 +799,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 	/* Set preconditions */
 	$last_subhead = '';
 	$additional = array();
-	if (sizeof($report_results)) {
+	if (cacti_sizeof($report_results)) {
 		foreach ($report_results as $result) {
 			if (!isempty_request_var('subhead')) {
 				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
@@ -861,7 +861,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 			break;
 		case '-1':
 			print '<tr></tr>';
-			if (sizeof($additional)) {
+			if (cacti_sizeof($additional)) {
 				for($a=1; $a<5; $a++) {
 					form_alternate_row();
 					$description = $add_info[$a][0];
@@ -877,7 +877,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 			break;
 		default:
 			print '<tr></tr>';
-			if (sizeof($additional)) {
+			if (cacti_sizeof($additional)) {
 				form_alternate_row();
 				$description = $add_info[get_request_var('info')][0];
 				$calc_fct    = $add_info[get_request_var('info')][1];
@@ -893,7 +893,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 
 	html_end_box();
 
-	if (sizeof($report_results)) {
+	if (cacti_sizeof($report_results)) {
 		print $nav;
 	}
 
@@ -952,16 +952,16 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 								 INNER JOIN data_template_data AS c
 								 ON c.local_data_id = a.id
 								 $suffix";
-					}else {
+					} else {
 						$sql =	"SELECT * FROM plugin_reportit_tmp_" . get_request_var('id') . "_" . get_request_var('archive') . " AS a
 								 $suffix";
 					}
 
 					$data = db_fetch_assoc($sql);
-					echo "<tr bgcolor='#a9b7cb'><td colspan='3' class='textHeaderDark'><strong>Measurand:</strong> $title ({$mea[$id]['abbreviation']})</td></tr>";
-					//echo "<tr valign='top'><td colspan='2'><a href='./cc_graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'>hallo</a></td>";
-					echo "<tr valign='top'><td colspan='2'><img src='graph.php?id=" .get_request_var('id')  . "&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})' height='300px'></td>";
-					echo "<td colspan='1' width='100%'><table width='100%'>";
+					print "<tr bgcolor='#a9b7cb'><td colspan='3' class='textHeaderDark'><strong>Measurand:</strong> $title ({$mea[$id]['abbreviation']})</td></tr>";
+					//print "<tr valign='top'><td colspan='2'><a href='./cc_graphs.php?id={get_request_var('id')}&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})'>hallo</a></td>";
+					print "<tr valign='top'><td colspan='2'><img src='graph.php?id=" .get_request_var('id')  . "&source=$var' style='border: 1px solid #bbbbbb;' alt='$title ({$mea[$id]['abbreviation']})' height='300px'></td>";
+					print "<td colspan='1' width='100%'><table width='100%'>";
 					if (count($data)>0) {
 						//html_report_start_box();
 					html_header(array("Pos.","Description", "Results [$unit]"));
@@ -971,27 +971,27 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 							$value	= $item[$var];
 							$title 	= "{$item['start_day']}&nbsp;-&nbsp;{$item['end_day']}&nbsp;&#10;{$item['start_time']}&nbsp;-&nbsp;{$item['end_time']} {$item['timezone']}";
 							form_alternate_row();
-							echo "<td title='$title'>$i</td>";
-							echo "<td title='$title'>
+							print "<td title='$title'>$i</td>";
+							print "<td title='$title'>
 										<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>
 										{$item['name_cache']}
 										</a>
 								  </td>";
-							echo "<td title='$title' align='right'>";
-							if($value == NULL) {
+							print "<td title='$title' align='right'>";
+							if ($value == NULL) {
 								print "NA";
-							}elseif ($value == 0) {
+							} elseif ($value == 0) {
 								print $value;
-							}else {
+							} else {
 								print get_unit($value, $rounding, $data_type, $data_precision);
 							}
 							print "</td>";
 							form_end_row();
 						}
-						echo "</table>";
+						print "</table>";
 
 					}
-					echo "</td></tr>";
+					print "</td></tr>";
 				}
 			}
 		}

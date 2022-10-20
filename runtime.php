@@ -1,25 +1,25 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2019 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 //----- Define some variables -----
@@ -39,7 +39,7 @@ $email_counter  = 0;
 $export_counter = 0;
 
 //----- Running on CLI? -----
-if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) {
+if (isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) {
 
 	$path = dirname(__FILE__);
 	chdir($path);
@@ -59,12 +59,12 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 	include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 	include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
 
-	$run_scheduled    = TRUE;
+	$run_scheduled    = true;
 
-	if(($_SERVER['argc'] > '4' || $_SERVER['argc'] < '2')) help();
+	if (($_SERVER['argc'] > '4' || $_SERVER['argc'] < '2')) help();
 
 	foreach($_SERVER['argv'] as $option) {
-		if(is_numeric($option)) {
+		if (is_numeric($option)) {
 			$run_id = $option;
 			continue;
 		}
@@ -86,7 +86,7 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 				$run_freq = 'yearly';
 				break;
 			case "-v":
-				$run_verb = TRUE;
+				$run_verb = true;
 				break;
 			case "--debug":
 				@define('REPORTIT_DEBUG',1);
@@ -95,10 +95,10 @@ if(isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) 
 		}
 	}
 
-	if(($run_freq == '' & $run_id === false) || ($run_freq != '' & $run_id !== false)) help();
-	if($run_id) run($run_id);
+	if (($run_freq == '' & $run_id === false) || ($run_freq != '' & $run_id !== false)) help();
+	if ($run_id) run($run_id);
 	else run($run_freq);
-}else {
+} else {
 	if (!defined('REPORTIT_BASE_PATH')) {
 		include_once(__DIR__ . '/setup.php');
 		reportit_define_constants();
@@ -138,12 +138,12 @@ function run($frequency) {
 	global $run_verb, $email_counter, $export_counter;
 
 	$start = microtime();
-	if(is_numeric($frequency)) {
+	if (is_numeric($frequency)) {
 		$sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
 				INNER JOIN plugin_reportit_templates as b
 				ON b.locked = '' and a.template_id = b.id
 				WHERE a.id = $frequency";
-	}else {
+	} else {
 		$sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
 				INNER JOIN plugin_reportit_templates as b
 				ON b.locked = '' AND a.template_id = b.id
@@ -152,17 +152,17 @@ function run($frequency) {
 
 	$reports = db_fetch_assoc($sql);
 	$number = count($reports);
-	if(is_numeric($frequency) & $number == 0) {
+	if (is_numeric($frequency) & $number == 0) {
 		print "\n\n ERROR: Invalid report ID !\n";
 		help();
 	}
 
-	if($number > 0) {
+	if ($number > 0) {
 		foreach($reports as $report) {
-			if(!get_template_status($report['template_id'])) {
+			if (!get_template_status($report['template_id'])) {
 				$report_id = $report['id'];
 				runtime($report_id);
-			}else {
+			} else {
 				$report_id = $report['id'];
 				run_error(10, $report_id);
 				continue;
@@ -173,10 +173,10 @@ function run($frequency) {
 	$end = microtime();
 	$time = get_runtime($start, $end);
 
-	if(read_config_option('log_verbosity', true)>POLLER_VERBOSITY_NONE) {
-		if(!is_numeric($frequency)) {
+	if (read_config_option('log_verbosity', true)>POLLER_VERBOSITY_NONE) {
+		if (!is_numeric($frequency)) {
 			cacti_log( "REPORTIT STATS: Frequency:$frequency Time:$time Reports:$number  Emails:$email_counter  Exports:$export_counter", $run_verb, 'PLUGIN');
-		}else {
+		} else {
 			cacti_log( "REPORTIT STATS: ID:$report_id Time:$time Reports:$number  Emails:$email_counter  Exports:$export_counter", $run_verb, 'PLUGIN');
 		}
 	}
@@ -207,7 +207,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice='') {
 
 	cacti_log($run_logging, $run_verb, 'PLUGIN', $log_level);
 
-	if(!$run_scheduled) {
+	if (!$run_scheduled) {
 		$run_output      = str_replace($run_search, $run_repl_view, $runtime_messages[$code]);
 		$run_output      = str_replace($run_search, $run_repl_fin, $run_output);
 		$run_return[]    = $run_output;
@@ -221,7 +221,7 @@ function runtime($report_id) {
 	//This report is in_process, so flag it!
 	in_process($report_id);
 
-	if(!$run_scheduled) {
+	if (!$run_scheduled) {
 		ini_set("max_execution_time", read_config_option('reportit_met'));
 	}
 
@@ -253,7 +253,7 @@ function runtime($report_id) {
 	debug($debug_value, "Boost Server Status");
 
 	//----- automatic RRDList Generation -----
-	if($report_settings['autorrdlist']) autorrdlist($report_id);
+	if ($report_settings['autorrdlist']) autorrdlist($report_id);
 
 	//----- Fetch all necessary data for building a report -----
 	$report_definitions = &get_report_definitions($report_id);
@@ -265,7 +265,7 @@ function runtime($report_id) {
 	$dst_support	= check_DST_support();
 
 	//----- Update start and enddate by using presets -----
-	if($dynamic) {
+	if ($dynamic) {
 		$dates 	= rp_get_timespan( $report_definitions['report']['preset_timespan'],
 								$report_definitions['report']['present'],
 								$enable_tmz);
@@ -279,7 +279,7 @@ function runtime($report_id) {
 
 	//----- ERROR CHECK (2) -----
 	//Check number of defined RRDs
-	if(!$number_of_rrds > 0) {
+	if (!$number_of_rrds > 0) {
 		run_error(2,$report_id);
 		in_process($report_id, 0);
 		return $run_return;
@@ -329,9 +329,9 @@ function runtime($report_id) {
 	$ds_cache	= array();	//Measurands with flag "spanned"
 
 	foreach($rra_types as $rra_type) {
-		foreach($calc_fct_names as $value) $df_cache[$rra_type][$value] = FALSE;
-		foreach($calc_fct_names_params as $value) $dp_cache[$rra_type][$value] = FALSE;
-		foreach($calc_fct_aliases as $value) $dp_cache[$rra_type][$value] = FALSE;
+		foreach($calc_fct_names as $value) $df_cache[$rra_type][$value] = false;
+		foreach($calc_fct_names_params as $value) $dp_cache[$rra_type][$value] = false;
+		foreach($calc_fct_aliases as $value) $dp_cache[$rra_type][$value] = false;
 	}
 	debug($df_cache, "Defined Cache -> Functions");
 	debug($dp_cache, "Defined Cache -> Functions with Parameters");
@@ -345,7 +345,7 @@ function runtime($report_id) {
 	foreach($cache as $rra) {
 		foreach($dm_cache as $key => $value) {
 			$name = $key . ':' . $rra;
-			$dr_cache[$name] = FALSE;
+			$dr_cache[$name] = false;
 		}
 	}
 	debug($cache, "Data sources - Definition by Cacti");
@@ -353,7 +353,7 @@ function runtime($report_id) {
 
 	$cache	= $report_definitions['measurands'];
 	foreach($cache as $mm) {
-		if($mm['spanned'] == 'on') $ds_cache[$mm['abbreviation']] = FALSE;
+		if ($mm['spanned'] == 'on') $ds_cache[$mm['abbreviation']] = false;
 	}
 	debug($ds_cache, "Defined Cache -> Measurands (spanned)");
 	/************************************************************************************/
@@ -386,8 +386,8 @@ function runtime($report_id) {
 		//----- Participate reporting times -----
 		list($s_hour, $s_min)	= explode(":",$s_time);
 		list($e_hour, $e_min)	= explode(":",$e_time);
-		if($enable_tmz) {
-			if(!isset($timezones[$timezone])) {
+		if ($enable_tmz) {
+			if (!isset($timezones[$timezone])) {
 				run_error(11, $report_id, $local_data_id, $timezone);
 				continue;
 			}
@@ -408,7 +408,7 @@ function runtime($report_id) {
 			// Endtime is a part of next day
 			$f_ep 	= ($enable_tmz) ? gmmktime($e_hour-$offset_hour,$e_min-$offset_min,0,$s_month,$s_day+1,$s_year) : mktime($e_hour,$e_min,0,$s_month,$s_day+1,$s_year);
 			$l_ep	= ($enable_tmz) ? gmmktime($e_hour-$offset_hour,$e_min-$offset_min,0,$e_month,$e_day+1,$e_year) : mktime($e_hour,$e_min,0,$e_month,$e_day+1,$e_year);
-		}else {
+		} else {
 
 			// Endtime is a part of same day
 			$f_ep 	= ($enable_tmz) ? gmmktime($e_hour-$offset_hour,$e_min-$offset_min,0,$s_month,$s_day,$s_year) : mktime($e_hour,$e_min,0,$s_month,$s_day,$s_year);
@@ -417,17 +417,17 @@ function runtime($report_id) {
 
 		//----- ERROR CHECK (3) -----
 		// Check whether start- and endpoint are part of future timestamps (Important for timespan "today")
-		if($f_sp > time()) {
+		if ($f_sp > time()) {
 			run_error(3, $report_id, $local_data_id);
 			continue;
 		}
-		if($f_ep > time()) {
+		if ($f_ep > time()) {
 			$f_ep	= time();
 			run_error(6, $report_id, $local_data_id);
 		}
 		If($l_ep > time()) {
 			$l_ep	= time();
-			if(!$dynamic) run_error(6, $report_id, $local_data_id);
+			if (!$dynamic) run_error(6, $report_id, $local_data_id);
 		}
 		//---------------------------
 
@@ -438,9 +438,9 @@ function runtime($report_id) {
 												: gmmktime($e_hour, $e_min, 0) - gmmktime($s_hour, $s_min, 0));
 
 		//----- run on demand update if Boost is enabled and cached data is part of the report period -----
-		if($boost_enabled) {
+		if ($boost_enabled) {
 			$boost_last_run_time = db_fetch_cell("SELECT UNIX_TIMESTAMP(value) FROM settings WHERE name = 'boost_last_run_time'");
-			if($l_ep > $boost_last_run_time) {
+			if ($l_ep > $boost_last_run_time) {
 				$output = boost_process_poller_output($boost_server_enabled, $local_data_id);
 				debug($output, "Boost on demand update for local_data_id $local_data_id");
 			}
@@ -457,20 +457,20 @@ function runtime($report_id) {
 			if (strlen($rrd_data[$rra_index]) == 0){
 				$cf = array_search($rra_index, $rra_types);
 				run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CF '$cf' does not match.");
-			}else {
+			} else {
 				$valid_rra_indexes[] = $rra_index;
 			}
 			debug($rrd_data[$rra_index], "RRDtool Cacti -> RRDfetch - Raw data");
 		}
 
 		// ----- Break up if we were not able to fetch any data -----
-		if(sizeof($valid_rra_indexes) == 0) {
+		if (cacti_sizeof($valid_rra_indexes) == 0) {
 			run_error(5, $report_id, $local_data_id, "Can not open rrdfile or CFs do not match.");
 			continue;
-		}else {
+		} else {
 			/* transform data that has not been fetch via the PHP based RRDtool API */
 			foreach($rrd_data as $rra_index => $data) {
-					if(in_array($rra_index, $valid_rra_indexes)) {
+					if (in_array($rra_index, $valid_rra_indexes)) {
 						transform( $data, $rrd_data[$rra_index], $report_definitions['template']);
 						debug($rrd_data[$rra_index], "Transformed RAW data");
 					}
@@ -495,7 +495,7 @@ function runtime($report_id) {
 
 		//----- ERROR CHECK (5) -----
 		// Check if startpoints are available
-		if($rrd_ad_data == false) {
+		if ($rrd_ad_data == false) {
 			run_error(7, $report_id, $local_data_id);
 			continue;
 		}
@@ -504,7 +504,7 @@ function runtime($report_id) {
 		//----- Calculate correction factor for data source type: 'COUNTER' -----
 		$corr_factor_start= 1;
 		$corr_factor_end  = 1;
-		if($ds_type == 2) {
+		if ($ds_type == 2) {
 			$corr_factor_start     = ($rrd_f_mp - $f_sp)/$rrd_step;
 			$corr_factor_end       = ($l_ep - $rrd_p_mp)/$rrd_step;
 		}
@@ -527,16 +527,16 @@ function runtime($report_id) {
 		$rrd_ds_cnt = count($rrd_ds_namv);
 
 		//----- Update variables and create calculating parameters -----
-		if($maxValue !== NULL && $maxValue != 0) {
-			if($maxValue > 0 & $maxValue < 4294967295) {
+		if ($maxValue !== NULL && $maxValue != 0) {
+			if ($maxValue > 0 & $maxValue < 4294967295) {
 				foreach ($report_definitions['ds_items'] as $key => $ds_name) {
 					$variables['maxValue:' . $ds_name] = $maxValue;
 				}
-			}elseif($maxValue == 4294967295 & $maxHighValue !== Null) {
+			} elseif ($maxValue == 4294967295 & $maxHighValue !== Null) {
 				foreach ($report_definitions['ds_items'] as $key => $ds_name) {
 					$variables['maxValue:' . $ds_name] = $maxHighValue*1000000;
 				}
-			}elseif($maxValue == 4294967295 & $maxHighValue === Null) {
+			} elseif ($maxValue == 4294967295 & $maxHighValue === Null) {
 
 				/* This is a 10G interface (or higher), but ifHighSpeed counter is not available.
 				Individual configured maximum per data source item will be preferred if it is higher than the maximum of the 32 Bit counter
@@ -549,7 +549,7 @@ function runtime($report_id) {
 				}
 			}
 
-		}else{
+		} else {
 			foreach ($report_definitions['maxRRDValues'] as $key => $array) {
 				$variables['maxValue:' . $report_definitions['ds_items'][$key]] = $array[$i]['maxRRDValue'];
 			}
@@ -565,7 +565,7 @@ function runtime($report_id) {
 
 		// add data query variables as new $variables[]
 		$data_query_variables = get_possible_data_query_variables($report_definitions['report']['template_id']);  # better put this into get_report_definitions???
-		if (sizeof($data_query_variables)){
+		if (cacti_sizeof($data_query_variables)){
 			// get all data for given local data id first
 			$sql = "SELECT `data_local`.* " .
 					"FROM `data_local` " .
@@ -584,7 +584,7 @@ function runtime($report_id) {
 					// and update the value for the given data query cache variable
 					$dq_variable_value = db_fetch_cell_prepared($sql,array($data_local['host_id'],$data_local['snmp_query_id'],$dq_variable,$data_local['snmp_index']));
 					$variables[$dq_variable] = ($dq_variable_value === false) ? REPORTIT_NAN : $dq_variable_value;
-				}else {
+				} else {
 					$variables[$dq_variable] = REPORTIT_NAN;
 				}
 			}
@@ -601,16 +601,16 @@ function runtime($report_id) {
 		/***************** Start calculation *****************/
 
 		//----- Create new columns for table 'rrd_results_$report_id' -----
-		if($create_result_table_columns == false) {
+		if ($create_result_table_columns == false) {
 			// Create the sql string
  			$list = '';
 
 			foreach($results as $key => $value) {
-			    if($key != '_spanned_') {
+			    if ($key != '_spanned_') {
 				foreach($value as $mea_key => $value) {
 				    $list .= " ADD `{$key}__$keys[$mea_key]` DOUBLE,";
 				}
-			    }else {
+			    } else {
 				foreach($value as $mea_key => $value) {
 				    $list .= " ADD `spanned__$keys[$mea_key]` DOUBLE,";
 				}
@@ -663,11 +663,11 @@ function runtime($report_id) {
  		$list = '';
 
 		foreach($results as $key => $value) {
-		    if($key != '_spanned_') {
+		    if ($key != '_spanned_') {
 			foreach($value as $mea_key => $value) {
 			    $list .= " `{$key}__$keys[$mea_key]` = $value,";
 			}
-		    }else {
+		    } else {
 			foreach($value as $mea_key => $value) {
 			    $list .= " `spanned__$keys[$mea_key]` = $value,";
 			}
@@ -681,7 +681,7 @@ function runtime($report_id) {
 	}
 
 	//----- Close socket connection if its open -----
-	if($socket_handle != '' && !$run_scheduled) disc_rrdtool_server();
+	if ($socket_handle != '' && !$run_scheduled) disc_rrdtool_server();
 
 	//----- Make a note of our endpoint -----
 	$runtime_ep = microtime();
@@ -691,7 +691,7 @@ function runtime($report_id) {
 
 
 	//----- ERROR CHECK (7) -----
-	if($valid_report != true){
+	if ($valid_report != true){
 		run_error(4, $report_id);
 		in_process($report_id, 0);
 		return $run_return;
@@ -714,27 +714,27 @@ function runtime($report_id) {
 	db_execute($sql);
 
 	//----- Archive / Email -----
-	if($run_scheduled) {
+	if ($run_scheduled) {
 		/* update the XML Archive */
-		if(read_config_option('reportit_archive') == 'on') {
+		if (read_config_option('reportit_archive') == 'on') {
 			update_xml_archive($report_id);
 		}
 
 		/* export report to custom format */
-		if(read_config_option('reportit_auto_export') == 'on'
+		if (read_config_option('reportit_auto_export') == 'on'
 			&& $report_definitions['report']['autoexport'] != 'None'
 			&& $report_definitions['report']['autoexport'] != '') {
 			$export = autoexport($report_id);
-			if($export) $export_counter++;
+			if ($export) $export_counter++;
 		}
 
 		/* create and send out an email */
-		if(read_config_option('reportit_email') == 'on') {
-			if($report_definitions['report']['auto_email'] == 'on') {
+		if (read_config_option('reportit_email') == 'on') {
+			if ($report_definitions['report']['auto_email'] == 'on') {
 				$error = send_scheduled_email($report_id);
-				if($error) {
+				if ($error) {
 					run_error(13, $report_id, 0, "EMAIL: $error");
-				}else {
+				} else {
 					$email_counter++;
 				}
 			}
@@ -768,7 +768,7 @@ function autorrdlist($reportid) {
 		$ht_desc = db_fetch_cell('SELECT name FROM host_template WHERE id=' . $report_data['host_template_id']);
 		$header_label = $header_label . ", using Host Template Filter: " . $ht_desc;
 	}
-	if (read_config_option("log_verbosity", TRUE) == POLLER_VERBOSITY_DEBUG) {
+	if (read_config_option("log_verbosity", true) == POLLER_VERBOSITY_DEBUG) {
 		cacti_log('Running AutoRRDList for Report: ' . $header_label, false, 'REPORTIT');
 	}
 
@@ -844,7 +844,7 @@ function autorrdlist($reportid) {
 	$number_of_matches = count($rrdlist);
 
 	if ($number_of_matches == 0) {
-		if (read_config_option("log_verbosity", TRUE) == POLLER_VERBOSITY_DEBUG) {
+		if (read_config_option("log_verbosity", true) == POLLER_VERBOSITY_DEBUG) {
 			cacti_log('Current Rows: ' . $current_rows . ' New Rows: ' . $number_of_matches . '. No Change required for Report ' . $reportid, false, 'REPORTIT');
 		}
 	} else {
@@ -853,7 +853,7 @@ function autorrdlist($reportid) {
 		if ($number_of_matches > $maxrrdchg) {
 			array_splice($rrdlist, $maxrrdchg);
 			/* reduce the number of data items to defined limitation */
-			if (read_config_option("log_verbosity", TRUE) == POLLER_VERBOSITY_DEBUG) {
+			if (read_config_option("log_verbosity", true) == POLLER_VERBOSITY_DEBUG) {
 				cacti_log('Current Rows: ' . $current_rows . ' New Rows: ' . $number_of_matches . ' Max. Change: ' . $maxrrdchg . ' mismatch. Auto-Generate RRD List Processing limited for Report ' . $reportid, false, 'REPORTIT');
 			}
 		}
@@ -868,20 +868,20 @@ function autorrdlist($reportid) {
 		$sql = "SELECT * FROM plugin_reportit_presets WHERE id = $reportid";
 		$presets = db_fetch_row($sql);
 
-		if(sizeof($presets)>0) {
+		if (cacti_sizeof($presets)>0) {
 			$presets['report_id'] = $reportid;
 			foreach($presets as $key => $value) {
 				$columns .= ', ' .$key;
-				if($key != 'id') $values .= (",\"" . $value . "\"");
+				if ($key != 'id') $values .= (",\"" . $value . "\"");
 			}
-		}else {
+		} else {
 			$columns = ' id, report_id';
 			$values .= ", \"$reportid\"";
 		}
 
 		foreach($rrdlist as $rd) {
 			$rrd .= "({$rd['id']} $values),";
-			if (read_config_option("log_verbosity", TRUE) == POLLER_VERBOSITY_DEBUG) {
+			if (read_config_option("log_verbosity", true) == POLLER_VERBOSITY_DEBUG) {
 				cacti_log('Adding Id: ' . $rd['id'] . ' to Report ' . $reportid, false, 'REPORTIT');
 			}
 		}
@@ -916,7 +916,7 @@ function autocleanup($report_id){
 
 	$data_items = db_custom_fetch_flat_string($sql);
 
-	if($data_items) {
+	if ($data_items) {
 		$sql = "DELETE FROM `plugin_reportit_data_items`
 				WHERE `plugin_reportit_data_items`.`report_id` = $report_id
 				AND `plugin_reportit_data_items`.`id` in ($data_items)";
@@ -933,9 +933,9 @@ function autoexport($report_id){
 
 	/* main export folder */
 	$main_folder = read_config_option('reportit_exp_folder');
-	if($main_folder != '') {
+	if ($main_folder != '') {
 		$main_folder .= (substr($main_folder, -1) == '/') ? '' : '/';
-	}else {
+	} else {
 		$main_folder = REPORTIT_EXP_FD;
 	}
 
@@ -950,14 +950,14 @@ function autoexport($report_id){
 
 
 	/* define the correct report folder */
-	if($template_folder != ''){
+	if ($template_folder != ''){
 
 		$template_folder .= (substr($template_folder, -1) == '/') ? '' : '/';
 		$report_folder = $template_folder . "$report_id/";
-	}else {
+	} else {
 
 		/* check if main export folder is available */
-		if(!is_dir($main_folder)) {
+		if (!is_dir($main_folder)) {
 			run_error(17, $report_id, 0, "Main export folder does not exist.");
 			return false;
 		}
@@ -967,27 +967,27 @@ function autoexport($report_id){
 	}
 
 	/* check if the template folder is available or try to create it */
-	if(!is_dir($template_folder)) {
+	if (!is_dir($template_folder)) {
 		run_error(16, $report_id, 0, "Export folder '$template_folder' does not exist.");
 
 		/* try to create that folder */
-		if(@mkdir($template_folder,0755) == false) {
+		if (@mkdir($template_folder,0755) == false) {
 			run_error(17, $report_id, 0, "Unable to create export folder '$template_folder'.");
 			return false;
-		}else {
+		} else {
 			run_error(16, $report_id, 0, "New export folder '$template_folder' created.");
 		}
 	}
 
 	/* check if report folder is available or try to create it*/
-	if(!is_dir($report_folder)) {
+	if (!is_dir($report_folder)) {
 		run_error(16, $report_id, 0, "Export folder '$report_folder' does not exist.");
 
 		/* try to create that folder */
-		if(@mkdir($report_folder,0755) == false) {
+		if (@mkdir($report_folder,0755) == false) {
 			run_error(17, $report_id, 0, "Unable to create export folder '$report_folder'.");
 			return false;
-		}else {
+		} else {
 			run_error(16, $report_id, 0, "New export folder '$report_folder' created.");
 		}
 	}
@@ -1000,7 +1000,7 @@ function autoexport($report_id){
 	$export_function   = "export_to_" . $file_format;
 
 	/* clean up the export folder if necessary */
-	if($report_settings['autoexport_max_records']) {
+	if ($report_settings['autoexport_max_records']) {
 		if ($path_handle = opendir($report_folder)) {
 
 			$file_format_lenght = strlen($file_format);
@@ -1014,33 +1014,33 @@ function autoexport($report_id){
 			}
 			ksort($files);
 			closedir($path_handle);
-			if(sizeof($files)> $report_settings['autoexport_max_records']) {
+			if (cacti_sizeof($files)> $report_settings['autoexport_max_records']) {
 				/* define the number of files that has to be dropped */
 				$num_of_drops = sizeof($files) - $report_settings['autoexport_max_records'] + 1;
 				$files = array_slice($files, 0, $num_of_drops);
 				foreach($files as $filename) {
-					if(!unlink($report_folder . $filename)) {
+					if (!unlink($report_folder . $filename)) {
 						run_error(17, $report_id, 0, "Unable to delete old export file.");
 					}
 				}
 			}
-		}else {
+		} else {
 			run_error(17, $report_id, 0, "Unable read export folder");
 		}
 	}
 
-	if(file_exists($report_path)) {
+	if (file_exists($report_path)) {
 		run_error(17, $report_id, 0, "Export $report_path still exists.");
 		return false;
-	}else {
+	} else {
 		$file_handle = fopen($report_path, 'a');
-		if(!$file_handle) {
+		if (!$file_handle) {
 			run_error(17, $report_id, 0, "Unable to create export file.");
 			return false;
 		}
 
 		/* load export data and write it into the export file */
-		if(function_exists($export_function)) {
+		if (function_exists($export_function)) {
 			$data = get_prepared_report_data($report_id,'export');
 			$data = $export_function($data);
 			fwrite($file_handle, $data);

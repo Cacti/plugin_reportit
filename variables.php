@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -130,21 +130,20 @@ function standard() {
 
 	html_header_checkbox($desc_array);
 
-	if (sizeof($variables_list) > 0) {
+	if (cacti_sizeof($variables_list) > 0) {
 		foreach($variables_list as $variable) {
-
 			$select_options_count = ($variable['input_type'] == 1) ? (($variable['max_value']-$variable['min_value'])/$variable['stepping'])+1 : false;
 			$select_options_class = '';
 			$icon = '';
 
-			if($select_options_count !== false) {
-				if($select_options_count <= 100) {
+			if ($select_options_count !== false) {
+				if ($select_options_count <= 100) {
 					$select_options_class = 'deviceUp';
 					$icon = 'fa-thumbs-up';
-				}else if($select_options_count <= 500) {
+				} else if ($select_options_count <= 500) {
 					$select_options_class = 'deviceDownMuted';
 					$icon = 'fa-thumbs-down';
-				}else {
+				} else {
 					$select_options_class = 'deviceDown';
 					$icon = 'fa-exclamation-triangle';
 				}
@@ -389,7 +388,7 @@ function variable_edit() {
 
 function form_actions() {
 	global $variable_actions, $config;
-	$error = FALSE;
+	$error = false;
 
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -432,7 +431,7 @@ function form_actions() {
 	top_header();
 
 	form_start('variables.php');
-	html_start_box($variable_actions{get_request_var('drp_action')}, '60%', '', '2', 'center', '');
+	html_start_box($variable_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
 	if (get_request_var('drp_action') == '1') { //DELETE REPORT
 		print "<tr>
@@ -472,7 +471,7 @@ function form_actions() {
 		print '</td>
 		</tr>';
 
-		if ($ds_list === false || empty($ds_list) || !is_array($ds_list) || $error == TRUE) {
+		if ($ds_list === false || empty($ds_list) || !is_array($ds_list) || $error == true) {
 			if ($error) {
 				print "<tr><td class='odd'><span class='textError'>" . __('There are one or more variables in use.', 'reportit') . '</span></td></tr>';
 			} else {

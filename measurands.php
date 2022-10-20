@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -101,7 +101,7 @@ function standard() {
 
 	html_header_checkbox($display_text);
 
-	if (sizeof($measurands_list)) {
+	if (cacti_sizeof($measurands_list)) {
 		foreach($measurands_list as $measurand) {
 			form_alternate_row('line' . $measurand['id'], true);
 			form_selectable_cell("<a class='linkEditMain' href='measurands.php?action=measurand_edit&id=" . $measurand['id'] . "'>" . $measurand['description'] . '</a>', $measurand['id']);
@@ -114,7 +114,7 @@ function standard() {
 			form_checkbox_cell($measurand['description'], $measurand['id']);
 			form_end_row();
 		}
-	}else {
+	} else {
 		print '<tr><td colspan="8"><em>' . __('No Measurands Found', 'reportit') . '</em></td></tr>';
 	}
 
@@ -199,7 +199,7 @@ function form_save() {
 				AND calc_formula LIKE '%$old%'",
 				array(get_request_var('template_id'), get_request_var('id')));
 
-			if (sizeof($dependencies)) {
+			if (cacti_sizeof($dependencies)) {
 				foreach($dependences as $key => $value) {
 					$value['calc_formula'] = str_replace($old, $new, $value['calc_formula']);
 					$dependences[$key]     = $value;
@@ -208,7 +208,7 @@ function form_save() {
 		}
 
 		//Check if interim results are used in other measurands
-		if(isset_request_var('measurand_spanned')) {
+		if (isset_request_var('measurand_spanned')) {
 			$count = db_fetch_cell_prepared("SELECT COUNT(*)
 				FROM plugin_reportit_measurands
 				WHERE template_id = ?
@@ -268,13 +268,12 @@ function measurand_edit() {
 			array(get_request_var('id')));
 
 		$header_label   = __('Measurand Configuration [edit: %s]', $measurand_data['description'], 'reportit');
-	}else {
+	} else {
 		$header_label   = __('Measurand Configuration [new]', 'reportit');
 	}
 
-	$measurand_id		= (isset_request_var('id') ? get_request_var('id') : '0');
-	$template_id		= (isset_request_var('template_id') ? get_request_var('template_id') : $measurand_data['template_id']);
-
+	$measurand_id = (isset_request_var('id') ? get_request_var('id') : '0');
+	$template_id  = (isset_request_var('template_id') ? get_request_var('template_id') : $measurand_data['template_id']);
 
 	$form_array = array(
 		'id'				=> array(
@@ -393,7 +392,7 @@ function measurand_edit() {
 
 		if ($('#measurand_type').val() in {0:'', 4:'', 5:'', 6:'', 7:''}) {
 			$('#measurand_rounding').prop('disabled', true);
-		}else {
+		} else {
 			$('#measurand_rounding').prop('disabled', false);
 		}
 	}
@@ -482,7 +481,7 @@ function form_actions() {
 	$ds_list = array(); $i = 0;
 
 	foreach($_POST as $key => $value) {
-		if(strstr($key, 'chk_')) {
+		if (strstr($key, 'chk_')) {
 			//Fetch report id
 			$id = substr($key, 4);
 			$measurand_ids[] = $id;
@@ -506,13 +505,12 @@ function form_actions() {
 
 	html_start_box($measurand_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
-
 	if (get_request_var('drp_action') == '2') { //DELETE REPORT
 		print "<tr class='odd'>
 			<td class='textArea'>
 				<p>" . __('Click \'Continue\' to Delete the following Measurands.  Notice: If there are no other Measurands left after this process, the Report Template will be locked automatically.', 'reportit') . '<p>';
 
-		if(is_array($ds_list)) {
+		if (is_array($ds_list)) {
 			print '<p>' . __('List of selected measurands:', 'reportit') . '</p>';
 			print '<ul>';
 			foreach($ds_list as $key => $value) {
@@ -520,6 +518,7 @@ function form_actions() {
 			}
 			print '</ul>';
 		}
+
 		print '</td>
 			</tr>';
 
@@ -531,7 +530,7 @@ function form_actions() {
 			</tr>';
 
 			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
-		}else {
+		} else {
 			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Measurands', 'reportit') . "'>";
 		}
 	}

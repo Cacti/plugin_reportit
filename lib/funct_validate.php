@@ -1,30 +1,30 @@
 <?php
 /*
-   +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2017 The Cacti Group                                 |
-   |                                                                         |
-   | This program is free software; you can redistribute it and/or           |
-   | modify it under the terms of the GNU General Public License             |
-   | as published by the Free Software Foundation; either version 2          |
-   | of the License, or (at your option) any later version.                  |
-   |                                                                         |
-   | This program is distributed in the hope that it will be useful,         |
-   | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
-   | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
-   | GNU General Public License for more details.                            |
-   +-------------------------------------------------------------------------+
-   | Cacti: The Complete RRDTool-based Graphing Solution                     |
-   +-------------------------------------------------------------------------+
-   | This code is designed, written, and maintained by the Cacti Group. See  |
-   | about.php and/or the AUTHORS file for specific developer information.   |
-   +-------------------------------------------------------------------------+
-   | http://www.cacti.net/                                                   |
-   +-------------------------------------------------------------------------+
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 include_once($config['base_path'] . '/lib/xml.php');
 
-$error = FALSE;
+$error = false;
 
 function last_error($errno, $errstr) {
 	global $error;
@@ -109,7 +109,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	foreach($invaldiv as $div) {
 		$position = strpos($debug, $div);
 
-		if ($position !== FALSE) {
+		if ($position !== false) {
 			return "Division by zero: <span style='color:blue'>$calc_formula<span>";
 		}
 	}
@@ -124,7 +124,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	foreach($invalids as $invalid) {
 		$position = strpos($debug, $invalid);
 
-		if ($position !== FALSE) {
+		if ($position !== false) {
 			return "Syntax error:  <span style='color:blue'>$calc_formula<span>";
 		}
 	}
@@ -134,7 +134,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 		$debug_w = $debug;
 		$position = strpos($debug_w, $key);
 
-		while($position !== FALSE) {
+		while($position !== false) {
 			foreach($valids as $valid) {
 				if (substr($debug_w, $position, strlen($valid)) != $valid) {
 					return "Syntax error w:  <span style='color:blue'>$calc_formula<span>";
@@ -150,7 +150,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	return 'VALID';
 }
 
-function die_html_custom_error($msg = '', $top_header = FALSE) {
+function die_html_custom_error($msg = '', $top_header = false) {
 	global $config;
 
 	$message = '';
@@ -221,7 +221,7 @@ function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside
 }
 
 function validate_xml_template_section(&$xml_template, $section, &$valid, &$checksum) {
-	//echo "validate_xml_template_section:start(xml_template, $section, $valid, $checksum)\n";
+	//print "validate_xml_template_section:start(xml_template, $section, $valid, $checksum)\n";
 	if ($valid) {
 		if (isset($xml_template->$section) && is_object($xml_template->$section)) {
 			$checksum .= xml_to_string($xml_template->$section, false);
@@ -230,12 +230,12 @@ function validate_xml_template_section(&$xml_template, $section, &$valid, &$chec
 		}
 	}
 
-	//echo "validate_xml_template_section:end  (xml_template, $section, $valid, $checksum)\n";
+	//print "validate_xml_template_section:end  (xml_template, $section, $valid, $checksum)\n";
 	return $valid;
 }
 
 function validate_xml_template(&$xml_template, &$valid, &$checksum) {
-	//echo "validate_xml_template:begin(xml_template, $valid, $checksum)\n";
+	//print "validate_xml_template:begin(xml_template, $valid, $checksum)\n";
 	if (isset($xml_template->reportit) && is_object($xml_template->reportit)) {
 		$count =0;
 		// Loop through the values of the first reportit element (there should be only one)
@@ -261,7 +261,7 @@ function validate_xml_template(&$xml_template, &$valid, &$checksum) {
 	if (isset($hash)) {
 		$xml_template->reportit->hash = $hash;
 	}
-	//echo "validate_xml_template:end  (report_template, $valid, $checksum)\n";
+	//print "validate_xml_template:end  (report_template, $valid, $checksum)\n";
 }
 
 function validate_uploaded_templates(){
@@ -271,25 +271,25 @@ function validate_uploaded_templates(){
 		if ($_FILES['file']['error'] != 0) {
 			switch ($_FILES['file']['error']) {
 			case 1:
-				session_custom_error_message('file', __('The file is to big.'), false);
+				session_custom_error_message('file', __('The file is to big.', 'reportit'), false);
 				break;
 			case 2:
-				session_custom_error_message('file', __('The file is to big.'), false);
+				session_custom_error_message('file', __('The file is to big.', 'reportit'), false);
 				break;
 			case 3:
-				session_custom_error_message('file', __('Incomplete file transfer.'), false);
+				session_custom_error_message('file', __('Incomplete file transfer.', 'reportit'), false);
 				break;
 			case 4:
-				session_custom_error_message('file', __('No file uploaded.'), false);
+				session_custom_error_message('file', __('No file uploaded.', 'reportit'), false);
 				break;
 			case 6:
-				session_custom_error_message('file', __('Temporary folder missing.'), false);
+				session_custom_error_message('file', __('Temporary folder missing.', 'reportit'), false);
 				break;
 			case 7:
-				session_custom_error_message('file', __('Failed to write file to disk'), false);
+				session_custom_error_message('file', __('Failed to write file to disk', 'reportit'), false);
 				break;
 			case 8:
-				session_custom_error_message('file', __('File upload stopped by extension'), false);
+				session_custom_error_message('file', __('File upload stopped by extension', 'reportit'), false);
 				break;
 			}
 
@@ -300,13 +300,13 @@ function validate_uploaded_templates(){
 
 		/* check mine type of the uploaded file */
 		if ($_FILES['file']['type'] != 'text/xml') {
-			session_custom_error_message('file', __('Invalid file extension.'), false);
+			session_custom_error_message('file', __('Invalid file extension.', 'reportit'), false);
 			return false;
 		}
 
 		$template_data = file_get_contents($_FILES['file']['tmp_name']);
 	} else {
-		session_custom_error_message('file', __('No file uploaded.'), false);
+		session_custom_error_message('file', __('No file uploaded.', 'reportit'), false);
 		return false;
 	}
 
@@ -318,7 +318,7 @@ function validate_uploaded_templates(){
 	$compatible = false;
 
 	if (!is_object($xmldata)) {
-		session_custom_error_message('file', __('Unable to parse template file.'));
+		session_custom_error_message('file', __('Unable to parse template file.', 'reportit'));
 	} else {
 		/* generate a hash to check the data structure and to find changes */
 		$report_count = 0;
@@ -331,8 +331,8 @@ function validate_uploaded_templates(){
 			validate_xml_template($report_template, $valid, $checksum);
 
 			if ($hash == false | $hash !== md5($checksum) | $valid === false) {
-				echo __('Checksum error with Template %s in XML file', $report_count) . PHP_EOL;
-				session_custom_error_message('file', __('Checksum error with Template %s in XML file', $report_count), false);
+				print __('Checksum error with Template %s in XML file', $report_count, 'reportit') . PHP_EOL;
+				session_custom_error_message('file', __('Checksum error with Template %s in XML file', $report_count, 'reportit'), false);
 				return false;
 			}
 

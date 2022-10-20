@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -184,16 +184,36 @@ function standard() {
 		WHERE id = ?',
 		array(get_request_var('id')));
 
-	$header_label = __('Data Items [Report: %s %s [%d]', "<a href='reports.php?action=report_edit&id=" . get_request_var('id') . '\'>', $report_data['0']['description'] . ']</a>', $total_rows);
+	$header_label = __('Data Items [Report: %s %s [%d]', "<a href='reports.php?action=report_edit&id=" . get_request_var('id') . '\'>', $report_data['0']['description'] . ']</a>', $total_rows, 'reportit');
 
 	/* define subheader description */
 	$desc_array = array(
-		'id'                   => array('display' => __('ID'),          'sort' => 'ASC',  'align' => 'left'),
-		'name_cache'           => array('display' => __('Data Item Name'), 'sort' => 'ASC',  'align' => 'left'),
-		'description'          => array('display' => __('Subhead'),     'sort' => 'ASC',  'align' => 'left'),
-		'nosort1'              => array('display' => __('Shifttime (from - to)')),
-		'nosort2'              => array('display' => __('Weekdays (from - to)')),
-		'timezone'             => array('display' => __('Time Zone'),   'sort' => 'ASC',  'align' => 'left'),
+		'id' => array(
+			'display' => __('ID', 'reportit'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'name_cache' => array(
+			'display' => __('Data Item Name', 'reportit'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'description' => array(
+			'display' => __('Subhead', 'reportit'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'nosort1' => array(
+			'display' => __('Shifttime (from - to)', 'reportit')
+		),
+		'nosort2' => array(
+			'display' => __('Weekdays (from - to)', 'reportit')
+		),
+		'timezone' => array(
+			'display' => __('Time Zone', 'reportit'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
 	);
 
 	/* start with HTML output */
@@ -206,19 +226,19 @@ function standard() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'reportit');?>
 					</td>
 					<td width='1'>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('RRDs');?>
+						<?php print __('RRDs', 'reportit');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default', 'reportit');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 								}
@@ -268,19 +288,19 @@ function standard() {
 
 	html_end_box();
 
-	$nav = html_nav_bar('rrdlist.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Items'), 'page', 'main');
+	$nav = html_nav_bar('rrdlist.php?id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Items', 'reportit'), 'page', 'main');
 
 	print $nav;
 	form_start('rrdlist.php?id=' . get_request_var('id'));
 	html_start_box('', '100%', '', '3', 'center', '');
 	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'rrdlist.php?id=' . get_request_var('id'));
 
-	if (sizeof($rrdlist)) {
+	if (cacti_sizeof($rrdlist)) {
 		foreach($rrdlist as $rrd) {
 			form_alternate_row( 'line' . $rrd['id'], true );
 			form_selectable_cell( $rrd['id'], $rrd['id']);
 			if ($rrd['name_cache'] == NULL) {
-				form_selectable_cell(__('Does not exist anymore'), $rrd['id']);
+				form_selectable_cell(__('Does not exist anymore', 'reportit'), $rrd['id']);
 			} else {
 				form_selectable_cell("<a class='linkEditMain'
 						href='rrdlist.php?action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id') . "'>"
@@ -293,16 +313,16 @@ function standard() {
 			form_selectable_cell($rrd['start_time'] . ' - ' . $rrd['end_time'], $rrd['id']);
 			form_selectable_cell($rrd['start_day']  . ' - ' . $rrd['end_day'],  $rrd['id']);
 			form_selectable_cell($rrd['timezone'], $rrd['id']);
-			form_checkbox_cell(__('Select'), $rrd['id']);
+			form_checkbox_cell(__('Select', 'reportit'), $rrd['id']);
 			form_end_row();
 		}
 	} else {
-		print "<tr><td colspan='6'><em>" . __('No data items found') . "</em></td></tr>";
+		print "<tr><td colspan='6'><em>" . __('No data items found', 'reportit') . "</em></td></tr>";
 	}
 
 	html_end_box(true);
 
-	if (sizeof($rrdlist)) {
+	if (cacti_sizeof($rrdlist)) {
 		print $nav;
 	}
 	draw_actions_dropdown($rrdlist_actions);
@@ -343,12 +363,12 @@ function rrdlist_edit() {
 
 	$form_array = array(
 		'rrdlist_header1' => array(
-			'friendly_name' => __('General'),
+			'friendly_name' => __('General', 'reportit'),
 			'method' => 'spacer'
 		),
 		'rrdlist_subhead' => array(
-			'friendly_name' => __('Subhead (optional)'),
-			'description' => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\''),
+			'friendly_name' => __('Subhead (optional)', 'reportit'),
+			'description' => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\'', 'reportit'),
 			'method' => 'textarea',
 			'textarea_rows'	 => '2',
 			'textarea_cols' => '45',
@@ -359,8 +379,8 @@ function rrdlist_edit() {
 
 	if ($enable_tmz) {
 		$rrdlist_timezone = array(
-			'friendly_name' => __('Time Zone'),
-			'description' => __('Select the time zone your following shifttime informations will be based on.'),
+			'friendly_name' => __('Time Zone', 'reportit'),
+			'description' => __('Select the time zone your following shifttime informations will be based on.', 'reportit'),
 			'method' => 'drop_array',
 			'default' => '17',
 			'value' => array_search($rrdlist_data['timezone'], $timezone),
@@ -379,20 +399,20 @@ function rrdlist_edit() {
 
 	$shift_array = array(
 		'rrdlist_header2' => array(
-			'friendly_name' => __('Working Time'),
+			'friendly_name' => __('Working Time', 'reportit'),
 			'method' => 'spacer',
 		),
 		'rrdlist_shifttime_start' => array(
-			'friendly_name' => __('From'),
-			'description' => __('The startpoint of duration you want to analyse'),
+			'friendly_name' => __('From', 'reportit'),
+			'description' => __('The startpoint of duration you want to analyse', 'reportit'),
 			'method' => 'drop_array',
 			'default' => '0',
 			'value' => array_search($rrdlist_data['start_time'], $shifttime),
 			'array' => $shifttime
 		),
 		'rrdlist_shifttime_end' => array(
-			'friendly_name' => __('To'),
-			'description' => __('The end of analysing time.'),
+			'friendly_name' => __('To', 'reportit'),
+			'description' => __('The end of analysing time.', 'reportit'),
 			'method' => 'drop_array',
 			'default' => '287',
 			'value' => array_search($rrdlist_data['end_time'], $shifttime2),
@@ -417,19 +437,19 @@ function rrdlist_edit() {
 
 	$weekday_array = array(
 		'rrdlist_header3' => array(
-			'friendly_name' => __('Working Days'),
+			'friendly_name' => __('Working Days', 'reportit'),
 			'method' => 'spacer',
 		),
 		'rrdlist_weekday_start' => array(
-			'friendly_name' => __('From'),
-			'description' => __('Define the band of days where shift STARTS!'),
+			'friendly_name' => __('From', 'reportit'),
+			'description' => __('Define the band of days where shift STARTS!', 'reportit'),
 			'method' => 'drop_array',
 			'value' => array_search($rrdlist_data['start_day'], $weekday),
 			'array' => $weekday
 		),
 		'rrdlist_weekday_end' => array(
-			'friendly_name' => __('To'),
-			'description' => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday'),
+			'friendly_name' => __('To', 'reportit'),
+			'description' => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday', 'reportit'),
 			'method' => 'drop_array',
 			'value' => array_search($rrdlist_data['end_day'], $weekday),
 			'array' => $weekday
@@ -460,7 +480,7 @@ function form_actions() {
 				AND ' . array_to_sql_or($selected_items, 'id'),
 				array(get_request_var('id')));
 
-			if (sizeof($rrdlist_datas)) {
+			if (cacti_sizeof($rrdlist_datas)) {
 				foreach ($rrdlist_datas as $rrdlist_data) {
 					db_execute_prepared('DELETE FROM plugin_reportit_data_items
 						WHERE report_id = ?
@@ -470,7 +490,7 @@ function form_actions() {
 					reset_report(get_request_var('id'));
 				}
 			}
-		}elseif (get_request_var('drp_action') == '2') { //Copy RRD's reference settings to all other RRDs
+		} elseif (get_request_var('drp_action') == '2') { //Copy RRD's reference settings to all other RRDs
 			$reference_items = unserialize(stripslashes(get_request_var('reference_items')));
 
 			db_execute_prepared("UPDATE plugin_reportit_data_items
@@ -524,22 +544,22 @@ function form_actions() {
 	top_header();
 	form_start('rrdlist.php?id=' . get_request_var('id'));
 
-	html_start_box($rrdlist_actions{get_request_var('drp_action')}, '60%', '', '2', 'center', '');
+	html_start_box($rrdlist_actions[get_request_var('drp_action')], '60%', '', '2', 'center', '');
 
 	if (get_request_var('drp_action') == '1') { //DELETE REPORT
 		print "<tr><td class='textArea'>
-			<p>" . __('Click \'Continue\' to Remove the following Data Items.') . '</p>';
+			<p>" . __('Click \'Continue\' to Remove the following Data Items.', 'reportit') . '</p>';
 
 		if (is_array($ds_list)) {
-			print	'<p>' . __('List of selected data items:') . '<br>';
+			print	'<p>' . __('List of selected data items:', 'reportit') . '<br>';
 
 			foreach($ds_list as $key => $value) {
-				print __('&#160 |_Data Item : %s<br>', $value);
+				print __('&#160 |_Data Item : %s<br>', $value, 'reportit');
 			}
 		}
 
 		print '</td></tr>';
-	}elseif (get_request_var('drp_action') == '2') {
+	} elseif (get_request_var('drp_action') == '2') {
 		// Copy the settings from selected RRD to all
 		//Select the first selected checkbox as reference. The others will be ignored.
 		//Fetch first's settings
@@ -554,25 +574,25 @@ function form_actions() {
 				array($rrd_ids[0], get_request_var('id')));
 
 			print "<tr><td class='textArea'>
-				<p>" . __('Click \'Continue\' to Copy the Settings to the other Data Items') . '</p>';
+				<p>" . __('Click \'Continue\' to Copy the Settings to the other Data Items', 'reportit') . '</p>';
 
-			print __('Selected data item as reference:');
+			print __('Selected data item as reference:', 'reportit');
 			print '<b><br>&#160' . $rrd_settings[0]['name_cache'] . '</b><p></p>';
-			print __('Time Zone:') . '<br>&#160 <b>' . $rrd_settings[0]['timezone'] . '</b><p></p>';
-			print __('Weekdays:')  . '<br>&#160 <b>' . ($rrd_settings[0]['start_day'] . '-' . $rrd_settings[0]['end_day'])   . '</b><p></p>';
-			print __('Shifttime:') . '<br>&#160 <b>' . ($rrd_settings[0]['start_time'] . '-' . $rrd_settings[0]['end_time']) . '</b><p></p>';
+			print __('Time Zone:', 'reportit') . '<br>&#160 <b>' . $rrd_settings[0]['timezone'] . '</b><p></p>';
+			print __('Weekdays:', 'reportit')  . '<br>&#160 <b>' . ($rrd_settings[0]['start_day'] . '-' . $rrd_settings[0]['end_day'])   . '</b><p></p>';
+			print __('Shifttime:', 'reportit') . '<br>&#160 <b>' . ($rrd_settings[0]['start_time'] . '-' . $rrd_settings[0]['end_time']) . '</b><p></p>';
 
 			print '</td></tr>';
 		}
 	}
 
 	if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
-		print "<tr><td class='odd''><span class='textError'>" . __('You must select at least one Report.') . '</span></td></tr>';
+		print "<tr><td class='odd''><span class='textError'>" . __('You must select at least one Report.', 'reportit') . '</span></td></tr>';
 
-		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>";
+		$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 	} else {
-		$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;
-			<input type='submit' value='" . __('Continue') . "'>";
+		$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;
+			<input type='submit' value='" . __('Continue', 'reportit') . "'>";
 	}
 
 	print "<tr>

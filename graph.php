@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -39,7 +39,6 @@ require_once(REPORTIT_BASE_PATH . '/include/vendor/phpgraphlib/phpgraphlib.php')
 /* start with graphing */
 create_chart();
 
-
 function create_chart(){
 	global $config, $types, $prefixes;
 
@@ -47,12 +46,12 @@ function create_chart(){
 	include_once(REPORTIT_BASE_PATH . '/lib/const_graphs.php');
 	/* ================= Input validation ================= */
 	input_validate_input_number(get_request_var("id"));
-	if(!isset_request_var('source')) exit;
+	if (!isset_request_var('source')) exit;
 	input_validate_input_key(get_request_var("type"), $types, true);
 	/* ==================================================== */
 
 	/* ==================== checkpoint ==================== */
-	my_report(get_request_var('id'), TRUE);
+	my_report(get_request_var('id'), true);
 	/* ==================================================== */
 
 	/* clean up source string */
@@ -60,6 +59,7 @@ function create_chart(){
 
 	/* load session values */
 	$id = (read_graph_config_option('reportit_view_filter') == 'on') ? get_request_var('id') : '';
+
 	load_current_session_value("type", "sess_reportit_show_{$id}_type", read_graph_config_option('reportit_g_default', '-10'));
 	load_current_session_value("filter", "sess_reportit_show_{$id}_filter", "");
 	load_current_session_value("archive", "sess_reportit_show_{$id}_archive", "-1");
@@ -86,7 +86,7 @@ function create_chart(){
 		//MBV: cacti_log('REPORTIT: ' . $sql);
 		$data = get_prepared_report_data(get_request_var('id'),'graidle', $sql);
 		//MBV: cacti_log('REPORTIT: ' . var_export($data, true));
-	}else {
+	} else {
 		$sql = "SELECT a." . get_request_var('source') . ", c.name_cache
 				FROM plugin_reportit_tmp_$cache_id AS a
 				WHERE a.name_cache ". $affix;
@@ -118,7 +118,7 @@ function create_chart(){
 			$x_values[] = $i;
 			$i++;
 		}
-		if($rounding) {
+		if ($rounding) {
 			$exponent = auto_rounding($results, $rounding, $order);
 			if (array_key_exists($exponent, $prefixes[$rounding])) {
 				$prefix = $prefixes[$rounding][$exponent];
@@ -142,26 +142,26 @@ function create_chart(){
 	$width  = (read_config_option('reportit_g_mwidth') < read_graph_config_option('reportit_g_width'))
 			? read_config_option('reportit_g_mwidth')
 			: read_graph_config_option('reportit_g_width');
-	if($width < 100) $width = 1024;
+	if ($width < 100) $width = 1024;
 
 	$height = (read_config_option('reportit_g_mheight') < read_graph_config_option('reportit_g_height'))
 			? read_config_option('reportit_g_mheight')
 			: read_graph_config_option('reportit_g_height');
-	if($height < 100) $height = 768;
+	if ($height < 100) $height = 768;
 
 	/* load Graidle */
 	$chart = new PHPGraphLib($width, $height);
 	$chart->setTitle($title);
 
 	/* define the title for the axis */
-	if(isset($type['x_axis'])) {
+	if (isset($type['x_axis'])) {
 		$x_title = ($type['x_axis']=='1')
 				 ?  "{$data['report_measurands'][$source[1]]['abbreviation']}"
 				   ."[$prefix{$data['report_measurands'][$source[1]]['unit']}]"
 				 : $type['x_axis'];
 		//TODO: $chart->setXtitle($x_title);
 	}
-	if(isset($type['y_axis'])) {
+	if (isset($type['y_axis'])) {
 		$y_title = ($type['y_axis']=='1')
 				 ?  "{$data['report_measurands'][$source[1]]['abbreviation']}"
 				   ."[$prefix{$data['report_measurands'][$source[1]]['unit']}]"
@@ -169,19 +169,18 @@ function create_chart(){
 		//TODO: $chart->setYtitle($y_title);
 	}
 
-	//TODO: if(isset($type['filled'])) $chart->setFilled();
-	//TODO: if(isset($type['x_value']))
+	//TODO: if (isset($type['filled'])) $chart->setFilled();
+	//TODO: if (isset($type['x_value']))
 	//MBV: cacti_log('REPORTIT: ' . var_export($results, true));
 	//$chart->setXValues(false);
 	$chart->addData($results);
 
 	//TODO: $chart->setMulticolor();
 	/* workaround to avoid loops in Graidle with Hbar and Spider charts */
-	//if(array_sum($results)== 0 & ($type['name'] == 'hb' | $type['name'] == 's')) return;
+	//if (array_sum($results)== 0 & ($type['name'] == 'hb' | $type['name'] == 's')) return;
 	//TODO: $chart->setValue($results, $type['name']);
 	//TODO: $chart->setExtLegend(0);
 	$chart->createGraph();
 	//TODO: $chart->carry();
 }
 
-?>
