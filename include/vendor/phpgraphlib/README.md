@@ -48,3 +48,6 @@ Example](http://www.ebrueggeman.com/sites/www.ebrueggeman.com/files/images/examp
 
 ![Stacked Graph
 Example](http://www.ebrueggeman.com/sites/www.ebrueggeman.com/files/images/stacked-graph-example-2.png)
+
+-----------------------------------------------
+Copyright (c) 2004-2023 - The Cacti Group, Inc.

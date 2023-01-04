@@ -56,7 +56,7 @@ Therefore you can use uninstall.php.
 Optional: To use the full set of ReportIt's functionalities additional
 extensions are required
 
-* Fast report generation:  PHP extension "php_rrdtool"
+* Fast report generation: PHP extension "php_rrdtool"
 
 ## Installation
 
@@ -137,6 +137,7 @@ community.  After that you should open a feature request on
 
 * issue#79: Issue adding recipient whilst the optional field is empty
 
+
 --- 1.1.2 ---
 
 * issue: Errors reported by rrdlist.php when plugin disabled
@@ -171,8 +172,12 @@ community.  After that you should open a feature request on
 Note: This version uses @netniV's forked version of PHPGraphLib both of which
 released under the MIT license for open source usage.
 
-@netniV's Fork: [https://github.com/netniv/phpgraphlib/](https://github.com/netniv/phpgraphlib/)
-@elliottb's Original: [https://github.com/elliottb/phpgraphlib/](https://github.com/elliottb/phpgraphlib)
+@netniV's Fork:
+[https://github.com/netniv/phpgraphlib/](https://github.com/netniv/phpgraphlib/)
+
+@elliottb's Original:
+[https://github.com/elliottb/phpgraphlib/](https://github.com/elliottb/phpgraphlib)
+
 
 --- 1.1.1 ---
 
@@ -181,6 +186,7 @@ released under the MIT license for open source usage.
 * issue#58: REPORTIT_BASE_PATH is not defined when PLUGIN is disabled
 
 * Feature: Add shutdown handler to report last formula used
+
 
 --- 1.1.0 ---
 
@@ -202,6 +208,7 @@ released under the MIT license for open source usage.
 
 * feature: Allow multiple report templates to be imported at once
 
+
 --- 1.0.3 ---
 
 * issue#39: Data Source combo appears in wrong location when creating new Report
@@ -211,6 +218,7 @@ released under the MIT license for open source usage.
 
 * issue#44: Message should be clearer when unable to add a report due to no
   templates available
+
 
 --- 1.0.2 ---
 
@@ -224,18 +232,22 @@ released under the MIT license for open source usage.
 
 * issue#41: When creating a new Report Template, save fails and loses all data
 
+
 --- 1.0.1 ---
 
 * issue#2: Suppress display of 'Constant MAX_DISPLAY_PAGES is already defined'
+
 
 --- 1.0.0 ---
 
 * feature: Support for Cacti 1.x
 
+
 --- 0.7.5 ---
 
 * feature: Data Query Variables: List all available data query variables for use
   with a formula
+
 
 --- 0.7.4 ---
 
@@ -248,7 +260,9 @@ released under the MIT license for open source usage.
 
 * bug#00121: Remove invalid test code.
 
-* bug#00120: Fix issues with 10G interfaces if ifHighSpeed counter is not available.
+* bug#00120: Fix issues with 10G interfaces if ifHighSpeed counter is not
+  available.
+
 
 --- 0.7.3 ---
 
@@ -280,6 +294,7 @@ released under the MIT license for open source usage.
 * bug#00114: Debug file shows wrong memory usage information if memory limit is
   undefined.
 
+
 --- 0.7.2 ---
 
 * feature: Extend data formatting by different data types (e.g. BIN, FLOAT, INT,
@@ -309,6 +324,7 @@ released under the MIT license for open source usage.
 
 * bug#00109: Copyright updated
 
+
 --- 0.7.1 ---
 
 * bug#00108: New contact address added to VERSION and README
@@ -329,6 +345,7 @@ released under the MIT license for open source usage.
 * bug#00101: Calculation process will cause issues if DST change occurs
 
 * bug#00100: Missing indexes avoid saving individual configuration of data items
+
 
 --- 0.7.0 ---
 
@@ -390,6 +407,7 @@ released under the MIT license for open source usage.
 
 * bug#00090: SQL issue could case invalid list of data items if graph
   permissions are enabled.
+
 
 --- 0.6.1 ---
 
@@ -462,6 +480,7 @@ released under the MIT license for open source usage.
 
 * bug#00068: Guest user can not view reports although permissions are correct
 
+
 --- 0.6.0 ---
 
 * feature: Scheduled reports can be emailed to a defined list of recipients
@@ -518,6 +537,7 @@ released under the MIT license for open source usage.
 * bug#00058: Security check for export process is missing
 
 * bug#00057: Incorrect width displayed with Cacti 0.8.7 and above
+
 
 --- 0.5.1 ---
 
@@ -673,6 +693,7 @@ released under the MIT license for open source usage.
 
 * bug#00020: Strip graphing code down to a single procedure
 
+
 --- 0.5.0 ---
 
 * feature: Create Bar Charts and Pie Charts from reports
@@ -691,12 +712,14 @@ released under the MIT license for open source usage.
 
 * feature: Reports selected from the Reports Tab will show timeframe in headers
 
+
 --- 0.4.1 ---
 
 * bug#00019: Template/Report Configuration: Issues with Javascript and
   Mozilla/Firefox
 
 * bug#00018: Wrong decimal separator
+
 
 --- 0.4.0 ---
 
@@ -729,12 +752,14 @@ released under the MIT license for open source usage.
 * bug#00014: Wrong timestamps with PHP's function "gmmktime()" when Server is
   not set to UTC/GMT
 
+
 --- 0.3.2 ---
 
 * bug#00013: Call of the calculation functions changed from pass by reference to
   call by reference
 
 * bug#00012: Missing server variable "SCRIPT_FILENAME" in runtime.php
+
 
 --- 0.3.1 ---
 
@@ -744,6 +769,7 @@ released under the MIT license for open source usage.
   (settings/reports)
 
 * bug#00009: Seperate sub folder for export files
+
 
 --- 0.3.0 ---
 
@@ -776,3 +802,6 @@ released under the MIT license for open source usage.
 * bug#00002: Wrong results by RRD-files with a lot of NAN's
 
 * bug#00001: "24:00:00" added to working time
+
+-----------------------------------------------
+Copyright (c) 2004-2023 - The Cacti Group, Inc.
