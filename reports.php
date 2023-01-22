@@ -82,7 +82,10 @@ function report_wizard() {
 		FROM plugin_reportit_templates
 		WHERE NOT (`locked` = '' AND `enabled` = 'on') ORDER BY description");
 
-	if (isset($_SESSION['reportit'])) unset($_SESSION['reportit']);
+	if (isset($_SESSION['reportit'])) {
+		unset($_SESSION['reportit']);
+	}
+
 	form_start('reports.php');
 
 	html_start_box(__('New Report', 'reportit'), '60%', '', '3', 'center', '');
@@ -111,7 +114,6 @@ function report_wizard() {
 	}
 
 	print "<tr>
-
 		<td class='saveRow' colspan='2'>
 			<input type='hidden' name='action' value='report_edit'>
 			$save_html
