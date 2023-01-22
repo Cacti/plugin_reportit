@@ -42,29 +42,35 @@ set_default_action();
 switch (get_request_var('action')) {
 	case 'actions':
 		form_actions();
+
 		break;
 	case 'report_edit':
 		top_header();
 		report_edit();
 		bottom_footer();
+
 		break;
 	case 'report_add':
 		top_header();
 		report_wizard();
 		bottom_footer();
+
 		break;
 	case 'recipient_add':
 		$add_recipients = true;
 	case 'save':
 		form_save();
+
 		break;
 	case 'remove':
 		remove_recipient();
+
 		break;
 	default:
 		top_header();
 		standard();
 		bottom_footer();
+
 		break;
 }
 
