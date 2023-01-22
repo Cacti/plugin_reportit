@@ -350,11 +350,6 @@ function reportit_config_arrays() {
 
 	reportit_define_constants();
 
-	/* register all realms of ReportIt */
-	api_plugin_register_realm('reportit', 'view.php,charts.php', __('View Reports'), 1);
-	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', __('Create Reports'), 1);
-	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', __('Administrate Reports'), 1);
-
 	if (function_exists('auth_augment_roles')) {
 		auth_augment_roles(__('System Administration'), array('templates.php', 'measurands.php', 'variables.php'));
 		auth_augment_roles(__('General Administration'), array('reports.php', 'rrdlist.php', 'items.php', 'run.php'));

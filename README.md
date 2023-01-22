@@ -119,6 +119,10 @@ community.  After that you should open a feature request on
 
 ## Changelog
 
+--- develop ---
+
+* issue: ReportIt constantly attempting to register realms
+
 --- 1.1.3 ---
 
 * issue#37: When adding a new template, changing the drop down box and clicking
