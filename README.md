@@ -123,6 +123,8 @@ community.  After that you should open a feature request on
 
 * issue: ReportIt constantly attempting to register realms
 
+* feature: Message more elegantly when there are no Report Templates.
+
 --- 1.1.3 ---
 
 * issue#37: When adding a new template, changing the drop down box and clicking

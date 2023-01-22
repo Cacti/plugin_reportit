@@ -88,12 +88,9 @@ function report_wizard() {
 	html_start_box(__('New Report', 'reportit'), '60%', '', '3', 'center', '');
 
 	if (cacti_sizeof($templates_list) == 0) {
-		print "<tr class='even'>
-			<td>
-				<p><span class='textError'>" . __('There are no unlocked and enabled report templates available (%s locked or disabled).', $templates_locked, 'reportit') . "</span></p>
-			</td>
-		</tr>";
-		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reports.php\")'>";
+		raise_message('no_unlocked', __('There are no unlocked and enabled report templates available (%s locked or disabled).', $templates_locked, 'reportit'), MESSAGE_LEVEL_ERROR);
+		header('Location: reports.php');
+		exit;
 	} else {
 		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reports.php\")'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Create a new report', 'reportit') . "'>";
 
@@ -124,8 +121,6 @@ function report_wizard() {
 	html_end_box();
 
 	form_end();
-
-
 }
 
 function report_filter() {
