@@ -345,15 +345,49 @@ function standard() {
 	$report_list = db_fetch_assoc($sql);
 
 	$desc_array = array(
-		'id'                   => array('display' => __('Id'),          'sort' => 'ASC',  'align' => 'left'),
-		'description'          => array('display' => __('Name'), 'sort' => 'ASC',  'align' => 'left'),
-		'nosort0'              => array('display' => __("Period %s from - to", $tmz)),
-		'state'                => array('display' => __('State', 'reportit'), 'sort' => 'ASC',  'align' => 'left'),
-		'last_run'             => array('display' => __('Last run %s', $tmz, 'reportit'), 'sort' => 'ASC',  'align' => 'left'),
-		'runtime'              => array('display' => __('Runtime [s]', 'reportit'), 'sort' => 'ASC',  'align' => 'right'),
-		'public'               => array('display' => __('Public'),      'sort' => 'ASC',  'align' => 'left'),
-		'scheduled'            => array('display' => __('Scheduled'),   'sort' => 'ASC',  'align' => 'left'),
-		'ds_cnt'               => array('display' => __('Data Items'),  'sort' => 'DESC', 'align' => 'right'),
+		'id' => array(
+			'display' => __('Id'),
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		),
+		'description' => array(
+			'display' => __('Name'),
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		),
+		'nosort0' => array(
+			'display' => __("Period %s from - to", $tmz)
+		),
+		'state' => array(
+			'display' => __('State', 'reportit'),
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		),
+		'last_run' => array(
+			'display' => __('Last run %s', $tmz, 'reportit'),
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		),
+		'runtime' => array(
+			'display' => __('Runtime [s]', 'reportit'),
+			'sort'    => 'ASC',
+			'align'   => 'right'
+		),
+		'public' => array(
+			'display' => __('Public'),
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		),
+		'scheduled' => array(
+			'display' => __('Scheduled'),
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		),
+		'ds_cnt' => array(
+			'display' => __('Data Items'),
+			'sort'    => 'DESC',
+			'align'   => 'right'
+		),
 	);
 
 	/* start with HTML output */
@@ -361,8 +395,11 @@ function standard() {
 
 	$nav = html_nav_bar('reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports'), 'page', 'main');
 	print $nav;
+
 	form_start('reports.php');
+
 	html_start_box('', '100%', '', '3', 'center', '');
+
 	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
 
 	if (cacti_sizeof($report_list)) {
@@ -372,12 +409,14 @@ function standard() {
 			form_alternate_row( 'line' . $report['id'], true );
 			form_selectable_cell($link . filter_value($report['id'], get_request_var('filter')) . '</a>', $report['id'], 'left' );
 			form_selectable_cell($link . filter_value($report['description'], get_request_var('filter')) . '</a>', $report['id'], 'left' );
+
 			if ($report['sliding']== true && $report['last_run'] == 0) {
 				$dates = rp_get_timespan($report['preset_timespan'], $report['present'], $enable_tmz);
 				form_selectable_cell( date(config_date_format(), strtotime($dates['start_date'])) . " - " . date(config_date_format(), strtotime($dates['end_date'])), $report['id']);
 			} else {
 				form_selectable_cell( date(config_date_format(), strtotime($report['start_date'])) . " - " . date(config_date_format(), strtotime($report['end_date'])), $report['id']);
 			}
+
 			form_selectable_cell( $report_states[$report['state']], $report['id'] );
 			form_selectable_cell( (($report['last_run'] == '0000-00-00 00:00:00') ? __('n/a') : '<a class="linkEditMain" href="view.php?action=show_report&id=' . $report['id'] . '">' . $report['last_run'] . '</a>'), $report['id']);
 			form_selectable_cell( sprintf("%01.1f", $report['runtime']), $report['id'], 'center');
@@ -385,6 +424,7 @@ function standard() {
 			form_selectable_cell( html_check_icon($report['scheduled']), $report['id'], 'center');
 
 			$link = $report['ds_cnt'] != NULL ? "rrdlist.php?&id={$report['id']}" : "items.php?&id={$report['id']}";
+
 			print "<td><a class='linkEditMain' href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
 
 			if (!$report['locked'] && $report['state'] < 1) {
@@ -430,6 +470,7 @@ function remove_recipient() {
 
 function save_schedule_data(&$report_data) {
 	global $frequency;
+
 	set_field_data($report_data, 'scheduled', 'report_schedule');
 	set_field_data($report_data, 'autorrdlist', 'report_autorrdlist');
 	set_field_data($report_data, 'autoarchive', 'report_autoarchive');
@@ -440,6 +481,7 @@ function save_schedule_data(&$report_data) {
 
 	if (isset_request_var('report_schedule_frequency')) {
 		$tmp_frequency = get_request_var('report_schedule_frequency');
+
 		if (array_key_exists($tmp_frequency, $frequency)) {
 			$report_data['frequency'] = $frequency[$tmp_frequency];
 		}
@@ -463,97 +505,101 @@ function form_save() {
 	input_validate_input_number(get_request_var('id'));
 
 	/* stop if user is not authorised to save a report config */
-	if (get_request_var('id')!=0) my_report(get_request_var('id'));
-	if (!re_owner()) die_html_custom_error(__('Not authorised'), true); //this should normally done by Cacti itself
+	if (get_request_var('id') != 0) {
+		my_report(get_request_var('id'));
+	}
+
+	if (!re_owner()) {
+		die_html_custom_error(__('Not authorised'), true); //this should normally done by Cacti itself
+	}
 
 	/* check for the type of saving if it was sent through the email tab */
 	switch(get_request_var('tab')) {
-	case 'presets':
-	 	input_validate_input_blacklist(get_request_var('id'),array(0));
-		input_validate_input_key(get_request_var('rrdlist_timezone'), $timezone, true);
-		input_validate_input_key(get_request_var('rrdlist_shifttime_start'), $shifttime);
-		input_validate_input_key(get_request_var('rrdlist_shifttime_end'), $shifttime2);
-		input_validate_input_key(get_request_var('rrdlist_weekday_start'), $weekday);
-		input_validate_input_key(get_request_var('rrdlist_weekday_end'), $weekday);
+		case 'presets':
+		 	input_validate_input_blacklist(get_request_var('id'),array(0));
+			input_validate_input_key(get_request_var('rrdlist_timezone'), $timezone, true);
+			input_validate_input_key(get_request_var('rrdlist_shifttime_start'), $shifttime);
+			input_validate_input_key(get_request_var('rrdlist_shifttime_end'), $shifttime2);
+			input_validate_input_key(get_request_var('rrdlist_weekday_start'), $weekday);
+			input_validate_input_key(get_request_var('rrdlist_weekday_end'), $weekday);
 
-		form_input_validate(get_request_var('rrdlist_subhead'), 'rrdlist_subhead', '' ,true,3);
+			form_input_validate(get_request_var('rrdlist_subhead'), 'rrdlist_subhead', '' ,true,3);
 
-		input_validate_input_number(get_request_var('host_template_id'));
-		form_input_validate(get_request_var('data_source_filter'), 'data_source_filter'	, '', true, 3);
+			input_validate_input_number(get_request_var('host_template_id'));
+			form_input_validate(get_request_var('data_source_filter'), 'data_source_filter'	, '', true, 3);
 
-		break;
-	case 'admin':
-		input_validate_input_blacklist(get_request_var('id'),array(0));
+			break;
+		case 'admin':
+			input_validate_input_blacklist(get_request_var('id'),array(0));
 
-		if (read_config_option('reportit_operator')) {
-			input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
-			input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
-		}
-
-		if (read_config_option('reportit_auto_export')) {
-			input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
-			input_validate_input_key(get_request_var('report_autoexport'), $format, true);
-		}
-
-		break;
-	case 'email':
-		if (!$add_recipients) {
-			form_input_validate(get_request_var('report_email_subject'), 'report_email_subject', '' ,false,3);
-			form_input_validate(get_request_var('report_email_body'), 'report_email_body', '', false, 3);
-			input_validate_input_key(get_request_var('report_email_format'), $format);
-		} else {
-			/* if javascript is disabled */
-			form_input_validate(get_request_var('report_email_address'), 'report_email_address', '', false, 3);
-		}
-
-		break;
-	default:
-		input_validate_input_number(get_request_var('report_owner'));
-		input_validate_input_number(get_request_var('template_id'));
-		input_validate_input_key(get_request_var('preset_timespan'), $timespans, true);
-
-		/* if template is locked we don't know if the variables have been changed */
-		locked(get_request_var('template_id'));
-
-		form_input_validate(get_request_var('report_description'), 'report_description', '' ,false,3);
-
-		/* validate start- and end date if sliding time should not be used */
-		if (!isset_request_var('report_dynamic')) {
-			if (!preg_match('/^\d{4}\-\d{2}\-\d{2}$/', get_request_var('report_start_date'))) {
-				session_custom_error_message('report_start_date', 'Invalid date');
+			if (read_config_option('reportit_operator')) {
+				input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
+				input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
 			}
 
-			if (!preg_match('/^\d{4}\-\d{2}\-\d{2}$/', get_request_var('report_end_date'))) {
-				session_custom_error_message('report_end_date', 'Invalid date');
+			if (read_config_option('reportit_auto_export')) {
+				input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
+				input_validate_input_key(get_request_var('report_autoexport'), $format, true);
 			}
 
-			if (!is_error_message()) {
-				list($ys, $ms, $ds) = explode('-', get_request_var('report_start_date'));
-				list($ye, $me, $de) = explode('-', get_request_var('report_end_date'));
+			break;
+		case 'email':
+			if (!$add_recipients) {
+				form_input_validate(get_request_var('report_email_subject'), 'report_email_subject', '' ,false,3);
+				form_input_validate(get_request_var('report_email_body'), 'report_email_body', '', false, 3);
+				input_validate_input_key(get_request_var('report_email_format'), $format);
+			} else {
+				/* if javascript is disabled */
+				form_input_validate(get_request_var('report_email_address'), 'report_email_address', '', false, 3);
+			}
 
-				if (!checkdate($ms, $ds, $ys)) session_custom_error_message('report_start_date', 'Invalid date');
-				if (!checkdate($me, $de, $ye)) session_custom_error_message('report_end_date', 'Invalid date');
+			break;
+		default:
+			input_validate_input_number(get_request_var('report_owner'));
+			input_validate_input_number(get_request_var('template_id'));
+			input_validate_input_key(get_request_var('preset_timespan'), $timespans, true);
 
-				if (($start_date = mktime(0,0,0,$ms,$ds,$ys)) > ($end_date = mktime(0,0,0,$me,$de,$ye)) || $ys > $ye || $ys > date('Y')) {
-					session_custom_error_message('report_start_date', 'Start date lies ahead');
+			/* if template is locked we don't know if the variables have been changed */
+			locked(get_request_var('template_id'));
+
+			form_input_validate(get_request_var('report_description'), 'report_description', '' ,false,3);
+
+			/* validate start- and end date if sliding time should not be used */
+			if (!isset_request_var('report_dynamic')) {
+				if (!preg_match('/^\d{4}\-\d{2}\-\d{2}$/', get_request_var('report_start_date'))) {
+					session_custom_error_message('report_start_date', 'Invalid date');
 				}
-				if (($end_date = mktime(0,0,0,$me,$de,$ye)) > mktime() || $ye > date('Y')) {
-					session_custom_error_message('report_start_date', 'End date lies ahead');
+
+				if (!preg_match('/^\d{4}\-\d{2}\-\d{2}$/', get_request_var('report_end_date'))) {
+					session_custom_error_message('report_end_date', 'Invalid date');
+				}
+
+				if (!is_error_message()) {
+					list($ys, $ms, $ds) = explode('-', get_request_var('report_start_date'));
+					list($ye, $me, $de) = explode('-', get_request_var('report_end_date'));
+
+					if (!checkdate($ms, $ds, $ys)) session_custom_error_message('report_start_date', 'Invalid date');
+					if (!checkdate($me, $de, $ye)) session_custom_error_message('report_end_date', 'Invalid date');
+
+					if (($start_date = mktime(0,0,0,$ms,$ds,$ys)) > ($end_date = mktime(0,0,0,$me,$de,$ye)) || $ys > $ye || $ys > date('Y')) {
+						session_custom_error_message('report_start_date', 'Start date lies ahead');
+					}
+					if (($end_date = mktime(0,0,0,$me,$de,$ye)) > mktime() || $ye > date('Y')) {
+						session_custom_error_message('report_start_date', 'End date lies ahead');
+					}
 				}
 			}
-		}
 
-		if (!read_config_option('reportit_operator')) {
-			input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
-			input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
-		}
+			if (!read_config_option('reportit_operator')) {
+				input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
+				input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
+			}
 
-		if (read_config_option('reportit_auto_export')) {
-			input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
-			input_validate_input_key(get_request_var('report_autoexport'), $format, true);
-		}
+			if (read_config_option('reportit_auto_export')) {
+				input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
+				input_validate_input_key(get_request_var('report_autoexport'), $format, true);
+			}
 	}
-	/* ==================================================== */
 
 	/* return if validation failed */
 	if (is_error_message()) {
@@ -562,198 +608,202 @@ function form_save() {
 	}
 
 	switch(get_request_var('tab')) {
-	case 'presets':
-		$rrdlist_data['id']         = get_request_var('id');
-		$rrdlist_data['start_day']  = $weekday[get_request_var('rrdlist_weekday_start')];
-		$rrdlist_data['end_day']    = $weekday[get_request_var('rrdlist_weekday_end')];
-		$rrdlist_data['start_time'] = $shifttime[get_request_var('rrdlist_shifttime_start')];
-		$rrdlist_data['end_time']   = $shifttime2[get_request_var('rrdlist_shifttime_end')];
+		case 'presets':
+			$rrdlist_data['id']         = get_request_var('id');
+			$rrdlist_data['start_day']  = $weekday[get_request_var('rrdlist_weekday_start')];
+			$rrdlist_data['end_day']    = $weekday[get_request_var('rrdlist_weekday_end')];
+			$rrdlist_data['start_time'] = $shifttime[get_request_var('rrdlist_shifttime_start')];
+			$rrdlist_data['end_time']   = $shifttime2[get_request_var('rrdlist_shifttime_end')];
 
-		if (isset_request_var('rrdlist_timezone')) {
-			$rrdlist_data['timezone'] = $timezone[get_request_var('rrdlist_timezone')];
-		}
+			if (isset_request_var('rrdlist_timezone')) {
+				$rrdlist_data['timezone'] = $timezone[get_request_var('rrdlist_timezone')];
+			}
 
-		if (isset_request_var('rrdlist_subhead')) {
-			$rrdlist_data['description'] = get_request_var('rrdlist_subhead');
-		}
+			if (isset_request_var('rrdlist_subhead')) {
+				$rrdlist_data['description'] = get_request_var('rrdlist_subhead');
+			}
 
-		$report_data['id']                 = get_request_var('id');
-		$report_data['host_template_id']   = get_request_var('host_template_id');
-		$report_data['data_source_filter'] = get_request_var('data_source_filter');
-
-		/* save settings */
-		sql_save($report_data, 'plugin_reportit_reports');
-		sql_save($rrdlist_data, 'plugin_reportit_presets', 'id', false);
-
-		break;
-	case 'admin':
-		$report_data['id']               = get_request_var('id');
-
-		set_field_data($report_data, 'graph_permission', 'report_graph_permission');
-
-		/* save the settings for scheduled reporting if the admin is configured to do this job */
-		save_schedule_data($report_data);
-
-		/* save settings */
-		sql_save($report_data, 'plugin_reportit_reports');
-
-		break;
-	case 'email':
-		if (!$add_recipients) {
-			$report_data['id']            = get_request_var('id');
-			$report_data['email_subject'] = get_request_var('report_email_subject');
-			$report_data['email_body']    = get_request_var('report_email_body');
-			$report_data['email_format']  = get_request_var('report_email_format');
+			$report_data['id']                 = get_request_var('id');
+			$report_data['host_template_id']   = get_request_var('host_template_id');
+			$report_data['data_source_filter'] = get_request_var('data_source_filter');
 
 			/* save settings */
 			sql_save($report_data, 'plugin_reportit_reports');
-		} else {
-			$id      = get_request_var('id');
-			$columns = '(report_id, email, name)';
-			$values  = '';
+			sql_save($rrdlist_data, 'plugin_reportit_presets', 'id', false);
 
-			$addresses = array();
-			if (strpos(get_request_var('report_email_address'),';')) {
-				$addresses = explode(';',get_request_var('report_email_address') );
-			} elseif (strpos(get_request_var('report_email_address'),',')) {
-				$addresses = explode(',',get_request_var('report_email_address') );
+			break;
+		case 'admin':
+			$report_data['id']               = get_request_var('id');
+
+			set_field_data($report_data, 'graph_permission', 'report_graph_permission');
+
+			/* save the settings for scheduled reporting if the admin is configured to do this job */
+			save_schedule_data($report_data);
+
+			/* save settings */
+			sql_save($report_data, 'plugin_reportit_reports');
+
+			break;
+		case 'email':
+			if (!$add_recipients) {
+				$report_data['id']            = get_request_var('id');
+				$report_data['email_subject'] = get_request_var('report_email_subject');
+				$report_data['email_body']    = get_request_var('report_email_body');
+				$report_data['email_format']  = get_request_var('report_email_format');
+
+				/* save settings */
+				sql_save($report_data, 'plugin_reportit_reports');
 			} else {
-				$addresses[] = get_request_var('report_email_address');
-			}
+				$id      = get_request_var('id');
+				$columns = '(report_id, email, name)';
+				$values  = '';
 
-			$recipients = array();
-			if (strpos(get_request_var('report_email_recipient'),';')) {
-				$recipients = explode(';',get_request_var('report_email_recipient') );
-			} elseif (strpos(get_request_var('report_email_recipient'),',')) {
-				$recipients = explode(',',get_request_var('report_email_recipient') );
-			} else {
-				$recipients[] = get_request_var('report_email_recipient');
-			}
+				$addresses = array();
+				if (strpos(get_request_var('report_email_address'),';')) {
+					$addresses = explode(';',get_request_var('report_email_address') );
+				} elseif (strpos(get_request_var('report_email_address'),',')) {
+					$addresses = explode(',',get_request_var('report_email_address') );
+				} else {
+					$addresses[] = get_request_var('report_email_address');
+				}
 
-			if (cacti_sizeof($addresses)>0) {
-				foreach($addresses as $key => $value) {
-					$value = trim($value);
+				$recipients = array();
+				if (strpos(get_request_var('report_email_recipient'),';')) {
+					$recipients = explode(';',get_request_var('report_email_recipient') );
+				} elseif (strpos(get_request_var('report_email_recipient'),',')) {
+					$recipients = explode(',',get_request_var('report_email_recipient') );
+				} else {
+					$recipients[] = get_request_var('report_email_recipient');
+				}
 
-					if (!preg_match("/(^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\\.[a-zA-Z]{2,3}$)/", $value)) {
-						cacti_log('WARNING: Unable to add email address "' . $value . '" to RIReport[' . $id . ']', false, 'REPORTIT');
-						session_custom_error_message('report_email_address', 'Invalid email address');
-					} else {
-						if (array_key_exists($key, $recipients) && $recipients[$key][1] != '[') {
-							$name = db_qstr($recipients[$key]);
+				if (cacti_sizeof($addresses)>0) {
+					foreach($addresses as $key => $value) {
+						$value = trim($value);
+
+						if (!preg_match("/(^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\\.[a-zA-Z]{2,3}$)/", $value)) {
+							cacti_log('WARNING: Unable to add email address "' . $value . '" to RIReport[' . $id . ']', false, 'REPORTIT');
+							session_custom_error_message('report_email_address', 'Invalid email address');
 						} else {
-							$name = '';
+							if (array_key_exists($key, $recipients) && $recipients[$key][1] != '[') {
+								$name = db_qstr($recipients[$key]);
+							} else {
+								$name = '';
+							}
+
+							$values .= "('$id', '$value', '$name'),";
 						}
-
-						$values .= "('$id', '$value', '$name'),";
 					}
-				}
 
-				if (strlen($values)) {
-					$values = substr($values, 0, strlen($values)-1);
+					if (strlen($values)) {
+						$values = substr($values, 0, strlen($values)-1);
 
-					if (!is_error_message()) {
-						$sql = "INSERT INTO plugin_reportit_recipients $columns VALUES $values";
-						db_execute($sql);
+						if (!is_error_message()) {
+							$sql = "INSERT INTO plugin_reportit_recipients $columns VALUES $values";
+							db_execute($sql);
+						}
 					}
 				}
 			}
-		}
 
-		break;
-	default:
-		$report_data['id']              = get_request_var('id');
-		if (get_request_var('report_owner')) {
-			$report_data['user_id']     = get_request_var('report_owner');
-		}
-		$report_data['description']     = get_request_var('report_description');
-		$report_data['template_id']     = get_request_var('template_id');
-		$report_data['public']          = get_request_var('report_public');
+			break;
+		default:
+			$report_data['id']              = get_request_var('id');
 
-		$report_data['preset_timespan'] = isset_request_var('report_timespan') ? $timespans[get_request_var('report_timespan')] : '';
-		$report_data['last_run']        = '0000-00-00 00:00:00';
-
-		$report_data['start_date']      = get_request_var('report_start_date');
-		$report_data['end_date']        = get_request_var('report_end_date');
-
-		$report_data['sliding']         = get_request_var('report_dynamic');
-		$report_data['present']         = get_request_var('report_present');
-
-		/* define the owner if it's a new configuration */
-		if (get_request_var('id') == 0) $report_data['user_id'] = my_id();
-
-		/* save the settings for scheduled reporting if owner has the rights to do this */
-		save_schedule_data($report_data);
-
-		//Now we've to keep our variables
-		$vars     = array();
-		$rvars    = array();
-		$var_data = array();
-
-		foreach($_POST as $key => $value) {
-			if (strstr($key, 'var_')) {
-				$id = substr($key, 4);
-				$vars[$id] = $value;
+			if (get_request_var('report_owner')) {
+				$report_data['user_id']     = get_request_var('report_owner');
 			}
-		}
 
-		$rvars = db_fetch_assoc_prepared('SELECT a.*, b.id AS b_id, b.value
-			FROM plugin_reportit_variables AS a
-			LEFT JOIN plugin_reportit_rvars AS b
-			ON a.id = b.variable_id
-			AND report_id = ?
-			WHERE a.template_id = ?',
-			array(get_request_var('id'), get_request_var('template_id')));
+			$report_data['description']     = get_request_var('report_description');
+			$report_data['template_id']     = get_request_var('template_id');
+			$report_data['public']          = get_request_var('report_public');
 
-		foreach($rvars as $key => $v) {
-			$value = $vars[$v['id']];
-			if ($v['input_type'] == 1) {
-				$i = 0;
-				$array = array();
-				$a = $v['min_value'];
-				$b = $v['max_value'];
-				$c = $v['stepping'];
+			$report_data['preset_timespan'] = isset_request_var('report_timespan') ? $timespans[get_request_var('report_timespan')] : '';
+			$report_data['last_run']        = '0000-00-00 00:00:00';
 
-				for($i=$a; $i <= $b; $i+=$c) {
-					$array[] = $i;
+			$report_data['start_date']      = get_request_var('report_start_date');
+			$report_data['end_date']        = get_request_var('report_end_date');
+
+			$report_data['sliding']         = get_request_var('report_dynamic');
+			$report_data['present']         = get_request_var('report_present');
+
+			/* define the owner if it's a new configuration */
+			if (get_request_var('id') == 0) $report_data['user_id'] = my_id();
+
+			/* save the settings for scheduled reporting if owner has the rights to do this */
+			save_schedule_data($report_data);
+
+			//Now we've to keep our variables
+			$vars     = array();
+			$rvars    = array();
+			$var_data = array();
+
+			foreach($_POST as $key => $value) {
+				if (strstr($key, 'var_')) {
+					$id = substr($key, 4);
+					$vars[$id] = $value;
+				}
+			}
+
+			$rvars = db_fetch_assoc_prepared('SELECT a.*, b.id AS b_id, b.value
+				FROM plugin_reportit_variables AS a
+				LEFT JOIN plugin_reportit_rvars AS b
+				ON a.id = b.variable_id
+				AND report_id = ?
+				WHERE a.template_id = ?',
+				array(get_request_var('id'), get_request_var('template_id')));
+
+			foreach($rvars as $key => $v) {
+				$value = $vars[$v['id']];
+				if ($v['input_type'] == 1) {
+					$i = 0;
+					$array = array();
+					$a = $v['min_value'];
+					$b = $v['max_value'];
+					$c = $v['stepping'];
+
+					for($i=$a; $i <= $b; $i+=$c) {
+						$array[] = $i;
+					}
+
+					$value = $array[$value];
+
+					if ($value > $v['max_value'] || $value < $v['min_value']) die_html_custom_error('', true);
+				} else {
+					if ($value > $v['max_value'] || $value < $v['min_value']) {
+
+						session_custom_error_message($v['name'], "{$v['name']} is out of range");
+						break;
+					}
 				}
 
-				$value = $array[$value];
+				//If there's no error we can go on
+				$var_data[] = array(
+					'id'          => (($v['b_id'] != NULL) ? $v['b_id'] : 0),
+					'template_id' => get_request_var('template_id'),
+					'report_id'   => get_request_var('id'),
+					'variable_id' => $v['id'],
+					'value'       => $value
+				);
+			}
 
-				if ($value > $v['max_value'] || $value < $v['min_value']) die_html_custom_error('', true);
+			/* start saving process or return is_error_message()*/
+			if (is_error_message()) {
+				header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+
+				exit;
 			} else {
-				if ($value > $v['max_value'] || $value < $v['min_value']) {
+				/* save report config */
+				$report_id = sql_save($report_data, 'plugin_reportit_reports');
 
-					session_custom_error_message($v['name'], "{$v['name']} is out of range");
-					break;
+				/* save addtional report variables */
+				foreach($var_data as $data) {
+					if (get_request_var('id') == 0) {
+						$data['report_id'] = $report_id;
+					}
+
+					sql_save($data, 'plugin_reportit_rvars');
 				}
 			}
-
-			//If there's no error we can go on
-			$var_data[] = array(
-				'id'          => (($v['b_id'] != NULL) ? $v['b_id'] : 0),
-				'template_id' => get_request_var('template_id'),
-				'report_id'   => get_request_var('id'),
-				'variable_id' => $v['id'],
-				'value'       => $value
-			);
-		}
-
-		/* start saving process or return is_error_message()*/
-		if (is_error_message()) {
-
-			header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
-			exit;
-
-		} else {
-			/* save report config */
-			$report_id = sql_save($report_data, 'plugin_reportit_reports');
-
-			/* save addtional report variables */
-			foreach($var_data as $data) {
-				if (get_request_var('id') == 0) $data['report_id'] = $report_id;
-				sql_save($data, 'plugin_reportit_rvars');
-			}
-		}
 	}
 
 	header('Location: reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
