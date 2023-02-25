@@ -125,7 +125,7 @@ community.  After that you should open a feature request on
 
 * feature: Message more elegantly when there are no Report Templates.
 
-* security: Fix potential security exposure with underialize() function
+* security: Fix potential security exposure with unserialize() function
 
 --- 1.1.3 ---
 
