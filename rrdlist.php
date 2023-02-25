@@ -471,7 +471,7 @@ function form_actions() {
 	global $rrdlist_actions, $config;
 
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
+		$selected_items = sanitize_unserialize_selected_items(get_request_var('selected_items'));
 
 		if (get_request_var('drp_action') == '1') { // Remove RRD from RRD table
 			$rrdlist_datas = db_fetch_assoc_prepared('SELECT id
@@ -491,7 +491,7 @@ function form_actions() {
 				}
 			}
 		} elseif (get_request_var('drp_action') == '2') { //Copy RRD's reference settings to all other RRDs
-			$reference_items = unserialize(stripslashes(get_request_var('reference_items')));
+			$reference_items = unserialize(stripslashes(get_request_var('reference_items')), array('allowed_classes' => false));
 
 			db_execute_prepared("UPDATE plugin_reportit_data_items
 				SET `start_day` = ?, `end_day` = ?, `start_time` = ?,

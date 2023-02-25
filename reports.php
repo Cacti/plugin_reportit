@@ -1150,7 +1150,7 @@ function form_actions() {
 	global $report_actions, $config;
 
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
+		$selected_items = sanitize_unserialize_selected_items(get_request_var('selected_items'));
 
 		//For running report jump to run.php!
 		if (get_request_var('drp_action') == '1') { // RUNNING REPORT

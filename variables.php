@@ -395,7 +395,7 @@ function form_actions() {
 	// ====================================================
 
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
+		$selected_items = sanitize_unserialize_selected_items(get_request_var('selected_items'));
 
 		if (get_request_var('drp_action') == '1') { // delete variables
 			db_execute('DELETE FROM plugin_reportit_variables WHERE ' . array_to_sql_or($selected_items, 'id'));

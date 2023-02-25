@@ -723,7 +723,7 @@ function form_actions() {
 	global $template_actions, $config;
 
 	if (isset_request_var('selected_items')) {
-		$selected_items = unserialize(stripslashes(get_request_var('selected_items')));
+		$selected_items = sanitize_unserialize_selected_items(get_request_var('selected_items'));
 
 		if (get_request_var('drp_action') == '1') { // DELETE REPORT TEMPLATE
 			$template_datas = db_fetch_assoc('SELECT id FROM plugin_reportit_templates WHERE ' . array_to_sql_or($selected_items, 'id'));

@@ -125,6 +125,8 @@ community.  After that you should open a feature request on
 
 * feature: Message more elegantly when there are no Report Templates.
 
+* security: Fix potential security exposure with underialize() function
+
 --- 1.1.3 ---
 
 * issue#37: When adding a new template, changing the drop down box and clicking
