@@ -30,6 +30,11 @@ function plugin_reportit_install() {
 	api_plugin_register_hook('reportit', 'config_settings',       'reportit_config_settings',      'setup.php');
 	api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
 	api_plugin_register_hook('reportit', 'clog_regex_array',      'reportit_clog_regex_array',     'setup.php');
+
+	api_plugin_register_realm('reportit', 'view.php,charts.php', __('View Reports'), 1);
+	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', __('Create Reports'), 1);
+	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', __('Administrate Reports'), 1);
+
 	reportit_system_setup();
 }
 
