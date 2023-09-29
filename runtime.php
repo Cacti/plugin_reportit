@@ -276,7 +276,6 @@ function runtime($report_id) {
 	//----- Get number of RRD datasources -----
 	$number_of_rrds = count($report_definitions['data_items']);
 
-
 	//----- ERROR CHECK (2) -----
 	//Check number of defined RRDs
 	if (!$number_of_rrds > 0) {
@@ -510,14 +509,19 @@ function runtime($report_id) {
 		}
 
 		/* intersect all used data source items get the correct index keys */
-		$rrd_ds_namv = array_intersect ( $rrd_ds_namv , $ds_items);
+		if (is_array($ds_items)) {
+			$rrd_ds_namv = array_intersect ($rrd_ds_namv, $ds_items);
+		} else {
+			$rrd_ds_namv = array_intersect ($rrd_ds_namv, array($ds_items));
+		}
 
 		//----- Prepare data for normal calculating -----
 		foreach($rrd_data as $rra_index => $data){
 			$pre_data[$rra_index] = get_prepared_data($rrd_data[$rra_index]['data'], $rrd_ad_data,
-														$rrd_ds_cnt, $ds_type, $corr_factor_start,
-														$corr_factor_end, $rrd_ds_namv, $rrd_nan);
+				$rrd_ds_cnt, $ds_type, $corr_factor_start, $corr_factor_end, $rrd_ds_namv, $rrd_nan);
+
 			unset($rrd_data[$rra_index]);
+
 			debug($rrd_ad_data, "Filtered list (includes corr factor)");
 		}
 
@@ -548,13 +552,11 @@ function runtime($report_id) {
 						: 10000000000;
 				}
 			}
-
 		} else {
 			foreach ($report_definitions['maxRRDValues'] as $key => $array) {
 				$variables['maxValue:' . $report_definitions['ds_items'][$key]] = $array[$i]['maxRRDValue'];
 			}
 		}
-
 
 		foreach ($report_definitions['maxRRDValues'] as $key => $array) {
 			$variables['maxRRDValue:' . $report_definitions['ds_items'][$key]] = $array[$i]['maxRRDValue'];
@@ -564,13 +566,16 @@ function runtime($report_id) {
 		$variables['nan']       = $rrd_nan;
 
 		// add data query variables as new $variables[]
-		$data_query_variables = get_possible_data_query_variables($report_definitions['report']['template_id']);  # better put this into get_report_definitions???
+		// better put this into get_report_definitions???
+		$data_query_variables = get_possible_data_query_variables($report_definitions['report']['template_id']);
+
 		if (cacti_sizeof($data_query_variables)){
 			// get all data for given local data id first
 			$sql = "SELECT `data_local`.* " .
 					"FROM `data_local` " .
 					"WHERE `data_local`.`id`=$local_data_id";
 			$data_local = db_fetch_row($sql);
+
 			foreach($data_query_variables as $dq_variable) {
 				if (isset($data_local['id'])) {
 					// now fetch the cached data for given query variable
@@ -607,13 +612,13 @@ function runtime($report_id) {
 
 			foreach($results as $key => $value) {
 			    if ($key != '_spanned_') {
-				foreach($value as $mea_key => $value) {
-				    $list .= " ADD `{$key}__$keys[$mea_key]` DOUBLE,";
-				}
+					foreach($value as $mea_key => $value) {
+					    $list .= " ADD `{$key}__$keys[$mea_key]` DOUBLE,";
+					}
 			    } else {
-				foreach($value as $mea_key => $value) {
-				    $list .= " ADD `spanned__$keys[$mea_key]` DOUBLE,";
-				}
+					foreach($value as $mea_key => $value) {
+					    $list .= " ADD `spanned__$keys[$mea_key]` DOUBLE,";
+					}
 			    }
 			}
 
@@ -641,6 +646,7 @@ function runtime($report_id) {
 			foreach($first_element as $key => $value) {
 				$result_description = $result_description . "$keys[$key]|";
 			}
+
 			// Remove last '|' and add the number of id
 			$rs_def = substr($result_description, 0, strlen($result_description)-1) . '-' . count($first_element);
 
@@ -650,6 +656,7 @@ function runtime($report_id) {
 			foreach($results['_spanned_'] as $key => $value) {
 				$spanned_description = $spanned_description . "$keys[$key]|";
 			}
+
 			// Remove last '|' and add the number of id
 			$sp_def = substr($spanned_description, 0, strlen($spanned_description)-1) . '-' . count($results['_spanned_']);
 
@@ -664,18 +671,19 @@ function runtime($report_id) {
 
 		foreach($results as $key => $value) {
 		    if ($key != '_spanned_') {
-			foreach($value as $mea_key => $value) {
-			    $list .= " `{$key}__$keys[$mea_key]` = $value,";
-			}
+				foreach($value as $mea_key => $value) {
+				    $list .= " `{$key}__$keys[$mea_key]` = $value,";
+				}
 		    } else {
-			foreach($value as $mea_key => $value) {
-			    $list .= " `spanned__$keys[$mea_key]` = $value,";
-			}
+				foreach($value as $mea_key => $value) {
+				    $list .= " `spanned__$keys[$mea_key]` = $value,";
+				}
 		    }
 		}
 
 		// Remove last comma
 		$list = substr($list, 0, strlen($list)-1);
+
 		// Save values
 		db_execute("REPLACE plugin_reportit_results_$report_id SET id = $local_data_id, $list");
 	}
@@ -746,8 +754,6 @@ function runtime($report_id) {
 	in_process($report_id, 0);
 	return $run_return;
 }
-
-
 
 /**
  * function autorrdlist
