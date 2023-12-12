@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2022-10-19 20:47-0400\n"
+"POT-Creation-Date: 2023-12-11 22:50-0600\n"
 "PO-Revision-Date: 2020-12-12 23:11-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,15 +38,16 @@ msgstr "鎖定"
 msgid "Unlock"
 msgstr "解鎖"
 
-#: include/global_arrays.php:31 setup.php:226 setup.php:232 setup.php:238
+#: include/global_arrays.php:31 setup.php:231 setup.php:237 setup.php:243
 #: templates.php:994
 msgid "Export"
 msgstr "匯出"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:44 lib/const_reports.php:431
-#: lib/const_variables.php:51 measurands.php:93 reports.php:352 reports.php:959
-#: templates.php:166 templates.php:463 variables.php:65 variables.php:303
+#: lib/const_variables.php:51 measurands.php:93 reports.php:360
+#: reports.php:1012 templates.php:166 templates.php:463 variables.php:65
+#: variables.php:303
 msgid "Name"
 msgstr "名稱"
 
@@ -66,7 +67,7 @@ msgid "Minimum"
 msgstr "最低限度"
 
 #: include/global_arrays.php:55 items.php:345 lib/const_variables.php:55
-#: reports.php:152 rrdlist.php:239 templates.php:329 variables.php:69
+#: reports.php:155 rrdlist.php:239 templates.php:329 variables.php:69
 #: view.php:229 view.php:638
 msgid "Default"
 msgstr "預設"
@@ -128,7 +129,7 @@ msgstr "通用ID"
 msgid "Elements"
 msgstr "元素"
 
-#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:250
+#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:255
 #: templates.php:469
 #, fuzzy
 msgid "Measurands"
@@ -142,7 +143,7 @@ msgstr "數據模板"
 #: include/global_arrays.php:81 include/global_forms.php:39
 #: lib/const_reports.php:110 lib/const_reports.php:153
 #: lib/const_reports.php:288 lib/const_reports.php:321
-#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:396
+#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:401
 #: variables.php:292
 msgid "General"
 msgstr "一般"
@@ -158,7 +159,7 @@ msgstr "群組"
 
 #: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:357 lib/funct_html.php:171 lib/funct_html.php:242
-#: setup.php:274 templates.php:470
+#: setup.php:279 templates.php:470
 msgid "Variables"
 msgstr "變數"
 
@@ -992,7 +993,7 @@ msgstr "附加預過濾器"
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "可選：用於過濾可用數據項列表的語法<br>按他們的描述。使用SQL通配符，如％和/或_。沒有正規的表達！"
 
-#: include/global_forms.php:96 setup.php:506
+#: include/global_forms.php:96 setup.php:511
 #, fuzzy
 msgid "Export Path"
 msgstr "出口路徑"
@@ -1073,23 +1074,23 @@ msgstr "數據項"
 msgid "No data items"
 msgstr "沒有數據項"
 
-#: items.php:334 reports.php:142 rrdlist.php:229 templates.php:319 view.php:210
+#: items.php:334 reports.php:145 rrdlist.php:229 templates.php:319 view.php:210
 #: view.php:561
 msgid "Search"
 msgstr "搜尋"
 
-#: items.php:341 reports.php:148 reports.php:365 setup.php:124 setup.php:360
-#: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
+#: items.php:341 reports.php:151 reports.php:402 setup.php:129 setup.php:365
+#: setup.php:397 templates.php:471 view.php:198 view.php:201 view.php:225
 #: view.php:755
 msgid "Reports"
 msgstr "報告"
 
-#: items.php:356 reports.php:163 rrdlist.php:250 templates.php:340 view.php:612
+#: items.php:356 reports.php:166 rrdlist.php:250 templates.php:340 view.php:612
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "送出"
 
-#: items.php:359 reports.php:166 rrdlist.php:253 templates.php:343 view.php:615
+#: items.php:359 reports.php:169 rrdlist.php:253 templates.php:343 view.php:615
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "清除"
@@ -1225,7 +1226,7 @@ msgstr "星期日"
 msgid "Data Item Presets"
 msgstr "數據項預設"
 
-#: lib/const_reports.php:112 reports.php:960
+#: lib/const_reports.php:112 reports.php:1013
 msgid "Email"
 msgstr "電子郵件"
 
@@ -1306,7 +1307,7 @@ msgstr "要添加新收件人，請輸入有效的電子郵件地址（必填）
 msgid "Scheduled Reporting"
 msgstr "預定報告"
 
-#: lib/const_reports.php:217 setup.php:489
+#: lib/const_reports.php:217 setup.php:494
 msgid "Enable"
 msgstr "啟用"
 
@@ -1341,7 +1342,7 @@ msgstr "自動生成的存檔"
 
 #: lib/const_reports.php:242
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run."
 msgstr "定義在覆蓋第一個實例之前應歸檔的最大實例數。如果要取消激活RoundRobbin原則，請選擇“關閉”（默認，但不建議）。如果定義的實例值低於當前存檔包含的實例值，則它將在下次運行時自動收縮。"
 
 #: lib/const_reports.php:252
@@ -1371,7 +1372,7 @@ msgstr "出口限制"
 
 #: lib/const_reports.php:271
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run."
 msgstr "定義在覆蓋第一個實例之前應歸檔的最大實例數。如果要取消激活RoundRobbin原則，請選擇“關閉”（默認，但不建議）。如果您定義的實例值低於當前導出文件夾所包含的值，則它將在下次運行時自動收縮。"
 
 #: lib/const_reports.php:278
@@ -1418,7 +1419,7 @@ msgstr "定義應在界面描述下顯示的附加子標題。 <br>將支持以�
 msgid "Time Zone"
 msgstr "時區"
 
-#: lib/const_reports.php:338 rrdlist.php:383
+#: lib/const_reports.php:338
 #, fuzzy
 msgid "Select the time zone your following shifttime informations will be based on."
 msgstr "選擇以下班次信息所基於的時區。"
@@ -1506,7 +1507,7 @@ msgstr "所有者"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "更改此報告的所有者。只能選擇具有最低報告權限（“查看”或更高）的用戶。"
 
-#: lib/const_reports.php:461 reports.php:357
+#: lib/const_reports.php:461 reports.php:383
 msgid "Public"
 msgstr "公開"
 
@@ -1575,8 +1576,8 @@ msgstr "要定義結束日期，請使用以下格式： <b>yyyy-mm-dd</b>"
 msgid "Copy settings to all"
 msgstr "將設置複製到所有"
 
-#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:136 setup.php:178
-#: setup.php:208
+#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:141 setup.php:183
+#: setup.php:213
 msgid "Add"
 msgstr "新增"
 
@@ -1676,7 +1677,7 @@ msgstr "單獨的組標題[總體]"
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr "可選：您可以定義一個組名，該組名應顯示為報告中所有單獨的被測量者的標題。"
 
-#: lib/funct_mailer.php:45
+#: lib/funct_mailer.php:68
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting."
 msgstr "梅勒錯誤：<b>否</b>地址集！<br>如果使用“<i>測試郵件”</i>鏈接，請設置“<b>警報電子郵件”</b>設置。"
@@ -1822,7 +1823,7 @@ msgstr "SI前綴"
 
 #: measurands.php:360
 #, fuzzy
-msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "選擇用於格式化結果的前綴蜂的類型。使用十進制前綴時，“ 1024”將被格式化為“ 1.024k”，而二進制前綴選項將返回“ 1ki”。選擇“關閉”以顯示原始數據，此處為“ 1024”。"
 
 #: measurands.php:366
@@ -1831,7 +1832,7 @@ msgstr "計算公式"
 
 #: measurands.php:372
 #, fuzzy
-msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "此被測對象的數學定義。遵循數學規則，下面列出的運算符和操作數的所有組合都是允許的。使用圓括號和方括號表示複雜的術語和操作順序。"
 
 #: measurands.php:377
@@ -1864,14 +1865,14 @@ msgstr "被測量"
 msgid "You must select at least one measurand."
 msgstr "您必須至少選擇一個報告。"
 
-#: measurands.php:532 measurands.php:534 reports.php:96 reports.php:98
-#: reports.php:1254 reports.php:1264 rrdlist.php:592 rrdlist.php:594
-#: templates.php:98 templates.php:100 templates.php:232 templates.php:233
-#: templates.php:981 variables.php:481 variables.php:483
+#: measurands.php:532 measurands.php:534 reports.php:104 reports.php:1307
+#: reports.php:1317 rrdlist.php:592 rrdlist.php:594 templates.php:98
+#: templates.php:100 templates.php:232 templates.php:233 templates.php:981
+#: variables.php:481 variables.php:483
 msgid "Cancel"
 msgstr "取消"
 
-#: measurands.php:534 reports.php:98 reports.php:1264 rrdlist.php:595
+#: measurands.php:534 reports.php:104 reports.php:1317 rrdlist.php:595
 #: templates.php:100 templates.php:990 templates.php:992 variables.php:483
 msgid "Continue"
 msgstr "繼續"
@@ -1881,140 +1882,140 @@ msgstr "繼續"
 msgid "Delete Template Measurands"
 msgstr "刪除報告模板"
 
-#: reports.php:88
+#: reports.php:97
 msgid "New Report"
 msgstr "新的報表"
 
-#: reports.php:93
+#: reports.php:100
 #, fuzzy, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "沒有可用的報告模板。"
 
-#: reports.php:98
+#: reports.php:104
 #, fuzzy
 msgid "Create a new report"
 msgstr "創建一個新報告"
 
-#: reports.php:106
+#: reports.php:112
 #, fuzzy
 msgid "Choose a template this report should depend on."
 msgstr "選擇此報告應依賴的模板。"
 
-#: reports.php:134
+#: reports.php:137
 msgid "Report Filters"
 msgstr "報告篩選"
 
-#: reports.php:351 templates.php:462
+#: reports.php:355 templates.php:462
 msgid "Id"
 msgstr "ID"
 
-#: reports.php:353
+#: reports.php:365
 #, fuzzy, php-format
 msgid "Period %s from - to"
 msgstr "期間％s從 - 到"
 
-#: reports.php:354
+#: reports.php:368
 msgid "State"
 msgstr "州"
 
-#: reports.php:355 view.php:292
+#: reports.php:373 view.php:292
 #, fuzzy, php-format
 msgid "Last run %s"
 msgstr "最近執行"
 
-#: reports.php:356 view.php:293
+#: reports.php:378 view.php:293
 #, fuzzy
 msgid "Runtime [s]"
 msgstr "運行時間"
 
-#: reports.php:358
+#: reports.php:388
 msgid "Scheduled"
 msgstr "已排程"
 
-#: reports.php:359 rrdlist.php:291 setup.php:154
+#: reports.php:393 rrdlist.php:291 setup.php:159
 #, fuzzy
 msgid "Data Items"
 msgstr "數據項"
 
-#: reports.php:385
+#: reports.php:427
 msgid "n/a"
 msgstr "n/a"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Add sources"
 msgstr "添加資源"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Edit sources"
 msgstr "資料來源"
 
-#: reports.php:396
+#: reports.php:439
 #, fuzzy
 msgid "Report has been locked"
 msgstr "模板已被暫時鎖定"
 
-#: reports.php:404
+#: reports.php:447
 #, fuzzy
 msgid "No reports"
 msgstr "報告"
 
-#: reports.php:470
+#: reports.php:519
 #, fuzzy
 msgid "Not authorised"
 msgstr "未經授權"
 
-#: reports.php:888
+#: reports.php:941
 #, fuzzy
 msgid "Add Data Items"
 msgstr "添加數據項"
 
-#: reports.php:925
+#: reports.php:978
 #, fuzzy, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "報告配置（％s）％s"
 
-#: reports.php:974
+#: reports.php:1027
 #, fuzzy
 msgid "No recipients found"
 msgstr "找不到收件人"
 
-#: reports.php:1034 reports.php:1039
+#: reports.php:1087 reports.php:1092
 #, fuzzy
 msgid "- Email address of a recipient (or list of names) -"
 msgstr "- 收件人的電子郵件地址（或名單） -"
 
-#: reports.php:1035 reports.php:1040
+#: reports.php:1088 reports.php:1093
 #, fuzzy
 msgid "[OPTIONAL] - Name of a recipient (or list of names) -"
 msgstr "[可選]  - 收件人姓名（或姓名列表） -"
 
-#: reports.php:1241
+#: reports.php:1294
 #, fuzzy
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "點擊“繼續”以刪除以下報告。"
 
-#: reports.php:1243
+#: reports.php:1296
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "點擊“繼續”以刪除以下報告。"
 
-#: reports.php:1245
+#: reports.php:1298
 #, fuzzy
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "單擊“繼續”以復制以下報告配置。您還可以在此操作期間更改標題格式。"
 
-#: reports.php:1246
+#: reports.php:1299
 msgid "Title Format:"
 msgstr "標題格式:"
 
-#: reports.php:1247
+#: reports.php:1300
 #, fuzzy
 msgid "<report_title> (1)"
 msgstr "<report_title> （1）"
 
-#: reports.php:1253
+#: reports.php:1306
 #, fuzzy
 msgid "You must select at least one unlocked, not running, report."
 msgstr "您必須至少選擇一個報告。"
@@ -2062,6 +2063,11 @@ msgstr "找不到數據項"
 msgid "Data Item [edit: %s]"
 msgstr "數據對象[編輯：％s]"
 
+#: rrdlist.php:383
+#, fuzzy
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "選擇以下班次信息所基於的時區。"
+
 #: rrdlist.php:551
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Items."
@@ -2107,7 +2113,7 @@ msgstr "您必須至少選擇一個報告。"
 
 #: run.php:73
 #, fuzzy
-msgid "Report is alrady in progess."
+msgid "Report is already in progress."
 msgstr "報告正在進行中。"
 
 #: run.php:97
@@ -2134,314 +2140,326 @@ msgstr "警告數量<font class=\"deviceDown\">（%s）</font>"
 msgid "View Report"
 msgstr "查看報表"
 
-#: setup.php:130 setup.php:142 setup.php:160 setup.php:166 setup.php:184
-#: setup.php:196 setup.php:202 setup.php:256 setup.php:262 setup.php:280
-#: setup.php:286
-msgid "(Edit)"
-msgstr "(編輯)"
-
-#: setup.php:148 setup.php:172 setup.php:244 setup.php:268 setup.php:292
-msgid "Actions"
-msgstr "動作"
-
-#: setup.php:190 templates.php:311
-#, fuzzy
-msgid "Report Templates"
-msgstr "報告模板"
-
-#: setup.php:214 setup.php:220 templates.php:146 templates.php:232
-msgid "Import"
-msgstr "匯入"
-
-#: setup.php:298
-#, fuzzy
-msgid "Report Calculation"
-msgstr "報告計算"
-
-#: setup.php:304 view.php:220
-#, fuzzy
-msgid "Public Reports"
-msgstr "公開報告"
-
-#: setup.php:310 setup.php:322
-msgid "Show Report"
-msgstr "顯示報告"
-
-#: setup.php:316
-msgid "Export Report"
-msgstr "匯出報表"
-
-#: setup.php:328
-#, fuzzy
-msgid "Public Report Charts"
-msgstr "公開報告圖表"
-
-#: setup.php:334
-msgid "Bar Chart"
-msgstr "長條圖"
-
-#: setup.php:340
-msgid "Pie Chart"
-msgstr "圓餅圖"
-
-#: setup.php:354
+#: setup.php:34
 msgid "View Reports"
 msgstr "檢視報表"
 
-#: setup.php:355
+#: setup.php:35
 #, fuzzy
 msgid "Create Reports"
 msgstr "創建報告"
 
-#: setup.php:356
+#: setup.php:36
 #, fuzzy
 msgid "Administrate Reports"
 msgstr "管理報告"
 
+#: setup.php:135 setup.php:147 setup.php:165 setup.php:171 setup.php:189
+#: setup.php:201 setup.php:207 setup.php:261 setup.php:267 setup.php:285
+#: setup.php:291
+msgid "(Edit)"
+msgstr "(編輯)"
+
+#: setup.php:153 setup.php:177 setup.php:249 setup.php:273 setup.php:297
+msgid "Actions"
+msgstr "動作"
+
+#: setup.php:195 templates.php:311
+#, fuzzy
+msgid "Report Templates"
+msgstr "報告模板"
+
+#: setup.php:219 setup.php:225 templates.php:146 templates.php:232
+msgid "Import"
+msgstr "匯入"
+
+#: setup.php:303
+#, fuzzy
+msgid "Report Calculation"
+msgstr "報告計算"
+
+#: setup.php:309 view.php:220
+#, fuzzy
+msgid "Public Reports"
+msgstr "公開報告"
+
+#: setup.php:315 setup.php:327
+msgid "Show Report"
+msgstr "顯示報告"
+
+#: setup.php:321
+msgid "Export Report"
+msgstr "匯出報表"
+
+#: setup.php:333
+#, fuzzy
+msgid "Public Report Charts"
+msgstr "公開報告圖表"
+
+#: setup.php:339
+msgid "Bar Chart"
+msgstr "長條圖"
+
+#: setup.php:345
+msgid "Pie Chart"
+msgstr "圓餅圖"
+
+#: setup.php:359
+#, fuzzy
+#| msgid "Administration"
+msgid "System Administration"
+msgstr "管理員"
+
 #: setup.php:360
+#, fuzzy
+#| msgid "Administration"
+msgid "General Administration"
+msgstr "管理員"
+
+#: setup.php:365
 msgid "Management"
 msgstr "管理"
 
-#: setup.php:361
+#: setup.php:366
 msgid "Report"
 msgstr "報告"
 
-#: setup.php:361 templates.php:325 templates.php:474
+#: setup.php:366 templates.php:325 templates.php:474
 msgid "Templates"
 msgstr "模板"
 
-#: setup.php:365
+#: setup.php:370
 #, fuzzy
 msgid "No data source item selected"
 msgstr "沒有數據項"
 
-#: setup.php:368
+#: setup.php:373
 #, fuzzy
 msgid "Unselected data source items are still in use"
 msgstr "未選擇的數據源項仍在使用中"
 
-#: setup.php:371
+#: setup.php:376
 #, fuzzy
 msgid "Unable to unlock this template without defined measurands"
 msgstr "沒有定義的測量值，無法解鎖此模板"
 
-#: setup.php:382
+#: setup.php:387
 msgid "global"
 msgstr "全域"
 
-#: setup.php:382
+#: setup.php:387
 msgid "local"
 msgstr "本地端"
 
-#: setup.php:387
+#: setup.php:392
 #, fuzzy
 msgid "Power User (Report Owner)"
 msgstr "高級用戶（報告所有者）"
 
-#: setup.php:388
+#: setup.php:393
 #, fuzzy
 msgid "Super User (Report Admin)"
 msgstr "超級用戶（報告管理員）"
 
-#: setup.php:401
+#: setup.php:406
 #, fuzzy
 msgid "Maximum Execution Time (in seconds)"
 msgstr "最長執行時間（以秒為單位）"
 
-#: setup.php:402
+#: setup.php:407
 #, fuzzy
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "可選：一次計算的最長執行時間。"
 
-#: setup.php:408
+#: setup.php:413
 #, fuzzy
 msgid "Maximum Record Count Change"
 msgstr "最大記錄數變化"
 
-#: setup.php:409
+#: setup.php:414
 #, fuzzy
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "可選（自動生成RRD列表）：如果記錄計數更改大於此數量，則不要更改任何報告的RRD列表這是為了避免對RRD列表進行不必要的災難性更改"
 
-#: setup.php:415
+#: setup.php:420
 #, fuzzy
 msgid "Time Zones"
 msgstr "時區"
 
-#: setup.php:416
+#: setup.php:421
 #, fuzzy
 msgid "Enable/disable the use of time zones for data item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "啟用/禁用數據項配置和報告計算的時區使用。在前一種情況下，服務器時間必須設置為GMT / UTC！"
 
-#: setup.php:421
+#: setup.php:426
 #, fuzzy
 msgid "Show Local Time Zone"
 msgstr "顯示本地時區"
 
-#: setup.php:422
+#: setup.php:427
 #, fuzzy
 msgid "Enable/disable to display server's timezone on the headlines."
 msgstr "啟用/禁用以在標題上顯示服務器的時區。"
 
-#: setup.php:427
+#: setup.php:432
 #, fuzzy
 msgid "Allow scheduling by Operators"
 msgstr "允許運營商安排時間"
 
-#: setup.php:428
+#: setup.php:433
 #, fuzzy
 msgid "Enable/disable Operator's ability to schedule reports.  When disabled, only administrators may change scheduling."
 msgstr "啟用/禁用操作員安排報告的功能。禁用後，只有管理員才能更改計劃。"
 
-#: setup.php:433
+#: setup.php:438
 #, fuzzy
 msgid "SI-Prefixes"
 msgstr "SI前綴"
 
-#: setup.php:434
+#: setup.php:439
 #, fuzzy
 msgid "Enable/disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "根據<a href='http://www.ieee.org'>IEEE 1541</a>和<a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>的條款啟用/禁用二進制倍數的正確SI前綴。"
 
-#: setup.php:439
+#: setup.php:444
 msgid "Export Settings"
 msgstr "匯出設定"
 
-#: setup.php:444
+#: setup.php:449
 #, fuzzy
 msgid "Filename Format"
 msgstr "文件名格式"
 
-#: setup.php:445
+#: setup.php:450
 #, fuzzy
 msgid "The name format for the export files created on demand."
 msgstr "根據需要創建的導出文件的名稱格式。"
 
-#: setup.php:451
+#: setup.php:456
 #, fuzzy
 msgid "Export Header"
 msgstr "導出標題"
 
-#: setup.php:452
+#: setup.php:457
 #, fuzzy
 msgid "The header description for export files"
 msgstr "導出文件的標頭說明"
 
-#: setup.php:456
+#: setup.php:461
 #, fuzzy
 msgid "# Your report header\\n# <cacti_version> <reportit_version>"
 msgstr "＃您的報告標題\\ n＃<cacti_version> <reportit_version>"
 
-#: setup.php:459
+#: setup.php:464
 #, fuzzy
 msgid "Auto Archiving"
 msgstr "自動存檔"
 
-#: setup.php:464 setup.php:500
+#: setup.php:469 setup.php:505
 msgid "Enabled"
 msgstr "啟用"
 
-#: setup.php:465
+#: setup.php:470
 #, fuzzy
 msgid "If enabled the result of every scheduled report will be archived automatically"
 msgstr "如果啟用，則每個計劃報告的結果將自動存檔"
 
-#: setup.php:470
+#: setup.php:475
 #, fuzzy
-msgid "Cache Life Cyle (in seconds)"
+msgid "Cache Life Cycle (in seconds)"
 msgstr "緩存生命Cyle（以秒為單位）"
 
-#: setup.php:471
+#: setup.php:476
 #, fuzzy
 msgid "Number of seconds an archived report will be cached without any hit."
 msgstr "存檔報告將在沒有任何匹配的情況下緩存的秒數。"
 
-#: setup.php:477
+#: setup.php:482
 #, fuzzy
 msgid "Archive Path"
 msgstr "檔案路徑"
 
-#: setup.php:478
+#: setup.php:483
 #, fuzzy
 msgid "The path to an archive folder where archives have to be stored."
 msgstr "可選：用於保存的存檔文件夾的路徑。如果未定義，將使用子文件夾“archive”。"
 
-#: setup.php:484
+#: setup.php:489
 #, fuzzy
 msgid "Auto E-Mailing"
 msgstr "自動發送電子郵件"
 
-#: setup.php:490
+#: setup.php:495
 #, fuzzy
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "如果啟用的計劃報告可以自動通過電子郵件發送給收件人列表。 <br>此功能需要配置版本的“設置插件”。"
 
-#: setup.php:495
+#: setup.php:500
 #, fuzzy
 msgid "Auto Exporting"
 msgstr "自動導出"
 
-#: setup.php:501
+#: setup.php:506
 #, fuzzy
 msgid "If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> Report"
 msgstr "如果啟用了計劃報告，則可以將其自動導出到指定文件夾。 <br>因此，將使用完整的結構化路徑架構： <br>主文件夾 - >模板文件夾（如果已定義）或模板ID  - >報告ID  - >報告"
 
-#: setup.php:507
+#: setup.php:512
 #, fuzzy
 msgid "The main path to an export folder for saving the exports."
 msgstr "可選：用於保存導出的導出文件夾的主路徑。如果未定義子文件夾'exports'將被使用。"
 
-#: setup.php:522
+#: setup.php:527
 #, fuzzy
 msgid "ReportIt General Settings"
 msgstr "ReportIT常規設置"
 
-#: setup.php:525
+#: setup.php:530
 #, fuzzy
 msgid "Separate Report View Filter"
 msgstr "單獨的報告視圖篩選器"
 
-#: setup.php:526
+#: setup.php:531
 #, fuzzy
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "啟用/禁用每個報告使用單個過濾器。"
 
-#: setup.php:531
+#: setup.php:536
 #, fuzzy
 msgid "Rows Per Page"
 msgstr "每頁行數"
 
-#: setup.php:532
+#: setup.php:537
 #, fuzzy
 msgid "The number of rows to display on a single page."
 msgstr "要在單個頁面上顯示的行數。"
 
-#: setup.php:538
+#: setup.php:543
 #, fuzzy
 msgid "ReportIt Export Settings"
 msgstr "ReportIT導出設置"
 
-#: setup.php:543
+#: setup.php:548
 #, fuzzy
 msgid "CSV Column Separator"
 msgstr "CSV列分隔符"
 
-#: setup.php:544
+#: setup.php:549
 #, fuzzy
-msgid "The column seperator to be used for CSV exports."
+msgid "The column separator to be used for CSV exports."
 msgstr "用於CSV導出的列分隔符。"
 
-#: setup.php:550
+#: setup.php:555
 #, fuzzy
 msgid "CSV Decimal Separator"
 msgstr "CSV十進制分隔符"
 
-#: setup.php:551
+#: setup.php:556
 #, fuzzy
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "表示整數部分結束和小數部分開頭的符號。"
 
-#: setup.php:577
+#: setup.php:582
 #, fuzzy
 msgid "ReportIt"
 msgstr "報告"
