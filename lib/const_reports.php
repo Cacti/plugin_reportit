@@ -239,7 +239,7 @@ $form_array_scheduling = array(
 if (read_config_option('reportit_archive')) {
 	$form_array_scheduling['report_autoarchive'] = array(
 		'friendly_name' => __('Auto Generated Archive', 'reportit'),
-		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose "off" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrinked automatically within the next run.', 'reportit'),
+		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose "off" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run.', 'reportit'),
 		'method' => 'drop_array',
 		'value' => '|arg1:autoarchive|',
 		'default' => '0',
@@ -268,7 +268,7 @@ if (read_config_option('reportit_auto_export')) {
 	);
 	$form_array_scheduling['report_autoexport_max_records'] = array(
 		'friendly_name' => __('Export Limitation', 'reportit'),
-		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \'off\' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrinked automatically within the next run.', 'reportit'),
+		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \'off\' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run.', 'reportit'),
 		'method' => 'drop_array',
 		'value' => '|arg1:autoexport_max_records|',
 		'default' => '0',

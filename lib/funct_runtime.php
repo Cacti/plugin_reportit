@@ -450,7 +450,7 @@ function get_prepared_data(&$rrd_data, &$rrd_ad_data, $rrd_ds_cnt, $ds_type, $co
 		foreach ($rrd_ad_data['index'] as $key => $steps) {
 			$index = $key * $rrd_ds_cnt + $i;
 
-			//Correct the value automatically if it's needfully (Tpye 'Counter' only)
+			//Correct the value automatically if it's needfully (Type 'Counter' only)
 			$data[$i][$index]  = $rrd_data[$index];
 			$multi[$i][$index] = ($ds_type == 2 && !is_nan($rrd_data[$index])) ? $corr_factor_start : 1;
 

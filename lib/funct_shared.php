@@ -203,7 +203,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
  * db_custom_fetch_assoc()
  *
  * @param string 	$sql		contains the SQL call
- * @param string 	$index		contains the name of the coloumn which should be used as index
+ * @param string 	$index		contains the name of the column which should be used as index
  *                              if false (default) the index will numerical beginning from zero.
  * @param binary	$multi		save the columns multidimensional. if false then you will get only one result per index
  * @param binary	$assoc		if true (default) then save the $values associated ($key => $value) into the index array

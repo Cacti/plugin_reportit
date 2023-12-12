@@ -265,7 +265,7 @@ function validate_xml_template(&$xml_template, &$valid, &$checksum) {
 }
 
 function validate_uploaded_templates(){
-	/* check file tranfer if used */
+	/* check file transfer if used */
 	if (isset($_FILES['file'])) {
 		/* check for errors first */
 		if ($_FILES['file']['error'] != 0) {

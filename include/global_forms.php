@@ -153,7 +153,7 @@ $fields_template_export = array(
 		'max_length' => '250',
 		'size' => 50
 	),
-	'template_verion' => array(
+	'template_version' => array(
 		'method' => 'textbox',
 		'friendly_name' => __('[Optional] Version', 'reportit'),
 		'description' => __('Add your name or nick here.', 'reportit'),

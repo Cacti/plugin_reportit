@@ -63,7 +63,7 @@ $timezones = array(
 
 
 $runtime_messages = array(
-	1 => 'REPORTIT ERROR: PHP modul for RRDtool is not available.',
+	1 => 'REPORTIT ERROR: PHP module for RRDtool is not available.',
 	2 => 'REPORTIT ERROR: No data items defined. RIReport[<RID>]',
 	3 => 'REPORTIT ERROR: Startpoint is a part of future. RIReport[<RID>] RIDataItem[<DID>]',
 	4 => 'REPORTIT ERROR: No valid data found. Check your configuration. RIReport[<RID>]',

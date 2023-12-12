@@ -416,9 +416,9 @@ function calculate_handler() {
 
 /* ----- Main function for calculating ----- */
 
-global $caclulate_handler_set, $calculate_last_formula;
+global $calculate_handler_set, $calculate_last_formula;
 
-//Normal way of calulation
+//Normal way of calculation
 function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & $dr_cache, & $dp_cache, & $ds_cache) {
 	$results = array();
 
@@ -445,7 +445,7 @@ function calculate(& $data,& $params, & $variables, & $df_cache, & $dm_cache, & 
 
 	if (!$calculate_handler_set) {
 		register_shutdown_function('calculate_handler');
-		$calculte_handler_set = true;
+		$calculate_handler_set = true;
 	}
 
 	//Build the calculation command and execute it
