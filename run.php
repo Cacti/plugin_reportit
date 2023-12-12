@@ -70,7 +70,7 @@ function calculation() {
 	$_SESSION['run'] = '0';
 
 	if (stat_process($id) > 0) {
-		html_error_box(__('Report is alrady in progess.', 'reportit'), 'run.php', '', 'reports.php');
+		html_error_box(__('Report is already in progress.', 'reportit'), 'run.php', '', 'reports.php');
 		exit;
 	}
 

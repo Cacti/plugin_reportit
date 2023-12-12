@@ -472,7 +472,7 @@ function reportit_config_settings() {
 			'default'               => '',
 		),
 		'reportit_arc_lifecycle'    => array(
-			'friendly_name'         => __('Cache Life Cyle (in seconds)'),
+			'friendly_name'         => __('Cache Life Cycle (in seconds)'),
 			'description'           => __('Number of seconds an archived report will be cached without any hit.'),
 			'method'                => 'textbox',
 			'max_length'            => '4',
@@ -546,7 +546,7 @@ function reportit_config_settings() {
 		),
 		'reportit_csv_column_s'     => array(
 			'friendly_name'         => __('CSV Column Separator'),
-			'description'           => __('The column seperator to be used for CSV exports.'),
+			'description'           => __('The column separator to be used for CSV exports.'),
 			'method'                => 'drop_array',
 			'array'                 => $csv_column_separator,
 			'default'               => '1',

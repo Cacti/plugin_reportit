@@ -357,7 +357,7 @@ function measurand_edit() {
 		),
 		'measurand_rounding'=> array(
 			'friendly_name'		=> __('Prefixes', 'reportit'),
-			'description'		=> __('Choose the type of prefix beeing used to format the result. With the use of decimal prefixes \'1024\' will be formatted to \'1.024k\' while the binary prefixes option returns \'1ki\'. Select \'off\' to display the raw data, here \'1024\'.', 'reportit'),
+			'description'		=> __('Choose the type of prefix being used to format the result. With the use of decimal prefixes \'1024\' will be formatted to \'1.024k\' while the binary prefixes option returns \'1ki\'. Select \'off\' to display the raw data, here \'1024\'.', 'reportit'),
 			'method'			=> 'drop_array',
 			'array'				=> $rounding,
 			'value'				=> (isset($measurand_data['rounding']) ? $measurand_data['rounding'] : '2' )
@@ -369,7 +369,7 @@ function measurand_edit() {
 		),
 		'measurand_formula'	=> array(
 			'friendly_name'		=> __('Calculation Formula', 'reportit'),
-			'description'		=> __('The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations.', 'reportit'),
+			'description'		=> __('The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations.', 'reportit'),
 			'method' 			=> 'custom',
 			'value'				=> "<textarea aria-multiline='true' cols='60' rows='5' id='measurand_formula' name='measurand_formula'>" . (isset($measurand_data['calc_formula']) ? $measurand_data['calc_formula'] : "" ) . '</textarea>'
 		),

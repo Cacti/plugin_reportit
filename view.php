@@ -204,7 +204,7 @@ function standard() {
 	<tr class='odd'>
 		<td>
 		<form id='form_report' method='get'>
-			<table class='fitlerTable'>
+			<table class='filterTable'>
 				<tr>
 					<td>
 						<?php print __('Search');?>
@@ -473,7 +473,7 @@ function show_report() {
 		FROM $source
 		$sql_where");
 
-	/* save all data source names for the drop down menue.
+	/* save all data source names for the drop down menu.
 	if available use the data source alias instead of the internal names */
 	/* extract result description */
 	$report_data     = $data['report_data'];

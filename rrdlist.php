@@ -380,7 +380,7 @@ function rrdlist_edit() {
 	if ($enable_tmz) {
 		$rrdlist_timezone = array(
 			'friendly_name' => __('Time Zone', 'reportit'),
-			'description' => __('Select the time zone your following shifttime informations will be based on.', 'reportit'),
+			'description' => __('Select the time zone your following shifttime information will be based on.', 'reportit'),
 			'method' => 'drop_array',
 			'default' => '17',
 			'value' => array_search($rrdlist_data['timezone'], $timezone),

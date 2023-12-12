@@ -626,7 +626,7 @@ function runtime($report_id) {
 			$list = substr($list, 0, strlen($list)-1);
 			$list = "ALTER TABLE plugin_reportit_results_$report_id $list";
 
-			// Add columms
+			// Add columns
 			db_execute($list);
 
 			// Update output variable
@@ -1009,10 +1009,10 @@ function autoexport($report_id){
 	if ($report_settings['autoexport_max_records']) {
 		if ($path_handle = opendir($report_folder)) {
 
-			$file_format_lenght = strlen($file_format);
+			$file_format_length = strlen($file_format);
 			$files = array();
 			while (false !== ($file = readdir($path_handle))) {
-				if (substr($file, -$file_format_lenght) == $file_type) {
+				if (substr($file, -$file_format_length) == $file_type) {
 					list($start, $end) = explode("_", $file);
 					list($year, $month, $day) = explode("-", $start);
 					$files[mktime(0,0,0,$month, $day, $year)] = $file;

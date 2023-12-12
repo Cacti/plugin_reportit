@@ -801,7 +801,7 @@ function form_save() {
 				/* save report config */
 				$report_id = sql_save($report_data, 'plugin_reportit_reports');
 
-				/* save addtional report variables */
+				/* save additional report variables */
 				foreach($var_data as $data) {
 					if (get_request_var('id') == 0) {
 						$data['report_id'] = $report_id;
