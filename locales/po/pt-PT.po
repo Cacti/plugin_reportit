@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2022-10-19 20:47-0400\n"
+"POT-Creation-Date: 2023-12-11 22:50-0600\n"
 "PO-Revision-Date: 2021-01-18 18:17+0000\n"
 "Last-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/reportit/pt_PT/>\n"
@@ -40,15 +40,16 @@ msgstr "Bloqueado"
 msgid "Unlock"
 msgstr "Escola"
 
-#: include/global_arrays.php:31 setup.php:226 setup.php:232 setup.php:238
+#: include/global_arrays.php:31 setup.php:231 setup.php:237 setup.php:243
 #: templates.php:994
 msgid "Export"
 msgstr "Exportar"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:44 lib/const_reports.php:431
-#: lib/const_variables.php:51 measurands.php:93 reports.php:352 reports.php:959
-#: templates.php:166 templates.php:463 variables.php:65 variables.php:303
+#: lib/const_variables.php:51 measurands.php:93 reports.php:360
+#: reports.php:1012 templates.php:166 templates.php:463 variables.php:65
+#: variables.php:303
 msgid "Name"
 msgstr "Nome"
 
@@ -68,7 +69,7 @@ msgid "Minimum"
 msgstr "Minimo"
 
 #: include/global_arrays.php:55 items.php:345 lib/const_variables.php:55
-#: reports.php:152 rrdlist.php:239 templates.php:329 variables.php:69
+#: reports.php:155 rrdlist.php:239 templates.php:329 variables.php:69
 #: view.php:229 view.php:638
 msgid "Default"
 msgstr "Padrão"
@@ -132,7 +133,7 @@ msgstr "ID genérico"
 msgid "Elements"
 msgstr "Elementos WPC"
 
-#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:250
+#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:255
 #: templates.php:469
 #, fuzzy
 msgid "Measurands"
@@ -146,7 +147,7 @@ msgstr "Modelo de dados"
 #: include/global_arrays.php:81 include/global_forms.php:39
 #: lib/const_reports.php:110 lib/const_reports.php:153
 #: lib/const_reports.php:288 lib/const_reports.php:321
-#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:396
+#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:401
 #: variables.php:292
 msgid "General"
 msgstr "Geral"
@@ -162,7 +163,7 @@ msgstr "Grupos"
 
 #: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:357 lib/funct_html.php:171 lib/funct_html.php:242
-#: setup.php:274 templates.php:470
+#: setup.php:279 templates.php:470
 #, fuzzy
 msgid "Variables"
 msgstr "Variáveis"
@@ -1006,7 +1007,7 @@ msgstr "Pré-filtro adicional"
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "Opcional: A sintaxe para filtrar a lista disponível de itens de dados<br> por sua descrição. Use curingas SQL como % e/ou _. Sem Expressões regulares!"
 
-#: include/global_forms.php:96 setup.php:506
+#: include/global_forms.php:96 setup.php:511
 #, fuzzy
 msgid "Export Path"
 msgstr "Caminho de exportação"
@@ -1087,23 +1088,23 @@ msgstr "Itens de dados"
 msgid "No data items"
 msgstr "Nenhum item de dados"
 
-#: items.php:334 reports.php:142 rrdlist.php:229 templates.php:319 view.php:210
+#: items.php:334 reports.php:145 rrdlist.php:229 templates.php:319 view.php:210
 #: view.php:561
 msgid "Search"
 msgstr "Pesquisar"
 
-#: items.php:341 reports.php:148 reports.php:365 setup.php:124 setup.php:360
-#: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
+#: items.php:341 reports.php:151 reports.php:402 setup.php:129 setup.php:365
+#: setup.php:397 templates.php:471 view.php:198 view.php:201 view.php:225
 #: view.php:755
 msgid "Reports"
 msgstr "Relatórios"
 
-#: items.php:356 reports.php:163 rrdlist.php:250 templates.php:340 view.php:612
+#: items.php:356 reports.php:166 rrdlist.php:250 templates.php:340 view.php:612
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Ir"
 
-#: items.php:359 reports.php:166 rrdlist.php:253 templates.php:343 view.php:615
+#: items.php:359 reports.php:169 rrdlist.php:253 templates.php:343 view.php:615
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "Limpar"
@@ -1240,7 +1241,7 @@ msgstr "Domingo"
 msgid "Data Item Presets"
 msgstr "Predefinições de item de dados"
 
-#: lib/const_reports.php:112 reports.php:960
+#: lib/const_reports.php:112 reports.php:1013
 msgid "Email"
 msgstr "Email"
 
@@ -1321,7 +1322,7 @@ msgstr "Para adicionar um novo destinatário digite um endereço de e-mail váli
 msgid "Scheduled Reporting"
 msgstr "Relatórios Programados"
 
-#: lib/const_reports.php:217 setup.php:489
+#: lib/const_reports.php:217 setup.php:494
 msgid "Enable"
 msgstr "Ativar"
 
@@ -1356,7 +1357,7 @@ msgstr "Arquivo gerado automaticamente"
 
 #: lib/const_reports.php:242
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run."
 msgstr "Definir o número máximo de instâncias que devem ser arquivadas antes que a primeira seja sobregravada.  Selecionar \"off\" se desejar desativar esse princípio RoundRobbin (padrão, mas não recomendável).  Se você definir um valor de instâncias inferior ao que o arquivo atual contém, ele será encolhido automaticamente na próxima execução."
 
 #: lib/const_reports.php:252
@@ -1386,7 +1387,7 @@ msgstr "Limitação de Exportação"
 
 #: lib/const_reports.php:271
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run."
 msgstr "Definir o número máximo de instâncias que devem ser arquivadas antes que a primeira seja sobregravada.  Selecionar 'off' para desativar o princípio RoundRobbin (default, mas não recomendável).  Se você definir um valor de instâncias inferior ao que a pasta de exportação atual contém, ela será encolhida automaticamente na próxima execução."
 
 #: lib/const_reports.php:278
@@ -1433,7 +1434,7 @@ msgstr "Defina um subtítulo adicional que deve ser exibido na descrição da in
 msgid "Time Zone"
 msgstr "Fuso horário"
 
-#: lib/const_reports.php:338 rrdlist.php:383
+#: lib/const_reports.php:338
 #, fuzzy
 msgid "Select the time zone your following shifttime informations will be based on."
 msgstr "Selecione o fuso horário no qual suas informações de horário de trabalho seguintes serão baseadas."
@@ -1523,7 +1524,7 @@ msgstr "Proprietário"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "Modificar o proprietário deste relatório. Apenas os utilizadores com um mínimo de direitos de informação (\"Ver\" ou superior) podem ser seleccionados."
 
-#: lib/const_reports.php:461 reports.php:357
+#: lib/const_reports.php:461 reports.php:383
 msgid "Public"
 msgstr "Público"
 
@@ -1592,8 +1593,8 @@ msgstr "Para definir a data final, utilize o seguinte formato: <B>yyyyyy-mm-dd</
 msgid "Copy settings to all"
 msgstr "Copiar opções para todos"
 
-#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:136 setup.php:178
-#: setup.php:208
+#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:141 setup.php:183
+#: setup.php:213
 msgid "Add"
 msgstr "Adicionar"
 
@@ -1694,7 +1695,7 @@ msgstr "Título de grupo separado [geral]"
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr "Opcional: você pode definir um nome de grupo que deve ser exibido como o título para todos os mensurandos separados nos relatórios."
 
-#: lib/funct_mailer.php:45
+#: lib/funct_mailer.php:68
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting."
 msgstr "Erro do Mailer: Nenhum endereço <b>TO</b> definido !!<br> Se estiver usando o link <i>Test Mail</i> , defina a configuração de <b>e-mail de alerta</b> ."
@@ -1841,7 +1842,7 @@ msgstr "SI-Prefixos"
 
 #: measurands.php:360
 #, fuzzy
-msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "Escolha o tipo de prefixo a ser usado para formatar o resultado. Com o uso de prefixos decimais, '1024' será formatado para '1.024k', enquanto a opção de prefixos binários retorna '1ki'. Selecione 'off' para exibir os dados brutos, aqui '1024'."
 
 #: measurands.php:366
@@ -1850,7 +1851,7 @@ msgstr "Fórmula"
 
 #: measurands.php:372
 #, fuzzy
-msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "A definição matemática deste mensurando. São permitidas todas as combinações de operadores e operandos listados abaixo, seguindo as regras da matemática. Use colchetes e arredondados para indicar termos complexos e a ordem das operações."
 
 #: measurands.php:377
@@ -1883,14 +1884,14 @@ msgstr "Medidores"
 msgid "You must select at least one measurand."
 msgstr "Você deve selecionar pelo menos um Relatório."
 
-#: measurands.php:532 measurands.php:534 reports.php:96 reports.php:98
-#: reports.php:1254 reports.php:1264 rrdlist.php:592 rrdlist.php:594
-#: templates.php:98 templates.php:100 templates.php:232 templates.php:233
-#: templates.php:981 variables.php:481 variables.php:483
+#: measurands.php:532 measurands.php:534 reports.php:104 reports.php:1307
+#: reports.php:1317 rrdlist.php:592 rrdlist.php:594 templates.php:98
+#: templates.php:100 templates.php:232 templates.php:233 templates.php:981
+#: variables.php:481 variables.php:483
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: measurands.php:534 reports.php:98 reports.php:1264 rrdlist.php:595
+#: measurands.php:534 reports.php:104 reports.php:1317 rrdlist.php:595
 #: templates.php:100 templates.php:990 templates.php:992 variables.php:483
 msgid "Continue"
 msgstr "Continuar"
@@ -1900,141 +1901,141 @@ msgstr "Continuar"
 msgid "Delete Template Measurands"
 msgstr "Eliminar modelos de relatórios"
 
-#: reports.php:88
+#: reports.php:97
 msgid "New Report"
 msgstr "Novo Relatório"
 
-#: reports.php:93
+#: reports.php:100
 #, fuzzy, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "Não existem modelos de relatórios disponíveis."
 
-#: reports.php:98
+#: reports.php:104
 #, fuzzy
 msgid "Create a new report"
 msgstr "Criar um novo relatório"
 
-#: reports.php:106
+#: reports.php:112
 #, fuzzy
 msgid "Choose a template this report should depend on."
 msgstr "Selecione um modelo do qual este relatório deve depender."
 
-#: reports.php:134
+#: reports.php:137
 msgid "Report Filters"
 msgstr "Filtros de Relatório"
 
-#: reports.php:351 templates.php:462
+#: reports.php:355 templates.php:462
 msgid "Id"
 msgstr "ID"
 
-#: reports.php:353
+#: reports.php:365
 #, fuzzy, php-format
 msgid "Period %s from - to"
 msgstr "Período %s de - até"
 
-#: reports.php:354
+#: reports.php:368
 msgid "State"
 msgstr "Estado"
 
-#: reports.php:355 view.php:292
+#: reports.php:373 view.php:292
 #, fuzzy, php-format
 msgid "Last run %s"
 msgstr "Última execução"
 
-#: reports.php:356 view.php:293
+#: reports.php:378 view.php:293
 #, fuzzy
 msgid "Runtime [s]"
 msgstr "Tempo de execução"
 
-#: reports.php:358
+#: reports.php:388
 msgid "Scheduled"
 msgstr "Agendado"
 
-#: reports.php:359 rrdlist.php:291 setup.php:154
+#: reports.php:393 rrdlist.php:291 setup.php:159
 #, fuzzy
 msgid "Data Items"
 msgstr "Itens de dados"
 
-#: reports.php:385
+#: reports.php:427
 msgid "n/a"
 msgstr "n/d"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Add sources"
 msgstr "Adicionar fontes"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Edit sources"
 msgstr "Origem dos dados"
 
-#: reports.php:396
+#: reports.php:439
 #, fuzzy
 msgid "Report has been locked"
 msgstr "O modelo foi bloqueado temporariamente"
 
-#: reports.php:404
+#: reports.php:447
 #, fuzzy
 msgid "No reports"
 msgstr "Relatórios"
 
-#: reports.php:470
+#: reports.php:519
 #, fuzzy
 msgid "Not authorised"
 msgstr "Não autorizado"
 
-#: reports.php:888
+#: reports.php:941
 #, fuzzy
 msgid "Add Data Items"
 msgstr "Adicionar itens de dados"
 
-#: reports.php:925
+#: reports.php:978
 #, fuzzy, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "Configuração de Relatórios (%s) %s"
 
-#: reports.php:974
+#: reports.php:1027
 #, fuzzy
 msgid "No recipients found"
 msgstr "Nenhum destinatário encontrado"
 
-#: reports.php:1034 reports.php:1039
+#: reports.php:1087 reports.php:1092
 #, fuzzy
 msgid "- Email address of a recipient (or list of names) -"
 msgstr "- Endereço de e-mail de um destinatário (ou lista de nomes) -"
 
-#: reports.php:1035 reports.php:1040
+#: reports.php:1088 reports.php:1093
 #, fuzzy
 msgid "[OPTIONAL] - Name of a recipient (or list of names) -"
 msgstr "OPTATIVA] - Nome de um destinatário (ou lista de nomes) -"
 
-#: reports.php:1241
+#: reports.php:1294
 #, fuzzy
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "Clique em 'Continuar' para excluir os seguintes relatórios."
 
-#: reports.php:1243
+#: reports.php:1296
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "Clique em 'Continuar' para excluir os seguintes relatórios."
 
-#: reports.php:1245
+#: reports.php:1298
 #, fuzzy
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "Clique em 'Continuar' para duplicar as seguintes configurações do Relatório.  Você também pode alterar o formato do título durante esta operação."
 
-#: reports.php:1246
+#: reports.php:1299
 #, fuzzy
 msgid "Title Format:"
 msgstr "Formato do título:"
 
-#: reports.php:1247
+#: reports.php:1300
 #, fuzzy
 msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
-#: reports.php:1253
+#: reports.php:1306
 #, fuzzy
 msgid "You must select at least one unlocked, not running, report."
 msgstr "É necessário selecionar pelo menos um relatório."
@@ -2083,6 +2084,11 @@ msgstr "Nenhum item de dados encontrado"
 msgid "Data Item [edit: %s]"
 msgstr "Objeto de dados [editar: %s]"
 
+#: rrdlist.php:383
+#, fuzzy
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Selecione o fuso horário no qual suas informações de horário de trabalho seguintes serão baseadas."
+
 #: rrdlist.php:551
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Items."
@@ -2130,7 +2136,7 @@ msgstr "Você deve selecionar pelo menos um Relatório."
 
 #: run.php:73
 #, fuzzy
-msgid "Report is alrady in progess."
+msgid "Report is already in progress."
 msgstr "O relatório está apenas em processo."
 
 #: run.php:97
@@ -2157,315 +2163,325 @@ msgstr "Número de avisos <font class=\"deviceDown\">(%s)</font>"
 msgid "View Report"
 msgstr "Exibir Relatório"
 
-#: setup.php:130 setup.php:142 setup.php:160 setup.php:166 setup.php:184
-#: setup.php:196 setup.php:202 setup.php:256 setup.php:262 setup.php:280
-#: setup.php:286
-msgid "(Edit)"
-msgstr "(Editar)"
-
-#: setup.php:148 setup.php:172 setup.php:244 setup.php:268 setup.php:292
-msgid "Actions"
-msgstr "Acções"
-
-#: setup.php:190 templates.php:311
-msgid "Report Templates"
-msgstr "Modelos de relatório"
-
-#: setup.php:214 setup.php:220 templates.php:146 templates.php:232
-msgid "Import"
-msgstr "Importar"
-
-#: setup.php:298
-#, fuzzy
-msgid "Report Calculation"
-msgstr "Cálculo do relatório"
-
-#: setup.php:304 view.php:220
-#, fuzzy
-msgid "Public Reports"
-msgstr "Relatórios Públicos"
-
-#: setup.php:310 setup.php:322
-#, fuzzy
-msgid "Show Report"
-msgstr "Mostrar relatório"
-
-#: setup.php:316
-#, fuzzy
-msgid "Export Report"
-msgstr "Exportar relatório"
-
-#: setup.php:328
-#, fuzzy
-msgid "Public Report Charts"
-msgstr "Gráficos de relatórios públicos"
-
-#: setup.php:334
-msgid "Bar Chart"
-msgstr "Gráfico de Barras"
-
-#: setup.php:340
-msgid "Pie Chart"
-msgstr "Gráfico de torta"
-
-#: setup.php:354
+#: setup.php:34
 msgid "View Reports"
 msgstr "Exibir Relatórios"
 
-#: setup.php:355
+#: setup.php:35
 #, fuzzy
 msgid "Create Reports"
 msgstr "Criar relatórios"
 
-#: setup.php:356
+#: setup.php:36
 #, fuzzy
 msgid "Administrate Reports"
 msgstr "Relatórios Administrativos"
 
+#: setup.php:135 setup.php:147 setup.php:165 setup.php:171 setup.php:189
+#: setup.php:201 setup.php:207 setup.php:261 setup.php:267 setup.php:285
+#: setup.php:291
+msgid "(Edit)"
+msgstr "(Editar)"
+
+#: setup.php:153 setup.php:177 setup.php:249 setup.php:273 setup.php:297
+msgid "Actions"
+msgstr "Acções"
+
+#: setup.php:195 templates.php:311
+msgid "Report Templates"
+msgstr "Modelos de relatório"
+
+#: setup.php:219 setup.php:225 templates.php:146 templates.php:232
+msgid "Import"
+msgstr "Importar"
+
+#: setup.php:303
+#, fuzzy
+msgid "Report Calculation"
+msgstr "Cálculo do relatório"
+
+#: setup.php:309 view.php:220
+#, fuzzy
+msgid "Public Reports"
+msgstr "Relatórios Públicos"
+
+#: setup.php:315 setup.php:327
+#, fuzzy
+msgid "Show Report"
+msgstr "Mostrar relatório"
+
+#: setup.php:321
+#, fuzzy
+msgid "Export Report"
+msgstr "Exportar relatório"
+
+#: setup.php:333
+#, fuzzy
+msgid "Public Report Charts"
+msgstr "Gráficos de relatórios públicos"
+
+#: setup.php:339
+msgid "Bar Chart"
+msgstr "Gráfico de Barras"
+
+#: setup.php:345
+msgid "Pie Chart"
+msgstr "Gráfico de torta"
+
+#: setup.php:359
+#, fuzzy
+msgid "System Administration"
+msgstr "Administrador de sistemas"
+
 #: setup.php:360
+#, fuzzy
+msgid "General Administration"
+msgstr "Administrador de sistemas"
+
+#: setup.php:365
 msgid "Management"
 msgstr "Gestão"
 
-#: setup.php:361
+#: setup.php:366
 msgid "Report"
 msgstr "Reportar"
 
-#: setup.php:361 templates.php:325 templates.php:474
+#: setup.php:366 templates.php:325 templates.php:474
 msgid "Templates"
 msgstr "Modelos"
 
-#: setup.php:365
+#: setup.php:370
 #, fuzzy
 msgid "No data source item selected"
 msgstr "Nenhum item de dados"
 
-#: setup.php:368
+#: setup.php:373
 #, fuzzy
 msgid "Unselected data source items are still in use"
 msgstr "Itens de fonte de dados não selecionados ainda estão em uso"
 
-#: setup.php:371
+#: setup.php:376
 #, fuzzy
 msgid "Unable to unlock this template without defined measurands"
 msgstr "Incapaz de desbloquear este modelo sem mensurandos definidos"
 
-#: setup.php:382
+#: setup.php:387
 msgid "global"
 msgstr "Global"
 
-#: setup.php:382
+#: setup.php:387
 #, fuzzy
 msgid "local"
 msgstr "Local"
 
-#: setup.php:387
+#: setup.php:392
 #, fuzzy
 msgid "Power User (Report Owner)"
 msgstr "Usuário avançado (proprietário do relatório)"
 
-#: setup.php:388
+#: setup.php:393
 #, fuzzy
 msgid "Super User (Report Admin)"
 msgstr "Super Usuário (Report Admin)"
 
-#: setup.php:401
+#: setup.php:406
 #, fuzzy
 msgid "Maximum Execution Time (in seconds)"
 msgstr "Tempo máximo de execução (em segundos)"
 
-#: setup.php:402
+#: setup.php:407
 #, fuzzy
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "Opcional: Tempo máximo de execução de um cálculo."
 
-#: setup.php:408
+#: setup.php:413
 #, fuzzy
 msgid "Maximum Record Count Change"
 msgstr "Mudança na contagem máxima de registros"
 
-#: setup.php:409
+#: setup.php:414
 #, fuzzy
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "Opcional (Lista RRD de geração automática): Não altere a Lista RRD de qualquer Relatório se a Alteração da Contagem de Registos for superior a este Número Isto para evitar alterações indesejadas e desastrosas nas Listas RRD"
 
-#: setup.php:415
+#: setup.php:420
 #, fuzzy
 msgid "Time Zones"
 msgstr "Fusos horários"
 
-#: setup.php:416
+#: setup.php:421
 #, fuzzy
 msgid "Enable/disable the use of time zones for data item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "Habilitar/desabilitar o uso de fusos horários para a configuração do item de dados e cálculo do relatório.  No caso anterior, a hora do servidor tem de ser configurada para GMT/UTC!"
 
-#: setup.php:421
+#: setup.php:426
 #, fuzzy
 msgid "Show Local Time Zone"
 msgstr "Mostrar fuso horário local"
 
-#: setup.php:422
+#: setup.php:427
 #, fuzzy
 msgid "Enable/disable to display server's timezone on the headlines."
 msgstr "Ativar/desativar para exibir o fuso horário do servidor nos cabeçalhos."
 
-#: setup.php:427
+#: setup.php:432
 #, fuzzy
 msgid "Allow scheduling by Operators"
 msgstr "Permitir agendamento por operadores"
 
-#: setup.php:428
+#: setup.php:433
 #, fuzzy
 msgid "Enable/disable Operator's ability to schedule reports.  When disabled, only administrators may change scheduling."
 msgstr "Habilite / desabilite a capacidade do Operador de agendar relatórios. Quando desativado, apenas os administradores podem alterar a programação."
 
-#: setup.php:433
+#: setup.php:438
 #, fuzzy
 msgid "SI-Prefixes"
 msgstr "SI-Prefixos"
 
-#: setup.php:434
+#: setup.php:439
 #, fuzzy
 msgid "Enable/disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "Habilitar/desabilitar o uso de prefixos SI corretos para múltiplos binários sob os termos de <a href='http://www.ieee.org'>IEEE 1541</a> e <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
-#: setup.php:439
+#: setup.php:444
 msgid "Export Settings"
 msgstr "Exportar configurações"
 
-#: setup.php:444
+#: setup.php:449
 #, fuzzy
 msgid "Filename Format"
 msgstr "Formato do nome do arquivo"
 
-#: setup.php:445
+#: setup.php:450
 #, fuzzy
 msgid "The name format for the export files created on demand."
 msgstr "O formato de nome para os arquivos de exportação criados sob demanda."
 
-#: setup.php:451
+#: setup.php:456
 #, fuzzy
 msgid "Export Header"
 msgstr "Cabeçalho de exportação"
 
-#: setup.php:452
+#: setup.php:457
 #, fuzzy
 msgid "The header description for export files"
 msgstr "A descrição do cabeçalho para files de exportação"
 
-#: setup.php:456
+#: setup.php:461
 #, fuzzy
 msgid "# Your report header\\n# <cacti_version> <reportit_version>"
 msgstr "# Seu cabeçalho de relatório \\ n # <cacti_version> <reportit_version>"
 
-#: setup.php:459
+#: setup.php:464
 #, fuzzy
 msgid "Auto Archiving"
 msgstr "Arquivamento automático"
 
-#: setup.php:464 setup.php:500
+#: setup.php:469 setup.php:505
 msgid "Enabled"
 msgstr "Activado"
 
-#: setup.php:465
+#: setup.php:470
 #, fuzzy
 msgid "If enabled the result of every scheduled report will be archived automatically"
 msgstr "Se ativado, o resultado de cada relatório programado será arquivado automaticamente"
 
-#: setup.php:470
+#: setup.php:475
 #, fuzzy
-msgid "Cache Life Cyle (in seconds)"
+msgid "Cache Life Cycle (in seconds)"
 msgstr "Ciclo de vida do cache (em segundos)"
 
-#: setup.php:471
+#: setup.php:476
 #, fuzzy
 msgid "Number of seconds an archived report will be cached without any hit."
 msgstr "Número de segundos que um relatório arquivado será armazenado em cache sem qualquer acerto."
 
-#: setup.php:477
+#: setup.php:482
 #, fuzzy
 msgid "Archive Path"
 msgstr "Caminho do arquivo"
 
-#: setup.php:478
+#: setup.php:483
 #, fuzzy
 msgid "The path to an archive folder where archives have to be stored."
 msgstr "Opcional: O caminho para uma pasta de arquivo para salvar. Se não for definida a subpasta 'arquivo' será utilizado."
 
-#: setup.php:484
+#: setup.php:489
 #, fuzzy
 msgid "Auto E-Mailing"
 msgstr "Auto E-Mailing"
 
-#: setup.php:490
+#: setup.php:495
 #, fuzzy
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "Se ativado, os relatórios agendados podem ser enviados automaticamente por e-mail para uma lista de destinatários.<br> Este recurso requer uma versão configurada do 'Plugin de Configurações'."
 
-#: setup.php:495
+#: setup.php:500
 #, fuzzy
 msgid "Auto Exporting"
 msgstr "Exportação automática"
 
-#: setup.php:501
+#: setup.php:506
 #, fuzzy
 msgid "If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> Report"
 msgstr "Se ativado, os relatórios agendados podem ser exportados automaticamente para uma pasta especificada.<br> Portanto, uma arquitetura de caminho totalmente estruturada será usada:<br> Pasta principal -> Pasta de modelo (se definida) ou ID do modelo -> ID do relatório -> Relatório"
 
-#: setup.php:507
+#: setup.php:512
 #, fuzzy
 msgid "The main path to an export folder for saving the exports."
 msgstr "Opcional: O caminho principal para uma pasta de exportação para salvar as exportações. Se não for definida uma subpasta, serão utilizadas \"exportações\"."
 
-#: setup.php:522
+#: setup.php:527
 #, fuzzy
 msgid "ReportIt General Settings"
 msgstr "Opções gerais do ReportIT"
 
-#: setup.php:525
+#: setup.php:530
 #, fuzzy
 msgid "Separate Report View Filter"
 msgstr "Filtro de visualização de relatório separado"
 
-#: setup.php:526
+#: setup.php:531
 #, fuzzy
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "Ativar/desativar o uso de um filtro individual por relatório."
 
-#: setup.php:531
+#: setup.php:536
 msgid "Rows Per Page"
 msgstr "Linhas por página"
 
-#: setup.php:532
+#: setup.php:537
 #, fuzzy
 msgid "The number of rows to display on a single page."
 msgstr "O número de linhas a serem exibidas em uma única página."
 
-#: setup.php:538
+#: setup.php:543
 #, fuzzy
 msgid "ReportIt Export Settings"
 msgstr "Configurações de exportação do ReportIT"
 
-#: setup.php:543
+#: setup.php:548
 #, fuzzy
 msgid "CSV Column Separator"
 msgstr "Separador de colunas CSV"
 
-#: setup.php:544
+#: setup.php:549
 #, fuzzy
-msgid "The column seperator to be used for CSV exports."
+msgid "The column separator to be used for CSV exports."
 msgstr "O separador de colunas a utilizar para as exportações de CSV."
 
-#: setup.php:550
+#: setup.php:555
 #, fuzzy
 msgid "CSV Decimal Separator"
 msgstr "Separador decimal CSV"
 
-#: setup.php:551
+#: setup.php:556
 #, fuzzy
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "O símbolo que indica o fim da parte inteira e o início da parte fracionada."
 
-#: setup.php:577
+#: setup.php:582
 #, fuzzy
 msgid "ReportIt"
 msgstr "Reportar"
