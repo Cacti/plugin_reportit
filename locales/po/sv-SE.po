@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2022-10-19 20:47-0400\n"
+"POT-Creation-Date: 2023-12-11 22:50-0600\n"
 "PO-Revision-Date: 2020-12-12 23:05-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,15 +38,16 @@ msgstr "Lås"
 msgid "Unlock"
 msgstr "Lås upp"
 
-#: include/global_arrays.php:31 setup.php:226 setup.php:232 setup.php:238
+#: include/global_arrays.php:31 setup.php:231 setup.php:237 setup.php:243
 #: templates.php:994
 msgid "Export"
 msgstr "Exportera"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:44 lib/const_reports.php:431
-#: lib/const_variables.php:51 measurands.php:93 reports.php:352 reports.php:959
-#: templates.php:166 templates.php:463 variables.php:65 variables.php:303
+#: lib/const_variables.php:51 measurands.php:93 reports.php:360
+#: reports.php:1012 templates.php:166 templates.php:463 variables.php:65
+#: variables.php:303
 msgid "Name"
 msgstr "Namn"
 
@@ -66,7 +67,7 @@ msgid "Minimum"
 msgstr "Minimum"
 
 #: include/global_arrays.php:55 items.php:345 lib/const_variables.php:55
-#: reports.php:152 rrdlist.php:239 templates.php:329 variables.php:69
+#: reports.php:155 rrdlist.php:239 templates.php:329 variables.php:69
 #: view.php:229 view.php:638
 msgid "Default"
 msgstr "Standard"
@@ -128,7 +129,7 @@ msgstr "Generiskt ID"
 msgid "Elements"
 msgstr "Element"
 
-#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:250
+#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:255
 #: templates.php:469
 #, fuzzy
 msgid "Measurands"
@@ -142,7 +143,7 @@ msgstr "Datamall"
 #: include/global_arrays.php:81 include/global_forms.php:39
 #: lib/const_reports.php:110 lib/const_reports.php:153
 #: lib/const_reports.php:288 lib/const_reports.php:321
-#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:396
+#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:401
 #: variables.php:292
 msgid "General"
 msgstr "Allmän"
@@ -158,7 +159,7 @@ msgstr "Grupper"
 
 #: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:357 lib/funct_html.php:171 lib/funct_html.php:242
-#: setup.php:274 templates.php:470
+#: setup.php:279 templates.php:470
 msgid "Variables"
 msgstr "Variabler"
 
@@ -997,7 +998,7 @@ msgstr "Ytterligare förfilter"
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "Valfritt: Syntaxen för att filtrera den tillgängliga listan med dataobjekt <br> enligt deras beskrivning. Använd SQL-jokertecken som% och / eller _. Inga vanliga uttryck!"
 
-#: include/global_forms.php:96 setup.php:506
+#: include/global_forms.php:96 setup.php:511
 #, fuzzy
 msgid "Export Path"
 msgstr "Exportera sökvägen"
@@ -1078,23 +1079,23 @@ msgstr "Dataposter"
 msgid "No data items"
 msgstr "Inga dataposter"
 
-#: items.php:334 reports.php:142 rrdlist.php:229 templates.php:319 view.php:210
+#: items.php:334 reports.php:145 rrdlist.php:229 templates.php:319 view.php:210
 #: view.php:561
 msgid "Search"
 msgstr "Sök"
 
-#: items.php:341 reports.php:148 reports.php:365 setup.php:124 setup.php:360
-#: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
+#: items.php:341 reports.php:151 reports.php:402 setup.php:129 setup.php:365
+#: setup.php:397 templates.php:471 view.php:198 view.php:201 view.php:225
 #: view.php:755
 msgid "Reports"
 msgstr "Rapporter"
 
-#: items.php:356 reports.php:163 rrdlist.php:250 templates.php:340 view.php:612
+#: items.php:356 reports.php:166 rrdlist.php:250 templates.php:340 view.php:612
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Start"
 
-#: items.php:359 reports.php:166 rrdlist.php:253 templates.php:343 view.php:615
+#: items.php:359 reports.php:169 rrdlist.php:253 templates.php:343 view.php:615
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "Rensa"
@@ -1232,7 +1233,7 @@ msgstr "Söndag"
 msgid "Data Item Presets"
 msgstr "Data-förinställningar"
 
-#: lib/const_reports.php:112 reports.php:960
+#: lib/const_reports.php:112 reports.php:1013
 msgid "Email"
 msgstr "E-post"
 
@@ -1313,7 +1314,7 @@ msgstr "För att lägga till en ny mottagare anger du en giltig e-postadress (kr
 msgid "Scheduled Reporting"
 msgstr "Schemalagd rapportering"
 
-#: lib/const_reports.php:217 setup.php:489
+#: lib/const_reports.php:217 setup.php:494
 msgid "Enable"
 msgstr "Aktivera"
 
@@ -1348,7 +1349,7 @@ msgstr "Automatiskt genererat arkiv"
 
 #: lib/const_reports.php:242
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run."
 msgstr "Ange maximalt antal instanser som ska arkiveras innan den första kommer att skrivas över. Välj \"Off\" om du vill inaktivera RoundRobbin-principen (standard, men inte rekommenderad). Om du definierar ett lägre värde av instanser än det aktuella arkivet innehåller kommer det att krympas automatiskt inom nästa gång."
 
 #: lib/const_reports.php:252
@@ -1378,7 +1379,7 @@ msgstr "Exportbegränsning"
 
 #: lib/const_reports.php:271
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run."
 msgstr "Ange maximalt antal instanser som ska arkiveras innan den första kommer att skrivas över. Välj \"Off\" om du vill inaktivera RoundRobbin-principen (standard, men inte rekommenderad). Om du definierar ett lägre värde av instanser än den nuvarande exportmappen innehåller kommer det att krympas automatiskt inom nästa gång."
 
 #: lib/const_reports.php:278
@@ -1425,7 +1426,7 @@ msgstr "Definiera ett extra underrubrik som ska visas under gränssnittets beskr
 msgid "Time Zone"
 msgstr "Tidszon"
 
-#: lib/const_reports.php:338 rrdlist.php:383
+#: lib/const_reports.php:338
 #, fuzzy
 msgid "Select the time zone your following shifttime informations will be based on."
 msgstr "Välj den tidszon du kommer att använda enligt följande skiftinformation."
@@ -1515,7 +1516,7 @@ msgstr "Ägare"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "Ändra ägaren till denna rapport. Endast användare med ett minimum av rapporteringsrättigheter (\"Visa\" eller högre) kan väljas."
 
-#: lib/const_reports.php:461 reports.php:357
+#: lib/const_reports.php:461 reports.php:383
 msgid "Public"
 msgstr "Offentlig"
 
@@ -1584,8 +1585,8 @@ msgstr "För att definiera slutdatum använd följande format: <b>yyyy-mm-dd</b>
 msgid "Copy settings to all"
 msgstr "Kopiera inställningar till alla"
 
-#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:136 setup.php:178
-#: setup.php:208
+#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:141 setup.php:183
+#: setup.php:213
 msgid "Add"
 msgstr "Lägg till"
 
@@ -1684,7 +1685,7 @@ msgstr "Separat grupptitel [övergripande]"
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr "Valfritt: Du kan definiera ett gruppnamn som ska visas som titel för alla separata mätvärden i rapporterna."
 
-#: lib/funct_mailer.php:45
+#: lib/funct_mailer.php:68
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting."
 msgstr "Mailer Error: No <b>TO</b> address set !!<br> Om du använder länken <i>Test Mail</i> , ställ in inställningen <b>E-post för</b> varning."
@@ -1831,7 +1832,7 @@ msgstr "SI-prefix"
 
 #: measurands.php:360
 #, fuzzy
-msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "Välj vilken typ av prefix som ska användas för att formatera resultatet. Med hjälp av decimala prefix kommer '1024' att formateras till '1.024k' medan alternativet för binära prefix returnerar '1ki'. Välj 'av' för att visa rådata, här '1024'."
 
 #: measurands.php:366
@@ -1840,7 +1841,7 @@ msgstr "Formel"
 
 #: measurands.php:372
 #, fuzzy
-msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "Den matematiska definitionen av detta mått. Tillåtna är alla kombinationer av operatörer och operander som anges nedan enligt reglerna för matematik. Använd runda och fyrkantiga parenteser för att ange komplexa termer och arbetsordning."
 
 #: measurands.php:377
@@ -1873,14 +1874,14 @@ msgstr "mätstorheter"
 msgid "You must select at least one measurand."
 msgstr "Du måste välja minst en rapport."
 
-#: measurands.php:532 measurands.php:534 reports.php:96 reports.php:98
-#: reports.php:1254 reports.php:1264 rrdlist.php:592 rrdlist.php:594
-#: templates.php:98 templates.php:100 templates.php:232 templates.php:233
-#: templates.php:981 variables.php:481 variables.php:483
+#: measurands.php:532 measurands.php:534 reports.php:104 reports.php:1307
+#: reports.php:1317 rrdlist.php:592 rrdlist.php:594 templates.php:98
+#: templates.php:100 templates.php:232 templates.php:233 templates.php:981
+#: variables.php:481 variables.php:483
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: measurands.php:534 reports.php:98 reports.php:1264 rrdlist.php:595
+#: measurands.php:534 reports.php:104 reports.php:1317 rrdlist.php:595
 #: templates.php:100 templates.php:990 templates.php:992 variables.php:483
 msgid "Continue"
 msgstr "Fortsätt"
@@ -1890,142 +1891,142 @@ msgstr "Fortsätt"
 msgid "Delete Template Measurands"
 msgstr "Radera rapportmallar"
 
-#: reports.php:88
+#: reports.php:97
 msgid "New Report"
 msgstr "Ny rapport"
 
-#: reports.php:93
+#: reports.php:100
 #, fuzzy, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "Det finns inga rapportmallar tillgängliga."
 
-#: reports.php:98
+#: reports.php:104
 #, fuzzy
 msgid "Create a new report"
 msgstr "Skapa en ny rapport"
 
-#: reports.php:106
+#: reports.php:112
 #, fuzzy
 msgid "Choose a template this report should depend on."
 msgstr "Välj en mall som rapporten ska bero på."
 
-#: reports.php:134
+#: reports.php:137
 #, fuzzy
 msgid "Report Filters"
 msgstr "Rapportera filter"
 
-#: reports.php:351 templates.php:462
+#: reports.php:355 templates.php:462
 msgid "Id"
 msgstr "Id"
 
-#: reports.php:353
+#: reports.php:365
 #, fuzzy, php-format
 msgid "Period %s from - to"
 msgstr "Perioden %s från - till"
 
-#: reports.php:354
+#: reports.php:368
 msgid "State"
 msgstr "Län"
 
-#: reports.php:355 view.php:292
+#: reports.php:373 view.php:292
 #, fuzzy, php-format
 msgid "Last run %s"
 msgstr "Senaste körningen"
 
-#: reports.php:356 view.php:293
+#: reports.php:378 view.php:293
 #, fuzzy
 msgid "Runtime [s]"
 msgstr "Speltid"
 
-#: reports.php:358
+#: reports.php:388
 msgid "Scheduled"
 msgstr "Schemalagd"
 
-#: reports.php:359 rrdlist.php:291 setup.php:154
+#: reports.php:393 rrdlist.php:291 setup.php:159
 #, fuzzy
 msgid "Data Items"
 msgstr "Dataposter"
 
-#: reports.php:385
+#: reports.php:427
 msgid "n/a"
 msgstr "n/a"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Add sources"
 msgstr "Lägg till källor"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Edit sources"
 msgstr "Datakälla"
 
-#: reports.php:396
+#: reports.php:439
 #, fuzzy
 msgid "Report has been locked"
 msgstr "Mallen har blivit tillfälligt låst"
 
-#: reports.php:404
+#: reports.php:447
 #, fuzzy
 msgid "No reports"
 msgstr "Rapporter"
 
-#: reports.php:470
+#: reports.php:519
 #, fuzzy
 msgid "Not authorised"
 msgstr "Ej godkänd"
 
-#: reports.php:888
+#: reports.php:941
 #, fuzzy
 msgid "Add Data Items"
 msgstr "Lägg till dataposter"
 
-#: reports.php:925
+#: reports.php:978
 #, fuzzy, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "Rapportkonfiguration ( %s) %s"
 
-#: reports.php:974
+#: reports.php:1027
 #, fuzzy
 msgid "No recipients found"
 msgstr "Inga mottagare hittades"
 
-#: reports.php:1034 reports.php:1039
+#: reports.php:1087 reports.php:1092
 #, fuzzy
 msgid "- Email address of a recipient (or list of names) -"
 msgstr "- Mottagarens e-postadress (eller förteckning över namn) -"
 
-#: reports.php:1035 reports.php:1040
+#: reports.php:1088 reports.php:1093
 #, fuzzy
 msgid "[OPTIONAL] - Name of a recipient (or list of names) -"
 msgstr "[OPTIONAL] - Namn på en mottagare (eller förteckning över namn) -"
 
-#: reports.php:1241
+#: reports.php:1294
 #, fuzzy
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "Klicka på \"Fortsätt\" för att radera följande rapporter."
 
-#: reports.php:1243
+#: reports.php:1296
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "Klicka på \"Fortsätt\" för att radera följande rapporter."
 
-#: reports.php:1245
+#: reports.php:1298
 #, fuzzy
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "Klicka på \"Fortsätt\" för att duplicera följande rapportkonfigurationer. Du kan också ändra titelformatet under denna operation."
 
-#: reports.php:1246
+#: reports.php:1299
 #, fuzzy
 msgid "Title Format:"
 msgstr "Rubrikformat"
 
-#: reports.php:1247
+#: reports.php:1300
 #, fuzzy
 msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
-#: reports.php:1253
+#: reports.php:1306
 #, fuzzy
 msgid "You must select at least one unlocked, not running, report."
 msgstr "Du måste välja minst en rapport."
@@ -2074,6 +2075,11 @@ msgstr "Inga data föremål hittades"
 msgid "Data Item [edit: %s]"
 msgstr "Dataobjekt [redigera: %s]"
 
+#: rrdlist.php:383
+#, fuzzy
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Välj den tidszon du kommer att använda enligt följande skiftinformation."
+
 #: rrdlist.php:551
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Items."
@@ -2120,7 +2126,7 @@ msgstr "Du måste välja minst en rapport."
 
 #: run.php:73
 #, fuzzy
-msgid "Report is alrady in progess."
+msgid "Report is already in progress."
 msgstr "Rapporten är bara igång."
 
 #: run.php:97
@@ -2147,315 +2153,327 @@ msgstr "Antal varningar <font class=\"deviceDown\">(%s)</font>"
 msgid "View Report"
 msgstr "Visa rapport"
 
-#: setup.php:130 setup.php:142 setup.php:160 setup.php:166 setup.php:184
-#: setup.php:196 setup.php:202 setup.php:256 setup.php:262 setup.php:280
-#: setup.php:286
-msgid "(Edit)"
-msgstr "(Redigera)"
-
-#: setup.php:148 setup.php:172 setup.php:244 setup.php:268 setup.php:292
-msgid "Actions"
-msgstr "Åtgärder"
-
-#: setup.php:190 templates.php:311
-msgid "Report Templates"
-msgstr "Rapportera mallar"
-
-#: setup.php:214 setup.php:220 templates.php:146 templates.php:232
-msgid "Import"
-msgstr "Importera"
-
-#: setup.php:298
-#, fuzzy
-msgid "Report Calculation"
-msgstr "Rapportberäkning"
-
-#: setup.php:304 view.php:220
-#, fuzzy
-msgid "Public Reports"
-msgstr "Offentliga rapporter"
-
-#: setup.php:310 setup.php:322
-#, fuzzy
-msgid "Show Report"
-msgstr "Visa rapport"
-
-#: setup.php:316
-msgid "Export Report"
-msgstr "Exportrapport"
-
-#: setup.php:328
-#, fuzzy
-msgid "Public Report Charts"
-msgstr "Offentliga rapportdiagram"
-
-#: setup.php:334
-msgid "Bar Chart"
-msgstr "Stapeldiagram"
-
-#: setup.php:340
-msgid "Pie Chart"
-msgstr "Cirkeldiagram"
-
-#: setup.php:354
+#: setup.php:34
 msgid "View Reports"
 msgstr "Visa rapporter"
 
-#: setup.php:355
+#: setup.php:35
 #, fuzzy
 msgid "Create Reports"
 msgstr "Skapa rapporter"
 
-#: setup.php:356
+#: setup.php:36
 #, fuzzy
 msgid "Administrate Reports"
 msgstr "Administrera rapporter"
 
+#: setup.php:135 setup.php:147 setup.php:165 setup.php:171 setup.php:189
+#: setup.php:201 setup.php:207 setup.php:261 setup.php:267 setup.php:285
+#: setup.php:291
+msgid "(Edit)"
+msgstr "(Redigera)"
+
+#: setup.php:153 setup.php:177 setup.php:249 setup.php:273 setup.php:297
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: setup.php:195 templates.php:311
+msgid "Report Templates"
+msgstr "Rapportera mallar"
+
+#: setup.php:219 setup.php:225 templates.php:146 templates.php:232
+msgid "Import"
+msgstr "Importera"
+
+#: setup.php:303
+#, fuzzy
+msgid "Report Calculation"
+msgstr "Rapportberäkning"
+
+#: setup.php:309 view.php:220
+#, fuzzy
+msgid "Public Reports"
+msgstr "Offentliga rapporter"
+
+#: setup.php:315 setup.php:327
+#, fuzzy
+msgid "Show Report"
+msgstr "Visa rapport"
+
+#: setup.php:321
+msgid "Export Report"
+msgstr "Exportrapport"
+
+#: setup.php:333
+#, fuzzy
+msgid "Public Report Charts"
+msgstr "Offentliga rapportdiagram"
+
+#: setup.php:339
+msgid "Bar Chart"
+msgstr "Stapeldiagram"
+
+#: setup.php:345
+msgid "Pie Chart"
+msgstr "Cirkeldiagram"
+
+#: setup.php:359
+#, fuzzy
+#| msgid "Administration"
+msgid "System Administration"
+msgstr "Administration"
+
 #: setup.php:360
+#, fuzzy
+#| msgid "Administration"
+msgid "General Administration"
+msgstr "Administration"
+
+#: setup.php:365
 msgid "Management"
 msgstr "Hantering"
 
-#: setup.php:361
+#: setup.php:366
 msgid "Report"
 msgstr "Rapportera"
 
-#: setup.php:361 templates.php:325 templates.php:474
+#: setup.php:366 templates.php:325 templates.php:474
 msgid "Templates"
 msgstr "Mallar"
 
-#: setup.php:365
+#: setup.php:370
 #, fuzzy
 msgid "No data source item selected"
 msgstr "Inga dataposter"
 
-#: setup.php:368
+#: setup.php:373
 #, fuzzy
 msgid "Unselected data source items are still in use"
 msgstr "Ovalda datakällobjekt används fortfarande"
 
-#: setup.php:371
+#: setup.php:376
 #, fuzzy
 msgid "Unable to unlock this template without defined measurands"
 msgstr "Det går inte att låsa upp den här mallen utan definierade mått"
 
-#: setup.php:382
+#: setup.php:387
 #, fuzzy
 msgid "global"
 msgstr "global"
 
-#: setup.php:382
+#: setup.php:387
 msgid "local"
 msgstr "lokal"
 
-#: setup.php:387
+#: setup.php:392
 #, fuzzy
 msgid "Power User (Report Owner)"
 msgstr "Power User (Report Owner)"
 
-#: setup.php:388
+#: setup.php:393
 #, fuzzy
 msgid "Super User (Report Admin)"
 msgstr "Super användare (Report Admin)"
 
-#: setup.php:401
+#: setup.php:406
 #, fuzzy
 msgid "Maximum Execution Time (in seconds)"
 msgstr "Maximal körtid (i sekunder)"
 
-#: setup.php:402
+#: setup.php:407
 #, fuzzy
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "Valfritt: Maximal körtid för en beräkning."
 
-#: setup.php:408
+#: setup.php:413
 #, fuzzy
 msgid "Maximum Record Count Change"
 msgstr "Maximal registreringsantal Ändra"
 
-#: setup.php:409
+#: setup.php:414
 #, fuzzy
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "Valfritt (Automatisk generering av RRD-lista): Ändra inte RRD-lista över någon rapport om registreringsantal förändring är större än detta nummer Detta är för att undvika oönskade och katastrofala förändringar på RRD-listor"
 
-#: setup.php:415
+#: setup.php:420
 #, fuzzy
 msgid "Time Zones"
 msgstr "Tidszoner"
 
-#: setup.php:416
+#: setup.php:421
 #, fuzzy
 msgid "Enable/disable the use of time zones for data item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "Aktivera / inaktivera användningen av tidszoner för datapostens konfiguration och rapportberäkning. I det tidigare fallet måste servertiden ställas in till GMT / UTC!"
 
-#: setup.php:421
+#: setup.php:426
 #, fuzzy
 msgid "Show Local Time Zone"
 msgstr "Visa lokal tidzon"
 
-#: setup.php:422
+#: setup.php:427
 #, fuzzy
 msgid "Enable/disable to display server's timezone on the headlines."
 msgstr "Aktivera / inaktivera för att visa serverens tidszon i rubrikerna."
 
-#: setup.php:427
+#: setup.php:432
 #, fuzzy
 msgid "Allow scheduling by Operators"
 msgstr "Tillåt schemaläggning av operatörer"
 
-#: setup.php:428
+#: setup.php:433
 #, fuzzy
 msgid "Enable/disable Operator's ability to schedule reports.  When disabled, only administrators may change scheduling."
 msgstr "Aktivera / inaktivera operatörens förmåga att schemalägga rapporter. När inaktiverad kan endast administratörer ändra schemaläggning."
 
-#: setup.php:433
+#: setup.php:438
 #, fuzzy
 msgid "SI-Prefixes"
 msgstr "SI-prefix"
 
-#: setup.php:434
+#: setup.php:439
 #, fuzzy
 msgid "Enable/disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "Aktivera / inaktivera användningen av korrekta SI-prefix för binära multiplar enligt villkoren i <a href='http://www.ieee.org'>IEEE 1541</a> och <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> ."
 
-#: setup.php:439
+#: setup.php:444
 msgid "Export Settings"
 msgstr "Exportera Inställningar"
 
-#: setup.php:444
+#: setup.php:449
 #, fuzzy
 msgid "Filename Format"
 msgstr "Filnamn Format"
 
-#: setup.php:445
+#: setup.php:450
 #, fuzzy
 msgid "The name format for the export files created on demand."
 msgstr "Namnformatet för exportfiler som skapats på begäran."
 
-#: setup.php:451
+#: setup.php:456
 #, fuzzy
 msgid "Export Header"
 msgstr "Exportera rubrik"
 
-#: setup.php:452
+#: setup.php:457
 #, fuzzy
 msgid "The header description for export files"
 msgstr "Rubrikbeskrivningen för exportfiler"
 
-#: setup.php:456
+#: setup.php:461
 #, fuzzy
 msgid "# Your report header\\n# <cacti_version> <reportit_version>"
 msgstr "# Din rapportrubrik \\ n # <cacti_version> <reportit_version>"
 
-#: setup.php:459
+#: setup.php:464
 #, fuzzy
 msgid "Auto Archiving"
 msgstr "Automatisk arkivering"
 
-#: setup.php:464 setup.php:500
+#: setup.php:469 setup.php:505
 msgid "Enabled"
 msgstr "Aktiverad"
 
-#: setup.php:465
+#: setup.php:470
 #, fuzzy
 msgid "If enabled the result of every scheduled report will be archived automatically"
 msgstr "Om aktiverat blir resultatet av varje schemalagd rapport arkiverad automatiskt"
 
-#: setup.php:470
+#: setup.php:475
 #, fuzzy
-msgid "Cache Life Cyle (in seconds)"
+msgid "Cache Life Cycle (in seconds)"
 msgstr "Cache Life Cyle (i sekunder)"
 
-#: setup.php:471
+#: setup.php:476
 #, fuzzy
 msgid "Number of seconds an archived report will be cached without any hit."
 msgstr "Antal sekunder som en arkiverad rapport cachas utan några träffar."
 
-#: setup.php:477
+#: setup.php:482
 #, fuzzy
 msgid "Archive Path"
 msgstr "Arkivvägen"
 
-#: setup.php:478
+#: setup.php:483
 #, fuzzy
 msgid "The path to an archive folder where archives have to be stored."
 msgstr "Valfritt: Banan till en arkivmapp för att spara. Om inte definierad undermapp \"arkiv\" kommer att användas."
 
-#: setup.php:484
+#: setup.php:489
 #, fuzzy
 msgid "Auto E-Mailing"
 msgstr "Automatisk e-post"
 
-#: setup.php:490
+#: setup.php:495
 #, fuzzy
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "Om aktiverade schemalagda rapporter automatiskt kan skickas till en lista över mottagare. <br> Den här funktionen kräver en konfigurerad version av inställningsplugin."
 
-#: setup.php:495
+#: setup.php:500
 #, fuzzy
 msgid "Auto Exporting"
 msgstr "Auto Exportera"
 
-#: setup.php:501
+#: setup.php:506
 #, fuzzy
 msgid "If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> Report"
 msgstr "Om aktiverade schemalagda rapporter kan exporteras automatiskt till en angiven mapp. <br> Därför kommer en fullständig strukturerad vägarkitektur att användas: <br> Huvudmapp -> Mallmapp (om den är definierad) eller Mall ID -> Rapport ID -> Rapport"
 
-#: setup.php:507
+#: setup.php:512
 #, fuzzy
 msgid "The main path to an export folder for saving the exports."
 msgstr "Valfritt: Huvudvägen till en exportmapp för att spara exporten. Om inte definierad undermapp \"export\" kommer att användas."
 
-#: setup.php:522
+#: setup.php:527
 #, fuzzy
 msgid "ReportIt General Settings"
 msgstr "ReportIT Allmänna inställningar"
 
-#: setup.php:525
+#: setup.php:530
 #, fuzzy
 msgid "Separate Report View Filter"
 msgstr "Separat rapportvisningsfilter"
 
-#: setup.php:526
+#: setup.php:531
 #, fuzzy
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "Aktivera / inaktivera användningen av ett enskilt filter per rapport."
 
-#: setup.php:531
+#: setup.php:536
 #, fuzzy
 msgid "Rows Per Page"
 msgstr "Rader per sida"
 
-#: setup.php:532
+#: setup.php:537
 #, fuzzy
 msgid "The number of rows to display on a single page."
 msgstr "Antalet rader som ska visas på en enda sida."
 
-#: setup.php:538
+#: setup.php:543
 #, fuzzy
 msgid "ReportIt Export Settings"
 msgstr "ReportIT Export Settings"
 
-#: setup.php:543
+#: setup.php:548
 #, fuzzy
 msgid "CSV Column Separator"
 msgstr "CSV-kolonneparatorn"
 
-#: setup.php:544
+#: setup.php:549
 #, fuzzy
-msgid "The column seperator to be used for CSV exports."
+msgid "The column separator to be used for CSV exports."
 msgstr "Kolonnskiljaren som ska användas för CSV-export."
 
-#: setup.php:550
+#: setup.php:555
 #, fuzzy
 msgid "CSV Decimal Separator"
 msgstr "CSV-decimal separator"
 
-#: setup.php:551
+#: setup.php:556
 #, fuzzy
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "Symbolen indikerar slutet av heltalets del och början av fraktionsdelen."
 
-#: setup.php:577
+#: setup.php:582
 #, fuzzy
 msgid "ReportIt"
 msgstr "Rapportera"
