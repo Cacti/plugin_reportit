@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2022-10-19 20:47-0400\n"
+"POT-Creation-Date: 2023-12-11 22:50-0600\n"
 "PO-Revision-Date: 2020-12-12 22:57-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,15 +38,16 @@ msgstr "잠금"
 msgid "Unlock"
 msgstr "잠금 해제하기"
 
-#: include/global_arrays.php:31 setup.php:226 setup.php:232 setup.php:238
+#: include/global_arrays.php:31 setup.php:231 setup.php:237 setup.php:243
 #: templates.php:994
 msgid "Export"
 msgstr "내보내기"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:44 lib/const_reports.php:431
-#: lib/const_variables.php:51 measurands.php:93 reports.php:352 reports.php:959
-#: templates.php:166 templates.php:463 variables.php:65 variables.php:303
+#: lib/const_variables.php:51 measurands.php:93 reports.php:360
+#: reports.php:1012 templates.php:166 templates.php:463 variables.php:65
+#: variables.php:303
 msgid "Name"
 msgstr "이름"
 
@@ -66,7 +67,7 @@ msgid "Minimum"
 msgstr "최소"
 
 #: include/global_arrays.php:55 items.php:345 lib/const_variables.php:55
-#: reports.php:152 rrdlist.php:239 templates.php:329 variables.php:69
+#: reports.php:155 rrdlist.php:239 templates.php:329 variables.php:69
 #: view.php:229 view.php:638
 msgid "Default"
 msgstr "기본값"
@@ -128,7 +129,7 @@ msgstr "일반 ID"
 msgid "Elements"
 msgstr "요소"
 
-#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:250
+#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:255
 #: templates.php:469
 #, fuzzy
 msgid "Measurands"
@@ -142,7 +143,7 @@ msgstr "데이터 템플릿"
 #: include/global_arrays.php:81 include/global_forms.php:39
 #: lib/const_reports.php:110 lib/const_reports.php:153
 #: lib/const_reports.php:288 lib/const_reports.php:321
-#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:396
+#: lib/const_reports.php:427 measurands.php:288 rrdlist.php:366 setup.php:401
 #: variables.php:292
 msgid "General"
 msgstr "일반"
@@ -158,7 +159,7 @@ msgstr "그룹"
 
 #: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:357 lib/funct_html.php:171 lib/funct_html.php:242
-#: setup.php:274 templates.php:470
+#: setup.php:279 templates.php:470
 msgid "Variables"
 msgstr "변수 설명"
 
@@ -995,7 +996,7 @@ msgstr "추가 사전 필터"
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "선택 사항 : 사용 가능한 데이터 항목 목록을 필터링하는 구문 <br> 그들의 설명에 의해. % 및 / 또는 _와 같은 SQL 와일드 카드를 사용하십시오. 정규 표현식이 없습니다!"
 
-#: include/global_forms.php:96 setup.php:506
+#: include/global_forms.php:96 setup.php:511
 #, fuzzy
 msgid "Export Path"
 msgstr "내보내기 경로"
@@ -1076,23 +1077,23 @@ msgstr "데이터 항목"
 msgid "No data items"
 msgstr "데이터 항목 없음"
 
-#: items.php:334 reports.php:142 rrdlist.php:229 templates.php:319 view.php:210
+#: items.php:334 reports.php:145 rrdlist.php:229 templates.php:319 view.php:210
 #: view.php:561
 msgid "Search"
 msgstr "검색"
 
-#: items.php:341 reports.php:148 reports.php:365 setup.php:124 setup.php:360
-#: setup.php:392 templates.php:471 view.php:198 view.php:201 view.php:225
+#: items.php:341 reports.php:151 reports.php:402 setup.php:129 setup.php:365
+#: setup.php:397 templates.php:471 view.php:198 view.php:201 view.php:225
 #: view.php:755
 msgid "Reports"
 msgstr "보고서"
 
-#: items.php:356 reports.php:163 rrdlist.php:250 templates.php:340 view.php:612
+#: items.php:356 reports.php:166 rrdlist.php:250 templates.php:340 view.php:612
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "가기"
 
-#: items.php:359 reports.php:166 rrdlist.php:253 templates.php:343 view.php:615
+#: items.php:359 reports.php:169 rrdlist.php:253 templates.php:343 view.php:615
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "지우기"
@@ -1229,7 +1230,7 @@ msgstr "일요일"
 msgid "Data Item Presets"
 msgstr "데이터 항목 사전 설정"
 
-#: lib/const_reports.php:112 reports.php:960
+#: lib/const_reports.php:112 reports.php:1013
 msgid "Email"
 msgstr "이메일"
 
@@ -1310,7 +1311,7 @@ msgstr "새 수신자를 추가하려면 유효한 이메일 주소 (필수)와 
 msgid "Scheduled Reporting"
 msgstr "예약보고"
 
-#: lib/const_reports.php:217 setup.php:489
+#: lib/const_reports.php:217 setup.php:494
 msgid "Enable"
 msgstr "활성화"
 
@@ -1345,7 +1346,7 @@ msgstr "자동 생성 된 아카이브"
 
 #: lib/const_reports.php:242
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run."
 msgstr "첫 번째 인스턴스를 덮어 쓰기 전에 보관해야하는 최대 인스턴스 수를 정의하십시오. RoundRobbin 원리를 비활성화하려면 (기본값이지만 권장하지는 않음) \"해제\"를 선택하십시오. 현재 아카이브보다 낮은 값의 인스턴스를 정의하면 다음 실행시 자동으로 축소됩니다."
 
 #: lib/const_reports.php:252
@@ -1375,7 +1376,7 @@ msgstr "수출 제한"
 
 #: lib/const_reports.php:271
 #, fuzzy
-msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrinked automatically within the next run."
+msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run."
 msgstr "첫 번째 인스턴스를 덮어 쓰기 전에 보관해야하는 최대 인스턴스 수를 정의하십시오. RoundRobbin 원리를 비활성화하려면 (기본값이지만 권장하지는 않음) '해제'를 선택하십시오. 현재 내보내는 폴더보다 낮은 값의 인스턴스를 정의하면 다음 실행시 자동으로 축소됩니다."
 
 #: lib/const_reports.php:278
@@ -1422,7 +1423,7 @@ msgstr "인터페이스 설명 아래에 표시되어야하는 추가 하위 헤
 msgid "Time Zone"
 msgstr "표준 시간대"
 
-#: lib/const_reports.php:338 rrdlist.php:383
+#: lib/const_reports.php:338
 #, fuzzy
 msgid "Select the time zone your following shifttime informations will be based on."
 msgstr "다음 근무 시간 정보를 기준으로 시간대를 선택하십시오."
@@ -1510,7 +1511,7 @@ msgstr "소유자"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "이 보고서의 소유자를 변경하십시오. 보고 권한이 최소 인 사용자 ( '보기'이상) 만 선택할 수 있습니다."
 
-#: lib/const_reports.php:461 reports.php:357
+#: lib/const_reports.php:461 reports.php:383
 msgid "Public"
 msgstr "공개"
 
@@ -1579,8 +1580,8 @@ msgstr "종료일을 정의하려면 다음 형식을 사용하십시오. <b>yyy
 msgid "Copy settings to all"
 msgstr "설정을 모두에게 복사"
 
-#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:136 setup.php:178
-#: setup.php:208
+#: lib/const_rrdlist.php:33 lib/funct_html.php:63 setup.php:141 setup.php:183
+#: setup.php:213
 msgid "Add"
 msgstr "추가"
 
@@ -1680,7 +1681,7 @@ msgstr "별도의 그룹 제목 [전체]"
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr "선택 사항 : 보고서 내의 모든 개별 측정 값에 대한 제목으로 표시되어야하는 그룹 이름을 정의 할 수 있습니다."
 
-#: lib/funct_mailer.php:45
+#: lib/funct_mailer.php:68
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting."
 msgstr "메일러 오류 : <b>TO</b> 주소가 설정되지 않았습니다 !!<br> <i>테스트 메일</i> 링크를 사용하는 경우 <b>경고 이메일</b> 설정을 지정하십시오."
@@ -1825,7 +1826,7 @@ msgstr "접두사"
 
 #: measurands.php:360
 #, fuzzy
-msgid "Choose the type of prefix beeing used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "결과 형식을 지정하는 데 사용되는 접두사 비잉 유형을 선택합니다. 십진수 접두사 '1024'를 사용하면 '1.024k'로 형식이 지정되고 이진 접두사 옵션은 '1ki'를 반환합니다. 원시 데이터를 표시하려면 'off'를 선택하십시오. 여기서는 '1024'입니다."
 
 #: measurands.php:366
@@ -1834,7 +1835,7 @@ msgstr "공식"
 
 #: measurands.php:372
 #, fuzzy
-msgid "The mathematical definion of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "이 측정 량의 수학적 정의입니다. 수학 규칙에 따라 아래 나열된 연산자 및 피연산자의 모든 조합이 허용됩니다. 복잡한 용어와 연산 순서를 나타내려면 둥근 대괄호와 대괄호를 사용하십시오."
 
 #: measurands.php:377
@@ -1867,14 +1868,14 @@ msgstr "Measurands"
 msgid "You must select at least one measurand."
 msgstr "하나 이상의 보고서를 선택해야합니다."
 
-#: measurands.php:532 measurands.php:534 reports.php:96 reports.php:98
-#: reports.php:1254 reports.php:1264 rrdlist.php:592 rrdlist.php:594
-#: templates.php:98 templates.php:100 templates.php:232 templates.php:233
-#: templates.php:981 variables.php:481 variables.php:483
+#: measurands.php:532 measurands.php:534 reports.php:104 reports.php:1307
+#: reports.php:1317 rrdlist.php:592 rrdlist.php:594 templates.php:98
+#: templates.php:100 templates.php:232 templates.php:233 templates.php:981
+#: variables.php:481 variables.php:483
 msgid "Cancel"
 msgstr "취소"
 
-#: measurands.php:534 reports.php:98 reports.php:1264 rrdlist.php:595
+#: measurands.php:534 reports.php:104 reports.php:1317 rrdlist.php:595
 #: templates.php:100 templates.php:990 templates.php:992 variables.php:483
 msgid "Continue"
 msgstr "계속"
@@ -1884,141 +1885,141 @@ msgstr "계속"
 msgid "Delete Template Measurands"
 msgstr "보고서 템플릿 삭제"
 
-#: reports.php:88
+#: reports.php:97
 msgid "New Report"
 msgstr "새 보고서"
 
-#: reports.php:93
+#: reports.php:100
 #, fuzzy, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "보고서 템플릿을 사용할 수 없습니다."
 
-#: reports.php:98
+#: reports.php:104
 #, fuzzy
 msgid "Create a new report"
 msgstr "새 보고서 만들기"
 
-#: reports.php:106
+#: reports.php:112
 #, fuzzy
 msgid "Choose a template this report should depend on."
 msgstr "이 보고서가 의존해야하는 서식 파일을 선택하십시오."
 
-#: reports.php:134
+#: reports.php:137
 msgid "Report Filters"
 msgstr "보고서 필터"
 
-#: reports.php:351 templates.php:462
+#: reports.php:355 templates.php:462
 msgid "Id"
 msgstr "ID"
 
-#: reports.php:353
+#: reports.php:365
 #, fuzzy, php-format
 msgid "Period %s from - to"
 msgstr "기간  %s -에서"
 
-#: reports.php:354
+#: reports.php:368
 msgid "State"
 msgstr "주"
 
-#: reports.php:355 view.php:292
+#: reports.php:373 view.php:292
 #, fuzzy, php-format
 msgid "Last run %s"
 msgstr "마지막 실행"
 
-#: reports.php:356 view.php:293
+#: reports.php:378 view.php:293
 #, fuzzy
 msgid "Runtime [s]"
 msgstr "실행 시간"
 
-#: reports.php:358
+#: reports.php:388
 msgid "Scheduled"
 msgstr "예정된 작업"
 
-#: reports.php:359 rrdlist.php:291 setup.php:154
+#: reports.php:393 rrdlist.php:291 setup.php:159
 #, fuzzy
 msgid "Data Items"
 msgstr "데이터 항목"
 
-#: reports.php:385
+#: reports.php:427
 msgid "n/a"
 msgstr "없음"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Add sources"
 msgstr "소스 추가"
 
-#: reports.php:391
+#: reports.php:434
 #, fuzzy
 msgid "Edit sources"
 msgstr "데이터 원본"
 
-#: reports.php:396
+#: reports.php:439
 #, fuzzy
 msgid "Report has been locked"
 msgstr "템플릿이 일시적으로 잠겼습니다."
 
-#: reports.php:404
+#: reports.php:447
 #, fuzzy
 msgid "No reports"
 msgstr "보고서"
 
-#: reports.php:470
+#: reports.php:519
 #, fuzzy
 msgid "Not authorised"
 msgstr "승인되지 않음"
 
-#: reports.php:888
+#: reports.php:941
 #, fuzzy
 msgid "Add Data Items"
 msgstr "데이터 항목 추가"
 
-#: reports.php:925
+#: reports.php:978
 #, fuzzy, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "보고서 구성 ( %s)  %s"
 
-#: reports.php:974
+#: reports.php:1027
 #, fuzzy
 msgid "No recipients found"
 msgstr "수신자가 없습니다."
 
-#: reports.php:1034 reports.php:1039
+#: reports.php:1087 reports.php:1092
 #, fuzzy
 msgid "- Email address of a recipient (or list of names) -"
 msgstr "- 수신자의 이메일 주소 (또는 이름 목록) -"
 
-#: reports.php:1035 reports.php:1040
+#: reports.php:1088 reports.php:1093
 #, fuzzy
 msgid "[OPTIONAL] - Name of a recipient (or list of names) -"
 msgstr "[선택 사항] - 수신자 이름 (또는 이름 목록) -"
 
-#: reports.php:1241
+#: reports.php:1294
 #, fuzzy
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "다음 보고서를 삭제하려면 '계속'을 클릭하십시오."
 
-#: reports.php:1243
+#: reports.php:1296
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "다음 보고서를 삭제하려면 '계속'을 클릭하십시오."
 
-#: reports.php:1245
+#: reports.php:1298
 #, fuzzy
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "다음 보고서 구성을 복제하려면 '계속'을 클릭하십시오. 이 작업 중에 제목 형식을 변경할 수도 있습니다."
 
-#: reports.php:1246
+#: reports.php:1299
 #, fuzzy
 msgid "Title Format:"
 msgstr "제목 형식 :"
 
-#: reports.php:1247
+#: reports.php:1300
 #, fuzzy
 msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
-#: reports.php:1253
+#: reports.php:1306
 #, fuzzy
 msgid "You must select at least one unlocked, not running, report."
 msgstr "하나 이상의 보고서를 선택해야합니다."
@@ -2066,6 +2067,11 @@ msgstr "데이터 항목이 없습니다."
 msgid "Data Item [edit: %s]"
 msgstr "데이터 객체 [편집 :  %s]"
 
+#: rrdlist.php:383
+#, fuzzy
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "다음 근무 시간 정보를 기준으로 시간대를 선택하십시오."
+
 #: rrdlist.php:551
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Items."
@@ -2112,7 +2118,7 @@ msgstr "하나 이상의 보고서를 선택해야합니다."
 
 #: run.php:73
 #, fuzzy
-msgid "Report is alrady in progess."
+msgid "Report is already in progress."
 msgstr "신고가 진행 중입니다."
 
 #: run.php:97
@@ -2139,317 +2145,329 @@ msgstr "경고 수 <font class=\"deviceDown\">(%s)</font>"
 msgid "View Report"
 msgstr "더보기"
 
-#: setup.php:130 setup.php:142 setup.php:160 setup.php:166 setup.php:184
-#: setup.php:196 setup.php:202 setup.php:256 setup.php:262 setup.php:280
-#: setup.php:286
-msgid "(Edit)"
-msgstr "(편집)"
-
-#: setup.php:148 setup.php:172 setup.php:244 setup.php:268 setup.php:292
-msgid "Actions"
-msgstr "작업"
-
-#: setup.php:190 templates.php:311
-msgid "Report Templates"
-msgstr "리포트 템플릿"
-
-#: setup.php:214 setup.php:220 templates.php:146 templates.php:232
-msgid "Import"
-msgstr "가져오기"
-
-#: setup.php:298
-#, fuzzy
-msgid "Report Calculation"
-msgstr "보고서 계산"
-
-#: setup.php:304 view.php:220
-#, fuzzy
-msgid "Public Reports"
-msgstr "공개 보고서"
-
-#: setup.php:310 setup.php:322
-#, fuzzy
-msgid "Show Report"
-msgstr "보고서보기"
-
-#: setup.php:316
-msgid "Export Report"
-msgstr "보고서 내보내기"
-
-#: setup.php:328
-#, fuzzy
-msgid "Public Report Charts"
-msgstr "공개 보고서 차트"
-
-#: setup.php:334
-msgid "Bar Chart"
-msgstr "막대 차트"
-
-#: setup.php:340
-msgid "Pie Chart"
-msgstr "원형차트"
-
-#: setup.php:354
+#: setup.php:34
 #, fuzzy
 msgid "View Reports"
 msgstr "보고서보기"
 
-#: setup.php:355
+#: setup.php:35
 #, fuzzy
 msgid "Create Reports"
 msgstr "보고서 작성"
 
-#: setup.php:356
+#: setup.php:36
 #, fuzzy
 msgid "Administrate Reports"
 msgstr "보고서 관리"
 
+#: setup.php:135 setup.php:147 setup.php:165 setup.php:171 setup.php:189
+#: setup.php:201 setup.php:207 setup.php:261 setup.php:267 setup.php:285
+#: setup.php:291
+msgid "(Edit)"
+msgstr "(편집)"
+
+#: setup.php:153 setup.php:177 setup.php:249 setup.php:273 setup.php:297
+msgid "Actions"
+msgstr "작업"
+
+#: setup.php:195 templates.php:311
+msgid "Report Templates"
+msgstr "리포트 템플릿"
+
+#: setup.php:219 setup.php:225 templates.php:146 templates.php:232
+msgid "Import"
+msgstr "가져오기"
+
+#: setup.php:303
+#, fuzzy
+msgid "Report Calculation"
+msgstr "보고서 계산"
+
+#: setup.php:309 view.php:220
+#, fuzzy
+msgid "Public Reports"
+msgstr "공개 보고서"
+
+#: setup.php:315 setup.php:327
+#, fuzzy
+msgid "Show Report"
+msgstr "보고서보기"
+
+#: setup.php:321
+msgid "Export Report"
+msgstr "보고서 내보내기"
+
+#: setup.php:333
+#, fuzzy
+msgid "Public Report Charts"
+msgstr "공개 보고서 차트"
+
+#: setup.php:339
+msgid "Bar Chart"
+msgstr "막대 차트"
+
+#: setup.php:345
+msgid "Pie Chart"
+msgstr "원형차트"
+
+#: setup.php:359
+#, fuzzy
+#| msgid "Administration"
+msgid "System Administration"
+msgstr "관리"
+
 #: setup.php:360
+#, fuzzy
+#| msgid "Administration"
+msgid "General Administration"
+msgstr "관리"
+
+#: setup.php:365
 msgid "Management"
 msgstr "관리"
 
-#: setup.php:361
+#: setup.php:366
 msgid "Report"
 msgstr "보고서"
 
-#: setup.php:361 templates.php:325 templates.php:474
+#: setup.php:366 templates.php:325 templates.php:474
 msgid "Templates"
 msgstr "템플릿"
 
-#: setup.php:365
+#: setup.php:370
 #, fuzzy
 msgid "No data source item selected"
 msgstr "데이터 항목 없음"
 
-#: setup.php:368
+#: setup.php:373
 #, fuzzy
 msgid "Unselected data source items are still in use"
 msgstr "선택하지 않은 데이터 소스 항목이 아직 사용 중입니다."
 
-#: setup.php:371
+#: setup.php:376
 #, fuzzy
 msgid "Unable to unlock this template without defined measurands"
 msgstr "정의 된 측정 량 없이는이 템플릿을 잠금 해제 할 수 없습니다."
 
-#: setup.php:382
+#: setup.php:387
 #, fuzzy
 msgid "global"
 msgstr "글로벌"
 
-#: setup.php:382
+#: setup.php:387
 #, fuzzy
 msgid "local"
 msgstr "로컬"
 
-#: setup.php:387
+#: setup.php:392
 #, fuzzy
 msgid "Power User (Report Owner)"
 msgstr "고급 사용자 (보고서 소유자)"
 
-#: setup.php:388
+#: setup.php:393
 #, fuzzy
 msgid "Super User (Report Admin)"
 msgstr "수퍼 유저 (보고서 관리자)"
 
-#: setup.php:401
+#: setup.php:406
 #, fuzzy
 msgid "Maximum Execution Time (in seconds)"
 msgstr "최대 실행 시간 (초)"
 
-#: setup.php:402
+#: setup.php:407
 #, fuzzy
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "선택 사항 : 한 계산의 최대 실행 시간."
 
-#: setup.php:408
+#: setup.php:413
 #, fuzzy
 msgid "Maximum Record Count Change"
 msgstr "최대 레코드 수 변경"
 
-#: setup.php:409
+#: setup.php:414
 #, fuzzy
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "선택 사항 (RRD 목록 자동 생성) : 레코드 수 변경이이 수보다 큰 경우 모든 RRD 목록을 변경하지 마십시오. RRD 목록에서 원하지 않는 비참한 변경을 방지하기위한 것입니다."
 
-#: setup.php:415
+#: setup.php:420
 #, fuzzy
 msgid "Time Zones"
 msgstr "시간대"
 
-#: setup.php:416
+#: setup.php:421
 #, fuzzy
 msgid "Enable/disable the use of time zones for data item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "데이터 항목의 구성 및 보고서 계산에 시간대 사용을 활성화 / 비활성화합니다. 전자의 경우 서버 시간은 GMT / UTC로 설정되어야합니다!"
 
-#: setup.php:421
+#: setup.php:426
 #, fuzzy
 msgid "Show Local Time Zone"
 msgstr "현지 시간대 표시"
 
-#: setup.php:422
+#: setup.php:427
 #, fuzzy
 msgid "Enable/disable to display server's timezone on the headlines."
 msgstr "헤드 라인에 서버의 시간대를 표시하려면 설정 / 해제하십시오."
 
-#: setup.php:427
+#: setup.php:432
 #, fuzzy
 msgid "Allow scheduling by Operators"
 msgstr "운영자에 의한 스케줄링 허용"
 
-#: setup.php:428
+#: setup.php:433
 #, fuzzy
 msgid "Enable/disable Operator's ability to schedule reports.  When disabled, only administrators may change scheduling."
 msgstr "보고서를 예약하는 운영자의 기능을 활성화 / 비활성화합니다. 비활성화되면 관리자 만 일정을 변경할 수 있습니다."
 
-#: setup.php:433
+#: setup.php:438
 #, fuzzy
 msgid "SI-Prefixes"
 msgstr "SI 접두어"
 
-#: setup.php:434
+#: setup.php:439
 #, fuzzy
 msgid "Enable/disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> 및 <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> 의 조건에 따라 이진수 배수에 올바른 SI 접두어를 사용하거나 사용하지 않도록 설정합니다."
 
-#: setup.php:439
+#: setup.php:444
 msgid "Export Settings"
 msgstr "내보내기 설정"
 
-#: setup.php:444
+#: setup.php:449
 #, fuzzy
 msgid "Filename Format"
 msgstr "파일 이름 형식"
 
-#: setup.php:445
+#: setup.php:450
 #, fuzzy
 msgid "The name format for the export files created on demand."
 msgstr "수요에 따라 생성 된 내보내기 파일의 이름 형식입니다."
 
-#: setup.php:451
+#: setup.php:456
 #, fuzzy
 msgid "Export Header"
 msgstr "내보내기 헤더"
 
-#: setup.php:452
+#: setup.php:457
 #, fuzzy
 msgid "The header description for export files"
 msgstr "내보내기 파일의 헤더 설명"
 
-#: setup.php:456
+#: setup.php:461
 #, fuzzy
 msgid "# Your report header\\n# <cacti_version> <reportit_version>"
 msgstr "# 보고서 헤더 \\ n # <cacti_version> <reportit_version>"
 
-#: setup.php:459
+#: setup.php:464
 #, fuzzy
 msgid "Auto Archiving"
 msgstr "자동 보관"
 
-#: setup.php:464 setup.php:500
+#: setup.php:469 setup.php:505
 msgid "Enabled"
 msgstr "활성화"
 
-#: setup.php:465
+#: setup.php:470
 #, fuzzy
 msgid "If enabled the result of every scheduled report will be archived automatically"
 msgstr "이 옵션을 사용하면 예약 된 모든 보고서의 결과가 자동으로 보관됩니다."
 
-#: setup.php:470
+#: setup.php:475
 #, fuzzy
-msgid "Cache Life Cyle (in seconds)"
+msgid "Cache Life Cycle (in seconds)"
 msgstr "캐시 수명 Cyle (초 단위)"
 
-#: setup.php:471
+#: setup.php:476
 #, fuzzy
 msgid "Number of seconds an archived report will be cached without any hit."
 msgstr "아카이브 된 보고서가 조회없이 캐싱되는 시간 (초)."
 
-#: setup.php:477
+#: setup.php:482
 #, fuzzy
 msgid "Archive Path"
 msgstr "보관 경로"
 
-#: setup.php:478
+#: setup.php:483
 #, fuzzy
 msgid "The path to an archive folder where archives have to be stored."
 msgstr "선택 사항 : 저장할 아카이브 폴더의 경로입니다. 정의되지 않은 경우 하위 폴더 'archive'가 사용됩니다."
 
-#: setup.php:484
+#: setup.php:489
 #, fuzzy
 msgid "Auto E-Mailing"
 msgstr "자동 전자 메일"
 
-#: setup.php:490
+#: setup.php:495
 #, fuzzy
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "이 옵션을 사용하면 예약 된 보고서를 수신자 목록에 자동으로 전자 메일로 보낼 수 있습니다. <br> 이 기능을 사용하려면 '설정 플러그인'이 구성된 버전이 있어야합니다."
 
-#: setup.php:495
+#: setup.php:500
 #, fuzzy
 msgid "Auto Exporting"
 msgstr "자동 내보내기"
 
-#: setup.php:501
+#: setup.php:506
 #, fuzzy
 msgid "If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder -> Template Folder (if defined) or Template ID -> Report ID -> Report"
 msgstr "이 옵션을 사용하면 예약 된 보고서를 지정된 폴더로 자동 내보낼 수 있습니다. <br> 따라서 완전한 구조적 경로 아키텍처가 사용됩니다. <br> 기본 폴더 -> 템플리트 폴더 (정의 된 경우) 또는 템플리트 ID -> 보고서 ID -> 보고서"
 
-#: setup.php:507
+#: setup.php:512
 #, fuzzy
 msgid "The main path to an export folder for saving the exports."
 msgstr "선택 사항 : 내보내기 저장을위한 내보내기 폴더의 기본 경로입니다. 정의되지 않은 경우 하위 폴더 '내보내기'가 사용됩니다."
 
-#: setup.php:522
+#: setup.php:527
 #, fuzzy
 msgid "ReportIt General Settings"
 msgstr "ReportIT 일반 설정"
 
-#: setup.php:525
+#: setup.php:530
 #, fuzzy
 msgid "Separate Report View Filter"
 msgstr "별도의 보고서보기 필터"
 
-#: setup.php:526
+#: setup.php:531
 #, fuzzy
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "보고서 당 개별 필터 사용을 활성화 / 비활성화합니다."
 
-#: setup.php:531
+#: setup.php:536
 #, fuzzy
 msgid "Rows Per Page"
 msgstr "페이지 당 행 수"
 
-#: setup.php:532
+#: setup.php:537
 #, fuzzy
 msgid "The number of rows to display on a single page."
 msgstr "한 페이지에 표시 할 행 수입니다."
 
-#: setup.php:538
+#: setup.php:543
 #, fuzzy
 msgid "ReportIt Export Settings"
 msgstr "ReportIT 내보내기 설정"
 
-#: setup.php:543
+#: setup.php:548
 #, fuzzy
 msgid "CSV Column Separator"
 msgstr "CSV 컬럼 구분 기호"
 
-#: setup.php:544
+#: setup.php:549
 #, fuzzy
-msgid "The column seperator to be used for CSV exports."
+msgid "The column separator to be used for CSV exports."
 msgstr "CSV 내보내기에 사용할 열 분리 자입니다."
 
-#: setup.php:550
+#: setup.php:555
 #, fuzzy
 msgid "CSV Decimal Separator"
 msgstr "CSV 소수 구분 기호"
 
-#: setup.php:551
+#: setup.php:556
 #, fuzzy
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "정수 부분의 끝과 소수 부분의 시작을 나타내는 기호입니다."
 
-#: setup.php:577
+#: setup.php:582
 #, fuzzy
 msgid "ReportIt"
 msgstr "보고서"
