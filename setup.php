@@ -133,25 +133,25 @@ function reportit_draw_navigation_text ($nav) {
 
 	$nav['reports.php:save'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,?',
+		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
 	$nav['reports.php:report_add'] = array(
 		'title' => __('Add'),
-		'mapping' => 'index.php:,?',
+		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
 	$nav['reports.php:report_edit'] = array(
 		'title' => __('(Edit)'),
-		'mapping' => 'index.php:,?',
+		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
 	$nav['reports.php:actions'] = array(
 		'title' => __('Actions'),
-		'mapping' => 'index.php:,?',
+		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
@@ -628,6 +628,11 @@ function reportit_poller_bottom() {
 
 	$lifecycle     = read_config_option('reportit_arc_lifecycle', true);
 	$logging_level = read_config_option('log_verbosity', true);
+
+	/* user did not save plugin settings, variable $lifecycle doesn't exist */
+	if (intval($lifecycle) <= 0) {
+		$lifecycle = 300;
+	}
 
 	/* mark running reports which have run too long as failed */
 	$met = read_config_option('reportit_met');
