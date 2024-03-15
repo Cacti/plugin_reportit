@@ -50,4 +50,4 @@ Example](http://www.ebrueggeman.com/sites/www.ebrueggeman.com/files/images/examp
 Example](http://www.ebrueggeman.com/sites/www.ebrueggeman.com/files/images/stacked-graph-example-2.png)
 
 -----------------------------------------------
-Copyright (c) 2004-2023 - The Cacti Group, Inc.
+Copyright (c) 2004-2024 - The Cacti Group, Inc.
