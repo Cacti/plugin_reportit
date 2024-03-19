@@ -127,6 +127,8 @@ community.  After that you should open a feature request on
 
 * security: Fix potential security exposure with unserialize() function
 
+* issue#109: Session variable conflict with Cacti reports causes PHP warning
+
 --- 1.1.3 ---
 
 * issue#37: When adding a new template, changing the drop down box and clicking
