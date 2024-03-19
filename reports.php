@@ -259,7 +259,7 @@ function standard() {
 			),
 	);
 
-	validate_store_request_vars($filters, 'sess_reports');
+	validate_store_request_vars($filters, 'sess_reportit_reports');
 	/* ================= Input validation ================= */
 
 	if ($reportAdmin) {
