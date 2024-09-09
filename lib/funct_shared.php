@@ -388,7 +388,7 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 
 	    break;
 	case 'Current Year':
-		$de = ($ds == 1 & $ms ==1 )? $ds : $de-1;
+		$de = ($ds == 1 && $ms ==1 )? $ds : $de-1;
 	    $ms=1;$ds=1;
 
 	    break;
@@ -851,7 +851,7 @@ function auto_rounding(&$values, $rounding, $order){
 	$base = ($rounding == 2) ? 1000 : 1024;
 
 	$highest = ($order == 'DESC') ? reset($values) : end($values);
-	if (reset($values) == 0 & end($values) == 0) return 0;
+	if (reset($values) == 0 && end($values) == 0) return 0;
 	if ($highest < 0) $highest*=(-1);
 
 	$x = 0;

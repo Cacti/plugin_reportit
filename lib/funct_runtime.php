@@ -255,7 +255,7 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 	}
 
 	// boost the calculation if all weekdays are required and step or shift are covering the whole day
-	if (($dis == 6 & $off == 1 & $shift_duration == 86400) || ($dis == 6 & $off ==1 & $rrd_step == 86400)) {
+	if (($dis == 6 && $off == 1 && $shift_duration == 86400) || ($dis == 6 && $off ==1 && $rrd_step == 86400)) {
 		$rrd_ad_data['index'][0] = abs(($rrd_ep-($rrd_sp-$rrd_step))/$rrd_step);
 
 		return $rrd_ad_data;
@@ -573,7 +573,7 @@ function transform(&$data, &$rrd_data, &$template) {
 
 function check_DST_support() {
 	$tmz = date('T');
-	$return = ($tmz == 'UTC' | $tmz == 'GMT' | $tmz == 'UCT') ? false : true;
+	$return = ($tmz == 'UTC' || $tmz == 'GMT' || $tmz == 'UCT') ? false : true;
 
 	return $return;
 }

@@ -94,7 +94,7 @@ if (isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__)
 		}
 	}
 
-	if (($run_freq == '' & $run_id === false) || ($run_freq != '' & $run_id !== false)) {
+	if (($run_freq == '' && $run_id === false) || ($run_freq != '' && $run_id !== false)) {
 		help();
 	}
 
@@ -157,7 +157,7 @@ function run($frequency) {
 
 	$reports = db_fetch_assoc($sql);
 	$number = count($reports);
-	if (is_numeric($frequency) & $number == 0) {
+	if (is_numeric($frequency) && $number == 0) {
 		print "\n\n ERROR: Invalid report ID !\n";
 		help();
 	}
@@ -589,15 +589,15 @@ function runtime($report_id) {
 
 		//----- Update variables and create calculating parameters -----
 		if ($maxValue !== NULL && $maxValue != 0) {
-			if ($maxValue > 0 & $maxValue < 4294967295) {
+			if ($maxValue > 0 && $maxValue < 4294967295) {
 				foreach ($report_definitions['ds_items'] as $key => $ds_name) {
 					$variables['maxValue:' . $ds_name] = $maxValue;
 				}
-			} elseif ($maxValue == 4294967295 & $maxHighValue !== Null) {
+			} elseif ($maxValue == 4294967295 && $maxHighValue !== Null) {
 				foreach ($report_definitions['ds_items'] as $key => $ds_name) {
 					$variables['maxValue:' . $ds_name] = $maxHighValue*1000000;
 				}
-			} elseif ($maxValue == 4294967295 & $maxHighValue === Null) {
+			} elseif ($maxValue == 4294967295 && $maxHighValue === Null) {
 				/**
 				 * This is a 10G interface (or higher), but ifHighSpeed counter is not available.
 				 * Individual configured maximum per data source item will be preferred if it is higher than the maximum of the 32 Bit counter

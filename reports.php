@@ -277,7 +277,7 @@ function standard() {
 			INNER JOIN plugin_reportit_templates AS b
 			ON b.id = a.template_id';
 
-		if (get_request_var('owner') !== '-1' & !isempty_request_var('owner')) {
+		if (get_request_var('owner') !== '-1' && !isempty_request_var('owner')) {
 			$sql .= ' WHERE a.user_id = ' . get_request_var('owner') . ' ORDER BY b.description';
 			$templatelist = db_fetch_assoc($sql);
 

@@ -99,13 +99,13 @@ function export_to_CSV(&$data) {
 	/* read out the result ids */
 	list($rs_ids, $rs_cnt) = explode('-', $report_data['rs_def']);
 	$rs_ids = ($rs_ids == '') ? false : explode('|', $rs_ids);
-	if ($measurands != '-1' & $rs_ids !== false) {
+	if ($measurands != '-1' && $rs_ids !== false) {
 		$rs_ids = array(get_request_var('measurand'));
 		$rs_cnt = 1;
 	}
 
 	/* sort out all measurands which shouldn't be visible */
-	if ($rs_ids !== false & cacti_sizeof($rs_ids)>0) {
+	if ($rs_ids !== false && cacti_sizeof($rs_ids)>0) {
 		foreach ($rs_ids as $key => $id) {
 			if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 				$rs_cnt--;
@@ -119,13 +119,13 @@ function export_to_CSV(&$data) {
 		list($ov_ids, $ov_cnt)	 = explode('-', $report_data['sp_def']);
 
 		$ov_ids = ($ov_ids == '') ? false : explode('|', $ov_ids);
-		if ($measurands != '-1' & $ov_ids !== false) {
+		if ($measurands != '-1' && $ov_ids !== false) {
 			$ov_ids = array(get_request_var('measurand'));
 			$ov_cnt = 1;
 		}
 
 		/* sort out all measurands which shouldn't be visible */
-		if ($ov_ids !== false & cacti_sizeof($ov_ids)>0) {
+		if ($ov_ids !== false && cacti_sizeof($ov_ids)>0) {
 			foreach ($ov_ids as $key => $id) {
 				if (!isset($data['report_measurands'][$id]['visible']) || $data['report_measurands'][$id]['visible'] == '') {
 					$ov_cnt--;
@@ -135,11 +135,11 @@ function export_to_CSV(&$data) {
 		}
 
 		if ($measurands == -1 ) {
-			if ($ov_cnt >0 & !in_array('overall', $ds_description)) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description[]= 'overall';
 			}
 		} elseif (in_array($measurands, $ov_ids)) {
-			if ($ov_cnt >0 & !in_array('overall', $ds_description)) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description = array('overall');
 			}
 		}
@@ -503,11 +503,11 @@ function new_worksheet(&$data, &$styles){
 		}
 
 		if ($measurands == -1 ) {
-			if ($ov_cnt >0 & !in_array('overall', $ds_description)) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description[]= 'overall';
 			}
 		} elseif (in_array($measurands, $ov_ids)) {
-			if ($ov_cnt >0 & !in_array('overall', $ds_description)) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description = array('overall');
 			}
 		}

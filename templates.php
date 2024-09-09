@@ -642,7 +642,7 @@ function form_save() {
 	}
 
 	/* check if there are data sources unselected although they are used in one of the defined measurands. */
-	if ($template_data['id'] != 0 & $unused_data_sources !== false) {
+	if ($template_data['id'] != 0 && $unused_data_sources !== false) {
 		/* get the list of unused data sources */
 		$sql = "SELECT data_source_name
 				FROM data_template_rrd

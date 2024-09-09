@@ -236,7 +236,7 @@ function standard() {
 	}
 
 	/* use additional where clause for graph permissions if necessary */
-	if (read_config_option('auth_method') != 0 & $report_data['graph_permission'] == 1) {
+	if (read_config_option('auth_method') != 0 && $report_data['graph_permission'] == 1) {
 		$sql .= ' AND ' . $sql_where;
 	}
 

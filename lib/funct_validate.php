@@ -181,7 +181,7 @@ function input_validate_input_whitelist($value, $valid_list, $undefined=false, $
 }
 
 function input_validate_input_blacklist($value, $black_list, $undefined=false, $header=true){
-	if ($value == false & $undefined == true) {
+	if ($value == false && $undefined == true) {
 		return;
 	}
 
@@ -212,10 +212,10 @@ function input_validate_input_key($value, $valid_list, $undefined=false, $header
  */
 function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside=true, $header=true ){
 	if ($inside) {
-		if ($value<$lower_limit & $value>$upper_limit) {
+		if ($value<$lower_limit && $value>$upper_limit) {
 			die_html_custom_error('', $header);
 		}
-	} elseif ($value>$lower_limit & $value<$upper_limit) {
+	} elseif ($value>$lower_limit && $value<$upper_limit) {
 		die_html_custom_error('', $header);
 	}
 }
@@ -330,7 +330,7 @@ function validate_uploaded_templates(){
 			$hash = (string)$report_template->reportit->hash;
 			validate_xml_template($report_template, $valid, $checksum);
 
-			if ($hash == false | $hash !== md5($checksum) | $valid === false) {
+			if ($hash == false || $hash !== md5($checksum) || $valid === false) {
 				print __('Checksum error with Template %s in XML file', $report_count, 'reportit') . PHP_EOL;
 				session_custom_error_message('file', __('Checksum error with Template %s in XML file', $report_count, 'reportit'), false);
 				return false;
