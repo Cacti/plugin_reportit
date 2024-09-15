@@ -23,9 +23,9 @@
 * issue#110: fix error when top 10 graphs is used
 * issue#114: DB Errors on Save for Template
 * issue: ReportIt constantly attempting to register realms
-* issue: Replace obsolete PHP5 graph library (phpgraphlib)
 * issue: PHP8.x compatibility
 * feature: Message more elegantly when there are no Report Templates.
+* feature: Replace obsolete PHP5 graph library (phpgraphlib) with billboard.js
 
 --- 1.1.3 ---
 
