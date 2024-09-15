@@ -35,6 +35,12 @@ function plugin_reportit_install() {
 	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', 'ReportIt - Create Reports', 1);
 	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', 'ReportIt - Manage Reports', 1);
 
+	$realm_array = array(
+		__('ReportIt - View Reports', 'reportit'),
+		__('ReportIt - Create Reports', 'reportit'),
+		__('ReportIt - Manage Reports', 'reportit')
+	);
+
 	reportit_system_setup();
 }
 
