@@ -983,10 +983,6 @@ function report_edit() {
 
 	/* start with HTML output */
 	if ($id != 0) {
-		/* built 'create links' */
-		$links[] = array('href' => 'items.php?id=' . $id, 'text' => __('Add Data Items', 'reportit'));
-		html_blue_link($links, $id);
-
 		/* unset the administration tab if user isn't a report admin */
 		if (!re_admin()) {
 			unset($tabs['admin']);
