@@ -30,10 +30,11 @@ if (!defined('REPORTIT_BASE_PATH')) {
 	reportit_define_constants();
 }
 
-include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_rrdlist.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
 
@@ -382,7 +383,7 @@ function standard() {
 			'sort'    => 'ASC',
 		),
 		'ds_cnt' => array(
-			'display' => __('Data Items', 'reportit'),
+			'display' => __('Data Sources', 'reportit'),
 			'sort'    => 'DESC',
 		),
 	);
@@ -431,9 +432,8 @@ function standard() {
 			form_selectable_cell(html_check_icon($report['public']), $report['id']);
 			form_selectable_cell(html_check_icon($report['scheduled']), $report['id']);
 
-			$link = $report['ds_cnt'] != NULL ? "rrdlist.php?&id={$report['id']}" : "items.php?&id={$report['id']}";
-
-			print "<td><a class='linkEditMain' href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
+			//$link = $report['ds_cnt'] != NULL ? "reports.php?tab=items&id={$report['id']}" : "reports.php?tab=items&id={$report['id']}";
+			//print "<td><a class='linkEditMain' href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
 
 			if (!$report['locked'] && $report['state'] < 1) {
 				form_checkbox_cell(__esc("Select %s", $report['description'], 'reportit'), $report["id"]);
@@ -512,7 +512,7 @@ function form_save() {
 	$owner = db_custom_fetch_assoc($sql, 'id', false);
 
 	/* ================= Input Validation ================= */
-	input_validate_input_whitelist(get_request_var('tab'), array('general', 'presets', 'admin', 'email', 'items'));
+	input_validate_input_whitelist(get_nfilter_request_var('tab'), array('general', 'presets', 'admin', 'email', 'items'));
 	input_validate_input_number(get_request_var('id'));
 
 	/* stop if user is not authorised to save a report config */
@@ -525,7 +525,7 @@ function form_save() {
 	}
 
 	/* check for the type of saving if it was sent through the email tab */
-	switch(get_request_var('tab')) {
+	switch(get_nfilter_request_var('tab')) {
 		case 'presets':
 		 	input_validate_input_blacklist(get_request_var('id'),array(0));
 			input_validate_input_key(get_request_var('rrdlist_timezone'), $timezone, true);
@@ -565,6 +565,9 @@ function form_save() {
 				/* if javascript is disabled */
 				form_input_validate(get_request_var('report_email_address'), 'report_email_address', '', false, 3);
 			}
+
+			break;
+		case 'items':
 
 			break;
 		default:
@@ -616,11 +619,11 @@ function form_save() {
 
 	/* return if validation failed */
 	if (is_error_message()) {
-		header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+		header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_nfilter_request_var('tab'));
 		exit;
 	}
 
-	switch(get_request_var('tab')) {
+	switch(get_nfilter_request_var('tab')) {
 		case 'presets':
 			$rrdlist_data['id']         = get_request_var('id');
 			$rrdlist_data['start_day']  = $weekday[get_request_var('rrdlist_weekday_start')];
@@ -712,6 +715,48 @@ function form_save() {
 			}
 
 			break;
+		case 'items':
+			/* ================= input validation ================= */
+			get_filter_request_var('id');
+			get_filter_request_var('report_id');
+			get_filter_request_var('rrdlist_timezone');
+			get_filter_request_var('rrdlist_shifttime_start');
+			get_filter_request_var('rrdlist_shifttime_end');
+			get_filter_request_var('rrdlist_weekday_start');
+			get_filter_request_var('rrdlist_weekday_end');
+
+			locked(my_template(get_request_var('report_id')));
+			/* ==================================================== */
+
+			/* check start and end of shifttime */
+			$a = get_request_var('rrdlist_shifttime_start');
+			$b = get_request_var('rrdlist_shifttime_end');
+
+			if ($a == $b && $b == 0) {
+				$b = count($shifttime);
+			}
+
+			/* prepare data array */
+			$rrdlist_data['id']          = get_request_var('id');
+			$rrdlist_data['report_id']   = get_request_var('report_id');
+			$rrdlist_data['start_day']   = $weekday[get_request_var('rrdlist_weekday_start')];
+			$rrdlist_data['end_day']     = $weekday[get_request_var('rrdlist_weekday_end')];
+			$rrdlist_data['start_time']  = $shifttime[get_request_var('rrdlist_shifttime_start')];
+			$rrdlist_data['end_time']    = $shifttime2[get_request_var('rrdlist_shifttime_end')];
+			$rrdlist_data['description'] = get_nfilter_request_var('rrdlist_subhead');
+
+			if (isset_request_var('rrdlist_timezone')) $rrdlist_data['timezone'] = $timezone[get_request_var('rrdlist_timezone')];
+
+			/* save settings */
+			sql_save($rrdlist_data, 'plugin_reportit_data_items', array('id', 'report_id'), false);
+
+			/* reset report */
+			reset_report(get_request_var('report_id'));
+
+			/* return to list view */
+			raise_message(1);
+
+			break;
 		default:
 			$report_data['id']              = get_request_var('id');
 
@@ -794,7 +839,7 @@ function form_save() {
 
 			/* start saving process or return is_error_message()*/
 			if (is_error_message()) {
-				header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+				header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_nfilter_request_var('tab'));
 
 				exit;
 			} else {
@@ -812,7 +857,7 @@ function form_save() {
 			}
 	}
 
-	header('Location: reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
+	header('Location: reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_nfilter_request_var('tab'));
 
 	raise_message(1);
 }
@@ -821,6 +866,8 @@ function report_edit() {
 	global $config, $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs;
 	global $weekday, $timezone, $shifttime, $shifttime2, $format;
 	global $form_array_admin, $form_array_presets, $form_array_general, $form_array_email;
+	global $rrdlist_actions, $link_array, $item_rows;
+
 
 	if (!isset_request_var('tab')) {
 		set_request_var('tab', 'general');
@@ -976,7 +1023,9 @@ function report_edit() {
 		print '</ul></nav></div>';
 	}
 
-	form_start('reports.php');
+	if (get_nfilter_request_var('tab') !== 'items') {
+		form_start('reports.php');
+	}
 
 	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label, 'reportit'), '100%', '', '3', 'center', '');
 
@@ -1034,6 +1083,327 @@ function report_edit() {
 
 			break;
 		case 'items':
+			$subhead    = '';
+			$enable_tmz = read_config_option('reportit_use_tmz');
+
+			/* ================= input validation and session storage ================= */
+			$filters = array(
+				'rows' => array(
+					'filter' => FILTER_VALIDATE_INT,
+					'pageset' => true,
+					'default' => '-1'
+				),
+				'page' => array(
+					'filter' => FILTER_VALIDATE_INT,
+					'default' => '1'
+				),
+				'filter' => array(
+					'filter' => FILTER_CALLBACK,
+					'pageset' => true,
+					'default' => '',
+					'options' => array('options' => 'sanitize_search_string')
+				),
+				'associated' => array(
+					'filter' => FILTER_VALIDATE_REGEXP,
+					'options' => array('options' => array('regexp' => '(true|false)')),
+					'pageset' => true,
+					'default' => 'true'
+				),
+				'sort_column' => array(
+					'filter' => FILTER_CALLBACK,
+					'default' => 'name_cache',
+					'options' => array('options' => 'sanitize_search_string')
+				),
+				'sort_direction' => array(
+					'filter' => FILTER_CALLBACK,
+					'default' => 'ASC',
+					'options' => array('options' => 'sanitize_search_string')
+				),
+			);
+
+			validate_store_request_vars($filters, 'sess_reportit_rrdlist');
+			/* ================= input validation ================= */
+
+			/* ==================== checkpoint ==================== */
+			my_report(get_filter_request_var('id'));
+			locked(my_template(get_filter_request_var('id')));
+			/* ==================================================== */
+
+			if (get_request_var('rows') == '-1') {
+				$rows = read_config_option('num_rows_table');
+			} else {
+				$rows = get_request_var('rows');
+			}
+
+			$report_data = db_fetch_row_prepared('SELECT *
+				FROM plugin_reportit_reports
+				WHERE id = ?',
+				array(get_request_var('id')));
+
+			$template_data = db_fetch_row_prepared('SELECT *
+				FROM plugin_reportit_templates
+				WHERE id = ?',
+				array($report_data['template_id']));
+
+			if (get_request_var('associated') != 'true') {
+				$sql_where    = 'WHERE ri.report_id = ? AND dtd.data_template_id = ? AND dtd.local_data_id > 0';
+				$sql_params[] = get_request_var('id');
+				$sql_params[] = $template_data['data_template_id'];
+			} else {
+				$sql_where    = 'WHERE (ri.report_id = ? OR ri.report_id IS NULL) AND dtd.data_template_id = ? AND dtd.local_data_id > 0';
+				$sql_params[] = get_request_var('id');
+				$sql_params[] = $template_data['data_template_id'];
+			}
+
+			/* first filter comes from the report */
+			if ($report_data['site_id'] > 0) {
+				$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . ' h.site_id = ?';
+				$sql_params[] = $report_data['site_id'];
+			}
+
+			if ($report_data['host_template_id'] > 0) {
+				$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . ' h.host_template_id = ?';
+				$sql_params[] = $report_data['host_template_id'];
+			}
+
+			if ($report_data['data_source_filter'] != '') {
+				$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . ' dtd.name_cache LIKE ?';
+				$sql_params[] = '%' . $report_data['data_source_filter'] . '%';
+			}
+
+			/* form the 'where' clause for our main sql query */
+			if (get_request_var('filter') != '') {
+				$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . " dtd.name_cache LIKE ?";
+				$sql_params[] = '%' . get_request_var('filter') . '%';
+			}
+
+			if (get_request_var('associated') != 'true') {
+				$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . " ri.id IS NOT NULL";
+			}
+
+			$total_rows = db_fetch_cell_prepared("SELECT COUNT(dtd.id)
+				FROM data_template_data AS dtd
+				INNER JOIN data_local AS dl
+				ON dtd.local_data_id = dl.id
+				INNER JOIN host AS h
+				ON h.id = dl.host_id
+				LEFT JOIN plugin_reportit_data_items AS ri
+				ON dtd.local_data_id = ri.id
+				$sql_where",
+				$sql_params);
+
+			$sql_order = get_order_string();
+			$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+
+			$rrdlist = db_fetch_assoc_prepared("SELECT dtd.local_data_id AS id, dtd.name_cache,
+				ri.id AS ri_id, ri.report_id, ri.description, ri.start_day, ri.end_day, ri.start_time, ri.end_time, ri.timezone
+				FROM data_template_data AS dtd
+				INNER JOIN data_local AS dl
+				ON dtd.local_data_id = dl.id
+				INNER JOIN host AS h
+				ON h.id = dl.host_id
+				LEFT JOIN plugin_reportit_data_items AS ri
+				ON dtd.local_data_id = ri.id
+				$sql_where
+				$sql_order
+				$sql_limit",
+				$sql_params);
+
+			/* define subheader description */
+			$desc_array = array(
+				'name_cache' => array(
+					'display' => __('Data Source Name', 'reportit'),
+					'sort' => 'ASC',
+					'align' => 'left'
+				),
+				'id' => array(
+					'display' => __('ID', 'reportit'),
+					'sort' => 'ASC',
+					'align' => 'left'
+				),
+				'nosort0' => array(
+					'display' => __('Associated', 'reportit'),
+					'align' => 'left'
+				),
+				'description' => array(
+					'display' => __('Subhead', 'reportit'),
+					'sort' => 'ASC',
+					'align' => 'left'
+				),
+				'nosort1' => array(
+					'display' => __('Shifttime (From - To)', 'reportit')
+				),
+				'nosort2' => array(
+					'display' => __('Weekdays (From - To)', 'reportit')
+				),
+				'timezone' => array(
+					'display' => __('Time Zone', 'reportit'),
+					'sort' => 'ASC',
+					'align' => 'left'
+				),
+			);
+
+			/* start with HTML output */
+			html_start_box('', '100%', '', '3', 'center', '');
+
+			?>
+			<tr class='odd'>
+				<td>
+				<form id='form_rrdlist' action='reports.php?tab=items&id=<?php print get_request_var('id');?>'>
+					<table class='filterTable'>
+						<tr>
+							<td>
+								<?php print __('Search', 'reportit');?>
+							</td>
+							<td>
+								<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+							</td>
+							<td>
+								<?php print __('RRDs', 'reportit');?>
+							</td>
+							<td>
+								<select id='rows' onChange='applyFilter()'>
+									<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default', 'reportit');?></option>
+									<?php
+									if (cacti_sizeof($item_rows)) {
+										foreach ($item_rows as $key => $value) {
+											print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
+										}
+									}
+									?>
+								</select>
+							</td>
+							<td>
+								<span>
+									<input type='checkbox' id='associated' <?php print (get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked':'');?>>
+									<label for='associated'><?php print __('Show All');?></label>
+								</span>
+							</td>
+							<td>
+							</td>
+							<td>
+								<span>
+									<input type='submit' value='<?php print __esc_x('Button: use filter settings', 'Go', 'reportit');?>' id='refresh'>
+									<input type='button' value='<?php print __esc_x('Button: reset filter settings', 'Clear', 'reportit');?>' id='clear'>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<script type='text/javascript'>
+				function applyFilter() {
+					strURL  = 'reports.php?action=report_edit&tab=items';
+					strURL += '&id=<?php print get_request_var('id');?>';
+					strURL += '&header=false';
+					strURL += '&filter='+escape($('#filter').val());
+					strURL += '&associated=' + $('#associated').is(':checked');
+					strURL += '&rows='+$('#rows').val();
+					loadPageNoHeader(strURL);
+				}
+
+				function clearFilter() {
+					strURL  = 'reports.php?action=report_edit&tab=items'
+					strURL += '&clear=1&header=false';
+					strURL += '&id=<?php print get_request_var('id');?>';
+					loadPageNoHeader(strURL);
+				}
+
+				$(function() {
+					$('#refresh').click(function() {
+						applyFilter();
+					});
+
+					$('#clear').click(function() {
+						clearFilter();
+					});
+
+					$('#associated').change(function() {
+						applyFilter();
+					});
+
+					$('#form_rrdlist').submit(function(event) {
+						event.preventDefault();
+						applyFilter();
+					});
+				});
+				</script>
+				</td>
+			</tr>
+			<?php
+
+			html_end_box();
+
+			$nav = html_nav_bar('reports.php?tab=items&id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Sources', 'reportit'), 'page', 'main');
+
+			print $nav;
+
+			form_start('reports.php?tab=items&id=' . get_request_var('id'));
+
+			html_start_box('', '100%', '', '3', 'center', '');
+
+			html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php?action=report_edit&tab=items&id=' . get_request_var('id'));
+
+			if (cacti_sizeof($rrdlist)) {
+				foreach($rrdlist as $rrd) {
+					if ($rrd['description'] == '') {
+						$rrd['description'] = '-';
+					}
+
+					form_alternate_row( 'line' . $rrd['id'], true );
+
+					if ($rrd['name_cache'] == NULL) {
+						form_selectable_cell(__('Does not exist anymore', 'reportit'), $rrd['id']);
+					} else {
+						$link = "reports.php?tab=items&action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id');
+
+						form_selectable_cell(filter_value($rrd['name_cache'], get_request_var('filter'), $link), $rrd['id']);
+					}
+
+					form_selectable_cell($rrd['id'], $rrd['id']);
+
+					if ($rrd['ri_id'] > 0) {
+						form_selectable_cell('<span class="accessGranted">' . __('Included in Report', 'reportit') . '</span>', $rrd['id']);
+					} else {
+						form_selectable_cell('<span class="accessRestricted">' . __('Not Included in Report', 'reportit') . '</span>', $rrd['id']);
+					}
+
+					form_selectable_cell($rrd['description'], $rrd['id']);
+
+					if ($rrd['start_time'] != '') {
+						form_selectable_cell($rrd['start_time'] . ' - ' . $rrd['end_time'], $rrd['id']);
+					} else {
+						form_selectable_cell('-', $rrd['id']);
+					}
+
+					if ($rrd['start_time'] != '') {
+						form_selectable_cell($rrd['start_day']  . ' - ' . $rrd['end_day'],  $rrd['id']);
+					} else {
+						form_selectable_cell('-', $rrd['id']);
+					}
+
+					if ($rrd['timezone'] != '') {
+						form_selectable_cell($rrd['timezone'], $rrd['id']);
+					} else {
+						form_selectable_cell('-', $rrd['id']);
+					}
+
+					form_checkbox_cell(__('Select', 'reportit'), $rrd['id']);
+
+					form_end_row();
+				}
+			} else {
+				print "<tr><td colspan='6'><em>" . __('No data items found', 'reportit') . "</em></td></tr>";
+			}
+
+			html_end_box(true);
+
+			if ($total_rows > $rows) {
+				print $nav;
+			}
+
+			draw_actions_dropdown($rrdlist_actions);
+
+			form_end();
 
 			break;
 		default:
@@ -1058,99 +1428,101 @@ function report_edit() {
 	}
 
 	html_end_box();
-	form_save_button('reports.php');
 
+	if (get_nfilter_request_var('tab') !== 'items') {
+		form_save_button('reports.php');
 
-	?>
-	<script type='text/javascript'>
-	$(function() {
-		if ($('#report_dynamic').length > 0) {
-			dyn_general_tab();
-			$('#report_dynamic').click(function() {
+		?>
+		<script type='text/javascript'>
+		$(function() {
+			if ($('#report_dynamic').length > 0) {
 				dyn_general_tab();
-			});
-		}
+				$('#report_dynamic').click(function() {
+					dyn_general_tab();
+				});
+			}
 
-		if ($('#report_schedule').length > 0) {
-			dyn_admin_tab();
-			$('#report_schedule').click(function() {
+			if ($('#report_schedule').length > 0) {
 				dyn_admin_tab();
-			});
-		}
+				$('#report_schedule').click(function() {
+					dyn_admin_tab();
+				});
+			}
 
-		$('#add_recipients_x').click(function(e) {
-			e.preventDefault();
-			$.get('reports.php?header=false' +
-				'&tab=email&action=recipient_add&id=' + $('#id').val() +
-				'&report_email_address=' + encodeURI($('#report_email_address').val()) +
-				'&report_email_recipient=' + encodeURI($('#report_email_recipient').val()))
-			.done(function(data) {
-				checkForLogout(data);
-				$('#main').empty().hide();
-				$('div[class^="ui-"]').remove();
-				$('#main').html(data);
-				applySkin();
+			$('#add_recipients_x').click(function(e) {
+				e.preventDefault();
+				$.get('reports.php?header=false' +
+					'&tab=email&action=recipient_add&id=' + $('#id').val() +
+					'&report_email_address=' + encodeURI($('#report_email_address').val()) +
+					'&report_email_recipient=' + encodeURI($('#report_email_recipient').val()))
+				.done(function(data) {
+					checkForLogout(data);
+					$('#main').empty().hide();
+					$('div[class^="ui-"]').remove();
+					$('#main').html(data);
+					applySkin();
 
-				$('#report_email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
-				$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
+					$('#report_email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
+					$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
+				});
 			});
+
+			$('#report_email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
+			$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
 		});
 
-		$('#report_email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
-		$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
-	});
-
-	function dyn_general_tab() {
-		if ($('#report_dynamic').is(':checked')) {
-			$('#report_start_date').val('yyyy-mm-dd');
-			$('#report_start_date').prop('disabled', true);
-			$('#report_end_date').val('yyyy-mm-dd');
-			$('#report_end_date').prop('disabled', true);
-			$('#report_present').prop('disabled', false);
-			$('#report_timespan').prop('disabled', false);
-		} else {
-			$('#report_start_date').prop('disabled', false);
-			$('#report_end_date').prop('disabled', false);
-			$('#report_present').prop('disabled', true);
-			$('#report_timespan').prop('disabled', true);
-		}
-	}
-
-	function dyn_admin_tab() {
-		if ($('#report_schedule').is(':checked')) {
-			$('#report_schedule_frequency').prop('disabled', false);
-			$('#report_autorrdlist').prop('disabled', false);
-
-			if ($('#report_autoarchive').length) {
-				$('#report_autoarchive').prop('disabled', false);
-			}
-
-			if ($('#report_email').length) {
-				$('#report_email').prop('disabled', false);
-			}
-
-			if ($('#report_autoexport').length) {
-				$('#report_autoexport').prop('disabled', false);
-			}
-		} else {
-			$('#report_schedule_frequency').prop('disabled', true);
-			$('#report_autorrdlist').prop('disabled', true);
-
-			if ($('#report_autoarchive').length) {
-				$('#report_autoarchive').prop('disabled', true);
-			}
-
-			if ($('#report_email').length) {
-				$('#report_email').prop('disabled', true);
-			}
-
-			if ($('#report_autoexport').length) {
-				$('#report_autoexport').prop('disabled', true);
+		function dyn_general_tab() {
+			if ($('#report_dynamic').is(':checked')) {
+				$('#report_start_date').val('yyyy-mm-dd');
+				$('#report_start_date').prop('disabled', true);
+				$('#report_end_date').val('yyyy-mm-dd');
+				$('#report_end_date').prop('disabled', true);
+				$('#report_present').prop('disabled', false);
+				$('#report_timespan').prop('disabled', false);
+			} else {
+				$('#report_start_date').prop('disabled', false);
+				$('#report_end_date').prop('disabled', false);
+				$('#report_present').prop('disabled', true);
+				$('#report_timespan').prop('disabled', true);
 			}
 		}
+
+		function dyn_admin_tab() {
+			if ($('#report_schedule').is(':checked')) {
+				$('#report_schedule_frequency').prop('disabled', false);
+				$('#report_autorrdlist').prop('disabled', false);
+
+				if ($('#report_autoarchive').length) {
+					$('#report_autoarchive').prop('disabled', false);
+				}
+
+				if ($('#report_email').length) {
+					$('#report_email').prop('disabled', false);
+				}
+
+				if ($('#report_autoexport').length) {
+					$('#report_autoexport').prop('disabled', false);
+				}
+			} else {
+				$('#report_schedule_frequency').prop('disabled', true);
+				$('#report_autorrdlist').prop('disabled', true);
+
+				if ($('#report_autoarchive').length) {
+					$('#report_autoarchive').prop('disabled', true);
+				}
+
+				if ($('#report_email').length) {
+					$('#report_email').prop('disabled', true);
+				}
+
+				if ($('#report_autoexport').length) {
+					$('#report_autoexport').prop('disabled', true);
+				}
+			}
+		}
+		</script>
+		<?php
 	}
-	</script>
-	<?php
 }
 
 function form_actions() {

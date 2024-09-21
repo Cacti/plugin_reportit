@@ -25,7 +25,8 @@
 //----- CONSTANTS FOR: rrdlist.php -----
 
 $rrdlist_actions = array(
-	1 => __('Delete', 'reportit'),
+	3 => __('Add to Report', 'reportit'),
+	1 => __('Remove from Report', 'reportit'),
 	2 => __('Copy Settings to All', 'reportit')
 );
 
