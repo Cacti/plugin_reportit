@@ -294,5 +294,8 @@ function reportit_system_upgrade($old_version) {
 		db_execute('ALTER TABLE `plugin_reportit_reports`
 			ADD COLUMN notify_list INT UNSIGNED NOT NULL DEFAULT 0 AFTER email_format,
 			ADD COLUMN site_id INT UNSIGNED NOT NULL DEFAULT 0 AFTER template_id');
+
+		db_execute('UPDATE plugin_realms SET file="reports,run.php" WHERE plugin="reportit" AND file LIKE "%reports.php%"');
+		db_execute('UPDATE plugin_realms SET file="templates.php" WHERE plugin="reportit" AND file LIKE "%templates.php%"');
 	}
 }

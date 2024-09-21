@@ -1,5 +1,10 @@
 # ChangeLog
 
+--- 2.0.0 ---
+
+* feature: Remove files measurands.php and variables.php
+* feature: Remove files items.php and rrdlist.php
+
 --- 1.1.4 ---
 
 * security: Fix potential security exposure with unserialize() function
