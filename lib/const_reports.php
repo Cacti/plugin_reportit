@@ -431,7 +431,7 @@ $owner_sql = 'SELECT user_auth.id, user_auth.username AS name
 	) AS user_realm
 	ON user_auth.id = user_realm.user_id
 	LEFT JOIN (
-		SELECT user_auth_group_members.user_id
+		SELECT gm.user_id
 		FROM user_auth_group_members AS gm
 		INNER JOIN user_auth_group_realm AS gr
 		ON gm.group_id = gr.group_id
