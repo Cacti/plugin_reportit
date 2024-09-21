@@ -32,6 +32,7 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'site_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'host_template_id', 'type' => 'mediumint(8)', 'unsigned' => true,	'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_source_filter', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'preset_timespan', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
@@ -52,6 +53,7 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'email_subject', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1000)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_format', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'notify_list', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'subhead', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'state', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'graph_permission', 'type' => 'varchar(2)', 'NULL' => false, 'default' => 'on');
@@ -67,7 +69,8 @@ function reportit_system_install() {
 	api_plugin_db_table_create ('reportit', 'plugin_reportit_reports', $data);
 
 	db_execute('ALTER TABLE `plugin_reportit_reports`
-		CHANGE `last_state` `last_state` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP');
+		CHANGE COLUMN `last_state` `last_state` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP');
+
 	/*
 	* Table `plugin_reportit_templates`
 	* - list of all report templates
@@ -91,8 +94,10 @@ function reportit_system_install() {
 
 	api_plugin_db_table_create ('reportit', 'plugin_reportit_templates', $data);
 
-	db_execute('ALTER TABLE `plugin_reportit_templates`
-		ADD `last_modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP');
+	if (!db_column_exists('plugin_reportit_templates', 'last_modified')) {
+		db_execute('ALTER TABLE `plugin_reportit_templates`
+			ADD COLUMN `last_modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP');
+	}
 
 	/*
 	* Table `plugin_reportit_measurands`
@@ -225,7 +230,6 @@ function reportit_system_install() {
 	$data['comment'] = 'list of data template groups report template';
 
 	api_plugin_db_table_create ('reportit', 'plugin_reportit_data_template_groups', $data);
-
 
 	/*
 	* Table `plugin_reportit_data_source_items`

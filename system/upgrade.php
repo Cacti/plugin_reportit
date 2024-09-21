@@ -26,6 +26,7 @@ function reportit_system_upgrade($old_version) {
 	global $config, $database_default;
 
 	$default_engine = db_fetch_row("SHOW GLOBAL VARIABLES LIKE 'default_storage_engine'");
+
 	if (!sizeof($default_engine)) {
 		$default_engine = db_fetch_row("SHOW GLOBAL VARIABLES LIKE 'storage_engine'");
 	}
@@ -42,21 +43,20 @@ function reportit_system_upgrade($old_version) {
 		 */
 		db_execute('RENAME TABLE `reportit_cache_reports` TO `plugin_reportit_cache_reports`');
 		db_execute("ALTER TABLE `plugin_reportit_cache_reports`
-                        CHANGE `cache_id` `cache_id` VARCHAR(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '',
-                        CHANGE `last_run` `last_run` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
-                        CHANGE `runtime` `runtime` INT NOT NULL DEFAULT '0',
-                        CHANGE `public` `public` VARCHAR(2) NOT NULL DEFAULT '',
-                        CHANGE `start_date` `start_date` DATE NOT NULL DEFAULT '1970-01-01',
-                        CHANGE `end_date` `end_date` DATE NOT NULL DEFAULT '1970-01-01',
-                        CHANGE `sliding` `sliding` VARCHAR(2) NOT NULL DEFAULT '',
-                        CHANGE `present` `present` VARCHAR(2) NOT NULL DEFAULT '',
-                        CHANGE `scheduled` `scheduled` VARCHAR(2) NOT NULL DEFAULT '',
-                        CHANGE `autorrdlist` `autorrdlist` VARCHAR(2) NOT NULL DEFAULT '',
-                        CHANGE `auto_email` `auto_email` VARCHAR(2) NOT NULL DEFAULT '',
-                        CHANGE `subhead` `subhead` VARCHAR(255) NOT NULL DEFAULT '',
-                        CHANGE `in_process` `state` tinyint(1) NOT NULL DEFAULT '0',
-                        MODIFY `graph_permission` varchar(2) NOT NULL DEFAULT 'on'
-		");
+			CHANGE COLUMN `cache_id` `cache_id` VARCHAR(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '',
+			CHANGE COLUMN `last_run` `last_run` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+			CHANGE COLUMN `runtime` `runtime` INT NOT NULL DEFAULT '0',
+			CHANGE COLUMN `public` `public` VARCHAR(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `start_date` `start_date` DATE NOT NULL DEFAULT '1970-01-01',
+			CHANGE COLUMN `end_date` `end_date` DATE NOT NULL DEFAULT '1970-01-01',
+			CHANGE COLUMN `sliding` `sliding` VARCHAR(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `present` `present` VARCHAR(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `scheduled` `scheduled` VARCHAR(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `autorrdlist` `autorrdlist` VARCHAR(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `auto_email` `auto_email` VARCHAR(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `subhead` `subhead` VARCHAR(255) NOT NULL DEFAULT '',
+			CHANGE COLUMN `in_process` `state` tinyint(1) NOT NULL DEFAULT '0',
+			MODIFY COLUMN `graph_permission` varchar(2) NOT NULL DEFAULT 'on'");
 
 		db_execute("UPDATE plugin_reportit_cache_reports SET `public` = 'on' where `public` = '1'");
 		db_execute("UPDATE plugin_reportit_cache_reports SET `public` = '' where `public` = '0'");
@@ -74,12 +74,13 @@ function reportit_system_upgrade($old_version) {
 		db_execute("UPDATE plugin_reportit_cache_reports SET `graph_permission` = '' where `graph_permission` = '0'");
 
 		db_execute('RENAME TABLE `reportit_cache_measurands` TO `plugin_reportit_cache_measurands`');
+
 		db_execute("ALTER TABLE `plugin_reportit_cache_measurands`
-			CHANGE `cache_id` `cache_id` VARCHAR(30) NOT NULL DEFAULT '',
-			CHANGE `visible` `visible` VARCHAR(2) NOT NULL DEFAULT 'on',
-			CHANGE `spanned` `spanned` VARCHAR(2) NOT NULL DEFAULT '',
-			CHANGE `cf` `cf` TINYINT(1) NOT NULL DEFAULT '1'
-		");
+			CHANGE COLUMN `cache_id` `cache_id` VARCHAR(30) NOT NULL DEFAULT '',
+			CHANGE COLUMN `visible` `visible` VARCHAR(2) NOT NULL DEFAULT 'on',
+			CHANGE COLUMN `spanned` `spanned` VARCHAR(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `cf` `cf` TINYINT(1) NOT NULL DEFAULT '1'");
+
 		db_execute("UPDATE plugin_reportit_cache_measurands SET `visible` = 'on' where `visible` = '1'");
 		db_execute("UPDATE plugin_reportit_cache_measurands SET `visible` = '' where `visible` = '0'");
 		db_execute("UPDATE plugin_reportit_cache_measurands SET `spanned` = 'on' where `spanned` = '1'");
@@ -87,27 +88,25 @@ function reportit_system_upgrade($old_version) {
 
 		db_execute('RENAME TABLE `reportit_cache_variables` TO `plugin_reportit_cache_variables`');
 		db_execute("ALTER TABLE `plugin_reportit_cache_variables`
-			CHANGE `cache_id` `cache_id` VARCHAR(30) NOT NULL DEFAULT '',
-			CHANGE `value` `value` float NOT NULL DEFAULT '0' AFTER `min_value`
-		");
+			CHANGE COLUMN `cache_id` `cache_id` VARCHAR(30) NOT NULL DEFAULT '',
+			CHANGE COLUMN `value` `value` float NOT NULL DEFAULT '0' AFTER `min_value`");
 
 		db_execute('RENAME TABLE `reportit_data_items` TO `plugin_reportit_data_items`');
 
 		db_execute('RENAME TABLE `reportit_data_source_items` TO `plugin_reportit_data_source_items`');
 		db_execute("ALTER TABLE `plugin_reportit_data_source_items`
-			ADD `group_id` mediumint(8) NOT NULL DEFAULT '0' AFTER `template_id`,
-			ADD `data_template_id` mediumint(8) UNSIGNED NOT NULL DEFAULT '0' AFTER `group_id`,
-			ADD `data_source_title` varchar(255) NOT NULL DEFAULT '' AFTER `data_source_alias`,
-			ADD `data_source_mp` varchar(255) NOT NULL DEFAULT '1' AFTER `data_source_title`
-		");
+			ADD COLUMN `group_id` mediumint(8) NOT NULL DEFAULT '0' AFTER `template_id`,
+			ADD COLUMN `data_template_id` mediumint(8) UNSIGNED NOT NULL DEFAULT '0' AFTER `group_id`,
+			ADD COLUMN `data_source_title` varchar(255) NOT NULL DEFAULT '' AFTER `data_source_alias`,
+			ADD COLUMN `data_source_mp` varchar(255) NOT NULL DEFAULT '1' AFTER `data_source_title`");
 
 		db_execute('RENAME TABLE `reportit_measurands` TO `plugin_reportit_measurands`');
 		db_execute("ALTER TABLE `plugin_reportit_measurands`
-			ADD `group_id` int(11) NOT NULL DEFAULT '0' AFTER `template_id`,
-			MODIFY `visible` varchar(2) NOT NULL DEFAULT 'on',
-			MODIFY `spanned` varchar(2) NOT NULL DEFAULT '',
-			MODIFY `cf` tinyint(1) NOT NULL DEFAULT '1'
-		");
+			ADD COLUMN `group_id` int(11) NOT NULL DEFAULT '0' AFTER `template_id`,
+			MODIFY COLUMN `visible` varchar(2) NOT NULL DEFAULT 'on',
+			MODIFY COLUMN `spanned` varchar(2) NOT NULL DEFAULT '',
+			MODIFY COLUMN `cf` tinyint(1) NOT NULL DEFAULT '1'");
+
 		db_execute("UPDATE plugin_reportit_measurands SET `visible` = 'on' where `visible` = '1'");
 		db_execute("UPDATE plugin_reportit_measurands SET `visible` = '' where `visible` = '0'");
 		db_execute("UPDATE plugin_reportit_measurands SET `spanned` = 'on' where `spanned` = '1'");
@@ -118,20 +117,19 @@ function reportit_system_upgrade($old_version) {
 
 		db_execute('RENAME TABLE `reportit_reports` TO `plugin_reportit_reports`');
 		db_execute("ALTER TABLE `plugin_reportit_reports`
-                        MODIFY `last_run` datetime NOT NULL DEFAULT '1970-01-01 00:00:01',
-                        MODIFY `start_date` date NOT NULL DEFAULT '1970-01-01',
-                        MODIFY `end_date` date NOT NULL DEFAULT '1970-01-01',
-                        MODIFY `public` varchar(2) NOT NULL DEFAULT '',
-                        MODIFY `sliding` varchar(2) NOT NULL DEFAULT '',
-                        MODIFY `present` varchar(2) NOT NULL DEFAULT '',
-                        MODIFY `scheduled` varchar(2) NOT NULL DEFAULT '',
-                        MODIFY `autorrdlist` varchar(2) NOT NULL DEFAULT '',
-                        MODIFY `auto_email` varchar(2) NOT NULL DEFAULT '',
-                        CHANGE `in_process` `state` tinyint(1) NOT NULL DEFAULT '0',
-                        MODIFY `graph_permission` varchar(2) NOT NULL DEFAULT 'on',
-                        CHANGE `subhead` `subhead` varchar(255) NOT NULL DEFAULT '',
-			MODIFY `autoexport_no_formatting` varchar(2) NOT NULL DEFAULT 'on'
-		");
+			MODIFY COLUMN `last_run` datetime NOT NULL DEFAULT '1970-01-01 00:00:01',
+			MODIFY COLUMN `start_date` date NOT NULL DEFAULT '1970-01-01',
+			MODIFY COLUMN `end_date` date NOT NULL DEFAULT '1970-01-01',
+			MODIFY COLUMN `public` varchar(2) NOT NULL DEFAULT '',
+			MODIFY COLUMN `sliding` varchar(2) NOT NULL DEFAULT '',
+			MODIFY COLUMN `present` varchar(2) NOT NULL DEFAULT '',
+			MODIFY COLUMN `scheduled` varchar(2) NOT NULL DEFAULT '',
+			MODIFY COLUMN `autorrdlist` varchar(2) NOT NULL DEFAULT '',
+			MODIFY COLUMN `auto_email` varchar(2) NOT NULL DEFAULT '',
+			CHANGE COLUMN `in_process` `state` tinyint(1) NOT NULL DEFAULT '0',
+			MODIFY COLUMN `graph_permission` varchar(2) NOT NULL DEFAULT 'on',
+			CHANGE COLUMN `subhead` `subhead` varchar(255) NOT NULL DEFAULT '',
+			MODIFY COLUMN `autoexport_no_formatting` varchar(2) NOT NULL DEFAULT 'on'");
 
 		db_execute("UPDATE plugin_reportit_reports SET `public` = 'on' where `public` = '1'");
 		db_execute("UPDATE plugin_reportit_reports SET `public` = '' where `public` = '0'");
@@ -153,13 +151,13 @@ function reportit_system_upgrade($old_version) {
 		db_execute('RENAME TABLE `reportit_rvars` TO `plugin_reportit_rvars`');
 		db_execute('RENAME TABLE `reportit_templates` TO `plugin_reportit_templates`');
 		db_execute("ALTER TABLE `plugin_reportit_templates`
-			CHANGE `description` `name` varchar(255) NOT NULL DEFAULT '',
-			ADD `user_id` int(11) NOT NULL DEFAULT '0' AFTER `name`,
-			ADD `modified_by` int(11) NOT NULL DEFAULT '0' AFTER `user_id`,
-			ADD `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `modified_by`,
-			ADD `description` varchar(255) NOT NULL DEFAULT '' AFTER `last_modified`,
-			MODIFY `locked` varchar(2) NOT NULL DEFAULT 'on',
-			ADD `enabled` varchar(2) NOT NULL DEFAULT '' AFTER `locked`
+			CHANGE COLUMN `description` `name` varchar(255) NOT NULL DEFAULT '',
+			ADD COLUMN `user_id` int(11) NOT NULL DEFAULT '0' AFTER `name`,
+			ADD COLUMN `modified_by` int(11) NOT NULL DEFAULT '0' AFTER `user_id`,
+			ADD COLUMN `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `modified_by`,
+			ADD COLUMN `description` varchar(255) NOT NULL DEFAULT '' AFTER `last_modified`,
+			MODIFY COLUMN `locked` varchar(2) NOT NULL DEFAULT 'on',
+			ADD COLUMN `enabled` varchar(2) NOT NULL DEFAULT '' AFTER `locked`
 		");
 		db_execute("UPDATE plugin_reportit_templates SET `locked` = 'on' WHERE `locked` = '1'");
 		db_execute("UPDATE plugin_reportit_templates SET `locked` = '' WHERE `locked` = '0'");
@@ -173,11 +171,9 @@ function reportit_system_upgrade($old_version) {
 			`generic_group_id` varchar(32) NOT NULL DEFAULT '',
 			`elements` varchar(510) NOT NULL DEFAULT '',
 			PRIMARY KEY (`id`),
-			KEY `template_id` (`template_id`)
-			)
+			KEY `template_id` (`template_id`))
 			ENGINE=$engine
-			COMMENT='Table that Contains Data Template Group Definitions';
-		");
+			COMMENT='Table that Contains Data Template Group Definitions'");
 
 		db_execute('RENAME TABLE `reportit_variables` TO `plugin_reportit_variables`');
 	}
@@ -198,10 +194,9 @@ function reportit_system_upgrade($old_version) {
 			last_modified = IF(CAST(last_modified as CHAR) = '0000-00-00 00:00:00', '1970-01-01 00:00:00', last_modified)");
 
 		db_execute("ALTER TABLE `plugin_reportit_templates`
-			CHANGE `last_modified` `last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-			ADD `author` varchar(100) NOT NULL DEFAULT '' AFTER `last_modified`,
-			ADD `version` varchar(10) NOT NULL DEFAULT '' AFTER `author`
-		");
+			CHANGE COLUMN `last_modified` `last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			ADD COLUMN `author` varchar(100) NOT NULL DEFAULT '' AFTER `last_modified`,
+			ADD COLUMN `version` varchar(10) NOT NULL DEFAULT '' AFTER `author`");
 
 		db_execute("UPDATE `plugin_reportit_templates` SET
 			last_modified = IF(CAST(last_modified as CHAR) = '1970-01-01 00:00:00', NULL, last_modified)");
@@ -212,9 +207,9 @@ function reportit_system_upgrade($old_version) {
 			end_date = IF(CAST(end_date AS CHAR)= '0000-00-00', '1970-01-01', end_date)");
 
 		db_execute("ALTER TABLE `plugin_reportit_reports`
-			CHANGE `last_run` `last_run` DATETIME NULL DEFAULT NULL,
-			CHANGE `start_date` `start_date` DATE NULL DEFAULT NULL,
-			CHANGE `end_date` `end_date` DATE NULL DEFAULT NULL");
+			CHANGE COLUMN `last_run` `last_run` DATETIME NULL DEFAULT NULL,
+			CHANGE COLUMN `start_date` `start_date` DATE NULL DEFAULT NULL,
+			CHANGE COLUMN `end_date` `end_date` DATE NULL DEFAULT NULL");
 
 		db_execute("UPDATE `plugin_reportit_reports` SET
 			last_run = IF(CAST(last_run as CHAR) = '1970-01-01 00:00:00', NULL, last_run),
@@ -222,7 +217,7 @@ function reportit_system_upgrade($old_version) {
 			end_date = IF(CAST(end_date AS CHAR)= '1970-01-01', NULL, end_date)");
 
 		db_execute("ALTER TABLE `plugin_reportit_reports`
-			ADD `last_state` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `last_run`");
+			ADD COLUMN `last_state` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `last_run`");
 
 		// Fix partial renaming that occurred in 1.0.x
 		db_execute("UPDATE `plugin_reportit_templates`
@@ -281,19 +276,23 @@ function reportit_system_upgrade($old_version) {
 
 	if (cacti_version_compare($old_version, '1.1.1', '<')) {
 		db_execute("ALTER TABLE `plugin_reportit_cache_reports`
-			ADD `autoexport_max_records` smallint(6) NOT NULL DEFAULT '0' AFTER `autoexport`,
-			ADD `autoexport_no_formatting` varchar(2) NOT NULL DEFAULT 'on' AFTER `autoexport_max_records`,
-			CHANGE `last_run` `last_run` datetime NULL DEFAULT NULL,
-			CHANGE `start_date` `start_date` date NULL DEFAULT NULL,
-			CHANGE `end_date` `end_date` date NULL DEFAULT NULL,
-			DROP `template_name`,
-			DROP `data_template_alias`,
-			DROP `owner`
-		");
+			ADD COLUMN `autoexport_max_records` smallint(6) NOT NULL DEFAULT '0' AFTER `autoexport`,
+			ADD COLUMN `autoexport_no_formatting` varchar(2) NOT NULL DEFAULT 'on' AFTER `autoexport_max_records`,
+			CHANGE COLUMN `last_run` `last_run` datetime NULL DEFAULT NULL,
+			CHANGE COLUMN `start_date` `start_date` date NULL DEFAULT NULL,
+			CHANGE COLUMN `end_date` `end_date` date NULL DEFAULT NULL,
+			DROP COLUMN `template_name`,
+			DROP COLUMN `data_template_alias`,
+			DROP COLUMN `owner`");
 
 		db_execute("ALTER TABLE `plugin_reportit_templates`
-			MODIFY `author` varchar(255) NOT NULL DEFAULT '',
-			DROP `data_template_alias`
-		");
+			MODIFY COLUMN `author` varchar(255) NOT NULL DEFAULT '',
+			DROP COLUMN `data_template_alias`");
+	}
+
+	if (cacti_version_compare($old_version, '2.0', '<')) {
+		db_execute('ALTER TABLE `plugin_reportit_reports`
+			ADD COLUMN notify_list INT UNSIGNED NOT NULL DEFAULT 0 AFTER email_format,
+			ADD COLUMN site_id INT UNSIGNED NOT NULL DEFAULT 0 AFTER template_id');
 	}
 }

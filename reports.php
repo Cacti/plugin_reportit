@@ -512,7 +512,7 @@ function form_save() {
 	$owner = db_custom_fetch_assoc($sql, 'id', false);
 
 	/* ================= Input Validation ================= */
-	input_validate_input_whitelist(get_request_var('tab'), array('general', 'presets', 'admin', 'email'));
+	input_validate_input_whitelist(get_request_var('tab'), array('general', 'presets', 'admin', 'email', 'items'));
 	input_validate_input_number(get_request_var('id'));
 
 	/* stop if user is not authorised to save a report config */
@@ -536,7 +536,9 @@ function form_save() {
 
 			form_input_validate(get_request_var('rrdlist_subhead'), 'rrdlist_subhead', '' ,true,3);
 
+			input_validate_input_number(get_request_var('site_id'));
 			input_validate_input_number(get_request_var('host_template_id'));
+
 			form_input_validate(get_request_var('data_source_filter'), 'data_source_filter'	, '', true, 3);
 
 			break;
@@ -635,6 +637,7 @@ function form_save() {
 			}
 
 			$report_data['id']                 = get_request_var('id');
+			$report_data['site_id']            = get_request_var('site_id');
 			$report_data['host_template_id']   = get_request_var('host_template_id');
 			$report_data['data_source_filter'] = get_request_var('data_source_filter');
 
@@ -658,6 +661,7 @@ function form_save() {
 		case 'email':
 			if (!$add_recipients) {
 				$report_data['id']            = get_request_var('id');
+				$report_data['notify_list']   = get_request_var('report_notify_list');
 				$report_data['email_subject'] = get_request_var('report_email_subject');
 				$report_data['email_body']    = get_request_var('report_email_body');
 				$report_data['email_format']  = get_request_var('report_email_format');
@@ -814,9 +818,9 @@ function form_save() {
 }
 
 function report_edit() {
-	global $config, $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs,
-		$weekday, $timezone, $shifttime, $shifttime2, $format,
-		$form_array_admin, $form_array_presets, $form_array_general, $form_array_email;
+	global $config, $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs;
+	global $weekday, $timezone, $shifttime, $shifttime2, $format;
+	global $form_array_admin, $form_array_presets, $form_array_general, $form_array_email;
 
 	if (!isset_request_var('tab')) {
 		set_request_var('tab', 'general');
@@ -878,7 +882,7 @@ function report_edit() {
 		);
 
 		foreach($report_data as $key => $value) {
-			if (in_array($key,$rpm)) {
+			if (in_array($key, $rpm)) {
 				if ($value == 1) {
 					$report_data[$key] = 'on';
 				}
@@ -960,15 +964,16 @@ function report_edit() {
 		/* draw the tabs */
 		print "<div class='tabs'><nav><ul role='tablist'>";
 
-		foreach (array_keys($tabs) as $tab_short_name) {
-			print "<li class='subTab'><a class='tab" . (($tab_short_name == $current_tab) ? " selected'" : "'") .
-				" href='" . html_escape($config['url_path'] .  'plugins/reportit/reports.php?action=report_edit&id=' . $id .
-				'&tab=' . $tab_short_name) .
-				"'>" . $tabs[$tab_short_name] . "</a></li>";
-			$i++;
+		foreach ($tabs as $tab => $name) {
+			print "<li class='subTab'><a class='tab" . ($tab == $current_tab ? " selected'" : "'") .
+				" href='" . html_escape($config['url_path'] .  'plugins/reportit/reports.php' .
+				'?action=report_edit' .
+				'&id=' . $id .
+				'&tab=' . $tab) .
+				"'>" . html_escape($name) . '</a></li>';
 		}
 
-		print "</ul></nav></div>";
+		print '</ul></nav></div>';
 	}
 
 	form_start('reports.php');
@@ -1004,11 +1009,11 @@ function report_edit() {
 
 			html_end_box();
 
-			html_start_box('Associated Recipients', '100%', '', '3', 'center', '');
+			html_start_box('Individual Email Recipients', '100%', '', '3', 'center', '');
 
 			$display_text = array(
-				'name' => array('display' => __('Name', 'reportit'), 'width' => '50%'),
-				'email' => array('display' => __('Email', 'reportit')),
+				'name'   => array('display' => __('Name', 'reportit'), 'width' => '50%'),
+				'email'  => array('display' => __('Email', 'reportit')),
 				'action' => array('display' => __('Action', 'reportit'))
 			);
 
@@ -1080,9 +1085,8 @@ function report_edit() {
 				'&report_email_address=' + encodeURI($('#report_email_address').val()) +
 				'&report_email_recipient=' + encodeURI($('#report_email_recipient').val()))
 			.done(function(data) {
-			        checkForLogout(data);
-
-		                $('#main').empty().hide();
+				checkForLogout(data);
+				$('#main').empty().hide();
 				$('div[class^="ui-"]').remove();
 				$('#main').html(data);
 				applySkin();
@@ -1222,7 +1226,7 @@ function form_actions() {
 
 				if (cacti_sizeof($data_items)) {
 					foreach($data_items as $data_item) {
-						$data_item['report_id']=$new_id;
+						$data_item['report_id'] = $new_id;
 						sql_save($data_item, 'plugin_reportit_data_items', array('id', 'report_id'), false);
 					}
 				}

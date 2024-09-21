@@ -118,7 +118,7 @@ for($i = 1; $i <= 1000; $i++) {
 // Tabs
 $tabs = array(
 	'general' => __('General', 'reportit'),
-	'presets' => __('Data Item Presets', 'reportit'),
+	'presets' => __('Data Source Presets', 'reportit'),
 	'email'   => __('Email', 'reportit'),
 	'admin'   => __('Administration', 'reportit'),
 	'items'   => __('Data Sources', 'reportit')
@@ -158,6 +158,18 @@ $format = array(
 	'SML'  => __('MS Excel 2003 XML (.xml)', 'reportit'),
 	'XML'  => __('Raw XML (.xml)', 'reportit')
 );
+
+if (db_table_exists('plugin_notification_lists')) {
+	$notify_lists = array_rekey(
+		db_fetch_assoc('SELECT id, name
+			FROM plugin_notification_lists
+			WHERE enabled = "on"
+			ORDER BY name'),
+		'id', 'name'
+	);
+} else {
+	$notify_lists = array();
+}
 
 $form_array_email = array(
 	'report_header_1' => array(
@@ -202,22 +214,35 @@ $form_array_email = array(
 		'friendly_name' => __('Email Recipients', 'reportit'),
 		'method' => 'spacer',
 	),
+	'report_notify_list' => array(
+		'friendly_name' => __('Notification List Recipients', 'reportit'),
+		'description' => __('To add a Recipients based upon an valid Notification List.', 'reportit'),
+		'method' => 'drop_array',
+		'array' => $notify_lists,
+		'default' => '',
+		'none_value' => __('None', 'reportit'),
+		'value' => '|arg1:notify_list|',
+	),
 	'report_email_recipient' => array(
 		'friendly_name' => __('New Email Recipients', 'reportit'),
 		'description' => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: \';\' or \',\'', 'reportit'),
 		'method' => 'custom',
 		'default' => 'false',
 		'value' => "<div style='line-height: 1.5em;'>
-				<div>
-					<input type='text' id='report_email_address' name='report_email_address' size='60' maxlength='2500' align='top'>
-					<input type='submit' id='add_recipients_x' name='add_recipients_x' value='add' title='Add recipients'>
-				</div>
-				<div>
-					<input type='text' id='report_email_recipient' name='report_email_recipient' size='60' maxlength='2500' align='top'>
-				</div>
+			<div>
+				<input type='text' id='report_email_address' name='report_email_address' size='60' maxlength='2500' align='top'>
+				<input type='submit' id='add_recipients_x' name='add_recipients_x' value='add' title='Add recipients'>
+			</div>
+			<div>
+				<input type='text' id='report_email_recipient' name='report_email_recipient' size='60' maxlength='2500' align='top'>
+			</div>
 		</div>",
 	)
 );
+
+if (!cacti_sizeof($notify_lists)) {
+	unset($form_array_email['report_notify_list']);
+}
 
 $form_array_scheduling = array(
 	'report_header_3' => array(
@@ -333,7 +358,7 @@ $form_array_presets = array(
 		'method' => 'spacer',
 	),
 	'rrdlist_subhead' => array(
-		'friendly_name' => __('Subhead (optional)', 'reportit'),
+		'friendly_name' => __('Optional Sub-heading', 'reportit'),
 		'description' => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\'', 'reportit'),
 		'method' => 'textarea',
 		'textarea_rows' => '2',
@@ -343,7 +368,7 @@ $form_array_presets = array(
 	)
 );
 
-if (read_config_option('reportit_use_tmz')) {
+if (read_config_option('reportit_use_tmz') == 'on') {
 	$form_array_presets['rrdlist_timezone'] = array(
 		'friendly_name' => __('Time Zone', 'reportit'),
 		'description' => __('Select the time zone your following shifttime informations will be based on.', 'reportit'),
@@ -355,18 +380,31 @@ if (read_config_option('reportit_use_tmz')) {
 }
 
 $form_array_presets_2 = array(
-	'host_template_id' => array(
-		'friendly_name' => __('Device Template Filter (optional)', 'reportit'),
-		'description' => __('Use those data items only, which belong to Devices of this Device Template.<br>Select \'None\' (default) to deactivate this filter setting.', 'reportit'),
+	'data_source_header' => array(
+		'friendly_name' => __('Optional Data Source Pre-Filters', 'reportit'),
+		'method' => 'spacer',
+	),
+	'site_id' => array(
+		'friendly_name' => __('Site Filter', 'reportit'),
+		'description' => __('Use this Sites matching Data Sources only.<br>Select \'None\' (default) to deactivate this filter setting.', 'reportit'),
 		'method' => 'drop_sql',
-		'sql' => 'SELECT id,name FROM host_template ORDER BY name',
-		'none_value' => 'None',
+		'sql' => 'SELECT id, name FROM sites ORDER BY name',
+		'none_value' => __('None', 'reportit'),
+		'value' => '|arg2:site_id|',
+	),
+	'host_template_id' => array(
+		'friendly_name' => __('Device Template Filter', 'reportit'),
+		'description' => __('Use this Device Templates Data Sources only.<br>Select \'None\' (default) to deactivate this filter setting.', 'reportit'),
+		'method' => 'drop_sql',
+		'sql' => 'SELECT id, name FROM host_template ORDER BY name',
+		'none_value' => __('None', 'reportit'),
 		'value' => '|arg2:host_template_id|',
 	),
 	'data_source_filter' => array(
-		'friendly_name' => __('Data Items Filter (optional)', 'reportit'),
-		'description' => __('Allows additional filtering on the data items descriptions.<br> Use SQL wildcards like % and/or _. No regular Expressions!', 'reportit'),
+		'friendly_name' => __('Data Source Name Filter', 'reportit'),
+		'description' => __('Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!', 'reportit'),
 		'method' => 'textbox',
+		'size' => 50,
 		'max_length' => '100',
 		'value' => '|arg2:data_source_filter|',
 	),
