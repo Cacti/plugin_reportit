@@ -31,6 +31,10 @@ $fields_template_edit = array(
 		'method' => 'hidden_zero',
 		'value' => '|arg1:data_template_id|'
 	),
+	'save_component_template' => array(
+		'method' => 'hidden_zero',
+		'value' => 1
+	),
 	'ds_enabled__0' => array(
 		'method' => 'hidden_zero',
 		'value' => 'on'

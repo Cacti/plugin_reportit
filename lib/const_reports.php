@@ -37,17 +37,21 @@ $report_states = array(
 	'1'  => __('Running', 'reportit')
 );
 
-//$templates		- array, for dropdown menu
-//			- contains all names of available templates by taking into account user's realm
+/**
+ * $templates - array, for dropdown menu
+ * contains all names of available templates by taking into account user's realm
+ */
 $templates = db_fetch_assoc('SELECT * FROM plugin_reportit_templates WHERE locked = 0');
 
 if (!$templates) {
-	$templates['0'] = '- No template available -';
+	$templates['0'] = __('- No template available -', 'reportit');
 } else {
 	foreach($templates as $key => $value) {
-	$tmp[$templates[$key]['id']] = $templates[$key]['description'];
+		$tmp[$templates[$key]['id']] = $templates[$key]['description'];
 	}
+
 	$templates = $tmp;
+
 	unset($tmp);
 }
 
@@ -61,8 +65,10 @@ $weekday = array(
 	__('Sunday', 'reportit')
 );
 
-// $timespans		- array, for dropdown menu
-//			- contains preset values for selecting the report timespan
+/**
+ * $timespans - array, for dropdown menu
+ * contains preset values for selecting the report timespan
+ */
 $timespans = array(
 	__('Today', 'reportit'),
 	__('Last 1 Day', 'reportit'),
@@ -89,8 +95,10 @@ $timespans = array(
 	__('Last 2 Years', 'reportit')
 );
 
-//timezones
-foreach ($timezones as $tmz => $value) $timezone[]=$tmz;
+// Timezones
+foreach ($timezones as $tmz => $value) {
+	$timezone[] = $tmz;
+}
 
 //Schedule frequency
 $frequency = array(
@@ -101,17 +109,19 @@ $frequency = array(
 	'yearly'
 );
 
-//Maximum number of files an archive can contain
+// Maximum number of files an archive can contain
 $archive[0] = 'off';
-for($i = 1; $i <= 1000; $i++) $archive[$i]= $i;
+for($i = 1; $i <= 1000; $i++) {
+	$archive[$i]= $i;
+}
 
-//Tabs
+// Tabs
 $tabs = array(
 	'general' => __('General', 'reportit'),
 	'presets' => __('Data Item Presets', 'reportit'),
 	'email'   => __('Email', 'reportit'),
 	'admin'   => __('Administration', 'reportit'),
-	//'items'   => __('Data Items', 'reportit')
+	'items'   => __('Data Sources', 'reportit')
 );
 
 // $shifttime		- array, for dropdown menu
@@ -343,6 +353,7 @@ if (read_config_option('reportit_use_tmz')) {
 		'array' => array_keys($timezones)
 	);
 }
+
 $form_array_presets_2 = array(
 	'host_template_id' => array(
 		'friendly_name' => __('Device Template Filter (optional)', 'reportit'),
@@ -411,6 +422,24 @@ $form_array_presets_2 = array(
 
 $form_array_presets = array_merge($form_array_presets, $form_array_presets_2);
 
+$owner_sql = 'SELECT user_auth.id, user_auth.username AS name
+	FROM user_auth
+	LEFT JOIN (
+		SELECT user_id
+		FROM user_auth_realm
+		WHERE realm_id = ' . REPORTIT_USER_OWNER . '
+	) AS user_realm
+	ON user_auth.id = user_realm.user_id
+	LEFT JOIN (
+		SELECT user_auth_group_members.user_id
+		FROM user_auth_group_members AS gm
+		INNER JOIN user_auth_group_realm AS gr
+		ON gm.group_id = gr.group_id
+		WHERE gr.realm_id = ' . REPORTIT_USER_OWNER . '
+	) AS group_member
+	ON group_member.user_id = user_auth.id
+	WHERE group_member.user_id IS NOT NULL OR user_realm.user_id IS NOT NULL';
+
 $form_array_general = array(
 	'id' => array(
 		'method' => 'hidden_zero',
@@ -447,15 +476,7 @@ $form_array_general = array(
 		'friendly_name' => __('Owner', 'reportit'),
 		'description' => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.', 'reportit'),
 		'method' => ( user_auth_realm( REPORTIT_USER_ADMIN, my_id() ) ? 'drop_sql' : 'hidden_zero'),
-		'sql' => 'SELECT user_auth.id, user_auth.username as name FROM user_auth LEFT JOIN ( SELECT user_id from user_auth_realm WHERE realm_id = ' . REPORTIT_USER_OWNER . ' ) AS user_realm ON user_auth.id = user_realm.user_id
-					LEFT JOIN (
-						SELECT user_auth_group_members.user_id FROM user_auth_group_members
-							INNER JOIN user_auth_group_realm ON
-						user_auth_group_members.group_id = user_auth_group_realm.group_id
-						WHERE user_auth_group_realm.realm_id = ' . REPORTIT_USER_OWNER . '
-					) as group_member
-					ON group_member.user_id = user_auth.id
-					WHERE group_member.user_id IS NOT NULL OR user_realm.user_id IS NOT NULL;',
+		'sql' => $owner_sql,
 		'value' => '|arg1:user_id|',
 	),
 	'report_public' => array(
