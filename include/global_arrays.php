@@ -115,13 +115,12 @@ $report_time_frames = array(
 
 
 $report_schedule_frequency = array(
-	1 => __('Daily', 'reportit'),
-	2 => __('Weekly', 'reportit'),
-	3 => __('Monthly', 'reportit'),
-	5 => __('Quarterly', 'reportit'),
-	4 => __('Yearly', 'reportit'),
+	'daily'     => __('Daily', 'reportit'),
+	'weekly'    => __('Weekly', 'reportit'),
+	'monthly'   => __('Monthly', 'reportit'),
+	'quarterly' => __('Quarterly', 'reportit'),
+	'yearly'    => __('Yearly', 'reportit'),
 );
-
 
 $variable_input_types = array(
 	1 => __('Dropdown', 'reportit'),

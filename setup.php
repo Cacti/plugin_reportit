@@ -659,9 +659,10 @@ function reportit_define_constants(){
 }
 
 function reportit_poller_bottom() {
-	$str = '';
-	$ids = '';
-	$cnt = 0;
+	$str   = '';
+	$ids   = '';
+	$cnt   = 0;
+	$start = microtime(true);
 
 	$lifecycle     = read_config_option('reportit_arc_lifecycle', true);
 	$logging_level = read_config_option('log_verbosity', true);
@@ -698,32 +699,127 @@ function reportit_poller_bottom() {
 			}
 		}
 
-		if ($cnt == 0) {
-			exit;
-		}
+		if ($cnt > 0) {
+			$ids = substr($ids, 1);
+			$str = substr($str, 0, -2);
+			if (db_execute("DROP TABLE IF EXISTS $str") == 1) {
+				db_execute("DELETE FROM plugin_reportit_cache_reports WHERE `cache_id` IN ($ids)");
+				db_execute("DELETE FROM plugin_reportit_cache_variables WHERE `cache_id` IN ($ids)");
+				db_execute("DELETE FROM plugin_reportit_cache_measurands WHERE `cache_id` IN ($ids)");
 
-		$ids = substr($ids, 1);
-		$str = substr($str, 0, -2);
-		if (db_execute("DROP TABLE IF EXISTS $str") == 1) {
-			db_execute("DELETE FROM plugin_reportit_cache_reports WHERE `cache_id` IN ($ids)");
-			db_execute("DELETE FROM plugin_reportit_cache_variables WHERE `cache_id` IN ($ids)");
-			db_execute("DELETE FROM plugin_reportit_cache_measurands WHERE `cache_id` IN ($ids)");
-
-			if ($cnt >= 5) {
-				db_execute('OPTIMIZE TABLE `plugin_reportit_cache_reports`');
-				db_execute('OPTIMIZE TABLE `plugin_reportit_cache_variables`');
-				db_execute('OPTIMIZE TABLE `plugin_reportit_cache_measurands`');
-			}
-
-			if ($logging_level != 'POLLER_VERBOSITY_NONE' && $logging_level != 'POLLER_VERBOSITY_LOW') {
-				cacti_log("REPORTIT STATS: Cache Life Cycle:$lifecycle"."s &nbsp;&nbsp;Number of drops:$cnt", false, 'SYSTEM');
-			}
-		} else {
-			if ($logging_level != 'POLLER_VERBOSITY_LOW') {
-				cacti_log('WARNING: Unable to clean up report cache', false, 'REPORTIT');
+				if ($cnt >= 5) {
+					db_execute('OPTIMIZE TABLE `plugin_reportit_cache_reports`');
+					db_execute('OPTIMIZE TABLE `plugin_reportit_cache_variables`');
+					db_execute('OPTIMIZE TABLE `plugin_reportit_cache_measurands`');
+				}
+			} else {
+				if ($logging_level != 'POLLER_VERBOSITY_LOW') {
+					cacti_log('WARNING: Unable to clean up report cache', false, 'REPORTIT');
+				}
 			}
 		}
 	}
+
+	$lastrun   = read_config_option('reportit_lastrun');
+	$now       = time();
+	$scheduled = 0;
+
+	if (empty($lastrun)) {
+		set_config_option('reportit_lastrun', $now);
+		exit(0);
+	}
+
+	$php_binary = read_config_option('path_php_binary');
+
+	if (date('z', $lastrun) != date('z', $now)) {
+		/* the day of the year has changed check schedules */
+		$reports = db_fetch_assoc_prepared('SELECT *
+			FROM plugin_reportit_reports
+			WHERE frequency = ?
+			AND enabled = ?',
+			array('daily', 'on'));
+
+		if (cacti_sizeof($reports)) {
+			foreach($reports as $r) {
+				$scheduled++;
+				exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+			}
+		}
+
+		if (date('W', $lastrun) != date('W', $now)) {
+			/* the day of the year has changed check schedules */
+			$reports = db_fetch_assoc_prepared('SELECT *
+				FROM plugin_reportit_reports
+				WHERE frequency = ?
+				AND enabled = ?',
+				array('weekly', 'on'));
+
+			if (cacti_sizeof($reports)) {
+				foreach($reports as $r) {
+					$scheduled++;
+					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+				}
+			}
+		}
+
+		if (date('n', $lastrun) != date('n', $now)) {
+			/* the day of the year has changed check schedules */
+			$reports = db_fetch_assoc_prepared('SELECT *
+				FROM plugin_reportit_reports
+				WHERE frequency = ?
+				AND enabled = ?',
+				array('monthly', 'on'));
+
+			if (cacti_sizeof($reports)) {
+				foreach($reports as $r) {
+					$scheduled++;
+					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+				}
+			}
+		}
+
+		if (date('n', $lastrun) != date('n', $now)) {
+			$month = date('n', $now);
+
+			if ($month == 4 || $month == 7 || $month == 10 || $month == 1) {
+				/* the day of the year has changed check schedules */
+				$reports = db_fetch_assoc_prepared('SELECT *
+					FROM plugin_reportit_reports
+					WHERE frequency = ?
+					AND enabled = ?',
+					array('quarterly', 'on'));
+
+				if (cacti_sizeof($reports)) {
+					foreach($reports as $r) {
+						$scheduled++;
+						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+					}
+				}
+			}
+		}
+
+		if (date('Y', $lastrun) != date('Y', $now)) {
+			/* the day of the year has changed check schedules */
+			$reports = db_fetch_assoc_prepared('SELECT *
+				FROM plugin_reportit_reports
+				WHERE frequency = ?
+				AND enabled = ?',
+				array('yearly', 'on'));
+
+			if (cacti_sizeof($reports)) {
+				foreach($reports as $r) {
+					$scheduled++;
+					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+				}
+			}
+		}
+	}
+
+	$end = microtime(true);
+
+	$stats = sprintf('REPORTIT STATS: Time:%0.2f CacheLifetime:%s CachePurged:%s DispatchedReports:%s', $end - $start, $lifecycle, $cnt, $scheduled);
+
+	cacti_log($stats, false, 'SYSTEM');
 }
 
 function reportit_clog_regex_array($regex_array) {

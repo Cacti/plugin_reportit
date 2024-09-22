@@ -31,6 +31,7 @@ if (!defined('REPORTIT_BASE_PATH')) {
 }
 
 include_once('./lib/poller.php');
+include_once(REPORTIT_BASE_PATH . '/include/global_arrays.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
@@ -219,7 +220,7 @@ function report_filter() {
 }
 
 function standard() {
-	global $config, $report_actions, $minutes, $report_states;
+	global $config, $report_actions, $minutes, $report_states, $report_schedule_frequency;
 
 	$affix       = '';
 	$columns     = 0;
@@ -339,11 +340,9 @@ function standard() {
 		$rows = get_request_var('rows');
 	}
 
-	$sql = "SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $affix";
+	$total_rows  = db_fetch_cell("SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $affix");
 
-	$total_rows = db_fetch_cell($sql);
-
-	$sql = 'SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
+	$report_list = db_fetch_assoc('SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
 		FROM plugin_reportit_reports AS a
 		LEFT JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
@@ -353,9 +352,7 @@ function standard() {
 		LEFT JOIN user_auth AS d
 		ON d.id = a.user_id' . $affix .
 		' ORDER BY ' . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
-		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
-
-	$report_list = db_fetch_assoc($sql);
+		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows);
 
 	$desc_array = array(
 		'description' => array(
@@ -368,6 +365,10 @@ function standard() {
 		),
 		'nosort0' => array(
 			'display' => __("Period %s From - To", $tmz, 'reportit')
+		),
+		'frequency' => array(
+			'display' => __('Schedule Frequency', 'reportit'),
+			'sort'    => 'ASC'
 		),
 		'state' => array(
 			'display' => __('State', 'reportit'),
@@ -423,6 +424,12 @@ function standard() {
 				form_selectable_cell(date(config_date_format(), strtotime($dates['start_date'])) . " - " . date(config_date_format(), strtotime($dates['end_date'])), $report['id']);
 			} else {
 				form_selectable_cell(($report['start_date'] == '0000-00-00' ? '00-00-0000' : date(config_date_format(), strtotime($report['start_date']))) . " - " . ($report['start_date'] == '0000-00-00' ? '00-00-0000' : date(config_date_format(), strtotime($report['end_date']))), $report['id']);
+			}
+
+			if ($report['scheduled'] == 'on') {
+				form_selectable_cell($report_schedule_frequency[$report['frequency']], $report['id']);
+			} else {
+				form_selectable_cell(__('Disabled', 'reportit'), $report['id']);
 			}
 
 			form_selectable_cell($report_states[$report['state']], $report['id']);
@@ -1753,7 +1760,7 @@ function form_actions() {
 						//Update $_SESSION
 						$_SESSION['run'] = '1';
 
-						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --id=' . $report_id);
+						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
 					}
 				}
 
