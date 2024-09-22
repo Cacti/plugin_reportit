@@ -684,17 +684,16 @@ function reportit_poller_bottom() {
 		array($met));
 
 	/* fetch all tables whose life cycle has been expired */
-	$sql =  "SHOW TABLE STATUS WHERE `Name` LIKE 'reportit_tmp_%'
-		AND (UNIX_TIMESTAMP(`Update_time`) + $lifecycle) <= UNIX_TIMESTAMP()";
-
-	$tables = db_fetch_assoc($sql);
+	$tables = db_fetch_assoc("SHOW TABLE STATUS
+		WHERE `Name` LIKE 'plugin_reportit_tmp_%'
+		AND (UNIX_TIMESTAMP(`Update_time`) + $lifecycle) <= UNIX_TIMESTAMP()");
 
 	if (count($tables)) {
 		foreach($tables as $table) {
 			/* take care that we really do NOT delete others tables */
-			if (strpos($table['Name'], 'reportit_tmp_') !== false) {
+			if (strpos($table['Name'], 'plugin_reportit_tmp_') !== false) {
 				$str .= $table['Name'] . ', ';
-				$ids .= ",'" . substr($table['Name'], 13) . "'";
+				$ids .= ",'" . str_replace('plugin_reportit_tmp_', '', $table['Name']) . "'";
 				$cnt++;
 			}
 		}
