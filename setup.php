@@ -817,9 +817,12 @@ function reportit_poller_bottom() {
 
 	$end = microtime(true);
 
-	$stats = sprintf('REPORTIT STATS: Time:%0.2f CacheLifetime:%s CachePurged:%s DispatchedReports:%s', $end - $start, $lifecycle, $cnt, $scheduled);
+	/* only log when things happen */
+	if ($cnt > 0 || $scheduled > 0) {
+		$stats = sprintf('REPORTIT STATS: Time:%0.2f CacheLifetime:%s CachePurged:%s DispatchedReports:%s', $end - $start, $lifecycle, $cnt, $scheduled);
 
-	cacti_log($stats, false, 'SYSTEM');
+		cacti_log($stats, false, 'SYSTEM');
+	}
 }
 
 function reportit_clog_regex_array($regex_array) {
