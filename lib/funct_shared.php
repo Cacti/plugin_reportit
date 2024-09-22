@@ -77,44 +77,43 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		array($report_id, $report_data['template_id']));
 
 	/* load data source alias */
-	$sql = "SELECT data_source_name, data_source_alias
+	$report_ds_alias = db_custom_fetch_assoc("SELECT data_source_name, data_source_alias
 		FROM plugin_reportit_data_source_items
-		WHERE template_id = " . $report_data['template_id'];
-	$report_ds_alias = db_custom_fetch_assoc($sql, 'data_source_name', false, false);
+		WHERE template_id = " . $report_data['template_id'], 'data_source_name', false, false);
 
 	switch ($type) {
-	case 'export':
-		$sql = "SELECT c.name_cache, b.*, a.*
-			FROM plugin_reportit_results_$report_id AS a
-			INNER JOIN plugin_reportit_data_items AS b
-			ON a.id = b.id AND b.report_id = $report_id
-			INNER JOIN data_template_data AS c
-			ON c.local_data_id = a.id
-			$sql_where";
+		case 'export':
+			$sql = "SELECT c.name_cache, b.*, a.*
+				FROM plugin_reportit_results_$report_id AS a
+				INNER JOIN plugin_reportit_data_items AS b
+				ON a.id = b.id AND b.report_id = $report_id
+				INNER JOIN data_template_data AS c
+				ON c.local_data_id = a.id
+				$sql_where";
 
-		break;
-	case 'graidle':
-		$sql = $sql_where;
+			break;
+		case 'graidle':
+			$sql = $sql_where;
 
-		break;
-	case 'graph':
-		return array(
-			'report_data'       => $report_data,
-			'report_measurands' => $report_measurands
-		);
+			break;
+		case 'graph':
+			return array(
+				'report_data'       => $report_data,
+				'report_measurands' => $report_measurands
+			);
 
-		break;
-	case 'view':
-		$sql = "SELECT a.*, b.*, c.name_cache
-			FROM plugin_reportit_results_$report_id AS a
-			INNER JOIN plugin_reportit_data_items AS b
-			ON (a.id = b.id
-			AND b.report_id = $report_id)
-			INNER JOIN data_template_data AS c
-			ON c.local_data_id = a.id
-			$sql_where";
+			break;
+		case 'view':
+			$sql = "SELECT a.*, b.*, c.name_cache
+				FROM plugin_reportit_results_$report_id AS a
+				INNER JOIN plugin_reportit_data_items AS b
+				ON (a.id = b.id
+				AND b.report_id = $report_id)
+				INNER JOIN data_template_data AS c
+				ON c.local_data_id = a.id
+				$sql_where";
 
-		break;
+			break;
 	}
 
 	$report_results = db_fetch_assoc($sql);
@@ -142,8 +141,10 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 		array($cache_id));
 
 	/* save serialized data source alias separately */
-	$report_ds_alias = unserialize($report_data['data_template_alias']);
-	unset($report_data['data_template_alias']);
+	if (isset($report_data['data_template_alias'])) {
+		$report_ds_alias = json_decode(base64_decode($report_data['data_template_alias']), true);
+		unset($report_data['data_template_alias']);
+	}
 
 	/* load configured measurands */
 	$tmps = db_fetch_assoc_prepared('SELECT *
@@ -164,25 +165,25 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 		array($cache_id));
 
 	switch ($type) {
-	case 'export':
-		$sql = 'SELECT * FROM reportit_tmp_' . $cache_id . ' as a ' . $sql_where;
+		case 'export':
+			$sql = 'SELECT * FROM plugin_reportit_tmp_' . $cache_id . ' as a ' . $sql_where;
 
-		break;
-	case 'graidle':
-		$sql = $sql_where;
+			break;
+		case 'graidle':
+			$sql = $sql_where;
 
-		break;
-	case 'graph':
-		return array(
-			'report_data'       => $report_data,
-			'report_measurands' => $report_measurands
-		);
+			break;
+		case 'graph':
+			return array(
+				'report_data'       => $report_data,
+				'report_measurands' => $report_measurands
+			);
 
-		break;
-	case 'view':
-		$sql = 'SELECT * FROM reportit_tmp_' . $cache_id . ' AS a ' . $sql_where;
+			break;
+		case 'view':
+			$sql = 'SELECT * FROM plugin_reportit_tmp_' . $cache_id . ' AS a ' . $sql_where;
 
-		break;
+			break;
 	}
 
 	$report_results = db_fetch_assoc($sql);
@@ -704,51 +705,62 @@ function get_possible_variables($template_id) {
  */
 function get_possible_data_query_variables($template_id) {
 	// any data query associated with this data template?
-	$sql = "SELECT DISTINCT(`data_local`.`snmp_query_id`) " .
-			"FROM `data_local` " .
-			"INNER JOIN `plugin_reportit_templates` " .
-			"ON `data_local`.`data_template_id` = `plugin_reportit_templates`.`data_template_id` " .
-			"WHERE `plugin_reportit_templates`.`id`=$template_id";
-	$available_data_queries = db_fetch_assoc($sql);
+	$available_data_queries = db_fetch_assoc_prepared("SELECT DISTINCT dl.snmp_query_id
+		FROM data_local AS dl
+		INNER JOIN `plugin_reportit_templates` AS rt
+		ON dl.data_template_id = rt.data_template_id
+		WHERE rt.id = ?",
+		array($template_id));
 
 	// in case there is no data query, have $names initialized
 	$names = array();
 
 	if (cacti_sizeof($available_data_queries)) {
 		$data_query_list = 'snmp_query_id IN (';
+
 		foreach($available_data_queries as $data_queries) {
 			$data_query_list .= $data_queries['snmp_query_id'] . ',';
 		}
+
 		$data_query_list = substr($data_query_list, 0, -1) . ")";
 
 		// get all host_snmp_cache variables for those list of data queries
-		$sql = "SELECT DISTINCT(`host_snmp_cache`.`field_name`) " .
-				"FROM `host_snmp_cache` " .
-				"WHERE $data_query_list";
-
-		$names = db_fetch_assoc($sql);
+		$names = db_fetch_assoc("SELECT DISTINCT field_name
+			FROM host_snmp_cache
+			WHERE $data_query_list");
 	}
 
 	$array = array();
-	foreach ($names as $name) {
+
+	if (cacti_sizeof($names)) {
+		foreach ($names as $name) {
 			$array[] = $name['field_name'];
 		}
+	}
+
 	debug($array, 'Array of possible Data Query Variables');
+
 	return $array;
 }
 
 function get_template_status($template_id) {
 	//Returns '1' if the template has been locked.
-	$sql = "SELECT locked FROM plugin_reportit_templates WHERE id=$template_id";
-	$status = db_fetch_cell($sql);
+	$status = db_fetch_cell_prepared("SELECT locked
+		FROM plugin_reportit_templates
+		WHERE id = ?",
+		array($template_id));
+
 	return $status;
 }
 
 
 function in_process($report_id, $status = 1) {
 	$now = date("Y-m-d H:i:s");
-	$sql = "UPDATE plugin_reportit_reports SET state=?, last_state=? WHERE id=?";
-	db_execute_prepared($sql, array($status, $now, $report_id));
+
+	db_execute_prepared("UPDATE plugin_reportit_reports
+		SET state = ?, last_state = ?
+		WHERE id = ?",
+		array($status, $now, $report_id));;
 }
 
 
@@ -919,7 +931,7 @@ function update_xml_archive($report_id) {
 
 	/* use an output puffer for flushing */
 	ob_start();
-	print '<&#63;xml version="1.0" encoding="UTF-8"&#63;>' . PHP_EOL;
+//	print '<&#63;xml version="1.0" encoding="UTF-8"&#63;>' . PHP_EOL;
 	print '<cacti>' . PHP_EOL . '<report>' . PHP_EOL . '<settings>' . PHP_EOL;
 
 	foreach ($data['report_data'] as $key => $value) print "<$key>" . html_escape($value, ENT_NOQUOTES) . "</$key>" . PHP_EOL;
@@ -951,7 +963,7 @@ function update_xml_archive($report_id) {
 
 	/* create a tempary file and save XML output*/
 	$cfg = $data['report_data'];
-	$tmpfile = REPORTIT_TMP_FD .  strtotime($cfg['start_date']) . "_" . strtotime($cfg['end_date']) . ".xml";
+	$tmpfile = REPORTIT_TMP_FD .  strtotime($cfg['start_date']) . "_" . strtotime($cfg['end_date']) . "_" . time() . ".xml";
 	$filehandle = fopen($tmpfile, "w");
 	fwrite($filehandle, $content);
 	fclose($filehandle);
@@ -986,24 +998,21 @@ function update_xml_archive($report_id) {
 	unlink($tmpfile);
 }
 
-
-
 function cache_xml_file($report_id, $mtime){
+	$cache_id   = $report_id . '_' . $mtime;
+	$columns    = '';
+	$values     = '';
+	$cols       = array();
+	$index      = false;
 
-	$cache_id	= $report_id . '_' . $mtime;
-	$columns	= '';
-	$values		= '';
-	$cols		= array();
-	$index		= false;
-
-	$arc_path	= read_config_option('reportit_arc_folder');
+	$arc_path   = read_config_option('reportit_arc_folder');
 	$arc_path  .= (substr($arc_path, -1) == '/') ? '' : '/';
-	$arc_file	= (($arc_path == '') ? REPORTIT_ARC_FD : $arc_path) . $report_id . '.zip';
+	$arc_file   = (($arc_path == '') ? REPORTIT_ARC_FD : $arc_path) . $report_id . '.zip';
 
 	/* check if cache is up to date */
-	$sql = "SHOW TABLES LIKE 'plugin_reportit_tmp_" . $cache_id . "'";
-
-	if (db_fetch_cell($sql)) return;
+	if (db_table_exists('plugin_reportit_tmp_' . $cache_id)) {
+		return;
+	}
 
 	/* load zip file support */
 	load_external_libs('pclzip');
@@ -1013,6 +1022,7 @@ function cache_xml_file($report_id, $mtime){
 
 	/* unzip xml archive and load xml file */
 	$info = $archive->listContent();
+
 	foreach ($info as $key => $array) {
 		if ($array['mtime'] == $mtime) {
 			$index = $array['index'];
@@ -1020,41 +1030,47 @@ function cache_xml_file($report_id, $mtime){
 		}
 	}
 
-	if ($index === false) die_html_custom_error("Report not found in archive.", true);
-	$data = $archive->extractByIndex($index, PCLZIP_OPT_EXTRACT_AS_STRING);
-	$content = simplexml_load_string($data[0]['content']);
-	$archive = json_decode( json_encode($content), true);
+	if ($index === false) {
+		die_html_custom_error("Report not found in archive.", true);
+	}
+
+	$data         = $archive->extractByIndex($index, PCLZIP_OPT_EXTRACT_AS_STRING);
+	$content      = simplexml_load_string($data[0]['content']);
+	$json_content = json_encode($content);
+	$archive      = json_decode($json_content, true);
 
 	/* transform data and fill up the cache tables */
 	trans_array2sql($archive['report']['settings'], $columns, $values, $cache_id);
-	$sql = "REPLACE INTO plugin_reportit_cache_reports $columns VALUES $values;";
-	db_execute($sql);
+	db_execute("REPLACE INTO plugin_reportit_cache_reports $columns VALUES $values");
 
 	trans_array2sql($archive['report']['measurands'], $columns, $values, $cache_id);
-	$sql = "REPLACE INTO plugin_reportit_cache_measurands $columns VALUES $values;";
-	db_execute($sql);
+	db_execute("REPLACE INTO plugin_reportit_cache_measurands $columns VALUES $values");
 
 	if (trans_array2sql($archive['report']['variables'], $columns, $values, $cache_id)) {
-	$sql = "REPLACE INTO plugin_reportit_cache_variables $columns VALUES $values;";
-	db_execute($sql);
+		db_execute("REPLACE INTO plugin_reportit_cache_variables $columns VALUES $values");
 	}
 
 	trans_array2sql($archive['report']['data_items'], $columns, $values, false);
 	$columns = str_replace('_di__', '', $columns);
 
-	$cols = explode(",", substr($columns, 2, -1));
-	$sql = "CREATE TABLE IF NOT EXISTS reportit_tmp_" . $cache_id . " (";
+	$cols = explode(',', substr($columns, 2, -1));
+	$sql = "CREATE TABLE IF NOT EXISTS plugin_reportit_tmp_" . $cache_id . " (";
 
 	foreach ($cols as $name){
-		if ($name == '`id`') $sql .= $name . " int(11) NOT NULL DEFAULT 0,";
-		elseif (strpos($name, '__') !== false) $sql .= $name . " DOUBLE,";
-		else $sql .= $name . " VARCHAR(255) NOT NULL DEFAULT '',";
+		if ($name == '`id`') {
+			$sql .= $name . " int(11) NOT NULL DEFAULT 0,";
+		} elseif (strpos($name, '__') !== false) {
+			$sql .= $name . " DOUBLE,";
+		} else {
+			$sql .= $name . " VARCHAR(255) NOT NULL DEFAULT '',";
+		}
 	}
-	$sql .= "PRIMARY KEY (`id`)) ENGINE=MyISAM;";
+
+	$sql .= "PRIMARY KEY (`id`)) ENGINE=Aria ROW_FORMAT=Page;";
+
 	db_execute($sql);
 
-	$sql = "REPLACE INTO reportit_tmp_" . $cache_id . " $columns VALUES $values;";
-	db_execute($sql);
+	db_execute("REPLACE INTO plugin_reportit_tmp_" . $cache_id . " $columns VALUES $values");
 }
 
 function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
@@ -1072,6 +1088,10 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 
 	if (cacti_sizeof($array)) {
 		foreach ($array as $key => $value) {
+			if ($key == 'data_template_alias') {
+				$value = base64_encode(json_encode(unserialize(stripslashes($value))));
+			}
+
 			if (is_array($value)) {
 				if (isset($value[0])) {
 					foreach ($value as $sub_array) {
@@ -1099,7 +1119,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 				}
 			} else {
 				$columns .= ", `$key`";
-				$values	 .= (is_array($value) && !$value) ? ", ''" : ', ' . db_qstr($value);
+				$values	 .= ', ' . db_qstr($value);
 			}
 		}
 	} else {

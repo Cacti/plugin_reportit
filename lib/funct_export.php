@@ -282,7 +282,6 @@ function export_to_XML(&$data) {
 	/* create puffered xml output */
 	ob_start();
 
-	print "<?xml version='1.0' encoding=\"UTF-8\"?>$eol";
 	print "<!--{$header} -->";
 	print "<cacti>$eol<report>$eol<settings>$eol";
 

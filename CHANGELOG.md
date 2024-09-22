@@ -2,6 +2,7 @@
 
 --- 2.0.0 ---
 
+* bug: Restore Report Archive viewing functionality
 * feature: Remove files measurands.php and variables.php
 * feature: Remove files items.php and rrdlist.php
 

@@ -37,7 +37,7 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'data_source_filter', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'preset_timespan', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'last_run', 'type' => 'datetime', 'NULL' => true);
-	$data['columns'][] = array('name' => 'last_state', 'type' => 'datetime', 'NULL' => false);
+	$data['columns'][] = array('name' => 'last_state', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
 	$data['columns'][] = array('name' => 'runtime', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'public', 'type' => 'varchar(2)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'start_date', 'type' => 'date', 'NULL' => true);
@@ -262,10 +262,12 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'site_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'host_template_id', 'type' => 'mediumint(8)', 'unsigned' => true,	'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_source_filter', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'preset_timespan', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'last_run', 'type' => 'datetime', 'NULL' => true);
+	$data['columns'][] = array('name' => 'last_state', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
 	$data['columns'][] = array('name' => 'runtime', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'public', 'type' => 'varchar(2)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'start_date', 'type' => 'date', 'NULL' => true);
@@ -281,6 +283,7 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'email_subject', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1000)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_format', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'notify_list', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'subhead', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'state', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'graph_permission', 'type' => 'varchar(2)', 'NULL' => false, 'default' => 'on');
@@ -288,7 +291,10 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'autoarchive', 'type' => 'mediumint(8)', 'unsigned' => true,	'NULL' => false, 'default' => '1');
 	$data['columns'][] = array('name' => 'autoexport', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'autoexport_max_records', 'type' => 'smallint', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'autoexport_no_formatting','type' => 'varchar(2)', 'NULL' => false, 'default' => 'on');
+	$data['columns'][] = array('name' => 'autoexport_no_formatting', 'type' => 'varchar(2)', 'NULL' => false, 'default' => 'on');
+	$data['columns'][] = array('name' => 'template_name', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'owner','type' => 'varchar(20)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'data_template_alias', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['primary'] = 'cache_id';
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'report definition parameters of archived reports read in temporarily';
@@ -303,6 +309,7 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'cache_id', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'group_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'abbreviation', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'calc_formula', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');

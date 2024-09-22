@@ -491,12 +491,12 @@ function show_report() {
 	if (get_request_var('archive') == -1) {
 		$data = get_prepared_report_data(get_request_var('id'), 'view', $sql_affix);
 	} else {
-		$date = get_prepared_archive_data($cache_id, 'view', $sql_affix);
+		$data = get_prepared_archive_data($cache_id, 'view', $sql_affix);
 	}
 
 	/* get total number of rows (data items) */
 	if (get_request_var('archive') != -1) {
-		$source = 'reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive') . ' AS a
+		$source = 'plugin_reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive') . ' AS a
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id';
 	} else {
@@ -509,14 +509,17 @@ function show_report() {
 		FROM $source
 		$sql_where");
 
-	/* save all data source names for the drop down menu.
-	if available use the data source alias instead of the internal names */
-	/* extract result description */
+	/**
+	 * save all data source names for the drop down menu.
+	 * if available use the data source alias instead of the internal names
+	 * extract result description
+	 */
 	$report_data = $data['report_data'];
 	$mea         = $data['report_measurands'];
+	//print_r($data);exit;
 
-	if (strpos($report_data['rs_def'], '-') !== false) {
-		list($rs_description, $count_rs) = explode('-', $report_data['rs_def']);
+	if (strpos($data['report_data']['rs_def'], '-') !== false) {
+		list($rs_description, $count_rs) = explode('-', $data['report_data']['rs_def']);
 	} else {
 		$rs_description = false;
 		$count_rs       = 0;
@@ -650,7 +653,6 @@ function show_report() {
 
 							print "<input id='$chk_name' class='ui-state-default ui-corner-all' type='checkbox' " . ($chk_set ? ' checked':'') . '>';
 							print "<label for='$chk_name' title='" . html_escape($chk_desc) . "'>" . $chk_desc . "</label>";
-//							form_checkbox($chk_name, $chk_set, $chk_desc, '', '', '', '', $chk_desc, true);
 
 							print '</span></td>';
 						}
