@@ -206,7 +206,7 @@ function standard() {
 	?>
 	<tr class='odd'>
 		<td>
-			<form id='form_report' method='get'>
+			<form id='form_report' action='view.php'>
 				<table class='filterTable'>
 					<tr>
 						<td>
@@ -735,10 +735,6 @@ function show_report() {
 			}
 
 			$(function() {
-				$('#refresh').click(function() {
-					applyFilter();
-				});
-
 				$('#info, #rows, #measurand, #data_source, #archive, #graph_mode, #summary, #subhead').change(function() {
 					applyFilter();
 				});
@@ -805,32 +801,22 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	/* print categories */
-	print '<tr><td class="even"></td>';
-
-	foreach ($ds_description as $description) {
-		$counter = ($description != 'overall') ? $count_rs : $count_ov;
-
-		if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
-				$description = $report_ds_alias[$description];
-		}
-
-		print "<td colspan='$counter' height='10' class='even' style='text-align: center;border-left: 1px solid black;'>$description</td>";
-	}
-	print '</tr>';
-
 	/* print table header */
 	$display_text = array(
-		'name_cache' => array('display' => __('Data Description', 'reportit'), 'align' => 'left', 'sort' => 'ASC'),
+		'name_cache' => array(
+			'display' => __('Data Description', 'reportit'),
+			'align' => 'left',
+			'sort' => 'ASC'
+		),
 	);
 
 	foreach ($ds_description as $datasource) {
-		$name	= ($datasource != 'overall') ? $rs_description : $ov_description;
+		$name = ($datasource != 'overall') ? $rs_description : $ov_description;
 
 		if ($name !== false) {
 			foreach ($name as $id) {
-				$var	= ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
-				$title 	= $mea[$id]['description'];
+				$var   = ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
+				$title = $mea[$id]['description'];
 
 				if ($mea[$id]['visible'] != '') {
 					$display_text[$var] = array(
@@ -975,96 +961,124 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 	$mea              = $data['report_measurands'];
 	$report_header    = $report_data['description'];
 
-	//html_graph_start_box(3, false);
-	print "<table>";
-	foreach($ds_description as $datasource) {
-		$description = (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias))
-			? ($report_ds_alias[$datasource] != '') ? $report_ds_alias[$datasource] : $datasource : $datasource;
+	if (cacti_sizeof($ds_description)) {
+		foreach($ds_description as $datasource) {
+			$description = (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias))
+				? ($report_ds_alias[$datasource] != '') ? $report_ds_alias[$datasource] : $datasource : $datasource;
 
-		//MBV: print "<tr bgcolor='#" . $colors["header_panel"] . "'><td colspan='3' class='textHeaderDark'><strong>Data Source:</strong> $description</td></tr>";
-		print "<tr bgcolor='#00000'><td colspan='3' class='textHeaderDark'><strong>Data Source:</strong> $description</td></tr>";
+			html_start_box(__('Data Source: %s', $description, 'reportit'), '100%', false, '3', 'center', '');
 
-		$name	= ($datasource != 'overall') ? $rs_description : $ov_description;
-		if ($name !== false) {
-			$graph_id = 0;
+			$name = ($datasource != 'overall') ? $rs_description : $ov_description;
 
-			foreach($name as $id) {
-				$var            = ($datasource != 'overall') ? $datasource.'__'.$id : 'spanned__'.$id;
-				$title          = $mea[$id]['description'];
-				$rounding       = $mea[$id]['rounding'];
-				$unit           = $mea[$id]['unit'];
-				$rounding       = $mea[$id]['rounding'];
-				$data_type      = $mea[$id]['data_type'];
-				$data_precision = $mea[$id]['data_precision'];
-				$order          = 'DESC';
-				$suffix			= " ORDER BY a.$var $order LIMIT 0, $limitation";
+			if ($name !== false) {
+				$graph_id = 0;
 
-				if ($mea[$id]['visible'] != '') {
-					if (get_request_var('archive') == -1) {
-						$sql = 	"SELECT a.$var, b.*, c.name_cache
-							FROM plugin_reportit_results_" . get_request_var('id') . " AS a
-							INNER JOIN plugin_reportit_data_items AS b
-							ON (b.id = a.id AND b.report_id = " . get_request_var('id') . ")
-							INNER JOIN data_template_data AS c
-							ON c.local_data_id = a.id
-							$suffix";
-					} else {
-						$sql =	"SELECT *
-							FROM plugin_reportit_tmp_" . get_request_var('id') . "_" . get_request_var('archive') . " AS a
-							$suffix";
-					}
+				foreach($name as $id) {
+					$var            = ($datasource != 'overall') ? $datasource.'__'.$id : 'spanned__'.$id;
+					$title          = $mea[$id]['description'];
+					$rounding       = $mea[$id]['rounding'];
+					$unit           = $mea[$id]['unit'];
+					$rounding       = $mea[$id]['rounding'];
+					$data_type      = $mea[$id]['data_type'];
+					$data_precision = $mea[$id]['data_precision'];
+					$order          = 'DESC';
+					$suffix			= " ORDER BY a.$var $order LIMIT 0, $limitation";
 
-					$data = db_fetch_assoc($sql);
+					if ($mea[$id]['visible'] != '') {
+						if (get_request_var('archive') == -1) {
+							$data = db_fetch_assoc("SELECT a.$var, b.*, c.name_cache
+								FROM plugin_reportit_results_" . get_request_var('id') . " AS a
+								INNER JOIN plugin_reportit_data_items AS b
+								ON b.id = a.id
+								AND b.report_id = " . get_request_var('id') . "
+								INNER JOIN data_template_data AS c
+								ON c.local_data_id = a.id
+								$suffix");
+						} else {
+							$table = 'plugin_reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive');
 
-					print "<tr bgcolor='#a9b7cb'><td colspan='3' class='textHeaderDark'><strong>Measurand:</strong> $title ({$mea[$id]['abbreviation']})</td></tr>";
-
-					$graph_data = array();
-					foreach ($data as $row)	{
-						$graph_data[$row['name_cache']] = $row[$var];
-					}
-
-					print "<tr valign='top'><td colspan='2'>" . plugin_reportit_graph ('graph_' . $var . '_' . $graph_id, $graph_data) . "</td>";
-					$graph_id++;
-					print "<td colspan='1' width='100%'><table width='100%'>";
-
-					if (count($data)>0) {
-						//html_report_start_box();
-						html_header(array("Pos.","Description", "Results [$unit]"));
-
-						$i = 0;
-						foreach($data as $item){
-							$i++;
-							$value	= $item[$var];
-							$title 	= "{$item['start_day']}&nbsp;-&nbsp;{$item['end_day']}&nbsp;&#10;{$item['start_time']}&nbsp;-&nbsp;{$item['end_time']} {$item['timezone']}";
-							form_alternate_row();
-							print "<td title='$title'>$i</td>";
-							print "<td title='$title'>
-										<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>
-										{$item['name_cache']}
-										</a>
-								  </td>";
-							print "<td title='$title' align='right'>";
-							if ($value == NULL) {
-								print "NA";
-							} elseif ($value == 0) {
-								print $value;
-							} else {
-								print get_unit($value, $rounding, $data_type, $data_precision);
-							}
-							print "</td>";
-							form_end_row();
+							$data = db_fetch_assoc("SELECT * FROM $table $suffix");
 						}
-						print "</table>";
 
+						print "<tr class='tableHeader'>
+							<td colspan='2' class='textHeaderDark'>" . __esc('Measurand: %s (%s)', $title, $mea[$id]['abbreviation'], 'reportit') . '</td>
+						</tr>';
+
+						$graph_data = array();
+
+						foreach ($data as $row)	{
+							$graph_data[$row['name_cache']] = $row[$var];
+						}
+
+						print '<tr>';
+						print '<td>' . plugin_reportit_graph('graph_' . $var . '_' . $graph_id, $graph_data) . '</td>';
+
+						$graph_id++;
+
+						print "<td style='width:100%;vertical-align:text-top'>";
+
+						html_start_box('', '100%', '', '3', 'center', '');
+
+						if (cacti_sizeof($data)) {
+							$display_text = array(
+								array(
+									'display' => __('Pos.', 'reportit'),
+									'align' => 'left'
+								),
+								array(
+									'display' => __('Description', 'reportit'),
+									'align' => 'left'
+								),
+								array(
+									'display' => __('Results [%s]', $unit, 'reportid'),
+									'align' => 'right'
+								)
+							);
+
+							html_header($display_text);
+
+							$i = 0;
+							foreach($data as $item) {
+								$i++;
+
+								$value	= $item[$var];
+								$title 	= "{$item['start_day']}&nbsp;-&nbsp;{$item['end_day']}&nbsp;&#10;{$item['start_time']}&nbsp;-&nbsp;{$item['end_time']} {$item['timezone']}";
+
+								form_alternate_row();
+
+								print "<td title='$title'>$i</td>";
+
+								print "<td title='$title'>
+									<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>{$item['name_cache']}</a>
+								</td>";
+
+								print "<td title='$title' class='right'>";
+
+								if ($value == NULL) {
+									print "NA";
+								} elseif ($value == 0) {
+									print $value;
+								} else {
+									print get_unit($value, $rounding, $data_type, $data_precision);
+								}
+
+								print '</td>';
+
+								form_end_row();
+							}
+						}
+
+						html_end_box();
+
+						print '</td></tr>';
 					}
-					print "</td></tr>";
 				}
 			}
+
+			html_end_box();
 		}
 	}
 
-	//html_graph_end_box();
-	print "</table>";
 	ob_end_flush();
 }
 
@@ -1088,15 +1102,16 @@ function show_graph_overview() {
 		? get_prepared_report_data(get_request_var('id'),'view')
 		: get_prepared_archive_data($cache_id, 'view');
 
-	$report_data	= $data['report_data'];
+	$report_data = $data['report_data'];
 
-	$local_graph_id = db_fetch_cell_prepared('SELECT DISTINCT c.local_graph_id
-		FROM data_template_data AS a
-		INNER JOIN data_template_rrd AS b
-		ON b.local_data_id = a.local_data_id
-		INNER JOIN graph_templates_item AS c
-		ON c.task_item_id = b.id
-		WHERE a.local_data_id = ?',
+	$local_graph_id = db_fetch_cell_prepared('SELECT DISTINCT gti.local_graph_id
+		FROM data_template_data AS dtd
+		INNER JOIN data_template_rrd AS dtr
+		ON dtd.local_data_id = dtr.local_data_id
+		INNER JOIN graph_templates_item AS gti
+		ON gti.task_item_id = dtr.id
+		WHERE dtd.local_data_id = ?
+		AND gti.local_graph_id NOT IN (SELECT local_graph_id FROM aggregate_graphs)',
 		array(get_request_var('rrd')));
 
 	$start	= strtotime($report_data['start_date']);
@@ -1105,9 +1120,6 @@ function show_graph_overview() {
 	header('Location: ' . $config['url_path'] . "graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
 	exit;
 }
-
-
-// 1.2.24+ has billboard.js with treemap
 
 function plugin_reportit_graph ($graph_id, $graph_data) {
 	global $config;
@@ -1122,15 +1134,16 @@ function plugin_reportit_graph ($graph_id, $graph_data) {
 	$content  = '<div id="treemap_' . $xid. '"></div>';
 	$content .= '<script type="text/javascript">';
 	$content .= 'treemap_' . $xid . ' = bb.generate({';
+	$content .= ' tile: "dice",';
 	$content .= " bindto: \"#treemap_$xid\",";
 
-	$content .= " size: {";
-	$content .= "  height: 300,";
-	$content .= "  width: 600";
-	$content .= " },";
+	$content .= ' size: {';
+	$content .= '  height: 400,';
+	$content .= '  width: 800';
+	$content .= ' },';
 
-	$content .= " data: {";
-	$content .= "  columns: [";
+	$content .= ' data: {';
+	$content .= '  columns: [';
 
 	foreach ($graph_data as $key => $value) {
 		$content .= "['" . $key . "', " . $value . "],";
@@ -1139,13 +1152,14 @@ function plugin_reportit_graph ($graph_id, $graph_data) {
 	$content .= "  ],";
 	$content .= "  type: 'treemap',";
 	$content .= "  labels: {";
+	$content .= "    position: { x: 0, y: 15},";
 	$content .= "    colors: '#fff'";
 	$content .= "  }";
 	$content .= "  },";
 
 	$content .= "  treemap: {";
 	$content .= "    label: {";
-	$content .= "      threshold: 0.03, show: true,";
+	$content .= "      threshold: 0.03, show: false,";
 	$content .= "    }";
 	$content .= "  },";
 

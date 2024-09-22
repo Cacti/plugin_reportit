@@ -80,7 +80,7 @@ function plugin_reportit_version() {
 function reportit_check_upgrade() {
 	global $config;
 
-	$files = array('index.php', 'plugins.php', 'runtime.php');
+	$files = array('index.php', 'plugins.php', 'poller_reportit.php');
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
 		return;
 	}
@@ -591,7 +591,9 @@ function reportit_show_tab() {
 
 function reportit_system_setup() {
 	global $config;
+
 	require_once($config['base_path'] . '/plugins/reportit/system/install.php');
+
 	reportit_system_install();
 }
 
@@ -643,7 +645,9 @@ function reportit_poller_bottom() {
 	/* mark running reports which have run too long as failed */
 	$met = read_config_option('reportit_met');
 	$met = intval($met);
-	if ($met < 1) $met = 300;
+	if ($met < 1) {
+		$met = 300;
+	}
 
 	db_execute_prepared('UPDATE `plugin_reportit_reports` SET
 		last_state = NOW(), state = -2
@@ -661,11 +665,14 @@ function reportit_poller_bottom() {
 			/* take care that we really do NOT delete others tables */
 			if (strpos($table['Name'], 'reportit_tmp_') !== false) {
 				$str .= $table['Name'] . ', ';
-			$ids .= ",'" . substr($table['Name'], 13) . "'";
+				$ids .= ",'" . substr($table['Name'], 13) . "'";
 				$cnt++;
 			}
 		}
-		if ($cnt == 0) exit;
+
+		if ($cnt == 0) {
+			exit;
+		}
 
 		$ids = substr($ids, 1);
 		$str = substr($str, 0, -2);
@@ -681,11 +688,11 @@ function reportit_poller_bottom() {
 			}
 
 			if ($logging_level != 'POLLER_VERBOSITY_NONE' && $logging_level != 'POLLER_VERBOSITY_LOW') {
-				cacti_log("REPORTIT STATS: Cache Life Cycle:$lifecycle"."s &nbsp;&nbsp;Number of drops:$cnt", false, 'PLUGIN');
+				cacti_log("REPORTIT STATS: Cache Life Cycle:$lifecycle"."s &nbsp;&nbsp;Number of drops:$cnt", false, 'SYSTEM');
 			}
 		} else {
 			if ($logging_level != 'POLLER_VERBOSITY_LOW') {
-				cacti_log('REPORTIT WARNING: Unable to clean up report cache', false, 'PLUGIN');
+				cacti_log('WARNING: Unable to clean up report cache', false, 'REPORTIT');
 			}
 		}
 	}
@@ -694,6 +701,7 @@ function reportit_poller_bottom() {
 function reportit_clog_regex_array($regex_array) {
 	$regex_array[] = array('name' => 'RIReport', 'regex' => '( RIReport\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_report');
 	$regex_array[] = array('name' => 'RIDataItem', 'regex' => '( RIDataItem\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_dataitem');
+
 	return $regex_array;
 }
 
@@ -702,7 +710,7 @@ function reportit_clog_regex_report($matches) {
 
 	$result = $matches[0];
 
-	$report_ids = explode(',',str_replace(" ","",$matches[2]));
+	$report_ids = explode(',', str_replace(' ', '', $matches[2]));
 	if (cacti_sizeof($report_ids)) {
 		$result = '';
 		$reports = db_fetch_assoc_prepared('SELECT id, description
@@ -718,7 +726,7 @@ function reportit_clog_regex_report($matches) {
 		}
 
 		foreach ($report_ids as $report_id) {
-			$result .= $matches[1].'<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/reports.php?action=report_edit&id=' . $report_id) . '\'>' . (isset($reportDescriptions[$report_id]) ? $reportDescriptions[$report_id]:$report_id) . '</a>' . $matches[3];
+			$result .= $matches[1] . '<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/reports.php?action=report_edit&id=' . $report_id) . '\'>' . (isset($reportDescriptions[$report_id]) ? $reportDescriptions[$report_id]:$report_id) . '</a>' . $matches[3];
 		}
 	}
 
@@ -750,7 +758,7 @@ function reportit_clog_regex_dataitem($matches) {
 		}
 
 		foreach ($dataitem_ids as $dataitem_id) {
-			$result .= $matches[1].'<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/rrdlist.php?action=rrdlist_edit&id=' . $dataitem_id) . '\'>' . (isset($dataitemDescriptions[$dataitem_id]) ? $dataitemDescriptions[$dataitem_id]:$dataitem_id) . '</a>' . $matches[3];
+			$result .= $matches[1] . '<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/rrdlist.php?action=rrdlist_edit&id=' . $dataitem_id) . '\'>' . (isset($dataitemDescriptions[$dataitem_id]) ? $dataitemDescriptions[$dataitem_id]:$dataitem_id) . '</a>' . $matches[3];
 		}
 	}
 

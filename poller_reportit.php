@@ -22,11 +22,24 @@
  +-------------------------------------------------------------------------+
 */
 
+if (function_exists('pcntl_async_signals')) {
+	pcntl_async_signals(true);
+} else {
+	declare(ticks = 100);
+}
+
+ini_set('max_execution_time', '0');
+ini_set('memory_limit', '-1');
+
+// process calling arguments
+$parms = $_SERVER['argv'];
+array_shift($parms);
+
 //----- Define some variables -----
-$PATH_RID_LOG   = "<a href='./plugins/reportit/reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_LOG   = "<a href='./plugins/reportit/rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
-$PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&id=<RID>'><RID></a>";
-$PATH_DID_VIEW  = "<a href='rrdlist.php?action=rrdlist_edit&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_LOG   = "<a href='./plugins/reportit/reports.php?action=report_edit&tab=general&id=<RID>'><RID></a>";
+$PATH_DID_LOG   = "<a href='./plugins/reportit/reports.php?action=rrdlist_edit&tab=items&id=<DID>&report_id=<RID>'><DID></a>";
+$PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&tab=general&id=<RID>'><RID></a>";
+$PATH_DID_VIEW  = "<a href='reports.php?action=rrdlist_edit&tab=items&id=<DID>&report_id=<RID>'><DID></a>";
 
 $run_return     = array();
 $run_freq       = '';
@@ -38,128 +51,165 @@ $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
 
-//----- Running on CLI? -----
-if (isset($_SERVER['argv']['0']) && realpath($_SERVER['argv']['0']) == __FILE__) {
-	$path = dirname(__FILE__);
+$path = dirname(__FILE__);
 
-	chdir($path);
-	chdir('../../');
+chdir($path);
+chdir('../../');
 
-	require_once('include/cli_check.php');
-	include_once($config['base_path'] . '/lib/rrd.php');
-	include_once($config['base_path'] . '/lib/boost.php');
-//	@define('REPORTIT_BASE_PATH', $path);
-//	@define('CACTI_BASE_PATH', __DIR__);
-	include_once(REPORTIT_BASE_PATH . '/setup.php');
-	include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
-	include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
-	include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
-	include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
-	include_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
-	include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
-	include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
+require_once('include/cli_check.php');
+include_once($config['base_path'] . '/lib/rrd.php');
+include_once($config['base_path'] . '/lib/boost.php');
+include_once($config['base_path'] . '/lib/poller.php');
+include_once(REPORTIT_BASE_PATH . '/setup.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
 
-	$run_scheduled    = true;
+$run_scheduled = true;
+$run_id = false;
+$debug = false;
 
-	if (($_SERVER['argc'] > '4' || $_SERVER['argc'] < '2')) help();
+global $debug;
 
-	foreach($_SERVER['argv'] as $option) {
-		if (is_numeric($option)) {
-			$run_id = $option;
-			continue;
+if (cacti_sizeof($parms)) {
+	foreach($parms as $parameter) {
+		if (strpos($parameter, '=')) {
+			list($arg, $value) = explode('=', $parameter);
+		} else {
+			$arg = $parameter;
+			$value = '';
 		}
 
-		switch($option) {
+		switch($arg) {
+			case '--id':
+				$run_id = $value;
+
+				break;
 			case '-d':
+			case '--daily':
 				$run_freq = 'daily';
+
 				break;
 			case '-w':
+			case '--weekly':
 				$run_freq = 'weekly';
+
 				break;
 			case '-m':
+			case '--monthly':
 				$run_freq = 'monthly';
+
 				break;
 			case '-q':
+			case '--quarterly':
 				$run_freq = 'quarterly';
+
 				break;
 			case '-y':
+			case '--yearly':
 				$run_freq = 'yearly';
+
 				break;
-			case '-v':
+			case '--verbose':
 				$run_verb = true;
+
 				break;
 			case '--debug':
 				@define('REPORTIT_DEBUG',1);
+				$debug = true;
+
 				break;
+			case '-h':
+			case '-H':
+			case '--help':
+				display_help();
+
+				exit(0);
+			case '-v':
+			case '-V':
+			case '--version':
+				display_version();
+
+				exit(0);
+			default:
+				print "ERROR: Invalid Argument: ($arg)" . PHP_EOL . PHP_EOL;
+				display_help();
+
+				exit(1);
 		}
 	}
-
-	if (($run_freq == '' && $run_id === false) || ($run_freq != '' && $run_id !== false)) {
-		help();
-	}
-
-	if ($run_id) {
-		run($run_id);
-	} else {
-		run($run_freq);
-	}
-} else {
-	if (!defined('REPORTIT_BASE_PATH')) {
-		include_once(__DIR__ . '/setup.php');
-		reportit_define_constants();
-	}
-
-	include_once(CACTI_BASE_PATH . '/lib/rrd.php');
 }
 
-function help() {
-	$info = plugin_reportit_version();
+if (($run_freq == '' && $run_id === false) || ($run_freq != '' && $run_id !== false)) {
+	print 'Invalid Run Frequency or Report ID' . PHP_EOL;
+	display_help();
+	exit(1);
+}
 
-	print "\n---------------------------------------------------------------------------------------------------\n";
-	print " Copyright (C) 2004-2024 The Cacti Group\n";
-	print " Project:         ReportIt\n";
-	print " Project site:    {$info['homepage']}\n";
-	print " Version:         v{$info['version']}\n";
-	print " Authors:         {$info['author']}\n";
-	print "---------------------------------------------------------------------------------------------------\n\n";
-	print " Usage: runtime.php [OPTIONS] <Report Config ID>\n";
-	print "  e.g.: runtime.php 12                            run report 12 only\n";
-	print "      : runtime.php -d -v                         run all daily reports + CLI feedback\n";
-	print "      : runtime.php --debug 12                    debug report 12\n";
-	print "      : runtime.php --debug -v 12 > log.txt       redirect debugging output\n";
-	print "      : runtime.php --debug -d                    debug all daily reports (NOT RECOMMENDED)\n\n\n";
-	print "     -d:          daily\n";
-	print "     -w:          weekly\n";
-	print "     -m:          monthly\n";
-	print "     -q:          quarterly\n";
-	print "     -y:          yearly\n\n";
-	print "     -v:          verbose\n";
-	print "     --debug:     DEBUG MODE\n\n";
-	print "---------------------------------------------------------------------------------------------------\n\n";
-	exit;
+if ($run_id) {
+	run($run_id);
+} else {
+	run($run_freq);
+}
+
+/*  display_version - displays version information */
+function display_version() {
+    $version = get_cacti_version();
+    print "ReportIt Main Poller, Version $version, " . COPYRIGHT_YEARS . PHP_EOL;
+}
+
+function display_help() {
+	display_version();
+
+	print PHP_EOL;
+	print 'usage: poller_reportit.php [-d | -w | -m | -q | -y | --id=N ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
+    print 'Cacti\'s ReportIt main poller.  This poller is the launcher for ReportIt reports.' . PHP_EOL . PHP_EOL;
+	print 'Provide either of the following:' . PHP_EOL;
+	print '    --id=N       Run as specific report now' . PHP_EOL;
+	print 'or:' . PHP_EOL;
+	print '    -d           Run the Daily Reports' . PHP_EOL;
+	print '    -w           Run the Weekly Reports' . PHP_EOL;
+	print '    -m           Run the Monthy Reports' . PHP_EOL;
+	print '    -q           Run the Quarterly Reports' . PHP_EOL;
+	print '    -y           Run the Yearly Reports' . PHP_EOL . PHP_EOL;
+	print 'Optional:' . PHP_EOL;
+	print '    --debug      Provide debug output' . PHP_EOL;
+	print '    --verbose    Provide verbose output' . PHP_EOL . PHP_EOL;
 }
 
 function run($frequency) {
 	global $run_verb, $email_counter, $export_counter;
 
 	$start = microtime();
+
 	if (is_numeric($frequency)) {
-		$sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
-				INNER JOIN plugin_reportit_templates as b
-				ON b.locked = '' and a.template_id = b.id
-				WHERE a.id = $frequency";
+		$reports = db_fetch_assoc_prepared("SELECT a.id, a.template_id
+			FROM plugin_reportit_reports AS a
+			INNER JOIN plugin_reportit_templates AS b
+			ON b.locked = ''
+			AND a.template_id = b.id
+			WHERE a.id = ?",
+			array($frequency));
 	} else {
-		$sql = "SELECT a.id, a.template_id FROM plugin_reportit_reports as a
-				INNER JOIN plugin_reportit_templates as b
-				ON b.locked = '' AND a.template_id = b.id
-				WHERE a.scheduled = 'on' AND a.frequency = '$frequency'";
+		$reports = db_fetch_assoc_prepared("SELECT a.id, a.template_id
+			FROM plugin_reportit_reports AS a
+			INNER JOIN plugin_reportit_templates AS b
+			ON b.locked = ''
+			AND a.template_id = b.id
+			WHERE a.scheduled = 'on'
+			AND a.frequency = ?",
+			array($frequency));
 	}
 
-	$reports = db_fetch_assoc($sql);
-	$number = count($reports);
+	$number  = cacti_sizeof($reports);
+
 	if (is_numeric($frequency) && $number == 0) {
-		print "\n\n ERROR: Invalid report ID !\n";
-		help();
+		print PHP_EOL . PHP_EOL . "ERROR: Invalid report ID !" . PHP_EOL;
+		display_help();
 	}
 
 	if ($number > 0) {
@@ -180,12 +230,13 @@ function run($frequency) {
 
 	if (read_config_option('log_verbosity', true)>POLLER_VERBOSITY_NONE) {
 		if (!is_numeric($frequency)) {
-			cacti_log( "REPORTIT STATS: Frequency:$frequency Time:$time Reports:$number  Emails:$email_counter  Exports:$export_counter", $run_verb, 'PLUGIN');
+			cacti_log("REPORTIT STATS: Frequency:$frequency Time:$time Reports:$number Emails:$email_counter Exports:$export_counter", $run_verb, 'SYSTEM');
 		} else {
-			cacti_log( "REPORTIT STATS: ID:$report_id Time:$time Reports:$number  Emails:$email_counter  Exports:$export_counter", $run_verb, 'PLUGIN');
+			cacti_log("REPORTIT STATS: ID:$report_id Time:$time Reports:$number Emails:$email_counter Exports:$export_counter", $run_verb, 'SYSTEM');
 		}
 	}
-	exit;
+
+	exit(0);
 }
 
 function run_error($code, $RID = 0, $DID = 0, $notice='') {
@@ -210,7 +261,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice='') {
 		$log_level = POLLER_VERBOSITY_MEDIUM;
 	}
 
-	cacti_log($run_logging, $run_verb, 'PLUGIN', $log_level);
+	cacti_log($run_logging, $run_verb, 'REPORTIT', $log_level);
 
 	if (!$run_scheduled) {
 		$run_output      = str_replace($run_search, $run_repl_view, $runtime_messages[$code]);
@@ -223,6 +274,11 @@ function runtime($report_id) {
 	global $timezones, $run_scheduled, $run_return, $consolidation_functions;
 	global $rrdtool_api, $socket_handle, $calc_fct_names, $calc_fct_names_params;
 	global $calc_fct_aliases, $error, $email_counter, $export_counter;
+
+	if (!register_process_start('reportit', 'report', $report_id, 1800)) {
+		cacti_log("WARNING: Attempted to Run ReportIt Report $report_id when it was already running", true, 'REPORTIT');
+		exit(1);
+	}
 
 	//This report is in_process, so flag it!
 	in_process($report_id);
@@ -291,6 +347,9 @@ function runtime($report_id) {
 	if (!$number_of_rrds > 0) {
 		run_error(2,$report_id);
 		in_process($report_id, 0);
+
+		unregister_process('reportit', 'report', $report_id);
+
 		return $run_return;
 	}
 	//---------------------------
@@ -759,6 +818,9 @@ function runtime($report_id) {
 	if ($valid_report != true) {
 		run_error(4, $report_id);
 		in_process($report_id, 0);
+
+		unregister_process('reportit', 'report', $report_id);
+
 		return $run_return;
 	}
 	//---------------------------
@@ -809,6 +871,8 @@ function runtime($report_id) {
 	$run_return['runtime'] = $runtime;
 
 	in_process($report_id, 0);
+
+	unregister_process('reportit', 'report', $report_id);
 
 	return $run_return;
 }

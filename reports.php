@@ -30,6 +30,7 @@ if (!defined('REPORTIT_BASE_PATH')) {
 	reportit_define_constants();
 }
 
+include_once('./lib/poller.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
@@ -1732,8 +1733,9 @@ function form_actions() {
 		if (isset_request_var('selected_items')) {
 			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
-			//For running report jump to run.php!
-			if (get_request_var('drp_action') == '1') { // RUNNING REPORT
+			if (get_request_var('drp_action') == '1') { // Run Report Now
+				$php_binary = read_config_option('path_php_binary');
+
 				for ($i=0;($i<count($selected_items));$i++) {
 					/* ================= input validation ================= */
 					input_validate_input_number($selected_items[$i]);
@@ -1745,12 +1747,12 @@ function form_actions() {
 						//Update $_SESSION
 						$_SESSION['run'] = '1';
 
-						//Jump to run.php
-						header('Location: run.php?action=calculation&id=' . $report_id);
-						exit;
+						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --id=' . $report_id);
 					}
 				}
-			} elseif (get_request_var('drp_action') == '2') { // DELETE REPORT
+
+				sleep(2);
+			} elseif (get_request_var('drp_action') == '2') { // Delete Report
 				$report_datas = db_fetch_assoc('SELECT id
 					FROM plugin_reportit_reports
 					WHERE ' . array_to_sql_or($selected_items, 'id'));
@@ -1775,7 +1777,7 @@ function form_actions() {
 						db_execute('OPTIMIZE TABLE `plugin_reportit_data_items`');
 					}
 				}
-			} elseif (get_request_var('drp_action') == '3') { //DUPLICATE REPORT CONFIGURATION
+			} elseif (get_request_var('drp_action') == '3') { // Duplicate Report
 				for ($i=0;($i<count($selected_items));$i++) {
 					/* ================= input validation ================= */
 					input_validate_input_number($selected_items[$i]);
