@@ -688,7 +688,7 @@ function reportit_poller_bottom() {
 		WHERE `Name` LIKE 'plugin_reportit_tmp_%'
 		AND (UNIX_TIMESTAMP(`Update_time`) + $lifecycle) <= UNIX_TIMESTAMP()");
 
-	if (count($tables)) {
+	if (cacti_count($tables)) {
 		foreach($tables as $table) {
 			/* take care that we really do NOT delete others tables */
 			if (strpos($table['Name'], 'plugin_reportit_tmp_') !== false) {
