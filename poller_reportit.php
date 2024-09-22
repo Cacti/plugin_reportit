@@ -319,7 +319,9 @@ function runtime($report_id) {
 	debug($debug_value, 'Boost Plugin Status');
 
 	//----- automatic RRDList Generation -----
-	if ($report_settings['autorrdlist']) autorrdlist($report_id);
+	if ($report_settings['autorrdlist'] == 'on') {
+		autorrdlist($report_id);
+	}
 
 	//----- Fetch all necessary data for building a report -----
 	$report_definitions = get_report_definitions($report_id);
@@ -327,20 +329,20 @@ function runtime($report_id) {
 	debug($report_definitions, 'Definitions');
 
 	//----- Define variable for dynamic time frame -----
-	$dynamic 		= $report_definitions['report']['sliding'];
-	$enable_tmz		= read_config_option('reportit_use_tmz');
-	$dst_support	= check_DST_support();
+	$dynamic     = $report_definitions['report']['sliding'];
+	$enable_tmz  = read_config_option('reportit_use_tmz');
+	$dst_support = check_DST_support();
 
 	//----- Update start and enddate by using presets -----
 	if ($dynamic) {
-		$dates 	= rp_get_timespan($report_definitions['report']['preset_timespan'], $report_definitions['report']['present'], $enable_tmz);
+		$dates = rp_get_timespan($report_definitions['report']['preset_timespan'], $report_definitions['report']['present'], $enable_tmz);
 
-		$report_definitions['report']['start_date']	= $dates['start_date'];
-		$report_definitions['report']['end_date'] 	= $dates['end_date'];
+		$report_definitions['report']['start_date'] = $dates['start_date'];
+		$report_definitions['report']['end_date']   = $dates['end_date'];
 	}
 
 	//----- Get number of RRD datasources -----
-	$number_of_rrds = count($report_definitions['data_items']);
+	$number_of_rrds = cacti_count($report_definitions['data_items']);
 
 	//----- ERROR CHECK (2) -----
 	//Check number of defined RRDs
@@ -420,7 +422,7 @@ function runtime($report_id) {
 
 	debug($dm_cache, 'Defined Cache > Measurands');
 
-	$cache	= get_possible_rra_names($report_definitions['report']['template_id']);
+	$cache = get_possible_rra_names($report_definitions['report']['template_id']);
 
 	foreach($cache as $rra) {
 		foreach($dm_cache as $key => $value) {
@@ -452,6 +454,7 @@ function runtime($report_id) {
 
 		if ($data_source_path == '') {
 			run_error(5, $report_id, $local_data_id, 'Not existing RRD file.');
+
 			continue;
 		}
 
@@ -459,10 +462,12 @@ function runtime($report_id) {
 		if (read_config_option('storage_location') > 0) {
 			if (!rrdtool_execute("file_exists $data_source_path", false, RRDTOOL_OUTPUT_BOOLEAN, $rrdtool_pipe, 'REPORTIT')) {
 				run_error(5, $report_id, $local_data_id, 'Not existing RRD file.');
+
 				continue;
 			}
 		} elseif (!file_exists($data_source_path)) {
 			run_error(5, $report_id, $local_data_id, 'Not existing RRD file.');
+
 			continue;
         }
 
@@ -484,6 +489,7 @@ function runtime($report_id) {
 		if ($enable_tmz) {
 			if (!isset($timezones[$timezone])) {
 				run_error(11, $report_id, $local_data_id, $timezone);
+
 				continue;
 			}
 
@@ -514,6 +520,7 @@ function runtime($report_id) {
 		// Check whether start- and endpoint are part of future timestamps (Important for timespan 'today')
 		if ($f_sp > time()) {
 			run_error(3, $report_id, $local_data_id);
+
 			continue;
 		}
 
@@ -545,6 +552,7 @@ function runtime($report_id) {
 
 			if ($l_ep > $boost_last_run_time) {
 				$output = boost_process_poller_output($local_data_id);
+
 				debug($output, "Boost on demand update for local_data_id $local_data_id");
 			}
 		}
@@ -573,6 +581,7 @@ function runtime($report_id) {
 		// ----- Break up if we were not able to fetch any data -----
 		if (cacti_sizeof($valid_rra_indexes) == 0) {
 			run_error(5, $report_id, $local_data_id, 'Can not open rrdfile or CFs do not match.');
+
 			continue;
 		} else {
 			/* transform data that has not been fetch via the PHP based RRDtool API */
@@ -597,6 +606,7 @@ function runtime($report_id) {
 			$rrd_nan     = 0;
 		} else {
 			cacti_log("WARNING: Problems with DS[$local_data_id]", false, 'REPORTIT');
+
 			continue;
 		}
 
@@ -611,6 +621,7 @@ function runtime($report_id) {
 		// Check if startpoints are available
 		if ($rrd_ad_data == false) {
 			run_error(7, $report_id, $local_data_id);
+
 			continue;
 		}
 		//---------------------------
@@ -644,7 +655,7 @@ function runtime($report_id) {
 		debug($pre_data, 'Data for calculation');
 
 		/* update the data source counter */
-		$rrd_ds_cnt = count($rrd_ds_namv);
+		$rrd_ds_cnt = cacti_count($rrd_ds_namv);
 
 		//----- Update variables and create calculating parameters -----
 		if ($maxValue !== NULL && $maxValue != 0) {
@@ -716,10 +727,12 @@ function runtime($report_id) {
 		$params['rrd_ds_cnt']   = $rrd_ds_cnt;
 		$params['rras']         = $rrd_ds_namv;
 		$params['rra_indexes']  = $rra_indexes;
+
 		debug($variables, 'Variables');
 
 		/***************** Start calculation *****************/
 		$results  = calculate($pre_data, $params, $variables, $df_cache, $dm_cache, $dr_cache, $dp_cache, $ds_cache);
+
 		debug($results, 'Calculation results for saving');
 		/***************** Start calculation *****************/
 
@@ -764,7 +777,7 @@ function runtime($report_id) {
 			}
 
 			// Remove last '|' and add the number of id
-			$rs_def = substr($result_description, 0, strlen($result_description)-1) . '-' . count($first_element);
+			$rs_def = substr($result_description, 0, strlen($result_description)-1) . '-' . cacti_count($first_element);
 
 			// Update variable 'Spanned Definition'
 			$spanned_description = '';
@@ -773,7 +786,7 @@ function runtime($report_id) {
 			}
 
 			// Remove last '|' and add the number of id
-			$sp_def = substr($spanned_description, 0, strlen($spanned_description)-1) . '-' . count($results['_spanned_']);
+			$sp_def = substr($spanned_description, 0, strlen($spanned_description)-1) . '-' . cacti_count($results['_spanned_']);
 
 			// Set report's state valid
 			$valid_report = true;
@@ -891,16 +904,24 @@ function autorrdlist($reportid) {
 		WHERE id = ?',
 		array($reportid));
 
-	$header_label = $report_data['description']  . ' ID: ' . $reportid;
+	$header_label = $report_data['description'] . ' ID: ' . $reportid;
 
-	// if Device Template Id filter was set, show the Device Template Description in the header
 	if ($report_data['host_template_id'] != 0) {
-		$ht_desc = db_fetch_cell_prepared('SELECT name
+		$desc = db_fetch_cell_prepared('SELECT name
 			FROM host_template
 			WHERE id = ?',
 			array($report_data['host_template_id']));
 
-		$header_label = $header_label . ', using Device Template Filter: ' . $ht_desc;
+		$header_label .= ', using Device Template Filter: ' . $desc;
+	}
+
+	if ($report_data['site_id'] != 0) {
+		$desc = db_fetch_cell_prepared('SELECT name
+			FROM sites
+			WHERE id = ?',
+			array($report_data['host_template_id']));
+
+		$header_label .= ', using Site Filter: ' . $desc;
 	}
 
 	if (read_config_option('log_verbosity', true) == POLLER_VERBOSITY_DEBUG) {
@@ -914,13 +935,11 @@ function autorrdlist($reportid) {
 		array($reportid));
 
 	//Get the filter setting by template
-	$sql = 'SELECT b.pre_filter, b.data_template_id
+	$template_filter = db_fetch_row_prepared('SELECT b.pre_filter, b.data_template_id
 	    FROM plugin_reportit_reports AS a
-	    JOIN plugin_reportit_templates AS b
+	    INNER JOIN plugin_reportit_templates AS b
 	    ON a.template_id = b.id
-	    WHERE a.id = ?';
-
-	$template_filter = db_fetch_assoc_prepared($sql, array($reportid));
+	    WHERE a.id = ?', array($reportid));;
 
 	$sql_params = array();
 
@@ -935,24 +954,40 @@ function autorrdlist($reportid) {
 	$sql_params[] = $reportid;
 
 	// apply Device Template Id filter, if any
-	if ($report_data['host_template_id'] != 0) {
+	if ($report_data['host_template_id'] != 0 && $report_data['site_id'] == 0) {
 		$sql .= 'LEFT JOIN data_local AS c
 			ON c.id = a.local_data_id
 			LEFT JOIN host AS d
 			ON d.id = c.host_id
 			LEFT JOIN host_template AS e
 			ON e.id = d.host_template_id';
+	} elseif ($report_data['host_template_id'] != 0 && $report_data['site_id'] != 0) {
+		$sql .= 'LEFT JOIN data_local AS c
+			ON c.id = a.local_data_id
+			LEFT JOIN host AS d
+			ON d.id = c.host_id
+			LEFT JOIN host_template AS e
+			ON e.id = d.host_template_id
+			LEFT JOIN sites AS s
+			ON d.site_id = s.id';
+	} elseif ($report_data['host_template_id'] == 0 && $report_data['site_id'] != 0) {
+		$sql .= 'LEFT JOIN data_local AS c
+			ON c.id = a.local_data_id
+			LEFT JOIN host AS d
+			ON d.id = c.host_id
+			LEFT JOIN sites AS s
+			ON d.site_id = s.id';
 	}
 
 	$sql .= ' WHERE b.id IS NULL
 	    AND a.local_data_id != 0
 	    AND a.data_template_id = ?';
 
-	$sql_params[] = $template_filter['0']['data_template_id'];
+	$sql_params[] = $template_filter['data_template_id'];
 
-	if ($template_filter['0']['pre_filter'] != '') {
+	if ($template_filter['pre_filter'] != '') {
 		$sql .= ' AND a.name_cache LIKE ?';
-		$sql_params[] = '%' . $template_filter['0']['pre_filter'] . '%';
+		$sql_params[] = '%' . $template_filter['pre_filter'] . '%';
 	}
 
 	if (isset_request_var('host_filter') && get_request_var('host_filter') != 'Any') {
@@ -965,13 +1000,19 @@ function autorrdlist($reportid) {
 		$sql_params[] = '%' . get_request_var('txt_filter') . '%';
 	}
 
-	// if Device Template Id filter is applied, check for the specific Device Template Id
-	// defined for this very report
+	/* set the sql for the device template id */
 	if ($report_data['host_template_id'] != 0) {
 		$sql .= ' AND e.id = ?';
 		$sql_params[] = $report_data['host_template_id'];
 	}
-	// if Data Source Filter per Report is set, check it
+
+	/* set the sql for the site id */
+	if ($report_data['site_id'] != 0) {
+		$sql .= ' AND s.id = ?';
+		$sql_params[] = $report_data['site_id'];
+	}
+
+	/* set the filter on the name cache */
 	if ($report_data['data_source_filter'] != '') {
 		$sql .= ' AND a.name_cache LIKE ?';
 		$sql_params[] = '%' . $report_data['data_source_filter'] . '%';
@@ -982,7 +1023,7 @@ function autorrdlist($reportid) {
 	$rrdlist = db_fetch_assoc_prepared($sql, $sql_params);
 
 	// how many inserts required?
-	$number_of_matches = count($rrdlist);
+	$number_of_matches = cacti_count($rrdlist);
 
 	if ($number_of_matches == 0) {
 		if (read_config_option('log_verbosity', true) == POLLER_VERBOSITY_DEBUG) {
@@ -991,6 +1032,7 @@ function autorrdlist($reportid) {
 	} else {
 		// security check: do not change rrdlist by more than settings['reportit_maxrrdchg'] items a time
 		$maxrrdchg = read_config_option('reportit_maxrrdchg');
+
 		if ($number_of_matches > $maxrrdchg) {
 			array_splice($rrdlist, $maxrrdchg);
 
@@ -1007,33 +1049,37 @@ function autorrdlist($reportid) {
 		$rrd 		= '';
 
 		/* load data item presets */
-		$sql = "SELECT * FROM plugin_reportit_presets WHERE id = $reportid";
-		$presets = db_fetch_row($sql);
+		$presets = db_fetch_row_prepared('SELECT *
+			FROM plugin_reportit_presets
+			WHERE id = ?',
+			array($reportid));
 
-		if (cacti_sizeof($presets)>0) {
+		if (cacti_sizeof($presets)) {
 			$presets['report_id'] = $reportid;
+
 			foreach($presets as $key => $value) {
 				$columns .= ', ' .$key;
-				if ($key != 'id') $values .= (",\"" . $value . "\"");
+
+				if ($key != 'id') {
+					$values .= ',' . db_qstr($value);
+				}
 			}
 		} else {
 			$columns = ' id, report_id';
-			$values .= ", \"$reportid\"";
+			$values .= ',' . db_qstr($reportid);
 		}
 
 		foreach($rrdlist as $rd) {
-			$rrd .= "({$rd['id']} $values),";
-			if (read_config_option("log_verbosity", true) == POLLER_VERBOSITY_DEBUG) {
-				cacti_log('Adding Id: ' . $rd['id'] . ' to Report ' . $reportid, false, 'REPORTIT');
-			}
+			$rrd .= '(' . $rd['id'] . ' ' . $values . '),';
+
+			cacti_log('Adding Id: ' . $rd['id'] . ' to Report ' . $reportid, false, 'REPORTIT', POLLER_VERBOSITY_DEBUG);
 		}
 
 		$rrd = substr($rrd, 0, strlen($rrd)-1);
 		$columns = substr($columns, 1);
 
 		/* save */
-		$sql = "INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd";
-		db_execute($sql);
+		db_execute("INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd");
 
 		// Reset report
 		reset_report($reportid);
@@ -1047,20 +1093,18 @@ function autorrdlist($reportid) {
  * @return
  */
 function autocleanup($report_id) {
-	$sql = "SELECT a.id FROM plugin_reportit_data_items AS a
+	$data_items = db_custom_fetch_flat_string("SELECT a.id
+		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_template_data AS b
 		ON b.local_data_id = a.id
 		WHERE a.report_id = $report_id
-		AND b.name_cache IS NULL";
-
-	$data_items = db_custom_fetch_flat_string($sql);
+		AND b.name_cache IS NULL");
 
 	if ($data_items) {
-		$sql = "DELETE FROM `plugin_reportit_data_items`
+		db_execute_prapared("DELETE FROM `plugin_reportit_data_items`
 			WHERE `plugin_reportit_data_items`.`report_id` = ?
-			AND `plugin_reportit_data_items`.`id` in ($data_items)";
-
-		db_execute_prepared($sql, array($report_id));
+			AND `plugin_reportit_data_items`.`id` in ($data_items)",
+			array($report_id));
 	}
 }
 
@@ -1150,8 +1194,10 @@ function autoexport($report_id) {
 					$files[mktime(0,0,0,$month, $day, $year)] = $file;
 				}
 			}
+
 			ksort($files);
 			closedir($path_handle);
+
 			if (cacti_sizeof($files)> $report_settings['autoexport_max_records']) {
 				/* define the number of files that has to be dropped */
 				$num_of_drops = sizeof($files) - $report_settings['autoexport_max_records'] + 1;
@@ -1172,6 +1218,7 @@ function autoexport($report_id) {
 		return false;
 	} else {
 		$file_handle = fopen($report_path, 'a');
+
 		if (!$file_handle) {
 			run_error(17, $report_id, 0, "Unable to create export file.");
 			return false;
@@ -1179,10 +1226,12 @@ function autoexport($report_id) {
 
 		/* load export data and write it into the export file */
 		if (function_exists($export_function)) {
-			$data = get_prepared_report_data($report_id,'export');
+			$data = get_prepared_report_data($report_id, 'export');
 			$data = $export_function($data);
+
 			fwrite($file_handle, $data);
 		}
+
 		fclose($file_handle);
 	}
 

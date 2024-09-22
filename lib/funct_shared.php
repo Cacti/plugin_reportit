@@ -283,19 +283,18 @@ function db_custom_fetch_flat_string($sql, $delimiter = ','){
 
 	$raw_data = db_fetch_assoc($sql);
 
-	if (cacti_sizeof($raw_data)> 0) {
+	if (cacti_sizeof($raw_data)) {
 		foreach ($raw_data as $row) {
 			foreach ($row as $value) {
 				$srt_data .= $value . $delimiter;
 			}
 		}
 
-		return substr($srt_data,0,-strlen($delimiter));
+		return substr($srt_data, 0, -strlen($delimiter));
 	} else {
 		return false;
 	}
 }
-
 
 function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 	//Set preconditions
