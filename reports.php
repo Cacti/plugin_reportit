@@ -501,7 +501,7 @@ function save_schedule_data(&$report_data) {
 		$tmp_frequency = get_request_var('report_schedule_frequency');
 
 		if (array_key_exists($tmp_frequency, $frequency)) {
-			$report_data['frequency'] = $frequency[$tmp_frequency];
+			$report_data['frequency'] = $tmp_frequency;
 		}
 	}
 }
@@ -521,8 +521,10 @@ function form_save() {
 	$owner = db_custom_fetch_assoc($sql, 'id', false);
 
 	/* ================= Input Validation ================= */
-	input_validate_input_whitelist(get_nfilter_request_var('tab'), array('general', 'presets', 'admin', 'email', 'items'));
-	input_validate_input_number(get_request_var('id'));
+	get_filter_request_var('tab', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '(general|presets|admin|email|items)')));
+	get_filter_request_var('id');
+	get_filter_request_var('template_id');
+	/* ==================================================== */
 
 	/* stop if user is not authorised to save a report config */
 	if (get_request_var('tab') != 'items') {
@@ -540,21 +542,21 @@ function form_save() {
 	}
 
 	/* check for the type of saving if it was sent through the email tab */
-	switch(get_nfilter_request_var('tab')) {
+	switch(get_request_var('tab')) {
 		case 'presets':
-		 	input_validate_input_blacklist(get_request_var('id'),array(0));
-			input_validate_input_key(get_request_var('rrdlist_timezone'), $timezone, true);
-			input_validate_input_key(get_request_var('rrdlist_shifttime_start'), $shifttime);
-			input_validate_input_key(get_request_var('rrdlist_shifttime_end'), $shifttime2);
-			input_validate_input_key(get_request_var('rrdlist_weekday_start'), $weekday);
-			input_validate_input_key(get_request_var('rrdlist_weekday_end'), $weekday);
+		 	input_validate_input_blacklist(get_request_var('id'), array(0));
+			input_validate_input_key(get_nfilter_request_var('rrdlist_timezone'), $timezone, true);
+			input_validate_input_key(get_nfilter_request_var('rrdlist_shifttime_start'), $shifttime);
+			input_validate_input_key(get_nfilter_request_var('rrdlist_shifttime_end'), $shifttime2);
+			input_validate_input_key(get_nfilter_request_var('rrdlist_weekday_start'), $weekday);
+			input_validate_input_key(get_nfilter_request_var('rrdlist_weekday_end'), $weekday);
 
-			form_input_validate(get_request_var('rrdlist_subhead'), 'rrdlist_subhead', '' ,true,3);
+			form_input_validate(get_nfilter_request_var('rrdlist_subhead'), 'rrdlist_subhead', '' , true, 3);
 
-			input_validate_input_number(get_request_var('site_id'));
-			input_validate_input_number(get_request_var('host_template_id'));
+			get_filter_request_var('site_id');
+			get_filter_request_var('host_template_id');
 
-			form_input_validate(get_request_var('data_source_filter'), 'data_source_filter'	, '', true, 3);
+			form_input_validate(get_request_var('data_source_filter'), 'data_source_filter', '', true, 3);
 
 			break;
 		case 'admin':
@@ -678,11 +680,11 @@ function form_save() {
 
 	/* return if validation failed */
 	if (is_error_message()) {
-		header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_nfilter_request_var('tab'));
+		header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
 		exit;
 	}
 
-	switch(get_nfilter_request_var('tab')) {
+	switch(get_request_var('tab')) {
 		case 'presets':
 			$rrdlist_data['id']         = get_request_var('id');
 			$rrdlist_data['start_day']  = $weekday[get_request_var('rrdlist_weekday_start')];
@@ -820,21 +822,21 @@ function form_save() {
 			$report_data['id']              = get_request_var('id');
 
 			if (get_request_var('report_owner')) {
-				$report_data['user_id']     = get_request_var('report_owner');
+				$report_data['user_id']     = get_nfilter_request_var('report_owner');
 			}
 
-			$report_data['description']     = get_request_var('report_description');
-			$report_data['template_id']     = get_request_var('template_id');
-			$report_data['public']          = get_request_var('report_public');
+			$report_data['description']     = get_nfilter_request_var('report_description');
+			$report_data['template_id']     = get_filter_request_var('template_id');
+			$report_data['public']          = get_nfilter_request_var('report_public');
 
-			$report_data['preset_timespan'] = isset_request_var('report_timespan') ? $timespans[get_request_var('report_timespan')] : '';
+			$report_data['preset_timespan'] = isset_request_var('report_timespan') ? $timespans[get_nfilter_request_var('report_timespan')] : '';
 			$report_data['last_run']        = '0000-00-00 00:00:00';
 
-			$report_data['start_date']      = get_request_var('report_start_date');
-			$report_data['end_date']        = get_request_var('report_end_date');
+			$report_data['start_date']      = get_nfilter_request_var('report_start_date');
+			$report_data['end_date']        = get_nfilter_request_var('report_end_date');
 
-			$report_data['sliding']         = get_request_var('report_dynamic');
-			$report_data['present']         = get_request_var('report_present');
+			$report_data['sliding']         = get_nfilter_request_var('report_dynamic');
+			$report_data['present']         = get_nfilter_request_var('report_present');
 
 			/* define the owner if it's a new configuration */
 			if (get_request_var('id') == 0) $report_data['user_id'] = my_id();
@@ -898,7 +900,7 @@ function form_save() {
 
 			/* start saving process or return is_error_message()*/
 			if (is_error_message()) {
-				header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_nfilter_request_var('tab'));
+				header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
 
 				exit;
 			} else {
@@ -916,7 +918,7 @@ function form_save() {
 			}
 	}
 
-	header('Location: reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_nfilter_request_var('tab'));
+	header('Location: reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
 
 	raise_message(1);
 }
@@ -932,6 +934,7 @@ function report_edit() {
 	}
 
 	/* ================= input validation ================= */
+	get_filter_request_var('tab', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '(general|presets|admin|email|items)')));
 	get_filter_request_var('id');
 	get_filter_request_var('template');
 	/* ==================================================== */
@@ -1057,7 +1060,7 @@ function report_edit() {
 	}
 
 	/* draw the categories tabs on the top of the page */
-	$current_tab = get_nfilter_request_var('tab');
+	$current_tab = get_request_var('tab');
 
 	if (cacti_sizeof($tabs)) {
 		$i = 0;
@@ -1077,13 +1080,13 @@ function report_edit() {
 		print '</ul></nav></div>';
 	}
 
-	if (get_nfilter_request_var('tab') !== 'items') {
+	if (get_request_var('tab') !== 'items') {
 		form_start('reports.php');
 	}
 
 	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label, 'reportit'), '100%', '', '3', 'center', '');
 
-	switch(get_nfilter_request_var('tab')) {
+	switch(get_request_var('tab')) {
 		case 'presets':
 			draw_edit_form(
 				array(
@@ -1483,7 +1486,7 @@ function report_edit() {
 
 	html_end_box();
 
-	if (get_nfilter_request_var('tab') !== 'items') {
+	if (get_request_var('tab') !== 'items') {
 		form_save_button('reports.php');
 
 		?>
@@ -1727,9 +1730,12 @@ function rrdlist_edit() {
 function form_actions() {
 	global $config, $report_actions, $report_states, $rrdlist_actions;
 
+	/* ================= input validation ================= */
 	get_filter_request_var('drp_action');
+	get_filter_request_var('tab', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '(general|presets|admin|email|items)')));
+	/* ==================================================== */
 
-	if (get_nfilter_request_var('tab') != 'items') {
+	if (get_request_var('tab') != 'items') {
 		if (isset_request_var('selected_items')) {
 			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
@@ -1951,9 +1957,9 @@ function form_actions() {
 
 	top_header();
 
-	form_start('reports.php?tab=' . get_nfilter_request_var('tab') . '&id=' . get_filter_request_var('id'));
+	form_start('reports.php?tab=' . get_request_var('tab') . '&id=' . get_filter_request_var('id'));
 
-	if (get_nfilter_request_var('tab') != 'items') {
+	if (get_request_var('tab') != 'items') {
 		html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 		if (cacti_sizeof($reports)) {
