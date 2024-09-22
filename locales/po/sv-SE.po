@@ -2612,4 +2612,3 @@ msgstr "Plats."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Resultat [ %s]"
-
