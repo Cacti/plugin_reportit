@@ -2614,4 +2614,3 @@ msgstr "Pos."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "결과 [ %s]"
-
