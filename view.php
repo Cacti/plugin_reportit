@@ -472,7 +472,7 @@ function show_report() {
 	$sql_order = get_order_string();
 
 	if (!isempty_request_var('subhead')) {
-		$sql_order = str_replace('ORDER BY ', 'ORDER BY b.description, ', $sql_order);
+		$sql_order = str_replace('ORDER BY ', 'ORDER BY description, ', $sql_order);
 	}
 
 	$sql_affix = $sql_where . $sql_order . $sql_limit;
@@ -999,7 +999,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 						} else {
 							$table = 'plugin_reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive');
 
-							$data = db_fetch_assoc("SELECT * FROM $table $suffix");
+							$data = db_fetch_assoc("SELECT * FROM $table AS a $suffix");
 						}
 
 						print "<tr class='tableHeader'>
