@@ -2610,4 +2610,3 @@ msgstr "ממוצע."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "תוצאות [ %s]"
-
