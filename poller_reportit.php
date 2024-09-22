@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 /*
  +-------------------------------------------------------------------------+
@@ -184,7 +185,7 @@ function display_help() {
 function run($frequency) {
 	global $run_verb, $email_counter, $export_counter;
 
-	$start = microtime();
+	$start = microtime(true);
 
 	if (is_numeric($frequency)) {
 		$reports = db_fetch_assoc_prepared("SELECT a.id, a.template_id
@@ -225,21 +226,20 @@ function run($frequency) {
 		}
 	}
 
-	$end = microtime();
-	$time = get_runtime($start, $end);
+	$end   = microtime(true);
+	$time  = round($end - $start, 2);
+	$usage = get_mem_usage();
 
-	if (read_config_option('log_verbosity', true)>POLLER_VERBOSITY_NONE) {
-		if (!is_numeric($frequency)) {
-			cacti_log("REPORTIT STATS: Frequency:$frequency Time:$time Reports:$number Emails:$email_counter Exports:$export_counter", $run_verb, 'SYSTEM');
-		} else {
-			cacti_log("REPORTIT STATS: ID:$report_id Time:$time Reports:$number Emails:$email_counter Exports:$export_counter", $run_verb, 'SYSTEM');
-		}
+	if (!is_numeric($frequency)) {
+		cacti_log("REPORTIT STATS: Time:$time Frequency:$frequency Reports:$number Emails:$email_counter Exports:$export_counter PeakMemory:{$usage['peak']}", $run_verb, 'SYSTEM');
+	} else {
+		cacti_log("REPORTIT STATS: Time:$time Report:$report_id Emails:$email_counter Exports:$export_counter PeakMemory:{$usage['peak']}", $run_verb, 'SYSTEM');
 	}
 
 	exit(0);
 }
 
-function run_error($code, $RID = 0, $DID = 0, $notice='') {
+function run_error($code, $RID = 0, $DID = 0, $notice = '') {
 	global $run_verb, $run_scheduled, $run_return, $run_search, $runtime_messages,
 	$PATH_RID_LOG, $PATH_DID_LOG, $PATH_RID_VIEW, $PATH_DID_VIEW;
 
@@ -298,7 +298,7 @@ function runtime($report_id) {
 	$valid_report = false;
 
 	//----- Make a note of our startpoint -----
-	$runtime_sp = microtime();
+	$runtime_sp = microtime(true);
 
 	//----- Reset report -----
 	reset_report($report_id);
@@ -345,7 +345,7 @@ function runtime($report_id) {
 	//----- ERROR CHECK (2) -----
 	//Check number of defined RRDs
 	if (!$number_of_rrds > 0) {
-		run_error(2,$report_id);
+		run_error(2, $report_id);
 		in_process($report_id, 0);
 
 		unregister_process('reportit', 'report', $report_id);
@@ -687,11 +687,10 @@ function runtime($report_id) {
 
 		if (cacti_sizeof($data_query_variables)) {
 			// get all data for given local data id first
-			$sql = 'SELECT *
+			$data_local = db_fetch_row_prepared('SELECT *
 				FROM data_local
-				WHERE id = ?';
-
-			$data_local = db_fetch_row_prepared($sql, array($local_data_id));
+				WHERE id = ?',
+				array($local_data_id));
 
 			foreach($data_query_variables as $dq_variable) {
 				if (isset($data_local['id'])) {
@@ -809,10 +808,10 @@ function runtime($report_id) {
 	}
 
 	//----- Make a note of our endpoint -----
-	$runtime_ep = microtime();
+	$runtime_ep = microtime(true);
 
 	//----- Calculate runtime -----
-	$runtime = get_runtime($runtime_sp, $runtime_ep);
+	$runtime = round($runtime_ep - $runtime_sp, 2);
 
 	//----- ERROR CHECK (7) -----
 	if ($valid_report != true) {
@@ -828,12 +827,11 @@ function runtime($report_id) {
 	//----- Save/update report data -----
 	$now = date('Y-m-d H:i:s');
 
-	$sql = "UPDATE plugin_reportit_reports
+	db_execute_prepared("UPDATE plugin_reportit_reports
 		SET last_run = ?, runtime = ?, start_date = ?, end_date = ?,
 		ds_description = ?, rs_def = ?, sp_def = ?
-		WHERE id = ?";
-
-	db_execute_prepared($sql, array($now, $runtime, $s_date, $e_date, $ds_description, $rs_def, $sp_def, $report_id));
+		WHERE id = ?",
+		array($now, $runtime, $s_date, $e_date, $ds_description, $rs_def, $sp_def, $report_id));
 
 	//----- Archive / Email -----
 	if ($run_scheduled) {
@@ -880,7 +878,7 @@ function runtime($report_id) {
 /**
  * function autorrdlist
  * deletes all rrdlist entries that are no longer existing
- * adds all items defined by Host Template Filter and Data Source Filter
+ * adds all items defined by Device Template Filter and Data Source Filter
  *
  * @param unknown_type $reportid
  */
@@ -895,14 +893,14 @@ function autorrdlist($reportid) {
 
 	$header_label = $report_data['description']  . ' ID: ' . $reportid;
 
-	// if Host Template Id filter was set, show the Host Template Description in the header
+	// if Device Template Id filter was set, show the Device Template Description in the header
 	if ($report_data['host_template_id'] != 0) {
 		$ht_desc = db_fetch_cell_prepared('SELECT name
 			FROM host_template
 			WHERE id = ?',
 			array($report_data['host_template_id']));
 
-		$header_label = $header_label . ', using Host Template Filter: ' . $ht_desc;
+		$header_label = $header_label . ', using Device Template Filter: ' . $ht_desc;
 	}
 
 	if (read_config_option('log_verbosity', true) == POLLER_VERBOSITY_DEBUG) {
@@ -936,7 +934,7 @@ function autorrdlist($reportid) {
 
 	$sql_params[] = $reportid;
 
-	// apply Host Template Id filter, if any
+	// apply Device Template Id filter, if any
 	if ($report_data['host_template_id'] != 0) {
 		$sql .= 'LEFT JOIN data_local AS c
 			ON c.id = a.local_data_id
@@ -967,7 +965,7 @@ function autorrdlist($reportid) {
 		$sql_params[] = '%' . get_request_var('txt_filter') . '%';
 	}
 
-	// if Host Template Id filter is applied, check for the specific Host Template Id
+	// if Device Template Id filter is applied, check for the specific Device Template Id
 	// defined for this very report
 	if ($report_data['host_template_id'] != 0) {
 		$sql .= ' AND e.id = ?';
@@ -1187,5 +1185,6 @@ function autoexport($report_id) {
 		}
 		fclose($file_handle);
 	}
+
 	return true;
 }

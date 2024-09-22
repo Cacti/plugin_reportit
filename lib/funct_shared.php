@@ -807,8 +807,6 @@ function debug(&$value, $msg = '', $fmsg = '') {
 		return;
 	}
 
-	get_mem_usage();
-
 	if ($msg != '') {
 		print "\n\t\t******* $msg *******\n";
 	}
@@ -1198,28 +1196,23 @@ function return_bytes($val) {
 }
 
 function get_mem_usage() {
-	if (version_compare(phpversion(), '5.2.1') == -1) return;
-
-	$memory_system = return_bytes(ini_get('memory_limit'));
-
+	$memory_system  = return_bytes(ini_get('memory_limit'));
 	$memory_used    = round(memory_get_usage()/pow(1024,2),2);
 	$memory_peak    = round(memory_get_peak_usage()/pow(1024,2),2);
 
-	if ($memory_system == -1) {
-		$memory_system = 'unlimited';
+	if ($memory_system == -1 || $memory_system == '-') {
+		$memory_system  = 'unlimited';
 		$memory_used   .= 'MB';
 		$memory_peak   .= 'MB';
+	} elseif (!is_numeric($memory_used) || !is_numeric($memory_peak) || !is_numeric($memory_system)) {
+		$memory_used = 'Undetected';
+		$memory_peak = 'Undetected';
 	} else {
-		if (!is_numeric($memory_used) || !is_numeric($memory_peak) || !is_numeric($memory_system)) {
-			$memory_used = 'Undetected';
-			$memory_peak = 'Undetected';
-		} else {
-			$memory_used   .= 'MB(' . round($memory_used/$memory_system*100,2) . '%)';
-			$memory_peak   .= 'MB(' . round($memory_peak/$memory_system*100,2) . '%)';
-		}
+		$memory_used   .= 'MB(' . round($memory_used/$memory_system*100,2) . '%)';
+		$memory_peak   .= 'MB(' . round($memory_peak/$memory_system*100,2) . '%)';
 	}
 
-	print " Memory:  System: $memory_system   Used: $memory_used   Peak: $memory_peak\n";
+	return array('limit' => $memory_system, 'current' => $memory_used, 'peak' => $memory_peak);
 }
 
 function send_scheduled_email($report_id){
@@ -1234,18 +1227,19 @@ function send_scheduled_email($report_id){
 		WHERE id = ?',
 		array($report_id));
 
-	$replace    = array($report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']);
+	$replace   = array($report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']);
 
-	$subject    = ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
-	$subject    = str_replace($search, $replace, $subject);
-	$body       = ($report_settings['email_body'] != '') ? $report_settings['email_body'] : 'This is a scheduled report generated from Cacti.';
-	$format     = ($report_settings['email_format'] != '') ? $report_settings['email_format'] : 'CSV';
+	$subject   = ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
+	$subject   = str_replace($search, $replace, $subject);
+
+	$body      = ($report_settings['email_body'] != '')   ? $report_settings['email_body'] : 'This is a scheduled report generated from Cacti.';
+	$format    = ($report_settings['email_format'] != '') ? $report_settings['email_format'] : 'CSV';
 
 	/* load list of recipients */
-	$file_type        = ($format != 'SML') ? strtolower($format) : 'xml';
-	$mime_type        = ($format != 'SML') ? 'application/' . strtolower($format) : 'application/' . 'vnd-ms-excel';
+	$file_type = ($format != 'SML') ? strtolower($format) : 'xml';
+	$mime_type = ($format != 'SML') ? 'application/' . strtolower($format) : 'application/vnd-ms-excel';
 
-	$from = array();
+	$from   = array();
 	$from[] = read_config_option('settings_from_email');
 	$from[] = read_config_option('settings_from_name');
 
@@ -1271,35 +1265,32 @@ function send_scheduled_email($report_id){
 
 		$filebase         = $dirbase . '/' . $filebase . ".$file_type";
 		$filename         = str_replace('<report_id>', $report_id, $filebase);
-		$export_function  = "export_to_" . $format;
+		$export_function  = 'export_to_' . $format;
 
 		print "Attachment: $filename\n";
 
 		/* load export data and define the attachment file */
 		if (function_exists($export_function)) {
 			$data = get_prepared_report_data($report_id, 'export');
-			if ($data == '') return('Export failed');
+			if ($data == '') {
+				return('Export failed');
+			}
+
 			$data = $export_function($data);
+
 			$attachment = array(
 				'attachment' => $filename,
-				'mime_type' => $mime_type,
-				'inline'    => 'attachment',
+				'mime_type'  => $mime_type,
+				'inline'     => 'attachment',
 			);
+
 			file_put_contents($filename, $data);
 		} else {
-			print "Missing function '$export_function'\n";
+			cacti_log("WARNING: Missing function '$export_function'", true, 'REPORTIT');
 		}
 	}
 
-	if (cacti_version_compare(CACTI_VERSION, '1.2.0', '<')) {
-		include_once(__DIR__ . '/funct_mailer.php');
-		$mailer_func = "v1_2_0_mailer";
-	} else {
-		$mailer_func = "mailer";
-	}
-
-	debug($mailer_func, '', 'Using mailer');
-	return $mailer_func($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
+	return mailer($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
 }
 
 function xml_to_string($xml_object, $keep_spaces = true) {
@@ -1309,9 +1300,11 @@ function xml_to_string($xml_object, $keep_spaces = true) {
 	$dom->loadXML($xml_object->asXml());
 
 	$output = $dom->saveXML($dom->firstChild);
+
 	if (!$keep_spaces) {
 		$output = preg_replace('/(\v|\s)+/','',$output);
 	}
+
 	return $output;
 }
 
@@ -1321,14 +1314,19 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 	$indent++;
 	$indent_char = str_repeat('  ',$indent);
 	$out = array();
-	if (!$xml_object) return '';
+	if (!$xml_object) {
+		return '';
+	}
+
 	$count = 0;
+
 	foreach ($xml_object->children() as $node) {
 		if (count($node->children()) == 0) {
 			$out[$node->getName()] = strval($node);
 		} else {
 			$out[$node->getName()][] = xml_to_array($node);
 		}
+
 		/*
 		$index = $indexed ? $count : $key;
 		$is_object = is_object($node) || is_array($node);
@@ -1367,11 +1365,11 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 	}
 
 	$indent--;
+
 	return $out;
 }
 
 function export_report_template($template_id, $indent = 0) {
-
 	/* load template data */
 	$template_data = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_templates
@@ -1449,6 +1447,7 @@ function export_report_template($template_id, $indent = 0) {
 
 function convert_array2xml($data, $indent = 0) {
 	$output = '';
+
 	if ($indent < 0) {
 		$indent = 0;
 	}
@@ -1511,11 +1510,11 @@ function clean_xml_waste(&$array, $replace = '') {
 }
 
 function set_field_data(&$array, $field_index, $field_html) {
-	cacti_log("set_field_data(array, $field_index, $field_html): set? " . (isset_request_var($field_html) ? 'Yes' : 'No'));
-	//if (isset_request_var($field_html)) {
-		cacti_log("set_field_data(array, $field_index, $field_html): val: " . get_request_var($field_html));
-		$array[$field_index] = get_request_var($field_html);
-	//}
+	//cacti_log("set_field_data(array, $field_index, $field_html): set? " . (isset_request_var($field_html) ? 'Yes' : 'No'));
+	if (isset_request_var($field_html)) {
+		//cacti_log("set_field_data(array, $field_index, $field_html): val: " . get_nfilter_request_var($field_html));
+		$array[$field_index] = get_nfilter_request_var($field_html);
+	}
 }
 
 function import_template($report_template, $data_template_id) {

@@ -102,11 +102,11 @@ foreach ($timezones as $tmz => $value) {
 
 //Schedule frequency
 $frequency = array(
-	'daily',
-	'weekly',
-	'monthly',
-	'quarterly',
-	'yearly'
+	'daily'     => __('Daily', 'reportit'),
+	'weekly'    => __('Weekly', 'reportit'),
+	'monthly'   => __('Monthly', 'reportit'),
+	'quarterly' => __('Quarterly', 'reportit'),
+	'yearly'    => __('Yearly', 'reportit')
 );
 
 // Maximum number of files an archive can contain

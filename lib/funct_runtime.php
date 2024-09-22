@@ -165,15 +165,6 @@ function &get_report_definitions($report_id) {
 	return $report_definitions;
 }
 
-function get_runtime($start_time, $end_time) {
-	// Calculate the time a script needs for execution
-	list($startmsec, $startsec) = explode(' ', $start_time);
-	list($endmsec, $endsec)     = explode(' ', $end_time);
-	$runtime = round(($endmsec+$endsec) - ($startmsec+$startsec), 1);
-
-	return $runtime;
-}
-
 function day_to_number($day) {
 	switch($day) {
 	case __('Monday', 'reportit'):

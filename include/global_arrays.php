@@ -115,10 +115,11 @@ $report_time_frames = array(
 
 
 $report_schedule_frequency = array(
-	1 => __('daily', 'reportit'),
-	2 => __('weekly', 'reportit'),
-	3 => __('monthly', 'reportit'),
-	4 => __('yearly', 'reportit'),
+	1 => __('Daily', 'reportit'),
+	2 => __('Weekly', 'reportit'),
+	3 => __('Monthly', 'reportit'),
+	5 => __('Quarterly', 'reportit'),
+	4 => __('Yearly', 'reportit'),
 );
 
 

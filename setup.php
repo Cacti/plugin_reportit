@@ -374,20 +374,24 @@ function reportit_config_arrays() {
 		$temp = array(
 			'reportit_templates__1' => array(
 				'message' => __('No data source item selected', 'reportit'),
-				'type' => 'error'),
+				'type' => 'error'
+			),
 			'reportit_templates__2' => array(
 				'message' => __('Unselected data source items are still in use', 'reportit'),
-				'type' => 'error'),
+				'type' => 'error'
+			),
 			'reportit_templates__3' => array(
 				'message' => __('Unable to unlock this template without defined measurands', 'reportit'),
-				'type' => 'error'),
+				'type' => 'error'
+			),
 		);
+
 		$messages += $temp;
 	}
 }
 
 function reportit_config_settings() {
-	global $tabs, $tabs_graphs, $settings, $graph_dateformats, $graph_datechar, $settings_graphs, $config;
+	global $tabs, $tabs_graphs, $settings, $settings_user, $config, $item_rows;
 
 	/* presets */
 	$datetime              = array(__('local', 'reportit'), __('global', 'reportit'));
@@ -522,16 +526,19 @@ function reportit_config_settings() {
 		),
 	);
 
-	if (isset($settings['reports'])) {
-		$settings['reports'] = array_merge($settings_graphs, $temp);
+	if (isset($settings['reports']) && cacti_sizeof($settings['reports'])) {
+		$settings['reports'] = array_merge($settings['reports'], $temp);
 	} else {
 		$settings['reports'] = $temp;
 		unset($temp);
 	}
 
-	//Extension of graph settings
-	$tabs_graphs['reportit'] = __('ReportIt General Settings', 'reportit');
-	$temp =  array(
+	$user_temp = array(
+		'reportit_general_header' => array(
+			'friendly_name' => __('Report View Settings', 'reportit'),
+			'method'        => 'spacer',
+			'collapsible'   => 'true'
+		),
 		'reportit_view_filter' => array(
 			'friendly_name' => __('Separate Report View Filter', 'reportit'),
 			'description'   => __('Enable/disable the use of an individual filter per report.', 'reportit'),
@@ -541,12 +548,12 @@ function reportit_config_settings() {
 		'reportit_max_rows' => array(
 			'friendly_name' => __('Rows Per Page', 'reportit'),
 			'description'   => __('The number of rows to display on a single page.', 'reportit'),
-			'method'        => 'textbox',
-			'max_length'    => '3',
+			'method'        => 'drop_array',
+			'array'         => $item_rows,
 			'default'       => '25',
 		),
 		'reportit_csv_header' => array(
-			'friendly_name' => __('ReportIt Export Settings', 'reportit'),
+			'friendly_name' => __('Report Export Settings', 'reportit'),
 			'method'        => 'spacer',
 			'collapsible'   => 'true'
 		),
@@ -555,29 +562,51 @@ function reportit_config_settings() {
 			'description'   => __('The column separator to be used for CSV exports.', 'reportit'),
 			'method'        => 'drop_array',
 			'array'         => $csv_column_separator,
-			'default'       => '1',
+			'default'       => 0,
 		),
 		'reportit_csv_decimal_s' => array(
 			'friendly_name' => __('CSV Decimal Separator', 'reportit'),
 			'description'   => __('The symbol indicating the end of the integer part and the beginning of the fractional part.', 'reportit'),
 			'method'        => 'drop_array',
 			'array'         => $csv_decimal_separator,
-			'default'       => '1',
+			'default'       => 0,
 		),
 	);
 
-	if (isset($setting_graphs['reportit'])) {
-		$settings['reportit'] = array_merge($settings_graphs['reportit'],$temp);
+	if (isset($settings_user['reportit']) && cacti_sizeof($settings_user['reportit'])) {
+		$settings_user['reportit'] = array_merge($settings_user['reportit'], $user_temp);
 	} else {
-		$settings['reportit'] = $temp;
+		$settings_user['reportit'] = $user_temp;
 	}
 
-	unset($temp);
+	/**
+	 * default user settings will be placed into settings table as system
+	 * defaults.
+	 */
+	if (isset($settings['reports']) && cacti_sizeof($settings['reports'])) {
+		$settings['reports'] = array_merge($settings['reports'], $user_temp);
+	} else {
+		$settings['reports'] = $user_temp;
+	}
 
-	foreach ($settings['reportit'] as $key => $value ){
-		if ( array_key_exists('default', $value) ){
-			set_config_option($key,$value['default']);
+	unset($user_temp);
+
+	foreach ($settings['reports'] as $key => $value ){
+		if (array_key_exists('default', $value) ){
+			if (!db_setting_exists($key)) {
+//				set_config_option($key, $value['default']);
+			}
 		}
+	}
+}
+
+function db_setting_exists($setting) {
+	$results = db_fetch_row_prepared('SELECT * FROM settings WHERE name = ?', array($setting));
+
+	if (cacti_sizeof($results)) {
+		return true;
+	} else {
+		return false;
 	}
 }
 
