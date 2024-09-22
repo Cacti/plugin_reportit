@@ -29,7 +29,7 @@ function export_to_PDF(&$data) {
 function export_to_CSV(&$data) {
 	global $config, $run_scheduled;
 
-	$eol          = "\r\n";
+	$eol          = PHP_EOL;
 	$rows         = '';
 	$header       = '';
 	$info_line    = '';
@@ -231,7 +231,7 @@ function export_to_CSV(&$data) {
 function export_to_XML(&$data) {
 	global $config, $run_scheduled;
 
-	$eol       = "\r\n";
+	$eol       = PHP_EOL;
 	$add_infos = '';
 	$output    = '';
 	$header    = '';
@@ -369,8 +369,8 @@ function export_to_XML(&$data) {
 	return $output;
 }
 
-function export_to_SML(&$data){
-	$eol = "\r\n";
+function export_to_SML(&$data) {
+	$eol = PHP_EOL;
 
 	$sml_workbook	= "<Workbook xmlns=\"urn:schemas-microsoft-com:office:spreadsheet\"$eol
 		xmlns:o=\"urn:schemas-microsoft-com:office:office\"$eol
@@ -413,7 +413,7 @@ function export_to_SML(&$data){
 function new_worksheet(&$data, &$styles){
 	global $config, $run_scheduled;
 
-	$eol          = "\r\n";
+	$eol          = PHP_EOL;
 	$rows         = '';
 	$header       = '';
 	$info_line    = '';
@@ -612,7 +612,7 @@ function new_worksheet(&$data, &$styles){
 }
 
 function sml_cell($data, $row=false, $styleID=false){
-	$eol = "\r\n";
+	$eol = PHP_EOL;
 
 	$data_style = is_numeric($data) ? " ss:Type='Number'" : " ss:Type='String'";
 
