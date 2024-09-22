@@ -258,7 +258,7 @@ $form_array_scheduling = array(
 	),
 	'report_schedule_frequency' => array(
 		'friendly_name' => __('Frequency', 'reportit'),
-		'description' => __('Select the frequency for processing this report. Be sure that there\'s a cronjob (or scheduled task) running for the choice you made. This won\'t be done automatically by ReportIT.', 'reportit'),
+		'description' => __('Select the frequency for processing this Report. ReportIt has a basic scheduler that will dispatch reports at midnight each day based upon the dispatch frequency specified by the user.', 'reportit'),
 		'method' => 'drop_array',
 		'value' => '|arg1:frequency|',
 		'array' => $frequency
