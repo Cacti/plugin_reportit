@@ -2616,4 +2616,3 @@ msgstr "Позиция."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Результаты [%s]"
-
