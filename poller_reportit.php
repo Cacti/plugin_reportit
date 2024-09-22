@@ -51,6 +51,7 @@ $run_search     = array('<NOTICE>', '<RID>', '<DID>');
 $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
+$debug          = false;
 
 $path = dirname(__FILE__);
 
@@ -69,10 +70,6 @@ include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
-
-$run_scheduled = true;
-$run_id = false;
-$debug = false;
 
 global $debug;
 
@@ -159,7 +156,7 @@ if ($run_id) {
 
 /*  display_version - displays version information */
 function display_version() {
-    $version = get_cacti_version();
+    $version = plugin_reportit_version()['version'];
     print "ReportIt Main Poller, Version $version, " . COPYRIGHT_YEARS . PHP_EOL;
 }
 
