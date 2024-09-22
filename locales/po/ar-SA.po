@@ -2606,4 +2606,3 @@ msgstr "الترتيب."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "النتائج [٪ s]"
-
