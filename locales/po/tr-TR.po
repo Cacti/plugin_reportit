@@ -2614,4 +2614,3 @@ msgstr "Sıra No"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Sonuçlar [ %s]"
-
