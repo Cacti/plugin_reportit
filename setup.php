@@ -258,7 +258,7 @@ function reportit_draw_navigation_text ($nav) {
 		'level' => '2');
 
 	$nav['measurands.php:'] = array(
-		'title' => __('Measurands', 'reportit'),
+		'title' => __('Metrics', 'reportit'),
 		'mapping' => 'index.php:,templates.php:',
 		'url' => 'templates.php',
 		'level' => '2');

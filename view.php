@@ -606,7 +606,7 @@ function show_report() {
 				<table class='filterTable'>
 					<tr>
 						<td>
-							<?php print __('Measurand', 'reportit');?>
+							<?php print __('Metric', 'reportit');?>
 						</td>
 						<td>
 							<select id='measurand'>
@@ -1001,7 +1001,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 						}
 
 						print "<tr class='tableHeader'>
-							<td colspan='2' class='textHeaderDark'>" . __esc('Measurand: %s (%s)', $title, $mea[$id]['abbreviation'], 'reportit') . '</td>
+							<td colspan='2' class='textHeaderDark'>" . __esc('Metric: %s (%s)', $title, $mea[$id]['abbreviation'], 'reportit') . '</td>
 						</tr>';
 
 						$graph_data = array();

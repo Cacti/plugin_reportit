@@ -391,10 +391,10 @@ function runtime($report_id) {
 
 	$cache     = array();
 	$df_cache  = array();	//Functions > Multi-dimensional
-	$dm_cache  = array();	//Measurands
+	$dm_cache  = array();	//Metrics
 	$dr_cache  = array();	//Interim results
 	$dp_cache  = array();	//Functions with parameters >Multi-dimensional
-	$ds_cache  = array();	//Measurands with flag 'spanned'
+	$ds_cache  = array();	//Metrics with flag 'spanned'
 
 	foreach($rra_types as $rra_type) {
 		foreach($calc_fct_names as $value) {
@@ -417,7 +417,7 @@ function runtime($report_id) {
 		$dm_cache[$array['abbreviation']] = $array['calc_formula'];
 	}
 
-	debug($dm_cache, 'Defined Cache > Measurands');
+	debug($dm_cache, 'Defined Cache > Metrics');
 
 	$cache = get_possible_rra_names($report_definitions['report']['template_id']);
 
@@ -428,8 +428,8 @@ function runtime($report_id) {
 		}
 	}
 
-	debug($cache, 'Data sources - Definition by Cacti');
-	debug($dr_cache, 'Defined Cache > Interim results');
+	debug($cache, 'Data Sources - Definition by Cacti');
+	debug($dr_cache, 'Defined Cache > Interim Results');
 
 	$cache	= $report_definitions['measurands'];
 	foreach($cache as $mm) {
@@ -438,7 +438,7 @@ function runtime($report_id) {
 		}
 	}
 
-	debug($ds_cache, 'Defined Cache > Measurands (spanned)');
+	debug($ds_cache, 'Defined Cache > Metrics (spanned)');
 	/************************************************************************************/
 
 	//----- Start analysing each RRD -----

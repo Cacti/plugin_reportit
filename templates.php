@@ -135,7 +135,7 @@ function template_tabs($id) {
 	$tabs = array(
 		'general'    => __('General', 'reportit'),
 		'variables'  => __('Variables', 'reportit'),
-		'measurands' => __('Measurands', 'reportit')
+		'measurands' => __('Metrics', 'reportit')
 	);
 
 	$tabs = api_plugin_hook_function('reportit_template_tabs', $tabs);
@@ -612,7 +612,7 @@ function templates() {
 			'align'   => 'left'
 		),
 		'nosort3' => array(
-			'display' => __('Measurands', 'reportit'),
+			'display' => __('Metrics', 'reportit'),
 			'align'   => 'left',
 			'sort'    => 'ASC'
 		),
@@ -1563,14 +1563,14 @@ function form_actions() {
 		if (get_request_var('drp_action') == '2') { //DELETE REPORT
 			print "<tr class='odd'>
 				<td class='textArea'>
-					<p>" . __('Click \'Continue\' to Delete the following Measurands.  Notice: If there are no other Measurands left after this process, the Report Template will be locked automatically.', 'reportit') . '<p>';
+					<p>" . __('Click \'Continue\' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically.', 'reportit') . '<p>';
 
 			if (is_array($ds_list)) {
 				print '<p>' . __('List of selected measurands:', 'reportit') . '</p>';
 				print '<div class="itemlist"><ul>';
 
 				foreach($ds_list as $key => $value) {
-					print '<li>' . __('Measurand: %s', $key, 'reportit') . '</li>';
+					print '<li>' . __('Metric: %s', $key, 'reportit') . '</li>';
 				}
 
 				print '</ul></div>';
@@ -1587,7 +1587,7 @@ function form_actions() {
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 			} else {
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Measurands', 'reportit') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Metrics', 'reportit') . "'>";
 			}
 		}
 
@@ -1898,9 +1898,9 @@ function measurand_edit() {
 			WHERE id = ?',
 			array(get_request_var('id')));
 
-		$header_label = __('Measurand Configuration [ edit: %s - %s ]', $template['name'], $measurand_data['description'], 'reportit');
+		$header_label = __('Metric Configuration [ edit: %s - %s ]', $template['name'], $measurand_data['description'], 'reportit');
 	} else {
-		$header_label = __('Measurand Configuration [new]', 'reportit');
+		$header_label = __('Metric Configuration [new]', 'reportit');
 	}
 
 	$form_array = array(
@@ -2096,7 +2096,7 @@ function measurands() {
 
 	$i = 0;
 
-	$header_label = __("Measurands [ Template: %s - %s ]", $template['name'], $template['description'], 'reportit');
+	$header_label = __("Metrics [ Template: %s - %s ]", $template['name'], $template['description'], 'reportit');
 
 	form_start('templates.php?action=template_edit&tab=measurands&template_id=' . get_request_var('id'));
 
@@ -2132,7 +2132,7 @@ function measurands() {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="' . (cacti_sizeof($display_text)+1) . '"><em>' . __('No Measurands Found', 'reportit') . '</em></td></tr>';
+		print '<tr><td colspan="' . (cacti_sizeof($display_text)+1) . '"><em>' . __('No Metrics Found', 'reportit') . '</em></td></tr>';
 	}
 
 	$form_array = array(

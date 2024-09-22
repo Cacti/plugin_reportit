@@ -423,10 +423,10 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 	$results = array();
 
 	$f_cache = $df_cache;	//Functions
-	$m_cache = $dm_cache;	//Measurands
+	$m_cache = $dm_cache;	//Metrics
 	$r_cache = $dr_cache;	//Interim results
 	$p_cache = $dp_cache;	//Functions with parameters
-	$s_cache = $ds_cache;	//Measurands with flag "spanned"
+	$s_cache = $ds_cache;	//Metrics with flag "spanned"
 
 	$n_rra   = $params['rrd_ds_cnt'];
 	$ds_namv = $params['rras'];

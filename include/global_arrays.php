@@ -72,7 +72,7 @@ $report_template_display_text = array(
 		__('Name', 'reportit'),
 		__('Generic ID', 'reportit'),
 		__('Elements', 'reportit'),
-		__('Measurands', 'reportit'),
+		__('Metrics', 'reportit'),
 		__('Associated Data Templates', 'reportit'),
 	)
 );
@@ -81,7 +81,7 @@ $report_template_tabs = array(
 	'general'        => __esc('General', 'reportit'),
 	'data_templates' => __esc('Data Templates', 'reportit'),
 	'groups'         => __esc('Groups', 'reportit'),
-	'measurands'     => __esc('Measurands', 'reportit'),
+	'measurands'     => __esc('Metrics', 'reportit'),
 	'variables'      => __esc('Variables', 'reportit'),
 );
 

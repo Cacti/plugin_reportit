@@ -35,7 +35,7 @@ $desc_array = array(
 	'Data Template',
 	'Pre-filter',
 	'Locked',
-	'Measurands',
+	'Metrics',
 	'Variables'
 );
 
