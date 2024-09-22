@@ -2616,4 +2616,3 @@ msgstr "號碼"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "結果[％s]"
-
