@@ -2614,4 +2614,3 @@ msgstr "स्थिति।"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "परिणाम [ %s]"
-
