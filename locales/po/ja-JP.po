@@ -2611,4 +2611,3 @@ msgstr "位置。"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "結果[％s]"
-
