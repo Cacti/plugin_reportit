@@ -46,7 +46,7 @@ $run_return     = array();
 $run_freq       = '';
 $run_id         = false;
 $run_verb       = false;
-$run_scheduled  = false;
+$run_scheduled  = true;
 $run_search     = array('<NOTICE>', '<RID>', '<DID>');
 $socket_handle  = '';
 $email_counter  = 0;
@@ -83,7 +83,7 @@ if (cacti_sizeof($parms)) {
 		}
 
 		switch($arg) {
-			case '--id':
+			case '--report-id':
 				$run_id = $value;
 
 				break;
@@ -164,19 +164,19 @@ function display_help() {
 	display_version();
 
 	print PHP_EOL;
-	print 'usage: poller_reportit.php [-d | -w | -m | -q | -y | --id=N ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
+	print 'usage: poller_reportit.php [-d | -w | -m | -q | -y | --report-id=N ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
     print 'Cacti\'s ReportIt main poller.  This poller is the launcher for ReportIt reports.' . PHP_EOL . PHP_EOL;
 	print 'Provide either of the following:' . PHP_EOL;
-	print '    --id=N       Run as specific report now' . PHP_EOL;
+	print '  --report-id=N  Run as specific report now' . PHP_EOL;
 	print 'or:' . PHP_EOL;
-	print '    -d           Run the Daily Reports' . PHP_EOL;
-	print '    -w           Run the Weekly Reports' . PHP_EOL;
-	print '    -m           Run the Monthy Reports' . PHP_EOL;
-	print '    -q           Run the Quarterly Reports' . PHP_EOL;
-	print '    -y           Run the Yearly Reports' . PHP_EOL . PHP_EOL;
+	print '  -d             Run the Daily Reports' . PHP_EOL;
+	print '  -w             Run the Weekly Reports' . PHP_EOL;
+	print '  -m             Run the Monthy Reports' . PHP_EOL;
+	print '  -q             Run the Quarterly Reports' . PHP_EOL;
+	print '  -y             Run the Yearly Reports' . PHP_EOL . PHP_EOL;
 	print 'Optional:' . PHP_EOL;
-	print '    --debug      Provide debug output' . PHP_EOL;
-	print '    --verbose    Provide verbose output' . PHP_EOL . PHP_EOL;
+	print '  --debug        Provide debug output' . PHP_EOL;
+	print '  --verbose      Provide verbose output' . PHP_EOL . PHP_EOL;
 }
 
 function run($frequency) {
@@ -214,10 +214,12 @@ function run($frequency) {
 		foreach($reports as $report) {
 			if (!get_template_status($report['template_id'])) {
 				$report_id = $report['id'];
+
 				runtime($report_id);
 			} else {
 				$report_id = $report['id'];
 				run_error(10, $report_id);
+
 				continue;
 			}
 		}
@@ -253,7 +255,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice = '') {
 	if (strpos($run_logging, 'ERROR:') !== false) {
 		$log_level = POLLER_VERBOSITY_LOW;
 	} elseif (strpos($run_logging, 'WARNING:') !== false) {
-		$log_level = POLLER_VERBOSITY_MEDIUM;
+		$log_level = POLLER_VERBOSITY_LOW;
 	} elseif (strpos($run_logging, 'NOTICE:') !== false) {
 		$log_level = POLLER_VERBOSITY_MEDIUM;
 	}
@@ -326,12 +328,13 @@ function runtime($report_id) {
 	debug($report_definitions, 'Definitions');
 
 	//----- Define variable for dynamic time frame -----
-	$dynamic     = $report_definitions['report']['sliding'];
+	$dynamic     = $report_definitions['report']['sliding'] == 'on' ? true:false;
 	$enable_tmz  = read_config_option('reportit_use_tmz');
 	$dst_support = check_DST_support();
 
 	//----- Update start and enddate by using presets -----
 	if ($dynamic) {
+print "Smitten" . PHP_EOL;
 		$dates = rp_get_timespan($report_definitions['report']['preset_timespan'], $report_definitions['report']['present'], $enable_tmz);
 
 		$report_definitions['report']['start_date'] = $dates['start_date'];
@@ -450,7 +453,7 @@ function runtime($report_id) {
 		$data_source_path 	= get_data_source_path($local_data_id, true);
 
 		if ($data_source_path == '') {
-			run_error(5, $report_id, $local_data_id, 'Not existing RRD file.');
+			run_error(5, $report_id, $local_data_id, 'Non existing RRD file.');
 
 			continue;
 		}
@@ -458,12 +461,12 @@ function runtime($report_id) {
 		//----- See if the file exists -----
 		if (read_config_option('storage_location') > 0) {
 			if (!rrdtool_execute("file_exists $data_source_path", false, RRDTOOL_OUTPUT_BOOLEAN, $rrdtool_pipe, 'REPORTIT')) {
-				run_error(5, $report_id, $local_data_id, 'Not existing RRD file.');
+				run_error(5, $report_id, $local_data_id, 'Non existing RRD file.');
 
 				continue;
 			}
 		} elseif (!file_exists($data_source_path)) {
-			run_error(5, $report_id, $local_data_id, 'Not existing RRD file.');
+			run_error(5, $report_id, $local_data_id, 'Non existing RRD file.');
 
 			continue;
         }
@@ -845,6 +848,7 @@ function runtime($report_id) {
 
 	//----- Archive / Email -----
 	if ($run_scheduled) {
+
 		/* update the XML Archive */
 		if (read_config_option('reportit_archive') == 'on') {
 			update_xml_archive($report_id);

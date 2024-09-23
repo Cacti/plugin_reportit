@@ -191,54 +191,57 @@ function day_to_number($day) {
 	}
 }
 
-function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_duration,
+function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_duration,
 	$rrd_sp, $rrd_ep, $rrd_step, $rrd_ds_cnt, $dst_support) {
 
-	/*-----------------------------------------------------------------------------------------------------------
-		Calculate all included weekdays
-		For a great report duration it's more efficient to use time vectors instead of 'get weekday function'
+	/**
+	 * -----------------------------------------------------------------------------------------------------------
+	 * Calculate all included weekdays
+	 * For a great report duration it's more efficient to use time vectors instead of 'get weekday function'
 
-		Variables:  $wdays          => includes all ids of weekdays which are include
-					$dis            => means the distance vector for all included days
-					$off            => means the offset vector for all not included days
-					$rrd_ad_data    => Return value of this function. An array that includes all important
-									   information to grep the adapted data out of the rrd_data array.
-	-----------------------------------------------------------------------------------------------------------*/
+	 * Variables:
+	 *    $wdays        => includes all ids of weekdays which are include
+	 *    $dis          => means the distance vector for all included days
+	 *    $off          => means the offset vector for all not included days
+	 *    $rrd_ad_data  => Return value of this function. An array that includes all important
+	 *                     information to grep the adapted data out of the rrd_data array.
+	 * -----------------------------------------------------------------------------------------------------------
+	 */
 
-	//----- Calculate all included weekdays -----
+	// ----- Calculate all included weekdays -----
 	switch ($startday) {
-	case $startday == $endday:                //e.g. 'Monday till Monday => includes only Monday!'
-		$wdays[] = ($startday == 7) ? 0 : $startday;
-		$dis = 0;
-		$off = 7;
-
-		break;
-	case $startday <  $endday:                    //e.g. 'Monday till Friday => includes Mo, Tu, Wed, Thu and Fr
-		$dis  = $endday - $startday;
-		$off  = 7 - $dis;
-
-		for ($startday; $startday <= $endday; $startday++) {
-			$wdays[] = $startday;
-		}
-
-		if ($endday == 7) {
-			$wdays[] = 0;
-		}
-
-		break;
-	case $startday > $endday:                //e.g. 'Friday till Monday => includes Fr, Sat, Sun, Mo'
-		$dis = 7 - $startday + $endday;
-		$off = 7 - $dis;
-
-		for ($startday; $startday <= 7; $startday++) {
+		case $startday == $endday:         // e.g. 'Monday till Monday => includes only Monday!'
 			$wdays[] = ($startday == 7) ? 0 : $startday;
-		}
+			$dis = 0;
+			$off = 7;
 
-		for ($offset = 1; $offset <= $endday; $offset++) {
-			$wdays[] = $offset;
-		}
+			break;
+		case $startday < $endday:         // e.g. 'Monday till Friday => includes Mo, Tu, Wed, Thu and Fr
+			$dis  = $endday - $startday;
+			$off  = 7 - $dis;
 
-		break;
+			for ($startday; $startday <= $endday; $startday++) {
+				$wdays[] = $startday;
+			}
+
+			if ($endday == 7) {
+				$wdays[] = 0;
+			}
+
+			break;
+		case $startday > $endday:          // e.g. 'Friday till Monday => includes Fr, Sat, Sun, Mo'
+			$dis = 7 - $startday + $endday;
+			$off = 7 - $dis;
+
+			for ($startday; $startday <= 7; $startday++) {
+				$wdays[] = ($startday == 7) ? 0 : $startday;
+			}
+
+			for ($offset = 1; $offset <= $endday; $offset++) {
+				$wdays[] = $offset;
+			}
+
+			break;
 	}
 
 	if ($endday == 7) {
@@ -246,28 +249,28 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 	}
 
 	// boost the calculation if all weekdays are required and step or shift are covering the whole day
-	if (($dis == 6 && $off == 1 && $shift_duration == 86400) || ($dis == 6 && $off ==1 && $rrd_step == 86400)) {
+	if (($dis == 6 && $off == 1 && $shift_duration == 86400) || ($dis == 6 && $off == 1 && $rrd_step == 86400)) {
 		$rrd_ad_data['index'][0] = abs(($rrd_ep-($rrd_sp-$rrd_step))/$rrd_step);
 
 		return $rrd_ad_data;
 	}
 
-	//----- Calculate number of rrd_steps for enclosing a 'normal' shift -----
+	// ----- Calculate number of rrd_steps for enclosing a 'normal' shift -----
 	$rrd_ad_data['steps'] = abs(ceil($shift_duration/$rrd_step));
-	//------------------------------------------------------------------------
+	// ------------------------------------------------------------------------
 
-	//----- Calculate all starting points which will be included in report duration -----
+	// ----- Calculate all starting points which will be included in report duration -----
 	// Using "classic" way until first endday is found.
 	// Set preconditions
 	$date   = getdate($f_sp);
 	$index  = 0;
 
-	for ($f_sp; $f_sp <= $l_sp; $f_sp+=86400, $date=getdate($f_sp)) {
-		//Number of steps
+	for ($f_sp; $f_sp <= $l_sp; $f_sp += 86400, $date = getdate($f_sp)) {
+		// Number of steps
 		$steps = $rrd_ad_data['steps'];
 		$tmz_change = false;
 
-		//If the timezone changes between the current and the following day than...
+		// If the timezone changes between the current and the following day than...
 		if ($dst_support) {
 			$nextday = getdate($f_sp + 86400);
 
@@ -278,78 +281,78 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 					$tmz_change += 24;
 				}
 
-				//...check if there is a change during the shift
+				// ...check if there is a change during the shift
 				$shift_ep  = $f_sp + $shift_duration;
 				$shift_end = getdate($shift_ep);
 				if ($shift_end['hours'] != $e_hour) {
-					//...than modify its endpoint
+					// ...than modify its endpoint
 					$shift_ep += $tmz_change*3600;
 				}
 			}
 		}
 
-		//Memorize the correct index number if the current wday matches and ...
-		if (in_array($date['wday'],$wdays)) {
-			//...calculate start point's index
+		// Memorize the correct index number if the current wday matches and ...
+		if (in_array($date['wday'], $wdays)) {
+			// ...calculate start point's index
 			$index = floor(($f_sp - $rrd_sp)/$rrd_step+1);
 
-			//...if the tmz has been changed calculate the new number of rrd_steps
+			// ...if the tmz has been changed calculate the new number of rrd_steps
 			if ($tmz_change) {
 				$steps = floor(($shift_ep - $rrd_sp)/$rrd_step+1) - $index;
 			}
 
-			//...check if the number of steps is to high (Option: "Down to present day")
+			// ...check if the number of steps is to high (Option: "Down to present day")
 			if ($rrd_ep < $f_sp + $steps*$rrd_step) {
 				$steps = floor(($rrd_ep - $rrd_sp)/$rrd_step+1) - $index;
 			}
 
-			//...save the index and the number of rrd_steps for enclosing the current shift
+			// ...save the index and the number of rrd_steps for enclosing the current shift
 			$rrd_ad_data['index'][$index] = $steps;
 		}
 
-		//If the first endday is reached switch over to use time vectors instead
+		// If the first endday is reached switch over to use time vectors instead
 		if ($date['wday'] == $endday) {
 			break;
 		}
 
-		//...correct the start point if we found one change of tmz
+		// ...correct the start point if we found one change of tmz
 		if ($tmz_change) {
 			$f_sp += $tmz_change*3600;
 		}
 	}
 
-	//-----------------------------------------------------------------------------------
-	//----- Calculate all starting points which will be included in report duration -----
-	//Using time vectors until end is reached.
+	// -----------------------------------------------------------------------------------
+	// ----- Calculate all starting points which will be included in report duration -----
+	// Using time vectors until end is reached.
 
-	//Set preconditions
+	// Set preconditions
 	$offs = 0;
 	$ldis = 0;
 	$tmz_change = false;
 
-	//Information about the last connection point
+	// Information about the last connection point
 	$date = getdate($f_sp);
 
 	while ($f_sp < $l_sp) {
-		//Reset last distance vector
+		// Reset last distance vector
 		$ldis = 0;
 
-		//Offset: Set starting point to the next duration
+		// Offset: Set starting point to the next duration
 		$f_sp += ($off * 86400);
 
-		//Count number of offsets
+		// Count number of offsets
 		$offs++;
 
-		//Distance: Start searching important timestamps
+		// Distance: Start searching important timestamps
 		for ($f_sp, $i=$dis; $f_sp <= $l_sp AND $i>=0; $f_sp+=86400, $i--) {
 			$date = getdate($f_sp);
 
-			//Number of steps
+			// Number of steps
 			$steps      = $rrd_ad_data['steps'];
 			$tmz_change = false;
 
 			if ($dst_support) {
-				//If the timezone changes between the current and the following day than...
+				// If the timezone changes between the current and the following day than...
 				$nextday = getdate($f_sp + 86400);
 
 				if ($date['hours'] != $nextday['hours']) {
@@ -359,46 +362,46 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 						$tmz_change += 24;
 					}
 
-					//...check if there is a change during the shift
+					// ...check if there is a change during the shift
 					$shift_ep   = $f_sp + $shift_duration;
 					$shift_end  = getdate($shift_ep);
 
 					if ($shift_end['hours'] != $e_hour) {
-						//...than modify its endpoint
+						// ...than modify its endpoint
 						$shift_ep += $tmz_change*3600;
 					}
 				}
 			}
 
-			//Memorize the correct index number:
-			//...calculate start point's index
+			// Memorize the correct index number:
+			// ...calculate start point's index
 			$index = floor(($f_sp - $rrd_sp)/$rrd_step+1);
 
-			//...if the tmz has been changed calculate the new number of rrd_steps
+			// ...if the tmz has been changed calculate the new number of rrd_steps
 			if ($tmz_change) {
 				$steps = floor(($shift_ep - $rrd_sp)/$rrd_step+1) - $index;
 			}
 
-			//...check if the number of steps is to high (Option: "Down to present day")
+			// ...check if the number of steps is to high (Option: "Down to present day")
 			if ($rrd_ep < $f_sp + $steps*$rrd_step) {
 				$steps = floor(($rrd_ep - $rrd_sp)/$rrd_step+1) - $index;
 			}
 
-			//...correct the start point if we found one change of tmz
+			// ...correct the start point if we found one change of tmz
 			if ($tmz_change) {
 				$f_sp += $tmz_change*3600;
 			}
 
-			//...update $date
+			// ...update $date
 			$date = getdate($f_sp);
 
-			//...save the index and the number of rrd_steps for enclosing the current shift
+			// ...save the index and the number of rrd_steps for enclosing the current shift
 			$rrd_ad_data['index'][$index] = $steps;
 
-			//Update last distance vector
+			// Update last distance vector
 			$ldis++;
 
-			//Break out if $l_sp has been exceeded
+			// Break out if $l_sp has been exceeded
 			if ($f_sp > $l_sp){
 				if ($ldis == 0) {
 					$offs--;
@@ -408,24 +411,24 @@ function &get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_
 			}
 		}
 
-		//For loop requires a correction of the timespamp
+		// For loop requires a correction of the timespamp
 		$f_sp -= 86400;
 
-		//Prevent a loop after change of tmz
+		// Prevent a loop after change of tmz
 		if ($l_sp - $f_sp < 86400) {
 			break;
 		}
 	}
-	//-----------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------
 
-	//Check whether a valid startpoint has been found
+	// Check whether a valid startpoint has been found
 	if (!isset($rrd_ad_data['index'])) {
 		$status = false;
 
 		return $status;
 	}
 
-	//----- Finish -----
+	// ----- Finish -----
 	return $rrd_ad_data;
 }
 

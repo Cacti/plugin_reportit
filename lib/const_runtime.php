@@ -63,22 +63,22 @@ $timezones = array(
 
 
 $runtime_messages = array(
-	1 => 'REPORTIT ERROR: PHP module for RRDtool is not available.',
-	2 => 'REPORTIT ERROR: No data items defined. RIReport[<RID>]',
-	3 => 'REPORTIT ERROR: Startpoint is a part of future. RIReport[<RID>] RIDataItem[<DID>]',
-	4 => 'REPORTIT ERROR: No valid data found. Check your configuration. RIReport[<RID>]',
-	5 => 'REPORTIT WARNING: RRDfetch: <NOTICE> RIReport[<RID>] RIDataItem[<DID>]',
-	6 => 'REPORTIT WARNING: End of working time is a part of future. Can only calculate data till now. RIReport[<RID>] RIDataItem[<DID>]',
-	7 => 'REPORTIT WARNING: No startpoints available. Check your working days! RIReport[<RID>] RIDataItem[<DID>]',
-	8 => 'REPORTIT WARNING: No values available. RIReport[<RID>] RIDataItem[<DID>]',
-	9 => 'REPORTIT ERROR: Unable to connect to RRDtool server.',
-	10 => 'REPORTIT ERROR: Data template for RIReport[<RID>] has been locked during the scheduled task',
-	11 => 'REPORTIT WARNING: Unknown timezone: <NOTICE>. Please update configuration of Report [<RID>] RIDataItem[<DID>]',
-	12 => 'REPORTIT ERROR: <NOTICE> RIReport[<RID>]',
-	13 => 'REPORTIT WARNING: <NOTICE> RIReport[<RID>]',
-	14 => 'REPORTIT STATS: <NOTICE> RIReport[<RID>]',
-	15 => 'REPORTIT WARNING: <NOTICE>',
-	16 => 'REPORTIT NOTICE: <NOTICE>',
-	17 => 'REPORTIT ERROR: <NOTICE>'
+	1 => 'ERROR: PHP module for RRDtool is not available.',
+	2 => 'ERROR: No data items defined. RIReport[<RID>]',
+	3 => 'ERROR: Startpoint is a part of future. RIReport[<RID>] RIDataItem[<DID>]',
+	4 => 'ERROR: No valid data found. Check your configuration. RIReport[<RID>]',
+	5 => 'WARNING: RRDfetch: <NOTICE> RIReport[<RID>] RIDataItem[<DID>]',
+	6 => 'WARNING: End of working time is a part of future. Can only calculate data till now. RIReport[<RID>] RIDataItem[<DID>]',
+	7 => 'WARNING: No startpoints available. Check your working days! RIReport[<RID>] RIDataItem[<DID>]',
+	8 => 'WARNING: No values available. RIReport[<RID>] RIDataItem[<DID>]',
+	9 => 'ERROR: Unable to connect to RRDtool server.',
+	10 => 'ERROR: Data Template for RIReport[<RID>] has been locked during the scheduled task',
+	11 => 'WARNING: Unknown timezone: <NOTICE>. Please update configuration of Report [<RID>] RIDataItem[<DID>]',
+	12 => 'ERROR: <NOTICE> RIReport[<RID>]',
+	13 => 'WARNING: <NOTICE> RIReport[<RID>]',
+	14 => 'STATS: <NOTICE> RIReport[<RID>]',
+	15 => 'WARNING: <NOTICE>',
+	16 => 'NOTICE: <NOTICE>',
+	17 => 'ERROR: <NOTICE>'
 );
 
