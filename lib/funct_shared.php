@@ -1309,7 +1309,11 @@ function send_scheduled_email($report_id){
 		}
 	}
 
-	return mailer($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
+	$return = mailer($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
+
+	unlink($filename);
+
+	return $return;
 }
 
 function xml_to_string($xml_object, $keep_spaces = true) {

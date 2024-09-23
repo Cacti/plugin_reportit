@@ -334,7 +334,6 @@ function runtime($report_id) {
 
 	//----- Update start and enddate by using presets -----
 	if ($dynamic) {
-print "Smitten" . PHP_EOL;
 		$dates = rp_get_timespan($report_definitions['report']['preset_timespan'], $report_definitions['report']['present'], $enable_tmz);
 
 		$report_definitions['report']['start_date'] = $dates['start_date'];
@@ -1137,16 +1136,17 @@ function autoexport($report_id) {
 	/* define the correct report folder */
 	if ($template_folder != '') {
 		$template_folder .= (substr($template_folder, -1) == '/') ? '' : '/';
-		$report_folder = $template_folder . "$report_id/";
+		$report_folder    = $template_folder . "$report_id/";
 	} else {
 		/* check if main export folder is available */
 		if (!is_dir($main_folder)) {
 			run_error(17, $report_id, 0, 'Main export folder does not exist.');
+
 			return false;
 		}
 
 		$template_folder = $main_folder . "$template_id/";
-		$report_folder = $template_folder . "$report_id/";
+		$report_folder   = $template_folder . "$report_id/";
 	}
 
 	/* check if the template folder is available or try to create it */
@@ -1154,7 +1154,7 @@ function autoexport($report_id) {
 		run_error(16, $report_id, 0, "Export folder '$template_folder' does not exist.");
 
 		/* try to create that folder */
-		if (@mkdir($template_folder,0755) == false) {
+		if (mkdir($template_folder, 0755, true) == false) {
 			run_error(17, $report_id, 0, "Unable to create export folder '$template_folder'.");
 			return false;
 		} else {
@@ -1167,8 +1167,9 @@ function autoexport($report_id) {
 		run_error(16, $report_id, 0, "Export folder '$report_folder' does not exist.");
 
 		/* try to create that folder */
-		if (@mkdir($report_folder,0755) == false) {
+		if (mkdir($report_folder, 0755, true) == false) {
 			run_error(17, $report_id, 0, "Unable to create export folder '$report_folder'.");
+
 			return false;
 		} else {
 			run_error(16, $report_id, 0, "New export folder '$report_folder' created.");
@@ -1214,14 +1215,20 @@ function autoexport($report_id) {
 		}
 	}
 
-	if (file_exists($report_path)) {
-		run_error(17, $report_id, 0, "Export $report_path still exists.");
+	if (file_exists($report_path) && !is_writeable($report_path)) {
+		run_error(17, $report_id, 0, "Export path $report_path is not writable.");
+
+		return false;
+	} elseif (!is_writable($report_path)) {
+		run_error(17, $report_id, 0, "Export path $report_path is not writable.");
+
 		return false;
 	} else {
 		$file_handle = fopen($report_path, 'a');
 
 		if (!$file_handle) {
 			run_error(17, $report_id, 0, "Unable to create export file.");
+
 			return false;
 		}
 

@@ -659,6 +659,8 @@ function reportit_define_constants(){
 }
 
 function reportit_poller_bottom() {
+	global $config;
+
 	$str   = '';
 	$ids   = '';
 	$cnt   = 0;
@@ -729,6 +731,8 @@ function reportit_poller_bottom() {
 		exit(0);
 	}
 
+	set_config_option('reportit_lastrun', $now);
+
 	$php_binary = read_config_option('path_php_binary');
 
 	if (date('z', $lastrun) != date('z', $now)) {
@@ -736,13 +740,13 @@ function reportit_poller_bottom() {
 		$reports = db_fetch_assoc_prepared('SELECT *
 			FROM plugin_reportit_reports
 			WHERE frequency = ?
-			AND enabled = ?',
+			AND scheduled = ?',
 			array('daily', 'on'));
 
 		if (cacti_sizeof($reports)) {
 			foreach($reports as $r) {
 				$scheduled++;
-				exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+				exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
 			}
 		}
 
@@ -751,13 +755,13 @@ function reportit_poller_bottom() {
 			$reports = db_fetch_assoc_prepared('SELECT *
 				FROM plugin_reportit_reports
 				WHERE frequency = ?
-				AND enabled = ?',
+				AND scheduled = ?',
 				array('weekly', 'on'));
 
 			if (cacti_sizeof($reports)) {
 				foreach($reports as $r) {
 					$scheduled++;
-					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
 				}
 			}
 		}
@@ -767,13 +771,13 @@ function reportit_poller_bottom() {
 			$reports = db_fetch_assoc_prepared('SELECT *
 				FROM plugin_reportit_reports
 				WHERE frequency = ?
-				AND enabled = ?',
+				AND scheduled = ?',
 				array('monthly', 'on'));
 
 			if (cacti_sizeof($reports)) {
 				foreach($reports as $r) {
 					$scheduled++;
-					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
 				}
 			}
 		}
@@ -786,13 +790,13 @@ function reportit_poller_bottom() {
 				$reports = db_fetch_assoc_prepared('SELECT *
 					FROM plugin_reportit_reports
 					WHERE frequency = ?
-					AND enabled = ?',
+					AND scheduled = ?',
 					array('quarterly', 'on'));
 
 				if (cacti_sizeof($reports)) {
 					foreach($reports as $r) {
 						$scheduled++;
-						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
 					}
 				}
 			}
@@ -803,13 +807,13 @@ function reportit_poller_bottom() {
 			$reports = db_fetch_assoc_prepared('SELECT *
 				FROM plugin_reportit_reports
 				WHERE frequency = ?
-				AND enabled = ?',
+				AND scheduled = ?',
 				array('yearly', 'on'));
 
 			if (cacti_sizeof($reports)) {
 				foreach($reports as $r) {
 					$scheduled++;
-					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
 				}
 			}
 		}
