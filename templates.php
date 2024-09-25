@@ -172,184 +172,186 @@ function template_wizard($action) {
 	global $config, $list_of_data_templates, $known_data_templates, $fields_template_export;
 
 	switch ($action) {
-	case 'new':
-		top_header();
-
-		if (isset($_SESSION['reportit_tWizard'])) {
-			unset($_SESSION['reportit_tWizard']);
-		}
-
-		form_start('templates.php', 'chk');
-
-		html_start_box(__('New Report Template', 'reportit'), '60%', '', '3', 'left', '');
-
-		if (cacti_sizeof($list_of_data_templates) == 0) {
-			print "<tr class='textArea'>
-				<td>
-					<span class='textError'>" . __('There are no Data Templates in use.', 'reportit') . "</span>
-				</td>
-			</tr>";
-			$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php\")'>";
-		} else {
-			$save_html = '<input type="button" value="' . __esc('Cancel', 'reportit') . '" onClick="cactiReturnTo(\'templates.php\')">&nbsp;<input type="submit" value="' . __esc('Continue', 'reportit') . '" title="' . __esc('Create a new Report Template', 'reportit') . '">';
-			print "<tr class='textArea'>
-				<td>
-					<p>" . __('Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden.', 'reportit') . "</p><p>";
-			form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '');
-			print "</p></td>
-			</tr>";
-
-		}
-
-		print "<tr>
-			<td class='saveRow'>
-				<input type='hidden' name='action' value='template_edit'>
-				$save_html
-			</td>
-		</tr>";
-
-		html_end_box();
-
-		form_end();
-
-		bottom_footer();
-
-		break;
-	case 'upload':
-		top_header();
-
-		session_custom_error_display();
-
-		if (cacti_version_compare('1.2.0', CACTI_VERSION, '>')) {
-			print "<form id='reportit_upload' name='reportit_upload' action='templates.php' autocomplete='off' method='post'  enctype='multipart/form-data'>";
-		} else {
-			form_start('templates.php', 'reportit_upload', true);
-		}
-
-		html_start_box(__('Import Report Template', 'reportit'), '60%', '', '3', 'center', '');
-
-		print "<tr>
-			<td class='textArea'>
-				<p>" . __('Select the XML file that contains your Report Template.', 'reportit') . "</p>
-				<p><input type='file' name='file' id='file' size='35' maxlength='50000' accept='xml'></p>
-			</td>
-		</tr>
-		<tr>
-			<td class='saveRow'>
-				<input type='hidden' name='action' value='template_import_wizard'>
-				<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Templates', 'reportit') . "' class='		<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Templates', 'reportit') . "' class='ui-button ui-corner-all ui-widget ui-state-active'
-			</td>
-		</tr>";
-
-		html_end_box();
-
-		bottom_footer();
-
-		break;
-	case 'import':
-		/* clean up user session */
-		if (isset($_SESSION['sess_reportit']['report_templates'])) {
-			unset($_SESSION['sess_reportit']['report_templates']);
-		}
-
-		if (validate_uploaded_templates() == true) {
+		case 'new':
 			top_header();
 
-			$data      = $_SESSION['sess_reportit']['report_templates'];
-			$xmldata   = simplexml_load_string($data);
-
-			$header_array = array(
-				'name'          => array('display' => __('Name', 'reportit')),
-				'compatible'    => array('display' => __('Compatible', 'reportit')),
-				'version'       => array('display' => __('Version', 'reportit')),
-				'author'        => array('display' => __('Author', 'reportit')),
-				'data_template' => array('display' => __('Data Template', 'reportit')),
-				'description'   => array('display' => __('Description', 'reportit')),
-			);
-
-			form_start('templates.php?action=template_import_wizard');
-
-			html_start_box(__('Summary', 'reportit'), '100%', '', '3', 'center', '');
-
-			html_header($header_array);
-
-			$compatible = false;
-			$report_count = 0;
-			foreach ($xmldata as $report_template) {
-				$info = $report_template->settings;
-				if ($report_template->compatible) {
-					$compatible = true;
-				}
-
-				print "
-				<tr class='textArea'>
-					<td>$info->name</td>
-					<td>" . ($report_template->compatible?'Yes':'No') . "</td>
-					<td>$info->version</td>
-					<td>$info->author</td>
-					<td>";
-
-				$data_templates = $report_template->data_templates;
-
-				if (count($data_templates->children()) == 1) {
-					print "<input type='hidden' name='tds$report_count' id='tds$report_count' value='" .
-						$report_template->data_templates->data_template->id .
-						"' />";
-					foreach ($report_template->data_templates->children() as $data_template) {
-						print $data_template->name;
-						/*
-						print "$data_template->name (";
-						$ds=0;
-						foreach ($report_template->data_source_items[0] as $data_source) {
-							print ($ds?', ': '') . $data_source->data_source_name;
-							$ds++;
-						}
-						print ")";
-						*/
-					}
-				} else {
-					$templates_array = xml_to_array($report_template->data_templates, true);
-					$templates = array();
-
-					foreach ($templates_array as $template_item) {
-						$templates[$template_item['id']] = $template_item['name'];
-					}
-
-					if ($templates) {
-						form_dropdown('tds' . $report_count, $templates, '', '', '', '', '');
-					} else {
-						print __('No Compatible Templates Found', 'reportit');
-						$compatible = false;
-					}
-				}
-				print "</td>
-					<td>$info->description</td>
-					</tr>";
-				$report_count++;
+			if (isset($_SESSION['reportit_tWizard'])) {
+				unset($_SESSION['reportit_tWizard']);
 			}
 
-			$save_html = ($compatible)
-				? "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Template', 'reportit') . "'>"
-				: "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+			form_start('templates.php', 'chk');
+
+			html_start_box(__('New Report Template', 'reportit'), '60%', '', '3', 'left', '');
+
+			if (cacti_sizeof($list_of_data_templates) == 0) {
+				print "<tr class='textArea'>
+					<td>
+						<span class='textError'>" . __('There are no Data Templates in use.', 'reportit') . "</span>
+					</td>
+				</tr>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php\")'>";
+			} else {
+				$save_html = '<input type="button" value="' . __esc('Cancel', 'reportit') . '" onClick="cactiReturnTo(\'templates.php\')">&nbsp;<input type="submit" value="' . __esc('Continue', 'reportit') . '" title="' . __esc('Create a new Report Template', 'reportit') . '">';
+				print "<tr class='textArea'>
+					<td>
+						<p>" . __('Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden.', 'reportit') . "</p><p>";
+				form_dropdown('data_template', $list_of_data_templates, '', '', '', '', '');
+				print "</p></td>
+				</tr>";
+			}
 
 			print "<tr>
-				<td class='saveRow' colspan='6'>
-					<input type='hidden' name='action' value='template_import'>
+				<td class='saveRow'>
+					<input type='hidden' name='action' value='template_edit'>
 					$save_html
 				</td>
 			</tr>";
 
 			html_end_box();
+
 			form_end();
 
 			bottom_footer();
-		} else {
-			header('Location: templates.php?action=template_upload_wizard');
-		}
 
-		bottom_footer();
+			break;
+		case 'upload':
+			top_header();
 
-		break;
+			session_custom_error_display();
+
+			if (cacti_version_compare('1.2.0', CACTI_VERSION, '>')) {
+				print "<form id='reportit_upload' name='reportit_upload' action='templates.php' autocomplete='off' method='post'  enctype='multipart/form-data'>";
+			} else {
+				form_start('templates.php', 'reportit_upload', true);
+			}
+
+			html_start_box(__('Import Report Template', 'reportit'), '60%', '', '3', 'center', '');
+
+			print "<tr>
+				<td class='textArea'>
+					<p>" . __('Select the XML file that contains your Report Template.', 'reportit') . "</p>
+					<p><input type='file' name='file' id='file' size='35' maxlength='50000' accept='xml'></p>
+				</td>
+			</tr>
+			<tr>
+				<td class='saveRow'>
+					<input type='hidden' name='action' value='template_import_wizard'>
+					<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Templates', 'reportit') . "' class='		<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Templates', 'reportit') . "' class='ui-button ui-corner-all ui-widget ui-state-active'
+				</td>
+			</tr>";
+
+			html_end_box();
+
+			bottom_footer();
+
+			break;
+		case 'import':
+			/* clean up user session */
+			if (isset($_SESSION['sess_reportit']['report_templates'])) {
+				unset($_SESSION['sess_reportit']['report_templates']);
+			}
+
+			if (validate_uploaded_templates() == true) {
+				top_header();
+
+				$data      = $_SESSION['sess_reportit']['report_templates'];
+				$xmldata   = simplexml_load_string($data);
+
+				$header_array = array(
+					'name'          => array('display' => __('Name', 'reportit')),
+					'compatible'    => array('display' => __('Compatible', 'reportit')),
+					'version'       => array('display' => __('Version', 'reportit')),
+					'author'        => array('display' => __('Author', 'reportit')),
+					'data_template' => array('display' => __('Data Template', 'reportit')),
+					'description'   => array('display' => __('Description', 'reportit')),
+				);
+
+				form_start('templates.php?action=template_import_wizard');
+
+				html_start_box(__('Summary', 'reportit'), '100%', '', '3', 'center', '');
+
+				html_header($header_array);
+
+				$compatible = false;
+				$report_count = 0;
+				foreach ($xmldata as $report_template) {
+					$info = $report_template->settings;
+					if ($report_template->compatible) {
+						$compatible = true;
+					}
+
+					print "<tr class='textArea'>
+						<td>$info->name</td>
+						<td>" . ($report_template->compatible?'Yes':'No') . "</td>
+						<td>$info->version</td>
+						<td>$info->author</td>
+						<td>";
+
+					$data_templates = $report_template->data_templates;
+
+					if (count($data_templates->children()) == 1) {
+						print "<input type='hidden' name='tds$report_count' id='tds$report_count' value='" .
+							$report_template->data_templates->data_template->id .
+							"' />";
+
+						foreach ($report_template->data_templates->children() as $data_template) {
+							print $data_template->name;
+							/*
+							print "$data_template->name (";
+							$ds=0;
+							foreach ($report_template->data_source_items[0] as $data_source) {
+								print ($ds?', ': '') . $data_source->data_source_name;
+								$ds++;
+							}
+							print ")";
+							*/
+						}
+					} else {
+						$templates_array = xml_to_array($report_template->data_templates, true);
+						$templates = array();
+
+						foreach ($templates_array as $template_item) {
+							$templates[$template_item['id']] = $template_item['name'];
+						}
+
+						if ($templates) {
+							form_dropdown('tds' . $report_count, $templates, '', '', '', '', '');
+						} else {
+							print __('No Compatible Templates Found', 'reportit');
+							$compatible = false;
+						}
+					}
+
+					print "</td>
+						<td>$info->description</td>
+						</tr>";
+
+					$report_count++;
+				}
+
+				$save_html = ($compatible)
+					? "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Template', 'reportit') . "'>"
+					: "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+
+				print "<tr>
+					<td class='saveRow' colspan='6'>
+						<input type='hidden' name='action' value='template_import'>
+						$save_html
+					</td>
+				</tr>";
+
+				html_end_box();
+
+				form_end();
+
+				bottom_footer();
+			} else {
+				header('Location: templates.php?action=template_upload_wizard');
+			}
+
+			bottom_footer();
+
+			break;
 	}
 }
 
@@ -359,21 +361,22 @@ function template_export() {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
-			/*$output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL . '<report_templates>' . PHP_EOL; */
 			$output = '<report_templates>' . PHP_EOL;
 			foreach ($selected_items as $id) {
 				if ($id > 0) {
 					/* collect all additional information */
 					$id_output = export_report_template($id, 1);
+
 					if ($id_output != false) {
 						$output .= $id_output;
 					}
 				}
 			}
 
-			$output .= "</report_templates>\n";
+			$output .= '</report_templates>' . PHP_EOL;
+
 			header('Content-type: application/xml');
-			header('Content-Disposition: attachment; filename=reportit_templates_export_'.date('Ymd_His').'.xml');
+			header('Content-Disposition: attachment; filename=reportit_templates_export_' . date('Ymd_His') . '.xml');
 			print $output;
 		}
 	}
@@ -637,6 +640,8 @@ function templates() {
 	print $nav;
 
 	form_start('templates.php');
+
+	form_hidden_box('tab', 'general', '');
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
@@ -1072,6 +1077,8 @@ function templates_general($id) {
 
 	form_start('templates.php?tab=general');
 
+	form_hidden_box('tab', 'general', '');
+
 	html_start_box($header_label, '100%', '', '3', 'center', '');
 
 	draw_edit_form(
@@ -1298,7 +1305,7 @@ function form_actions() {
 					<p>" . __('Click \'Continue\' to Delete the following Report Templates', 'reportit') . '</p>';
 
 			if (is_array($ds_list)) {
-				print __('WARNING: Every Report that belongs to these Templates will also be deleted!', 'reportit');
+				print '<p>' . __('WARNING: Every Report that belongs to these Templates will also be deleted!', 'reportit') . '</p>';
 
 				foreach($ds_list as $key => $value) {
 					print '<p>' . __('Template: %s', $key, 'reportit') . '</p>';
@@ -1676,6 +1683,8 @@ function variables() {
 	$header_label = __("Variables [ Template: %s - %s ]", $template['name'], $template['description'], 'reportit');
 
 	form_start('templates.php?tab=variables');
+
+	form_hidden_box('tab', 'variables', '');
 
 	html_start_box($header_label, '100%', '', '3', 'center', 'templates.php?action=variable_edit&tab=variables&id=0&template_id=' . get_request_var('id'));
 
@@ -2097,9 +2106,11 @@ function measurands() {
 
 	$i = 0;
 
-	$header_label = __("Metrics [ Template: %s - %s ]", $template['name'], $template['description'], 'reportit');
+	$header_label = __('Metrics [ Template: %s - %s ]', $template['name'], $template['description'], 'reportit');
 
 	form_start('templates.php?action=template_edit&tab=measurands&template_id=' . get_request_var('id'));
+
+	form_hidden_box('tab', 'measurands', '');
 
 	html_start_box($header_label, '100%', '', '3', 'center', 'templates.php?action=measurand_edit&tab=measurands&id=0&template_id=' . get_request_var('id'));
 
@@ -2117,7 +2128,7 @@ function measurands() {
 
 	if (cacti_sizeof($measurands_list)) {
 		foreach($measurands_list as $measurand) {
-			$link = "templates.php?action=measurand_edit&tab=measurands&template_id=" . get_request_var('id') . "&id=" . $measurand['id'];
+			$link = 'templates.php?action=measurand_edit&tab=measurands&template_id=' . get_request_var('id') . '&id=' . $measurand['id'];
 
 			form_alternate_row('line' . $measurand['id'], true);
 

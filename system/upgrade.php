@@ -316,7 +316,8 @@ function reportit_system_upgrade($old_version) {
 				ADD COLUMN group_id int(11) NOT NULL default 0 AFTER template_id');
 		}
 
-		db_execute('UPDATE plugin_realms SET file="reports.php" WHERE plugin="reportit" AND file LIKE "%reports.php%"');
+		db_execute('UPDATE plugin_realms SET file="reports.php,view.php" WHERE plugin="reportit" AND file LIKE "%reports.php%"');
 		db_execute('UPDATE plugin_realms SET file="templates.php" WHERE plugin="reportit" AND file LIKE "%templates.php%"');
+		db_execute('UPDATE plugin_realms SET file="view.php,charts.php" WHERE plugin="reportit" AND file LIKE "view.php%"');
 	}
 }

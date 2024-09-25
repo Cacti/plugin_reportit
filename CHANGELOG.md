@@ -3,6 +3,7 @@
 --- 2.0.0 ---
 
 * bug: Restore Report Archive viewing functionality
+* bug: Unable to remove a Report Template
 * feature: Remove files measurands.php and variables.php
 * feature: Remove files items.php and rrdlist.php
 

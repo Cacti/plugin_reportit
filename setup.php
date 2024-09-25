@@ -31,12 +31,12 @@ function plugin_reportit_install() {
 	api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
 	api_plugin_register_hook('reportit', 'clog_regex_array',      'reportit_clog_regex_array',     'setup.php');
 
-	api_plugin_register_realm('reportit', 'view.php,charts.php', 'ReportIt - View Reports', 1);
-	api_plugin_register_realm('reportit', 'reports.php,rrdlist.php,items.php,run.php', 'ReportIt - Create Reports', 1);
-	api_plugin_register_realm('reportit', 'templates.php,measurands.php,variables.php', 'ReportIt - Manage Reports', 1);
+	api_plugin_register_realm('reportit', 'view.php,charts.php', 'ReportIt - Report Viewing', 1);
+	api_plugin_register_realm('reportit', 'reports.php,view.php', 'ReportIt - Create Reports', 1);
+	api_plugin_register_realm('reportit', 'templates.php', 'ReportIt - Manage Reports', 1);
 
 	$realm_array = array(
-		__('ReportIt - View Reports', 'reportit'),
+		__('ReportIt - Report Viewing', 'reportit'),
 		__('ReportIt - Create Reports', 'reportit'),
 		__('ReportIt - Manage Reports', 'reportit')
 	);
@@ -362,8 +362,9 @@ function reportit_config_arrays() {
 	reportit_define_constants();
 
 	if (function_exists('auth_augment_roles')) {
+		auth_augment_roles(__('Normal User'), array('view.php,charts.php'));
+		auth_augment_roles(__('General Administration'), array('reports.php'));
 		auth_augment_roles(__('System Administration'), array('templates.php', 'measurands.php', 'variables.php'));
-		auth_augment_roles(__('General Administration'), array('reports.php', 'rrdlist.php', 'items.php', 'run.php'));
 	}
 
 	/* show additional menu entries if plugin is enabled */
