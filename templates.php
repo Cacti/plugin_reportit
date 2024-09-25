@@ -359,7 +359,8 @@ function template_export() {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
-			$output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL . '<report_templates>' . PHP_EOL;
+			/*$output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL . '<report_templates>' . PHP_EOL; */
+			$output = '<report_templates>' . PHP_EOL;
 			foreach ($selected_items as $id) {
 				if ($id > 0) {
 					/* collect all additional information */
@@ -2155,3 +2156,4 @@ function measurands() {
 
 	form_end();
 }
+
