@@ -853,14 +853,16 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 					$last_subhead = $subhead;
 
 					print "<tr class='cactiTableTitle' style='float: none; display: table-row;'>";
-					print "<td class='textSubHeaderDark' style='float: none; display: table-cell; padding-left: 10px;'>$subhead</td>";
+					print "<th class='textSubHeaderDark' style='float: none; display: table-cell;'>$subhead</th>";
 
 					foreach ($ds_description as $description) {
 						$counter = ($description != 'overall') ? $count_rs : $count_ov;
+
 						if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
 							$description = $report_ds_alias[$description];
 						}
-						print "<td colspan='$counter' height='10' class='textSubHeaderDark' style='float: none; display: table-cell; text-align: center; border-left: 1px solid black;'>$description</td>";
+
+						print "<th colspan='$counter' class='textSubHeaderDark' style='float: none; display: table-cell; text-align: center;'>$description</th>";
 					}
 
 					print '</tr>';
@@ -876,7 +878,8 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 
 			foreach ($ds_description as $datasource) {
 				$name  = ($datasource != 'overall') ? $rs_description : $ov_description;
-				$first = ' style="border-left: 1px solid black"';
+				$first = '';
+				//$first = ' style="border-left: 1px solid black"';
 
 				foreach ($name as $id) {
 					$rounding       = $mea[$id]['rounding'];
