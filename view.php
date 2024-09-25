@@ -879,7 +879,6 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 			foreach ($ds_description as $datasource) {
 				$name  = ($datasource != 'overall') ? $rs_description : $ov_description;
 				$first = '';
-				//$first = ' style="border-left: 1px solid black"';
 
 				foreach ($name as $id) {
 					$rounding       = $mea[$id]['rounding'];
