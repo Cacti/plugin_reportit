@@ -2592,15 +2592,13 @@ msgstr "परिणाम [ %s]"
 #~ msgid "Data Item Name"
 #~ msgstr "डेटा आइटम का नाम"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "डेटा आइटम[संपादित करें: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "डेटा आइटम"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "डेटा आइटम [रिपोर्ट: %s %s [%d]"
 
