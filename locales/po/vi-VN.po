@@ -2585,15 +2585,13 @@ msgstr "Kết quả [ %s]"
 #~ msgid "Data Item Name"
 #~ msgstr "Tên mục dữ liệu"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "Mục dữ liệu [sửa: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "Mục dữ liệu"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "Mục dữ liệu [Báo cáo: %s %s [%d]"
 
