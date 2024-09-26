@@ -1178,6 +1178,12 @@ function plugin_reportit_graph($graph_id, $graph_data) {
 	$content .= '    }';
 	$content .= '  },';
 
+	/**
+	 * correct touch issue with FireFox
+	 * Billboard.js issue #3854 on GitHub
+	 */
+	$content .= '  interaction: {inputType: {mouse: true, touch:false}}';
+
 	$content .= '});';
 	$content .= '</script>';
 
