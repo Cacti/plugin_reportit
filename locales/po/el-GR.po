@@ -2584,15 +2584,13 @@ msgstr "Αποτελέσματα [ %s]"
 #~ msgid "Data Item Name"
 #~ msgstr "Στοιχεία δεδομένων"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "Αντικείμενο δεδομένων [επεξεργασία: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "Στοιχεία δεδομένων"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "Στοιχεία δεδομένων [Αναφορά: %s %s [% d]"
 
