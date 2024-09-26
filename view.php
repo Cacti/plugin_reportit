@@ -74,7 +74,7 @@ function export() {
 	$table = (get_request_var('archive') != -1)? 'a' : 'c';
 
 	if (get_request_var('filter') != '') {
-		$sql_where = 'WHERE ' . $table . ".name_cache LIKE " . db_qstr('%' . get_request_var('filter') . '%');
+		$sql_where = 'WHERE ' . $table . '.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	} else {
 		$sql_where = '';
 	}
@@ -233,7 +233,7 @@ function standard() {
 								<?php
 								if (cacti_sizeof($item_rows)) {
 									foreach ($item_rows as $key => $value) {
-										print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
+										print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . '</option>';
 									}
 								}
 								?>
@@ -336,7 +336,7 @@ function standard() {
 			form_selectable_cell($report['template_description'], $ownerId);
 			form_selectable_cell(date(config_date_format(), strtotime($report['start_date'])) . ' - ' . date(config_date_format(), strtotime($report['end_date'])), $ownerId);
 			form_selectable_cell($report['last_run'], $ownerId);
-			form_selectable_cell(sprintf("%01.1f", $report['runtime']), $ownerId, '', 'right');
+			form_selectable_cell(sprintf('%01.1f', $report['runtime']), $ownerId, '', 'right');
 
 			form_end_row();
 		}
@@ -463,7 +463,7 @@ function show_report() {
 	$table = (get_request_var('archive') != -1)? 'a' : 'c';
 
 	if (get_request_var('filter') != '') {
-		$sql_where = 'WHERE ' . $table . ".name_cache LIKE " . db_qstr('%' . get_request_var('filter') . '%');
+		$sql_where = 'WHERE ' . $table . '.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	} else {
 		$sql_where = '';
 	}
@@ -617,7 +617,7 @@ function show_report() {
 								<?php
 								if (cacti_sizeof($measurands)) {
 									foreach ($measurands as $key => $value) {
-										print "<option value='" . $key . "'"; if (get_request_var('measurand') == $key) { print ' selected'; } print '>' . $value . '</option>';
+										print "<option value='" . $key . "'"; if (get_request_var('measurand') == $key) { print ' selected'; } print '>' . html_escape($value) . '</option>';
 									}
 								}
 								?>
@@ -632,9 +632,9 @@ function show_report() {
 								<?php
 								if (cacti_sizeof($ds_description)) {
 									foreach ($data_sources as $key => $value) {
-										print "<option value='" . $key . "'"; if (get_request_var('data_source') == $key) { print ' selected'; } print '>' . $value . '</option>';
+										print "<option value='" . $key . "'"; if (get_request_var('data_source') == $key) { print ' selected'; } print '>' . html_escape($value) . '</option>';
 									}
-							}
+								}
 								?>
 							</select>
 						</td>
@@ -672,7 +672,7 @@ function show_report() {
 							<?php print __('Search', 'reportit');?>
 						</td>
 						<td>
-							<input id='filter' size='25' type='text' value='<?php print get_request_var('filter');?>'>
+							<input id='filter' size='30' type='text' value='<?php print get_request_var('filter');?>'>
 						</td>
 						<td><?php print __('Additional', 'reportit');?></td>
 						<td>
@@ -774,11 +774,14 @@ function show_report() {
 
 		foreach ($report_summary as $array) {
 			print '<tr>';
+
 			foreach ($array as $key => $value) {
-				print "<td><b>$key:</b></td></td><td align='left'>$value</td>";
+				print "<td><b>$key:</b></td></td><td align='left'>" . html_escape($value) . '</td>';
 			}
+
 			print '</tr>';
 		}
+
 		html_end_box();
 	}
 
@@ -807,9 +810,9 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 	$display_text = array(
 		'name_cache' => array(
 			'display' => __('Data Description', 'reportit'),
-			'align' => 'left',
-			'sort' => 'ASC'
-		),
+			'align'   => 'left',
+			'sort'    => 'ASC'
+		)
 	);
 
 	foreach ($ds_description as $datasource) {
@@ -853,7 +856,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 					$last_subhead = $subhead;
 
 					print "<tr class='cactiTableTitle' style='float: none; display: table-row;'>";
-					print "<th class='textSubHeaderDark' style='float: none; display: table-cell;'>$subhead</th>";
+					print "<th class='textSubHeaderDark' style='float: none; display: table-cell;'>" . html_escape($subhead) . '</th>';
 
 					foreach ($ds_description as $description) {
 						$counter = ($description != 'overall') ? $count_rs : $count_ov;
@@ -862,7 +865,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 							$description = $report_ds_alias[$description];
 						}
 
-						print "<th colspan='$counter' class='textSubHeaderDark' style='float: none; display: table-cell; text-align: center;'>$description</th>";
+						print "<th colspan='$counter' class='textSubHeaderDark' style='float: none; display: table-cell; text-align: center;'>" . html_escape($description) . '</th>';
 					}
 
 					print '</tr>';
@@ -893,7 +896,9 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 					$additional[$var]['data_precision'] = $data_precision;
 
 					print "<td class='right'$first>";
+
 					print get_unit($value, $rounding, $data_type, $data_precision);
+
 					print '</td>';
 
 					$first = '';
@@ -901,7 +906,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 			}
 		}
 	} else {
-		print "<tr><td colspan='" . sizeof($display_text) . "'><em>" . __('No Data Items', 'reportit') . "</em></td></tr>";
+		print "<tr><td colspan='" . sizeof($display_text) . "'><em>" . __('No Data Items', 'reportit') . '</em></td></tr>';
 	}
 
 	/* show additional informations if requested */
@@ -910,13 +915,16 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 			break;
 		case '-1':
 			print '<tr></tr>';
+
 			if (cacti_sizeof($additional)) {
 				for($a=1; $a<5; $a++) {
 					form_alternate_row();
+
 					$description = $add_info[$a][0];
 					$calc_fct    = $add_info[$a][1];
 
-					print '<td><strong>' . $description . '</strong></td>';
+					print '<td>' . $description . '</td>';
+
 					foreach ($additional as $array){
 						print '<td class="right">' . get_unit($calc_fct($array['values']), $array['rounding'], $array['data_type'], $array['data_precision']) . '</td>';
 					}
@@ -926,12 +934,13 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 			break;
 		default:
 			print '<tr></tr>';
+
 			if (cacti_sizeof($additional)) {
 				form_alternate_row();
 				$description = $add_info[get_request_var('info')][0];
 				$calc_fct    = $add_info[get_request_var('info')][1];
 
-				print '<td><strong>' . $description . '</strong></td>';
+				print '<td>' . $description . '</td>';
 				foreach ($additional as $array){
 					print '<td class="right">' . get_unit($calc_fct($array['values']), $array['rounding'], $array['data_type'], $array['data_precision']) . '</td>';
 				}
@@ -947,7 +956,9 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 	}
 
 	print '<form name="custom_dropdown" method="post">';
+
 	draw_actions_dropdown($export_formats,0);
+
 	print '</form>';
 
 	ob_end_flush();
@@ -956,8 +967,8 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 function show_graph_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs) {
 	global $config, $colors, $graphs, $limit;
 
-	$affix            = "";
-	$description      = "";
+	$affix            = '';
+	$description      = '';
 	$limitation       = 10;
 
 	$report_ds_alias  = $data['report_ds_alias'];
@@ -1059,7 +1070,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 								print "<td title='$title' class='right'>";
 
 								if ($value == NULL) {
-									print "NA";
+									print 'NA';
 								} elseif ($value == 0) {
 									print $value;
 								} else {
@@ -1125,7 +1136,7 @@ function show_graph_overview() {
 	exit;
 }
 
-function plugin_reportit_graph ($graph_id, $graph_data) {
+function plugin_reportit_graph($graph_id, $graph_data) {
 	global $config;
 
 	$content = '';
@@ -1139,7 +1150,7 @@ function plugin_reportit_graph ($graph_id, $graph_data) {
 	$content .= '<script type="text/javascript">';
 	$content .= 'treemap_' . $xid . ' = bb.generate({';
 	$content .= ' tile: "dice",';
-	$content .= " bindto: \"#treemap_$xid\",";
+	$content .= ' bindto: "#treemap_' . $xid . '",';
 
 	$content .= ' size: {';
 	$content .= '  height: 400,';
@@ -1150,25 +1161,25 @@ function plugin_reportit_graph ($graph_id, $graph_data) {
 	$content .= '  columns: [';
 
 	foreach ($graph_data as $key => $value) {
-		$content .= "['" . $key . "', " . $value . "],";
+		$content .= '["' . $key . '", ' . $value . '],';
 	}
 
-	$content .= "  ],";
-	$content .= "  type: 'treemap',";
-	$content .= "  labels: {";
-	$content .= "    position: { x: 0, y: 15},";
-	$content .= "    colors: '#fff'";
-	$content .= "  }";
-	$content .= "  },";
+	$content .= '  ],';
+	$content .= '  type: "treemap",';
+	$content .= '  labels: {';
+	$content .= '    position: { x: 0, y: 15},';
+	$content .= '    colors: "#fff"';
+	$content .= '  }';
+	$content .= '  },';
 
-	$content .= "  treemap: {";
-	$content .= "    label: {";
-	$content .= "      threshold: 0.03, show: false,";
-	$content .= "    }";
-	$content .= "  },";
+	$content .= '  treemap: {';
+	$content .= '    label: {';
+	$content .= '      threshold: 0.03, show: false,';
+	$content .= '    }';
+	$content .= '  },';
 
-	$content .= "});";
-	$content .= "</script>";
+	$content .= '});';
+	$content .= '</script>';
 
 	return $content;
 }
