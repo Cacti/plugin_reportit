@@ -2588,15 +2588,13 @@ msgstr "结果[％s]"
 #~ msgid "Data Item Name"
 #~ msgstr "数据项名称"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "数据项[编辑：%s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "数据项"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "数据项[报告：%s%s[%d]"
 
