@@ -2580,15 +2580,13 @@ msgstr "النتائج [٪ s]"
 #~ msgid "Data Item Name"
 #~ msgstr "عناصر البيانات"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "عنصر البيانات [عدل: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "عناصر البيانات"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "بنود البيانات [التقرير: %s %s [%d]"
 
