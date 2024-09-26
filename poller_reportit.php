@@ -1140,12 +1140,12 @@ function autoexport($report_id) {
 	} else {
 		/* check if main export folder is available */
 		if (!is_dir($main_folder)) {
-			run_error(17, $report_id, 0, 'Main export folder does not exist.');
+			run_error(17, $report_id, 0, "Main export folder '{$main_folder}' does not exist.");
 
 			return false;
 		}
 
-		$template_folder = $main_folder . "$template_id/";
+		$template_folder = $main_folder     . "$template_id/";
 		$report_folder   = $template_folder . "$report_id/";
 	}
 
@@ -1177,22 +1177,24 @@ function autoexport($report_id) {
 	}
 
 	/* try to create a new report export file */
-	$file_format       = ($report_settings['autoexport'] != '') ? $report_settings['autoexport'] : 'CSV';
-	$file_type         = ($file_format != 'SML') ? strtolower($file_format) : 'xml';
-	$filename          = $report_settings['start_date'] . '_' . $report_settings['end_date'] . ".$file_type";
-	$report_path       = $report_folder . $filename;
-	$export_function   = 'export_to_' . $file_format;
+	$file_format     = ($report_settings['autoexport'] != '') ? $report_settings['autoexport'] : 'CSV';
+	$file_type       = ($file_format != 'SML') ? strtolower($file_format) : 'xml';
+	$filename        = $report_settings['start_date'] . '_' . $report_settings['end_date'] . '.' . $file_type;
+	$report_path     = $report_folder . $filename;
+	$export_function = 'export_to_' . $file_format;
 
 	/* clean up the export folder if necessary */
 	if ($report_settings['autoexport_max_records']) {
 		if ($path_handle = opendir($report_folder)) {
-
 			$file_format_length = strlen($file_format);
+
 			$files = array();
+
 			while (false !== ($file = readdir($path_handle))) {
 				if (substr($file, -$file_format_length) == $file_type) {
 					list($start, $end) = explode('_', $file);
 					list($year, $month, $day) = explode('-', $start);
+
 					$files[mktime(0,0,0,$month, $day, $year)] = $file;
 				}
 			}
@@ -1203,31 +1205,33 @@ function autoexport($report_id) {
 			if (cacti_sizeof($files)> $report_settings['autoexport_max_records']) {
 				/* define the number of files that has to be dropped */
 				$num_of_drops = sizeof($files) - $report_settings['autoexport_max_records'] + 1;
+
 				$files = array_slice($files, 0, $num_of_drops);
+
 				foreach($files as $filename) {
 					if (!unlink($report_folder . $filename)) {
-						run_error(17, $report_id, 0, 'Unable to delete old export file.');
+						run_error(17, $report_id, 0, "Unable to delete old export file path '{$report_folder}{$filename}'.");
 					}
 				}
 			}
 		} else {
-			run_error(17, $report_id, 0, 'Unable read export folder');
+			run_error(17, $report_id, 0, "Unable read export folder '{$report_folder}'.");
 		}
 	}
 
 	if (file_exists($report_path) && !is_writeable($report_path)) {
-		run_error(17, $report_id, 0, "Export path $report_path is not writable.");
+		run_error(17, $report_id, 0, "Export path '{$report_path}' is not writable.");
 
 		return false;
 	} elseif (!is_writable($report_path)) {
-		run_error(17, $report_id, 0, "Export path $report_path is not writable.");
+		run_error(17, $report_id, 0, "Export path '{$report_path}' is not writable.");
 
 		return false;
 	} else {
 		$file_handle = fopen($report_path, 'a');
 
 		if (!$file_handle) {
-			run_error(17, $report_id, 0, "Unable to create export file.");
+			run_error(17, $report_id, 0, "Unable to create export file '{$report_path}'.");
 
 			return false;
 		}
