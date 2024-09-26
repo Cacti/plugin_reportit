@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2024-09-22 16:04-0400\n"
-"PO-Revision-Date: 2024-09-07 12:57-0400\n"
+"POT-Creation-Date: 2024-09-25 20:00-0400\n"
+"PO-Revision-Date: 2024-09-25 20:08-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -38,56 +38,56 @@ msgid "Unlock"
 msgstr "잠금 해제하기"
 
 #: include/global_arrays.php:31 setup.php:237 setup.php:243 setup.php:249
-#: templates.php:1381
+#: templates.php:1389
 msgid "Export"
 msgstr "내보내기"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:48 lib/const_reports.php:499
-#: lib/const_variables.php:51 reports.php:362 reports.php:1121
-#: templates.php:262 templates.php:579 templates.php:1614 templates.php:1790
-#: templates.php:2106
+#: lib/const_variables.php:51 reports.php:359 reports.php:1127
+#: templates.php:261 templates.php:583 templates.php:1622 templates.php:1800
+#: templates.php:2118
 msgid "Name"
 msgstr "이름"
 
-#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1619
+#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1627
 msgid "Internal Name"
 msgstr "내부 이름"
 
 #: include/global_arrays.php:53 lib/const_variables.php:53
-#: lib/const_view.php:101 templates.php:1623
+#: lib/const_view.php:101 templates.php:1631
 msgid "Maximum"
 msgstr "최대"
 
 #: include/global_arrays.php:54 lib/const_variables.php:54
-#: lib/const_view.php:100 templates.php:1627
+#: lib/const_view.php:100 templates.php:1635
 msgid "Minimum"
 msgstr "최소"
 
-#: include/global_arrays.php:55 lib/const_variables.php:55 reports.php:163
-#: reports.php:1323 rrdlist.php:238 templates.php:429 templates.php:1631
-#: view.php:232 view.php:688
+#: include/global_arrays.php:55 lib/const_variables.php:55 reports.php:164
+#: reports.php:1329 templates.php:433 templates.php:1639 view.php:232
+#: view.php:690
 msgid "Default"
 msgstr "기본값"
 
-#: include/global_arrays.php:56 templates.php:1635 templates.php:1836
+#: include/global_arrays.php:56 templates.php:1643 templates.php:1846
 msgid "Stepping"
 msgstr "스테핑"
 
-#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1639
+#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1647
 msgid "Input Type"
 msgstr "입력 유형"
 
-#: include/global_arrays.php:58 templates.php:1643
+#: include/global_arrays.php:58 templates.php:1651
 msgid "Options"
 msgstr "옵션"
 
-#: include/global_arrays.php:61 include/global_arrays.php:71 reports.php:366
-#: reports.php:1277 rrdlist.php:196 templates.php:585
+#: include/global_arrays.php:61 include/global_arrays.php:71 reports.php:363
+#: reports.php:1283 templates.php:589
 msgid "ID"
 msgstr "ID"
 
-#: include/global_arrays.php:62 templates.php:1932 templates.php:2107
+#: include/global_arrays.php:62 templates.php:1942 templates.php:2119
 msgid "Abbreviation"
 msgstr "단축, 축약"
 
@@ -95,23 +95,23 @@ msgstr "단축, 축약"
 msgid "Group"
 msgstr "그룹"
 
-#: include/global_arrays.php:64 templates.php:1939 templates.php:2108
+#: include/global_arrays.php:64 templates.php:1949 templates.php:2120
 msgid "Unit"
 msgstr "단위"
 
-#: include/global_arrays.php:65 templates.php:2109
+#: include/global_arrays.php:65 templates.php:2121
 msgid "Consolidation Function"
 msgstr "Consolidation Function"
 
-#: include/global_arrays.php:66 templates.php:1954 templates.php:2110
+#: include/global_arrays.php:66 templates.php:1964 templates.php:2122
 msgid "Visible"
 msgstr "보이기"
 
-#: include/global_arrays.php:67 templates.php:1963 templates.php:2111
+#: include/global_arrays.php:67 templates.php:1973 templates.php:2123
 msgid "Separate"
 msgstr "분리도"
 
-#: include/global_arrays.php:68 templates.php:2003 templates.php:2112
+#: include/global_arrays.php:68 templates.php:2013 templates.php:2124
 msgid "Calculation Formula"
 msgstr "계산 공식"
 
@@ -124,9 +124,9 @@ msgid "Elements"
 msgstr "요소"
 
 #: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:261
-#: templates.php:138 templates.php:615
+#: templates.php:138 templates.php:619
 msgid "Metrics"
-msgstr ""
+msgstr "메트릭스"
 
 #: include/global_arrays.php:76
 msgid "Associated Data Templates"
@@ -135,8 +135,8 @@ msgstr "연결된 데이터 템플릿"
 #: include/global_arrays.php:81 include/global_forms.php:43
 #: lib/const_reports.php:120 lib/const_reports.php:176
 #: lib/const_reports.php:324 lib/const_reports.php:357
-#: lib/const_reports.php:495 reports.php:1621 rrdlist.php:369 setup.php:411
-#: templates.php:136 templates.php:1779 templates.php:1920
+#: lib/const_reports.php:495 reports.php:1627 setup.php:412 templates.php:136
+#: templates.php:1789 templates.php:1930
 msgid "General"
 msgstr "일반"
 
@@ -148,9 +148,9 @@ msgstr "데이터 템플릿"
 msgid "Groups"
 msgstr "그룹"
 
-#: include/global_arrays.php:85 include/global_arrays.php:533
+#: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:355 lib/funct_html.php:171 lib/funct_html.php:247
-#: setup.php:285 templates.php:137 templates.php:620
+#: setup.php:285 templates.php:137 templates.php:624
 msgid "Variables"
 msgstr "변수 설명"
 
@@ -247,108 +247,104 @@ msgid "Last 2 Years"
 msgstr "지난 2년"
 
 #: include/global_arrays.php:118 lib/const_reports.php:105
-#, fuzzy
 msgid "Daily"
 msgstr "매일"
 
 #: include/global_arrays.php:119 lib/const_reports.php:106
-#, fuzzy
 msgid "Weekly"
 msgstr "매주"
 
 #: include/global_arrays.php:120 lib/const_reports.php:107
-#, fuzzy
 msgid "Monthly"
 msgstr "매월"
 
 #: include/global_arrays.php:121 lib/const_reports.php:108
 msgid "Quarterly"
-msgstr ""
+msgstr "분기"
 
 #: include/global_arrays.php:122 lib/const_reports.php:109
-#, fuzzy
 msgid "Yearly"
 msgstr "연간"
 
-#: include/global_arrays.php:127 lib/const_variables.php:32 templates.php:48
+#: include/global_arrays.php:126 lib/const_variables.php:32 templates.php:48
 msgid "Dropdown"
 msgstr "드롭다운"
 
-#: include/global_arrays.php:128 lib/const_variables.php:33 templates.php:49
+#: include/global_arrays.php:127 lib/const_variables.php:33 templates.php:49
 #, fuzzy
 msgid "Input field"
 msgstr "입력 필드"
 
-#: include/global_arrays.php:133 include/global_arrays.php:145
+#: include/global_arrays.php:132 include/global_arrays.php:144
 #: lib/const_measurands.php:378 lib/const_reports.php:156
 #: lib/const_reports.php:223 lib/const_reports.php:392
 #: lib/const_reports.php:400 lib/const_view.php:97
 msgid "None"
 msgstr "없음"
 
-#: include/global_arrays.php:134 lib/const_measurands.php:367
+#: include/global_arrays.php:133 lib/const_measurands.php:367
 msgid "Binary"
 msgstr "바이너리"
 
-#: include/global_arrays.php:135 lib/const_measurands.php:368
+#: include/global_arrays.php:134 lib/const_measurands.php:368
 msgid "Floating point"
 msgstr "부동 소수점"
 
-#: include/global_arrays.php:136 lib/const_measurands.php:369
+#: include/global_arrays.php:135 lib/const_measurands.php:369
 msgid "Integer"
 msgstr "정수"
 
-#: include/global_arrays.php:137 lib/const_measurands.php:370
+#: include/global_arrays.php:136 lib/const_measurands.php:370
 msgid "Integer (unsigned)"
 msgstr "정수(부호 없음)"
 
-#: include/global_arrays.php:138 lib/const_measurands.php:371
+#: include/global_arrays.php:137 lib/const_measurands.php:371
 msgid "Hexadecimal (lower-case)"
 msgstr "16진수(소문자)"
 
-#: include/global_arrays.php:139 lib/const_measurands.php:372
+#: include/global_arrays.php:138 lib/const_measurands.php:372
 msgid "Hexadecimal (upper-case)"
 msgstr "16진수(대문자)"
 
-#: include/global_arrays.php:140 lib/const_measurands.php:373
+#: include/global_arrays.php:139 lib/const_measurands.php:373
 msgid "Octal"
 msgstr "8진수"
 
-#: include/global_arrays.php:141 lib/const_measurands.php:374
+#: include/global_arrays.php:140 lib/const_measurands.php:374
 msgid "Scientific Notation"
 msgstr "과학적 표기법"
 
-#: include/global_arrays.php:155 lib/const_measurands.php:388
+#: include/global_arrays.php:154 lib/const_measurands.php:388
 msgid "Unchanged"
 msgstr "변경되지 않음"
 
-#: include/global_arrays.php:159 lib/const_measurands.php:361
+#: include/global_arrays.php:158 lib/const_measurands.php:361
 msgid "off"
 msgstr "off"
 
-#: include/global_arrays.php:160 lib/const_measurands.php:362
+#: include/global_arrays.php:159 lib/const_measurands.php:362
 msgid "Binary SI-Prefixes (Base 1024)"
 msgstr "이진 SI 접두어(Base 1024)"
 
-#: include/global_arrays.php:161 lib/const_measurands.php:363
+#: include/global_arrays.php:160 lib/const_measurands.php:363
 msgid "Decimal SI-Prefixes (Base 1000)"
 msgstr "10진수 SI 접두어(1000진수)"
 
-#: include/global_arrays.php:167 lib/const_measurands.php:27
+#: include/global_arrays.php:166 lib/const_measurands.php:27
 msgid "f_avg - Arithmetic Average"
 msgstr "f_avg - 산술 평균"
 
-#: include/global_arrays.php:168 lib/const_measurands.php:28
+#: include/global_arrays.php:167 lib/const_measurands.php:28
 msgid "Returns the average value of all measured values per DS"
 msgstr "DS당 측정된 모든 값의 평균값을 반환합니다."
 
-#: include/global_arrays.php:169 include/global_arrays.php:176
-#: include/global_arrays.php:183 include/global_arrays.php:190
-#: include/global_arrays.php:197 include/global_arrays.php:204
-#: include/global_arrays.php:211 include/global_arrays.php:218
-#: include/global_arrays.php:225 include/global_arrays.php:232
-#: include/global_arrays.php:239 include/global_arrays.php:246
-#: include/global_arrays.php:253 include/global_arrays.php:260
+#: include/global_arrays.php:168 include/global_arrays.php:175
+#: include/global_arrays.php:182 include/global_arrays.php:189
+#: include/global_arrays.php:196 include/global_arrays.php:203
+#: include/global_arrays.php:210 include/global_arrays.php:217
+#: include/global_arrays.php:224 include/global_arrays.php:231
+#: include/global_arrays.php:238 include/global_arrays.php:245
+#: include/global_arrays.php:252 include/global_arrays.php:259
 #: lib/const_measurands.php:29 lib/const_measurands.php:36
 #: lib/const_measurands.php:43 lib/const_measurands.php:50
 #: lib/const_measurands.php:57 lib/const_measurands.php:64
@@ -359,453 +355,453 @@ msgstr "DS당 측정된 모든 값의 평균값을 반환합니다."
 msgid "none"
 msgstr "없음"
 
-#: include/global_arrays.php:174 lib/const_measurands.php:34
+#: include/global_arrays.php:173 lib/const_measurands.php:34
 msgid "f_max - Maximum Value"
 msgstr "f_max - 최대값"
 
-#: include/global_arrays.php:175 lib/const_measurands.php:35
+#: include/global_arrays.php:174 lib/const_measurands.php:35
 msgid "Returns the highest measured value per DS"
 msgstr "DS당 가장 높은 측정값을 반환합니다."
 
-#: include/global_arrays.php:181 lib/const_measurands.php:41
+#: include/global_arrays.php:180 lib/const_measurands.php:41
 msgid "f_min - Minimum Value"
 msgstr "f_min - 최소값"
 
-#: include/global_arrays.php:182 lib/const_measurands.php:42
+#: include/global_arrays.php:181 lib/const_measurands.php:42
 msgid "Returns the lowest measured value per DS"
 msgstr "DS당 가장 낮은 측정값을 반환합니다."
 
-#: include/global_arrays.php:188 lib/const_measurands.php:48
+#: include/global_arrays.php:187 lib/const_measurands.php:48
 msgid "f_sum - Sum"
 msgstr "f_sum - 합계"
 
-#: include/global_arrays.php:189 lib/const_measurands.php:49
+#: include/global_arrays.php:188 lib/const_measurands.php:49
 msgid "Returns the sum of all measured values per DS"
 msgstr "DS당 측정된 모든 값의 합계를 반환합니다."
 
-#: include/global_arrays.php:195 lib/const_measurands.php:55
+#: include/global_arrays.php:194 lib/const_measurands.php:55
 msgid "f_num - Number of Values (Not NaN)"
 msgstr "f_num - 값의 수(NaN 아님)"
 
-#: include/global_arrays.php:196 lib/const_measurands.php:56
+#: include/global_arrays.php:195 lib/const_measurands.php:56
 msgid "Returns the number of valid measured values per DS"
 msgstr "DS당 유효한 측정값의 수를 반환합니다."
 
-#: include/global_arrays.php:202 lib/const_measurands.php:62
+#: include/global_arrays.php:201 lib/const_measurands.php:62
 msgid "f_grd - Gradient"
 msgstr "f_grd - 그라디언트"
 
-#: include/global_arrays.php:203 lib/const_measurands.php:63
+#: include/global_arrays.php:202 lib/const_measurands.php:63
 msgid "Returns the gradient of a straight line by using linear regression per DS"
 msgstr "DS에 따라 선형 회귀를 사용하여 직선의 기울기를 반환합니다."
 
-#: include/global_arrays.php:209 lib/const_measurands.php:69
+#: include/global_arrays.php:208 lib/const_measurands.php:69
 msgid "f_last - Last Value"
 msgstr "f_last - 마지막 값"
 
-#: include/global_arrays.php:210 lib/const_measurands.php:70
+#: include/global_arrays.php:209 lib/const_measurands.php:70
 msgid "Returns the last valid measured value per DS"
 msgstr "DS당 마지막으로 유효한 측정값을 반환합니다."
 
-#: include/global_arrays.php:216 lib/const_measurands.php:76
+#: include/global_arrays.php:215 lib/const_measurands.php:76
 msgid "f_1st - First Value"
 msgstr "f_1st - 첫 번째 값"
 
-#: include/global_arrays.php:217 lib/const_measurands.php:77
+#: include/global_arrays.php:216 lib/const_measurands.php:77
 msgid "Returns the first valid measured value per DS"
 msgstr "DS에 따라 첫 번째로 유효한 측정값을 반환합니다."
 
-#: include/global_arrays.php:223 lib/const_measurands.php:83
+#: include/global_arrays.php:222 lib/const_measurands.php:83
 msgid "f_nan - Number of NaNs"
 msgstr "f_nan - NaN의 수"
 
-#: include/global_arrays.php:224 lib/const_measurands.php:84
+#: include/global_arrays.php:223 lib/const_measurands.php:84
 msgid "Returns the number of NaNs stored per DS"
 msgstr "DS당 저장된 NaN의 수를 반환합니다."
 
-#: include/global_arrays.php:230 lib/const_measurands.php:90
+#: include/global_arrays.php:229 lib/const_measurands.php:90
 msgid "f_median - Median"
 msgstr "f_median - 중앙값"
 
-#: include/global_arrays.php:231 lib/const_measurands.php:91
+#: include/global_arrays.php:230 lib/const_measurands.php:91
 msgid "Returns that value that separates the higher half from the lower half per DS"
 msgstr "DS당 상위 절반과 하위 절반을 구분하는 값을 반환합니다"
 
-#: include/global_arrays.php:237 lib/const_measurands.php:104
+#: include/global_arrays.php:236 lib/const_measurands.php:104
 msgid "f_range - Range"
 msgstr "f_range - 범위"
 
-#: include/global_arrays.php:238 lib/const_measurands.php:105
+#: include/global_arrays.php:237 lib/const_measurands.php:105
 msgid "Returns the difference between the largest and the smallest value per DS"
 msgstr "DS당 가장 큰 값과 가장 작은 값의 차이를 반환합니다."
 
-#: include/global_arrays.php:244 lib/const_measurands.php:111
+#: include/global_arrays.php:243 lib/const_measurands.php:111
 msgid "f_iqr - Interquartile Range"
 msgstr "f_iqr - 사분위간 범위"
 
-#: include/global_arrays.php:245 lib/const_measurands.php:112
+#: include/global_arrays.php:244 lib/const_measurands.php:112
 msgid "Returns the distance of the middle50&#037; around the median per DS"
 msgstr "DS당 중앙값을 중심으로 중간 50%의 거리를 반환합니다."
 
-#: include/global_arrays.php:251 lib/const_measurands.php:118
+#: include/global_arrays.php:250 lib/const_measurands.php:118
 msgid "f_sd - Standard Deviation"
 msgstr "f_sd - 표준 편차"
 
-#: include/global_arrays.php:252 lib/const_measurands.php:119
+#: include/global_arrays.php:251 lib/const_measurands.php:119
 msgid "Returns the square root per data source variance"
 msgstr "데이터 원본 분산당 제곱근을 반환합니다"
 
-#: include/global_arrays.php:258
+#: include/global_arrays.php:257
 msgid "f_var - Variance"
 msgstr "f_var - 분산"
 
-#: include/global_arrays.php:259
+#: include/global_arrays.php:258
 msgid "Returns the variance per DS"
 msgstr "DS당 분산을 반환합니다."
 
-#: include/global_arrays.php:267 lib/const_measurands.php:149
+#: include/global_arrays.php:266 lib/const_measurands.php:149
 msgid "f_xth - Xth Percentile"
 msgstr "f_xth - X번째 백분위수"
 
-#: include/global_arrays.php:268 lib/const_measurands.php:150
+#: include/global_arrays.php:267 lib/const_measurands.php:150
 msgid "Returns the xth percentitle."
 msgstr "x번째 백분암을 반환합니다."
 
-#: include/global_arrays.php:269 lib/const_measurands.php:151
+#: include/global_arrays.php:268 lib/const_measurands.php:151
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
 msgstr "$var: 임계값(%)입니다. 범위: [0&lt; $var ≤100]"
 
-#: include/global_arrays.php:275 lib/const_measurands.php:156
+#: include/global_arrays.php:274 lib/const_measurands.php:156
 msgid "f_dot - Duration Over Threshold"
 msgstr "f_dot - 임계값을 초과하는 기간"
 
-#: include/global_arrays.php:276 lib/const_measurands.php:157
+#: include/global_arrays.php:275 lib/const_measurands.php:157
 msgid "Returns the duration over a defined threshold in percent."
 msgstr "정의된 임계값을 초과하는 기간을 백분율로 반환합니다."
 
-#: include/global_arrays.php:277 include/global_arrays.php:285
+#: include/global_arrays.php:276 include/global_arrays.php:284
 #: lib/const_measurands.php:158 lib/const_measurands.php:165
 msgid "$var: threshold (absolute)"
 msgstr "$var: 임계값(절대값)"
 
-#: include/global_arrays.php:283 lib/const_measurands.php:163
+#: include/global_arrays.php:282 lib/const_measurands.php:163
 msgid "f_sot - Sum Over Threshold"
 msgstr "f_sot - 임계값을 초과한 합계"
 
-#: include/global_arrays.php:284 lib/const_measurands.php:164
+#: include/global_arrays.php:283 lib/const_measurands.php:164
 msgid "Returns the sum of values over a defined threshold."
 msgstr "정의된 임계값을 초과하는 값의 합계를 반환합니다."
 
-#: include/global_arrays.php:291 lib/const_measurands.php:170
+#: include/global_arrays.php:290 lib/const_measurands.php:170
 msgid "f_floor - Round Fractions Down"
 msgstr "f_floor - 분수를 내림합니다."
 
-#: include/global_arrays.php:292 include/global_arrays.php:358
+#: include/global_arrays.php:291 include/global_arrays.php:357
 #: lib/const_measurands.php:131 lib/const_measurands.php:171
 msgid "Returns the next lowest integer value by rounding down value if necessary."
 msgstr "필요한 경우 value를 내림하여 다음으로 가장 낮은 정수 값을 반환합니다."
 
-#: include/global_arrays.php:293 include/global_arrays.php:301
-#: include/global_arrays.php:359 lib/const_measurands.php:132
+#: include/global_arrays.php:292 include/global_arrays.php:300
+#: include/global_arrays.php:358 lib/const_measurands.php:132
 #: lib/const_measurands.php:172 lib/const_measurands.php:179
 msgid "$var: float"
 msgstr "$var: 플로트"
 
-#: include/global_arrays.php:299 lib/const_measurands.php:177
+#: include/global_arrays.php:298 lib/const_measurands.php:177
 msgid "f_ceil - Round Fractions Up"
 msgstr "f_ceil - 분수를 반올림합니다."
 
-#: include/global_arrays.php:300 lib/const_measurands.php:178
+#: include/global_arrays.php:299 lib/const_measurands.php:178
 msgid "Returns the next highest integer value by rounding up value if necessary."
 msgstr "필요한 경우 value를 반올림하여 다음으로 가장 높은 정수 값을 반환합니다."
 
-#: include/global_arrays.php:307 lib/const_measurands.php:184
+#: include/global_arrays.php:306 lib/const_measurands.php:184
 msgid "f_round - Round A Float"
 msgstr "f_round - 라운드 A 플로트"
 
-#: include/global_arrays.php:308 include/global_arrays.php:366
+#: include/global_arrays.php:307 include/global_arrays.php:365
 #: lib/const_measurands.php:138 lib/const_measurands.php:185
 msgid "Returns the rounded integer value of any given float."
 msgstr "주어진 float의 반올림된 정수 값을 반환합니다."
 
-#: include/global_arrays.php:309 include/global_arrays.php:367
+#: include/global_arrays.php:308 include/global_arrays.php:366
 #: lib/const_measurands.php:139 lib/const_measurands.php:186
 msgid "$var: float or string value"
 msgstr "$var: float 또는 string 값"
 
-#: include/global_arrays.php:315 lib/const_measurands.php:191
+#: include/global_arrays.php:314 lib/const_measurands.php:191
 msgid "f_high - Find Highest Value"
 msgstr "f_high - 가장 높은 값 찾기"
 
-#: include/global_arrays.php:316 lib/const_measurands.php:192
+#: include/global_arrays.php:315 lib/const_measurands.php:192
 msgid "Returns the highest value of a given list of parameters"
 msgstr "주어진 매개 변수 목록의 가장 높은 값을 반환합니다."
 
-#: include/global_arrays.php:317 include/global_arrays.php:325
+#: include/global_arrays.php:316 include/global_arrays.php:324
 #: lib/const_measurands.php:193 lib/const_measurands.php:200
 msgid "$var1, $var2, $var3 ...: values to be compared"
 msgstr "$var 1, $var 2, $var 3 ...: 비교할 값"
 
-#: include/global_arrays.php:323 lib/const_measurands.php:198
+#: include/global_arrays.php:322 lib/const_measurands.php:198
 msgid "f_high - Find Lowest Value"
 msgstr "f_high - 가장 낮은 값 찾기"
 
-#: include/global_arrays.php:324 lib/const_measurands.php:199
+#: include/global_arrays.php:323 lib/const_measurands.php:199
 msgid "Returns the lowest value of a given list of parameters"
 msgstr "주어진 매개 변수 목록의 가장 낮은 값을 반환합니다."
 
-#: include/global_arrays.php:331 lib/const_measurands.php:205
+#: include/global_arrays.php:330 lib/const_measurands.php:205
 msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
 msgstr "f_if - 조건부 연산 - IF-THEN-ELSE 논리"
 
-#: include/global_arrays.php:332 lib/const_measurands.php:206
+#: include/global_arrays.php:331 lib/const_measurands.php:206
 msgid "Returns B if A is true or C if A is false"
 msgstr "A가 참이면 B를 반환하고 A가 거짓이면 C를 반환합니다."
 
-#: include/global_arrays.php:339 lib/const_measurands.php:212
+#: include/global_arrays.php:338 lib/const_measurands.php:212
 msgid "f_isNaN - Find whether a value is not a number"
 msgstr "f_isNaN - 값이 숫자가 아닌지 확인"
 
-#: include/global_arrays.php:340 include/global_arrays.php:348
+#: include/global_arrays.php:339 include/global_arrays.php:347
 #: lib/const_measurands.php:213
 msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
 msgstr "A === NaN이면 1(또는 B)을 반환하고, 그렇지 않으면 0(또는 C)을 반환합니다. 매개 변수 B 및 C는 선택 사항입니다."
 
-#: include/global_arrays.php:347
+#: include/global_arrays.php:346
 msgid "f_cmp - Complex Comparison"
 msgstr "f_cmp - 복소수 비교"
 
-#: include/global_arrays.php:357 lib/const_measurands.php:130
+#: include/global_arrays.php:356 lib/const_measurands.php:130
 msgid "f_int - Alias of f_floor"
 msgstr "f_int - f_floor의 별칭"
 
-#: include/global_arrays.php:365 lib/const_measurands.php:137
+#: include/global_arrays.php:364 lib/const_measurands.php:137
 msgid "f_rnd - Alias of f_round"
 msgstr "f_rnd - f_round의 별칭"
 
-#: include/global_arrays.php:373 lib/const_measurands.php:219
+#: include/global_arrays.php:372 lib/const_measurands.php:219
 msgid "f_eq - Alias of f_cmp - IS EQUAL"
 msgstr "f_eq - f_cmp의 별칭 - 같음"
 
-#: include/global_arrays.php:374 lib/const_measurands.php:220
+#: include/global_arrays.php:373 lib/const_measurands.php:220
 msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "A == B인 경우 1(또는 C)을 반환하고 그렇지 않은 경우 0(또는 D)을 반환합니다. 매개 변수 C 및 D는 선택 사항입니다."
 
-#: include/global_arrays.php:381 lib/const_measurands.php:226
+#: include/global_arrays.php:380 lib/const_measurands.php:226
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
 msgstr "f_uq - f_cmp의 별칭 - 같지 않음"
 
-#: include/global_arrays.php:382 lib/const_measurands.php:227
+#: include/global_arrays.php:381 lib/const_measurands.php:227
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "A != B인 경우 1(또는 C)을 반환하고 그렇지 않은 경우 0(또는 D)을 반환합니다. 매개 변수 C 및 D는 선택 사항입니다."
 
-#: include/global_arrays.php:389 lib/const_measurands.php:233
+#: include/global_arrays.php:388 lib/const_measurands.php:233
 msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
 msgstr "f_gt - f_cmp의 별칭 - 다음보다 큼"
 
-#: include/global_arrays.php:390 lib/const_measurands.php:234
+#: include/global_arrays.php:389 lib/const_measurands.php:234
 msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "A> 경우 1(또는 C)을 반환하고, 그렇지 않은 경우 B 또는 0(또는 D)을 반환합니다. 매개 변수 C 및 D는 선택 사항입니다."
 
-#: include/global_arrays.php:397 lib/const_measurands.php:240
+#: include/global_arrays.php:396 lib/const_measurands.php:240
 msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
 msgstr "f_lt - f_cmp의 별칭 - 다음보다 작음"
 
-#: include/global_arrays.php:398 lib/const_measurands.php:241
+#: include/global_arrays.php:397 lib/const_measurands.php:241
 msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "A< 경우 1(또는 C)을 반환하고, 그렇지 않은 경우 B 또는 0(또는 D)을 반환합니다. 매개 변수 C 및 D는 선택 사항입니다."
 
-#: include/global_arrays.php:405 lib/const_measurands.php:247
+#: include/global_arrays.php:404 lib/const_measurands.php:247
 msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
 msgstr "f_ge - f_cmp의 별칭 - 더 크거나 같음"
 
-#: include/global_arrays.php:406 lib/const_measurands.php:248
+#: include/global_arrays.php:405 lib/const_measurands.php:248
 msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "A>= B인 경우 1(또는 C)을 반환하고, 그렇지 않은 경우 0(또는 D)을 반환합니다. 매개 변수 C 및 D는 선택 사항입니다."
 
-#: include/global_arrays.php:413 lib/const_measurands.php:254
+#: include/global_arrays.php:412 lib/const_measurands.php:254
 msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
 msgstr "f_le - f_cmp의 별칭 - 더 낮거나 같음"
 
-#: include/global_arrays.php:414 lib/const_measurands.php:255
+#: include/global_arrays.php:413 lib/const_measurands.php:255
 msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "A<= B인 경우 1(또는 C)을 반환하고, 그렇지 않은 경우 0(또는 D)을 반환합니다. 매개 변수 C 및 D는 선택 사항입니다."
 
-#: include/global_arrays.php:423 lib/const_measurands.php:266
+#: include/global_arrays.php:422 lib/const_measurands.php:266
 msgid "Addition"
 msgstr "추가"
 
-#: include/global_arrays.php:424 lib/const_measurands.php:267
+#: include/global_arrays.php:423 lib/const_measurands.php:267
 msgid "Mathematical Operation to return the sum of two or more summands"
 msgstr "두 개 이상의 합계의 합을 반환하는 수학 연산"
 
-#: include/global_arrays.php:430 lib/const_measurands.php:273
+#: include/global_arrays.php:429 lib/const_measurands.php:273
 msgid "Subtraction"
 msgstr "공제"
 
-#: include/global_arrays.php:431 lib/const_measurands.php:274
+#: include/global_arrays.php:430 lib/const_measurands.php:274
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
 msgstr "minuend와 subtrahend의 차이를 반환하는 수학 연산"
 
-#: include/global_arrays.php:437 lib/const_measurands.php:280
+#: include/global_arrays.php:436 lib/const_measurands.php:280
 msgid "Multiplication"
 msgstr "곱셈"
 
-#: include/global_arrays.php:438 lib/const_measurands.php:281
+#: include/global_arrays.php:437 lib/const_measurands.php:281
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
 msgstr "multiplier와 multiplicant의 곱을 반환하는 수학 연산"
 
-#: include/global_arrays.php:444 lib/const_measurands.php:287
+#: include/global_arrays.php:443 lib/const_measurands.php:287
 msgid "Division"
 msgstr "부"
 
-#: include/global_arrays.php:445 lib/const_measurands.php:288
+#: include/global_arrays.php:444 lib/const_measurands.php:288
 msgid "Mathematical Operation to return the fraction of divident and divisor"
 msgstr "divident와 divisor의 분수를 반환하는 수학 연산"
 
-#: include/global_arrays.php:451 lib/const_measurands.php:294
+#: include/global_arrays.php:450 lib/const_measurands.php:294
 msgid "Modulus"
 msgstr "계수"
 
-#: include/global_arrays.php:452 lib/const_measurands.php:295
+#: include/global_arrays.php:451 lib/const_measurands.php:295
 msgid "Mathematical Operation to return the remainder of a division of two integers"
 msgstr "두 정수의 나눗셈의 나머지를 반환하는 수학 연산"
 
-#: include/global_arrays.php:458 lib/const_measurands.php:301
+#: include/global_arrays.php:457 lib/const_measurands.php:301
 msgid "Exponentiation - PHP5.6 or above required"
 msgstr "Exponentiation - PHP5.6 이상 필요"
 
-#: include/global_arrays.php:459 lib/const_measurands.php:302
+#: include/global_arrays.php:458 lib/const_measurands.php:302
 msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
 msgstr "Mathematical Operation은 밑의 반복되는 곱셈(또는 나눗셈)을 지수로 반환합니다."
 
-#: include/global_arrays.php:467
+#: include/global_arrays.php:466
 msgid "Decimal Mark"
 msgstr "소수 표시"
 
-#: include/global_arrays.php:468
+#: include/global_arrays.php:467
 msgid "Decimal Mark used to separate the integer part from the fractional part"
 msgstr "소수 부분과 정수 부분을 구분하는 데 사용되는 소수점"
 
-#: include/global_arrays.php:476
+#: include/global_arrays.php:475
 msgid "Round Bracket"
 msgstr "라운드 브라켓"
 
-#: include/global_arrays.php:477 lib/const_measurands.php:312
+#: include/global_arrays.php:476 lib/const_measurands.php:312
 #: lib/const_measurands.php:319
 msgid "Used to override normal precedence or to mark the first level of nesting"
 msgstr "일반 우선 순위를 무시하거나 중첩의 첫 번째 수준을 표시하는 데 사용됩니다."
 
-#: include/global_arrays.php:484
+#: include/global_arrays.php:483
 msgid "Square Bracket"
 msgstr "대괄호"
 
-#: include/global_arrays.php:485 lib/const_measurands.php:326
+#: include/global_arrays.php:484 lib/const_measurands.php:326
 #: lib/const_measurands.php:333
 msgid "Used to override normal precedence or to mark the second level of nesting"
 msgstr "일반 우선 순위를 무시하거나 중첩의 두 번째 수준을 표시하는 데 사용됩니다"
 
-#: include/global_arrays.php:492
+#: include/global_arrays.php:491
 msgid "Punctuation mark"
 msgstr "문장 부호"
 
-#: include/global_arrays.php:493
+#: include/global_arrays.php:492
 msgid "Used to separate arguments forwarded to a function"
 msgstr "함수로 전달된 인수를 구분하는 데 사용됩니다."
 
-#: include/global_arrays.php:502
+#: include/global_arrays.php:501
 msgid "The minimum value of data that is allowed to be collected."
 msgstr "수집할 수 있는 데이터의 최소값입니다."
 
-#: include/global_arrays.php:503 include/global_arrays.php:511
+#: include/global_arrays.php:502 include/global_arrays.php:510
 msgid "WARNING! This variable can be set to zero or unlimited"
 msgstr "경고! 이 변수는 0 또는 무제한으로 설정할 수 있습니다"
 
-#: include/global_arrays.php:510
+#: include/global_arrays.php:509
 msgid "The maximum value of data that is allowed to be collected."
 msgstr "수집할 수 있는 데이터의 최대값입니다."
 
-#: include/global_arrays.php:518 lib/const_measurands.php:343
+#: include/global_arrays.php:517 lib/const_measurands.php:343
 msgid "Contains the number of seconds between two measured values."
 msgstr "측정된 두 값 사이의 시간(초)을 포함합니다."
 
-#: include/global_arrays.php:527 lib/const_measurands.php:350
+#: include/global_arrays.php:526 lib/const_measurands.php:350
 msgid "Functions w/o parameters"
 msgstr "매개 변수가 없는 기능"
 
-#: include/global_arrays.php:528 lib/const_measurands.php:351
+#: include/global_arrays.php:527 lib/const_measurands.php:351
 msgid "Functions with parameters"
 msgstr "매개 변수가 있는 함수"
 
-#: include/global_arrays.php:529 lib/const_measurands.php:352
+#: include/global_arrays.php:528 lib/const_measurands.php:352
 msgid "Aliases"
 msgstr "별칭"
 
-#: include/global_arrays.php:530 lib/const_measurands.php:353
+#: include/global_arrays.php:529 lib/const_measurands.php:353
 msgid "Operators"
 msgstr "운영자"
 
-#: include/global_arrays.php:531
+#: include/global_arrays.php:530
 msgid "Numbers"
 msgstr "번호"
 
-#: include/global_arrays.php:532
+#: include/global_arrays.php:531
 msgid "Others"
 msgstr "기타"
 
-#: include/global_arrays.php:534 lib/const_measurands.php:356
+#: include/global_arrays.php:533 lib/const_measurands.php:356
 #: lib/funct_html.php:174
 msgid "Data Query Variables"
 msgstr "데이터 쿼리 변수"
 
-#: include/global_arrays.php:535 lib/const_measurands.php:357
+#: include/global_arrays.php:534 lib/const_measurands.php:357
 #: lib/funct_html.php:177
 msgid "Interim Results"
 msgstr "중간 결과"
 
-#: include/global_arrays.php:539
+#: include/global_arrays.php:538
 msgid "Unlimited"
 msgstr "무제한"
 
-#: include/global_arrays.php:540
+#: include/global_arrays.php:539
 msgid "500 Data Items"
 msgstr "500 데이터 항목"
 
-#: include/global_arrays.php:541
+#: include/global_arrays.php:540
 msgid "1,000 Data Items"
 msgstr "1,000개의 데이터 항목"
 
-#: include/global_arrays.php:542
+#: include/global_arrays.php:541
 msgid "2,000 Data Items"
 msgstr "2,000개의 데이터 항목"
 
-#: include/global_arrays.php:543
+#: include/global_arrays.php:542
 msgid "5,000 Data Source Items"
 msgstr "5,000개의 데이터 소스 항목"
 
-#: include/global_arrays.php:544
+#: include/global_arrays.php:543
 msgid "7,500 Data Source Items"
 msgstr "7,500개의 데이터 소스 항목"
 
-#: include/global_arrays.php:545
+#: include/global_arrays.php:544
 msgid "10,000 Data Source Items"
 msgstr "10,000개의 데이터 원본 항목"
 
-#: include/global_arrays.php:546
+#: include/global_arrays.php:545
 msgid "15,000 Data Source Items"
 msgstr "15,000개의 데이터 원본 항목"
 
-#: include/global_arrays.php:547 include/global_arrays.php:548
+#: include/global_arrays.php:546 include/global_arrays.php:547
 msgid "25,000 Data Source Items"
 msgstr "25,000개의 데이터 원본 항목"
 
-#: include/global_arrays.php:552
+#: include/global_arrays.php:551
 msgid "1 Minute"
 msgstr "1분"
 
-#: include/global_arrays.php:553 include/global_arrays.php:554
-#: include/global_arrays.php:555 include/global_arrays.php:556
-#: include/global_arrays.php:557
+#: include/global_arrays.php:552 include/global_arrays.php:553
+#: include/global_arrays.php:554 include/global_arrays.php:555
+#: include/global_arrays.php:556
 #, php-format
 msgid "%d Minutes"
 msgstr "%d 분"
@@ -814,8 +810,8 @@ msgstr "%d 분"
 msgid "The unique name given to this Report Template."
 msgstr "이 보고서 템플릿에 지정된 고유 이름입니다."
 
-#: include/global_forms.php:55 templates.php:267 templates.php:1798
-#: templates.php:1925 view.php:288 view.php:1029
+#: include/global_forms.php:55 templates.php:266 templates.php:1808
+#: templates.php:1935 view.php:288 view.php:1033
 msgid "Description"
 msgstr "설명"
 
@@ -823,7 +819,7 @@ msgstr "설명"
 msgid "A longer description of this Report Template."
 msgstr "이 보고서 템플릿에 대한 자세한 설명입니다."
 
-#: include/global_forms.php:64 templates.php:264 templates.php:597
+#: include/global_forms.php:64 templates.php:263 templates.php:601
 msgid "Version"
 msgstr "버전"
 
@@ -831,7 +827,7 @@ msgstr "버전"
 msgid "A version number for this template"
 msgstr "이 템플릿의 버전 번호"
 
-#: include/global_forms.php:72 templates.php:265 templates.php:591
+#: include/global_forms.php:72 templates.php:264 templates.php:595
 msgid "Author"
 msgstr "작성자"
 
@@ -847,7 +843,7 @@ msgstr "발행"
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
 msgstr "사용자가 액세스할 수 있도록 이 보고서 템플릿을 게시해야 합니까? 새 템플릿이나 수정 사항을 테스트하려면 이 상자를 선택 취소해야 합니다."
 
-#: include/global_forms.php:86 templates.php:611
+#: include/global_forms.php:86 templates.php:615
 msgid "Locked"
 msgstr "잠김"
 
@@ -863,7 +859,7 @@ msgstr "추가 프리 필터"
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "선택 사항: 사용 가능한 데이터 항목 목록을 설명별로 필터링하는 구문입니다. % and/또는 _와 같은 SQL 와일드카드를 사용합니다. 정규 표현식이 없습니다!"
 
-#: include/global_forms.php:100 setup.php:521
+#: include/global_forms.php:100 setup.php:522
 msgid "Export Path"
 msgstr "내보내기 경로"
 
@@ -872,7 +868,7 @@ msgid "Optional: The path to an folder for saving the exports.  If it does not e
 msgstr "선택 사항: 내보내기를 저장할 폴더의 경로입니다.  ReportIt이 없는 경우 첫 번째 예약된 계산 중에 자동으로 하위 폴더를 만들려고 시도하고, 그렇지 않으면 템플릿 ID를 사용하여 기본 내보내기 폴더 내에 새 하위 폴더를 만들려고 시도합니다."
 
 #: include/global_forms.php:108 include/global_forms.php:113
-#: include/global_forms.php:120 templates.php:266 templates.php:603
+#: include/global_forms.php:120 templates.php:265 templates.php:607
 msgid "Data Template"
 msgstr "데이터 템플릿"
 
@@ -979,7 +975,7 @@ msgstr "괄호"
 
 #: lib/const_reports.php:28
 msgid "Run Now"
-msgstr ""
+msgstr "지금 수행"
 
 #: lib/const_reports.php:34
 msgid "CRASHED"
@@ -1035,7 +1031,7 @@ msgstr "일요일"
 msgid "Data Source Presets"
 msgstr "데이터 항목 사전 설정"
 
-#: lib/const_reports.php:122 reports.php:1122
+#: lib/const_reports.php:122 reports.php:1128
 msgid "Email"
 msgstr "이메일"
 
@@ -1043,8 +1039,7 @@ msgstr "이메일"
 msgid "Administration"
 msgstr "관리"
 
-#: lib/const_reports.php:124 reports.php:393 reports.php:1393
-#, fuzzy
+#: lib/const_reports.php:124 reports.php:394 reports.php:1399
 msgid "Data Sources"
 msgstr "데이터 원본"
 
@@ -1098,11 +1093,11 @@ msgstr "이메일 수신자"
 
 #: lib/const_reports.php:218
 msgid "Notification List Recipients"
-msgstr ""
+msgstr "알림 목록 수신자"
 
 #: lib/const_reports.php:219
 msgid "To add a Recipients based upon an valid Notification List."
-msgstr ""
+msgstr "유효한 알림 목록을 기반으로 수신자를 추가합니다."
 
 #: lib/const_reports.php:227
 msgid "New Email Recipients"
@@ -1116,7 +1111,7 @@ msgstr "새 수신자를 추가하려면 유효한 이메일 주소(필수)와 �
 msgid "Scheduled Reporting"
 msgstr "예약된 보고"
 
-#: lib/const_reports.php:253 setup.php:504
+#: lib/const_reports.php:253 setup.php:505
 msgid "Enable"
 msgstr "활성화"
 
@@ -1129,8 +1124,8 @@ msgid "Frequency"
 msgstr "회수"
 
 #: lib/const_reports.php:261
-msgid "Select the frequency for processing this report. Be sure that there's a cronjob (or scheduled task) running for the choice you made. This won't be done automatically by ReportIT."
-msgstr "이 보고서를 처리할 빈도를 선택합니다. 선택한 항목에 대해 실행 중인 cronjob(또는 예약된 작업)이 있는지 확인합니다. 이 작업은 ReportIT에서 자동으로 수행되지 않습니다."
+msgid "Select the frequency for processing this Report. ReportIt has a basic scheduler that will dispatch reports at midnight each day based upon the dispatch frequency specified by the user."
+msgstr "이 보고서를 처리할 빈도를 선택합니다. ReportIt에는 사용자가 지정한 디스패치 빈도에 따라 매일 자정에 보고서를 디스패치하는 기본 스케줄러가 있습니다."
 
 #: lib/const_reports.php:267
 msgid "Auto Generated Data Items"
@@ -1201,12 +1196,11 @@ msgstr "사용하도록 설정되면(기본값) 사용 가능한 데이터 항�
 msgid "Optional Sub-heading"
 msgstr "[선택 사항] 버전"
 
-#: lib/const_reports.php:362 reports.php:1630 rrdlist.php:374
+#: lib/const_reports.php:362 reports.php:1636
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 msgstr "인터페이스 설명 아래에 표시되어야 하는 추가 부제목을 정의합니다.<br> 다음 변수가 지원됩니다(따옴표 제외): '|t1|' '|t2|' '|티엠즈|' '|d1|' '|d2|'"
 
-#: lib/const_reports.php:373 reports.php:1297 reports.php:1641 rrdlist.php:212
-#: rrdlist.php:385
+#: lib/const_reports.php:373 reports.php:1303 reports.php:1647
 msgid "Time Zone"
 msgstr "표준 시간대"
 
@@ -1249,37 +1243,37 @@ msgstr "데이터 원본 별칭"
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "데이터 항목 설명에 대한 추가 필터링을 허용합니다.<br> nd/또는 _와 같은 % aSQL 와일드카드를 사용합니다. 정규 표현식이 없습니다!"
 
-#: lib/const_reports.php:412 reports.php:1661 rrdlist.php:405
+#: lib/const_reports.php:412 reports.php:1667
 msgid "Working Time"
 msgstr "근무시간"
 
-#: lib/const_reports.php:424 lib/const_reports.php:444 reports.php:1665
-#: reports.php:1703 rrdlist.php:409 rrdlist.php:447
+#: lib/const_reports.php:424 lib/const_reports.php:444 reports.php:1671
+#: reports.php:1709
 msgid "From"
 msgstr "발신자"
 
-#: lib/const_reports.php:425 reports.php:1666 rrdlist.php:410
+#: lib/const_reports.php:425 reports.php:1672
 msgid "The startpoint of duration you want to analyse"
 msgstr "분석하려는 기간의 시작점"
 
-#: lib/const_reports.php:432 lib/const_reports.php:452 reports.php:1673
-#: reports.php:1710 rrdlist.php:417 rrdlist.php:454
+#: lib/const_reports.php:432 lib/const_reports.php:452 reports.php:1679
+#: reports.php:1716
 msgid "To"
 msgstr "수신"
 
-#: lib/const_reports.php:433 reports.php:1674 rrdlist.php:418
+#: lib/const_reports.php:433 reports.php:1680
 msgid "The end of analysing time."
 msgstr "시간 분석의 끝입니다."
 
-#: lib/const_reports.php:440 reports.php:1699 rrdlist.php:443
+#: lib/const_reports.php:440 reports.php:1705
 msgid "Working Days"
 msgstr "근무일"
 
-#: lib/const_reports.php:445 reports.php:1704 rrdlist.php:448
+#: lib/const_reports.php:445 reports.php:1710
 msgid "Define the band of days where shift STARTS!"
 msgstr "shift가 시작되는 요일 밴드를 정의하십시오!"
 
-#: lib/const_reports.php:454 reports.php:1711 rrdlist.php:455
+#: lib/const_reports.php:454 reports.php:1717
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
 msgstr "예: 월(22:30)부터 토(06:30)까지의 야간 근무의 경우 월요일부터 금요일까지 정의합니다."
 
@@ -1287,7 +1281,7 @@ msgstr "예: 월(22:30)부터 토(06:30)까지의 야간 근무의 경우 월요
 msgid "The name given to this report"
 msgstr "이 보고서에 지정된 이름"
 
-#: lib/const_reports.php:506 lib/funct_export.php:84 lib/funct_export.php:451
+#: lib/const_reports.php:506 lib/funct_export.php:84 lib/funct_export.php:450
 #: view.php:298
 msgid "Template"
 msgstr "템플릿"
@@ -1296,8 +1290,8 @@ msgstr "템플릿"
 msgid "The template your configuration depends on"
 msgstr "구성이 의존하는 템플릿The template your configuration depends"
 
-#: lib/const_reports.php:514 lib/funct_export.php:83 lib/funct_export.php:450
-#: view.php:293 view.php:762
+#: lib/const_reports.php:514 lib/funct_export.php:83 lib/funct_export.php:449
+#: view.php:293 view.php:764
 msgid "Owner"
 msgstr "소유자"
 
@@ -1305,7 +1299,7 @@ msgstr "소유자"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "이 보고서의 소유자를 변경합니다. \"보기\" 이상의 권한이 있는 사용자만 선택할 수 있습니다."
 
-#: lib/const_reports.php:521 reports.php:385
+#: lib/const_reports.php:521 reports.php:386
 msgid "Public"
 msgstr "공개"
 
@@ -1317,7 +1311,7 @@ msgstr "활성화된 경우 모든 사용자가 '보고서' 탭에서 보고서�
 msgid "Reporting Period"
 msgstr "보고 기간"
 
-#: lib/const_reports.php:532 view.php:763
+#: lib/const_reports.php:532 view.php:765
 msgid "Sliding Time Frame"
 msgstr "슬라이딩 시간 프레임"
 
@@ -1358,13 +1352,12 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "종료 날짜를 정의하려면 <b>yyyy-mm-dd</b> 형식을 사용합니다."
 
 #: lib/const_rrdlist.php:28
-#, fuzzy
 msgid "Add to Report"
-msgstr "보고서 보기"
+msgstr "보고서에 추가"
 
 #: lib/const_rrdlist.php:29
 msgid "Remove from Report"
-msgstr ""
+msgstr "보고서에서 제거"
 
 #: lib/const_rrdlist.php:30
 #, fuzzy
@@ -1408,7 +1401,7 @@ msgstr "%s 안녕하세요"
 msgid "%s Lo"
 msgstr "%s Lo"
 
-#: lib/const_view.php:89 lib/const_view.php:98 view.php:613 view.php:628
+#: lib/const_view.php:89 lib/const_view.php:98 view.php:616 view.php:631
 msgid "Any"
 msgstr "일부"
 
@@ -1420,20 +1413,20 @@ msgstr "합계"
 msgid "Average"
 msgstr "평균"
 
-#: lib/funct_export.php:82 lib/funct_export.php:449
+#: lib/funct_export.php:82 lib/funct_export.php:448
 #, fuzzy
 msgid "Report title"
 msgstr "보고서 제목"
 
-#: lib/funct_export.php:85 lib/funct_export.php:452
+#: lib/funct_export.php:85 lib/funct_export.php:451
 msgid "Start"
 msgstr "시작"
 
-#: lib/funct_export.php:86 lib/funct_export.php:453
+#: lib/funct_export.php:86 lib/funct_export.php:452
 msgid "End"
 msgstr "끝"
 
-#: lib/funct_export.php:87 lib/funct_export.php:454 view.php:765
+#: lib/funct_export.php:87 lib/funct_export.php:453 view.php:767
 msgid "Last Run"
 msgstr "마지막 실행"
 
@@ -1526,312 +1519,276 @@ msgstr "템플릿 파일을 구문 분석할 수 없습니다."
 msgid "Checksum error with Template %s in XML file"
 msgstr "XML 파일의 템플릿 %s에 체크섬 오류"
 
-#: reports.php:105
+#: reports.php:106
 msgid "New Report"
 msgstr "새 보고서"
 
-#: reports.php:108
+#: reports.php:109
 #, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "사용할 수 있는 잠금 해제 및 활성화된 보고서 템플릿이 없습니다(%s 잠겨 있거나 비활성화되어 있음)."
 
-#: reports.php:112 reports.php:1980 reports.php:1992 reports.php:2096
-#: reports.php:2098 rrdlist.php:599 rrdlist.php:601 templates.php:192
-#: templates.php:194 templates.php:332 templates.php:333 templates.php:1368
-#: templates.php:1492 templates.php:1494 templates.php:1588 templates.php:1590
+#: reports.php:113 reports.php:1986 reports.php:1998 reports.php:2102
+#: reports.php:2104 templates.php:192 templates.php:194 templates.php:333
+#: templates.php:334 templates.php:1376 templates.php:1500 templates.php:1502
+#: templates.php:1596 templates.php:1598
 msgid "Cancel"
 msgstr "취소"
 
-#: reports.php:112 reports.php:1992 reports.php:2099 rrdlist.php:602
-#: templates.php:194 templates.php:1377 templates.php:1379 templates.php:1494
-#: templates.php:1590
+#: reports.php:113 reports.php:1998 reports.php:2105 templates.php:194
+#: templates.php:1385 templates.php:1387 templates.php:1502 templates.php:1598
 msgid "Continue"
 msgstr "계속"
 
-#: reports.php:112
+#: reports.php:113
 msgid "Create a new report"
 msgstr "새 보고서 만들기"
 
-#: reports.php:120
+#: reports.php:121
 msgid "Choose a template this report should depend on."
 msgstr "이 보고서에서 사용할 템플릿을 선택합니다."
 
-#: reports.php:145
+#: reports.php:146
 msgid "Report Filters"
 msgstr "보고서 필터"
 
-#: reports.php:153 reports.php:1313 rrdlist.php:228 templates.php:419
-#: view.php:213 view.php:670
+#: reports.php:154 reports.php:1319 templates.php:423 view.php:213 view.php:672
 msgid "Search"
 msgstr "검색"
 
-#: reports.php:159 reports.php:401 setup.php:135 setup.php:407
-#: templates.php:625 view.php:228 view.php:318 view.php:799
+#: reports.php:160 reports.php:402 setup.php:135 setup.php:408
+#: templates.php:629 view.php:228 view.php:318 view.php:801
 msgid "Reports"
 msgstr "보고서"
 
-#: reports.php:175 reports.php:1343 rrdlist.php:250 templates.php:441
-#: view.php:661
+#: reports.php:176 reports.php:1349 templates.php:445 view.php:663
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "가기"
 
-#: reports.php:176 reports.php:1344 rrdlist.php:251 templates.php:442
-#: view.php:662
+#: reports.php:177 reports.php:1350 templates.php:446 view.php:664
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "지우기"
 
-#: reports.php:370
+#: reports.php:367
 #, php-format
 msgid "Period %s From - To"
 msgstr "기간 %s 시작-종료"
 
-#: reports.php:373
+#: reports.php:370
+#, fuzzy
+msgid "Schedule Frequency"
+msgstr "회수"
+
+#: reports.php:374
 msgid "State"
 msgstr "주"
 
-#: reports.php:377 view.php:307
+#: reports.php:378 view.php:307
 #, php-format
 msgid "Last Run %s"
 msgstr "마지막 실행 %s"
 
-#: reports.php:381 view.php:312
+#: reports.php:382 view.php:312
 msgid "Runtime [s]"
 msgstr "런타임 [s]"
 
-#: reports.php:389
+#: reports.php:390
 msgid "Scheduled"
 msgstr "예정된 작업"
 
-#: reports.php:431 templates.php:1710
+#: reports.php:431
+msgid "Disabled"
+msgstr "비활성화"
+
+#: reports.php:437 templates.php:1720
 msgid "N/A"
 msgstr "N/A"
 
-#: reports.php:443
+#: reports.php:449
 msgid "Add sources"
 msgstr "소스 추가"
 
-#: reports.php:443
+#: reports.php:449
 msgid "Edit sources"
 msgstr "소스 편집"
 
-#: reports.php:446
+#: reports.php:452
 #, php-format
 msgid "Select %s"
 msgstr "선택 %s"
 
-#: reports.php:448
+#: reports.php:454
 msgid "Report has been locked"
 msgstr "보고서가 잠겼습니다."
 
-#: reports.php:456
+#: reports.php:462
 #, fuzzy
 msgid "No reports"
 msgstr "보고서"
 
-#: reports.php:541
+#: reports.php:547
 msgid "Not Authorized"
 msgstr "인증되지 않았습니다"
 
-#: reports.php:1087
+#: reports.php:1093
 #, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "보고서 구성(%s) %s"
 
-#: reports.php:1123
+#: reports.php:1129
 msgid "Action"
 msgstr "실행"
 
-#: reports.php:1138
+#: reports.php:1144
 msgid "No recipients found"
 msgstr "수신자를 찾을 수 없습니다."
 
-#: reports.php:1272
-#, fuzzy
+#: reports.php:1278
 msgid "Data Source Name"
-msgstr "데이터 원본"
+msgstr "데이터 원본 이름"
 
-#: reports.php:1282
+#: reports.php:1288
 msgid "Associated"
-msgstr ""
+msgstr "연결됨"
 
-#: reports.php:1286 rrdlist.php:201
+#: reports.php:1292
 msgid "Subhead"
 msgstr "서브 헤드"
 
-#: reports.php:1291 rrdlist.php:206
+#: reports.php:1297
 msgid "Shifttime (From - To)"
 msgstr "Shifttime(시작-종료)"
 
-#: reports.php:1294 rrdlist.php:209
+#: reports.php:1300
 msgid "Weekdays (From - To)"
 msgstr "평일(시작-종료)"
 
-#: reports.php:1319 rrdlist.php:234
+#: reports.php:1325
 msgid "RRDs"
 msgstr "RRDs (RRD)"
 
-#: reports.php:1336
+#: reports.php:1342
 msgid "Show All"
-msgstr ""
+msgstr "모두 보여주기"
 
-#: reports.php:1412 rrdlist.php:304
+#: reports.php:1418
 msgid "Does not exist anymore"
 msgstr "더 이상 존재하지 않습니다."
 
-#: reports.php:1422
+#: reports.php:1428
 #, fuzzy
 msgid "Included in Report"
 msgstr "보고서 실행"
 
-#: reports.php:1424
+#: reports.php:1430
 msgid "Not Included in Report"
-msgstr ""
+msgstr "보고서에 포함되지 않음"
 
-#: reports.php:1447 rrdlist.php:316
+#: reports.php:1453
 msgid "Select"
 msgstr "선택"
 
-#: reports.php:1452 rrdlist.php:321
+#: reports.php:1458
 msgid "No data items found"
 msgstr "데이터 항목을 찾을 수 없습니다."
 
-#: reports.php:1522 reports.php:1527
+#: reports.php:1528 reports.php:1533
 msgid "Email address of a recipient (or comma separated list)"
 msgstr "수신자의 이메일 주소(또는 쉼표로 구분된 목록)"
 
-#: reports.php:1523 reports.php:1528
+#: reports.php:1529 reports.php:1534
 msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[선택 사항] 받는 사람 이름(또는 쉼표로 구분된 이름 목록)"
 
-#: reports.php:1611
+#: reports.php:1617
 #, fuzzy, php-format
 msgid "Data Source [edit: %s]"
 msgstr "데이터 항목 [%s 편집]"
 
-#: reports.php:1629 rrdlist.php:373
+#: reports.php:1635
 msgid "Subhead (optional)"
 msgstr "부제목(선택 사항)"
 
-#: reports.php:1642 rrdlist.php:386
+#: reports.php:1648
 msgid "Select the time zone your following shifttime information will be based on."
 msgstr "다음 교대 근무 시간 정보의 기반이 되는 시간대를 선택합니다."
 
-#: reports.php:1967
+#: reports.php:1973
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "'계속'을 클릭하여 다음 보고서를 실행합니다."
 
-#: reports.php:1969
+#: reports.php:1975
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "'계속'을 클릭하여 다음 보고서를 삭제합니다."
 
-#: reports.php:1971
+#: reports.php:1977
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "'계속'을 클릭하여 다음 보고서 구성을 복제합니다.  이 작업 중에 제목 형식을 변경할 수도 있습니다."
 
-#: reports.php:1972
+#: reports.php:1978
 #, fuzzy
 msgid "Title Format:"
 msgstr "제목 형식"
 
-#: reports.php:1973
+#: reports.php:1979
 msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
-#: reports.php:1979
+#: reports.php:1985
 msgid "You must select at least one unlocked, not running, report."
 msgstr "잠금 해제된, 실행되지 않은 보고서를 하나 이상 선택해야 합니다."
 
-#: reports.php:2033
+#: reports.php:2039
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
 msgstr "'계속'을 클릭하여 다음 데이터 항목을 제거합니다."
 
-#: reports.php:2036 reports.php:2053
+#: reports.php:2042 reports.php:2059
 #, fuzzy
 msgid "List of selected Data Sources below."
 msgstr "선택한 데이터 항목 목록:"
 
-#: reports.php:2041 reports.php:2058 view.php:969
+#: reports.php:2047 reports.php:2064 view.php:973
 #, fuzzy, php-format
 msgid "Data Source: %s"
 msgstr "데이터 원본"
 
-#: reports.php:2050
+#: reports.php:2056
 #, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
 msgstr "'계속'을 클릭하여 다음 보고서를 실행합니다."
 
-#: reports.php:2080
+#: reports.php:2086
 #, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
 msgstr "'계속'을 클릭하여 설정을 다른 데이터 항목에 복사합니다."
 
-#: reports.php:2082
+#: reports.php:2088
 #, fuzzy
 msgid "Selected Data Source as Reference:"
 msgstr "참조로 선택한 데이터 항목:"
 
-#: reports.php:2085 rrdlist.php:588
+#: reports.php:2091
 msgid "Time Zone:"
 msgstr "시간대:"
 
-#: reports.php:2086 rrdlist.php:589
+#: reports.php:2092
 msgid "Weekdays:"
 msgstr "평일:"
 
-#: reports.php:2087 rrdlist.php:590
+#: reports.php:2093
 msgid "Shifttime:"
 msgstr "시프트 시간:"
 
-#: reports.php:2094 rrdlist.php:597
+#: reports.php:2100
 msgid "You must select at least one Report."
 msgstr "하나 이상의 보고서를 선택해야 합니다."
 
-#: rrdlist.php:186
-#, php-format
-msgid "Data Items [Report: %s %s [%d]"
-msgstr "데이터 항목 [보고서: %s %s [%d]"
-
-#: rrdlist.php:191
-msgid "Data Item Name"
-msgstr "데이터 항목 이름"
-
-#: rrdlist.php:289 setup.php:165
-msgid "Data Items"
-msgstr "데이터 항목"
-
-#: rrdlist.php:360
-#, php-format
-msgid "Data Item [edit: %s]"
-msgstr "데이터 항목 [%s 편집]"
-
-#: rrdlist.php:554
-msgid "Click 'Continue' to Remove the following Data Items."
-msgstr "'계속'을 클릭하여 다음 데이터 항목을 제거합니다."
-
-#: rrdlist.php:557
-#, fuzzy
-msgid "List of selected Data Items below."
-msgstr "선택한 데이터 항목 목록:"
-
-#: rrdlist.php:562
-#, fuzzy, php-format
-msgid "Data Item: %s"
-msgstr "데이터 항목"
-
-#: rrdlist.php:584
-msgid "Click 'Continue' to Copy the Settings to the other Data Items"
-msgstr "'계속'을 클릭하여 설정을 다른 데이터 항목에 복사합니다."
-
-#: rrdlist.php:586
-msgid "Selected data item as reference:"
-msgstr "참조로 선택한 데이터 항목:"
-
 #: setup.php:39
 #, fuzzy
-msgid "ReportIt - View Reports"
+msgid "ReportIt - Report Viewing"
 msgstr "리포트 보기"
 
 #: setup.php:40
@@ -1854,11 +1811,15 @@ msgstr "(편집)"
 msgid "Actions"
 msgstr "작업"
 
-#: setup.php:201 templates.php:411
+#: setup.php:165
+msgid "Data Items"
+msgstr "데이터 항목"
+
+#: setup.php:201 templates.php:415
 msgid "Report Templates"
 msgstr "리포트 템플릿"
 
-#: setup.php:225 setup.php:231 templates.php:240 templates.php:332
+#: setup.php:225 setup.php:231 templates.php:239 templates.php:333
 msgid "Import"
 msgstr "가져오기"
 
@@ -1891,218 +1852,222 @@ msgid "Pie Chart"
 msgstr "원형차트"
 
 #: setup.php:365
-msgid "System Administration"
-msgstr "시스템 관리"
+msgid "Normal User"
+msgstr "일반 사용자"
 
 #: setup.php:366
 msgid "General Administration"
 msgstr "일반 행정"
 
-#: setup.php:371
+#: setup.php:367
+msgid "System Administration"
+msgstr "시스템 관리"
+
+#: setup.php:372
 msgid "Management"
 msgstr "관리"
 
-#: setup.php:371 setup.php:372 setup.php:617
+#: setup.php:372 setup.php:373 setup.php:618
 msgid "ReportIt"
 msgstr "리포트잇"
 
-#: setup.php:372 templates.php:425 templates.php:632
+#: setup.php:373 templates.php:429 templates.php:636
 msgid "Templates"
 msgstr "템플릿"
 
-#: setup.php:376
+#: setup.php:377
 msgid "No data source item selected"
 msgstr "선택한 데이터 원본 항목이 없습니다."
 
-#: setup.php:380
+#: setup.php:381
 msgid "Unselected data source items are still in use"
 msgstr "선택하지 않은 데이터 소스 항목이 아직 사용 중입니다."
 
-#: setup.php:384
+#: setup.php:385
 msgid "Unable to unlock this template without defined measurands"
 msgstr "정의된 측정 없이 이 템플릿의 잠금을 해제할 수 없습니다."
 
-#: setup.php:397
+#: setup.php:398
 msgid "global"
 msgstr "글로벌"
 
-#: setup.php:397
+#: setup.php:398
 #, fuzzy
 msgid "local"
 msgstr "로컬"
 
-#: setup.php:402
+#: setup.php:403
 msgid "Power User (Report Owner)"
 msgstr "고급 사용자(보고서 소유자)"
 
-#: setup.php:403
+#: setup.php:404
 msgid "Super User (Report Admin)"
 msgstr "슈퍼 사용자(보고서 관리자)"
 
-#: setup.php:416
+#: setup.php:417
 msgid "Maximum Execution Time (in seconds)"
 msgstr "최대 실행 시간(초)"
 
-#: setup.php:417
+#: setup.php:418
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "선택 사항: 한 계산의 최대 실행 시간입니다."
 
-#: setup.php:423
+#: setup.php:424
 msgid "Maximum Record Count Change"
 msgstr "최대 레코드 수 변경"
 
-#: setup.php:424
+#: setup.php:425
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "선택 사항(RRD 목록 자동 생성): 레코드 수 변경이 이 숫자보다 큰 경우 보고서의 RRD 목록을 변경하지 마십시오. 이는 RRD 목록에서 원치 않는 재앙적인 변경을 피하기 위한 것입니다."
 
-#: setup.php:430
+#: setup.php:431
 msgid "Time Zones"
 msgstr "시간대"
 
-#: setup.php:431
+#: setup.php:432
 #, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "데이터 항목의 구성 및 보고서 계산을 위한 시간대 사용을 활성화/비활성화합니다.  전자의 경우 서버 시간을 GMT/UTC로 설정해야 합니다!"
 
-#: setup.php:436
+#: setup.php:437
 msgid "Show Local Time Zone"
 msgstr "현지 시간대 표시"
 
-#: setup.php:437
+#: setup.php:438
 #, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
 msgstr "헤드라인에 서버의 시간대를 표시하도록 활성화/비활성화합니다."
 
-#: setup.php:442
+#: setup.php:443
 #, fuzzy
 msgid "Allow Scheduling by Operators"
 msgstr "운영자에 의한 스케줄링 허용"
 
-#: setup.php:443
+#: setup.php:444
 #, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
 msgstr "운영자의 보고서 예약 기능을 활성화/비활성화합니다.  비활성화된 경우 관리자만 일정을 변경할 수 있습니다."
 
-#: setup.php:448
+#: setup.php:449
 msgid "SI-Prefixes"
 msgstr "SI 접두어"
 
-#: setup.php:449
+#: setup.php:450
 #, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> 및 <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>의 조건에 따라 이진 배수에 대한 올바른 SI 접두사의 사용을 활성화/비활성화합니다."
 
-#: setup.php:454
+#: setup.php:455
 msgid "Export Settings"
 msgstr "내보내기 설정"
 
-#: setup.php:459
+#: setup.php:460
 msgid "Filename Format"
 msgstr "파일 이름 형식"
 
-#: setup.php:460
+#: setup.php:461
 msgid "The name format for the export files created on demand."
 msgstr "요청 시 생성된 내보내기 파일의 이름 형식입니다."
 
-#: setup.php:466
+#: setup.php:467
 msgid "Export Header"
 msgstr "헤더 내보내기"
 
-#: setup.php:467
+#: setup.php:468
 msgid "The header description for export files"
 msgstr "내보내기 파일에 대한 헤더 설명"
 
-#: setup.php:471
+#: setup.php:472
 msgid "# Your report header # <cacti_version> <reportit_version>"
 msgstr "# 보고서 헤더 # <cacti_version> <reportit_version>"
 
-#: setup.php:474
+#: setup.php:475
 msgid "Auto Archiving"
 msgstr "자동 아카이빙"
 
-#: setup.php:479 setup.php:515
+#: setup.php:480 setup.php:516
 msgid "Enabled"
 msgstr "활성화"
 
-#: setup.php:480
+#: setup.php:481
 msgid "If enabled the result of every scheduled report will be archived automatically"
 msgstr "활성화된 경우 예약된 모든 보고서의 결과가 자동으로 보관됩니다"
 
-#: setup.php:485
+#: setup.php:486
 msgid "Cache Life Cycle (in seconds)"
 msgstr "캐시 수명 주기(초)"
 
-#: setup.php:486
+#: setup.php:487
 msgid "Number of seconds an archived report will be cached without any hit."
 msgstr "보관된 보고서가 조회 없이 캐시되는 시간(초)입니다."
 
-#: setup.php:492
+#: setup.php:493
 msgid "Archive Path"
 msgstr "아카이브 경로"
 
-#: setup.php:493
+#: setup.php:494
 msgid "The path to an archive folder where archives have to be stored."
 msgstr "아카이브를 저장해야 하는 아카이브 폴더의 경로입니다."
 
-#: setup.php:499
+#: setup.php:500
 msgid "Auto E-Mailing"
 msgstr "자동 이메일 발송"
 
-#: setup.php:505
+#: setup.php:506
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "활성화된 경우 예약된 보고서를 수신자 목록에 자동으로 이메일로 보낼 수 있습니다.<br> 이 기능을 사용하려면 구성된 버전의 '설정 플러그인'이 필요합니다."
 
-#: setup.php:510
+#: setup.php:511
 msgid "Auto Exporting"
 msgstr "자동 내보내기"
 
-#: setup.php:516
+#: setup.php:517
 msgid "If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder > Template Folder (if defined) or Template ID > Report ID > Report"
 msgstr "활성화하면 예약된 보고서를 지정된 폴더로 자동으로 내보낼 수 있습니다.<br> 따라서 전체 구조화된 경로 아키텍처가 사용됩니다.<br> 기본 폴더 > 템플릿 폴더(정의된 경우) 또는 템플릿 ID > 보고서 ID > 보고서"
 
-#: setup.php:522
+#: setup.php:523
 msgid "The main path to an export folder for saving the exports."
 msgstr "내보내기를 저장하기 위한 내보내기 폴더의 기본 경로입니다."
 
-#: setup.php:538
+#: setup.php:539
 #, fuzzy
 msgid "Report View Settings"
 msgstr "ReportIt 일반 설정"
 
-#: setup.php:543
+#: setup.php:544
 msgid "Separate Report View Filter"
 msgstr "별도의 보고서 보기 필터"
 
-#: setup.php:544
+#: setup.php:545
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "보고서당 개별 필터를 사용하거나 사용하지 않도록 설정합니다."
 
-#: setup.php:549
+#: setup.php:550
 msgid "Rows Per Page"
 msgstr "페이지당 행 수"
 
-#: setup.php:550
+#: setup.php:551
 msgid "The number of rows to display on a single page."
 msgstr "한 페이지에 표시할 행의 수입니다."
 
-#: setup.php:556
+#: setup.php:557
 #, fuzzy
 msgid "Report Export Settings"
 msgstr "ReportIt 내보내기 설정"
 
-#: setup.php:561
+#: setup.php:562
 msgid "CSV Column Separator"
 msgstr "CSV 열 구분 기호"
 
-#: setup.php:562
+#: setup.php:563
 msgid "The column separator to be used for CSV exports."
 msgstr "CSV 내보내기에 사용할 열 구분 기호입니다."
 
-#: setup.php:568
+#: setup.php:569
 msgid "CSV Decimal Separator"
 msgstr "CSV 소수 구분 기호"
 
-#: setup.php:569
+#: setup.php:570
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "정수 부분의 끝과 소수 부분의 시작을 나타내는 기호입니다."
 
@@ -2122,387 +2087,387 @@ msgstr "새 보고서 템플릿 만들기"
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
 msgstr "이 보고서 템플릿이 사용해야 하는 데이터 템플릿을 선택합니다.  사용하지 않는 데이터 템플릿은 숨겨져 있습니다."
 
-#: templates.php:229 templates.php:332
+#: templates.php:228 templates.php:333
 msgid "Import Report Template"
 msgstr "보고서 템플릿 가져오기"
 
-#: templates.php:233
+#: templates.php:232
 msgid "Select the XML file that contains your Report Template."
 msgstr "보고서 템플릿이 포함된 XML 파일을 선택합니다."
 
-#: templates.php:240
+#: templates.php:239
 msgid "Import Report Templates"
 msgstr "보고서 템플릿 가져오기"
 
-#: templates.php:263
+#: templates.php:262
 msgid "Compatible"
 msgstr "호환 가능"
 
-#: templates.php:272
+#: templates.php:271
 msgid "Summary"
 msgstr "요약"
 
-#: templates.php:321
+#: templates.php:320
 msgid "No Compatible Templates Found"
 msgstr "호환되는 템플릿을 찾을 수 없습니다."
 
-#: templates.php:443
+#: templates.php:447
 msgctxt "Button: import button"
 msgid "Import"
 msgstr "가져오기"
 
-#: templates.php:582
+#: templates.php:586
 msgid "The name of this Report Template."
 msgstr "이 보고서 템플릿의 이름입니다."
 
-#: templates.php:588
+#: templates.php:592
 msgid "The internal identifier of this Report Template."
 msgstr "이 보고서 템플릿의 내부 식별자입니다."
 
-#: templates.php:594
+#: templates.php:598
 msgid "The Author of this Report Template."
 msgstr "이 보고서 템플릿의 작성자입니다."
 
-#: templates.php:600
+#: templates.php:604
 msgid "The version of this Report Template."
 msgstr "이 보고서 템플릿의 버전입니다."
 
-#: templates.php:607
+#: templates.php:611
 msgid "Published"
 msgstr "공개됨"
 
-#: templates.php:628
+#: templates.php:632
 msgid "The total number of reports using this report template."
 msgstr "이 보고서 템플릿을 사용하는 총 보고서 수입니다."
 
-#: templates.php:661
+#: templates.php:667
 msgid "No matching data sources"
 msgstr "일치하는 데이터 원본이 없습니다."
 
-#: templates.php:663
+#: templates.php:669
 msgid "Data template not available"
 msgstr "데이터 템플릿을 사용할 수 없음"
 
-#: templates.php:673
+#: templates.php:679
 msgid "Add measurands"
 msgstr "측정값 추가"
 
-#: templates.php:673
+#: templates.php:679
 msgid "Edit measurands"
 msgstr "측정값 편집"
 
-#: templates.php:679
+#: templates.php:685
 msgid "Add variables"
 msgstr "변수 추가"
 
-#: templates.php:679
+#: templates.php:685
 msgid "Edit variables"
 msgstr "변수 편집"
 
-#: templates.php:686
+#: templates.php:692
 #, fuzzy
 msgid "No templates"
 msgstr "템플릿"
 
-#: templates.php:851
+#: templates.php:857
 msgid "Maximum has to be greater than minimum."
 msgstr "최대값은 최소값보다 커야 합니다."
 
-#: templates.php:855
+#: templates.php:861
 msgid "Default value is out of values range."
 msgstr "기본값이 값 범위를 벗어났습니다."
 
-#: templates.php:924
+#: templates.php:930
 msgid "Duplicate abbreviation"
 msgstr "중복된 약어"
 
-#: templates.php:979
+#: templates.php:985
 msgid "Interim results are used by other measurands."
 msgstr "중간 결과는 다른 측정에 사용됩니다."
 
-#: templates.php:1042
+#: templates.php:1048
 #, fuzzy, php-format
 msgid "Template [ %s - %s ]"
 msgstr "템플릿: %s"
 
-#: templates.php:1046
+#: templates.php:1052
 #, fuzzy
 msgid "Template [new]"
 msgstr "템플릿"
 
-#: templates.php:1137
+#: templates.php:1145
 #, fuzzy
 msgid "<template_title>"
 msgstr "템플릿 제목"
 
-#: templates.php:1297
+#: templates.php:1305
 msgid "Click 'Continue' to Delete the following Report Templates"
 msgstr "'계속'을 클릭하여 다음 보고서 템플릿을 삭제합니다."
 
-#: templates.php:1300
+#: templates.php:1308
 msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
 msgstr "경고: 이 템플릿에 속한 모든 보고서도 삭제됩니다!"
 
-#: templates.php:1303
+#: templates.php:1311
 #, php-format
 msgid "Template: %s"
 msgstr "템플릿: %s"
 
-#: templates.php:1309
+#: templates.php:1317
 #, php-format
 msgid "Report: %s"
 msgstr "보고서: %s"
 
-#: templates.php:1316
+#: templates.php:1324
 msgid "Report: <i>None</i>"
 msgstr "보고서: <i>없음</i>"
 
-#: templates.php:1327
+#: templates.php:1335
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
 msgstr "'계속'을 클릭하여 다음 보고서 템플릿을 복제합니다. 필요에 따라 이러한 중복 항목의 제목을 변경할 수 있습니다."
 
-#: templates.php:1330
+#: templates.php:1338
 msgid "List of selected report templates:"
 msgstr "선택한 보고서 템플릿 목록:"
 
-#: templates.php:1343
+#: templates.php:1351
 msgid "Title:"
 msgstr "제목:"
 
-#: templates.php:1345
+#: templates.php:1353
 msgid "<template_title> (1)"
 msgstr "<template_title> (1)"
 
-#: templates.php:1354
+#: templates.php:1362
 msgid "Click 'Continue' to Export the following Report Templates"
 msgstr "'계속'을 클릭하여 다음 보고서 템플릿을 내보냅니다."
 
-#: templates.php:1372
+#: templates.php:1380
 msgid "You must select at least one Report Template."
 msgstr "하나 이상의 보고서 템플릿을 선택해야 합니다."
 
-#: templates.php:1377
+#: templates.php:1385
 msgid "Delete Report Templates"
 msgstr "보고서 템플릿 삭제"
 
-#: templates.php:1379
+#: templates.php:1387
 msgid "Duplicate Report Templates"
 msgstr "중복된 보고서 템플릿"
 
-#: templates.php:1381
+#: templates.php:1389
 msgid "Export Report Templates"
 msgstr "보고서 템플릿 내보내기"
 
-#: templates.php:1449
+#: templates.php:1457
 msgid "Click 'Continue to Delete the following variables."
 msgstr "'계속'을 클릭하여 다음 변수를 삭제합니다."
 
-#: templates.php:1472
+#: templates.php:1480
 msgid "List of selected variables:"
 msgstr "선택한 변수 목록:"
 
-#: templates.php:1476
+#: templates.php:1484
 #, fuzzy, php-format
 msgid "Variable: %s"
 msgstr "변수 : %s"
 
-#: templates.php:1487
+#: templates.php:1495
 msgid "There are one or more variables in use."
 msgstr "하나 이상의 변수가 사용 중입니다."
 
-#: templates.php:1489
+#: templates.php:1497
 msgid "You must select at least one variable."
 msgstr "변수를 하나 이상 선택해야 합니다."
 
-#: templates.php:1494
+#: templates.php:1502
 msgid "Delete Template Variables"
 msgstr "템플릿 변수 삭제"
 
-#: templates.php:1566
+#: templates.php:1574
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
 msgstr "'계속'을 클릭하여 다음 측정값을 삭제합니다.  주의: 이 프로세스 후에 다른 측정치가 남아 있지 않으면 보고서 템플릿이 자동으로 잠깁니다."
 
-#: templates.php:1569
+#: templates.php:1577
 msgid "List of selected measurands:"
 msgstr "선택한 측정 목록:"
 
-#: templates.php:1573
+#: templates.php:1581
 #, fuzzy, php-format
 msgid "Metric: %s"
 msgstr "측정 : %s"
 
-#: templates.php:1584
+#: templates.php:1592
 msgid "You must select at least one measurand."
 msgstr "하나 이상의 측정값을 선택해야 합니다."
 
-#: templates.php:1590
+#: templates.php:1598
 #, fuzzy
 msgid "Delete Template Metrics"
 msgstr "템플릿 측정 항목 삭제"
 
-#: templates.php:1675
+#: templates.php:1683
 #, php-format
 msgid "Variables [ Template: %s - %s ]"
-msgstr ""
+msgstr "변수 [ 템플릿: %s - %s ]"
 
-#: templates.php:1715
+#: templates.php:1725
 msgid "No Variables Found"
 msgstr "변수를 찾을 수 없습니다."
 
-#: templates.php:1755
+#: templates.php:1765
 #, fuzzy, php-format
 msgid "Variable Configuration [ edit: %s ]"
 msgstr "변수 구성 [편집: %s]"
 
-#: templates.php:1757
+#: templates.php:1767
 msgid "Variable Configuration [new]"
 msgstr "변수 구성 [신규]"
 
-#: templates.php:1783
+#: templates.php:1793
 msgid "Internal name"
 msgstr "내부 이름"
 
-#: templates.php:1784
+#: templates.php:1794
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
 msgstr "ReportIt 자체에 의해 생성되는 고유 식별자입니다. 계산 수식 정의에 이 ID를 사용하여 보고서 사용자가 개별적으로 정의한 해당 값을 포함할 수 있습니다."
 
-#: templates.php:1791
+#: templates.php:1801
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
 msgstr "예를 들어 \"Threshold\"와 같은 이름은 보고서 구성 내에서 헤드라인으로 사용해야 합니다."
 
-#: templates.php:1794
+#: templates.php:1804
 msgid "Provide a name for this Variable"
-msgstr ""
+msgstr "이 변수의 이름을 제공합니다."
 
-#: templates.php:1799
+#: templates.php:1809
 msgid "A short, pithy description that explains the sense of this variable."
 msgstr "이 변수의 의미를 설명하는 짧고 간결한 설명입니다."
 
-#: templates.php:1804
+#: templates.php:1814
 msgid "Provide a meaningful description"
-msgstr ""
+msgstr "의미 있는 설명을 제공합니다."
 
-#: templates.php:1808
+#: templates.php:1818
 msgid "Maximum Value"
 msgstr "최대값"
 
-#: templates.php:1809
+#: templates.php:1819
 msgid "Defines the upper limit of this variable."
 msgstr "이 변수의 상한을 정의합니다."
 
-#: templates.php:1815
+#: templates.php:1825
 msgid "Minimum Value"
 msgstr "최소값"
 
-#: templates.php:1816
+#: templates.php:1826
 msgid "Defines the lower limit of this variable."
 msgstr "이 변수의 하한을 정의합니다."
 
-#: templates.php:1822
+#: templates.php:1832
 msgid "Default Value"
 msgstr "기본 값"
 
-#: templates.php:1823
+#: templates.php:1833
 msgid "Sets the default value."
 msgstr "기본값을 설정합니다."
 
-#: templates.php:1829 templates.php:1977 view.php:219
+#: templates.php:1839 templates.php:1987 view.php:219
 msgid "Type"
 msgstr "유형"
 
-#: templates.php:1830
+#: templates.php:1840
 msgid "The method the report owner should use to define this variable."
 msgstr "보고서 소유자가 이 변수를 정의하는 데 사용해야 하는 방법입니다."
 
-#: templates.php:1837
+#: templates.php:1847
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
 msgstr "\"DropDown\" 방법을 선택한 경우 두 값 사이의 거리를 정의합니다. 이 값은 드롭다운 필드에 포함될 옵션의 수를 간접적으로 정의하므로 너무 낮게 설정되지 않도록 하십시오. 예를 들어 MAX:100, MIN:0, STEP:0.01 매개변수는 10.001 옵션의 선택 상자를 생성합니다. 이로 인해 클라이언트 측의 높은 CPU 부하로 인해 극적인 성능 문제가 발생할 수 있습니다. 1000 미만으로 유지하십시오."
 
-#: templates.php:1901
+#: templates.php:1911
 #, fuzzy, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
 msgstr "Measurand 구성 [%s 편집]"
 
-#: templates.php:1903
+#: templates.php:1913
 #, fuzzy
 msgid "Metric Configuration [new]"
 msgstr "Measurand 구성 [신규]"
 
-#: templates.php:1926
+#: templates.php:1936
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
 msgstr "이 측정에 대한 설명. 이는 내보내기 내에서 범례로 표시되며 보고서 자체의 프레젠테이션 내에서 툴팁으로 표시됩니다."
 
-#: templates.php:1933
+#: templates.php:1943
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
 msgstr "이 측정에 대한 고유한 약어를 최대 8개의 문자/숫자로 정의합니다."
 
-#: templates.php:1940
+#: templates.php:1950
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "이 측정에 주어진 단위입니다. 예: 'Bits/s'"
 
-#: templates.php:1946
+#: templates.php:1956
 msgid "Consolidation function"
 msgstr "통합 기능"
 
-#: templates.php:1947
+#: templates.php:1957
 msgid "The name of the consolidation function to define which CDPs should be read out."
 msgstr "읽어야 하는 CDP를 정의하기 위한 통합 함수의 이름입니다."
 
-#: templates.php:1955
+#: templates.php:1965
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
 msgstr "이 측정값이 최종 보고서 출력의 일부가 되어야 하는 경우 '사용'을 선택합니다. 이 측정값이 보조 계산으로만 사용되는 경우 플래그가 지정되지 않은 상태로 두십시오."
 
-#: templates.php:1964
+#: templates.php:1974
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
 msgstr "이 측정에 모든 데이터 소스 항목에 대해 하나의 결과가 아닌 총 하나의 결과만 있는 경우 '사용'을 선택합니다. 결과입니다<br>별도로 표시됩니다. 최종 사용자에게 표시되지 않고 다른 측정 계산 내에서 재사용해야 하는 중간 결과만 유지하는 측정을 찾는 경우 \"Visible\" = \"off\"와 함께 이 옵션을 사용합니다."
 
-#: templates.php:1972
+#: templates.php:1982
 msgid "Formatting"
 msgstr "서식"
 
-#: templates.php:1980
+#: templates.php:1990
 msgid "Defines as what type the data should be treated as."
 msgstr "데이터를 처리해야 하는 형식을 정의합니다."
 
-#: templates.php:1984
+#: templates.php:1994
 msgid "Precision"
 msgstr "정확성"
 
-#: templates.php:1985
+#: templates.php:1995
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
 msgstr "부동 소수점 숫자에 대해 표시해야 하는 10진수 수를 정의합니다."
 
-#: templates.php:1991
+#: templates.php:2001
 msgid "Prefixes"
 msgstr "접두사"
 
-#: templates.php:1992
+#: templates.php:2002
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "결과의 형식을 지정하는 데 사용되는 접두사 유형을 선택합니다. 10진수 접두사를 사용하면 '1024'는 '1.024k'로 형식이 지정되고 2진수 접두사 옵션은 '1ki'를 반환합니다. 원시 데이터(여기서는 '1024')를 표시하려면 '끄기'를 선택합니다."
 
-#: templates.php:1998
+#: templates.php:2008
 msgid "Formula"
 msgstr "공식"
 
-#: templates.php:2004
+#: templates.php:2014
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "이 측정치의 수학적 정의입니다. 수학 규칙에 따라 아래에 나열된 연산자와 피연산자의 모든 조합이 허용됩니다. 둥근 괄호와 대괄호를 사용하여 복잡한 용어와 작업 순서를 나타냅니다."
 
-#: templates.php:2009
+#: templates.php:2019
 msgid "Operators & Operands"
 msgstr "연산자 & 피연산자"
 
-#: templates.php:2010
+#: templates.php:2020
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
 msgstr "나열된 연산자 또는 피연산자 중 하나를 클릭하여 calucalion 공식에 추가합니다. 툴팁에는 설명, 반환 값, 인수 및 사용법과 같은 추가 정보가 표시됩니다."
 
-#: templates.php:2099
+#: templates.php:2109
 #, fuzzy, php-format
 msgid "Metrics [ Template: %s - %s ]"
 msgstr "템플릿: %s"
 
-#: templates.php:2135
+#: templates.php:2147
 #, fuzzy
 msgid "No Metrics Found"
 msgstr "보고서를 찾을 수 없습니다."
@@ -2531,86 +2496,116 @@ msgstr "기간(시작 - 종료)"
 msgid "No Reports Found"
 msgstr "보고서를 찾을 수 없습니다."
 
-#: view.php:609
+#: view.php:612
 msgid "Metric"
-msgstr ""
+msgstr "메트릭"
 
-#: view.php:624
+#: view.php:627
 msgid "Data Source"
 msgstr "데이터 원본"
 
-#: view.php:640
+#: view.php:643
 #, fuzzy
 msgid "Show Top 10 Graphs"
 msgstr "TOP10 그래프 표시"
 
-#: view.php:641
+#: view.php:644
 msgid "Show Subheads"
 msgstr "부제목 표시"
 
-#: view.php:642
+#: view.php:645
 msgid "Show Summary"
 msgstr "요약 표시"
 
-#: view.php:675
+#: view.php:677
 msgid "Additional"
 msgstr "추가"
 
-#: view.php:685
+#: view.php:687
 msgid "Items"
 msgstr "아이템"
 
-#: view.php:697
+#: view.php:699
 msgid "Archive"
 msgstr "아카이브"
 
-#: view.php:700
+#: view.php:702
 msgid "Current"
 msgstr "현재 비번"
 
-#: view.php:759
+#: view.php:761
 msgid "Title"
 msgstr "제목"
 
-#: view.php:760
+#: view.php:762
 msgid "Runtime"
 msgstr "런타임"
 
-#: view.php:766
+#: view.php:768
 msgid "Scheduler"
 msgstr "스케줄러"
 
-#: view.php:768
+#: view.php:770
 msgid "Period"
 msgstr "기간"
 
-#: view.php:769
+#: view.php:771
 msgid "Auto Generated RRD list"
 msgstr "자동 생성된 RRD 목록"
 
-#: view.php:807
+#: view.php:809
 msgid "Data Description"
 msgstr "데이터 설명"
 
-#: view.php:847
+#: view.php:849
 msgid "-- NO SUBHEADING --"
 msgstr "-- 부제목 없음 --"
 
-#: view.php:900
+#: view.php:904
 msgid "No Data Items"
 msgstr "데이터 항목 없음"
 
-#: view.php:1004
+#: view.php:1008
 #, fuzzy, php-format
 msgid "Metric: %s (%s)"
 msgstr "측정 : %s"
 
-#: view.php:1025
-#, fuzzy
+#: view.php:1029
 msgid "Pos."
 msgstr "Pos."
 
-#: view.php:1033
+#: view.php:1037
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "결과 [ %s]"
+
+#~ msgid "Click 'Continue' to Copy the Settings to the other Data Items"
+#~ msgstr "'계속'을 클릭하여 설정을 다른 데이터 항목에 복사합니다."
+
+#~ msgid "Click 'Continue' to Remove the following Data Items."
+#~ msgstr "'계속'을 클릭하여 다음 데이터 항목을 제거합니다."
+
+#~ msgid "Data Item Name"
+#~ msgstr "데이터 항목 이름"
+
+#, php-format
+#~ msgid "Data Item [edit: %s]"
+#~ msgstr "데이터 항목 [%s 편집]"
+
+#, fuzzy, php-format
+#~ msgid "Data Item: %s"
+#~ msgstr "데이터 항목"
+
+#, php-format
+#~ msgid "Data Items [Report: %s %s [%d]"
+#~ msgstr "데이터 항목 [보고서: %s %s [%d]"
+
+#, fuzzy
+#~ msgid "List of selected Data Items below."
+#~ msgstr "선택한 데이터 항목 목록:"
+
+#~ msgid "Select the frequency for processing this report. Be sure that there's a cronjob (or scheduled task) running for the choice you made. This won't be done automatically by ReportIT."
+#~ msgstr "이 보고서를 처리할 빈도를 선택합니다. 선택한 항목에 대해 실행 중인 cronjob(또는 예약된 작업)이 있는지 확인합니다. 이 작업은 ReportIT에서 자동으로 수행되지 않습니다."
+
+#~ msgid "Selected data item as reference:"
+#~ msgstr "참조로 선택한 데이터 항목:"

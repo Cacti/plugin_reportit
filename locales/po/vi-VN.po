@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2024-09-22 16:04-0400\n"
-"PO-Revision-Date: 2024-09-07 13:14-0400\n"
+"POT-Creation-Date: 2024-09-25 20:00-0400\n"
+"PO-Revision-Date: 2024-09-25 20:06-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: vi_VN\n"
@@ -38,56 +38,56 @@ msgid "Unlock"
 msgstr "Mở khóa"
 
 #: include/global_arrays.php:31 setup.php:237 setup.php:243 setup.php:249
-#: templates.php:1381
+#: templates.php:1389
 msgid "Export"
 msgstr "Xuất ra"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:48 lib/const_reports.php:499
-#: lib/const_variables.php:51 reports.php:362 reports.php:1121
-#: templates.php:262 templates.php:579 templates.php:1614 templates.php:1790
-#: templates.php:2106
+#: lib/const_variables.php:51 reports.php:359 reports.php:1127
+#: templates.php:261 templates.php:583 templates.php:1622 templates.php:1800
+#: templates.php:2118
 msgid "Name"
 msgstr "Tên"
 
-#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1619
+#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1627
 msgid "Internal Name"
 msgstr "Tên nội bộ"
 
 #: include/global_arrays.php:53 lib/const_variables.php:53
-#: lib/const_view.php:101 templates.php:1623
+#: lib/const_view.php:101 templates.php:1631
 msgid "Maximum"
 msgstr "Tối đa"
 
 #: include/global_arrays.php:54 lib/const_variables.php:54
-#: lib/const_view.php:100 templates.php:1627
+#: lib/const_view.php:100 templates.php:1635
 msgid "Minimum"
 msgstr "Tối thiểu"
 
-#: include/global_arrays.php:55 lib/const_variables.php:55 reports.php:163
-#: reports.php:1323 rrdlist.php:238 templates.php:429 templates.php:1631
-#: view.php:232 view.php:688
+#: include/global_arrays.php:55 lib/const_variables.php:55 reports.php:164
+#: reports.php:1329 templates.php:433 templates.php:1639 view.php:232
+#: view.php:690
 msgid "Default"
 msgstr "Mặc định"
 
-#: include/global_arrays.php:56 templates.php:1635 templates.php:1836
+#: include/global_arrays.php:56 templates.php:1643 templates.php:1846
 msgid "Stepping"
 msgstr "Bước"
 
-#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1639
+#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1647
 msgid "Input Type"
 msgstr "Loại đầu vào"
 
-#: include/global_arrays.php:58 templates.php:1643
+#: include/global_arrays.php:58 templates.php:1651
 msgid "Options"
 msgstr "Tùy chọn"
 
-#: include/global_arrays.php:61 include/global_arrays.php:71 reports.php:366
-#: reports.php:1277 rrdlist.php:196 templates.php:585
+#: include/global_arrays.php:61 include/global_arrays.php:71 reports.php:363
+#: reports.php:1283 templates.php:589
 msgid "ID"
 msgstr "ID"
 
-#: include/global_arrays.php:62 templates.php:1932 templates.php:2107
+#: include/global_arrays.php:62 templates.php:1942 templates.php:2119
 msgid "Abbreviation"
 msgstr "Sự rút ngắn"
 
@@ -95,23 +95,23 @@ msgstr "Sự rút ngắn"
 msgid "Group"
 msgstr "Nhóm"
 
-#: include/global_arrays.php:64 templates.php:1939 templates.php:2108
+#: include/global_arrays.php:64 templates.php:1949 templates.php:2120
 msgid "Unit"
 msgstr "Đơn vị"
 
-#: include/global_arrays.php:65 templates.php:2109
+#: include/global_arrays.php:65 templates.php:2121
 msgid "Consolidation Function"
 msgstr "Chức năng hợp nhất"
 
-#: include/global_arrays.php:66 templates.php:1954 templates.php:2110
+#: include/global_arrays.php:66 templates.php:1964 templates.php:2122
 msgid "Visible"
 msgstr "Hiển thị"
 
-#: include/global_arrays.php:67 templates.php:1963 templates.php:2111
+#: include/global_arrays.php:67 templates.php:1973 templates.php:2123
 msgid "Separate"
 msgstr "Riêng biệt"
 
-#: include/global_arrays.php:68 templates.php:2003 templates.php:2112
+#: include/global_arrays.php:68 templates.php:2013 templates.php:2124
 msgid "Calculation Formula"
 msgstr "Công thức tính toán"
 
@@ -124,9 +124,9 @@ msgid "Elements"
 msgstr "Các thành phần"
 
 #: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:261
-#: templates.php:138 templates.php:615
+#: templates.php:138 templates.php:619
 msgid "Metrics"
-msgstr ""
+msgstr "Số liệu"
 
 #: include/global_arrays.php:76
 msgid "Associated Data Templates"
@@ -135,8 +135,8 @@ msgstr "Mẫu dữ liệu được liên kết"
 #: include/global_arrays.php:81 include/global_forms.php:43
 #: lib/const_reports.php:120 lib/const_reports.php:176
 #: lib/const_reports.php:324 lib/const_reports.php:357
-#: lib/const_reports.php:495 reports.php:1621 rrdlist.php:369 setup.php:411
-#: templates.php:136 templates.php:1779 templates.php:1920
+#: lib/const_reports.php:495 reports.php:1627 setup.php:412 templates.php:136
+#: templates.php:1789 templates.php:1930
 msgid "General"
 msgstr "Chung"
 
@@ -148,9 +148,9 @@ msgstr "Mẫu dữ liệu"
 msgid "Groups"
 msgstr "Nhóm"
 
-#: include/global_arrays.php:85 include/global_arrays.php:533
+#: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:355 lib/funct_html.php:171 lib/funct_html.php:247
-#: setup.php:285 templates.php:137 templates.php:620
+#: setup.php:285 templates.php:137 templates.php:624
 msgid "Variables"
 msgstr "Biến"
 
@@ -247,107 +247,103 @@ msgid "Last 2 Years"
 msgstr "2 năm qua"
 
 #: include/global_arrays.php:118 lib/const_reports.php:105
-#, fuzzy
 msgid "Daily"
 msgstr "Hàng ngày"
 
 #: include/global_arrays.php:119 lib/const_reports.php:106
-#, fuzzy
 msgid "Weekly"
-msgstr "hàng tuần"
+msgstr "Hàng tuần"
 
 #: include/global_arrays.php:120 lib/const_reports.php:107
-#, fuzzy
 msgid "Monthly"
-msgstr "hàng tháng"
+msgstr "Hàng tháng"
 
 #: include/global_arrays.php:121 lib/const_reports.php:108
 msgid "Quarterly"
-msgstr ""
+msgstr "Hàng quý"
 
 #: include/global_arrays.php:122 lib/const_reports.php:109
-#, fuzzy
 msgid "Yearly"
-msgstr "mỗi năm"
+msgstr "Hàng năm"
 
-#: include/global_arrays.php:127 lib/const_variables.php:32 templates.php:48
+#: include/global_arrays.php:126 lib/const_variables.php:32 templates.php:48
 msgid "Dropdown"
 msgstr "Thả xuống"
 
-#: include/global_arrays.php:128 lib/const_variables.php:33 templates.php:49
+#: include/global_arrays.php:127 lib/const_variables.php:33 templates.php:49
 msgid "Input field"
 msgstr "Trường đầu vào"
 
-#: include/global_arrays.php:133 include/global_arrays.php:145
+#: include/global_arrays.php:132 include/global_arrays.php:144
 #: lib/const_measurands.php:378 lib/const_reports.php:156
 #: lib/const_reports.php:223 lib/const_reports.php:392
 #: lib/const_reports.php:400 lib/const_view.php:97
 msgid "None"
 msgstr "Không"
 
-#: include/global_arrays.php:134 lib/const_measurands.php:367
+#: include/global_arrays.php:133 lib/const_measurands.php:367
 msgid "Binary"
 msgstr "Nhị phân"
 
-#: include/global_arrays.php:135 lib/const_measurands.php:368
+#: include/global_arrays.php:134 lib/const_measurands.php:368
 msgid "Floating point"
 msgstr "Dấu phẩy động"
 
-#: include/global_arrays.php:136 lib/const_measurands.php:369
+#: include/global_arrays.php:135 lib/const_measurands.php:369
 msgid "Integer"
 msgstr "Số nguyên"
 
-#: include/global_arrays.php:137 lib/const_measurands.php:370
+#: include/global_arrays.php:136 lib/const_measurands.php:370
 msgid "Integer (unsigned)"
 msgstr "Số nguyên (không dấu)"
 
-#: include/global_arrays.php:138 lib/const_measurands.php:371
+#: include/global_arrays.php:137 lib/const_measurands.php:371
 msgid "Hexadecimal (lower-case)"
 msgstr "Hệ thập lục phân (chữ thường)"
 
-#: include/global_arrays.php:139 lib/const_measurands.php:372
+#: include/global_arrays.php:138 lib/const_measurands.php:372
 msgid "Hexadecimal (upper-case)"
 msgstr "Hệ thập lục phân (chữ hoa)"
 
-#: include/global_arrays.php:140 lib/const_measurands.php:373
+#: include/global_arrays.php:139 lib/const_measurands.php:373
 msgid "Octal"
 msgstr "Bát phân"
 
-#: include/global_arrays.php:141 lib/const_measurands.php:374
+#: include/global_arrays.php:140 lib/const_measurands.php:374
 msgid "Scientific Notation"
 msgstr "Ký hiệu khoa học"
 
-#: include/global_arrays.php:155 lib/const_measurands.php:388
+#: include/global_arrays.php:154 lib/const_measurands.php:388
 msgid "Unchanged"
 msgstr "Nguyên"
 
-#: include/global_arrays.php:159 lib/const_measurands.php:361
+#: include/global_arrays.php:158 lib/const_measurands.php:361
 msgid "off"
 msgstr "tắt"
 
-#: include/global_arrays.php:160 lib/const_measurands.php:362
+#: include/global_arrays.php:159 lib/const_measurands.php:362
 msgid "Binary SI-Prefixes (Base 1024)"
 msgstr "Tiền tố SI nhị phân (Cơ số 1024)"
 
-#: include/global_arrays.php:161 lib/const_measurands.php:363
+#: include/global_arrays.php:160 lib/const_measurands.php:363
 msgid "Decimal SI-Prefixes (Base 1000)"
 msgstr "Tiền tố SI thập phân (Cơ số 1000)"
 
-#: include/global_arrays.php:167 lib/const_measurands.php:27
+#: include/global_arrays.php:166 lib/const_measurands.php:27
 msgid "f_avg - Arithmetic Average"
 msgstr "f_avg - Trung bình số học"
 
-#: include/global_arrays.php:168 lib/const_measurands.php:28
+#: include/global_arrays.php:167 lib/const_measurands.php:28
 msgid "Returns the average value of all measured values per DS"
 msgstr "Trả về giá trị trung bình của tất cả các giá trị đo được trên mỗi DS"
 
-#: include/global_arrays.php:169 include/global_arrays.php:176
-#: include/global_arrays.php:183 include/global_arrays.php:190
-#: include/global_arrays.php:197 include/global_arrays.php:204
-#: include/global_arrays.php:211 include/global_arrays.php:218
-#: include/global_arrays.php:225 include/global_arrays.php:232
-#: include/global_arrays.php:239 include/global_arrays.php:246
-#: include/global_arrays.php:253 include/global_arrays.php:260
+#: include/global_arrays.php:168 include/global_arrays.php:175
+#: include/global_arrays.php:182 include/global_arrays.php:189
+#: include/global_arrays.php:196 include/global_arrays.php:203
+#: include/global_arrays.php:210 include/global_arrays.php:217
+#: include/global_arrays.php:224 include/global_arrays.php:231
+#: include/global_arrays.php:238 include/global_arrays.php:245
+#: include/global_arrays.php:252 include/global_arrays.php:259
 #: lib/const_measurands.php:29 lib/const_measurands.php:36
 #: lib/const_measurands.php:43 lib/const_measurands.php:50
 #: lib/const_measurands.php:57 lib/const_measurands.php:64
@@ -358,453 +354,453 @@ msgstr "Trả về giá trị trung bình của tất cả các giá trị đo �
 msgid "none"
 msgstr "không"
 
-#: include/global_arrays.php:174 lib/const_measurands.php:34
+#: include/global_arrays.php:173 lib/const_measurands.php:34
 msgid "f_max - Maximum Value"
 msgstr "f_max - Giá trị tối đa"
 
-#: include/global_arrays.php:175 lib/const_measurands.php:35
+#: include/global_arrays.php:174 lib/const_measurands.php:35
 msgid "Returns the highest measured value per DS"
 msgstr "Trả về giá trị đo cao nhất trên mỗi DS"
 
-#: include/global_arrays.php:181 lib/const_measurands.php:41
+#: include/global_arrays.php:180 lib/const_measurands.php:41
 msgid "f_min - Minimum Value"
 msgstr "f_min - Giá trị tối thiểu"
 
-#: include/global_arrays.php:182 lib/const_measurands.php:42
+#: include/global_arrays.php:181 lib/const_measurands.php:42
 msgid "Returns the lowest measured value per DS"
 msgstr "Trả về giá trị đo thấp nhất trên mỗi DS"
 
-#: include/global_arrays.php:188 lib/const_measurands.php:48
+#: include/global_arrays.php:187 lib/const_measurands.php:48
 msgid "f_sum - Sum"
 msgstr "f_sum - Tổng"
 
-#: include/global_arrays.php:189 lib/const_measurands.php:49
+#: include/global_arrays.php:188 lib/const_measurands.php:49
 msgid "Returns the sum of all measured values per DS"
 msgstr "Trả về tổng của tất cả các giá trị đo được trên mỗi DS"
 
-#: include/global_arrays.php:195 lib/const_measurands.php:55
+#: include/global_arrays.php:194 lib/const_measurands.php:55
 msgid "f_num - Number of Values (Not NaN)"
 msgstr "f_num - Số lượng giá trị (không phải NaN)"
 
-#: include/global_arrays.php:196 lib/const_measurands.php:56
+#: include/global_arrays.php:195 lib/const_measurands.php:56
 msgid "Returns the number of valid measured values per DS"
 msgstr "Trả về số lượng giá trị đo hợp lệ trên mỗi DS"
 
-#: include/global_arrays.php:202 lib/const_measurands.php:62
+#: include/global_arrays.php:201 lib/const_measurands.php:62
 msgid "f_grd - Gradient"
 msgstr "f_grd - Độ dốc"
 
-#: include/global_arrays.php:203 lib/const_measurands.php:63
+#: include/global_arrays.php:202 lib/const_measurands.php:63
 msgid "Returns the gradient of a straight line by using linear regression per DS"
 msgstr "Trả về gradient của một đường thẳng bằng cách dùng hồi quy tuyến tính trên mỗi DS"
 
-#: include/global_arrays.php:209 lib/const_measurands.php:69
+#: include/global_arrays.php:208 lib/const_measurands.php:69
 msgid "f_last - Last Value"
 msgstr "f_last - Giá trị cuối cùng"
 
-#: include/global_arrays.php:210 lib/const_measurands.php:70
+#: include/global_arrays.php:209 lib/const_measurands.php:70
 msgid "Returns the last valid measured value per DS"
 msgstr "Trả về giá trị đo hợp lệ cuối cùng trên mỗi DS"
 
-#: include/global_arrays.php:216 lib/const_measurands.php:76
+#: include/global_arrays.php:215 lib/const_measurands.php:76
 msgid "f_1st - First Value"
 msgstr "f_1st - Giá trị đầu tiên"
 
-#: include/global_arrays.php:217 lib/const_measurands.php:77
+#: include/global_arrays.php:216 lib/const_measurands.php:77
 msgid "Returns the first valid measured value per DS"
 msgstr "Trả về giá trị đo hợp lệ đầu tiên trên mỗi DS"
 
-#: include/global_arrays.php:223 lib/const_measurands.php:83
+#: include/global_arrays.php:222 lib/const_measurands.php:83
 msgid "f_nan - Number of NaNs"
 msgstr "f_nan - Số lượng NaNs"
 
-#: include/global_arrays.php:224 lib/const_measurands.php:84
+#: include/global_arrays.php:223 lib/const_measurands.php:84
 msgid "Returns the number of NaNs stored per DS"
 msgstr "Trả về số NaN được lưu trữ trên mỗi DS"
 
-#: include/global_arrays.php:230 lib/const_measurands.php:90
+#: include/global_arrays.php:229 lib/const_measurands.php:90
 msgid "f_median - Median"
 msgstr "f_median - Trung vị"
 
-#: include/global_arrays.php:231 lib/const_measurands.php:91
+#: include/global_arrays.php:230 lib/const_measurands.php:91
 msgid "Returns that value that separates the higher half from the lower half per DS"
 msgstr "Trả về giá trị đó ngăn cách nửa trên với nửa dưới trên mỗi DS"
 
-#: include/global_arrays.php:237 lib/const_measurands.php:104
+#: include/global_arrays.php:236 lib/const_measurands.php:104
 msgid "f_range - Range"
 msgstr "f_range - Phạm vi"
 
-#: include/global_arrays.php:238 lib/const_measurands.php:105
+#: include/global_arrays.php:237 lib/const_measurands.php:105
 msgid "Returns the difference between the largest and the smallest value per DS"
 msgstr "Trả về hiệu giữa giá trị lớn nhất và nhỏ nhất trên mỗi DS"
 
-#: include/global_arrays.php:244 lib/const_measurands.php:111
+#: include/global_arrays.php:243 lib/const_measurands.php:111
 msgid "f_iqr - Interquartile Range"
 msgstr "f_iqr - Phạm vi liên phân vị"
 
-#: include/global_arrays.php:245 lib/const_measurands.php:112
+#: include/global_arrays.php:244 lib/const_measurands.php:112
 msgid "Returns the distance of the middle50&#037; around the median per DS"
 msgstr "Trả về khoảng cách của 50% giữa quanh trung vị trên mỗi DS"
 
-#: include/global_arrays.php:251 lib/const_measurands.php:118
+#: include/global_arrays.php:250 lib/const_measurands.php:118
 msgid "f_sd - Standard Deviation"
 msgstr "f_sd - Độ lệch chuẩn"
 
-#: include/global_arrays.php:252 lib/const_measurands.php:119
+#: include/global_arrays.php:251 lib/const_measurands.php:119
 msgid "Returns the square root per data source variance"
 msgstr "Trả về căn bậc hai cho mỗi phương sai nguồn dữ liệu"
 
-#: include/global_arrays.php:258
+#: include/global_arrays.php:257
 msgid "f_var - Variance"
 msgstr "f_var - Phương sai"
 
-#: include/global_arrays.php:259
+#: include/global_arrays.php:258
 msgid "Returns the variance per DS"
 msgstr "Trả về phương sai cho mỗi DS"
 
-#: include/global_arrays.php:267 lib/const_measurands.php:149
+#: include/global_arrays.php:266 lib/const_measurands.php:149
 msgid "f_xth - Xth Percentile"
 msgstr "f_xth - Phân vị thứ X"
 
-#: include/global_arrays.php:268 lib/const_measurands.php:150
+#: include/global_arrays.php:267 lib/const_measurands.php:150
 msgid "Returns the xth percentitle."
 msgstr "Trả về phân vị thứ x."
 
-#: include/global_arrays.php:269 lib/const_measurands.php:151
+#: include/global_arrays.php:268 lib/const_measurands.php:151
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
 msgstr "$var: ngưỡng tính bằng phần trăm. Phạm vi: [0&lt; $var ≤100]"
 
-#: include/global_arrays.php:275 lib/const_measurands.php:156
+#: include/global_arrays.php:274 lib/const_measurands.php:156
 msgid "f_dot - Duration Over Threshold"
 msgstr "f_dot - Thời lượng vượt ngưỡng"
 
-#: include/global_arrays.php:276 lib/const_measurands.php:157
+#: include/global_arrays.php:275 lib/const_measurands.php:157
 msgid "Returns the duration over a defined threshold in percent."
 msgstr "Trả về khoảng thời gian trên một ngưỡng xác định theo phần trăm."
 
-#: include/global_arrays.php:277 include/global_arrays.php:285
+#: include/global_arrays.php:276 include/global_arrays.php:284
 #: lib/const_measurands.php:158 lib/const_measurands.php:165
 msgid "$var: threshold (absolute)"
 msgstr "$var: ngưỡng (tuyệt đối)"
 
-#: include/global_arrays.php:283 lib/const_measurands.php:163
+#: include/global_arrays.php:282 lib/const_measurands.php:163
 msgid "f_sot - Sum Over Threshold"
 msgstr "f_sot - Tổng vượt ngưỡng"
 
-#: include/global_arrays.php:284 lib/const_measurands.php:164
+#: include/global_arrays.php:283 lib/const_measurands.php:164
 msgid "Returns the sum of values over a defined threshold."
 msgstr "Trả về tổng các giá trị trên một ngưỡng đã xác định."
 
-#: include/global_arrays.php:291 lib/const_measurands.php:170
+#: include/global_arrays.php:290 lib/const_measurands.php:170
 msgid "f_floor - Round Fractions Down"
 msgstr "f_floor - Làm tròn phân số xuống"
 
-#: include/global_arrays.php:292 include/global_arrays.php:358
+#: include/global_arrays.php:291 include/global_arrays.php:357
 #: lib/const_measurands.php:131 lib/const_measurands.php:171
 msgid "Returns the next lowest integer value by rounding down value if necessary."
 msgstr "Trả về giá trị số nguyên thấp nhất tiếp theo bằng cách làm tròn giá trị xuống nếu cần."
 
-#: include/global_arrays.php:293 include/global_arrays.php:301
-#: include/global_arrays.php:359 lib/const_measurands.php:132
+#: include/global_arrays.php:292 include/global_arrays.php:300
+#: include/global_arrays.php:358 lib/const_measurands.php:132
 #: lib/const_measurands.php:172 lib/const_measurands.php:179
 msgid "$var: float"
 msgstr "$var: phao"
 
-#: include/global_arrays.php:299 lib/const_measurands.php:177
+#: include/global_arrays.php:298 lib/const_measurands.php:177
 msgid "f_ceil - Round Fractions Up"
 msgstr "f_ceil - Làm tròn phân số lên"
 
-#: include/global_arrays.php:300 lib/const_measurands.php:178
+#: include/global_arrays.php:299 lib/const_measurands.php:178
 msgid "Returns the next highest integer value by rounding up value if necessary."
 msgstr "Trả về giá trị số nguyên cao nhất tiếp theo bằng cách làm tròn giá trị lên nếu cần."
 
-#: include/global_arrays.php:307 lib/const_measurands.php:184
+#: include/global_arrays.php:306 lib/const_measurands.php:184
 msgid "f_round - Round A Float"
 msgstr "f_round - Phao Vòng A"
 
-#: include/global_arrays.php:308 include/global_arrays.php:366
+#: include/global_arrays.php:307 include/global_arrays.php:365
 #: lib/const_measurands.php:138 lib/const_measurands.php:185
 msgid "Returns the rounded integer value of any given float."
 msgstr "Trả về giá trị số nguyên được làm tròn của bất kỳ số nổi đã cho nào."
 
-#: include/global_arrays.php:309 include/global_arrays.php:367
+#: include/global_arrays.php:308 include/global_arrays.php:366
 #: lib/const_measurands.php:139 lib/const_measurands.php:186
 msgid "$var: float or string value"
 msgstr "$var: giá trị float hoặc chuỗi"
 
-#: include/global_arrays.php:315 lib/const_measurands.php:191
+#: include/global_arrays.php:314 lib/const_measurands.php:191
 msgid "f_high - Find Highest Value"
 msgstr "f_high - Tìm giá trị cao nhất"
 
-#: include/global_arrays.php:316 lib/const_measurands.php:192
+#: include/global_arrays.php:315 lib/const_measurands.php:192
 msgid "Returns the highest value of a given list of parameters"
 msgstr "Trả về giá trị cao nhất của một danh sách tham số đã cho"
 
-#: include/global_arrays.php:317 include/global_arrays.php:325
+#: include/global_arrays.php:316 include/global_arrays.php:324
 #: lib/const_measurands.php:193 lib/const_measurands.php:200
 msgid "$var1, $var2, $var3 ...: values to be compared"
 msgstr "$var 1, $var 2, $var 3 ...: các giá trị cần so sánh"
 
-#: include/global_arrays.php:323 lib/const_measurands.php:198
+#: include/global_arrays.php:322 lib/const_measurands.php:198
 msgid "f_high - Find Lowest Value"
 msgstr "f_high - Tìm giá trị thấp nhất"
 
-#: include/global_arrays.php:324 lib/const_measurands.php:199
+#: include/global_arrays.php:323 lib/const_measurands.php:199
 msgid "Returns the lowest value of a given list of parameters"
 msgstr "Trả về giá trị thấp nhất của một danh sách tham số đã cho"
 
-#: include/global_arrays.php:331 lib/const_measurands.php:205
+#: include/global_arrays.php:330 lib/const_measurands.php:205
 msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
 msgstr "f_if - Hoạt động có điều kiện - Logic IF-THEN-ELSE"
 
-#: include/global_arrays.php:332 lib/const_measurands.php:206
+#: include/global_arrays.php:331 lib/const_measurands.php:206
 msgid "Returns B if A is true or C if A is false"
 msgstr "Trả về B nếu A đúng hoặc C nếu A sai"
 
-#: include/global_arrays.php:339 lib/const_measurands.php:212
+#: include/global_arrays.php:338 lib/const_measurands.php:212
 msgid "f_isNaN - Find whether a value is not a number"
 msgstr "f_isNaN - Tìm xem một giá trị không phải là một số"
 
-#: include/global_arrays.php:340 include/global_arrays.php:348
+#: include/global_arrays.php:339 include/global_arrays.php:347
 #: lib/const_measurands.php:213
 msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
 msgstr "Trả về 1 (hoặc B) nếu A === NaN hoặc 0 (hoặc C) nếu không. Tham số B và C là tùy chọn."
 
-#: include/global_arrays.php:347
+#: include/global_arrays.php:346
 msgid "f_cmp - Complex Comparison"
 msgstr "f_cmp - So sánh phức tạp"
 
-#: include/global_arrays.php:357 lib/const_measurands.php:130
+#: include/global_arrays.php:356 lib/const_measurands.php:130
 msgid "f_int - Alias of f_floor"
 msgstr "f_int - Bí danh của f_floor"
 
-#: include/global_arrays.php:365 lib/const_measurands.php:137
+#: include/global_arrays.php:364 lib/const_measurands.php:137
 msgid "f_rnd - Alias of f_round"
 msgstr "f_rnd - Bí danh của f_round"
 
-#: include/global_arrays.php:373 lib/const_measurands.php:219
+#: include/global_arrays.php:372 lib/const_measurands.php:219
 msgid "f_eq - Alias of f_cmp - IS EQUAL"
 msgstr "f_eq - Bí danh của f_cmp - BÌNH ĐẲNG"
 
-#: include/global_arrays.php:374 lib/const_measurands.php:220
+#: include/global_arrays.php:373 lib/const_measurands.php:220
 msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Trả về 1 (hoặc C) nếu A == B hoặc 0 (hoặc D) nếu không. Tham số C và D là tùy chọn."
 
-#: include/global_arrays.php:381 lib/const_measurands.php:226
+#: include/global_arrays.php:380 lib/const_measurands.php:226
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
 msgstr "f_uq - Bí danh của f_cmp - LÀ KHÔNG BÌNH ĐẲNG"
 
-#: include/global_arrays.php:382 lib/const_measurands.php:227
+#: include/global_arrays.php:381 lib/const_measurands.php:227
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Trả về 1 (hoặc C) nếu A != B hoặc 0 (hoặc D) nếu không. Tham số C và D là tùy chọn."
 
-#: include/global_arrays.php:389 lib/const_measurands.php:233
+#: include/global_arrays.php:388 lib/const_measurands.php:233
 msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
 msgstr "f_gt - Bí danh của f_cmp - LỚN HƠN"
 
-#: include/global_arrays.php:390 lib/const_measurands.php:234
+#: include/global_arrays.php:389 lib/const_measurands.php:234
 msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Trả về 1 (hoặc C) nếu A > B hoặc 0 (hoặc D) nếu không. Tham số C và D là tùy chọn."
 
-#: include/global_arrays.php:397 lib/const_measurands.php:240
+#: include/global_arrays.php:396 lib/const_measurands.php:240
 msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
 msgstr "f_lt - Bí danh của f_cmp - THẤP HƠN"
 
-#: include/global_arrays.php:398 lib/const_measurands.php:241
+#: include/global_arrays.php:397 lib/const_measurands.php:241
 msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Trả về 1 (hoặc C) nếu A < B hoặc 0 (hoặc D) nếu không. Tham số C và D là tùy chọn."
 
-#: include/global_arrays.php:405 lib/const_measurands.php:247
+#: include/global_arrays.php:404 lib/const_measurands.php:247
 msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
 msgstr "f_ge - Bí danh của f_cmp - LỚN HƠN HOẶC BẰNG NHAU"
 
-#: include/global_arrays.php:406 lib/const_measurands.php:248
+#: include/global_arrays.php:405 lib/const_measurands.php:248
 msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Trả về 1 (hoặc C) nếu A >= B hoặc 0 (hoặc D) nếu không. Tham số C và D là tùy chọn."
 
-#: include/global_arrays.php:413 lib/const_measurands.php:254
+#: include/global_arrays.php:412 lib/const_measurands.php:254
 msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
 msgstr "f_le - Bí danh của f_cmp - THẤP HƠN HOẶC BẰNG NHAU"
 
-#: include/global_arrays.php:414 lib/const_measurands.php:255
+#: include/global_arrays.php:413 lib/const_measurands.php:255
 msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Trả về 1 (hoặc C) nếu A <= B hoặc 0 (hoặc D) nếu không. Tham số C và D là tùy chọn."
 
-#: include/global_arrays.php:423 lib/const_measurands.php:266
+#: include/global_arrays.php:422 lib/const_measurands.php:266
 msgid "Addition"
 msgstr "Phép Cộng"
 
-#: include/global_arrays.php:424 lib/const_measurands.php:267
+#: include/global_arrays.php:423 lib/const_measurands.php:267
 msgid "Mathematical Operation to return the sum of two or more summands"
 msgstr "Phép toán để trả về tổng của hai hoặc nhiều tổng"
 
-#: include/global_arrays.php:430 lib/const_measurands.php:273
+#: include/global_arrays.php:429 lib/const_measurands.php:273
 msgid "Subtraction"
 msgstr "Phép trừ"
 
-#: include/global_arrays.php:431 lib/const_measurands.php:274
+#: include/global_arrays.php:430 lib/const_measurands.php:274
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
 msgstr "Phép toán để trả về hiệu số của minuend và subtrahend"
 
-#: include/global_arrays.php:437 lib/const_measurands.php:280
+#: include/global_arrays.php:436 lib/const_measurands.php:280
 msgid "Multiplication"
 msgstr "Phép Nhân"
 
-#: include/global_arrays.php:438 lib/const_measurands.php:281
+#: include/global_arrays.php:437 lib/const_measurands.php:281
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
 msgstr "Phép toán trả về tích của số nhân và phép nhân"
 
-#: include/global_arrays.php:444 lib/const_measurands.php:287
+#: include/global_arrays.php:443 lib/const_measurands.php:287
 msgid "Division"
 msgstr "Bộ môn"
 
-#: include/global_arrays.php:445 lib/const_measurands.php:288
+#: include/global_arrays.php:444 lib/const_measurands.php:288
 msgid "Mathematical Operation to return the fraction of divident and divisor"
 msgstr "Toán học Phép toán để trả về phần cổ tức và ước số"
 
-#: include/global_arrays.php:451 lib/const_measurands.php:294
+#: include/global_arrays.php:450 lib/const_measurands.php:294
 msgid "Modulus"
 msgstr "Mô đun"
 
-#: include/global_arrays.php:452 lib/const_measurands.php:295
+#: include/global_arrays.php:451 lib/const_measurands.php:295
 msgid "Mathematical Operation to return the remainder of a division of two integers"
 msgstr "Toán học Phép toán để trả về phần còn lại của phép chia hai số nguyên"
 
-#: include/global_arrays.php:458 lib/const_measurands.php:301
+#: include/global_arrays.php:457 lib/const_measurands.php:301
 msgid "Exponentiation - PHP5.6 or above required"
 msgstr "Lũy thừa - Yêu cầu PHP5.6 trở lên"
 
-#: include/global_arrays.php:459 lib/const_measurands.php:302
+#: include/global_arrays.php:458 lib/const_measurands.php:302
 msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
 msgstr "Toán học Phép toán để trả về phép nhân lặp lại (hoặc chia) của một cơ số cho số mũ của nó."
 
-#: include/global_arrays.php:467
+#: include/global_arrays.php:466
 msgid "Decimal Mark"
 msgstr "Dấu thập phân"
 
-#: include/global_arrays.php:468
+#: include/global_arrays.php:467
 msgid "Decimal Mark used to separate the integer part from the fractional part"
 msgstr "Dấu thập phân được sử dụng để tách phần nguyên khỏi phần phân số"
 
-#: include/global_arrays.php:476
+#: include/global_arrays.php:475
 msgid "Round Bracket"
 msgstr "Giá đỡ tròn"
 
-#: include/global_arrays.php:477 lib/const_measurands.php:312
+#: include/global_arrays.php:476 lib/const_measurands.php:312
 #: lib/const_measurands.php:319
 msgid "Used to override normal precedence or to mark the first level of nesting"
 msgstr "Được sử dụng để ghi đè lên mức ưu tiên bình thường hoặc để đánh dấu cấp độ làm tổ đầu tiên"
 
-#: include/global_arrays.php:484
+#: include/global_arrays.php:483
 msgid "Square Bracket"
 msgstr "Dấu ngoặc vuông"
 
-#: include/global_arrays.php:485 lib/const_measurands.php:326
+#: include/global_arrays.php:484 lib/const_measurands.php:326
 #: lib/const_measurands.php:333
 msgid "Used to override normal precedence or to mark the second level of nesting"
 msgstr "Được sử dụng để ghi đè lên mức ưu tiên bình thường hoặc để đánh dấu cấp độ làm tổ thứ hai"
 
-#: include/global_arrays.php:492
+#: include/global_arrays.php:491
 msgid "Punctuation mark"
 msgstr "Dấu chấm câu"
 
-#: include/global_arrays.php:493
+#: include/global_arrays.php:492
 msgid "Used to separate arguments forwarded to a function"
 msgstr "Được sử dụng để tách các đối số được chuyển tiếp đến một hàm"
 
-#: include/global_arrays.php:502
+#: include/global_arrays.php:501
 msgid "The minimum value of data that is allowed to be collected."
 msgstr "Giá trị tối thiểu của dữ liệu được phép thu thập."
 
-#: include/global_arrays.php:503 include/global_arrays.php:511
+#: include/global_arrays.php:502 include/global_arrays.php:510
 msgid "WARNING! This variable can be set to zero or unlimited"
 msgstr "CẢNH BÁO! Biến này có thể được đặt thành không hoặc không giới hạn"
 
-#: include/global_arrays.php:510
+#: include/global_arrays.php:509
 msgid "The maximum value of data that is allowed to be collected."
 msgstr "Giá trị tối đa của dữ liệu được phép thu thập."
 
-#: include/global_arrays.php:518 lib/const_measurands.php:343
+#: include/global_arrays.php:517 lib/const_measurands.php:343
 msgid "Contains the number of seconds between two measured values."
 msgstr "Chứa số giây giữa hai giá trị đo."
 
-#: include/global_arrays.php:527 lib/const_measurands.php:350
+#: include/global_arrays.php:526 lib/const_measurands.php:350
 msgid "Functions w/o parameters"
 msgstr "Chức năng w / o tham số"
 
-#: include/global_arrays.php:528 lib/const_measurands.php:351
+#: include/global_arrays.php:527 lib/const_measurands.php:351
 msgid "Functions with parameters"
 msgstr "Chức năng với các tham số"
 
-#: include/global_arrays.php:529 lib/const_measurands.php:352
+#: include/global_arrays.php:528 lib/const_measurands.php:352
 msgid "Aliases"
 msgstr "Tên miền"
 
-#: include/global_arrays.php:530 lib/const_measurands.php:353
+#: include/global_arrays.php:529 lib/const_measurands.php:353
 msgid "Operators"
 msgstr "Vận hành"
 
-#: include/global_arrays.php:531
+#: include/global_arrays.php:530
 msgid "Numbers"
 msgstr "Số"
 
-#: include/global_arrays.php:532
+#: include/global_arrays.php:531
 msgid "Others"
 msgstr "Khác"
 
-#: include/global_arrays.php:534 lib/const_measurands.php:356
+#: include/global_arrays.php:533 lib/const_measurands.php:356
 #: lib/funct_html.php:174
 msgid "Data Query Variables"
 msgstr "Biến truy vấn dữ liệu"
 
-#: include/global_arrays.php:535 lib/const_measurands.php:357
+#: include/global_arrays.php:534 lib/const_measurands.php:357
 #: lib/funct_html.php:177
 msgid "Interim Results"
 msgstr "Kết quả tạm thời"
 
-#: include/global_arrays.php:539
+#: include/global_arrays.php:538
 msgid "Unlimited"
 msgstr "Không giới hạn"
 
-#: include/global_arrays.php:540
+#: include/global_arrays.php:539
 msgid "500 Data Items"
 msgstr "500 mục dữ liệu"
 
-#: include/global_arrays.php:541
+#: include/global_arrays.php:540
 msgid "1,000 Data Items"
 msgstr "1.000 mục dữ liệu"
 
-#: include/global_arrays.php:542
+#: include/global_arrays.php:541
 msgid "2,000 Data Items"
 msgstr "2.000 mục dữ liệu"
 
-#: include/global_arrays.php:543
+#: include/global_arrays.php:542
 msgid "5,000 Data Source Items"
 msgstr "5.000 mục nguồn dữ liệu"
 
-#: include/global_arrays.php:544
+#: include/global_arrays.php:543
 msgid "7,500 Data Source Items"
 msgstr "7.500 mục nguồn dữ liệu"
 
-#: include/global_arrays.php:545
+#: include/global_arrays.php:544
 msgid "10,000 Data Source Items"
 msgstr "10.000 mục nguồn dữ liệu"
 
-#: include/global_arrays.php:546
+#: include/global_arrays.php:545
 msgid "15,000 Data Source Items"
 msgstr "15.000 mục nguồn dữ liệu"
 
-#: include/global_arrays.php:547 include/global_arrays.php:548
+#: include/global_arrays.php:546 include/global_arrays.php:547
 msgid "25,000 Data Source Items"
 msgstr "25.000 mục nguồn dữ liệu"
 
-#: include/global_arrays.php:552
+#: include/global_arrays.php:551
 msgid "1 Minute"
 msgstr "1 Phút"
 
-#: include/global_arrays.php:553 include/global_arrays.php:554
-#: include/global_arrays.php:555 include/global_arrays.php:556
-#: include/global_arrays.php:557
+#: include/global_arrays.php:552 include/global_arrays.php:553
+#: include/global_arrays.php:554 include/global_arrays.php:555
+#: include/global_arrays.php:556
 #, php-format
 msgid "%d Minutes"
 msgstr "%d phút"
@@ -813,8 +809,8 @@ msgstr "%d phút"
 msgid "The unique name given to this Report Template."
 msgstr "Tên duy nhất được đặt cho Mẫu báo cáo này."
 
-#: include/global_forms.php:55 templates.php:267 templates.php:1798
-#: templates.php:1925 view.php:288 view.php:1029
+#: include/global_forms.php:55 templates.php:266 templates.php:1808
+#: templates.php:1935 view.php:288 view.php:1033
 msgid "Description"
 msgstr "Mô tả"
 
@@ -822,7 +818,7 @@ msgstr "Mô tả"
 msgid "A longer description of this Report Template."
 msgstr "Mô tả dài hơn về Mẫu báo cáo này."
 
-#: include/global_forms.php:64 templates.php:264 templates.php:597
+#: include/global_forms.php:64 templates.php:263 templates.php:601
 msgid "Version"
 msgstr "Phiên bản"
 
@@ -830,7 +826,7 @@ msgstr "Phiên bản"
 msgid "A version number for this template"
 msgstr "Số phiên bản cho mẫu này"
 
-#: include/global_forms.php:72 templates.php:265 templates.php:591
+#: include/global_forms.php:72 templates.php:264 templates.php:595
 msgid "Author"
 msgstr "Tác giả"
 
@@ -846,7 +842,7 @@ msgstr "Xuất bản"
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
 msgstr "Mẫu báo cáo này có nên được phát hành để người dùng truy cập không? Đối với mục đích thử nghiệm các mẫu hoặc sửa đổi mới, bạn nên bỏ chọn hộp này."
 
-#: include/global_forms.php:86 templates.php:611
+#: include/global_forms.php:86 templates.php:615
 msgid "Locked"
 msgstr "Đã khóa"
 
@@ -862,7 +858,7 @@ msgstr "Bộ lọc trước bổ sung"
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "Tùy chọn: Cú pháp để lọc danh sách các mục dữ liệu có sẵn theo mô tả của chúng. Sử dụng ký tự đại diện SQL như % and/hoặc _. Không có biểu hiện chính quy!"
 
-#: include/global_forms.php:100 setup.php:521
+#: include/global_forms.php:100 setup.php:522
 msgid "Export Path"
 msgstr "Đường dẫn xuất khẩu"
 
@@ -871,7 +867,7 @@ msgid "Optional: The path to an folder for saving the exports.  If it does not e
 msgstr "Tùy chọn: Đường dẫn đến một thư mục để lưu các bản xuất.  Nếu nó không tồn tại, ReportIt sẽ tự động cố gắng tạo nó trong lần tính toán theo lịch trình đầu tiên, nếu không, nó sẽ cố gắng tạo một thư mục con mới trong thư mục xuất chính bằng cách sử dụng id mẫu."
 
 #: include/global_forms.php:108 include/global_forms.php:113
-#: include/global_forms.php:120 templates.php:266 templates.php:603
+#: include/global_forms.php:120 templates.php:265 templates.php:607
 msgid "Data Template"
 msgstr "Mẫu dữ liệu"
 
@@ -978,7 +974,7 @@ msgstr "Ngoặc đơn"
 
 #: lib/const_reports.php:28
 msgid "Run Now"
-msgstr ""
+msgstr "Chạy ngay"
 
 #: lib/const_reports.php:34
 msgid "CRASHED"
@@ -1034,7 +1030,7 @@ msgstr "Chủ nhật"
 msgid "Data Source Presets"
 msgstr "Cài đặt trước mục dữ liệu"
 
-#: lib/const_reports.php:122 reports.php:1122
+#: lib/const_reports.php:122 reports.php:1128
 msgid "Email"
 msgstr "Email"
 
@@ -1042,8 +1038,7 @@ msgstr "Email"
 msgid "Administration"
 msgstr "Quản trị"
 
-#: lib/const_reports.php:124 reports.php:393 reports.php:1393
-#, fuzzy
+#: lib/const_reports.php:124 reports.php:394 reports.php:1399
 msgid "Data Sources"
 msgstr "Nguồn dữ liệu"
 
@@ -1097,11 +1092,11 @@ msgstr "Người nhận email"
 
 #: lib/const_reports.php:218
 msgid "Notification List Recipients"
-msgstr ""
+msgstr "Người nhận danh sách thông báo"
 
 #: lib/const_reports.php:219
 msgid "To add a Recipients based upon an valid Notification List."
-msgstr ""
+msgstr "Để thêm Người nhận dựa trên Danh sách Thông báo hợp lệ."
 
 #: lib/const_reports.php:227
 msgid "New Email Recipients"
@@ -1115,7 +1110,7 @@ msgstr "Để thêm người nhận mới, hãy nhập địa chỉ email hợp 
 msgid "Scheduled Reporting"
 msgstr "Báo cáo theo lịch trình"
 
-#: lib/const_reports.php:253 setup.php:504
+#: lib/const_reports.php:253 setup.php:505
 msgid "Enable"
 msgstr "Bật"
 
@@ -1128,8 +1123,8 @@ msgid "Frequency"
 msgstr "Tần số"
 
 #: lib/const_reports.php:261
-msgid "Select the frequency for processing this report. Be sure that there's a cronjob (or scheduled task) running for the choice you made. This won't be done automatically by ReportIT."
-msgstr "Chọn tần suất xử lý báo cáo này. Hãy chắc chắn rằng có một cronjob (hoặc nhiệm vụ theo lịch trình) đang chạy cho sự lựa chọn bạn đã thực hiện. Điều này sẽ không được thực hiện tự động bởi ReportIT."
+msgid "Select the frequency for processing this Report. ReportIt has a basic scheduler that will dispatch reports at midnight each day based upon the dispatch frequency specified by the user."
+msgstr "Chọn tần suất xử lý Báo cáo này. Báo cáoNó có một bộ lập lịch cơ bản sẽ gửi báo cáo vào nửa đêm mỗi ngày dựa trên tần suất gửi do người dùng chỉ định."
 
 #: lib/const_reports.php:267
 msgid "Auto Generated Data Items"
@@ -1200,12 +1195,11 @@ msgstr "Nếu được bật (mặc định), danh sách các mục dữ liệu 
 msgid "Optional Sub-heading"
 msgstr "[Tùy chọn] Phiên bản"
 
-#: lib/const_reports.php:362 reports.php:1630 rrdlist.php:374
+#: lib/const_reports.php:362 reports.php:1636
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 msgstr "Xác định một tiêu đề phụ bổ sung sẽ được hiển thị dưới mô tả giao diện.<br> Các biến sau sẽ được hỗ trợ (không có dấu ngoặc kép): '|t1|' '|T2|' '|tmz|' '|d1|' '|d2|'"
 
-#: lib/const_reports.php:373 reports.php:1297 reports.php:1641 rrdlist.php:212
-#: rrdlist.php:385
+#: lib/const_reports.php:373 reports.php:1303 reports.php:1647
 msgid "Time Zone"
 msgstr "Múi giờ"
 
@@ -1248,37 +1242,37 @@ msgstr "Bí danh nguồn dữ liệu"
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "Cho phép lọc bổ sung trên mô tả các mục dữ liệu.<br> Sử dụng ký tự đại diện SQL như % and / hoặc _. Không có biểu hiện chính quy!"
 
-#: lib/const_reports.php:412 reports.php:1661 rrdlist.php:405
+#: lib/const_reports.php:412 reports.php:1667
 msgid "Working Time"
 msgstr "Thời gian làm việc"
 
-#: lib/const_reports.php:424 lib/const_reports.php:444 reports.php:1665
-#: reports.php:1703 rrdlist.php:409 rrdlist.php:447
+#: lib/const_reports.php:424 lib/const_reports.php:444 reports.php:1671
+#: reports.php:1709
 msgid "From"
 msgstr "Từ"
 
-#: lib/const_reports.php:425 reports.php:1666 rrdlist.php:410
+#: lib/const_reports.php:425 reports.php:1672
 msgid "The startpoint of duration you want to analyse"
 msgstr "Điểm bắt đầu của khoảng thời gian bạn muốn phân tích"
 
-#: lib/const_reports.php:432 lib/const_reports.php:452 reports.php:1673
-#: reports.php:1710 rrdlist.php:417 rrdlist.php:454
+#: lib/const_reports.php:432 lib/const_reports.php:452 reports.php:1679
+#: reports.php:1716
 msgid "To"
 msgstr "Đến"
 
-#: lib/const_reports.php:433 reports.php:1674 rrdlist.php:418
+#: lib/const_reports.php:433 reports.php:1680
 msgid "The end of analysing time."
 msgstr "Sự kết thúc của thời gian phân tích."
 
-#: lib/const_reports.php:440 reports.php:1699 rrdlist.php:443
+#: lib/const_reports.php:440 reports.php:1705
 msgid "Working Days"
 msgstr "Ngày làm việc"
 
-#: lib/const_reports.php:445 reports.php:1704 rrdlist.php:448
+#: lib/const_reports.php:445 reports.php:1710
 msgid "Define the band of days where shift STARTS!"
 msgstr "Xác định dải ngày mà ca làm việc BẮT ĐẦU!"
 
-#: lib/const_reports.php:454 reports.php:1711 rrdlist.php:455
+#: lib/const_reports.php:454 reports.php:1717
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
 msgstr "Ví dụ: Đối với ca đêm từ Thứ Hai (22:30) đến Thứ Bảy (06:30) xác định Thứ Hai đến Thứ Sáu"
 
@@ -1286,7 +1280,7 @@ msgstr "Ví dụ: Đối với ca đêm từ Thứ Hai (22:30) đến Thứ Bả
 msgid "The name given to this report"
 msgstr "Tên được đặt cho báo cáo này"
 
-#: lib/const_reports.php:506 lib/funct_export.php:84 lib/funct_export.php:451
+#: lib/const_reports.php:506 lib/funct_export.php:84 lib/funct_export.php:450
 #: view.php:298
 msgid "Template"
 msgstr "Mẫu"
@@ -1295,8 +1289,8 @@ msgstr "Mẫu"
 msgid "The template your configuration depends on"
 msgstr "Mẫu mà cấu hình của bạn phụ thuộc vào"
 
-#: lib/const_reports.php:514 lib/funct_export.php:83 lib/funct_export.php:450
-#: view.php:293 view.php:762
+#: lib/const_reports.php:514 lib/funct_export.php:83 lib/funct_export.php:449
+#: view.php:293 view.php:764
 msgid "Owner"
 msgstr "Chủ sở hữu"
 
@@ -1304,7 +1298,7 @@ msgstr "Chủ sở hữu"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "Thay đổi chủ sở hữu của báo cáo này. Chỉ những người dùng có quyền \"xem\" trở lên mới có thể được chọn."
 
-#: lib/const_reports.php:521 reports.php:385
+#: lib/const_reports.php:521 reports.php:386
 msgid "Public"
 msgstr "Công khai"
 
@@ -1316,7 +1310,7 @@ msgstr "Nếu được bật, mọi người đều có thể xem báo cáo củ
 msgid "Reporting Period"
 msgstr "Kỳ báo cáo"
 
-#: lib/const_reports.php:532 view.php:763
+#: lib/const_reports.php:532 view.php:765
 msgid "Sliding Time Frame"
 msgstr "Khung thời gian trượt"
 
@@ -1363,7 +1357,7 @@ msgstr "Hiển thị báo cáo"
 
 #: lib/const_rrdlist.php:29
 msgid "Remove from Report"
-msgstr ""
+msgstr "Xóa khỏi Báo cáo"
 
 #: lib/const_rrdlist.php:30
 #, fuzzy
@@ -1407,7 +1401,7 @@ msgstr "%s Xin chào"
 msgid "%s Lo"
 msgstr "%s Lo"
 
-#: lib/const_view.php:89 lib/const_view.php:98 view.php:613 view.php:628
+#: lib/const_view.php:89 lib/const_view.php:98 view.php:616 view.php:631
 msgid "Any"
 msgstr "Bất kỳ"
 
@@ -1419,19 +1413,19 @@ msgstr "Tổng"
 msgid "Average"
 msgstr "Trung bình"
 
-#: lib/funct_export.php:82 lib/funct_export.php:449
+#: lib/funct_export.php:82 lib/funct_export.php:448
 msgid "Report title"
 msgstr "Tiêu đề báo cáo"
 
-#: lib/funct_export.php:85 lib/funct_export.php:452
+#: lib/funct_export.php:85 lib/funct_export.php:451
 msgid "Start"
 msgstr "Bắt đầu"
 
-#: lib/funct_export.php:86 lib/funct_export.php:453
+#: lib/funct_export.php:86 lib/funct_export.php:452
 msgid "End"
 msgstr "Kết thúc"
 
-#: lib/funct_export.php:87 lib/funct_export.php:454 view.php:765
+#: lib/funct_export.php:87 lib/funct_export.php:453 view.php:767
 msgid "Last Run"
 msgstr "Lần chạy cuối cùng"
 
@@ -1523,312 +1517,276 @@ msgstr "Không thể phân tích cú pháp tệp mẫu."
 msgid "Checksum error with Template %s in XML file"
 msgstr "Lỗi tổng kiểm tra với %s mẫu trong tệp XML"
 
-#: reports.php:105
+#: reports.php:106
 msgid "New Report"
 msgstr "Báo cáo mới"
 
-#: reports.php:108
+#: reports.php:109
 #, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "Không có mẫu báo cáo nào được mở khóa và bật (%s bị khóa hoặc bị vô hiệu hóa)."
 
-#: reports.php:112 reports.php:1980 reports.php:1992 reports.php:2096
-#: reports.php:2098 rrdlist.php:599 rrdlist.php:601 templates.php:192
-#: templates.php:194 templates.php:332 templates.php:333 templates.php:1368
-#: templates.php:1492 templates.php:1494 templates.php:1588 templates.php:1590
+#: reports.php:113 reports.php:1986 reports.php:1998 reports.php:2102
+#: reports.php:2104 templates.php:192 templates.php:194 templates.php:333
+#: templates.php:334 templates.php:1376 templates.php:1500 templates.php:1502
+#: templates.php:1596 templates.php:1598
 msgid "Cancel"
 msgstr "Hủy"
 
-#: reports.php:112 reports.php:1992 reports.php:2099 rrdlist.php:602
-#: templates.php:194 templates.php:1377 templates.php:1379 templates.php:1494
-#: templates.php:1590
+#: reports.php:113 reports.php:1998 reports.php:2105 templates.php:194
+#: templates.php:1385 templates.php:1387 templates.php:1502 templates.php:1598
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: reports.php:112
+#: reports.php:113
 msgid "Create a new report"
 msgstr "Tạo báo cáo mới"
 
-#: reports.php:120
+#: reports.php:121
 msgid "Choose a template this report should depend on."
 msgstr "Chọn một mẫu mà báo cáo này sẽ phụ thuộc vào."
 
-#: reports.php:145
+#: reports.php:146
 msgid "Report Filters"
 msgstr "Bộ lọc báo cáo"
 
-#: reports.php:153 reports.php:1313 rrdlist.php:228 templates.php:419
-#: view.php:213 view.php:670
+#: reports.php:154 reports.php:1319 templates.php:423 view.php:213 view.php:672
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: reports.php:159 reports.php:401 setup.php:135 setup.php:407
-#: templates.php:625 view.php:228 view.php:318 view.php:799
+#: reports.php:160 reports.php:402 setup.php:135 setup.php:408
+#: templates.php:629 view.php:228 view.php:318 view.php:801
 msgid "Reports"
 msgstr "Báo cáo"
 
-#: reports.php:175 reports.php:1343 rrdlist.php:250 templates.php:441
-#: view.php:661
+#: reports.php:176 reports.php:1349 templates.php:445 view.php:663
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Đi"
 
-#: reports.php:176 reports.php:1344 rrdlist.php:251 templates.php:442
-#: view.php:662
+#: reports.php:177 reports.php:1350 templates.php:446 view.php:664
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "Xóa"
 
-#: reports.php:370
+#: reports.php:367
 #, php-format
 msgid "Period %s From - To"
 msgstr "Giai đoạn %s Từ - Đến"
 
-#: reports.php:373
+#: reports.php:370
+#, fuzzy
+msgid "Schedule Frequency"
+msgstr "Tần số"
+
+#: reports.php:374
 msgid "State"
 msgstr "Tỉnh"
 
-#: reports.php:377 view.php:307
+#: reports.php:378 view.php:307
 #, php-format
 msgid "Last Run %s"
 msgstr "Lần chạy cuối cùng %s"
 
-#: reports.php:381 view.php:312
+#: reports.php:382 view.php:312
 msgid "Runtime [s]"
 msgstr "Thời gian chạy [s]"
 
-#: reports.php:389
+#: reports.php:390
 msgid "Scheduled"
 msgstr "Đặt lịch"
 
-#: reports.php:431 templates.php:1710
+#: reports.php:431
+msgid "Disabled"
+msgstr "Vô hiệu hóa"
+
+#: reports.php:437 templates.php:1720
 msgid "N/A"
 msgstr "N/A"
 
-#: reports.php:443
+#: reports.php:449
 msgid "Add sources"
 msgstr "Thêm nguồn"
 
-#: reports.php:443
+#: reports.php:449
 msgid "Edit sources"
 msgstr "Chỉnh sửa nguồn"
 
-#: reports.php:446
+#: reports.php:452
 #, php-format
 msgid "Select %s"
 msgstr "Chọn %s"
 
-#: reports.php:448
+#: reports.php:454
 msgid "Report has been locked"
 msgstr "Báo cáo đã bị khóa"
 
-#: reports.php:456
+#: reports.php:462
 #, fuzzy
 msgid "No reports"
 msgstr "Báo cáo"
 
-#: reports.php:541
+#: reports.php:547
 msgid "Not Authorized"
 msgstr "Không được ủy quyền"
 
-#: reports.php:1087
+#: reports.php:1093
 #, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "Cấu hình báo cáo (%s) %s"
 
-#: reports.php:1123
+#: reports.php:1129
 msgid "Action"
 msgstr "Hành động"
 
-#: reports.php:1138
+#: reports.php:1144
 msgid "No recipients found"
 msgstr "Không tìm thấy người nhận"
 
-#: reports.php:1272
-#, fuzzy
+#: reports.php:1278
 msgid "Data Source Name"
-msgstr "Nguồn dữ liệu"
+msgstr "Tên nguồn dữ liệu"
 
-#: reports.php:1282
+#: reports.php:1288
 msgid "Associated"
-msgstr ""
+msgstr "Liên kết"
 
-#: reports.php:1286 rrdlist.php:201
+#: reports.php:1292
 msgid "Subhead"
 msgstr "Tiêu đề phụ"
 
-#: reports.php:1291 rrdlist.php:206
+#: reports.php:1297
 msgid "Shifttime (From - To)"
 msgstr "Thời gian thay đổi (Từ - Đến)"
 
-#: reports.php:1294 rrdlist.php:209
+#: reports.php:1300
 msgid "Weekdays (From - To)"
 msgstr "Các ngày trong tuần (Từ - Đến)"
 
-#: reports.php:1319 rrdlist.php:234
+#: reports.php:1325
 msgid "RRDs"
 msgstr "RRD"
 
-#: reports.php:1336
+#: reports.php:1342
 msgid "Show All"
-msgstr ""
+msgstr "Hiển thị tất cả"
 
-#: reports.php:1412 rrdlist.php:304
+#: reports.php:1418
 msgid "Does not exist anymore"
 msgstr "Không còn tồn tại nữa"
 
-#: reports.php:1422
+#: reports.php:1428
 #, fuzzy
 msgid "Included in Report"
 msgstr "Chạy báo cáo"
 
-#: reports.php:1424
+#: reports.php:1430
 msgid "Not Included in Report"
-msgstr ""
+msgstr "Không bao gồm trong báo cáo"
 
-#: reports.php:1447 rrdlist.php:316
+#: reports.php:1453
 msgid "Select"
 msgstr "Chọn"
 
-#: reports.php:1452 rrdlist.php:321
+#: reports.php:1458
 msgid "No data items found"
 msgstr "Không tìm thấy mục dữ liệu nào"
 
-#: reports.php:1522 reports.php:1527
+#: reports.php:1528 reports.php:1533
 msgid "Email address of a recipient (or comma separated list)"
 msgstr "Địa chỉ email của người nhận (hoặc danh sách được phân tách bằng dấu phẩy)"
 
-#: reports.php:1523 reports.php:1528
+#: reports.php:1529 reports.php:1534
 msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[TÙY CHỌN] Tên của người nhận (hoặc danh sách tên được phân tách bằng dấu phẩy)"
 
-#: reports.php:1611
+#: reports.php:1617
 #, fuzzy, php-format
 msgid "Data Source [edit: %s]"
 msgstr "Mục dữ liệu [sửa: %s]"
 
-#: reports.php:1629 rrdlist.php:373
+#: reports.php:1635
 msgid "Subhead (optional)"
 msgstr "Tiêu đề phụ (tùy chọn)"
 
-#: reports.php:1642 rrdlist.php:386
+#: reports.php:1648
 msgid "Select the time zone your following shifttime information will be based on."
 msgstr "Chọn múi giờ mà thông tin thời gian thay đổi sau đây của bạn sẽ dựa trên."
 
-#: reports.php:1967
+#: reports.php:1973
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "Nhấp vào 'Tiếp tục' để chạy báo cáo sau:"
 
-#: reports.php:1969
+#: reports.php:1975
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "Nhấp vào 'Tiếp tục' để xóa các báo cáo sau:"
 
-#: reports.php:1971
+#: reports.php:1977
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "Nhấp vào 'Tiếp tục' để sao chép các cấu hình Báo cáo sau.  Bạn cũng có thể thay đổi định dạng tiêu đề trong thao tác này."
 
-#: reports.php:1972
+#: reports.php:1978
 msgid "Title Format:"
 msgstr "Định dạng tiêu đề:"
 
-#: reports.php:1973
+#: reports.php:1979
 msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
-#: reports.php:1979
+#: reports.php:1985
 msgid "You must select at least one unlocked, not running, report."
 msgstr "Bạn phải chọn ít nhất một báo cáo đã mở khóa, không chạy."
 
-#: reports.php:2033
+#: reports.php:2039
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
 msgstr "Nhấp vào 'Tiếp tục' để xóa các mục dữ liệu sau."
 
-#: reports.php:2036 reports.php:2053
+#: reports.php:2042 reports.php:2059
 #, fuzzy
 msgid "List of selected Data Sources below."
 msgstr "Danh sách các mục dữ liệu đã chọn:"
 
-#: reports.php:2041 reports.php:2058 view.php:969
+#: reports.php:2047 reports.php:2064 view.php:973
 #, fuzzy, php-format
 msgid "Data Source: %s"
 msgstr "Nguồn dữ liệu:"
 
-#: reports.php:2050
+#: reports.php:2056
 #, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
 msgstr "Nhấp vào 'Tiếp tục' để chạy báo cáo sau:"
 
-#: reports.php:2080
+#: reports.php:2086
 #, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
 msgstr "Nhấp vào 'Tiếp tục' để sao chép cài đặt sang các mục dữ liệu khác"
 
-#: reports.php:2082
+#: reports.php:2088
 #, fuzzy
 msgid "Selected Data Source as Reference:"
 msgstr "Mục dữ liệu đã chọn làm tham chiếu:"
 
-#: reports.php:2085 rrdlist.php:588
+#: reports.php:2091
 #, fuzzy
 msgid "Time Zone:"
 msgstr "Múi giờ"
 
-#: reports.php:2086 rrdlist.php:589
+#: reports.php:2092
 msgid "Weekdays:"
 msgstr "Các ngày trong tuần:"
 
-#: reports.php:2087 rrdlist.php:590
+#: reports.php:2093
 msgid "Shifttime:"
 msgstr "Thời gian thay đổi:"
 
-#: reports.php:2094 rrdlist.php:597
+#: reports.php:2100
 msgid "You must select at least one Report."
 msgstr "Bạn phải chọn ít nhất một Báo cáo."
 
-#: rrdlist.php:186
-#, php-format
-msgid "Data Items [Report: %s %s [%d]"
-msgstr "Mục dữ liệu [Báo cáo: %s %s [%d]"
-
-#: rrdlist.php:191
-msgid "Data Item Name"
-msgstr "Tên mục dữ liệu"
-
-#: rrdlist.php:289 setup.php:165
-msgid "Data Items"
-msgstr "Mục dữ liệu"
-
-#: rrdlist.php:360
-#, php-format
-msgid "Data Item [edit: %s]"
-msgstr "Mục dữ liệu [sửa: %s]"
-
-#: rrdlist.php:554
-msgid "Click 'Continue' to Remove the following Data Items."
-msgstr "Nhấp vào 'Tiếp tục' để xóa các mục dữ liệu sau."
-
-#: rrdlist.php:557
-#, fuzzy
-msgid "List of selected Data Items below."
-msgstr "Danh sách các mục dữ liệu đã chọn:"
-
-#: rrdlist.php:562
-#, fuzzy, php-format
-msgid "Data Item: %s"
-msgstr "Mục dữ liệu"
-
-#: rrdlist.php:584
-msgid "Click 'Continue' to Copy the Settings to the other Data Items"
-msgstr "Nhấp vào 'Tiếp tục' để sao chép cài đặt sang các mục dữ liệu khác"
-
-#: rrdlist.php:586
-msgid "Selected data item as reference:"
-msgstr "Mục dữ liệu đã chọn làm tham chiếu:"
-
 #: setup.php:39
 #, fuzzy
-msgid "ReportIt - View Reports"
+msgid "ReportIt - Report Viewing"
 msgstr "Xem báo cáo"
 
 #: setup.php:40
@@ -1851,11 +1809,15 @@ msgstr "(Sửa)"
 msgid "Actions"
 msgstr "Hành động"
 
-#: setup.php:201 templates.php:411
+#: setup.php:165
+msgid "Data Items"
+msgstr "Mục dữ liệu"
+
+#: setup.php:201 templates.php:415
 msgid "Report Templates"
 msgstr "Mẫu Báo cáo"
 
-#: setup.php:225 setup.php:231 templates.php:240 templates.php:332
+#: setup.php:225 setup.php:231 templates.php:239 templates.php:333
 msgid "Import"
 msgstr "Nhập"
 
@@ -1888,217 +1850,221 @@ msgid "Pie Chart"
 msgstr "Biểu đồ tròn"
 
 #: setup.php:365
-msgid "System Administration"
-msgstr "Quản lí hệ thống"
+msgid "Normal User"
+msgstr "Người dùng bình thường"
 
 #: setup.php:366
 msgid "General Administration"
 msgstr "Hành chính tổng hợp"
 
-#: setup.php:371
+#: setup.php:367
+msgid "System Administration"
+msgstr "Quản lí hệ thống"
+
+#: setup.php:372
 msgid "Management"
 msgstr "Sự quản lý"
 
-#: setup.php:371 setup.php:372 setup.php:617
+#: setup.php:372 setup.php:373 setup.php:618
 msgid "ReportIt"
 msgstr "Báo cáo"
 
-#: setup.php:372 templates.php:425 templates.php:632
+#: setup.php:373 templates.php:429 templates.php:636
 msgid "Templates"
 msgstr "Giao diện"
 
-#: setup.php:376
+#: setup.php:377
 msgid "No data source item selected"
 msgstr "Không có mục nguồn dữ liệu nào được chọn"
 
-#: setup.php:380
+#: setup.php:381
 msgid "Unselected data source items are still in use"
 msgstr "Các mục nguồn dữ liệu không được chọn vẫn đang được sử dụng"
 
-#: setup.php:384
+#: setup.php:385
 msgid "Unable to unlock this template without defined measurands"
 msgstr "Không thể mở khóa mẫu này mà không có số đo xác định"
 
-#: setup.php:397
+#: setup.php:398
 msgid "global"
 msgstr "toàn cầu"
 
-#: setup.php:397
+#: setup.php:398
 msgid "local"
 msgstr "bản địa"
 
-#: setup.php:402
+#: setup.php:403
 msgid "Power User (Report Owner)"
 msgstr "Người dùng điện (Chủ sở hữu báo cáo)"
 
-#: setup.php:403
+#: setup.php:404
 msgid "Super User (Report Admin)"
 msgstr "Người dùng cấp cao (Báo cáo quản trị viên)"
 
-#: setup.php:416
+#: setup.php:417
 msgid "Maximum Execution Time (in seconds)"
 msgstr "Thời gian thực hiện tối đa (tính bằng giây)"
 
-#: setup.php:417
+#: setup.php:418
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "Tùy chọn: Thời gian thực hiện tối đa của một phép tính."
 
-#: setup.php:423
+#: setup.php:424
 msgid "Maximum Record Count Change"
 msgstr "Thay đổi số lượng bản ghi tối đa"
 
-#: setup.php:424
+#: setup.php:425
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "Tùy chọn (Tự động tạo Danh sách RRD): Không thay đổi Danh sách RRD của bất kỳ Báo cáo nào nếu Thay đổi Số lượng Bản ghi lớn hơn Con số này Điều này là để tránh những thay đổi không mong muốn và tai hại trên Danh sách RRD"
 
-#: setup.php:430
+#: setup.php:431
 msgid "Time Zones"
 msgstr "Múi giờ"
 
-#: setup.php:431
+#: setup.php:432
 #, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "Bật / tắt việc sử dụng múi giờ để cấu hình mục dữ liệu và tính toán báo cáo.  Trong trường hợp cũ, thời gian máy chủ phải được thiết lập thành GMT / UTC!"
 
-#: setup.php:436
+#: setup.php:437
 msgid "Show Local Time Zone"
 msgstr "Hiển thị múi giờ địa phương"
 
-#: setup.php:437
+#: setup.php:438
 #, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
 msgstr "Bật / tắt để hiển thị múi giờ của máy chủ trên các tiêu đề."
 
-#: setup.php:442
+#: setup.php:443
 #, fuzzy
 msgid "Allow Scheduling by Operators"
 msgstr "Cho phép Nhà khai thác lên lịch"
 
-#: setup.php:443
+#: setup.php:444
 #, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
 msgstr "Bật/tắt khả năng lên lịch báo cáo của Người vận hành.  Khi bị tắt, chỉ người quản trị mới có thể thay đổi lịch biểu."
 
-#: setup.php:448
+#: setup.php:449
 msgid "SI-Prefixes"
 msgstr "Tiền tố SI"
 
-#: setup.php:449
+#: setup.php:450
 #, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "Bật / tắt việc sử dụng Tiền tố SI chính xác cho bội số nhị phân theo các điều khoản của <a href='http://www.ieee.org'>IEEE 1541</a> và <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
-#: setup.php:454
+#: setup.php:455
 msgid "Export Settings"
 msgstr "Xuất dữ liệu cài đặt"
 
-#: setup.php:459
+#: setup.php:460
 msgid "Filename Format"
 msgstr "Định dạng tên tệp"
 
-#: setup.php:460
+#: setup.php:461
 msgid "The name format for the export files created on demand."
 msgstr "Định dạng tên cho các tệp xuất được tạo theo yêu cầu."
 
-#: setup.php:466
+#: setup.php:467
 msgid "Export Header"
 msgstr "Xuất tiêu đề"
 
-#: setup.php:467
+#: setup.php:468
 msgid "The header description for export files"
 msgstr "Mô tả tiêu đề cho các tệp xuất"
 
-#: setup.php:471
+#: setup.php:472
 msgid "# Your report header # <cacti_version> <reportit_version>"
 msgstr "# Tiêu đề báo cáo của bạn # <cacti_version> <reportit_version>"
 
-#: setup.php:474
+#: setup.php:475
 msgid "Auto Archiving"
 msgstr "Tự động lưu trữ"
 
-#: setup.php:479 setup.php:515
+#: setup.php:480 setup.php:516
 msgid "Enabled"
 msgstr "Bật"
 
-#: setup.php:480
+#: setup.php:481
 msgid "If enabled the result of every scheduled report will be archived automatically"
 msgstr "Nếu được bật, kết quả của mọi báo cáo đã lên lịch sẽ được lưu trữ tự động"
 
-#: setup.php:485
+#: setup.php:486
 msgid "Cache Life Cycle (in seconds)"
 msgstr "Vòng đời bộ nhớ cache (tính bằng giây)"
 
-#: setup.php:486
+#: setup.php:487
 msgid "Number of seconds an archived report will be cached without any hit."
 msgstr "Số giây một báo cáo đã lưu trữ sẽ được lưu vào bộ nhớ cache mà không có bất kỳ lần truy cập nào."
 
-#: setup.php:492
+#: setup.php:493
 msgid "Archive Path"
 msgstr "Đường dẫn lưu trữ"
 
-#: setup.php:493
+#: setup.php:494
 msgid "The path to an archive folder where archives have to be stored."
 msgstr "Đường dẫn đến một thư mục lưu trữ nơi lưu trữ tài liệu lưu trữ phải được lưu trữ."
 
-#: setup.php:499
+#: setup.php:500
 msgid "Auto E-Mailing"
 msgstr "Gửi thư điện tử tự động"
 
-#: setup.php:505
+#: setup.php:506
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "Nếu được bật, báo cáo theo lịch trình có thể được gửi tự động qua email đến danh sách người nhận.<br> Tính năng này yêu cầu phiên bản đã định cấu hình của 'Plugin cài đặt'."
 
-#: setup.php:510
+#: setup.php:511
 msgid "Auto Exporting"
 msgstr "Tự động xuất"
 
-#: setup.php:516
+#: setup.php:517
 msgid "If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder > Template Folder (if defined) or Template ID > Report ID > Report"
 msgstr "Nếu được bật, báo cáo theo lịch trình có thể được xuất tự động sang một thư mục được chỉ định.<br> Do đó, một kiến trúc đường dẫn có cấu trúc đầy đủ sẽ được sử dụng:<br> Thư mục chính > Thư mục mẫu (nếu được xác định) hoặc ID mẫu > ID báo cáo > Báo cáo"
 
-#: setup.php:522
+#: setup.php:523
 msgid "The main path to an export folder for saving the exports."
 msgstr "Đường dẫn chính đến một thư mục xuất để lưu các bản xuất."
 
-#: setup.php:538
+#: setup.php:539
 #, fuzzy
 msgid "Report View Settings"
 msgstr "Cài đặt chung của ReportIt"
 
-#: setup.php:543
+#: setup.php:544
 msgid "Separate Report View Filter"
 msgstr "Bộ lọc chế độ xem báo cáo riêng biệt"
 
-#: setup.php:544
+#: setup.php:545
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "Bật/tắt sử dụng bộ lọc riêng lẻ cho mỗi báo cáo."
 
-#: setup.php:549
+#: setup.php:550
 msgid "Rows Per Page"
 msgstr "Hàng trên mỗi trang"
 
-#: setup.php:550
+#: setup.php:551
 msgid "The number of rows to display on a single page."
 msgstr "Số hàng để hiển thị trên một trang."
 
-#: setup.php:556
+#: setup.php:557
 #, fuzzy
 msgid "Report Export Settings"
 msgstr "Cài đặt xuất ReportIt"
 
-#: setup.php:561
+#: setup.php:562
 msgid "CSV Column Separator"
 msgstr "Dấu tách cột CSV"
 
-#: setup.php:562
+#: setup.php:563
 msgid "The column separator to be used for CSV exports."
 msgstr "Dấu tách cột được sử dụng để xuất CSV."
 
-#: setup.php:568
+#: setup.php:569
 msgid "CSV Decimal Separator"
 msgstr "Dấu tách thập phân CSV"
 
-#: setup.php:569
+#: setup.php:570
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "Biểu tượng chỉ sự kết thúc của phần nguyên và phần đầu của phần phân số."
 
@@ -2118,387 +2084,387 @@ msgstr "Tạo Mẫu Báo cáo mới"
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
 msgstr "Chọn Mẫu Dữ liệu mà Mẫu Báo cáo này sẽ phụ thuộc vào.  Mẫu dữ liệu không sử dụng bị ẩn."
 
-#: templates.php:229 templates.php:332
+#: templates.php:228 templates.php:333
 msgid "Import Report Template"
 msgstr "Nhập mẫu báo cáo"
 
-#: templates.php:233
+#: templates.php:232
 msgid "Select the XML file that contains your Report Template."
 msgstr "Chọn tệp XML có chứa Mẫu Báo cáo của bạn."
 
-#: templates.php:240
+#: templates.php:239
 msgid "Import Report Templates"
 msgstr "Nhập mẫu báo cáo"
 
-#: templates.php:263
+#: templates.php:262
 msgid "Compatible"
 msgstr "Tương thích"
 
-#: templates.php:272
+#: templates.php:271
 msgid "Summary"
 msgstr "Tóm tắt"
 
-#: templates.php:321
+#: templates.php:320
 msgid "No Compatible Templates Found"
 msgstr "Không tìm thấy mẫu tương thích"
 
-#: templates.php:443
+#: templates.php:447
 msgctxt "Button: import button"
 msgid "Import"
 msgstr "Nhập"
 
-#: templates.php:582
+#: templates.php:586
 msgid "The name of this Report Template."
 msgstr "Tên của Mẫu báo cáo này."
 
-#: templates.php:588
+#: templates.php:592
 msgid "The internal identifier of this Report Template."
 msgstr "Mã định danh nội bộ của Mẫu báo cáo này."
 
-#: templates.php:594
+#: templates.php:598
 msgid "The Author of this Report Template."
 msgstr "Tác giả của Mẫu Báo cáo này."
 
-#: templates.php:600
+#: templates.php:604
 msgid "The version of this Report Template."
 msgstr "Phiên bản của Mẫu Báo cáo này."
 
-#: templates.php:607
+#: templates.php:611
 msgid "Published"
 msgstr "Đã đăng"
 
-#: templates.php:628
+#: templates.php:632
 msgid "The total number of reports using this report template."
 msgstr "Tổng số báo cáo sử dụng mẫu báo cáo này."
 
-#: templates.php:661
+#: templates.php:667
 msgid "No matching data sources"
 msgstr "Không có nguồn dữ liệu phù hợp"
 
-#: templates.php:663
+#: templates.php:669
 msgid "Data template not available"
 msgstr "Mẫu dữ liệu không có sẵn"
 
-#: templates.php:673
+#: templates.php:679
 msgid "Add measurands"
 msgstr "Thêm số đo"
 
-#: templates.php:673
+#: templates.php:679
 msgid "Edit measurands"
 msgstr "Chỉnh sửa số đo"
 
-#: templates.php:679
+#: templates.php:685
 msgid "Add variables"
 msgstr "Thêm biến"
 
-#: templates.php:679
+#: templates.php:685
 msgid "Edit variables"
 msgstr "Chỉnh sửa biến"
 
-#: templates.php:686
+#: templates.php:692
 #, fuzzy
 msgid "No templates"
 msgstr "Giao diện"
 
-#: templates.php:851
+#: templates.php:857
 msgid "Maximum has to be greater than minimum."
 msgstr "Tối đa phải lớn hơn mức tối thiểu."
 
-#: templates.php:855
+#: templates.php:861
 msgid "Default value is out of values range."
 msgstr "Giá trị mặc định nằm ngoài phạm vi giá trị."
 
-#: templates.php:924
+#: templates.php:930
 msgid "Duplicate abbreviation"
 msgstr "Viết tắt trùng lặp"
 
-#: templates.php:979
+#: templates.php:985
 msgid "Interim results are used by other measurands."
 msgstr "Kết quả tạm thời được sử dụng bởi các biện pháp khác."
 
-#: templates.php:1042
+#: templates.php:1048
 #, fuzzy, php-format
 msgid "Template [ %s - %s ]"
 msgstr "Bản mẫu: %s"
 
-#: templates.php:1046
+#: templates.php:1052
 #, fuzzy
 msgid "Template [new]"
 msgstr "Mẫu"
 
-#: templates.php:1137
+#: templates.php:1145
 #, fuzzy
 msgid "<template_title>"
 msgstr "Thêm cột mốc quan trọng vào Mẫu dự án"
 
-#: templates.php:1297
+#: templates.php:1305
 msgid "Click 'Continue' to Delete the following Report Templates"
 msgstr "Nhấp vào 'Tiếp tục' để xóa các mẫu báo cáo sau"
 
-#: templates.php:1300
+#: templates.php:1308
 msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
 msgstr "CẢNH BÁO: Mọi Báo cáo thuộc các Mẫu này cũng sẽ bị xóa!"
 
-#: templates.php:1303
+#: templates.php:1311
 #, php-format
 msgid "Template: %s"
 msgstr "Bản mẫu: %s"
 
-#: templates.php:1309
+#: templates.php:1317
 #, php-format
 msgid "Report: %s"
 msgstr "Báo cáo: %s"
 
-#: templates.php:1316
+#: templates.php:1324
 msgid "Report: <i>None</i>"
 msgstr "Báo cáo: <i>Không có</i>"
 
-#: templates.php:1327
+#: templates.php:1335
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
 msgstr "Nhấp vào 'Tiếp tục' để sao chép các mẫu báo cáo sau. Bạn có thể tùy ý thay đổi tiêu đề của những bản sao đó."
 
-#: templates.php:1330
+#: templates.php:1338
 msgid "List of selected report templates:"
 msgstr "Danh sách các mẫu báo cáo đã chọn:"
 
-#: templates.php:1343
+#: templates.php:1351
 msgid "Title:"
 msgstr "Tiêu đề:"
 
-#: templates.php:1345
+#: templates.php:1353
 msgid "<template_title> (1)"
 msgstr "<template_title> (1)"
 
-#: templates.php:1354
+#: templates.php:1362
 msgid "Click 'Continue' to Export the following Report Templates"
 msgstr "Nhấp vào 'Tiếp tục' để xuất các mẫu báo cáo sau"
 
-#: templates.php:1372
+#: templates.php:1380
 msgid "You must select at least one Report Template."
 msgstr "Bạn phải chọn ít nhất một Mẫu báo cáo."
 
-#: templates.php:1377
+#: templates.php:1385
 msgid "Delete Report Templates"
 msgstr "Xóa mẫu báo cáo"
 
-#: templates.php:1379
+#: templates.php:1387
 msgid "Duplicate Report Templates"
 msgstr "Mẫu báo cáo trùng lặp"
 
-#: templates.php:1381
+#: templates.php:1389
 msgid "Export Report Templates"
 msgstr "Xuất mẫu báo cáo"
 
-#: templates.php:1449
+#: templates.php:1457
 msgid "Click 'Continue to Delete the following variables."
 msgstr "Nhấp vào 'Tiếp tục để Xóa các biến sau."
 
-#: templates.php:1472
+#: templates.php:1480
 msgid "List of selected variables:"
 msgstr "Danh sách các biến đã chọn:"
 
-#: templates.php:1476
+#: templates.php:1484
 #, fuzzy, php-format
 msgid "Variable: %s"
 msgstr "Biến: %s"
 
-#: templates.php:1487
+#: templates.php:1495
 msgid "There are one or more variables in use."
 msgstr "Có một hoặc nhiều biến đang được sử dụng."
 
-#: templates.php:1489
+#: templates.php:1497
 msgid "You must select at least one variable."
 msgstr "Bạn phải chọn ít nhất một biến."
 
-#: templates.php:1494
+#: templates.php:1502
 msgid "Delete Template Variables"
 msgstr "Xóa biến mẫu"
 
-#: templates.php:1566
+#: templates.php:1574
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
 msgstr "Nhấp vào 'Tiếp tục' để Xóa các Số đo sau.  Lưu ý: Nếu không còn Biện pháp đo lường nào khác sau quá trình này, Mẫu Báo cáo sẽ tự động bị khóa."
 
-#: templates.php:1569
+#: templates.php:1577
 msgid "List of selected measurands:"
 msgstr "Danh sách các biện pháp được chọn:"
 
-#: templates.php:1573
+#: templates.php:1581
 #, fuzzy, php-format
 msgid "Metric: %s"
 msgstr "Đo lường: %s"
 
-#: templates.php:1584
+#: templates.php:1592
 msgid "You must select at least one measurand."
 msgstr "Bạn phải chọn ít nhất một số đo."
 
-#: templates.php:1590
+#: templates.php:1598
 #, fuzzy
 msgid "Delete Template Metrics"
 msgstr "Xóa số đo mẫu"
 
-#: templates.php:1675
+#: templates.php:1683
 #, php-format
 msgid "Variables [ Template: %s - %s ]"
-msgstr ""
+msgstr "Biến [ Bản mẫu: %s - %s ]"
 
-#: templates.php:1715
+#: templates.php:1725
 msgid "No Variables Found"
 msgstr "Không tìm thấy biến nào"
 
-#: templates.php:1755
+#: templates.php:1765
 #, fuzzy, php-format
 msgid "Variable Configuration [ edit: %s ]"
 msgstr "Cấu hình biến [sửa: %s]"
 
-#: templates.php:1757
+#: templates.php:1767
 msgid "Variable Configuration [new]"
 msgstr "Cấu hình biến [mới]"
 
-#: templates.php:1783
+#: templates.php:1793
 msgid "Internal name"
 msgstr "Tên nội bộ"
 
-#: templates.php:1784
+#: templates.php:1794
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
 msgstr "Một mã định danh duy nhất sẽ được tạo bởi chính ReportIt. Sử dụng ID này trong định nghĩa công thức tính toán của bạn để bao gồm giá trị mà người dùng báo cáo đã xác định riêng cho nó."
 
-#: templates.php:1791
+#: templates.php:1801
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
 msgstr "Ví dụ: tên như \"Ngưỡng\" nên được sử dụng làm tiêu đề trong cấu hình báo cáo."
 
-#: templates.php:1794
+#: templates.php:1804
 msgid "Provide a name for this Variable"
-msgstr ""
+msgstr "Cung cấp tên cho Biến này"
 
-#: templates.php:1799
+#: templates.php:1809
 msgid "A short, pithy description that explains the sense of this variable."
 msgstr "Một mô tả ngắn gọn, súc tích giải thích ý nghĩa của biến này."
 
-#: templates.php:1804
+#: templates.php:1814
 msgid "Provide a meaningful description"
-msgstr ""
+msgstr "Cung cấp mô tả có ý nghĩa"
 
-#: templates.php:1808
+#: templates.php:1818
 msgid "Maximum Value"
 msgstr "Giá trị tối đa"
 
-#: templates.php:1809
+#: templates.php:1819
 msgid "Defines the upper limit of this variable."
 msgstr "Xác định giới hạn trên của biến này."
 
-#: templates.php:1815
+#: templates.php:1825
 msgid "Minimum Value"
 msgstr "Giá trị tối thiểu"
 
-#: templates.php:1816
+#: templates.php:1826
 msgid "Defines the lower limit of this variable."
 msgstr "Xác định giới hạn dưới của biến này."
 
-#: templates.php:1822
+#: templates.php:1832
 msgid "Default Value"
 msgstr "Giá trị mặc định"
 
-#: templates.php:1823
+#: templates.php:1833
 msgid "Sets the default value."
 msgstr "Đặt giá trị mặc định."
 
-#: templates.php:1829 templates.php:1977 view.php:219
+#: templates.php:1839 templates.php:1987 view.php:219
 msgid "Type"
 msgstr "Loại"
 
-#: templates.php:1830
+#: templates.php:1840
 msgid "The method the report owner should use to define this variable."
 msgstr "Phương pháp mà chủ sở hữu báo cáo nên sử dụng để xác định biến này."
 
-#: templates.php:1837
+#: templates.php:1847
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
 msgstr "Xác định khoảng cách giữa hai giá trị nếu phương thức \"DropDown\" đã được chọn. Vui lòng đảm bảo rằng giá trị này không được đặt quá thấp, vì nó xác định gián tiếp số lượng tùy chọn mà trường thả xuống sẽ có. Ví dụ: các tham số sau: MAX: 100, MIN: 0, STEP: 0.01 sẽ dẫn đến một hộp chọn gồm 10.001 tùy chọn. Điều này có thể gây ra các vấn đề hiệu suất nghiêm trọng do tải CPU cao ở phía máy khách. Cố gắng giữ nó dưới 1000."
 
-#: templates.php:1901
+#: templates.php:1911
 #, fuzzy, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
 msgstr "Cấu hình Measurand [sửa: %s]"
 
-#: templates.php:1903
+#: templates.php:1913
 #, fuzzy
 msgid "Metric Configuration [new]"
 msgstr "Cấu hình Measurand [mới]"
 
-#: templates.php:1926
+#: templates.php:1936
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
 msgstr "Lời giải thích được đưa ra cho biện pháp này. Điều này sẽ được hiển thị dưới dạng chú thích trong xuất khẩu cũng như chú giải công cụ trong phần trình bày của chính báo cáo."
 
-#: templates.php:1933
+#: templates.php:1943
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
 msgstr "Xác định chữ viết tắt duy nhất cho số đo này với tối đa 8 chữ cái / số."
 
-#: templates.php:1940
+#: templates.php:1950
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "Đơn vị được đưa ra cho biện pháp này. ví dụ: \"Bit/s\""
 
-#: templates.php:1946
+#: templates.php:1956
 msgid "Consolidation function"
 msgstr "Chức năng hợp nhất"
 
-#: templates.php:1947
+#: templates.php:1957
 msgid "The name of the consolidation function to define which CDPs should be read out."
 msgstr "Tên của hàm hợp nhất để xác định CDP nào sẽ được đọc ra."
 
-#: templates.php:1955
+#: templates.php:1965
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
 msgstr "Chọn 'bật' nếu phép đo này sẽ trở thành một phần của đầu ra báo cáo cuối cùng. Để nó không bị gắn cờ nếu các phép đo này sẽ chỉ được sử dụng như một phép tính phụ trợ."
 
-#: templates.php:1964
+#: templates.php:1974
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
 msgstr "Chọn 'bật' nếu số đo này sẽ chỉ có tổng cộng một kết quả thay vì một kết quả cho mọi Mục Nguồn Dữ liệu. Đó là kết quả<br>sẽ được hiển thị riêng. Sử dụng tùy chọn này kết hợp với \"Hiển thị\" = \"tắt\" nếu bạn đang tìm kiếm một phép đo và chỉ giữ một kết quả tạm thời nên được sử dụng lại trong tính toán của các phép đo khác mà không hiển thị cho người dùng cuối."
 
-#: templates.php:1972
+#: templates.php:1982
 msgid "Formatting"
 msgstr "Định dạng"
 
-#: templates.php:1980
+#: templates.php:1990
 msgid "Defines as what type the data should be treated as."
 msgstr "Xác định loại dữ liệu nên được xử lý như thế nào."
 
-#: templates.php:1984
+#: templates.php:1994
 msgid "Precision"
 msgstr "Độ/Chính Xác"
 
-#: templates.php:1985
+#: templates.php:1995
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
 msgstr "Xác định có bao nhiêu chữ số thập phân sẽ được hiển thị cho các số dấu phẩy động."
 
-#: templates.php:1991
+#: templates.php:2001
 msgid "Prefixes"
 msgstr "Tiền tố"
 
-#: templates.php:1992
+#: templates.php:2002
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "Chọn loại tiền tố đang được sử dụng để định dạng kết quả. Với việc sử dụng tiền tố thập phân, '1024' sẽ được định dạng thành '1.024k' trong khi tùy chọn tiền tố nhị phân trả về '1ki'. Chọn 'tắt' để hiển thị dữ liệu thô, ở đây '1024'."
 
-#: templates.php:1998
+#: templates.php:2008
 msgid "Formula"
 msgstr "Công thức"
 
-#: templates.php:2004
+#: templates.php:2014
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "Định nghĩa toán học của phép đo này. Được phép là tất cả các kết hợp của toán tử và toán hạng được liệt kê dưới đây theo các quy tắc toán học. Sử dụng dấu ngoặc tròn và vuông để biểu thị các thuật ngữ phức tạp và thứ tự hoạt động."
 
-#: templates.php:2009
+#: templates.php:2019
 msgid "Operators & Operands"
 msgstr "Toán tử & Toán hạng"
 
-#: templates.php:2010
+#: templates.php:2020
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
 msgstr "Nhấp vào một trong các toán tử hoặc toán hạng được liệt kê để thêm chúng vào công thức calucalion của bạn. Chú giải công cụ sẽ hiển thị cho bạn thông tin bổ sung như mô tả, giá trị trả về, đối số và cách sử dụng."
 
-#: templates.php:2099
+#: templates.php:2109
 #, fuzzy, php-format
 msgid "Metrics [ Template: %s - %s ]"
 msgstr "Bản mẫu: %s"
 
-#: templates.php:2135
+#: templates.php:2147
 #, fuzzy
 msgid "No Metrics Found"
 msgstr "Không tìm thấy báo cáo nào"
@@ -2527,86 +2493,116 @@ msgstr "Thời gian (Từ - Đến)"
 msgid "No Reports Found"
 msgstr "Không tìm thấy báo cáo nào"
 
-#: view.php:609
+#: view.php:612
 msgid "Metric"
-msgstr ""
+msgstr "Metric (mét)"
 
-#: view.php:624
+#: view.php:627
 msgid "Data Source"
 msgstr "Nguồn dữ liệu"
 
-#: view.php:640
+#: view.php:643
 #, fuzzy
 msgid "Show Top 10 Graphs"
 msgstr "Hiển thị TOP10 Graphs"
 
-#: view.php:641
+#: view.php:644
 msgid "Show Subheads"
 msgstr "Hiển thị tiêu đề phụ"
 
-#: view.php:642
+#: view.php:645
 msgid "Show Summary"
 msgstr "Hiển thị tóm tắt"
 
-#: view.php:675
+#: view.php:677
 msgid "Additional"
 msgstr "Bổ sung"
 
-#: view.php:685
+#: view.php:687
 msgid "Items"
 msgstr "Sản phẩm"
 
-#: view.php:697
+#: view.php:699
 msgid "Archive"
 msgstr "Lưu trữ"
 
-#: view.php:700
+#: view.php:702
 msgid "Current"
 msgstr "Hiện hành"
 
-#: view.php:759
+#: view.php:761
 msgid "Title"
 msgstr "Tiêu đề"
 
-#: view.php:760
+#: view.php:762
 msgid "Runtime"
 msgstr "Thời gian chiếu"
 
-#: view.php:766
+#: view.php:768
 msgid "Scheduler"
 msgstr "Lập lịch biểuBộ lập lịch"
 
-#: view.php:768
+#: view.php:770
 msgid "Period"
 msgstr "Giai đoạn"
 
-#: view.php:769
+#: view.php:771
 msgid "Auto Generated RRD list"
 msgstr "Danh sách RRD được tạo tự động"
 
-#: view.php:807
+#: view.php:809
 msgid "Data Description"
 msgstr "Mô tả dữ liệu"
 
-#: view.php:847
+#: view.php:849
 msgid "-- NO SUBHEADING --"
 msgstr "-- KHÔNG CÓ PHÂN NHÓM --"
 
-#: view.php:900
+#: view.php:904
 msgid "No Data Items"
 msgstr "Không có mục dữ liệu"
 
-#: view.php:1004
+#: view.php:1008
 #, fuzzy, php-format
 msgid "Metric: %s (%s)"
 msgstr "Đo lường: %s"
 
-#: view.php:1025
-#, fuzzy
+#: view.php:1029
 msgid "Pos."
 msgstr "Pos."
 
-#: view.php:1033
+#: view.php:1037
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Kết quả [ %s]"
+
+#~ msgid "Click 'Continue' to Copy the Settings to the other Data Items"
+#~ msgstr "Nhấp vào 'Tiếp tục' để sao chép cài đặt sang các mục dữ liệu khác"
+
+#~ msgid "Click 'Continue' to Remove the following Data Items."
+#~ msgstr "Nhấp vào 'Tiếp tục' để xóa các mục dữ liệu sau."
+
+#~ msgid "Data Item Name"
+#~ msgstr "Tên mục dữ liệu"
+
+#, php-format
+#~ msgid "Data Item [edit: %s]"
+#~ msgstr "Mục dữ liệu [sửa: %s]"
+
+#, fuzzy, php-format
+#~ msgid "Data Item: %s"
+#~ msgstr "Mục dữ liệu"
+
+#, php-format
+#~ msgid "Data Items [Report: %s %s [%d]"
+#~ msgstr "Mục dữ liệu [Báo cáo: %s %s [%d]"
+
+#, fuzzy
+#~ msgid "List of selected Data Items below."
+#~ msgstr "Danh sách các mục dữ liệu đã chọn:"
+
+#~ msgid "Select the frequency for processing this report. Be sure that there's a cronjob (or scheduled task) running for the choice you made. This won't be done automatically by ReportIT."
+#~ msgstr "Chọn tần suất xử lý báo cáo này. Hãy chắc chắn rằng có một cronjob (hoặc nhiệm vụ theo lịch trình) đang chạy cho sự lựa chọn bạn đã thực hiện. Điều này sẽ không được thực hiện tự động bởi ReportIT."
+
+#~ msgid "Selected data item as reference:"
+#~ msgstr "Mục dữ liệu đã chọn làm tham chiếu:"
