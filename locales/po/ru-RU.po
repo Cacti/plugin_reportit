@@ -2590,15 +2590,13 @@ msgstr "Результаты [%s]"
 #~ msgid "Data Item Name"
 #~ msgstr "Имя элемента данных"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "Элемент данных [править: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "Элементы Данных"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "Элементы данных [Отчет: %s %s [%d]"
 
