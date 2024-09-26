@@ -2587,15 +2587,13 @@ msgstr "Resultat [ %s]"
 #~ msgid "Data Item Name"
 #~ msgstr "Namn på dataobjekt"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "Dataobjekt [redigera: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "Uppgifter"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "Dataobjekt [Rapport: %s %s [%d]"
 
