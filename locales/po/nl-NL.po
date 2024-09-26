@@ -2591,15 +2591,13 @@ msgstr "Resultaten [%s]"
 #~ msgid "Data Item Name"
 #~ msgstr "Naam van gegevensitem"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "Gegevensitem [bewerken: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "Gegevens-items"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "Gegevensitems [Rapport: %s %s [%d]"
 
