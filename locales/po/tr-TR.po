@@ -2590,15 +2590,13 @@ msgstr "Sonuçlar [ %s]"
 #~ msgid "Data Item Name"
 #~ msgstr "Veri Öğesi Adı"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "Veri Öğesi [değiştir | kaynağı değiştir: %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "Veri Öğeleri"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "Veri Öğeleri [Rapor: %s %s [%d]"
 
