@@ -2583,15 +2583,13 @@ msgstr "Résultats[%s]"
 #~ msgid "Data Item Name"
 #~ msgstr "Nom de l’élément de données"
 
-#, php-format
 #~ msgid "Data Item [edit: %s]"
 #~ msgstr "Élément de données [modifier : %s]"
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid "Data Item: %s"
 #~ msgstr "Éléments de données"
 
-#, php-format
 #~ msgid "Data Items [Report: %s %s [%d]"
 #~ msgstr "Données élémentaires [Rapport : %s %s [%d]"
 
