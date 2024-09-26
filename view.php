@@ -613,7 +613,7 @@ function show_report() {
 						</td>
 						<td>
 							<select id='measurand'>
-								<option value='-1'<?php if (get_request_var('measurand') == '-1') {?> selected<?php }?>><?php print __('Any', 'reportit');?></option>
+								<option value='-1'<?php if (get_request_var('measurand') == '-1') {?> selected<?php }?>><?php print __('All', 'reportit');?></option>
 								<?php
 								if (cacti_sizeof($measurands)) {
 									foreach ($measurands as $key => $value) {
@@ -628,7 +628,7 @@ function show_report() {
 						</td>
 						<td>
 							<select id='data_source'>
-								<option value='-1'<?php if (get_request_var('data_source') == '-1') {?> selected<?php }?>><?php print __('Any', 'reportit');?></option>
+								<option value='-1'<?php if (get_request_var('data_source') == '-1') {?> selected<?php }?>><?php print __('All', 'reportit');?></option>
 								<?php
 								if (cacti_sizeof($ds_description)) {
 									foreach ($data_sources as $key => $value) {

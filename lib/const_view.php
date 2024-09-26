@@ -95,7 +95,7 @@ $t_limit = array(
 
 $add_info = array(
 	'-2' => array(__('None', 'reportit'),''),
-	'-1' => array(__('Any', 'reportit'), ''),
+	'-1' => array(__('All', 'reportit'), ''),
 	'1'  => array(__('Sum', 'reportit'), 'array_sum'),
 	'2'  => array(__('Minimum', 'reportit'), 'min'),
 	'3'  => array(__('Maximum', 'reportit'), 'max'),
