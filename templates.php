@@ -276,13 +276,14 @@ function template_wizard($action) {
 				$report_count = 0;
 				foreach ($xmldata as $report_template) {
 					$info = $report_template->settings;
+
 					if ($report_template->compatible) {
 						$compatible = true;
 					}
 
 					print "<tr class='textArea'>
 						<td>$info->name</td>
-						<td>" . ($report_template->compatible?'Yes':'No') . "</td>
+						<td>" . ($report_template->compatible ? __('Yes', 'reportit'):__('No', 'reportit')) . "</td>
 						<td>$info->version</td>
 						<td>$info->author</td>
 						<td>";
@@ -597,37 +598,37 @@ function templates() {
 			'sort'    => 'ASC',
 			'tip'     => __('The Author of this Report Template.', 'reportit')
 		),
-		'version' => array(
-			'display' => __('Version', 'reportit'),
-			'align'   => 'left',
-			'sort'    => 'ASC',
-			'tip'     => __('The version of this Report Template.', 'reportit')
-		),
 		'nosort' => array(
 			'display' => __('Data Template', 'reportit'),
 			'align'   => 'left'
 		),
+		'version' => array(
+			'display' => __('Version', 'reportit'),
+			'align'   => 'right',
+			'sort'    => 'ASC',
+			'tip'     => __('The version of this Report Template.', 'reportit')
+		),
 		'enabled' => array(
 			'display' => __('Published', 'reporit'),
-			'align'   => 'left'
+			'align'   => 'right'
 		),
 		'nosort2' => array(
 			'display' => __('Locked', 'reportit'),
-			'align'   => 'left'
+			'align'   => 'right'
 		),
 		'nosort3' => array(
 			'display' => __('Metrics', 'reportit'),
-			'align'   => 'left',
+			'align'   => 'right',
 			'sort'    => 'ASC'
 		),
 		'nosort4' => array(
 			'display' => __('Variables', 'reportit'),
-			'align'   => 'left',
+			'align'   => 'right',
 			'sort'    => 'ASC'
 		),
 		'reports' => array(
 			'display' => __('Reports', 'reportit'),
-			'align'   => 'left',
+			'align'   => 'right',
 			'sort'    => 'ASC',
 			'tip'     => __('The total number of reports using this report template.', 'reportit')
 		),
@@ -657,7 +658,6 @@ function templates() {
 			form_selectable_cell($template['id'], $template['id']);
 
 			form_selectable_cell(filter_value($template['author'], get_request_var('filter')), $template['id'], 'left');
-			form_selectable_cell(filter_value($template['version'], get_request_var('filter')), $template['id'], 'left');
 
 			if (isset($list_of_data_templates[$template['data_template_id']])) {
 				$link = URL_PATH . 'data_templates.php?action=template_edit&id=' . $template['data_template_id'];
@@ -669,23 +669,25 @@ function templates() {
 				form_selectable_cell(__('Data template not available', 'reportit'), $template['id'], '', 'textError');
 			}
 
-			form_selectable_cell(html_check_icon($template['enabled']), $template['id']);
-			form_selectable_cell(html_lock_icon($template['locked']), $template['id']);
+			form_selectable_cell(filter_value($template['version'], get_request_var('filter')), $template['id'], '', 'right');
+			form_selectable_cell(html_check_icon($template['enabled']), $template['id'], '', 'right');
+			form_selectable_cell(html_lock_icon($template['locked']), $template['id'], '', 'right');
 
 			$link = $template['measurands'] != NULL
 				? '<a class="linkEditMain" href="' . html_escape('templates.php?action=template_edit&tab=measurands&id=' . $template['id']) . '">'
 				: '<a class="linkEditMain" href="' . html_escape('templates.php?action=measurand_edit&tab=measurands&template_id=' . $template['id']) . '">';
 
-			form_selectable_cell($link . html_sources_icon($template['measurands'], __('Edit measurands', 'reportit'), __('Add measurands', 'reportit')) . '</a>', $template['id']);
+			form_selectable_cell($link . html_sources_icon($template['measurands'], __('Edit measurands', 'reportit'), __('Add measurands', 'reportit')) . '</a>', $template['id'], '', 'right');
 
 			$link = $template['variables'] != NULL
 				? '<a class="linkEditMain" href="' . html_escape('templates.php?action=template_edit&tab=variables&id=' . $template['id']) . '">'
 				: '<a class="linkEditMain" href="' . html_escape('templates.php?action=variable_edit&tab=variables&template_id=' . $template['id']) . '">';
 
-			form_selectable_cell($link . html_sources_icon($template['variables'], __('Edit variables', 'reportit'), __('Add variables', 'reportit')) . '</a>', $template['id']);
+			form_selectable_cell($link . html_sources_icon($template['variables'], __('Edit variables', 'reportit'), __('Add variables', 'reportit')) . '</a>', $template['id'], '', 'right');
+			form_selectable_cell( $template['reports'] ? $template['reports'] : '-', $template['id'], '', 'right');
 
-			form_selectable_cell( $template['reports'] ? $template['reports'] : '-', $template['id']);
 			form_checkbox_cell($template['description'], $template['id']);
+
 			form_end_row();
 		}
 	} else {

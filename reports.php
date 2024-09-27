@@ -376,22 +376,27 @@ function standard() {
 		),
 		'last_run' => array(
 			'display' => __('Last Run %s', $tmz, 'reportit'),
+			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
 		'runtime' => array(
 			'display' => __('Runtime [s]', 'reportit'),
+			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
 		'public' => array(
 			'display' => __('Public', 'reportit'),
+			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
 		'scheduled' => array(
 			'display' => __('Scheduled', 'reportit'),
+			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
 		'ds_cnt' => array(
 			'display' => __('Data Sources', 'reportit'),
+			'align'   => 'right',
 			'sort'    => 'DESC',
 		),
 	);
@@ -434,29 +439,28 @@ function standard() {
 			form_selectable_cell($report_states[$report['state']], $report['id']);
 
 			if ($report['last_run'] == '0000-00-00 00:00:00') {
-				form_selectable_cell(__('N/A', 'reportit'), $report['id']);
+				form_selectable_cell(__('N/A', 'reportit'), $report['id'], '', 'right');
 			} else {
 				$link = "view.php?action=show_report&id={$report['id']}";
 
-				form_selectable_cell(filter_value($report['last_run'], '', $link), $report['id']);
+				form_selectable_cell(filter_value($report['last_run'], '', $link), $report['id'], '', 'right');
 			}
 
-			form_selectable_cell(sprintf("%01.1f", $report['runtime']), $report['id']);
-			form_selectable_cell(html_check_icon($report['public']), $report['id']);
-			form_selectable_cell(html_check_icon($report['scheduled']), $report['id']);
+			form_selectable_cell(sprintf("%01.1f", $report['runtime']), $report['id'], '', 'right');
+			form_selectable_cell(html_check_icon($report['public']), $report['id'], '', 'right');
+			form_selectable_cell(html_check_icon($report['scheduled']), $report['id'], '', 'right');
 
 			$link = "reports.php?action=report_edit&tab=items&id={$report['id']}";
-			print "<td><a class='linkEditMain' href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
+
+			print "<td class='right'><a class='linkEditMain href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
 
 			if (!$report['locked'] && $report['state'] < 1) {
-				form_checkbox_cell(__esc("Select %s", $report['description'], 'reportit'), $report["id"]);
+				form_checkbox_cell(__esc("Select %s", $report['description'], 'reportit'), $report["id"], '', 'right');
 			} else {
-				print '<td>' . html_lock_icon('on', __('Report has been locked', 'reportit')) . '</td>';
+				print '<td class="right">' . html_lock_icon('on', __('Report has been locked', 'reportit')) . '</td>';
 			}
 
-			?>
-			</tr>
-			<?php
+			form_end_row();
 		}
 	} else {
 		print "<tr><td colspan='10'><em>" . __('No reports', 'reportit') . "</em></td></tr>";
