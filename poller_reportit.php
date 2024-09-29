@@ -63,6 +63,7 @@ include_once($config['base_path'] . '/lib/rrd.php');
 include_once($config['base_path'] . '/lib/boost.php');
 include_once($config['base_path'] . '/lib/poller.php');
 include_once(REPORTIT_BASE_PATH . '/setup.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_view.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
@@ -847,7 +848,6 @@ function runtime($report_id) {
 
 	//----- Archive / Email -----
 	if ($run_scheduled) {
-
 		/* update the XML Archive */
 		if (read_config_option('reportit_archive') == 'on') {
 			update_xml_archive($report_id);
@@ -868,7 +868,7 @@ function runtime($report_id) {
 		/* create and send out an email */
 		if (read_config_option('reportit_email') == 'on') {
 			if ($report_definitions['report']['auto_email'] == 'on') {
-				$error = send_scheduled_email($report_id);
+				$error = send_scheduled_email('0', $report_id);
 				if ($error) {
 					run_error(13, $report_id, 0, "EMAIL: $error");
 				} else {
@@ -1223,8 +1223,8 @@ function autoexport($report_id) {
 		run_error(17, $report_id, 0, "Export path '{$report_path}' is not writable.");
 
 		return false;
-	} elseif (!is_writable($report_path)) {
-		run_error(17, $report_id, 0, "Export path '{$report_path}' is not writable.");
+	} elseif (!is_writeable(dirname($report_path))) {
+		run_error(17, $report_id, 0, "Export path '" . dirname($report_path) . "' is not writable.");
 
 		return false;
 	} else {

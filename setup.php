@@ -637,9 +637,20 @@ function reportit_define_constants(){
 	global $config;
 
 	/* realm IDs which have been defined dynamically by PIA 2.x */
-	$view 			= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%view.php%'");
-	$create 		= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%reports.php%'");
-	$administrate 	= db_fetch_cell("SELECT id FROM plugin_realms WHERE plugin='reportit' AND file LIKE '%templates.php%'");
+	$view = db_fetch_cell("SELECT id
+		FROM plugin_realms
+		WHERE plugin='reportit'
+		AND file LIKE '%view.php%'");
+
+	$create = db_fetch_cell("SELECT id
+		FROM plugin_realms
+		WHERE plugin='reportit'
+		AND file LIKE '%reports.php%'");
+
+	$administrate = db_fetch_cell("SELECT id
+		FROM plugin_realms
+		WHERE plugin='reportit'
+		AND file LIKE '%templates.php%'");
 
 	reportit_define('REPORTIT_USER_VIEWER', 100+$view);
 	reportit_define('REPORTIT_USER_OWNER', 100+$create);

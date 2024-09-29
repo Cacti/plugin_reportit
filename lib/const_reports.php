@@ -156,8 +156,13 @@ $format = array(
 	'None' => __('None', 'reportit'),
 	'CSV'  => __('Text CSV (.csv)', 'reportit'),
 	'SML'  => __('MS Excel 2003 XML (.xml)', 'reportit'),
-	'XML'  => __('Raw XML (.xml)', 'reportit')
+	'XML'  => __('Raw XML (.xml)', 'reportit'),
+	'JSON' => __('JSON Data (.json)', 'reportit')
 );
+
+if (function_exists('yaml_emit')) {
+	$format['YAML'] = __('YAML Data (.yaml)', 'reportit');
+}
 
 if (db_table_exists('plugin_notification_lists')) {
 	$notify_lists = array_rekey(

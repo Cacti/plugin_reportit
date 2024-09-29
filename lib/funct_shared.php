@@ -1214,6 +1214,32 @@ function return_bytes($val) {
 	return $val;
 }
 
+function transform_htmlspecialchars(&$data){
+	if (!is_array($data)) {
+		htmlspecialchars($data);
+	} else {
+		foreach ($data as $key_1 => $value_1) {
+			if (is_array($value_1)) {
+				foreach ($value_1 as $key_2 => $value_2) {
+					if (is_array($value_2)) {
+						foreach ($value_2 as $key_3 => $value_3) {
+							$value_2[$key_3] = htmlspecialchars($value_3);
+						}
+
+						$value_1[$key_2] = $value_2;
+					} else {
+						$value_1[$key_2] = htmlspecialchars($value_2);
+					}
+				}
+
+				$data[$key_1] = $value_1;
+			} else {
+                $data[$key_1] = htmlspecialchars($value_1);
+			}
+		}
+	}
+}
+
 function get_mem_usage() {
 	$memory_system  = return_bytes(ini_get('memory_limit'));
 	$memory_used    = round(memory_get_usage()/pow(1024,2),2);
@@ -1232,88 +1258,6 @@ function get_mem_usage() {
 	}
 
 	return array('limit' => $memory_system, 'current' => $memory_used, 'peak' => $memory_peak);
-}
-
-function send_scheduled_email($report_id){
-	global $config;
-
-	$data 	= '';
-	$search = array('|title|', '|period|');
-
-	/* load report based email settings */
-	$report_settings  = db_fetch_row_prepared('SELECT *
-		FROM plugin_reportit_reports
-		WHERE id = ?',
-		array($report_id));
-
-	$replace   = array($report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']);
-
-	$subject   = ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
-	$subject   = str_replace($search, $replace, $subject);
-
-	$body      = ($report_settings['email_body'] != '')   ? $report_settings['email_body'] : 'This is a scheduled report generated from Cacti.';
-	$format    = ($report_settings['email_format'] != '') ? $report_settings['email_format'] : 'CSV';
-
-	/* load list of recipients */
-	$file_type = ($format != 'SML') ? strtolower($format) : 'xml';
-	$mime_type = ($format != 'SML') ? 'application/' . strtolower($format) : 'application/vnd-ms-excel';
-
-	$from   = array();
-	$from[] = read_config_option('settings_from_email');
-	$from[] = read_config_option('settings_from_name');
-
-	$to = db_fetch_assoc_prepared('SELECT email, name
-		FROM plugin_reportit_recipients
-		WHERE report_id = ?',
-		array($report_id));
-
-	$attachment = array();
-	$data = '';
-
-	if ($format != 'None') {
-		/* define additional attachment settings */
-		$filebase         = read_config_option('reportit_exp_filename');
-		if (empty($filebase)) {
-			$filebase = 'report_<report_id>';
-		}
-
-		$dirbase = dirname($filebase);
-		if (empty($dirbase) || $dirbase == '.') {
-			$dirbase = sys_get_temp_dir();
-		}
-
-		$filebase         = $dirbase . '/' . $filebase . ".$file_type";
-		$filename         = str_replace('<report_id>', $report_id, $filebase);
-		$export_function  = 'export_to_' . $format;
-
-		print "Attachment: $filename\n";
-
-		/* load export data and define the attachment file */
-		if (function_exists($export_function)) {
-			$data = get_prepared_report_data($report_id, 'export');
-			if ($data == '') {
-				return('Export failed');
-			}
-
-			$data = $export_function($data);
-
-			$attachment = array(
-				'attachment' => $filename,
-				'mime_type'  => $mime_type,
-				'inline'     => 'attachment',
-			);
-
-			file_put_contents($filename, $data);
-		} else {
-			cacti_log("WARNING: Missing function '$export_function'", true, 'REPORTIT');
-		}
-	}
-
-	$return = mailer($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
-
-	unlink($filename);
-
-	return $return;
 }
 
 function xml_to_string($xml_object, $keep_spaces = true) {
@@ -1593,3 +1537,4 @@ function import_template($report_template, $data_template_id) {
 		sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
 	}
 }
+

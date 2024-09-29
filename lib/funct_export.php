@@ -27,7 +27,7 @@ function export_to_PDF(&$data) {
 }
 
 function export_to_CSV(&$data) {
-	global $config, $run_scheduled;
+	global $config, $search, $run_scheduled;
 
 	$eol          = PHP_EOL;
 	$rows         = '';
@@ -40,10 +40,6 @@ function export_to_CSV(&$data) {
 	$csv_c_sep    = array(',', ';', "\t", ' ');
 
 	$csv_d_sep    = array(',', '.');
-
-	$subhead      = array('<br>','<i>','<b>','<p>','<u>','</br>','</i>','</b>','</p>','</u>',
-		'|t1| - |t2|', '|t1|-|t2|', '|t1|', '|t2|', '|tmz|', '|d1| - |d2|', '|d1|-|d2|', '|d1|', '|d2|'
-	);
 
 	$measurands  = isset_request_var('measurand')   ? get_request_var('measurand')   : '-1';
 	$datasources = isset_request_var('data_source') ? get_request_var('data_source') : '-1';
@@ -196,8 +192,12 @@ function export_to_CSV(&$data) {
 
 	/* print results */
 	foreach ($report_results as $result){
+		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$subhead = str_replace($search, $replace, $result['description']);
+
+		print "\t\t\t<Row>$eol";
 		print '"' . $result['name_cache'] . '"' . $c_sep;
-		print '"' . str_replace($subhead, '', $result['description']) . '"' . $c_sep;
+		print '"' . $subhead              . '"' . $c_sep;
 		print '"' . $result['start_day']  . '"' . $c_sep;
 		print '"' . $result['end_day']    . '"' . $c_sep;
 		print '"' . $result['start_time'] . '"' . $c_sep;
@@ -229,16 +229,12 @@ function export_to_CSV(&$data) {
 }
 
 function export_to_XML(&$data) {
-	global $config, $run_scheduled;
+	global $config, $search, $run_scheduled;
 
 	$eol       = PHP_EOL;
 	$add_infos = '';
 	$output    = '';
 	$header    = '';
-	$subhead   = array(
-		'<br>','<i>','<b>','<p>','<u>','</br>','</i>','</b>','</p>','</u>',
-		'|t1| - |t2|', '|t1|-|t2|', '|t1|', '|t2|', '|tmz|', '|d1| - |d2|', '|d1|-|d2|', '|d1|', '|d2|'
-	);
 
 	$mea = array();
 
@@ -321,15 +317,18 @@ function export_to_XML(&$data) {
 
 	print "</measurands>$eol<data_items>$eol";
 
-	foreach ($report_results as $results){
+	foreach ($report_results as $result){
+		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$subhead = str_replace($search, $replace, $result['description']);
+
 		print "<item>$eol";
-		print "<description>{$results['name_cache']}</description>$eol";
-		print "<subhead>". str_replace($subhead, '', $results['description']) ."</subhead>$eol";
-		print "<start_day>{$results['start_day']}</start_day>$eol";
-		print "<end_day>{$results['end_day']}</end_day>$eol";
-		print "<start_time>{$results['start_time']}</start_time>$eol";
-		print "<end_time>{$results['end_time']}</end_time>$eol";
-		print "<time_zone>{$results['timezone']}</time_zone>$eol";
+		print "<description>{$result['name_cache']}</description>$eol";
+		print "<subhead>". $subhead . "</subhead>$eol";
+		print "<start_day>{$result['start_day']}</start_day>$eol";
+		print "<end_day>{$result['end_day']}</end_day>$eol";
+		print "<start_time>{$result['start_time']}</start_time>$eol";
+		print "<end_time>{$result['end_time']}</end_time>$eol";
+		print "<time_zone>{$result['timezone']}</time_zone>$eol";
 		print "<results>$eol";
 
 		foreach ($ds_description as $datasource) {
@@ -341,7 +340,7 @@ function export_to_XML(&$data) {
 				foreach ($name as $id) {
 					$var            = ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
 					$abbr           = strtolower($mea[$id]['abbreviation']);
-					$value          = $results[$var];
+					$value          = $result[$var];
 					$rounding       = $mea[$id]['rounding'];
 					$data_type      = $mea[$id]['data_type'];
 					$data_precision = $mea[$id]['data_precision'];
@@ -366,6 +365,131 @@ function export_to_XML(&$data) {
 	$output = mb_convert_encoding(ob_get_clean(), 'UTF-8', 'ISO-8859-1');
 
 	return $output;
+}
+
+function export_to_YAML(&$data) {
+	$report_data = export_to_JSON($data);
+
+	if (function_exists('yaml_emit')) {
+		return yaml_emit(json_decode($report_data, true));
+	} else {
+		cacti_log('WARNING: You attempted to use YAML as the export format, but PHP is not built using the yaml functions', false, 'REPORTIT');
+		return false;
+	}
+}
+
+function export_to_JSON(&$data) {
+	global $config, $search, $run_scheduled;
+
+	$json_data = array();
+
+	$info = plugin_reportit_version();
+
+	transform_htmlspecialchars($data);
+
+	/* add some header components */
+	$json_data['header']          = str_replace(array('<cacti_version>', '<reportit_version>'), array('Cacti: ' . $config['cacti_version'], 'ReportIt: ' . $info['version']), read_config_option('reportit_exp_header'));
+	$json_data['version_cacti']   = $config['cacti_version'];
+	$json_data['version_reporit'] = $info['version'];
+
+	$mea = array();
+
+	$report_data       = $data['report_data'];
+	$report_results    = $data['report_results'];
+	$report_measurands = $data['report_measurands'];
+	$report_variables  = $data['report_variables'];
+	$ds_description    = explode('|', $report_data['ds_description']);
+	$no_formatting     = ($run_scheduled !== true) ? 0 : $report_data['autoexport_no_formatting'];
+
+	/* compose additional informations */
+	$report_settings = array(
+		'title'     => $report_data['description'],
+		'owner'     => $report_data['owner'],
+		'template'  => $report_data['template_name'],
+		'start'     => $report_data['start_date'],
+		'end'       => $report_data['end_date'],
+		'last_run'  => $report_data['last_run']
+	);
+
+	/* read out the result ids */
+	list($rs_ids, $rs_cnt) = explode('-', $report_data['rs_def']);
+	$rs_ids = ($rs_ids == '') ? false : explode('|', $rs_ids);
+
+	/* read out the 'spanned' ids */
+	list($ov_ids, $ov_cnt)	 = explode('-', $report_data['sp_def']);
+	$ov_ids = ($ov_ids == '') ? false : explode('|', $ov_ids);
+
+	if ($ov_cnt > 0) {
+		$ds_description[]= 'overall';
+	}
+
+	foreach ($report_settings as $key => $value) {
+		$json_data['settings'][$key] = $value;
+	}
+
+	$i = 0;
+	foreach ($report_variables as $variable) {
+		foreach ($variable as $key => $value) {
+			$json_data['variables'][$i][$key] = $value;
+		}
+
+		$i++;
+	}
+
+	foreach ($report_measurands as $measurand){
+		$id = $measurand['id'];
+
+		$mea[$id]['abbreviation']   = $measurand['abbreviation'];
+		$mea[$id]['visible']        = $measurand['visible'];
+		$mea[$id]['unit']           = $measurand['unit'];
+		$mea[$id]['rounding']       = $measurand['rounding'];
+		$mea[$id]['data_type']      = $measurand['data_type'];
+		$mea[$id]['data_precision'] = $measurand['data_precision'];
+
+		$json_data['measurands'][$id] = $measurand;
+	}
+
+	$json_data['report_raw_data'] = $data;
+
+	$i = 0;
+
+	foreach ($report_results as $result){
+		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$subhead = str_replace($search, $replace, $result['description']);
+
+		$json_data['data_items']['item'][$i]['description'] = $result['name_cache'];
+		$json_data['data_items']['item'][$i]['subhead']     = $subhead;
+		$json_data['data_items']['item'][$i]['start_day']   = $result['start_day'];
+		$json_data['data_items']['item'][$i]['end_day']     = $result['end_day'];
+		$json_data['data_items']['item'][$i]['start_time']  = $result['start_time'];
+		$json_data['data_items']['item'][$i]['end_time']    = $result['end_time'];
+		$json_data['data_items']['item'][$i]['time_zone']   = $result['timezone'];
+
+		foreach ($ds_description as $datasource) {
+			$name = ($datasource != 'overall') ? $rs_ids : $ov_ids;
+
+			if ($name !== false) {
+				foreach ($name as $id) {
+					$var            = ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
+					$abbr           = strtolower($mea[$id]['abbreviation']);
+					$value          = $result[$var];
+					$rounding       = $mea[$id]['rounding'];
+					$data_type      = $mea[$id]['data_type'];
+					$data_precision = $mea[$id]['data_precision'];
+
+					$value  = ($value == NULL)? 'NA' : (($no_formatting) ? $value : get_unit($value, $rounding, $data_type, $data_precision) );
+
+					$json_data['data_items']['item'][$i]['results'][$datasource][$abbr]['measurand'] = $mea[$id]['abbreviation'];
+					$json_data['data_items']['item'][$i]['results'][$datasource][$abbr]['unit']      = $mea[$id]['unit'];
+					$json_data['data_items']['item'][$i]['results'][$datasource][$abbr]['value']     = $value;
+				}
+			}
+		}
+
+		$i++;
+	}
+
+	return json_encode($json_data, JSON_PRETTY_PRINT);
 }
 
 function export_to_SML(&$data) {
@@ -410,7 +534,7 @@ function export_to_SML(&$data) {
 }
 
 function new_worksheet(&$data, &$styles){
-	global $config, $run_scheduled;
+	global $config, $search, $run_scheduled;
 
 	$eol          = PHP_EOL;
 	$rows         = '';
@@ -421,9 +545,6 @@ function new_worksheet(&$data, &$styles){
 	$data_sources = array();
 	$csv_c_sep    = array(',', ';', "\t", ' ');
 	$csv_d_sep    = array(',', '.');
-
-	$subhead      = array('<br>','<i>','<b>','<p>','<u>','</br>','</i>','</b>','</p>','</u>',
-		'|t1| - |t2|', '|t1|-|t2|', '|t1|', '|t2|', '|tmz|', '|d1| - |d2|', '|d1|-|d2|', '|d1|', '|d2|');
 
 	$measurands   = isset_request_var('measurand')? get_request_var('measurand') : '-1';
 	$datasources  = isset_request_var('data_source') ? get_request_var('data_source') : '-1';
@@ -574,9 +695,12 @@ function new_worksheet(&$data, &$styles){
 
 	/* print results */
 	foreach ($report_results as $result){
+		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$subhead = str_replace($search, $replace, $result['description']);
+
 		print "\t\t\t<Row>$eol";
 		print sml_cell($result['name_cache']);
-		print sml_cell(str_replace($subhead, '', $result['description']));
+		print sml_cell($subhead);
 		print sml_cell($result['start_day']);
 		print sml_cell($result['end_day']);
 		print sml_cell($result['start_time']);
