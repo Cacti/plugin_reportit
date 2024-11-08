@@ -536,7 +536,7 @@ function transform(&$data, &$rrd_data, &$template) {
 		$step = $template['RRA'][$i]['steps'] * $template['step'];
 	}
 
-	$b = $rrd_data['ds_cnt'];
+	$b = intval($rrd_data['ds_cnt']);
 	$a = 0;
 
 	$step_value = 0;
