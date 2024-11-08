@@ -1874,7 +1874,11 @@ function variable_edit() {
 	</script>
 	<?php
 
-	form_start('templates.php?action=template_edit&tab=variables&template_id=' . $template_id . '&id=' . $variable_data['id']);
+	if (isset($variable_data['id'])) {
+		form_start('templates.php?action=template_edit&tab=variables&template_id=' . $template_id . '&id=' . $variable_data['id']);
+	} else {
+		form_start('templates.php?action=template_edit&tab=variables&template_id=' . $template_id);
+	}
 
 	html_start_box($header_label, '100%', '', '3', 'center', '');
 
