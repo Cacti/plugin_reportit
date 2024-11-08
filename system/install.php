@@ -359,7 +359,7 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'report_html_output', 'type' => 'longblob', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notification', 'type' => 'blob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'send_type', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'send_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'current_timestamp()');
+	$data['columns'][] = array('name' => 'send_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
 	$data['columns'][] = array('name' => 'run_time', 'type' => 'double', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'sent_by', 'type' => 'varchar(20)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'sent_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '-1');
