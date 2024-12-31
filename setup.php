@@ -100,7 +100,7 @@ function reportit_check_upgrade() {
 
 			/* perform data base upgrade */
 			require_once($config['base_path'] . '/plugins/reportit/system/upgrade.php');
-			reportit_system_upgrade($old["version"]);
+			reportit_system_upgrade($old['version']);
 
 			/* re-register plugins hooks */
 			plugin_reportit_install();
