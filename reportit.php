@@ -307,11 +307,8 @@ function standard() {
 	}
 
 	/* form the 'where' clause for our main sql query */
-	if (strlen(get_request_var('filter'))) {
-		$affix .= " WHERE a.description LIKE '%" . get_request_var('filter') . "%'";
-	} else {
-		/* filter nothing, but also use 'where' clause */
-		$affix .= " WHERE a.description LIKE '%'";
+	if (get_request_var('filter') != '') {
+		$affix .= " WHERE a.name LIKE '%" . get_request_var('filter') . "%'";
 	}
 
 	/* check admin's filter settings */

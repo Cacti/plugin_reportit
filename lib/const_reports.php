@@ -500,12 +500,12 @@ $form_array_general = array(
 		'friendly_name' => __('General', 'reportit'),
 		'method' => 'spacer',
 	),
-	'description' => array(
+	'name' => array(
 		'friendly_name' => __('Name', 'reportit'),
 		'description' => __('The name given to this report', 'reportit'),
 		'method' => 'textbox',
 		'max_length' => '100',
-		'value' => '|arg1:description|',
+		'value' => '|arg1:name|',
 	),
 	'template' => array(
 		'friendly_name' => __('Template', 'reportit'),
