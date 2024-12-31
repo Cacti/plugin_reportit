@@ -321,6 +321,22 @@ function reportit_system_upgrade($old_version) {
 		db_execute('UPDATE plugin_realms SET file="view.php,charts.php" WHERE plugin="reportit" AND file LIKE "view.php%"');
 	}
 
+	/* cacti 1.3.0 compatibility */
+	if (cacti_version_compare($old_version, '3.0', '<')) {
+		db_execute('ALTER TABLE `plugin_reportit_reports`
+			CHANGE COLUMN description name VARCHAR(128) NOT NULL default "",
+			MODIFY COLUMN last_run TIMESTAMP default NULL');
+
+		db_execute('ALTER TABLE `plugin_reportit_templates`
+			MODIFY COLUMN name VARCHAR(128) NOT NULL default ""');
+
+		db_execute('ALTER TABLE `plugin_reportit_measurands`
+			CHANGE COLUMN description name VARCHAR(128) NOT NULL default ""');
+
+		db_execute('ALTER TABLE `plugin_reportit_variables`
+			MODIFY COLUMN name VARCHAR(128) NOT NULL default ""');
+	}
+
 	db_execute_prepared('UPDATE plugin_realms
 		SET file = "reportit.php,rrdlist.php,items.php,run.php"
 		WHERE file = "reports.php,rrdlist.php,items.php,run.php"');

@@ -369,7 +369,7 @@ function reportit_config_arrays() {
 
 	/* show additional menu entries if plugin is enabled */
 	if (api_plugin_is_enabled('reportit')) {
-		$menu[__('Management')]['plugins/reportit/reportit.php']  = __('ReportIt', 'reportit');
+		$menu[__('Management')]['plugins/reportit/reportit.php']  = __('ReportIt Reports', 'reportit');
 		$menu[__('Templates')]['plugins/reportit/templates.php'] = __('ReportIt', 'reportit');
 
 		$temp = array(
@@ -610,7 +610,9 @@ function db_setting_exists($setting) {
 
 function reportit_show_tab() {
 	global $config;
+
 	reportit_check_upgrade();
+
 	if (api_user_realm_auth('view.php')) {
 		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIt', 'reportit') . '"></a>';
 	}

@@ -841,46 +841,46 @@ function form_save() {
 		get_filter_request_var('id');
 		get_filter_request_var('template_id');
 
-		form_input_validate(get_request_var('variable_name'), 'variable_name', '^[a-zA-Z0-9[:space:]]+$', false, 3);
-		form_input_validate(get_request_var('variable_description'), 'variable_description', '[a-zA-Z0-9\n\r]+', false, 3);
-		form_input_validate(get_request_var('variable_maximum'), 'variable_maximum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
-		form_input_validate(get_request_var('variable_minimum'), 'variable_minimum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
-		form_input_validate(get_request_var('variable_default'), 'variable_default', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
-		form_input_validate(get_request_var('variable_type'), 'variable_type', '^[1-2]$', false, 3);
+		form_input_validate(get_request_var('name'), 'name', '^[a-zA-Z0-9[:space:]]+$', false, 3);
+		form_input_validate(get_request_var('description'), 'description', '[a-zA-Z0-9\n\r]+', false, 3);
+		form_input_validate(get_request_var('maximum'), 'maximum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
+		form_input_validate(get_request_var('minimum'), 'minimum', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
+		form_input_validate(get_request_var('default'), 'default', '^[-]?[0-9]+[.]?[0-9]*$', false, 3);
+		form_input_validate(get_request_var('type'), 'type', '^[1-2]$', false, 3);
 
-		if (get_request_var('variable_type') == 1) {
-			form_input_validate(get_request_var('variable_stepping'), 'variable_stepping', '^[0-9]+[.]?[0-9]*$', false, 3);
+		if (get_request_var('type') == 1) {
+			form_input_validate(get_request_var('stepping'), 'stepping', '^[0-9]+[.]?[0-9]*$', false, 3);
 		}
 		/* ==================================================== */
 
 
 		//Check defined variable
-		if (!(get_request_var('variable_maximum') > get_request_var('variable_minimum'))) {
-			session_custom_error_message('variable_maximum', __('Maximum has to be greater than minimum.', 'reportit'));
+		if (!(get_request_var('maximum') > get_request_var('minimum'))) {
+			session_custom_error_message('maximum', __('Maximum has to be greater than minimum.', 'reportit'));
 		}
 
-		if (!(get_request_var('variable_minimum') <= get_request_var('variable_default') && get_request_var('variable_default') <= get_request_var('variable_maximum'))) {
-			session_custom_error_message('variable_default', __('Default value is out of values range.', 'reportit'));
+		if (!(get_request_var('minimum') <= get_request_var('default') && get_request_var('default') <= get_request_var('maximum'))) {
+			session_custom_error_message('default', __('Default value is out of values range.', 'reportit'));
 		}
 
-		if (get_request_var('variable_type') == 1) {
-			if (!(get_request_var('variable_stepping') > 0) ||
-			!(get_request_var('variable_stepping') <= (get_request_var('variable_maximum') - get_request_var('variable_minimum'))))
-			session_custom_error_message('variable_stepping', 'Invalid step.');
+		if (get_request_var('type') == 1) {
+			if (!(get_request_var('stepping') > 0) ||
+			!(get_request_var('stepping') <= (get_request_var('maximum') - get_request_var('minimum'))))
+			session_custom_error_message('stepping', 'Invalid step.');
 		}
 
 		$variable_data = array();
 		$variable_data['id']            = get_request_var('id');
-		$variable_data['name']          = get_request_var('variable_name');
+		$variable_data['name']          = get_request_var('name');
 		$variable_data['template_id']   = get_request_var('template_id');
-		$variable_data['description']   = get_request_var('variable_description');
-		$variable_data['max_value']     = get_request_var('variable_maximum');
-		$variable_data['min_value']     = get_request_var('variable_minimum');
-		$variable_data['default_value'] = get_request_var('variable_default');
-		$variable_data['input_type']	= get_request_var('variable_type');
+		$variable_data['description']   = get_request_var('description');
+		$variable_data['max_value']     = get_request_var('maximum');
+		$variable_data['min_value']     = get_request_var('minimum');
+		$variable_data['default_value'] = get_request_var('default');
+		$variable_data['input_type']	= get_request_var('type');
 
-		if (isset_request_var('variable_stepping')) {
-			$variable_data['stepping']  = get_request_var('variable_stepping');
+		if (isset_request_var('stepping')) {
+			$variable_data['stepping']  = get_request_var('stepping');
 		}
 
 		if (is_error_message()) {
@@ -1144,7 +1144,7 @@ function form_actions() {
 
 					$template_data['id'] = 0;
 
-					$template_data['description'] = str_replace(__('<template_title>', 'reportit'), $template_data['description'], get_request_var('template_addition'));
+					$template_data['name'] = str_replace(__('<template_title>', 'reportit'), $template_data['name'], get_request_var('template_addition'));
 
 					$template_id = sql_save($template_data, 'plugin_reportit_templates');
 
@@ -1712,19 +1712,27 @@ function variables() {
 			}
 
 			form_alternate_row('line' . $variable['id'], true);
-			form_selectable_cell('<a class="linkEditMain" href="templates.php?action=variable_edit&tab=variables&id=' . $variable['id'] . '&template_id=' . $variable['template_id'] . '">' . $variable['name'] . '</a>', $variable['id']);
-			form_selectable_cell($variable['abbreviation'], $variable['id']);
+
+			$url = 'templates.php?action=variable_edit' .
+				'&tab=variables' .
+				'&id=' . $variable['id'] .
+				'&template_id=' . $variable['template_id'];
+
+			form_selectable_cell(filter_value($variable['name'], '', $url), $variable['id']);
+			form_selectable_ecell($variable['abbreviation'], $variable['id']);
 			form_selectable_cell($variable['max_value'], $variable['id']);
 			form_selectable_cell($variable['min_value'], $variable['id']);
 			form_selectable_cell($variable['default_value'], $variable['id']);
 			form_selectable_cell($variable['stepping'], $variable['id']);
 			form_selectable_cell($var_types[$variable['input_type']], $variable['id'], 'left');
 			form_selectable_cell('<font class="' . $select_options_class . '"><i class="fa ' . $icon . '" aria-hidden="true"></i> ' . (($select_options_count !== false) ? "($select_options_count)" : __('N/A', 'reportit')) . '</font>', $variable['id']);
+
 			form_checkbox_cell($variable['name'], $variable['id']);
+
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="9"><em>' . __('No Variables Found', 'reportit') . '</em></td></tr>';
+		print '<tr class="tableRow odd"><td colspan="9"><em>' . __('No Variables Found', 'reportit') . '</em></td></tr>';
 	}
 
 	$form_array = array(
@@ -1777,79 +1785,79 @@ function variable_edit() {
 	$form_array = array(
 		'id' => array(
 			'method' => 'hidden_zero',
-			'value' => $variable_id
+			'value'  => $variable_id
 		),
 		'template_id' => array(
 			'method' => 'hidden_zero',
-			'value' => $template_id
+			'value'  => $template_id
 		),
 		'save_component_variable' => array(
 			'method' => 'hidden_zero',
-			'value' => 1
+			'value'  => 1
 		),
-		'variable_header' => array(
+		'header' => array(
 			'friendly_name' => __('General', 'reportit'),
-			'method' => 'spacer'
+			'method'        => 'spacer'
 		),
-		'variable_abbreviation'	=> array(
+		'abbreviation'	=> array(
 			'friendly_name' => __('Internal name', 'reportit'),
-			'description' => __('A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it.', 'reportit'),
-			'method' => 'custom',
-			'max_length' => '100',
-			'value' => (isset($variable_data['abbreviation']) ? $variable_data['abbreviation'] : '-Available after first saving-')
+			'description'   => __('A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it.', 'reportit'),
+			'method'        => 'custom',
+			'max_length'    => '100',
+			'value'         => (isset($variable_data['abbreviation']) ? $variable_data['abbreviation'] : '-Available after first saving-')
 		),
-		'variable_name' => array(
+		'name' => array(
 			'friendly_name' => __('Name'),
-			'description' => __('A name like "Threshold" for example which should be used as a headline within the report config.', 'reportit'),
-			'method' => 'textbox',
-			'max_length' => '100',
-			'placeholder' => __('Provide a name for this Variable', 'reportit'),
-			'value' => (isset($variable_data['name']) ? $variable_data['name'] : '')
+			'description'   => __('A name like "Threshold" for example which should be used as a headline within the report config.', 'reportit'),
+			'method'        => 'textbox',
+			'max_length'    => '100',
+			'placeholder'   => __('Provide a name for this Variable', 'reportit'),
+			'value'         => (isset($variable_data['name']) ? $variable_data['name'] : '')
 		),
-		'variable_description' => array(
+		'description' => array(
 			'friendly_name' => __('Description', 'reportit'),
-			'description' => __('A short, pithy description that explains the sense of this variable.', 'reportit'),
-			'method' => 'textarea',
+			'description'   => __('A short, pithy description that explains the sense of this variable.', 'reportit'),
+			'method'        => 'textarea',
 			'textarea_rows' => '2',
 			'textarea_cols' => '50',
-			'default' => '',
-			'placeholder' => __('Provide a meaningful description', 'reportit'),
-			'value' => (isset($variable_data['description']) ? $variable_data['description'] : '')
+			'default'       => '',
+			'placeholder'   => __('Provide a meaningful description', 'reportit'),
+			'value'         => (isset($variable_data['description']) ? $variable_data['description'] : '')
 		),
-		'variable_maximum' => array(
+		'maximum' => array(
 			'friendly_name' => __('Maximum Value', 'reportit'),
-			'description' => __('Defines the upper limit of this variable.', 'reportit'),
-			'method' => 'textbox',
-			'max_length' => '10',
-			'value' => (isset($variable_data['max_value']) ? $variable_data['max_value'] : '')
+			'description'   => __('Defines the upper limit of this variable.', 'reportit'),
+			'method'        => 'textbox',
+			'max_length'    => '10',
+			'value'         => (isset($variable_data['max_value']) ? $variable_data['max_value'] : '')
 		),
-		'variable_minimum' => array(
+		'minimum' => array(
 			'friendly_name' => __('Minimum Value', 'reportit'),
-			'description' => __('Defines the lower limit of this variable.', 'reportit'),
-			'method' => 'textbox',
-			'max_length' => '10',
-			'value' => (isset($variable_data['min_value']) ? $variable_data['min_value'] : '')
+			'description'   => __('Defines the lower limit of this variable.', 'reportit'),
+			'method'        => 'textbox',
+			'max_length'    => '10',
+			'value'         => (isset($variable_data['min_value']) ? $variable_data['min_value'] : '')
 		),
-		'variable_default' => array(
+		'default' => array(
 			'friendly_name' => __('Default Value', 'reportit'),
-			'description' => __('Sets the default value.', 'reportit'),
-			'method' => 'textbox',
-			'max_length' => '10',
-			'value' => (isset($variable_data['default_value']) ? $variable_data['default_value'] : '')
+			'description'   => __('Sets the default value.', 'reportit'),
+			'method'        => 'textbox',
+			'max_length'    => '10',
+			'value'         => (isset($variable_data['default_value']) ? $variable_data['default_value'] : '')
 		),
-		'variable_type' => array(
+		'type' => array(
 			'friendly_name' => __('Type', 'reportit'),
-			'description' => __('The method the report owner should use to define this variable.', 'reportit'),
-			'method' => 'drop_array',
-			'array' => $var_types,
-			'value' => (isset($variable_data['input_type']) ? $variable_data['input_type'] : '')
+			'description'   => __('The method the report owner should use to define this variable.', 'reportit'),
+			'method'        => 'drop_array',
+			'array'         => $var_types,
+			'value'         => (isset($variable_data['input_type']) ? $variable_data['input_type'] : '')
 		),
-		'variable_stepping' => array(
+		'stepping' => array(
 			'friendly_name' => __('Stepping', 'reportit'),
-			'description' => __('Defines the distance between two values if method "DropDown" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000.', 'reportit'),
-			'method' => 'textbox',
-			'max_length' => '10',
-			'value' => (isset($variable_data['stepping']) && $variable_data['stepping']) ? $variable_data['stepping'] : ''
+			'description'   => __('Defines the distance between two values if method "DropDown" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000.', 'reportit'),
+			'method'        => 'textbox',
+			'max_length'    => '10',
+			'value'         => (isset($variable_data['stepping']) && $variable_data['stepping']) ? $variable_data['stepping'] : ''
 		),
 	);
 

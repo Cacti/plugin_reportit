@@ -34,7 +34,7 @@ include_once('./lib/poller.php');
 include_once(REPORTIT_BASE_PATH . '/include/global_arrays.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_reportit.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_rrdlist.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');

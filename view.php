@@ -143,7 +143,7 @@ function standard() {
 		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'description',
+			'default' => 'name',
 			'options' => array('options' => 'sanitize_search_string')
 		),
 		'sort_direction' => array(
@@ -284,8 +284,8 @@ function standard() {
 	html_end_box();
 
 	$desc_array = array(
-		'description' => array(
-			'display' => __('Description', 'reportit'),
+		'name' => array(
+			'display' => __('Name', 'reportit'),
 			'align'   => 'left',
 			'sort'    => 'ASC'
 		),
@@ -331,7 +331,7 @@ function standard() {
 
 			form_alternate_row();
 
-			form_selectable_cell(filter_value($report['description'], get_request_var('filter'), $link), $ownerId);
+			form_selectable_cell(filter_value($report['name'], get_request_var('filter'), $link), $ownerId);
 			form_selectable_cell(other_name($ownerId), $ownerId);
 			form_selectable_cell($report['template_description'], $ownerId);
 			form_selectable_cell(date(config_date_format(), strtotime($report['start_date'])) . ' - ' . date(config_date_format(), strtotime($report['end_date'])), $ownerId);
@@ -597,7 +597,7 @@ function show_report() {
 	}
 
 	/* start HTML output */
-	$report_header = $data['report_data']['description'];
+	$report_header = $data['report_data']['name'];
 
 	html_start_box(__($report_header), '100%', '', '3', 'center', '');
 
@@ -758,7 +758,7 @@ function show_report() {
 	html_end_box();
 
 	if (!isempty_request_var('summary')) {
-		$report_summary[1][__('Title', 'reportit')]   = $data['report_data']['description'];
+		$report_summary[1][__('Title', 'reportit')]   = $data['report_data']['name'];
 		$report_summary[1][__('Runtime', 'reportit')] = $data['report_data']['runtime'] . 's';
 
 		$report_summary[2][__('Owner', 'reportit')]              = $data['report_data']['owner'];
@@ -798,7 +798,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 	$report_ds_alias = $data['report_ds_alias'];
 	$report_data     = $data['report_data'];
 	$report_results  = $data['report_results'];
-	$report_header   = $report_data['description'];
+	$report_header   = $report_data['name'];
 	$mea             = $data['report_measurands'];
 
 	$nav = html_nav_bar('view.php?action=show_report&id=' . get_request_var('id'), 20, get_request_var('page'), $rows, $total_rows, $columns, __('Reports', 'reportit'), 'page', 'main');
@@ -821,7 +821,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 		if ($name !== false) {
 			foreach ($name as $id) {
 				$var   = ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
-				$title = $mea[$id]['description'];
+				$title = $mea[$id]['name'];
 
 				if ($mea[$id]['visible'] != '') {
 					$display_text[$var] = array(
@@ -846,7 +846,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 		foreach ($report_results as $result) {
 			if (!isempty_request_var('subhead')) {
 				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
-				$subhead = str_replace($search, $replace, $result['description']);
+				$subhead = str_replace($search, $replace, $result['name']);
 
 				if (empty($subhead)) {
 					$subhead = __('-- NO SUBHEADING --', 'reportit');
@@ -974,7 +974,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 	$report_ds_alias  = $data['report_ds_alias'];
 	$report_data      = $data['report_data'];
 	$mea              = $data['report_measurands'];
-	$report_header    = $report_data['description'];
+	$report_header    = $report_data['name'];
 
 	if (cacti_sizeof($ds_description)) {
 		foreach($ds_description as $datasource) {
@@ -990,7 +990,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 
 				foreach($name as $id) {
 					$var            = ($datasource != 'overall') ? $datasource.'__'.$id : 'spanned__'.$id;
-					$title          = $mea[$id]['description'];
+					$title          = $mea[$id]['name'];
 					$rounding       = $mea[$id]['rounding'];
 					$unit           = $mea[$id]['unit'];
 					$rounding       = $mea[$id]['rounding'];
