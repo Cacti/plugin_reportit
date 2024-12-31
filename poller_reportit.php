@@ -36,7 +36,7 @@ ini_set('memory_limit', '-1');
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
-//----- Define some variables -----
+// ----- Define some variables -----
 $PATH_RID_LOG   = "<a href='./plugins/reportit/reports.php?action=report_edit&tab=general&id=<RID>'><RID></a>";
 $PATH_DID_LOG   = "<a href='./plugins/reportit/reports.php?action=rrdlist_edit&tab=items&id=<DID>&report_id=<RID>'><DID></a>";
 $PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&tab=general&id=<RID>'><RID></a>";
@@ -52,6 +52,7 @@ $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
 $debug          = false;
+$scheduled      = false;
 
 $path = dirname(__FILE__);
 
@@ -84,6 +85,10 @@ if (cacti_sizeof($parms)) {
 		}
 
 		switch($arg) {
+			case '--scheduled':
+				$scheduled = true;
+
+				break;
 			case '--report-id':
 				$run_id = $value;
 
@@ -143,16 +148,31 @@ if (cacti_sizeof($parms)) {
 	}
 }
 
-if (($run_freq == '' && $run_id === false) || ($run_freq != '' && $run_id !== false)) {
-	print 'Invalid Run Frequency or Report ID' . PHP_EOL;
-	display_help();
-	exit(1);
-}
+if (!$scheduled) {
+	if (($run_freq == '' && $run_id === false) || ($run_freq != '' && $run_id !== false)) {
+		print 'Invalid Run Frequency or Report ID' . PHP_EOL;
+		display_help();
+		exit(1);
+	}
 
-if ($run_id) {
-	run($run_id);
+	if ($run_id) {
+		run($run_id);
+	} else {
+		run($run_freq);
+	}
 } else {
-	run($run_freq);
+	$pending = db_fetch_assoc('SELECT *
+		FROM reports_queued
+		WHERE status = ?
+		AND source = ?',
+		array('pending', 'reportit'));
+
+	if (cacti_sizeof($pending)) {
+		foreach($pending as $report) {
+			printf('Running Scheduled report %s with id %s' . PHP_EOL, $report['name'], $report['source_id']);
+			reportit_report_run($report['id']);
+		}
+	}
 }
 
 /*  display_version - displays version information */
@@ -165,16 +185,22 @@ function display_help() {
 	display_version();
 
 	print PHP_EOL;
-	print 'usage: poller_reportit.php [-d | -w | -m | -q | -y | --report-id=N ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
+
+	print 'usage: poller_reportit.php [ -d | -w | -m | -q | -y | --report-id=N | --scheduled ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
+
     print 'Cacti\'s ReportIt main poller.  This poller is the launcher for ReportIt reports.' . PHP_EOL . PHP_EOL;
+
 	print 'Provide either of the following:' . PHP_EOL;
 	print '  --report-id=N  Run as specific report now' . PHP_EOL;
-	print 'or:' . PHP_EOL;
+	print '  --scheduled    Run all scheduled reports' . PHP_EOL . PHP_EOL;
+
+	print 'Legacy Options (Reports run serially):' . PHP_EOL;
 	print '  -d             Run the Daily Reports' . PHP_EOL;
 	print '  -w             Run the Weekly Reports' . PHP_EOL;
 	print '  -m             Run the Monthy Reports' . PHP_EOL;
 	print '  -q             Run the Quarterly Reports' . PHP_EOL;
 	print '  -y             Run the Yearly Reports' . PHP_EOL . PHP_EOL;
+
 	print 'Optional:' . PHP_EOL;
 	print '  --debug        Provide debug output' . PHP_EOL;
 	print '  --verbose      Provide verbose output' . PHP_EOL . PHP_EOL;
@@ -287,53 +313,53 @@ function runtime($report_id) {
 		ini_set('max_execution_time', read_config_option('reportit_met'));
 	}
 
-	//----- Create an rrdtool pipe -----
+	// ----- Create an rrdtool pipe -----
 	$rrdtool_pipe = rrd_init();
 
-	//----- Define variables for Datasource and RRA descriptions -----
+	// ----- Define variables for Datasource and RRA descriptions -----
 	$ds_description 	= '';
 	$result_description = '';
 
-	//----- Define variable for monitoring a valid process -----
+	// ----- Define variable for monitoring a valid process -----
 	$valid_report = false;
 
-	//----- Make a note of our startpoint -----
+	// ----- Make a note of our startpoint -----
 	$runtime_sp = microtime(true);
 
-	//----- Reset report -----
+	// ----- Reset report -----
 	reset_report($report_id);
 
-	//----- load default settings -----
+	// ----- load default settings -----
 	$report_settings = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		array($report_id));
 
-	//----- auto clean-up RRDlist -----
+	// ----- auto clean-up RRDlist -----
 	autocleanup($report_id);
 
-	//----- check if BOOST is active -----
+	// ----- check if BOOST is active -----
 	$boost_enabled = function_exists('boost_process_poller_output') && read_config_option('boost_rrd_update_enable') == 'on' ? true : false;
 	$debug_value   = ($boost_enabled ? 'enabled' : 'disabled');
 
 	debug($debug_value, 'Boost Plugin Status');
 
-	//----- automatic RRDList Generation -----
+	// ----- automatic RRDList Generation -----
 	if ($report_settings['autorrdlist'] == 'on') {
 		autorrdlist($report_id);
 	}
 
-	//----- Fetch all necessary data for building a report -----
+	// ----- Fetch all necessary data for building a report -----
 	$report_definitions = get_report_definitions($report_id);
 
 	debug($report_definitions, 'Definitions');
 
-	//----- Define variable for dynamic time frame -----
+	// ----- Define variable for dynamic time frame -----
 	$dynamic     = $report_definitions['report']['sliding'] == 'on' ? true:false;
 	$enable_tmz  = read_config_option('reportit_use_tmz');
 	$dst_support = check_DST_support();
 
-	//----- Update start and enddate by using presets -----
+	// ----- Update start and enddate by using presets -----
 	if ($dynamic) {
 		$dates = rp_get_timespan($report_definitions['report']['preset_timespan'], $report_definitions['report']['present'], $enable_tmz);
 
@@ -341,10 +367,10 @@ function runtime($report_id) {
 		$report_definitions['report']['end_date']   = $dates['end_date'];
 	}
 
-	//----- Get number of RRD datasources -----
+	// ----- Get number of RRD datasources -----
 	$number_of_rrds = cacti_count($report_definitions['data_items']);
 
-	//----- ERROR CHECK (2) -----
+	// ----- ERROR CHECK (2) -----
 	//Check number of defined RRDs
 	if (!$number_of_rrds > 0) {
 		run_error(2, $report_id);
@@ -354,9 +380,9 @@ function runtime($report_id) {
 
 		return $run_return;
 	}
-	//---------------------------
+	// ---------------------------
 
-	//----- Prepare result table -----
+	// ----- Prepare result table -----
 	// First destroy old result table if exists
 	db_execute("DROP TABLE IF EXISTS plugin_reportit_results_$report_id");
 
@@ -376,17 +402,17 @@ function runtime($report_id) {
 		$rra_indexes[$measurand['abbreviation']] = $measurand['cf'];
 	}
 
-	//----- Report Settings -----
+	// ----- Report Settings -----
 	$s_date    = $report_definitions['report']['start_date'];
 	$e_date    = $report_definitions['report']['end_date'];
 
-	//----- Template Settings -----
+	// ----- Template Settings -----
 	$rra_types = array_flip($report_definitions['cf']);
 	$ds_type   = $report_definitions['template']['ds_type'];
 	$ds_items  = $report_definitions['ds_items'];
 	$maximum   = $report_definitions['template']['maximum'];
 
-	//----- Variables -----
+	// ----- Variables -----
 	$variables = $report_definitions['variables'];
 
 	/************************************************************************************/
@@ -444,12 +470,12 @@ function runtime($report_id) {
 	debug($ds_cache, 'Defined Cache > Metrics (spanned)');
 	/************************************************************************************/
 
-	//----- Start analysing each RRD -----
+	// ----- Start analysing each RRD -----
 	for($i = 0; $i < $number_of_rrds; $i++) {
-		//----- Interface Settings -----
+		// ----- Interface Settings -----
 		$local_data_id	= $report_definitions['data_items'][$i]['id'];
 
-		//----- Get the local path of the RRD-file that belongs to the local_data_id -----
+		// ----- Get the local path of the RRD-file that belongs to the local_data_id -----
 		$data_source_path 	= get_data_source_path($local_data_id, true);
 
 		if ($data_source_path == '') {
@@ -458,7 +484,7 @@ function runtime($report_id) {
 			continue;
 		}
 
-		//----- See if the file exists -----
+		// ----- See if the file exists -----
 		if (read_config_option('storage_location') > 0) {
 			if (!rrdtool_execute("file_exists $data_source_path", false, RRDTOOL_OUTPUT_BOOLEAN, $rrdtool_pipe, 'REPORTIT')) {
 				run_error(5, $report_id, $local_data_id, 'Non existing RRD file.');
@@ -478,11 +504,11 @@ function runtime($report_id) {
 		$e_time         = $report_definitions['data_items'][$i]['end_time'];
 		$timezone       = $report_definitions['data_items'][$i]['timezone'];
 
-		//----- Convert weekdays -----
+		// ----- Convert weekdays -----
 		$shift_startday = day_to_number($report_definitions['data_items'][$i]['start_day']);
 		$shift_endday   = day_to_number($report_definitions['data_items'][$i]['end_day']);
 
-		//----- Participate reporting times -----
+		// ----- Participate reporting times -----
 		list($s_hour, $s_min) = explode(':',$s_time);
 		list($e_hour, $e_min) = explode(':',$e_time);
 
@@ -497,15 +523,15 @@ function runtime($report_id) {
 			$offset_min  = $timezones[$timezone]['min'];
 		}
 
-		//----- Participate reporting start- and enddate -----
+		// ----- Participate reporting start- and enddate -----
 		list($s_year, $s_month, $s_day) = explode('-',$s_date);
 		list($e_year, $e_month, $e_day) = explode('-',$e_date);
 
-		//----- Calculate correct timestamps -----
+		// ----- Calculate correct timestamps -----
 		$f_sp = ($enable_tmz) ? gmmktime($s_hour-$offset_hour,$s_min-$offset_min,0,$s_month,$s_day,$s_year) : mktime($s_hour,$s_min,0,$s_month,$s_day,$s_year);
 		$l_sp = ($enable_tmz) ? gmmktime($s_hour-$offset_hour,$s_min-$offset_min,0,$e_month,$e_day,$e_year) : mktime($s_hour,$s_min,0,$e_month,$e_day,$e_year);
 
-		//----- Check start and endtime -----
+		// ----- Check start and endtime -----
 		if ($s_time > $e_time) {
 			// Endtime is a part of next day
 			$f_ep = ($enable_tmz) ? gmmktime($e_hour-$offset_hour,$e_min-$offset_min,0,$s_month,$s_day+1,$s_year) : mktime($e_hour,$e_min,0,$s_month,$s_day+1,$s_year);
@@ -516,7 +542,7 @@ function runtime($report_id) {
 			$l_ep = ($enable_tmz) ? gmmktime($e_hour-$offset_hour,$e_min-$offset_min,0,$e_month,$e_day,$e_year) : mktime($e_hour,$e_min,0,$e_month,$e_day,$e_year);
 		}
 
-		//----- ERROR CHECK (3) -----
+		// ----- ERROR CHECK (3) -----
 		// Check whether start- and endpoint are part of future timestamps (Important for timespan 'today')
 		if ($f_sp > time()) {
 			run_error(3, $report_id, $local_data_id);
@@ -536,15 +562,15 @@ function runtime($report_id) {
 				run_error(6, $report_id, $local_data_id);
 			}
 		}
-		//---------------------------
+		// ---------------------------
 
-		//----- Calculate shift duration -----
+		// ----- Calculate shift duration -----
 		$shift_duration = ($enable_tmz)
 			? $f_ep - $f_sp
 			: (($s_time > $e_time) ? gmmktime($e_hour, $e_min, 0, 0, 1) - gmmktime($s_hour, $s_min, 0, 0, 0)
 				: gmmktime($e_hour, $e_min, 0) - gmmktime($s_hour, $s_min, 0));
 
-		//----- run on demand update if Boost is enabled and cached data is part of the report period -----
+		// ----- run on demand update if Boost is enabled and cached data is part of the report period -----
 		if ($boost_enabled) {
 			$boost_last_run_time = db_fetch_cell("SELECT UNIX_TIMESTAMP(value)
 				FROM settings
@@ -557,7 +583,7 @@ function runtime($report_id) {
 			}
 		}
 
-		//----- Set options for rrd_fetch and run it! -----
+		// ----- Set options for rrd_fetch and run it! -----
 		$rrd_data          = array();
 		$valid_rra_indexes = array();
 
@@ -593,7 +619,7 @@ function runtime($report_id) {
 			}
 		}
 
-		//----- Read header informations from rrd_data array -----
+		// ----- Read header informations from rrd_data array -----
 		$index = $valid_rra_indexes[0];
 
 		if (is_array($rrd_data[$index]) && isset($rrd_data[$index]['start'])) {
@@ -610,23 +636,23 @@ function runtime($report_id) {
 			continue;
 		}
 
-		//----- Generate all required informations for calculating -----
+		// ----- Generate all required informations for calculating -----
 		$rrd_ad_data = get_type_of_request($shift_startday, $shift_endday, $f_sp, $l_sp, $e_hour,
 			$shift_duration, $rrd_f_mp, $rrd_ep, $rrd_step,
 			$rrd_ds_cnt, $dst_support);
 
 		debug($rrd_ad_data, 'Determined mask for filtering');
 
-		//----- ERROR CHECK (5) -----
+		// ----- ERROR CHECK (5) -----
 		// Check if startpoints are available
 		if ($rrd_ad_data == false) {
 			run_error(7, $report_id, $local_data_id);
 
 			continue;
 		}
-		//---------------------------
+		// ---------------------------
 
-		//----- Calculate correction factor for data source type: 'COUNTER' -----
+		// ----- Calculate correction factor for data source type: 'COUNTER' -----
 		$corr_factor_start = 1;
 		$corr_factor_end   = 1;
 
@@ -642,7 +668,7 @@ function runtime($report_id) {
 			$rrd_ds_namv = array_intersect ($rrd_ds_namv, array($ds_items));
 		}
 
-		//----- Prepare data for normal calculating -----
+		// ----- Prepare data for normal calculating -----
 		foreach($rrd_data as $rra_index => $data) {
 			$pre_data[$rra_index] = get_prepared_data($rrd_data[$rra_index]['data'], $rrd_ad_data,
 				$rrd_ds_cnt, $ds_type, $corr_factor_start, $corr_factor_end, $rrd_ds_namv, $rrd_nan);
@@ -657,7 +683,7 @@ function runtime($report_id) {
 		/* update the data source counter */
 		$rrd_ds_cnt = cacti_count($rrd_ds_namv);
 
-		//----- Update variables and create calculating parameters -----
+		// ----- Update variables and create calculating parameters -----
 		if ($maxValue !== NULL && $maxValue != 0) {
 			if ($maxValue > 0 && $maxValue < 4294967295) {
 				foreach ($report_definitions['ds_items'] as $key => $ds_name) {
@@ -736,7 +762,7 @@ function runtime($report_id) {
 		debug($results, 'Calculation results for saving');
 		/***************** Start calculation *****************/
 
-		//----- Create new columns for table 'rrd_results_$report_id' -----
+		// ----- Create new columns for table 'rrd_results_$report_id' -----
 		if ($create_result_table_columns == false) {
 			// Create the sql string
  			$list = '';
@@ -792,7 +818,7 @@ function runtime($report_id) {
 			$valid_report = true;
 		}
 
-		//----- Save results into the MySQL database -----
+		// ----- Save results into the MySQL database -----
 		// Create the sql string
  		$list = '';
 
@@ -815,18 +841,18 @@ function runtime($report_id) {
 		db_execute("REPLACE plugin_reportit_results_$report_id SET id = $local_data_id, $list");
 	}
 
-	//----- Close socket connection if its open -----
+	// ----- Close socket connection if its open -----
 	if ($socket_handle != '' && !$run_scheduled) {
 		disc_rrdtool_server();
 	}
 
-	//----- Make a note of our endpoint -----
+	// ----- Make a note of our endpoint -----
 	$runtime_ep = microtime(true);
 
-	//----- Calculate runtime -----
+	// ----- Calculate runtime -----
 	$runtime = round($runtime_ep - $runtime_sp, 2);
 
-	//----- ERROR CHECK (7) -----
+	// ----- ERROR CHECK (7) -----
 	if ($valid_report != true) {
 		run_error(4, $report_id);
 		in_process($report_id, 0);
@@ -835,9 +861,9 @@ function runtime($report_id) {
 
 		return $run_return;
 	}
-	//---------------------------
+	// ---------------------------
 
-	//----- Save/update report data -----
+	// ----- Save/update report data -----
 	$now = date('Y-m-d H:i:s');
 
 	db_execute_prepared("UPDATE plugin_reportit_reports
@@ -846,7 +872,7 @@ function runtime($report_id) {
 		WHERE id = ?",
 		array($now, $runtime, $s_date, $e_date, $ds_description, $rs_def, $sp_def, $report_id));
 
-	//----- Archive / Email -----
+	// ----- Archive / Email -----
 	if ($run_scheduled) {
 		/* update the XML Archive */
 		if (read_config_option('reportit_archive') == 'on') {
@@ -878,7 +904,7 @@ function runtime($report_id) {
 		}
 	}
 
-	//----- Return messages and runtime-----
+	// ----- Return messages and runtime-----
 	$run_return['runtime'] = $runtime;
 
 	in_process($report_id, 0);

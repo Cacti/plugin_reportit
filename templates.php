@@ -454,13 +454,13 @@ function template_filter() {
 			<script type='text/javascript'>
 
 			function applyFilter() {
-				strURL = 'templates.php?filter='+escape($('#filter').val())+'&rows='+$('#rows').val()+'&header=false';
-				loadPageNoHeader(strURL);
+				strURL = 'templates.php?filter='+escape($('#filter').val())+'&rows='+$('#rows').val();
+				loadUrl({ url: strURL });
 			}
 
 			function clearFilter() {
-				strURL = 'templates.php?clear=1&header=false';
-				loadPageNoHeader(strURL);
+				strURL = 'templates.php?clear=1';
+				loadUrl({ url: strURL });
 			}
 
 			$(function() {
@@ -473,13 +473,13 @@ function template_filter() {
 				});
 
 				$('#import').click(function() {
-					strURL = 'templates.php?header=false&action=template_upload_wizard';
-					loadPageNoHeader(strURL);
+					strURL = 'templates.php?action=template_upload_wizard';
+					loadUrl({ url: strURL });
 				});
 
 				$('#export').click(function() {
-					strURL = 'templates.php?header=false&action=template_export_wizard';
-					loadPageNoHeader(strURL);
+					strURL = 'templates.php?action=template_export_wizard';
+					loadUrl({ url: strURL });
 				});
 
 				$('#form_templates').submit(function(event) {
@@ -835,7 +835,7 @@ function form_save() {
 			}
 		}
 
-		header('Location: templates.php?header=false&action=template_edit&tab=general&id=' . $template_data['id']);
+		header('Location: templates.php?action=template_edit&tab=general&id=' . $template_data['id']);
 	} elseif (isset_request_var('save_component_variable')) {
 		/* ================= input validation ================= */
 		get_filter_request_var('id');
@@ -885,7 +885,7 @@ function form_save() {
 
 		if (is_error_message()) {
 			raise_message(4);
-			header("Location: templates.php?header=false&tab=variables&action=variable_edit&id=" . get_request_var('id') . "&template_id=" . get_request_var('template_id'));
+			header("Location: templates.php?tab=variables&action=variable_edit&id=" . get_request_var('id') . "&template_id=" . get_request_var('template_id'));
 
 		} else {
 			//Save data
@@ -904,7 +904,7 @@ function form_save() {
 			raise_message(1);
 
 			//Return to list view if it was an existing report
-			header('Location: templates.php?action=template_edit&header=false&tab=variables&id=' . get_request_var('template_id'));
+			header('Location: templates.php?action=template_edit&tab=variables&id=' . get_request_var('template_id'));
 		}
 	} elseif (isset_request_var('save_component_measurand')) {
 		/* ================= input validation ================= */
@@ -1004,7 +1004,7 @@ function form_save() {
 		$measurand_data['data_precision'] = isset_request_var('measurand_precision') ? get_request_var('measurand_precision') : '';
 
 		if (is_error_message()) {
-			header('Location: templates.php?header=false&action=measurand_edit&tab=measurands&id=' . get_request_var('id') . '&template_id=' . get_request_var('template_id'));
+			header('Location: templates.php?action=measurand_edit&tab=measurands&id=' . get_request_var('id') . '&template_id=' . get_request_var('template_id'));
 		} else {
 			//Save data
 			sql_save($measurand_data, 'plugin_reportit_measurands');
@@ -1015,7 +1015,7 @@ function form_save() {
 			}
 
 			//Return to list view if it was an existing report
-			header('Location: templates.php?header=false&action=template_edit&tab=measurands&id=' . get_request_var('template_id'));
+			header('Location: templates.php?action=template_edit&tab=measurands&id=' . get_request_var('template_id'));
 			raise_message(1);
 		}
 	}
@@ -1220,7 +1220,7 @@ function form_actions() {
 
 					if ($template_data === false || sizeof($template_data) == 0) {
 						raise_message(2);
-						header('Location: templates.php?header=false');
+						header('Location: templates.php');
 						exit;
 					}
 				}
@@ -1248,7 +1248,7 @@ function form_actions() {
 				exit;
 			}
 
-			header('Location: templates.php?header=false');
+			header('Location: templates.php');
 			exit;
 		}
 
@@ -1421,7 +1421,7 @@ function form_actions() {
 				db_execute('DELETE FROM plugin_reportit_rvars WHERE ' . array_to_sql_or($selected_items, 'variable_id'));
 			}
 
-			header('Location: templates.php?header=false&tab=variables&id=' . get_request_var('id'));
+			header('Location: templates.php?tab=variables&id=' . get_request_var('id'));
 			exit;
 		}
 
@@ -1538,7 +1538,7 @@ function form_actions() {
 				}
 			}
 
-			header('Location: measurands.php?header=false&id=' . get_request_var('id'));
+			header('Location: measurands.php?id=' . get_request_var('id'));
 			exit;
 		}
 

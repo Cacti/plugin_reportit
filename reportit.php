@@ -34,7 +34,7 @@ include_once('./lib/poller.php');
 include_once(REPORTIT_BASE_PATH . '/include/global_arrays.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
+include_once(REPORTIT_BASE_PATH . '/lib/const_reportit.php');
 include_once(REPORTIT_BASE_PATH . '/lib/const_rrdlist.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
@@ -101,16 +101,16 @@ function report_wizard() {
 		unset($_SESSION['reportit']);
 	}
 
-	form_start('reports.php');
+	form_start('reportit.php');
 
 	html_start_box(__('New Report', 'reportit'), '60%', '', '3', 'center', '');
 
 	if (cacti_sizeof($templates_list) == 0) {
 		raise_message('no_unlocked', __('There are no unlocked and enabled report templates available (%s locked or disabled).', $templates_locked, 'reportit'), MESSAGE_LEVEL_ERROR);
-		header('Location: reports.php');
+		header('Location: reportit.php');
 		exit;
 	} else {
-		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reports.php\")'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Create a new report', 'reportit') . "'>";
+		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Create a new report', 'reportit') . "'>";
 
 		foreach($templates_list as $tmp) {
 			$templates[$tmp['id']] = $tmp['description'];
@@ -143,11 +143,11 @@ function report_wizard() {
 function report_filter() {
 	global $item_rows;
 
-	html_start_box( __('Report Filters', 'reportit'), '100%', '', '3', 'center', 'reports.php?action=report_add');
+	html_start_box( __('Report Filters', 'reportit'), '100%', '', '3', 'center', 'reportit.php?action=report_add');
 	?>
 	<tr class='even'>
 		<td>
-			<form id='form_reports' action='reports.php'>
+			<form id='form_reports' action='reportit.php'>
 				<table class='filterTable'>
 					<tr>
 						<td>
@@ -183,17 +183,16 @@ function report_filter() {
 			<script type='text/javascript'>
 
 			function applyFilter() {
-				strURL = 'reports.php?filter='+
+				strURL = 'reportit.php?filter='+
 					escape($('#filter').val())+
 					'&rows='+$('#rows').val()+
-					'&page='+$('#page').val()+
-					'&header=false';
-				loadPageNoHeader(strURL);
+					'&page='+$('#page').val();
+				loadUrl({ url: strURL });
 			}
 
 			function clearFilter() {
-				strURL = 'reports.php?clear=1&header=false';
-				loadPageNoHeader(strURL);
+				strURL = 'reportit.php?clear=1';
+				loadUrl({ url: strURL });
 			}
 
 			$(function() {
@@ -404,19 +403,19 @@ function standard() {
 	/* start with HTML output */
 	report_filter();
 
-	$nav = html_nav_bar('reports.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports', 'reportit'), 'page', 'main');
+	$nav = html_nav_bar('reportit.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports', 'reportit'), 'page', 'main');
 
 	print $nav;
 
-	form_start('reports.php');
+	form_start('reportit.php');
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php');
+	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reportit.php');
 
 	if (cacti_sizeof($report_list)) {
 		foreach($report_list as $report) {
-			$link = 'reports.php?action=report_edit&id=' . $report['id'];
+			$link = 'reportit.php?action=report_edit&id=' . $report['id'];
 
 			form_alternate_row('line' . $report['id'], true);
 
@@ -450,7 +449,7 @@ function standard() {
 			form_selectable_cell(html_check_icon($report['public']), $report['id'], '', 'right');
 			form_selectable_cell(html_check_icon($report['scheduled']), $report['id'], '', 'right');
 
-			$link = "reports.php?action=report_edit&tab=items&id={$report['id']}";
+			$link = "reportit.php?action=report_edit&tab=items&id={$report['id']}";
 
 			print "<td class='right'><a class='linkEditMain href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
 
@@ -492,7 +491,7 @@ function remove_recipient() {
 		AND report_id = ?',
 		array(get_request_var('rec'), get_request_var('id')));
 
-	header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=email');
+	header('Location: reportit.php?action=report_edit&id=' . get_request_var('id') . '&tab=email');
 	exit;
 }
 
@@ -636,7 +635,7 @@ function form_save() {
 				/* return to list view */
 				raise_message(1);
 
-				header('Location: reports.php?action=report_edit&tab=items&header=false&id=' . get_request_var('report_id'));
+				header('Location: reportit.php?action=report_edit&tab=items&id=' . get_request_var('report_id'));
 				exit;
 			}
 
@@ -690,7 +689,7 @@ function form_save() {
 
 	/* return if validation failed */
 	if (is_error_message()) {
-		header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+		header('Location: reportit.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
 		exit;
 	}
 
@@ -910,7 +909,7 @@ function form_save() {
 
 			/* start saving process or return is_error_message()*/
 			if (is_error_message()) {
-				header('Location: reports.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+				header('Location: reportit.php?action=report_edit&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
 
 				exit;
 			} else {
@@ -928,7 +927,7 @@ function form_save() {
 			}
 	}
 
-	header('Location: reports.php?header=false&action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
+	header('Location: reportit.php?action=report_edit&id=' . (isset($report_id)? $report_id : get_request_var('id')) . '&tab=' . get_request_var('tab'));
 
 	raise_message(1);
 }
@@ -1080,7 +1079,7 @@ function report_edit() {
 
 		foreach ($tabs as $tab => $name) {
 			print "<li class='subTab'><a class='tab" . ($tab == $current_tab ? " selected'" : "'") .
-				" href='" . html_escape($config['url_path'] .  'plugins/reportit/reports.php' .
+				" href='" . html_escape($config['url_path'] .  'plugins/reportit/reportit.php' .
 				'?action=report_edit' .
 				'&id=' . $id .
 				'&tab=' . $tab) .
@@ -1091,7 +1090,7 @@ function report_edit() {
 	}
 
 	if (get_request_var('tab') !== 'items') {
-		form_start('reports.php');
+		form_start('reportit.php');
 	}
 
 	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label, 'reportit'), '100%', '', '3', 'center', '');
@@ -1141,7 +1140,7 @@ function report_edit() {
 					print '<td>' . $recipient['name'] . '</td>';
 					print '<td>' . $recipient['email'] . '</td>';
 					print '<td class="right">';
-					print '<a class="deletequery fa fa-times" href="reports.php?action=remove&id=' . get_request_var('id') . '&rec=' . $recipient['id'] . '"></a></td>';
+					print '<a class="deletequery fa fa-times" href="reportit.php?action=remove&id=' . get_request_var('id') . '&rec=' . $recipient['id'] . '"></a></td>';
 					print '</tr>';
 				}
 			} else {
@@ -1316,7 +1315,7 @@ function report_edit() {
 			?>
 			<tr class='odd'>
 				<td>
-				<form id='form_rrdlist' action='reports.php?tab=items&id=<?php print get_request_var('id');?>'>
+				<form id='form_rrdlist' action='reportit.php?tab=items&id=<?php print get_request_var('id');?>'>
 					<table class='filterTable'>
 						<tr>
 							<td>
@@ -1359,20 +1358,19 @@ function report_edit() {
 				</form>
 				<script type='text/javascript'>
 				function applyFilter() {
-					strURL  = 'reports.php?action=report_edit&tab=items';
+					strURL  = 'reportit.php?action=report_edit&tab=items';
 					strURL += '&id=<?php print get_request_var('id');?>';
-					strURL += '&header=false';
 					strURL += '&filter='+escape($('#filter').val());
 					strURL += '&associated=' + $('#associated').is(':checked');
 					strURL += '&rows='+$('#rows').val();
-					loadPageNoHeader(strURL);
+					loadUrl({ url: strURL });
 				}
 
 				function clearFilter() {
-					strURL  = 'reports.php?action=report_edit&tab=items'
-					strURL += '&clear=1&header=false';
+					strURL  = 'reportit.php?action=report_edit&tab=items'
+					strURL += '&clear=1';
 					strURL += '&id=<?php print get_request_var('id');?>';
-					loadPageNoHeader(strURL);
+					loadUrl({ url: strURL });
 				}
 
 				$(function() {
@@ -1400,15 +1398,15 @@ function report_edit() {
 
 			html_end_box();
 
-			$nav = html_nav_bar('reports.php?tab=items&id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Sources', 'reportit'), 'page', 'main');
+			$nav = html_nav_bar('reportit.php?tab=items&id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Sources', 'reportit'), 'page', 'main');
 
 			print $nav;
 
-			form_start('reports.php?tab=items&id=' . get_request_var('id'));
+			form_start('reportit.php?tab=items&id=' . get_request_var('id'));
 
 			html_start_box('', '100%', '', '3', 'center', '');
 
-			html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reports.php?action=report_edit&tab=items&id=' . get_request_var('id'));
+			html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reportit.php?action=report_edit&tab=items&id=' . get_request_var('id'));
 
 			if (cacti_sizeof($rrdlist)) {
 				foreach($rrdlist as $rrd) {
@@ -1421,7 +1419,7 @@ function report_edit() {
 					if ($rrd['name_cache'] == NULL) {
 						form_selectable_cell(__('Does not exist anymore', 'reportit'), $rrd['id']);
 					} else {
-						$link = "reports.php?tab=items&action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id');
+						$link = "reportit.php?tab=items&action=rrdlist_edit&id=" . $rrd['id'] . "&report_id=" . get_request_var('id');
 
 						form_selectable_cell(filter_value($rrd['name_cache'], get_request_var('filter'), $link), $rrd['id']);
 					}
@@ -1497,7 +1495,7 @@ function report_edit() {
 	html_end_box();
 
 	if (get_request_var('tab') !== 'items') {
-		form_save_button('reports.php');
+		form_save_button('reportit.php');
 
 		?>
 		<script type='text/javascript'>
@@ -1518,8 +1516,8 @@ function report_edit() {
 
 			$('#add_recipients_x').click(function(e) {
 				e.preventDefault();
-				$.get('reports.php?header=false' +
-					'&tab=email&action=recipient_add&id=' + $('#id').val() +
+				$.get('reportit.php' +
+					'?tab=email&action=recipient_add&id=' + $('#id').val() +
 					'&report_email_address=' + encodeURI($('#report_email_address').val()) +
 					'&report_email_recipient=' + encodeURI($('#report_email_recipient').val()))
 				.done(function(data) {
@@ -1622,7 +1620,7 @@ function rrdlist_edit() {
 
 	/* start with HTML output */
 
-	form_start('reports.php?action=rrdlist_edit&tab=items&id=' . get_request_var('id') . '&report_id=' . get_request_var('report_id'));
+	form_start('reportit.php?action=rrdlist_edit&tab=items&id=' . get_request_var('id') . '&report_id=' . get_request_var('report_id'));
 
 	html_start_box($header_label, '100%', '', '3', 'center', '');
 
@@ -1734,7 +1732,7 @@ function rrdlist_edit() {
 
 	html_end_box();
 
-	form_save_button('reports.php?action=report_edit&tab=items&id=' . get_request_var('report_id'));
+	form_save_button('reportit.php?action=report_edit&tab=items&id=' . get_request_var('report_id'));
 }
 
 function form_actions() {
@@ -1848,7 +1846,7 @@ function form_actions() {
 				}
 			}
 
-			header('Location: reports.php?header=false');
+			header('Location: reportit.php');
 			exit;
 		}
 
@@ -1960,14 +1958,14 @@ function form_actions() {
 				reset_report(get_request_var('id'));
 			}
 
-			header('Location: reports.php?action=report_edit&tab=items&header=false&id=' . get_request_var('id'));
+			header('Location: reportit.php?action=report_edit&tab=items&id=' . get_request_var('id'));
 			exit;
 		}
 	}
 
 	top_header();
 
-	form_start('reports.php?tab=' . get_request_var('tab') . '&id=' . get_filter_request_var('id'));
+	form_start('reportit.php?tab=' . get_request_var('tab') . '&id=' . get_filter_request_var('id'));
 
 	if (get_request_var('tab') != 'items') {
 		html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');

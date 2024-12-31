@@ -250,16 +250,16 @@ function standard() {
 			</form>
 			<script type='text/javascript'>
 			function applyFilter() {
-				strURL  = 'view.php?action=standard&header=false';
+				strURL  = 'view.php?action=standard';
 				strURL += '&filter='+escape($('#filter').val());
 				strURL += '&type='+$('#type').val();
 				strURL += '&rows='+$('#rows').val();
-				loadPageNoHeader(strURL);
+				loadUrl({ url: strURL });
 			}
 
 			function clearFilter() {
-				strURL = 'view.php?action=standard&clear=1&header=false';
-				loadPageNoHeader(strURL);
+				strURL = 'view.php?action=standard&clear=1';
+				loadUrl({ url: strURL });
 			}
 
 			$(function() {
@@ -717,7 +717,7 @@ function show_report() {
 			</form>
 			<script type='text/javascript'>
 			function applyFilter() {
-				strURL  = 'view.php?action=show_report&header=false';
+				strURL  = 'view.php?action=show_report';
 				strURL += '&id=<?php print get_request_var('id');?>';
 				strURL += '&filter='+escape($('#filter').val());
 				strURL += '&info='+$('#info').val();
@@ -728,12 +728,12 @@ function show_report() {
 				strURL += '&graph_mode='+($('#graph_mode').is(':checked')?'on':'');
 				strURL += '&summary='+($('#summary').is(':checked')?'on':'');
 				strURL += '&subhead='+($('#subhead').is(':checked')?'on':'');
-				loadPageNoHeader(strURL);
+				loadUrl({ url: strURL });
 			}
 
 			function clearFilter() {
-				strURL = 'view.php?action=show_report&id=<?php print get_request_var('id');?>&clear=1&header=false';
-				loadPageNoHeader(strURL);
+				strURL = 'view.php?action=show_report&id=<?php print get_request_var('id');?>&clear=1';
+				loadUrl({ url: strURL });
 			}
 
 			$(function() {

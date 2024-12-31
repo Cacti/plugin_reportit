@@ -32,7 +32,7 @@ function plugin_reportit_install() {
 	api_plugin_register_hook('reportit', 'clog_regex_array',      'reportit_clog_regex_array',     'setup.php');
 
 	api_plugin_register_realm('reportit', 'view.php,charts.php', 'ReportIt - Report Viewing', 1);
-	api_plugin_register_realm('reportit', 'reports.php,view.php', 'ReportIt - Create Reports', 1);
+	api_plugin_register_realm('reportit', 'reportsit.php,view.php', 'ReportIt - Create Reports', 1);
 	api_plugin_register_realm('reportit', 'templates.php', 'ReportIt - Manage Reports', 1);
 
 	$realm_array = array(
@@ -131,31 +131,31 @@ function reportit_upgrade_requirements() {
 
 
 function reportit_draw_navigation_text ($nav) {
-	$nav['reports.php:'] = array(
+	$nav['reportsit.php:'] = array(
 		'title' => __('Reports', 'reportit'),
 		'mapping' => 'index.php:',
-		'url' => 'reports.php',
+		'url' => 'reportsit.php',
 		'level' => '1');
 
-	$nav['reports.php:save'] = array(
+	$nav['reportsit.php:save'] = array(
 		'title' => __('(Edit)', 'reportit'),
 		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
-	$nav['reports.php:report_add'] = array(
+	$nav['reportsit.php:report_add'] = array(
 		'title' => __('Add', 'reportit'),
 		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
-	$nav['reports.php:report_edit'] = array(
+	$nav['reportsit.php:report_edit'] = array(
 		'title' => __('(Edit)', 'reportit'),
 		'mapping' => 'index.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
-	$nav['reports.php:actions'] = array(
+	$nav['reportsit.php:actions'] = array(
 		'title' => __('Actions', 'reportit'),
 		'mapping' => 'index.php:',
 		'url' => 'templates.php',
@@ -163,37 +163,37 @@ function reportit_draw_navigation_text ($nav) {
 
 	$nav['rrdlist.php:'] = array(
 		'title' => __('Data Items', 'reportit'),
-		'mapping' => 'index.php:,reports.php:',
+		'mapping' => 'index.php:,reportsit.php:',
 		'url' => 'templates.php',
 		'level' => '2');
 
 	$nav['rrdlist.php:save'] = array(
 		'title' => __('(Edit)', 'reportit'),
-		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
 	$nav['rrdlist.php:rrdlist_edit'] = array(
 		'title' => __('(Edit)', 'reportit'),
-		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
 	$nav['rrdlist.php:actions'] = array(
 		'title' => __('Actions', 'reportit'),
-		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '3');
 
 	$nav['items.php:'] = array(
 		'title' => __('Add', 'reportit'),
-		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
 		'url'  => 'templates.php',
 		'level' => '3');
 
 	$nav['items.php:save'] = array(
 		'title' => __('(Edit)', 'reportit'),
-		'mapping' => 'index.php:,reports.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
 		'url' => '',
 		'level' => '4');
 
@@ -307,7 +307,7 @@ function reportit_draw_navigation_text ($nav) {
 
 	$nav['run.php:calculation'] = array(
 		'title' => __('Report Calculation', 'reportit'),
-		'mapping' => 'index.php:,reports.php:',
+		'mapping' => 'index.php:,reportsit.php:',
 		'url' => '',
 		'level' => '2');
 
@@ -363,13 +363,13 @@ function reportit_config_arrays() {
 
 	if (function_exists('auth_augment_roles')) {
 		auth_augment_roles(__('Normal User'), array('view.php,charts.php'));
-		auth_augment_roles(__('General Administration'), array('reports.php'));
+		auth_augment_roles(__('General Administration'), array('reportsit.php'));
 		auth_augment_roles(__('System Administration'), array('templates.php', 'measurands.php', 'variables.php'));
 	}
 
 	/* show additional menu entries if plugin is enabled */
 	if (api_plugin_is_enabled('reportit')) {
-		$menu[__('Management')]['plugins/reportit/reports.php']  = __('ReportIt', 'reportit');
+		$menu[__('Management')]['plugins/reportit/reportit.php']  = __('ReportIt', 'reportit');
 		$menu[__('Templates')]['plugins/reportit/templates.php'] = __('ReportIt', 'reportit');
 
 		$temp = array(
@@ -535,11 +535,6 @@ function reportit_config_settings() {
 	}
 
 	$user_temp = array(
-		'reportit_general_header' => array(
-			'friendly_name' => __('Report View Settings', 'reportit'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		),
 		'reportit_view_filter' => array(
 			'friendly_name' => __('Separate Report View Filter', 'reportit'),
 			'description'   => __('Enable/disable the use of an individual filter per report.', 'reportit'),
@@ -579,6 +574,8 @@ function reportit_config_settings() {
 	} else {
 		$settings_user['reportit'] = $user_temp;
 	}
+
+	$tabs_graphs['reportit'] = __('Report General Settings', 'reportit');
 
 	/**
 	 * default user settings will be placed into settings table as system
@@ -645,7 +642,7 @@ function reportit_define_constants(){
 	$create = db_fetch_cell("SELECT id
 		FROM plugin_realms
 		WHERE plugin='reportit'
-		AND file LIKE '%reports.php%'");
+		AND file LIKE '%reportit.php%'");
 
 	$administrate = db_fetch_cell("SELECT id
 		FROM plugin_realms
@@ -747,6 +744,8 @@ function reportit_poller_bottom() {
 
 	$php_binary = read_config_option('path_php_binary');
 
+	$queued = array();
+
 	if (date('z', $lastrun) != date('z', $now)) {
 		/* the day of the year has changed check schedules */
 		$reports = db_fetch_assoc_prepared('SELECT *
@@ -758,7 +757,8 @@ function reportit_poller_bottom() {
 		if (cacti_sizeof($reports)) {
 			foreach($reports as $r) {
 				$scheduled++;
-				exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+				//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+				$queued[] = reportit_schedule_report($r);
 			}
 		}
 
@@ -773,7 +773,8 @@ function reportit_poller_bottom() {
 			if (cacti_sizeof($reports)) {
 				foreach($reports as $r) {
 					$scheduled++;
-					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+					//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+					$queued[] = reportit_schedule_report($r);
 				}
 			}
 		}
@@ -789,7 +790,8 @@ function reportit_poller_bottom() {
 			if (cacti_sizeof($reports)) {
 				foreach($reports as $r) {
 					$scheduled++;
-					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+					//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+					$queued[] = reportit_schedule_report($r);
 				}
 			}
 		}
@@ -808,7 +810,8 @@ function reportit_poller_bottom() {
 				if (cacti_sizeof($reports)) {
 					foreach($reports as $r) {
 						$scheduled++;
-						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+						//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+						$queued[] = reportit_schedule_report($r);
 					}
 				}
 			}
@@ -825,10 +828,15 @@ function reportit_poller_bottom() {
 			if (cacti_sizeof($reports)) {
 				foreach($reports as $r) {
 					$scheduled++;
-					exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+					//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+					$queued[] = reportit_schedule_report($r);
 				}
 			}
 		}
+	}
+
+	if (cacti_sizeof($queued)) {
+		exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --scheduled');
 	}
 
 	$end = microtime(true);
@@ -839,6 +847,32 @@ function reportit_poller_bottom() {
 
 		cacti_log($stats, false, 'SYSTEM');
 	}
+}
+
+function reportit_schedule_report(&$report) {
+	global $config;
+
+	include_once($config['base_path'] . '/plugins/reportit/lib/funct_runtime.php');
+
+	$command = $config['base_path'] . '/plugins/reportit/poller_reportit.php';
+	$id      = $report['id'];
+	$name    = $report['description'];
+	$notify  = $report['notify_list'];
+
+	$emails = db_fetch_cell_prepared('SELECT GROUP_CONCAT(CONCAT(name, "<", email, ">"))
+		FROM plugin_reportit_recipients
+		WHERE report_id = ?',
+		array($id));
+
+	if ($emails != '') {
+		$notification['email']['to_email'] = $emails;
+	}
+
+	if ($notify > 0) {
+		$notification['notification_list']['id'] = $notify;
+	}
+
+	return reportit_report_queue($name, 1, 'reportit', $id, $command, $notification);
 }
 
 function reportit_clog_regex_array($regex_array) {
@@ -869,7 +903,7 @@ function reportit_clog_regex_report($matches) {
 		}
 
 		foreach ($report_ids as $report_id) {
-			$result .= $matches[1] . '<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/reports.php?action=report_edit&id=' . $report_id) . '\'>' . (isset($reportDescriptions[$report_id]) ? $reportDescriptions[$report_id]:$report_id) . '</a>' . $matches[3];
+			$result .= $matches[1] . '<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/reportit.php?action=report_edit&id=' . $report_id) . '\'>' . (isset($reportDescriptions[$report_id]) ? $reportDescriptions[$report_id]:$report_id) . '</a>' . $matches[3];
 		}
 	}
 

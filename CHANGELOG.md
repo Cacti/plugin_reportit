@@ -1,14 +1,13 @@
 # ChangeLog
 
+--- develop ---
+* feature: Dropping support for Cacti 1.2.x
+
 --- 2.0.0 ---
 
 * bug: Restore Report Archive viewing functionality
-* bug: Unable to remove a Report Template
-* bug: Report Sub-headers are were not properly exporting
 * feature: Remove files measurands.php and variables.php
 * feature: Remove files items.php and rrdlist.php
-* feature: Add JSON as an allowable Export Format
-* feature: Add YAML as an allowable Export Format
 
 --- 1.1.4 ---
 
