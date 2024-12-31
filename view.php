@@ -765,7 +765,7 @@ function show_report() {
 		$report_summary[2][__('Sliding Time Frame', 'reportit')] = ($data['report_data']['sliding'] == '') ? 'disabled' : 'enabled (' . strtolower($data['report_data']['preset_timespan']) .')';
 
 		$report_summary[3][__('Last Run', 'reportit')]  = $data['report_data']['last_run'];
-		$report_summary[3][__('Scheduler', 'reportit')] = ($data['report_data']['scheduled'] == '') ? 'disabled' : 'enabled (' . $data['report_data']['frequency'] . ')';
+		$report_summary[3][__('Enabled', 'reportit')] = ($data['report_data']['enabled'] == '') ? 'disabled' : 'enabled (' . $data['report_data']['frequency'] . ')';
 
 		$report_summary[4][__('Period', 'reportit')]                  = $data['report_data']['start_date'] . ' - ' . $data['report_data']['end_date'];
 		$report_summary[4][__('Auto Generated RRD list', 'reportit')] = ($data['report_data']['autorrdlist'] == '')? 'disabled' : 'enabled';

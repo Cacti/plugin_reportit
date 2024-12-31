@@ -254,14 +254,14 @@ $form_array_scheduling = array(
 		'friendly_name' => __('Scheduled Reporting', 'reportit'),
 		'method' => 'spacer',
 	),
-	'schedule' => array(
-		'friendly_name' => __('Enable', 'reportit'),
+	'enabled' => array(
+		'friendly_name' => __('Enabled', 'reportit'),
 		'description' => __('Enable/disable scheduled reporting. Sliding time frame should be enabled.', 'reportit'),
 		'method' => 'checkbox',
-		'value' => '|arg1:scheduled|',
+		'value' => '|arg1:enabled|',
 		'default' => '',
 	),
-	'schedule_frequency' => array(
+	'frequency' => array(
 		'friendly_name' => __('Frequency', 'reportit'),
 		'description' => __('Select the frequency for processing this Report. ReportIt has a basic scheduler that will dispatch reports at midnight each day based upon the dispatch frequency specified by the user.', 'reportit'),
 		'method' => 'drop_array',

@@ -385,8 +385,8 @@ function standard() {
 			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
-		'scheduled' => array(
-			'display' => __('Scheduled', 'reportit'),
+		'enabled' => array(
+			'display' => __('Enabled', 'reportit'),
 			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
@@ -426,7 +426,7 @@ function standard() {
 				form_selectable_cell(($report['start_date'] == '0000-00-00' ? '00-00-0000' : date(config_date_format(), strtotime($report['start_date']))) . ' - ' . ($report['start_date'] == '0000-00-00' ? '00-00-0000' : date(config_date_format(), strtotime($report['end_date']))), $report['id']);
 			}
 
-			if ($report['scheduled'] == 'on') {
+			if ($report['enabled'] == 'on') {
 				form_selectable_cell($report_schedule_frequency[$report['frequency']], $report['id']);
 			} else {
 				form_selectable_cell(__('Disabled', 'reportit'), $report['id']);
@@ -444,7 +444,7 @@ function standard() {
 
 			form_selectable_cell(sprintf("%01.1f", $report['runtime']), $report['id'], '', 'right');
 			form_selectable_cell(html_check_icon($report['public']), $report['id'], '', 'right');
-			form_selectable_cell(html_check_icon($report['scheduled']), $report['id'], '', 'right');
+			form_selectable_cell(html_check_icon($report['enabled']), $report['id'], '', 'right');
 
 			$link = "reportit.php?action=report_edit&tab=items&id={$report['id']}";
 
@@ -495,16 +495,16 @@ function remove_recipient() {
 function save_schedule_data(&$report_data) {
 	global $frequency;
 
-	set_field_data($report_data, 'scheduled', 'report_schedule');
-	set_field_data($report_data, 'autorrdlist', 'report_autorrdlist');
-	set_field_data($report_data, 'autoarchive', 'report_autoarchive');
-	set_field_data($report_data, 'auto_email', 'report_email');
-	set_field_data($report_data, 'autoexport', 'report_autoexport');
-	set_field_data($report_data, 'autoexport_max_records', 'report_autoexport_max_records');
-	set_field_data($report_data, 'autoexport_no_formatting', 'report_autoexport_no_formatting');
+	set_field_data($report_data, 'enabled', 'enabled');
+	set_field_data($report_data, 'autorrdlist', 'autorrdlist');
+	set_field_data($report_data, 'autoarchive', 'autoarchive');
+	set_field_data($report_data, 'auto_email', 'email');
+	set_field_data($report_data, 'autoexport', 'autoexport');
+	set_field_data($report_data, 'autoexport_max_records', 'autoexport_max_records');
+	set_field_data($report_data, 'autoexport_no_formatting', 'autoexport_no_formatting');
 
-	if (isset_request_var('report_schedule_frequency')) {
-		$tmp_frequency = get_request_var('report_schedule_frequency');
+	if (isset_request_var('frequency')) {
+		$tmp_frequency = get_request_var('frequency');
 
 		if (array_key_exists($tmp_frequency, $frequency)) {
 			$report_data['frequency'] = $tmp_frequency;
@@ -568,25 +568,25 @@ function form_save() {
 		case 'admin':
 			input_validate_input_blacklist(get_request_var('id'),array(0));
 
-			if (read_config_option('reportit_operator')) {
-				input_validate_input_key(get_request_var('report_schedule_frequency'), $frequency, true);
-				input_validate_input_limits(get_request_var('report_autoarchive'),0,1000);
+			if (read_config_option('operator')) {
+				input_validate_input_key(get_request_var('frequency'), $frequency, true);
+				input_validate_input_limits(get_request_var('autoarchive'),0,1000);
 			}
 
-			if (read_config_option('reportit_auto_export')) {
-				input_validate_input_limits(get_request_var('report_autoexport_max_records'),0,1000);
-				input_validate_input_key(get_request_var('report_autoexport'), $format, true);
+			if (read_config_option('auto_export')) {
+				input_validate_input_limits(get_request_var('autoexport_max_records'),0,1000);
+				input_validate_input_key(get_request_var('autoexport'), $format, true);
 			}
 
 			break;
 		case 'email':
 			if (!$add_recipients) {
-				form_input_validate(get_request_var('report_email_subject'), 'report_email_subject', '' ,false,3);
-				form_input_validate(get_request_var('report_email_body'), 'report_email_body', '', false, 3);
-				input_validate_input_key(get_request_var('report_email_format'), $format);
+				form_input_validate(get_request_var('email_subject'), 'email_subject', '' ,false,3);
+				form_input_validate(get_request_var('email_body'), 'email_body', '', false, 3);
+				input_validate_input_key(get_request_var('email_format'), $format);
 			} else {
 				/* if javascript is disabled */
-				form_input_validate(get_request_var('report_email_address'), 'report_email_address', '', false, 3);
+				form_input_validate(get_request_var('email_address'), 'email_address', '', false, 3);
 			}
 
 			break;
@@ -674,7 +674,7 @@ function form_save() {
 			}
 
 			if (!read_config_option('reportit_operator')) {
-				input_validate_input_key(get_request_var('schedule_frequency'), $frequency, true);
+				input_validate_input_key(get_request_var('frequency'), $frequency, true);
 				input_validate_input_limits(get_request_var('autoarchive'),0,1000);
 			}
 
@@ -966,7 +966,7 @@ function report_edit() {
 			WHERE report_id = ?',
 			array(get_request_var('id')));
 
-		$header_label = '[edit: ' . $report_data['description'] . ']';
+		$header_label = '[edit: ' . $report_data['name'] . ']';
 
 		/* update rrdlist_data */
 		if ($rrdlist_data) {
@@ -986,7 +986,7 @@ function report_edit() {
 			'public',
 			'sliding',
 			'present',
-			'scheduled',
+			'enabled',
 			'autorrdlist',
 			'subhead',
 			'graph_permission',
@@ -1497,16 +1497,16 @@ function report_edit() {
 		?>
 		<script type='text/javascript'>
 		$(function() {
-			if ($('#report_dynamic').length > 0) {
+			if ($('#_dynamic').length > 0) {
 				dyn_general_tab();
-				$('#report_dynamic').click(function() {
+				$('#dynamic').click(function() {
 					dyn_general_tab();
 				});
 			}
 
-			if ($('#report_schedule').length > 0) {
+			if ($('#enabled').length > 0) {
 				dyn_admin_tab();
-				$('#report_schedule').click(function() {
+				$('#enabled').click(function() {
 					dyn_admin_tab();
 				});
 			}
@@ -1515,8 +1515,8 @@ function report_edit() {
 				e.preventDefault();
 				$.get('reportit.php' +
 					'?tab=email&action=recipient_add&id=' + $('#id').val() +
-					'&report_email_address=' + encodeURI($('#report_email_address').val()) +
-					'&report_email_recipient=' + encodeURI($('#report_email_recipient').val()))
+					'&report_email_address=' + encodeURI($('#email_address').val()) +
+					'&report_email_recipient=' + encodeURI($('#email_recipient').val()))
 				.done(function(data) {
 					checkForLogout(data);
 					$('#main').empty().hide();
@@ -1524,13 +1524,13 @@ function report_edit() {
 					$('#main').html(data);
 					applySkin();
 
-					$('#report_email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
-					$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
+					$('#email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
+					$('#email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
 				});
 			});
 
-			$('#report_email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
-			$('#report_email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
+			$('#email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit');?>');
+			$('#email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit');?>');
 		});
 
 		function dyn_general_tab() {
@@ -1550,8 +1550,8 @@ function report_edit() {
 		}
 
 		function dyn_admin_tab() {
-			if ($('#schedule').is(':checked')) {
-				$('#schedule_frequency').prop('disabled', false);
+			if ($('#enabled').is(':checked')) {
+				$('#frequency').prop('disabled', false);
 				$('#autorrdlist').prop('disabled', false);
 
 				if ($('#autoarchive').length) {
@@ -1566,7 +1566,7 @@ function report_edit() {
 					$('#autoexport').prop('disabled', false);
 				}
 			} else {
-				$('#schedule_frequency').prop('disabled', true);
+				$('#frequency').prop('disabled', true);
 				$('#autorrdlist').prop('disabled', true);
 
 				if ($('#autoarchive').length) {

@@ -325,6 +325,12 @@ function reportit_system_upgrade($old_version) {
 	if (cacti_version_compare($old_version, '3.0', '<')) {
 		db_execute('ALTER TABLE `plugin_reportit_reports`
 			CHANGE COLUMN description name VARCHAR(128) NOT NULL default "",
+			CHANGE COLUMN scheduled enabled VARCHAR(128) NOT NULL default "",
+			MODIFY COLUMN last_run TIMESTAMP default NULL');
+
+		db_execute('ALTER TABLE `plugin_reportit_cache_reports`
+			MODIFY COLUMN name VARCHAR(128) NOT NULL default "",
+			CHANGE COLUMN scheduled enabled VARCHAR(128) NOT NULL default "",
 			MODIFY COLUMN last_run TIMESTAMP default NULL');
 
 		db_execute('ALTER TABLE `plugin_reportit_templates`
