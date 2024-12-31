@@ -177,7 +177,7 @@ if (db_table_exists('plugin_notification_lists')) {
 }
 
 $form_array_email = array(
-	'report_header_1' => array(
+	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
 		'method' => 'spacer',
 	),
@@ -189,7 +189,7 @@ $form_array_email = array(
 		'method' => 'hidden_zero',
 		'value' => 'email',
 	),
-	'report_email_subject' => array(
+	'email_subject' => array(
 		'friendly_name' => __('Subject', 'reportit'),
 		'description' => __('Enter the subject of your email.<br> Following variables will be supported (without quotes): \'|title|\' and \'|period|\'', 'reportit'),
 		'size' => '60',
@@ -198,7 +198,7 @@ $form_array_email = array(
 		'default' => __('Scheduled report - |title| - |period|', 'reportit'),
 		'value' => '|arg1:email_subject|',
 	),
-	'report_email_body' => array(
+	'email_body' => array(
 		'friendly_name' => __('Body (optional)', 'reportit'),
 		'description' => __('Enter a message which will be displayed in the body of your email', 'reportit'),
 		'method' => 'textarea',
@@ -207,7 +207,7 @@ $form_array_email = array(
 		'default' => __('This is a scheduled report generated from Cacti.', 'reportit'),
 		'value' => '|arg1:email_body|',
 	),
-	'report_email_format' => array(
+	'email_format' => array(
 		'friendly_name' => __('Attachment', 'reportit'),
 		'method' => 'drop_array',
 		'description' => __('Only to receive an email as a notification that a new report is available choose \'None\'.<br> Otherwise select the format the report should be attached as.', 'reportit'),
@@ -215,11 +215,11 @@ $form_array_email = array(
 		'array' => $format,
 		'default' => '1',
 	),
-	'report_header_2' => array(
+	'header_2' => array(
 		'friendly_name' => __('Email Recipients', 'reportit'),
 		'method' => 'spacer',
 	),
-	'report_notify_list' => array(
+	'notify_list' => array(
 		'friendly_name' => __('Notification List Recipients', 'reportit'),
 		'description' => __('To add a Recipients based upon an valid Notification List.', 'reportit'),
 		'method' => 'drop_array',
@@ -228,47 +228,47 @@ $form_array_email = array(
 		'none_value' => __('None', 'reportit'),
 		'value' => '|arg1:notify_list|',
 	),
-	'report_email_recipient' => array(
+	'email_recipient' => array(
 		'friendly_name' => __('New Email Recipients', 'reportit'),
 		'description' => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: \';\' or \',\'', 'reportit'),
 		'method' => 'custom',
 		'default' => 'false',
 		'value' => "<div style='line-height: 1.5em;'>
 			<div>
-				<input type='text' id='report_email_address' name='report_email_address' size='60' maxlength='2500' align='top'>
+				<input type='text' id='email_address' name='email_address' size='60' maxlength='2500' align='top'>
 				<input type='submit' id='add_recipients_x' name='add_recipients_x' value='add' title='Add recipients'>
 			</div>
 			<div>
-				<input type='text' id='report_email_recipient' name='report_email_recipient' size='60' maxlength='2500' align='top'>
+				<input type='text' id='email_recipient' name='email_recipient' size='60' maxlength='2500' align='top'>
 			</div>
 		</div>",
 	)
 );
 
 if (!cacti_sizeof($notify_lists)) {
-	unset($form_array_email['report_notify_list']);
+	unset($form_array_email['notify_list']);
 }
 
 $form_array_scheduling = array(
-	'report_header_3' => array(
+	'header_3' => array(
 		'friendly_name' => __('Scheduled Reporting', 'reportit'),
 		'method' => 'spacer',
 	),
-	'report_schedule' => array(
+	'schedule' => array(
 		'friendly_name' => __('Enable', 'reportit'),
 		'description' => __('Enable/disable scheduled reporting. Sliding time frame should be enabled.', 'reportit'),
 		'method' => 'checkbox',
 		'value' => '|arg1:scheduled|',
 		'default' => '',
 	),
-	'report_schedule_frequency' => array(
+	'schedule_frequency' => array(
 		'friendly_name' => __('Frequency', 'reportit'),
 		'description' => __('Select the frequency for processing this Report. ReportIt has a basic scheduler that will dispatch reports at midnight each day based upon the dispatch frequency specified by the user.', 'reportit'),
 		'method' => 'drop_array',
 		'value' => '|arg1:frequency|',
 		'array' => $frequency
 	),
-	'report_autorrdlist' => array(
+	'autorrdlist' => array(
 		'friendly_name' => __('Auto Generated Data Items', 'reportit'),
 		'description' => __('Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added.', 'reportit'),
 		'method' => 'checkbox',
@@ -278,7 +278,7 @@ $form_array_scheduling = array(
 );
 
 if (read_config_option('reportit_archive')) {
-	$form_array_scheduling['report_autoarchive'] = array(
+	$form_array_scheduling['autoarchive'] = array(
 		'friendly_name' => __('Auto Generated Archive', 'reportit'),
 		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose "off" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run.', 'reportit'),
 		'method' => 'drop_array',
@@ -289,7 +289,7 @@ if (read_config_option('reportit_archive')) {
 }
 
 if (read_config_option('reportit_email')) {
-	$form_array_scheduling['report_email'] = array(
+	$form_array_scheduling['email'] = array(
 		'friendly_name' => __('Auto Generated Email', 'reportit'),
 		'description' => __('If enabled tab \'Email\' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report.', 'reportit'),
 		'method' => 'checkbox',
@@ -299,7 +299,7 @@ if (read_config_option('reportit_email')) {
 }
 
 if (read_config_option('reportit_auto_export')) {
-	$form_array_scheduling['report_autoexport'] = array(
+	$form_array_scheduling['autoexport'] = array(
 		'friendly_name' => __('Auto Generated Export', 'reportit'),
 		'description' => __('If enabled the report will be automatically exported to a separate subfolder.  This will be placed within the export folder defined in the report template.', 'reportit'),
 		'method' => 'drop_array',
@@ -307,7 +307,7 @@ if (read_config_option('reportit_auto_export')) {
 		'array' => $format,
 		'default' => '0'
 	);
-	$form_array_scheduling['report_autoexport_max_records'] = array(
+	$form_array_scheduling['autoexport_max_records'] = array(
 		'friendly_name' => __('Export Limitation', 'reportit'),
 		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \'off\' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run.', 'reportit'),
 		'method' => 'drop_array',
@@ -315,7 +315,7 @@ if (read_config_option('reportit_auto_export')) {
 		'default' => '0',
 		'array' => $archive
 	);
-	$form_array_scheduling['report_autoexport_no_formatting'] = array(
+	$form_array_scheduling['autoexport_no_formatting'] = array(
 		'friendly_name' => __('Raw Data Export', 'reportit'),
 		'description' => __('If enabled auto generated exports will contain raw data only. The formatting of measurands will be ignored.', 'reportit'),
 		'method' => 'checkbox',
@@ -325,7 +325,7 @@ if (read_config_option('reportit_auto_export')) {
 }
 
 $form_array_admin = array(
-	'report_header_1' => array(
+	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
 		'method' => 'spacer',
 	),
@@ -337,14 +337,14 @@ $form_array_admin = array(
 		'method' => 'hidden_zero',
 		'value' => 'admin',
 	),
-	'report_owner' => array(
+	'owner' => array(
 		'friendly_name' => __('Change Report Owner', 'reportit'),
 		'description' => __('Change the owner of this report. Only users with a minimum of reporting rights (\'View\' or higher) can be selected.', 'reportit'),
 		'method' => 'drop_sql',
 		'sql' => "SELECT DISTINCT a.id, a.username as name FROM user_auth AS a INNER JOIN user_auth_realm AS b ON a.id = b.user_id WHERE (b.realm_id = " . REPORTIT_USER_OWNER . " OR b.realm_id = " . REPORTIT_USER_VIEWER . ") ORDER BY username",
 		'value' => '|arg1:user_id|',
 	),
-	'report_graph_permission' => array(
+	'graph_permission' => array(
 		'friendly_name' => __('Enable Use of Graph Permissions', 'reportit'),
 		'description' => __('If enabled (default) the list of available data items will be filtered automatically by owner\'s graph permission: \'by device\'.', 'reportit'),
 		'method' => 'checkbox',
@@ -358,7 +358,7 @@ if (!read_config_option('reportit_operator')) {
 }
 
 $form_array_presets = array(
-	'report_header_1' => array(
+	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
 		'method' => 'spacer',
 	),
@@ -413,7 +413,7 @@ $form_array_presets_2 = array(
 		'max_length' => '100',
 		'value' => '|arg2:data_source_filter|',
 	),
-	'report_header_2' => array(
+	'header_2' => array(
 		'friendly_name' => __('Working Time', 'reportit'),
 		'method' => 'spacer',
 	),
@@ -496,18 +496,18 @@ $form_array_general = array(
 		'method' => 'hidden_zero',
 		'value' => '|arg1:template_id|',
 	),
-	'report_header_1' => array(
+	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
 		'method' => 'spacer',
 	),
-	'report_description' => array(
+	'description' => array(
 		'friendly_name' => __('Name', 'reportit'),
 		'description' => __('The name given to this report', 'reportit'),
 		'method' => 'textbox',
 		'max_length' => '100',
 		'value' => '|arg1:description|',
 	),
-	'report_template' => array(
+	'template' => array(
 		'friendly_name' => __('Template', 'reportit'),
 		'description' => __('The template your configuration depends on', 'reportit'),
 		'method' => 'custom',
@@ -515,53 +515,53 @@ $form_array_general = array(
 		'value' => '|arg1:template|',
 		'default' => '',
 	),
-	'report_owner' => array(
+	'owner' => array(
 		'friendly_name' => __('Owner', 'reportit'),
 		'description' => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.', 'reportit'),
 		'method' => ( user_auth_realm( REPORTIT_USER_ADMIN, my_id() ) ? 'drop_sql' : 'hidden_zero'),
 		'sql' => $owner_sql,
 		'value' => '|arg1:user_id|',
 	),
-	'report_public' => array(
+	'public' => array(
 		'friendly_name' => __('Public', 'reportit'),
 		'description' => __('If enabled everyone can see your report under tab \'reports\'', 'reportit'),
 		'method' => 'checkbox',
 		'value' => '|arg1:public|',
 		'default' => '',
 	),
-	'report_header_2' => array(
+	'header_2' => array(
 		'friendly_name' => __('Reporting Period', 'reportit'),
 		'method' => 'spacer',
 	),
-	'report_dynamic' => array(
+	'dynamic' => array(
 		'friendly_name' => __('Sliding Time Frame', 'reportit'),
 		'description' => __('If checked the reporting period will be configured automatically in relation to the point of time the calculation starts.', 'reportit'),
 		'method' => 'checkbox',
 		'value' => '|arg1:sliding|',
 		'default' => 'off',
 	),
-	'report_timespan' => array(
+	'timespan' => array(
 		'friendly_name' => __('Time Frames', 'reportit'),
 		'description' => __('The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years.', 'reportit'),
 		'method' => 'drop_array',
 		'value' => '|arg1:preset_timespan|',
 		'array' => $timespans,
 	),
-	'report_present' => array(
+	'present' => array(
 		'friendly_name' => __('Up To The Day of Calculation', 'reportit'),
 		'description' => __('Extend the sliding time frame up to the day the calculation runs.', 'reportit'),
 		'method' => 'checkbox',
 		'value' => '|arg1:present|',
 		'default' => '',
 	),
-	'report_start_date' => array(
+	'start_date' => array(
 		'friendly_name' => __('Fixed Time Frame - Start Date (From)', 'reportit'),
 		'description' => __('To define the start date use the following format: <b>yyyy-mm-dd</b>', 'reportit'),
 		'method' => 'textbox',
 		'max_length' => '10',
 		'value' => '|arg1:start_date|',
 	),
-	'report_end_date' => array(
+	'end_date' => array(
 		'friendly_name' => __('Fixed Time Frame - End Date (To)', 'reportit'),
 		'description' => __('To define the end date use the following format: <b>yyyy-mm-dd</b>', 'reportit'),
 		'method' => 'textbox',
