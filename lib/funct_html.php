@@ -310,7 +310,9 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		b.data_source_alias, b.id AS enabled
 		FROM data_template_rrd as a
 		LEFT JOIN (
-			SELECT * FROM plugin_reportit_data_source_items WHERE template_id = ?
+			SELECT *
+			FROM plugin_reportit_data_source_items
+			WHERE template_id = ?
 		) AS b
 		ON a.data_source_name = b.data_source_name
 		WHERE a.local_data_id = 0
@@ -322,21 +324,21 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		foreach ($data_source_items as $data_source_item) {
 			$item = array(
 				'friendly_name' => __('Enable [%s]', $data_source_item['data_source_name'], 'reportit'),
-				'description' => __('Activate data source item \'%s\' for the calculation process.', $data_source_item['data_source_name'], 'reportit'),
-				'method' => 'checkbox',
-				'default' => 'on',
-				'value' => ($data_source_item['enabled'] == true) ? 'on' : 'off'
+				'description'   => __('Activate data source item \'%s\' for the calculation process.', $data_source_item['data_source_name'], 'reportit'),
+				'method'        => 'checkbox',
+				'default'       => 'on',
+				'value'         => ($data_source_item['enabled'] == true) ? 'on' : 'off'
 			);
 
 			$form_array_alias['ds_enabled__' . $data_source_item['id']] = $item;
 
 			$var = array(
 				'friendly_name' => __('Data Source Alias', 'reportit'),
-				'description' => __('Optional: You can define an alias which should be displayed instead of the internal data source name \'%s\' in the reports.', $data_source_item['data_source_name'], 'reportit'),
-				'method' => 'textbox',
-				'max_length' => '25',
-				'default' => '',
-				'value' => ( $data_source_item['data_source_alias'] !== NULL ) ? stripslashes($data_source_item['data_source_alias']) : '',
+				'description'   => __('Optional: You can define an alias which should be displayed instead of the internal data source name \'%s\' in the reports.', $data_source_item['data_source_name'], 'reportit'),
+				'method'        => 'textbox',
+				'max_length'    => '25',
+				'default'       => '',
+				'value'         => ( $data_source_item['data_source_alias'] !== NULL ) ? stripslashes($data_source_item['data_source_alias']) : '',
 			);
 
 			$form_array_alias['ds_alias__' . $data_source_item['id']] = $var;
@@ -352,11 +354,11 @@ function html_template_ds_alias($template_id, $data_template_id) {
 
 	$var = array(
 		'friendly_name' => __('Separate Group Title [overall]', 'reportit'),
-		'description' => __('Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports.', 'reportit'),
-		'method' => 'textbox',
-		'max_length' => '25',
-		'default' => '',
-		'value' => ( $separate_group_alias !== NULL ) ? stripslashes($separate_group_alias) : '',
+		'description'   => __('Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports.', 'reportit'),
+		'method'        => 'textbox',
+		'max_length'    => '25',
+		'default'       => '',
+		'value'         => ( $separate_group_alias !== NULL ) ? stripslashes($separate_group_alias) : '',
 	);
 
 	$form_array_alias['ds_alias__0'] = $var;
