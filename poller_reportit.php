@@ -43,7 +43,6 @@ $PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&tab=general&id=<RID>'
 $PATH_DID_VIEW  = "<a href='reports.php?action=rrdlist_edit&tab=items&id=<DID>&report_id=<RID>'><DID></a>";
 
 $run_return     = array();
-$run_freq       = '';
 $run_id         = false;
 $run_verb       = false;
 $run_scheduled  = true;
@@ -85,37 +84,12 @@ if (cacti_sizeof($parms)) {
 		}
 
 		switch($arg) {
-			case '--scheduled':
-				$scheduled = true;
-
-				break;
 			case '--report-id':
 				$run_id = $value;
 
 				break;
-			case '-d':
-			case '--daily':
-				$run_freq = 'daily';
-
-				break;
-			case '-w':
-			case '--weekly':
-				$run_freq = 'weekly';
-
-				break;
-			case '-m':
-			case '--monthly':
-				$run_freq = 'monthly';
-
-				break;
-			case '-q':
-			case '--quarterly':
-				$run_freq = 'quarterly';
-
-				break;
-			case '-y':
-			case '--yearly':
-				$run_freq = 'yearly';
+			case '--scheduled':
+				$scheduled = true;
 
 				break;
 			case '--verbose':
@@ -123,7 +97,10 @@ if (cacti_sizeof($parms)) {
 
 				break;
 			case '--debug':
-				@define('REPORTIT_DEBUG',1);
+				if (!defined('REPORTIT_DEBUG')) {
+					define('REPORTIT_DEBUG',1);
+				}
+
 				$debug = true;
 
 				break;
@@ -148,19 +125,7 @@ if (cacti_sizeof($parms)) {
 	}
 }
 
-if (!$scheduled) {
-	if (($run_freq == '' && $run_id === false) || ($run_freq != '' && $run_id !== false)) {
-		print 'Invalid Run Frequency or Report ID' . PHP_EOL;
-		display_help();
-		exit(1);
-	}
-
-	if ($run_id) {
-		run($run_id);
-	} else {
-		run($run_freq);
-	}
-} else {
+if ($schedule == true) {
 	$pending = db_fetch_assoc('SELECT *
 		FROM reports_queued
 		WHERE status = ?
@@ -173,40 +138,11 @@ if (!$scheduled) {
 			reportit_report_run($report['id']);
 		}
 	}
+} elseif ($run_id > 0) {
+	run_report($run_id);
 }
 
-/*  display_version - displays version information */
-function display_version() {
-    $version = plugin_reportit_version()['version'];
-    print "ReportIt Main Poller, Version $version, " . COPYRIGHT_YEARS . PHP_EOL;
-}
-
-function display_help() {
-	display_version();
-
-	print PHP_EOL;
-
-	print 'usage: poller_reportit.php [ -d | -w | -m | -q | -y | --report-id=N | --scheduled ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
-
-    print 'Cacti\'s ReportIt main poller.  This poller is the launcher for ReportIt reports.' . PHP_EOL . PHP_EOL;
-
-	print 'Provide either of the following:' . PHP_EOL;
-	print '  --report-id=N  Run as specific report now' . PHP_EOL;
-	print '  --scheduled    Run all scheduled reports' . PHP_EOL . PHP_EOL;
-
-	print 'Legacy Options (Reports run serially):' . PHP_EOL;
-	print '  -d             Run the Daily Reports' . PHP_EOL;
-	print '  -w             Run the Weekly Reports' . PHP_EOL;
-	print '  -m             Run the Monthy Reports' . PHP_EOL;
-	print '  -q             Run the Quarterly Reports' . PHP_EOL;
-	print '  -y             Run the Yearly Reports' . PHP_EOL . PHP_EOL;
-
-	print 'Optional:' . PHP_EOL;
-	print '  --debug        Provide debug output' . PHP_EOL;
-	print '  --verbose      Provide verbose output' . PHP_EOL . PHP_EOL;
-}
-
-function run($frequency) {
+function run_report($report_id) {
 	global $run_verb, $email_counter, $export_counter;
 
 	$start = microtime(true);
@@ -218,26 +154,15 @@ function run($frequency) {
 			ON b.locked = ''
 			AND a.template_id = b.id
 			WHERE a.id = ?",
-			array($frequency));
-	} else {
-		$reports = db_fetch_assoc_prepared("SELECT a.id, a.template_id
-			FROM plugin_reportit_reports AS a
-			INNER JOIN plugin_reportit_templates AS b
-			ON b.locked = ''
-			AND a.template_id = b.id
-			WHERE a.scheduled = 'on'
-			AND a.frequency = ?",
-			array($frequency));
+			array($report_id));
 	}
 
 	$number  = cacti_sizeof($reports);
 
-	if (is_numeric($frequency) && $number == 0) {
+	if ($number == 0) {
 		print PHP_EOL . PHP_EOL . "ERROR: Invalid report ID !" . PHP_EOL;
 		display_help();
-	}
-
-	if ($number > 0) {
+	} else {
 		foreach($reports as $report) {
 			if (!get_template_status($report['template_id'])) {
 				$report_id = $report['id'];
@@ -256,11 +181,7 @@ function run($frequency) {
 	$time  = round($end - $start, 2);
 	$usage = get_mem_usage();
 
-	if (!is_numeric($frequency)) {
-		cacti_log("REPORTIT STATS: Time:$time Frequency:$frequency Reports:$number Emails:$email_counter Exports:$export_counter PeakMemory:{$usage['peak']}", $run_verb, 'SYSTEM');
-	} else {
-		cacti_log("REPORTIT STATS: Time:$time Report:$report_id Emails:$email_counter Exports:$export_counter PeakMemory:{$usage['peak']}", $run_verb, 'SYSTEM');
-	}
+	cacti_log("REPORTIT STATS: Time:$time Report:{$report['name']} Id:$report_id Emails:$email_counter Exports:$export_counter PeakMemory:{$usage['peak']}", $run_verb, 'SYSTEM');
 
 	exit(0);
 }
@@ -867,7 +788,7 @@ function runtime($report_id) {
 	$now = date('Y-m-d H:i:s');
 
 	db_execute_prepared("UPDATE plugin_reportit_reports
-		SET last_run = ?, runtime = ?, start_date = ?, end_date = ?,
+		SET last_started = ?, last_runtime = ?, start_date = ?, end_date = ?,
 		ds_description = ?, rs_def = ?, sp_def = ?
 		WHERE id = ?",
 		array($now, $runtime, $s_date, $e_date, $ds_description, $rs_def, $sp_def, $report_id));
@@ -1275,3 +1196,30 @@ function autoexport($report_id) {
 
 	return true;
 }
+
+/**
+ * display_version - displays version information
+ */
+function display_version() {
+    $version = plugin_reportit_version()['version'];
+    print "ReportIt Main Poller, Version $version, " . COPYRIGHT_YEARS . PHP_EOL;
+}
+
+function display_help() {
+	display_version();
+
+	print PHP_EOL;
+
+	print 'usage: poller_reportit.php [ --report-id=N ] [ --scheduled ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
+
+    print 'Cacti\'s ReportIt main poller.  This poller is the launcher for ReportIt reports.' . PHP_EOL . PHP_EOL;
+
+	print 'Provide either of the following:' . PHP_EOL;
+	print '  --report-id=N  Run as specific report now' . PHP_EOL;
+
+	print 'Optional:' . PHP_EOL;
+	print '  --debug        Provide debug output' . PHP_EOL;
+	print '  --scheduled    Run the scheduled reports' . PHP_EOL;
+	print '  --verbose      Provide verbose output' . PHP_EOL . PHP_EOL;
+}
+

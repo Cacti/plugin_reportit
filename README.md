@@ -6,10 +6,12 @@
 
 * Mark Brugnoli-Vinten (aka netniV)
 
+* Larry Adams (aka TheWitness)
+
 ## Purpose
 
-This plugin creates tabular reports which can be exported to CSV, SML and XML as
-well.
+This plugin creates tabular reports from RRDfile data which will be archived and
+optionally Emailed to a user or users.
 
 ## Features
 

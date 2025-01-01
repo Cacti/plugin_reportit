@@ -1,7 +1,9 @@
 # ChangeLog
 
 --- develop ---
+
 * feature: Dropping support for Cacti 1.2.x
+* feature: Remove archive and export functionality.  Using Cacti's report log instead
 
 --- 2.0.0 ---
 

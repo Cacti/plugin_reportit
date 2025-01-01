@@ -1476,14 +1476,6 @@ function clean_xml_waste(&$array, $replace = '') {
 	}
 }
 
-function set_field_data(&$array, $field_index, $field_html) {
-	//cacti_log("set_field_data(array, $field_index, $field_html): set? " . (isset_request_var($field_html) ? 'Yes' : 'No'));
-	if (isset_request_var($field_html)) {
-		//cacti_log("set_field_data(array, $field_index, $field_html): val: " . get_nfilter_request_var($field_html));
-		$array[$field_index] = get_nfilter_request_var($field_html);
-	}
-}
-
 function import_template($report_template, $data_template_id) {
 	$values		= '';
 	$columns	= '';

@@ -32,8 +32,8 @@ $report_actions = array(
 
 $report_states = array(
 	'-2' => __('CRASHED', 'reportit'),
-	'-1' => __('FAILED', 'reportit'),
-	'0'  => __('Idle', 'reportit'),
+	'-1' => __('FAILED',  'reportit'),
+	'0'  => __('Idle',    'reportit'),
 	'1'  => __('Running', 'reportit')
 );
 
@@ -486,89 +486,91 @@ $owner_sql = 'SELECT user_auth.id, user_auth.username AS name
 $form_array_general = array(
 	'id' => array(
 		'method' => 'hidden_zero',
-		'value' => '|arg1:id|',
+		'value'  => '|arg1:id|',
 	),
 	'tab' => array(
 		'method' => 'hidden_zero',
-		'value' => 'general',
+		'value'  => 'general',
 	),
 	'template_id' => array(
 		'method' => 'hidden_zero',
-		'value' => '|arg1:template_id|',
+		'value'  => '|arg1:template_id|',
 	),
 	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
 	'name' => array(
 		'friendly_name' => __('Name', 'reportit'),
-		'description' => __('The name given to this report', 'reportit'),
-		'method' => 'textbox',
-		'max_length' => '100',
-		'value' => '|arg1:name|',
+		'description'   => __('The name given to this report', 'reportit'),
+		'method'        => 'textbox',
+		'max_length'    => '100',
+		'value'         => '|arg1:name|',
 	),
 	'template' => array(
 		'friendly_name' => __('Template', 'reportit'),
-		'description' => __('The template your configuration depends on', 'reportit'),
-		'method' => 'custom',
-		'max_length' => '100',
-		'value' => '|arg1:template|',
-		'default' => '',
+		'description'   => __('The template your configuration depends on', 'reportit'),
+		'method'        => 'custom',
+		'max_length'    => '100',
+		'value'         => '|arg1:template|',
+		'default'       => '',
 	),
 	'owner' => array(
 		'friendly_name' => __('Owner', 'reportit'),
-		'description' => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.', 'reportit'),
-		'method' => ( user_auth_realm( REPORTIT_USER_ADMIN, my_id() ) ? 'drop_sql' : 'hidden_zero'),
-		'sql' => $owner_sql,
-		'value' => '|arg1:user_id|',
+		'description'   => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.', 'reportit'),
+		'method'        => ( user_auth_realm( REPORTIT_USER_ADMIN, my_id() ) ? 'drop_sql' : 'hidden_zero'),
+		'sql'           => $owner_sql,
+		'value'         => '|arg1:user_id|',
 	),
 	'public' => array(
 		'friendly_name' => __('Public', 'reportit'),
-		'description' => __('If enabled everyone can see your report under tab \'reports\'', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:public|',
-		'default' => '',
+		'description'   => __('If enabled everyone can see your report under tab \'reports\'', 'reportit'),
+		'method'        => 'checkbox',
+		'value'         => '|arg1:public|',
+		'default'       => '',
 	),
 	'header_2' => array(
 		'friendly_name' => __('Reporting Period', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
 	'dynamic' => array(
 		'friendly_name' => __('Sliding Time Frame', 'reportit'),
-		'description' => __('If checked the reporting period will be configured automatically in relation to the point of time the calculation starts.', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:sliding|',
-		'default' => 'off',
+		'description'   => __('If checked the reporting period will be configured automatically in relation to the point of time the calculation starts.', 'reportit'),
+		'method'        => 'checkbox',
+		'value'         => '|arg1:sliding|',
+		'default'       => 'off',
 	),
 	'timespan' => array(
 		'friendly_name' => __('Time Frames', 'reportit'),
-		'description' => __('The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years.', 'reportit'),
-		'method' => 'drop_array',
-		'value' => '|arg1:preset_timespan|',
-		'array' => $timespans,
+		'description'   => __('The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years.', 'reportit'),
+		'method'        => 'drop_array',
+		'value'         => '|arg1:preset_timespan|',
+		'array'         => $timespans,
 	),
 	'present' => array(
 		'friendly_name' => __('Up To The Day of Calculation', 'reportit'),
-		'description' => __('Extend the sliding time frame up to the day the calculation runs.', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:present|',
-		'default' => '',
+		'description'   => __('Extend the sliding time frame up to the day the calculation runs.', 'reportit'),
+		'method'        => 'checkbox',
+		'value'         => '|arg1:present|',
+		'default'       => '',
 	),
 	'start_date' => array(
 		'friendly_name' => __('Fixed Time Frame - Start Date (From)', 'reportit'),
-		'description' => __('To define the start date use the following format: <b>yyyy-mm-dd</b>', 'reportit'),
-		'method' => 'textbox',
-		'max_length' => '10',
-		'value' => '|arg1:start_date|',
+		'description'   => __('To define the start date use the following format: <b>yyyy-mm-dd</b>', 'reportit'),
+		'method'        => 'textbox',
+		'max_length'    => '10',
+		'value'         => '|arg1:start_date|',
 	),
 	'end_date' => array(
 		'friendly_name' => __('Fixed Time Frame - End Date (To)', 'reportit'),
-		'description' => __('To define the end date use the following format: <b>yyyy-mm-dd</b>', 'reportit'),
-		'method' => 'textbox',
-		'max_length' => '10',
-		'value' => '|arg1:end_date|',
+		'description'   => __('To define the end date use the following format: <b>yyyy-mm-dd</b>', 'reportit'),
+		'method'        => 'textbox',
+		'max_length'    => '10',
+		'value'         => '|arg1:end_date|',
 	)
 );
+
+$form_array_general += api_scheduler_form();
 
 if (read_config_option('reportit_operator')) {
 	$form_array_general = array_merge($form_array_general, $form_array_scheduling);

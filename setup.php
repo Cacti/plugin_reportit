@@ -99,6 +99,7 @@ function reportit_check_upgrade() {
 			//plugin_reportit_install();
 
 			/* perform data base upgrade */
+			require_once($config['base_path'] . '/plugins/reportit/system/install.php');
 			require_once($config['base_path'] . '/plugins/reportit/system/upgrade.php');
 			reportit_system_upgrade($old['version']);
 
@@ -692,11 +693,6 @@ function reportit_poller_bottom() {
 		$met = 300;
 	}
 
-	db_execute_prepared('UPDATE `plugin_reportit_reports` SET
-		last_state = NOW(), state = -2
-		WHERE state = 1 AND last_state - NOW() < ?',
-		array($met));
-
 	/* fetch all tables whose life cycle has been expired */
 	$tables = db_fetch_assoc("SHOW TABLE STATUS
 		WHERE `Name` LIKE 'plugin_reportit_tmp_%'
@@ -748,91 +744,16 @@ function reportit_poller_bottom() {
 
 	$queued = array();
 
-	if (date('z', $lastrun) != date('z', $now)) {
-		/* the day of the year has changed check schedules */
-		$reports = db_fetch_assoc_prepared('SELECT *
-			FROM plugin_reportit_reports
-			WHERE frequency = ?
-			AND scheduled = ?',
-			array('daily', 'on'));
+	$reports = db_fetch_assoc('SELECT * FROM plugin_reportit_reports WHERE enabled = "on"');
 
-		if (cacti_sizeof($reports)) {
-			foreach($reports as $r) {
-				$scheduled++;
-				//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
+	reports_log('Cacti ReportIt Reports reports found: ' . cacti_sizeof($reports), true, 'REPORTS', POLLER_VERBOSITY_MEDIUM);
+
+	if (cacti_sizeof($reports)) {
+		foreach($reports as $r) {
+			if (api_scheduler_is_time_to_start($report, 'reports') || $force) {
+				reports_log('Reports processing report: ' . $report['name'], true, 'REPORTS', POLLER_VERBOSITY_MEDIUM);
+
 				$queued[] = reportit_schedule_report($r);
-			}
-		}
-
-		if (date('W', $lastrun) != date('W', $now)) {
-			/* the day of the year has changed check schedules */
-			$reports = db_fetch_assoc_prepared('SELECT *
-				FROM plugin_reportit_reports
-				WHERE frequency = ?
-				AND scheduled = ?',
-				array('weekly', 'on'));
-
-			if (cacti_sizeof($reports)) {
-				foreach($reports as $r) {
-					$scheduled++;
-					//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
-					$queued[] = reportit_schedule_report($r);
-				}
-			}
-		}
-
-		if (date('n', $lastrun) != date('n', $now)) {
-			/* the day of the year has changed check schedules */
-			$reports = db_fetch_assoc_prepared('SELECT *
-				FROM plugin_reportit_reports
-				WHERE frequency = ?
-				AND scheduled = ?',
-				array('monthly', 'on'));
-
-			if (cacti_sizeof($reports)) {
-				foreach($reports as $r) {
-					$scheduled++;
-					//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
-					$queued[] = reportit_schedule_report($r);
-				}
-			}
-		}
-
-		if (date('n', $lastrun) != date('n', $now)) {
-			$month = date('n', $now);
-
-			if ($month == 4 || $month == 7 || $month == 10 || $month == 1) {
-				/* the day of the year has changed check schedules */
-				$reports = db_fetch_assoc_prepared('SELECT *
-					FROM plugin_reportit_reports
-					WHERE frequency = ?
-					AND scheduled = ?',
-					array('quarterly', 'on'));
-
-				if (cacti_sizeof($reports)) {
-					foreach($reports as $r) {
-						$scheduled++;
-						//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
-						$queued[] = reportit_schedule_report($r);
-					}
-				}
-			}
-		}
-
-		if (date('Y', $lastrun) != date('Y', $now)) {
-			/* the day of the year has changed check schedules */
-			$reports = db_fetch_assoc_prepared('SELECT *
-				FROM plugin_reportit_reports
-				WHERE frequency = ?
-				AND scheduled = ?',
-				array('yearly', 'on'));
-
-			if (cacti_sizeof($reports)) {
-				foreach($reports as $r) {
-					$scheduled++;
-					//exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $r['id']);
-					$queued[] = reportit_schedule_report($r);
-				}
 			}
 		}
 	}

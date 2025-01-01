@@ -303,13 +303,13 @@ function standard() {
 			'display' => __('Period (From - To)', 'reportit'),
 			'align'   => 'left'
 		),
-		'last_run' => array(
-			'display' => __('Last Run %s', $tmz, 'reportit'),
+		'last_started' => array(
+			'display' => __('Last Started %s', $tmz, 'reportit'),
 			'align'   => 'left',
 			'sort'    => 'DESC'
 		),
-		'runtime' => array(
-			'display' => __('Runtime [s]', 'reportit'),
+		'last_runtime' => array(
+			'display' => __('Last Runtime [s]', 'reportit'),
 			'align'   => 'right',
 			'sort'    => 'ASC'
 		)
@@ -335,8 +335,8 @@ function standard() {
 			form_selectable_cell(other_name($ownerId), $ownerId);
 			form_selectable_cell($report['template_description'], $ownerId);
 			form_selectable_cell(date(config_date_format(), strtotime($report['start_date'])) . ' - ' . date(config_date_format(), strtotime($report['end_date'])), $ownerId);
-			form_selectable_cell($report['last_run'], $ownerId);
-			form_selectable_cell(sprintf('%01.1f', $report['runtime']), $ownerId, '', 'right');
+			form_selectable_cell($report['last_started'], $ownerId);
+			form_selectable_cell(sprintf('%01.1f', $report['last_runtime']), $ownerId, '', 'right');
 
 			form_end_row();
 		}
@@ -759,7 +759,7 @@ function show_report() {
 
 	if (!isempty_request_var('summary')) {
 		$report_summary[1][__('Title', 'reportit')]   = $data['report_data']['name'];
-		$report_summary[1][__('Runtime', 'reportit')] = $data['report_data']['runtime'] . 's';
+		$report_summary[1][__('Runtime', 'reportit')] = $data['report_data']['last_runtime'] . 's';
 
 		$report_summary[2][__('Owner', 'reportit')]              = $data['report_data']['owner'];
 		$report_summary[2][__('Sliding Time Frame', 'reportit')] = ($data['report_data']['sliding'] == '') ? 'disabled' : 'enabled (' . strtolower($data['report_data']['preset_timespan']) .')';
