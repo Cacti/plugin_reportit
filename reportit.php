@@ -371,7 +371,7 @@ function standard() {
 			'display' => __('State', 'reportit'),
 			'sort'    => 'ASC',
 		),
-		'last_run' => array(
+		'last_started' => array(
 			'display' => __('Last Started %s', $tmz, 'reportit'),
 			'align'   => 'right',
 			'sort'    => 'ASC',
@@ -420,7 +420,7 @@ function standard() {
 			form_selectable_cell(filter_value($report['name'], get_request_var('filter'), $link), $report['id']);
 			form_selectable_cell(filter_value($report['id'], get_request_var('filter'), $link), $report['id']);
 
-			if ($report['sliding'] == 'on' && $report['last_run'] == '0000-00-00 00:00:00') {
+			if ($report['sliding'] == 'on' && $report['last_started'] == '0000-00-00 00:00:00') {
 				$dates = rp_get_timespan($report['preset_timespan'], $report['present'], $enable_tmz);
 				form_selectable_cell(date(config_date_format(), strtotime($dates['start_date'])) . " - " . date(config_date_format(), strtotime($dates['end_date'])), $report['id']);
 			} else {
@@ -435,7 +435,7 @@ function standard() {
 
 			form_selectable_cell($report_states[$report['state']], $report['id']);
 
-			if ($report['last_run'] == '0000-00-00 00:00:00') {
+			if ($report['last_started'] == '0000-00-00 00:00:00') {
 				form_selectable_cell(__('N/A', 'reportit'), $report['id'], '', 'right');
 			} else {
 				$link = "view.php?action=show_report&id={$report['id']}";
@@ -615,12 +615,14 @@ function form_save() {
 
 			break;
 		default:
-			input_validate_input_key($post['preset_timespan'], $timespans, true);
+			if (isset($post['preset_timespan'])) {
+				input_validate_input_key($post['preset_timespan'], $timespans, true);
+			}
 
 			/* if template is locked we don't know if the variables have been changed */
 			locked($post['template_id']);
 
-			form_input_validate($post['description'], 'description', '' ,false, 3);
+			form_input_validate($post['name'], 'name', '', false, 3);
 
 			/* validate start- and end date if sliding time should not be used */
 			if (!isset($post['dynamic'])) {
@@ -796,7 +798,10 @@ function form_save() {
 			$report_data['end_date']        = $post['end_date'];
 
 			$report_data['sliding']         = $post['dynamic'];
-			$report_data['present']         = $post['present'];
+
+			if (isset($post['present'])) {
+				$report_data['present']     = $post['present'];
+			}
 
 			$report_data['enabled']         = (isset($post['enabled']) ? 'on':'');
 			$report_data['autorrdlist']     = (isset($post['autorrdlist']) ? 'on':'');
@@ -938,7 +943,6 @@ function report_edit() {
 
 		/* update report_data array for getting compatible to Cacti's drawing functions */
 		$report_data['preset_timespan'] = array_search($report_data['preset_timespan'], $timespans);
-		$report_data['frequency']       = array_search($report_data['frequency'], $frequency);
 
 		/* replace all binary settings to get compatible with Cacti's draw functions */
 		$rpm = array(

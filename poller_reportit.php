@@ -826,7 +826,7 @@ function runtime($report_id) {
 	}
 
 	// ----- Return messages and runtime-----
-	$run_return['runtime'] = $runtime;
+	$run_return['last_runtime'] = $runtime;
 
 	in_process($report_id, 0);
 

@@ -80,7 +80,7 @@ function export_to_CSV(&$data) {
 		__('Template', 'reportit')     => "{$report_data['template_name']}",
 		__('Start', 'reportit')        => "{$report_data['start_date']}",
 		__('End', 'reportit')          => "{$report_data['end_date']}",
-		__('Last Run', 'reportit')     => "{$report_data['last_run']}"
+		__('Last Run', 'reportit')     => "{$report_data['last_started']}"
 	);
 
 	$ds_description = explode('|', $report_data['ds_description']);
@@ -255,12 +255,12 @@ function export_to_XML(&$data) {
 
 	/* compose additional informations */
 	$report_settings = array(
-		'title'     => $report_data['description'],
-		'owner'     => $report_data['owner'],
-		'template'  => $report_data['template_name'],
-		'start'     => $report_data['start_date'],
-		'end'       => $report_data['end_date'],
-		'last_run'  => $report_data['last_run']
+		'title'        => $report_data['description'],
+		'owner'        => $report_data['owner'],
+		'template'     => $report_data['template_name'],
+		'start'        => $report_data['start_date'],
+		'end'          => $report_data['end_date'],
+		'last_started' => $report_data['last_started']
 	);
 
 	/* read out the result ids */
@@ -403,12 +403,12 @@ function export_to_JSON(&$data) {
 
 	/* compose additional informations */
 	$report_settings = array(
-		'title'     => $report_data['description'],
-		'owner'     => $report_data['owner'],
-		'template'  => $report_data['template_name'],
-		'start'     => $report_data['start_date'],
-		'end'       => $report_data['end_date'],
-		'last_run'  => $report_data['last_run']
+		'title'        => $report_data['description'],
+		'owner'        => $report_data['owner'],
+		'template'     => $report_data['template_name'],
+		'start'        => $report_data['start_date'],
+		'end'          => $report_data['end_date'],
+		'last_started' => $report_data['last_started']
 	);
 
 	/* read out the result ids */
@@ -571,7 +571,7 @@ function new_worksheet(&$data, &$styles){
 		__('Template', 'reportit')     => $report_data['template_name'],
 		__('Start', 'reportit')        => $report_data['start_date'],
 		__('End', 'reportit')          => $report_data['end_date'],
-		__('Last Run', 'reportit')     => $report_data['last_run']
+		__('Last Run', 'reportit')     => $report_data['last_started']
 	);
 
 	$ds_description = explode('|', $report_data['ds_description']);
