@@ -23,22 +23,22 @@
 */
 
 chdir(__DIR__ . '/../../');
-require('include/auth.php');
+require('./include/auth.php');
 
 if (!defined('REPORTIT_BASE_PATH')) {
-	include_once(__DIR__ . '/setup.php');
+	require_once(__DIR__ . '/setup.php');
 	reportit_define_constants();
 }
 
-include_once(REPORTIT_BASE_PATH . '/lib/const_templates.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_variables.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
-include_once(REPORTIT_BASE_PATH . '/include/global_forms.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_templates.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_variables.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
+require_once(REPORTIT_BASE_PATH . '/include/global_forms.php');
 
 $variable_actions = array(
 	1 => __('Delete', 'reportit')
@@ -129,8 +129,6 @@ switch (get_request_var('action')) {
 }
 
 function template_tabs($id) {
-	global $config;
-
 	/* present a tabbed interface */
 	$tabs = array(
 		'general'    => __('General', 'reportit'),
@@ -156,7 +154,7 @@ function template_tabs($id) {
 	if (cacti_sizeof($tabs)) {
 		foreach ($tabs as $tab => $name) {
 			print "<li><a class='tab" . (($tab == $current_tab) ? " selected'" : "'") .
-				" href='" . html_escape($config['url_path'] .
+				" href='" . html_escape(CACTI_PATH_URL .
 				'plugins/reportit/templates.php' .
 				'?id=' . $id .
 				'&action=template_edit' .
@@ -169,7 +167,7 @@ function template_tabs($id) {
 }
 
 function template_wizard($action) {
-	global $config, $list_of_data_templates, $known_data_templates, $fields_template_export;
+	global $list_of_data_templates, $known_data_templates, $fields_template_export;
 
 	switch ($action) {
 		case 'new':
@@ -497,7 +495,7 @@ function template_filter() {
 }
 
 function templates() {
-	global  $config, $template_actions, $link_array, $desc_array, $consolidation_functions, $known_data_templates, $list_of_data_templates, $order_array;
+	global  $template_actions, $link_array, $desc_array, $consolidation_functions, $known_data_templates, $list_of_data_templates, $order_array;
 
 	/* ================= input validation and session storage ================= */
 	$filters = array(
@@ -1096,7 +1094,7 @@ function templates_general($id) {
 }
 
 function form_actions() {
-	global $template_actions, $variable_actions, $measurand_actions, $config;
+	global $template_actions, $variable_actions, $measurand_actions;
 
 	if (get_nfilter_request_var('tab') == 'general') {
 		if (isset_request_var('selected_items')) {
@@ -1903,7 +1901,7 @@ function variable_edit() {
 }
 
 function measurand_edit() {
-	global $config, $template_actions, $rounding, $consolidation_functions, $type_specifier, $precision;
+	global $template_actions, $rounding, $consolidation_functions, $type_specifier, $precision;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
@@ -2102,7 +2100,7 @@ function measurand_edit() {
 }
 
 function measurands() {
-	global $measurand_actions, $config, $consolidation_functions;
+	global $measurand_actions, $consolidation_functions;
 
 	/* ================= input validation ================= */
 	$id = get_filter_request_var('id');

@@ -624,9 +624,8 @@ function reportit_report_queue($name, $request_type, $source, $source_id, $comma
 }
 
 function reportit_report_run($id) {
-	global $config;
-
-	include_once($config['base_path'] . '/lib/poller.php');
+	require_once(CACTI_PATH_LIBRARY . '/poller.php');
+	require_once(CACTI_PATH_LIBRARY . '/api_scheduler.php');
 
 	$report = db_fetch_row_prepared('SELECT *
 		FROM reports_queued
@@ -663,8 +662,6 @@ function reportit_report_run($id) {
 }
 
 function send_scheduled_email($id, $report_id) {
-	global $config;
-
 	$start_time = microtime(true);
 
 	/* load report based email settings */

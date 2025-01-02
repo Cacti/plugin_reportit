@@ -72,14 +72,11 @@ function plugin_reportit_upgrade() {
 }
 
 function plugin_reportit_version() {
-	global $config;
-	$info = parse_ini_file($config['base_path'] . '/plugins/reportit/INFO', true);
+	$info = parse_ini_file(CACTI_PATH_BASE . '/plugins/reportit/INFO', true);
 	return $info['info'];
 }
 
 function reportit_check_upgrade() {
-	global $config;
-
 	$files = array('index.php', 'plugins.php', 'poller_reportit.php');
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
 		return;
@@ -99,8 +96,8 @@ function reportit_check_upgrade() {
 			//plugin_reportit_install();
 
 			/* perform data base upgrade */
-			require_once($config['base_path'] . '/plugins/reportit/system/install.php');
-			require_once($config['base_path'] . '/plugins/reportit/system/upgrade.php');
+			require_once(CACTI_PATH_BASE . '/plugins/reportit/system/install.php');
+			require_once(CACTI_PATH_BASE . '/plugins/reportit/system/upgrade.php');
 			reportit_system_upgrade($old['version']);
 
 			/* re-register plugins hooks */
@@ -393,7 +390,7 @@ function reportit_config_arrays() {
 }
 
 function reportit_config_settings() {
-	global $tabs, $tabs_graphs, $settings, $settings_user, $config, $item_rows;
+	global $tabs, $tabs_graphs, $settings, $settings_user, $item_rows;
 
 	/* presets */
 	$datetime              = array(__('local', 'reportit'), __('global', 'reportit'));
@@ -610,19 +607,15 @@ function db_setting_exists($setting) {
 }
 
 function reportit_show_tab() {
-	global $config;
-
 	reportit_check_upgrade();
 
 	if (api_user_realm_auth('view.php')) {
-		print '<a href="' . $config['url_path'] . 'plugins/reportit/view.php"><img src="' . $config['url_path'] . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIt', 'reportit') . '"></a>';
+		print '<a href="' . CACTI_PATH_URL . 'plugins/reportit/view.php"><img src="' . CACTI_PATH_URL . 'plugins/reportit/images/tab_reportit_' . (get_current_page() == 'view.php' ? 'down' : 'up'). '.png" alt="' . __('ReportIt', 'reportit') . '"></a>';
 	}
 }
 
 function reportit_system_setup() {
-	global $config;
-
-	require_once($config['base_path'] . '/plugins/reportit/system/install.php');
+	require_once(CACTI_PATH_BASE . '/plugins/reportit/system/install.php');
 
 	reportit_system_install();
 }
@@ -634,8 +627,6 @@ function reportit_define($constant, $value) {
 }
 
 function reportit_define_constants(){
-	global $config;
-
 	/* realm IDs which have been defined dynamically by PIA 2.x */
 	$view = db_fetch_cell("SELECT id
 		FROM plugin_realms
@@ -657,9 +648,9 @@ function reportit_define_constants(){
 	reportit_define('REPORTIT_USER_ADMIN', 100+$administrate);
 
 	/* define ReportIt's base paths */
-	reportit_define('REPORTIT_BASE_PATH', $config['base_path'] . '/plugins/reportit');
+	reportit_define('REPORTIT_BASE_PATH', CACTI_PATH_BASE . '/plugins/reportit');
 
-	reportit_define('CACTI_BASE_PATH', $config['base_path']);
+	reportit_define('CACTI_BASE_PATH', CACTI_PATH_BASE);
 	reportit_define('CACTI_INCLUDE_PATH', CACTI_BASE_PATH . '/include/');
 
 	/* path where PCLZIP will save temporary files */
@@ -671,7 +662,7 @@ function reportit_define_constants(){
 }
 
 function reportit_poller_bottom() {
-	global $config;
+	require_once(CACTI_PATH_LIBRARY . '/reports.php');
 
 	$str   = '';
 	$ids   = '';
@@ -759,7 +750,7 @@ function reportit_poller_bottom() {
 	}
 
 	if (cacti_sizeof($queued)) {
-		exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --scheduled');
+		exec_background($php_binary, CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php --scheduled');
 	}
 
 	$end = microtime(true);
@@ -773,11 +764,9 @@ function reportit_poller_bottom() {
 }
 
 function reportit_schedule_report(&$report) {
-	global $config;
+	require_once(CACTI_PATH_BASE . '/plugins/reportit/lib/funct_runtime.php');
 
-	include_once($config['base_path'] . '/plugins/reportit/lib/funct_runtime.php');
-
-	$command = $config['base_path'] . '/plugins/reportit/poller_reportit.php';
+	$command = CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php';
 	$id      = $report['id'];
 	$name    = $report['description'];
 	$notify  = $report['notify_list'];
@@ -806,8 +795,6 @@ function reportit_clog_regex_array($regex_array) {
 }
 
 function reportit_clog_regex_report($matches) {
-	global $config;
-
 	$result = $matches[0];
 
 	$report_ids = explode(',', str_replace(' ', '', $matches[2]));
@@ -826,7 +813,7 @@ function reportit_clog_regex_report($matches) {
 		}
 
 		foreach ($report_ids as $report_id) {
-			$result .= $matches[1] . '<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/reportit.php?action=report_edit&id=' . $report_id) . '\'>' . (isset($reportDescriptions[$report_id]) ? $reportDescriptions[$report_id]:$report_id) . '</a>' . $matches[3];
+			$result .= $matches[1] . '<a href=\'' . html_escape(CACTI_PATH_URL . 'plugins/reportit/reportit.php?action=report_edit&id=' . $report_id) . '\'>' . (isset($reportDescriptions[$report_id]) ? $reportDescriptions[$report_id]:$report_id) . '</a>' . $matches[3];
 		}
 	}
 
@@ -834,8 +821,6 @@ function reportit_clog_regex_report($matches) {
 }
 
 function reportit_clog_regex_dataitem($matches) {
-	global $config;
-
 	$result = $matches[0];
 
 	$dataitem_ids = explode(',',str_replace(" ","",$matches[2]));
@@ -858,7 +843,7 @@ function reportit_clog_regex_dataitem($matches) {
 		}
 
 		foreach ($dataitem_ids as $dataitem_id) {
-			$result .= $matches[1] . '<a href=\'' . html_escape($config['url_path'] . 'plugins/reportit/rrdlist.php?action=rrdlist_edit&id=' . $dataitem_id) . '\'>' . (isset($dataitemDescriptions[$dataitem_id]) ? $dataitemDescriptions[$dataitem_id]:$dataitem_id) . '</a>' . $matches[3];
+			$result .= $matches[1] . '<a href=\'' . html_escape(CACTI_PATH_URL . 'plugins/reportit/rrdlist.php?action=rrdlist_edit&id=' . $dataitem_id) . '\'>' . (isset($dataitemDescriptions[$dataitem_id]) ? $dataitemDescriptions[$dataitem_id]:$dataitem_id) . '</a>' . $matches[3];
 		}
 	}
 

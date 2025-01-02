@@ -25,9 +25,9 @@
 // ----- CONSTANTS FOR: runtime.php -----
 define('REPORTIT_NAN', sqrt(-1));
 
-if (!defined('REPORTIT_TMP_FD')) define('REPORTIT_TMP_FD', $config['base_path'] . '/plugins/reportit/tmp/');
-if (!defined('REPORTIT_ARC_FD')) define('REPORTIT_ARC_FD', $config['base_path'] . '/plugins/reportit/archive/');
-if (!defined('REPORTIT_EXP_FD')) define('REPORTIT_EXP_FD', $config['base_path'] . '/plugins/reportit/exports/');
+if (!defined('REPORTIT_TMP_FD')) define('REPORTIT_TMP_FD', CACTI_PATH_BASE . '/plugins/reportit/tmp/');
+if (!defined('REPORTIT_ARC_FD')) define('REPORTIT_ARC_FD', CACTI_PATH_BASE . '/plugins/reportit/archive/');
+if (!defined('REPORTIT_EXP_FD')) define('REPORTIT_EXP_FD', CACTI_PATH_BASE . '/plugins/reportit/exports/');
 
 $timezones = array(
 	'AEDT (GMT+11 )'  => array('hour' => 11, 'min' =>  0),

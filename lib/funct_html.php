@@ -22,142 +22,6 @@
  +-------------------------------------------------------------------------+
 */
 
-
-function html_custom_header_box($title, $width, $div, $cell_padding, $align, $add_text, $add_label = false) {
-//function html_custom_header_box($header, $hlink = false, $href = '', $link = '') {
-//     print "<table calss='cactiTable'>
-// 		<tr>
-// 			<td>
-// 				<table class='cactiTable'>
-// 					<tr>
-// 						<td class='textHeaderDark' align='left' style='padding: 3px;' colspan='100'>
-// 							<table>
-// 								<tr>
-// 									<td class='textHeaderDark' align='left'>";
-// 										print "<b>$header&nbsp;</b>";
-// 										if ($hlink) print "[$hlink]";
-// 	print '</td>';
-
-// 	if ($href !='' && $link !='') {
-// 		print "<td class='textHeaderDark' align='right'>";
-
-// 		if (is_array($href) && is_array($link)) {
-// 			foreach ($href as $key => $value){
-// 				print "<a style='color:yellow' href='$value' alt='titlt'>" . $link[$key] . '</a>&nbsp;';
-// 			}
-// 		} else {
-// 			print "<a style='color:yellow' href='$href' alt='titlt'>$link</a>";
-// 		}
-
-// 		print '</td>';
-// 	}
-
-// 	print '</tr>
-// 			</table>
-// 		</td>
-// 	</tr>';
-
-	static $table_suffix = 1;
-
-	if ($add_label === false) {
-		$add_label = __('Add', 'reportit');
-	}
-
-	$table_prefix = basename(get_current_page(), '.php');;
-	if (!isempty_request_var('report')) {
-		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('report'));
-	} elseif (!isempty_request_var('tab')) {
-		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('tab'));
-	} elseif (!isempty_request_var('action')) {
-		$table_prefix .= '_' . clean_up_name(get_nfilter_request_var('action'));
-	}
-	$table_id = $table_prefix . $table_suffix;
-
-	if ($title != '') {
-		print "<div id='$table_id' class='cactiTable' style='width:$width;text-align:$align;'>";
-		print "<div>";
-		print "<div class='cactiTableTitle' style='width:$width'><span>" . ($title != '' ? $title:'') . '</span></div>';
-		print "<div></div>";
-		//print "<div style='background: rgba(0,0,0,0.9);text-align: right;padding: 3px 0px;border-bottom: 1px solid rgba(0,0,0,0.5);font-weight: 700;font-size: 1em;'  class='' ><span>" . ($add_text != '' ? "<a href='" . html_escape($add_text) . "'>" . "<img src='./images/bar.gif' title='Graph View'>" . '</a>':'') . '</span></div>';
-		print '</div>';
-
-		if ($div === true) {
-			print "<div id='$table_id" . "_child' class='cactiTable'>";
-		} else {
-			print "<table id='$table_id" . "_child' class='cactiTable' style='padding:" . $cell_padding . "px;'>";
-		}
-	} else {
-		print "<div id='$table_id' class='cactiTable' style='width:$width;text-align:$align;'>";
-
-		if ($div === true) {
-			print "<div id='$table_id" . "_child' class='cactiTable'>";
-		} else {
-			print "<table id='$table_id" . "_child' class='cactiTable' style='padding:" . $cell_padding . "px;'>";
-		}
-	}
-
-	$table_suffix++;
-
-
-}
-
-function html_error_box($message, $site, $jump, $link){
-	html_wizard_header('Error', $site);
-
-	print "<tr><td class='odd'><span class='textError'>$message</span></td></tr>\n";
-
-	html_wizard_footer($jump, $link, '');
-}
-
-
-function html_wizard_header($title, $site, $size='60%') {
-	html_start_box($title, $size, '', '3', 'center', '');
-
-	print "<form action='$site' method='post' enctype='multipart/form-data'>\r\n";
-}
-
-function html_wizard_footer($jump, $link, $save_html, $colspan=1) {
-	global $config;
-
-	print "<tr>
-		<td align='right' bgcolor='#eaeaea' colspan='$colspan'>
-		    <input type='hidden' name='action' value='$jump'>
-		    <a href='$link'><img src='../../images/button_cancel2.gif' alt='Chancel' align='absmiddle' border='0'></a>
-		    $save_html
-		</td>
-	</tr>";
-
-	html_end_box();
-
-	include_once(CACTI_BASE_PATH . '/include/bottom_footer.php');
-}
-
-function html_blue_link($data, $id=0) {
-	if ($id) {
-	    print "<table width=" . '100%' . " align='center'><tr><td class='textinfo' valign='top' align='right'>";
-	foreach ($data as $link) {
-		print "<span class='linkmarker'>*</span><a class='hyperLink' href='" . htmlspecialchars($link['href']) . "'>{$link['text']}</a><br>";
-	}
-		print '</td></tr></table><br>';
-	}
-}
-
-function html_checked_with_arrow($value) {
-	if ($value == true) {
-		print '<b>&radic;</b>';
-	} else {
-		print '';
-	}
-}
-
-function html_checked_with_icon($value, $icon, $title='', $alternative='', $before='', $after='') {
-	if ($value == true) {
-		print "$before<img src='./images/" . $icon . "' alt='$title' border='0' align='top' title='$title'>$after";
-	} else {
-		print $alternative;
-	}
-}
-
 /**
  * html_calc_syntax()
  * generates the links for the measurand configurator to add variables and existing interim results
@@ -294,13 +158,13 @@ function html_report_variables($report_id, $template_id) {
 	return $form_array_vars;
 }
 
-/*
-	This function creates the necessary HTML output for several input boxes
-	displayed in the report template editor, which will be used to define
-	an alias for every internal data source item.
-	@arg                => report template id, if available (new template => 0)
-	@data_template_id   => internal Cacti id of the used data template
-*/
+/**
+ * This function creates the necessary HTML output for several input boxes
+ * displayed in the report template editor, which will be used to define
+ * an alias for every internal data source item.
+ * @param  int   $template_id      - report template id, if available (new template => 0)
+ * @param  int   $data_template_id - internal Cacti id of the used data template
+ */
 function html_template_ds_alias($template_id, $data_template_id) {
 	$form_array_alias  = array();
 	$data_source_items = array();
@@ -390,3 +254,4 @@ function html_sources_icon($values, $title_on, $title_off) {
 
 	return html_onoff_icon($values, 'fa-plus', $title_off, 'fa-wrench', $title_on) . $value_text;
 }
+

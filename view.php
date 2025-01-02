@@ -25,19 +25,19 @@
 $guest_account = true;
 
 chdir(__DIR__ . '/../../');
-require_once('include/auth.php');
+require_once('./include/auth.php');
 
 if (!defined('REPORTIT_BASE_PATH')) {
-	include_once(__DIR__ . '/setup.php');
+	require_once(__DIR__ . '/setup.php');
 	reportit_define_constants();
 }
 
-include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_view.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_view.php');
 
 set_default_action();
 
@@ -66,7 +66,7 @@ switch (get_request_var('action')) {
 }
 
 function export() {
-	global $config, $export_formats;
+	global $export_formats;
 
 	$id = validate_report_vars();
 
@@ -119,7 +119,7 @@ function export() {
 }
 
 function standard() {
-	global $config, $item_rows;
+	global $item_rows;
 
 	$myId = my_id();
 	$tmz  = (read_config_option('reportit_show_tmz') == 'on') ? '(' . date('T') . ')' : '';
@@ -428,7 +428,7 @@ function validate_report_vars() {
 }
 
 function show_report() {
-	global $config, $search, $t_limit, $add_info, $export_formats, $item_rows;
+	global $search, $t_limit, $add_info, $export_formats, $item_rows;
 
 	$limitation      = 0;
 	$columns         = 0;
@@ -793,7 +793,7 @@ function show_report() {
 }
 
 function show_table_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs, $columns, $rows, $total_rows) {
-	global $config, $search, $t_limit, $add_info, $export_formats, $item_rows;
+	global $search, $t_limit, $add_info, $export_formats, $item_rows;
 
 	$report_ds_alias = $data['report_ds_alias'];
 	$report_data     = $data['report_data'];
@@ -965,7 +965,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 }
 
 function show_graph_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs) {
-	global $config, $colors, $graphs, $limit;
+	global $graphs, $limit;
 
 	$affix            = '';
 	$description      = '';
@@ -1098,8 +1098,6 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 }
 
 function show_graph_overview() {
-	global $config;
-
 	/* ================= Input validation ================= */
 	input_validate_input_number(get_request_var('id'));
 	input_validate_input_number(get_request_var('rrd'));
@@ -1132,13 +1130,11 @@ function show_graph_overview() {
 	$start	= strtotime($report_data['start_date']);
 	$end	= strtotime($report_data['end_date'] . ' 23:59:59');
 
-	header('Location: ' . $config['url_path'] . "graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
+	header('Location: ' . CACTI_PATH_URL . "graph.php?action=zoom&local_graph_id=$local_graph_id&rra_id=0&graph_start=$start&graph_end=$end");
 	exit;
 }
 
 function plugin_reportit_graph($graph_id, $graph_data) {
-	global $config;
-
 	$content = '';
 
 	$xid = substr(md5($graph_id), 0, 7);

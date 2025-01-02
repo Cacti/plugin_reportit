@@ -58,19 +58,20 @@ $path = dirname(__FILE__);
 chdir($path);
 chdir('../../');
 
-require_once('include/cli_check.php');
-include_once($config['base_path'] . '/lib/rrd.php');
-include_once($config['base_path'] . '/lib/boost.php');
-include_once($config['base_path'] . '/lib/poller.php');
-include_once(REPORTIT_BASE_PATH . '/setup.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_view.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
+require('./include/cli_check.php');
+require_once(CACTI_PATH_LIBRARY . '/rrd.php');
+require_once(CACTI_PATH_LIBRARY . '/boost.php');
+require_once(CACTI_PATH_LIBRARY . '/poller.php');
+require_once(CACTI_PATH_LIBRARY . '/reports.php');
+require_once(REPORTIT_BASE_PATH . '/setup.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_view.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_measurands.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_calculate.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_runtime.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_export.php');
 
 global $debug;
 

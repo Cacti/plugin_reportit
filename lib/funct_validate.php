@@ -22,7 +22,7 @@
  +-------------------------------------------------------------------------+
 */
 
-include_once($config['base_path'] . '/lib/xml.php');
+require_once(CACTI_PATH_LIBRARY . '/xml.php');
 
 $error = false;
 
@@ -151,8 +151,6 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 }
 
 function die_html_custom_error($msg = '', $top_header = false) {
-	global $config;
-
 	$message = '';
 	$message = ($msg == '') ? 'Validation error' : $msg;
 

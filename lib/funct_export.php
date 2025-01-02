@@ -27,7 +27,7 @@ function export_to_PDF(&$data) {
 }
 
 function export_to_CSV(&$data) {
-	global $config, $search, $run_scheduled;
+	global $search, $run_scheduled;
 
 	$eol          = PHP_EOL;
 	$rows         = '';
@@ -69,7 +69,7 @@ function export_to_CSV(&$data) {
 	$info = plugin_reportit_version();
 	/* form the export header */
 	$header = read_config_option('reportit_exp_header');
-	$header = str_replace("<cacti_version>", "$eol# Cacti: " . $config['cacti_version'], $header);
+	$header = str_replace("<cacti_version>", "$eol# Cacti: " . CACTI_VERSION, $header);
 
 	$header = str_replace("<reportit_version>", " ReportIt: " . $info['version'] , $header);
 
@@ -229,7 +229,7 @@ function export_to_CSV(&$data) {
 }
 
 function export_to_XML(&$data) {
-	global $config, $search, $run_scheduled;
+	global $search, $run_scheduled;
 
 	$eol       = PHP_EOL;
 	$add_infos = '';
@@ -249,7 +249,7 @@ function export_to_XML(&$data) {
 
 	/* form the export header */
 	$header = read_config_option('reportit_exp_header');
-	$header = str_replace('<cacti_version>', "\r\nCacti: " . $config['cacti_version'], $header);
+	$header = str_replace('<cacti_version>', "\r\nCacti: " . CACTI_VERSION, $header);
 	$info = plugin_reportit_version();
 	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'], $header);
 
@@ -379,7 +379,7 @@ function export_to_YAML(&$data) {
 }
 
 function export_to_JSON(&$data) {
-	global $config, $search, $run_scheduled;
+	global $search, $run_scheduled;
 
 	$json_data = array();
 
@@ -388,8 +388,9 @@ function export_to_JSON(&$data) {
 	transform_htmlspecialchars($data);
 
 	/* add some header components */
-	$json_data['header']          = str_replace(array('<cacti_version>', '<reportit_version>'), array('Cacti: ' . $config['cacti_version'], 'ReportIt: ' . $info['version']), read_config_option('reportit_exp_header'));
-	$json_data['version_cacti']   = $config['cacti_version'];
+	$json_data['header'] = str_replace(array('<cacti_version>', '<reportit_version>'), array('Cacti: ' . CACTI_VERSION, 'ReportIt: ' . $info['version']), read_config_option('reportit_exp_header'));
+
+	$json_data['version_cacti']   = CACTI_VERSION;
 	$json_data['version_reporit'] = $info['version'];
 
 	$mea = array();
@@ -534,7 +535,7 @@ function export_to_SML(&$data) {
 }
 
 function new_worksheet(&$data, &$styles){
-	global $config, $search, $run_scheduled;
+	global $search, $run_scheduled;
 
 	$eol          = PHP_EOL;
 	$rows         = '';
@@ -561,7 +562,7 @@ function new_worksheet(&$data, &$styles){
 	/* form the export header */
 	$info = $info = plugin_reportit_version();
 	$header = read_config_option('reportit_exp_header');
-	$header = str_replace('<cacti_version>', ' Cacti: ' . $config['cacti_version'], $header);
+	$header = str_replace('<cacti_version>', ' Cacti: ' . CACTI_VERSION, $header);
 	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'], $header);
 
 	/* compose additional informations */

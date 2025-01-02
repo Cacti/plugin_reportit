@@ -192,9 +192,9 @@ function try_autolock_template($template_id) {
 }
 
 function check_cacti_version($hash){
-	global $config, $hash_version_codes;
+	global $hash_version_codes;
 
-	if ($hash_version_codes[$config['cacti_version']] < $hash) {
+	if ($hash_version_codes[CACTI_VERSION] < $hash) {
 		return false;
 	} else {
 		return true;

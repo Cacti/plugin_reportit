@@ -24,22 +24,23 @@
 
 chdir(__DIR__ . '/../../');
 require('include/auth.php');
-require_once('./lib/poller.php');
-require_once('./lib/api_scheduler.php');
+require_once(CACTI_PATH_LIBRARY . '/reports.php');
+require_once(CACTI_PATH_LIBRARY . '/poller.php');
+require_once(CACTI_PATH_LIBRARY . '/api_scheduler.php');
 
 if (!defined('REPORTIT_BASE_PATH')) {
-	include_once(__DIR__ . '/setup.php');
+	require_once(__DIR__ . '/setup.php');
 	reportit_define_constants();
 }
 
-include_once(REPORTIT_BASE_PATH . '/include/global_arrays.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
-include_once(REPORTIT_BASE_PATH . '/lib/const_rrdlist.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
-include_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+require_once(REPORTIT_BASE_PATH . '/include/global_arrays.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_online.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_runtime.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_reports.php');
+require_once(REPORTIT_BASE_PATH . '/lib/const_rrdlist.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
 
 set_default_action();
 
@@ -85,8 +86,6 @@ switch (get_request_var('action')) {
 }
 
 function report_wizard() {
-	global $config;
-
 	$templates_list = array();
 	$templates      = array();
 
@@ -220,7 +219,7 @@ function report_filter() {
 }
 
 function standard() {
-	global $config, $report_actions, $minutes, $report_states, $report_schedule_frequency;
+	global $report_actions, $minutes, $report_states, $report_schedule_frequency;
 
 	$affix       = '';
 	$columns     = 0;
@@ -894,7 +893,7 @@ function form_save() {
 }
 
 function report_edit() {
-	global $config, $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs;
+	global $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs;
 	global $weekday, $timezone, $shifttime, $shifttime2, $format;
 	global $form_array_admin, $form_array_presets, $form_array_general, $form_array_email;
 	global $rrdlist_actions, $link_array, $item_rows;
@@ -1039,7 +1038,7 @@ function report_edit() {
 
 		foreach ($tabs as $tab => $name) {
 			print "<li class='subTab'><a class='tab" . ($tab == $current_tab ? " selected'" : "'") .
-				" href='" . html_escape($config['url_path'] .  'plugins/reportit/reportit.php' .
+				" href='" . html_escape(CACTI_PATH_URL .  'plugins/reportit/reportit.php' .
 				'?action=report_edit' .
 				'&id=' . $id .
 				'&tab=' . $tab) .
@@ -1698,7 +1697,7 @@ function rrdlist_edit() {
 }
 
 function form_actions() {
-	global $config, $report_actions, $report_states, $rrdlist_actions;
+	global $report_actions, $report_states, $rrdlist_actions;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('drp_action');
@@ -1723,7 +1722,7 @@ function form_actions() {
 						//Update $_SESSION
 						$_SESSION['run'] = '1';
 
-						exec_background($php_binary, $config['base_path'] . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
+						exec_background($php_binary, CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
 					}
 				}
 

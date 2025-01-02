@@ -23,8 +23,6 @@
 */
 
 function reportit_system_upgrade($old_version) {
-	global $config, $database_default;
-
 	require_once(CACTI_PATH_BASE . '/lib/api_scheduler.php');
 
 	$default_engine = db_fetch_row("SHOW GLOBAL VARIABLES LIKE 'default_storage_engine'");

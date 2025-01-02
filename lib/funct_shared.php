@@ -882,15 +882,13 @@ function auto_rounding(&$values, $rounding, $order){
 }
 
 function load_external_libs($name){
-	global $config;
-
 	switch ($name) {
 		case 'pclzip':
 			if (!defined('PCLZIP_TEMPORARY_DIR')) {
 				define('PCLZIP_TEMPORARY_DIR', REPORTIT_TMP_FD);
 			}
 
-			include_once(REPORTIT_BASE_PATH . '/include/vendor/pclzip/pclzip.lib.php');
+			require_once(REPORTIT_BASE_PATH . '/include/vendor/pclzip/pclzip.lib.php');
 		break;
 		case 'graidle':
 
@@ -913,8 +911,6 @@ function rename_xml_file($p_event, &$p_header) {
 }
 
 function update_xml_archive($report_id) {
-	global $config;
-
 	$arc_path  = read_config_option('reportit_arc_folder');
 	$arc_path .= (substr($arc_path, -1) == '/') ? '' : '/';
 	$tmp_path  = REPORTIT_TMP_FD;
