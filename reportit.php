@@ -519,10 +519,10 @@ function form_save() {
 	/* item specific validation */
 	get_filter_request_var('report_id');
 	get_filter_request_var('timezone');
-	get_filter_request_var('shifttime_start');
-	get_filter_request_var('shifttime_end');
-	get_filter_request_var('weekday_start');
-	get_filter_request_var('weekday_end');
+	get_filter_request_var('start_time');
+	get_filter_request_var('end_time');
+	get_filter_request_var('start_day');
+	get_filter_request_var('end_day');
 	/* ==================================================== */
 
 	if (!isset($post['tab'])) {
@@ -547,10 +547,10 @@ function form_save() {
 		case 'presets':
 		 	input_validate_input_blacklist($post['id'], array(0));
 			input_validate_input_key($post['timezone'], $timezone, true);
-			input_validate_input_key($post['shifttime_start'], $shifttime);
-			input_validate_input_key($post['shifttime_end'], $shifttime2);
-			input_validate_input_key($post['weekday_start'], $weekday);
-			input_validate_input_key($post['weekday_end'], $weekday);
+			input_validate_input_key($post['start_time'], $shifttime);
+			input_validate_input_key($post['end_time'], $shifttime2);
+			input_validate_input_key($post['start_day'], $weekday);
+			input_validate_input_key($post['end_day'], $weekday);
 
 			form_input_validate($post['subhead'], 'subhead', '' , true, 3);
 
@@ -575,8 +575,8 @@ function form_save() {
 				/* ==================================================== */
 
 				/* check start and end of shifttime */
-				$a = $post['shifttime_start'];
-				$b = $post['shifttime_end'];
+				$a = $post['start_time'];
+				$b = $post['end_time'];
 
 				if ($a == $b && $b == 0) {
 					$b = count($shifttime);
@@ -585,10 +585,10 @@ function form_save() {
 				/* prepare data array */
 				$rrdlist_data['id']          = $post['id'];
 				$rrdlist_data['report_id']   = $post['report_id'];
-				$rrdlist_data['start_day']   = $weekday[$post['weekday_start']];
-				$rrdlist_data['end_day']     = $weekday[$post['weekday_end']];
-				$rrdlist_data['start_time']  = $shifttime[$post['shifttime_start']];
-				$rrdlist_data['end_time']    = $shifttime2[$post['shifttime_end']];
+				$rrdlist_data['start_day']   = $weekday[$post['start_day']];
+				$rrdlist_data['end_day']     = $weekday[$post['end_day']];
+				$rrdlist_data['start_time']  = $shifttime[$post['start_time']];
+				$rrdlist_data['end_time']    = $shifttime2[$post['end_time']];
 				$rrdlist_data['description'] = $post['subhead'];
 
 				if (isset($post['timezone'])) {
@@ -620,7 +620,7 @@ function form_save() {
 			form_input_validate($post['name'], 'name', '', false, 3);
 
 			/* validate start- and end date if sliding time should not be used */
-			if (!isset($post['dynamic'])) {
+			if (!isset($post['sliding'])) {
 				if (!preg_match('/^\d{4}\-\d{2}\-\d{2}$/', $post['start_date'])) {
 					session_custom_error_message('start_date', 'Invalid date');
 				}
@@ -655,10 +655,10 @@ function form_save() {
 	switch($post['tab']) {
 		case 'presets':
 			$rrdlist_data['id']         = $post['id'];
-			$rrdlist_data['start_day']  = $weekday[$post['weekday_start']];
-			$rrdlist_data['end_day']    = $weekday[$post['weekday_end']];
-			$rrdlist_data['start_time'] = $shifttime[$post['shifttime_start']];
-			$rrdlist_data['end_time']   = $shifttime2[$post['shifttime_end']];
+			$rrdlist_data['start_day']  = $weekday[$post['start_day']];
+			$rrdlist_data['end_day']    = $weekday[$post['end_day']];
+			$rrdlist_data['start_time'] = $shifttime[$post['start_time']];
+			$rrdlist_data['end_time']   = $shifttime2[$post['end_time']];
 
 			if (isset($post['timezone'])) {
 				$rrdlist_data['timezone']      = $timezone[$post['timezone']];
@@ -739,8 +739,8 @@ function form_save() {
 			/* ==================================================== */
 
 			/* check start and end of shifttime */
-			$a = $post['shifttime_start'];
-			$b = $post['shifttime_end'];
+			$a = $post['start_time'];
+			$b = $post['end_time'];
 
 			if ($a == $b && $b == 0) {
 				$b = count($shifttime);
@@ -749,10 +749,10 @@ function form_save() {
 			/* prepare data array */
 			$rrdlist_data['id']           = $post['id'];
 			$rrdlist_data['report_id']    = $post['report_id'];
-			$rrdlist_data['start_day']    = $weekday[$post['weekday_start']];
-			$rrdlist_data['end_day']      = $weekday[$post['weekday_end']];
-			$rrdlist_data['start_time']   = $shifttime[$post['shifttime_start']];
-			$rrdlist_data['end_time']     = $shifttime2[$post['shifttime_end']];
+			$rrdlist_data['start_day']    = $weekday[$post['start_day']];
+			$rrdlist_data['end_day']      = $weekday[$post['end_day']];
+			$rrdlist_data['start_time']   = $shifttime[$post['start_time']];
+			$rrdlist_data['end_time']     = $shifttime2[$post['end_time']];
 			$rrdlist_data['description']  = $post['subhead'];
 
 			if (isset($post['timezone'])) {
@@ -777,12 +777,12 @@ function form_save() {
 			$report_data['template_id']      = $post['template_id'];
 			$report_data['public']           = $post['public'];
 
-			$report_data['preset_timespan']  = isset($post['timespan']) ? $timespans[$post['timespan']] : '';
+			$report_data['preset_timespan']  = isset($post['preset_timespan']) ? $timespans[$post['preset_timespan']] : '';
 
 			$report_data['start_date']       = $post['start_date'];
 			$report_data['end_date']         = $post['end_date'];
 
-			$report_data['sliding']          = $post['dynamic'];
+			$report_data['sliding']          = $post['sliding'];
 
 			if (isset($post['present'])) {
 				$report_data['present']      = $post['present'];
@@ -1602,7 +1602,7 @@ function rrdlist_edit() {
 			'friendly_name' => __('Working Time', 'reportit'),
 			'method' => 'spacer',
 		),
-		'shifttime_start' => array(
+		'start_time' => array(
 			'friendly_name' => __('From', 'reportit'),
 			'description' => __('The startpoint of duration you want to analyse', 'reportit'),
 			'method' => 'drop_array',
@@ -1610,7 +1610,7 @@ function rrdlist_edit() {
 			'value' => array_search($rrdlist_data['start_time'], $shifttime),
 			'array' => $shifttime
 		),
-		'shifttime_end' => array(
+		'end_time' => array(
 			'friendly_name' => __('To', 'reportit'),
 			'description' => __('The end of analysing time.', 'reportit'),
 			'method' => 'drop_array',
@@ -1640,14 +1640,14 @@ function rrdlist_edit() {
 			'friendly_name' => __('Working Days', 'reportit'),
 			'method' => 'spacer',
 		),
-		'weekday_start' => array(
+		'start_day' => array(
 			'friendly_name' => __('From', 'reportit'),
 			'description' => __('Define the band of days where shift STARTS!', 'reportit'),
 			'method' => 'drop_array',
 			'value' => array_search($rrdlist_data['start_day'], $weekday),
 			'array' => $weekday
 		),
-		'weekday_end' => array(
+		'end_day' => array(
 			'friendly_name' => __('To', 'reportit'),
 			'description' => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday', 'reportit'),
 			'method' => 'drop_array',

@@ -82,13 +82,13 @@ function export() {
 	$sql_order = get_order_string();
 
 	/* get informations about the archive if it exists */
-	$archive = info_xml_archive(get_request_var('id'));
+//	$archive = info_xml_archive(get_request_var('id'));
 
 	/* load report archive and fill up report cache if requested*/
-	if (get_request_var('archive') != -1) {
-		cache_xml_file(get_request_var('id'), get_request_var('archive'));
-		$cache_id = get_request_var('id') . '_' . get_request_var('archive');
-	}
+//	if (get_request_var('archive') != -1) {
+//		cache_xml_file(get_request_var('id'), get_request_var('archive'));
+//		$cache_id = get_request_var('id') . '_' . get_request_var('archive');
+//	}
 
 	/* load report data */
 	$data = (get_request_var('archive') == -1)
@@ -478,14 +478,14 @@ function show_report() {
 	$sql_affix = $sql_where . $sql_order . $sql_limit;
 
 	/* get informations about the archive if it exists */
-	$archive = info_xml_archive(get_request_var('id'));
+//	$archive = info_xml_archive(get_request_var('id'));
 
 	/* load report archive and fill up report cache if requested*/
-	if (get_request_var('archive') != -1) {
-		cache_xml_file(get_request_var('id'), get_request_var('archive'));
-
-		$cache_id = get_request_var('id') . '_' . get_request_var('archive');
-	}
+//	if (get_request_var('archive') != -1) {
+//		cache_xml_file(get_request_var('id'), get_request_var('archive'));
+//
+//		$cache_id = get_request_var('id') . '_' . get_request_var('archive');
+//	}
 
 	/* load report data */
 	if (get_request_var('archive') == -1) {

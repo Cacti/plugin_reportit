@@ -449,51 +449,6 @@ function reportit_config_settings() {
 			'method'        => 'checkbox',
 			'default'       => 'on',
 		),
-		'reportit_header3' => array(
-			'friendly_name' => __('Export Settings', 'reportit'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		),
-		'reportit_exp_filename' => array(
-			'friendly_name' => __('Filename Format', 'reportit'),
-			'description'   => __('The name format for the export files created on demand.', 'reportit'),
-			'max_length'    => '100',
-			'method'        => 'textbox',
-			'default'       => 'cacti_report_<report_id>',
-		),
-		'reportit_exp_header' => array(
-			'friendly_name' => __('Export Header', 'reportit'),
-			'description'   => __('The header description for export files', 'reportit'),
-			'method'        => 'textarea',
-			'textarea_rows' => '3',
-			'textarea_cols' => '60',
-			'default'       => __('# Your report header # <cacti_version> <reportit_version>', 'reportit'),
-		),
-		'reportit_header4' => array(
-			'friendly_name' => __('Auto Archiving', 'reportit'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		),
-		'reportit_archive' => array(
-			'friendly_name' => __('Enabled', 'reportit'),
-			'description'   => __('If enabled the result of every scheduled report will be archived automatically', 'reportit'),
-			'method'        => 'checkbox',
-			'default'       => '',
-		),
-		'reportit_arc_lifecycle' => array(
-			'friendly_name' => __('Cache Life Cycle (in seconds)', 'reportit'),
-			'description'   => __('Number of seconds an archived report will be cached without any hit.', 'reportit'),
-			'method'        => 'textbox',
-			'max_length'    => '4',
-			'default'       => '300',
-		),
-		'reportit_arc_folder' => array(
-			'friendly_name' => __('Archive Path', 'reportit'),
-			'description'   => __('The path to an archive folder where archives have to be stored.', 'reportit'),
-			'method'        => 'dirpath',
-			'max_length'    => '255',
-			'default'       => REPORTIT_ARC_FD,
-		),
 		'reportit_header5' => array(
 			'friendly_name' => __('Auto E-Mailing', 'reportit'),
 			'method'        => 'spacer',
@@ -504,25 +459,7 @@ function reportit_config_settings() {
 			'description'   => __('If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the \'Settings Plugin\'.', 'reportit'),
 			'method'        => 'checkbox',
 			'default'       => '',
-		),
-		'reportit_header6' => array(
-			'friendly_name' => __('Auto Exporting', 'reportit'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		),
-		'reportit_auto_export' => array(
-			'friendly_name' => __('Enabled', 'reportit'),
-			'description'   => __('If enabled scheduled reports can be exported automatically to a specified folder.<br> Therefore a full structured path architecture will be used:<br> Main Folder > Template Folder (if defined) or Template ID > Report ID > Report', 'reportit'),
-			'method'        => 'checkbox',
-			'default'       => '',
-		),
-		'reportit_exp_folder' => array(
-			'friendly_name' => __('Export Path', 'reportit'),
-			'description'   => __('The main path to an export folder for saving the exports.', 'reportit'),
-			'method'        => 'dirpath',
-			'max_length'    => '255',
-			'default'       => REPORTIT_EXP_FD,
-		),
+		)
 	);
 
 	if (isset($settings['reports']) && cacti_sizeof($settings['reports'])) {

@@ -259,7 +259,7 @@ $form_array_presets = array(
 		'method'        => 'textarea',
 		'textarea_rows' => '2',
 		'textarea_cols' => '45',
-		'value'         => '|arg1:description|',
+		'value'         => '|arg1:subhead|',
 		'default'       => '',
 	),
 );
@@ -323,7 +323,7 @@ $form_array_presets_2 = array(
 		'method' => 'hidden_zero',
 		'value'  => 'presets',
 	),
-	'shifttime_start' => array(
+	'start_time' => array(
 		'friendly_name' => __('From', 'reportit'),
 		'description'   => __('The startpoint of duration you want to analyse', 'reportit'),
 		'method'        => 'drop_array',
@@ -331,7 +331,7 @@ $form_array_presets_2 = array(
 		'value'         => '|arg1:start_time|',
 		'array'         => $shifttime,
 	),
-	'shifttime_end' => array(
+	'end_time' => array(
 		'friendly_name' => __('To', 'reportit'),
 		'description'   => __('The end of analysing time.', 'reportit'),
 		'method'        => 'drop_array',
@@ -343,7 +343,7 @@ $form_array_presets_2 = array(
 		'friendly_name' => __('Working Days', 'reportit'),
 		'method'        => 'spacer',
 	),
-	'weekday_start' => array(
+	'start_day' => array(
 		'friendly_name' => __('From', 'reportit'),
 		'description'   => __('Define the band of days where shift STARTS!', 'reportit'),
 		'method'        => 'drop_array',
@@ -351,7 +351,7 @@ $form_array_presets_2 = array(
 		'default'       => '0',
 		'array'         => $weekday
 	),
-	'weekday_end' => array(
+	'end_day' => array(
 		'friendly_name' => __('To', 'reportit'),
 		'method'        => 'drop_array',
 		'description'   => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday', 'reportit'),
@@ -441,7 +441,7 @@ $form_array_general = array(
 		'value'         => '|arg1:graph_permission|',
 		'default'       => 'on',
 	),
-	'email' => array(
+	'auto_email' => array(
 		'friendly_name' => __('Auto Generated Email', 'reportit'),
 		'description'   => __('If enabled tab \'Email\' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report.', 'reportit'),
 		'method'        => 'checkbox',
@@ -452,14 +452,14 @@ $form_array_general = array(
 		'friendly_name' => __('Reporting Period', 'reportit'),
 		'method'        => 'spacer',
 	),
-	'dynamic' => array(
+	'sliding' => array(
 		'friendly_name' => __('Sliding Time Frame', 'reportit'),
 		'description'   => __('If checked the reporting period will be configured automatically in relation to the point of time the calculation starts.', 'reportit'),
 		'method'        => 'checkbox',
 		'value'         => '|arg1:sliding|',
 		'default'       => 'off',
 	),
-	'timespan' => array(
+	'preset_timespan' => array(
 		'friendly_name' => __('Time Frames', 'reportit'),
 		'description'   => __('The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years.', 'reportit'),
 		'method'        => 'drop_array',

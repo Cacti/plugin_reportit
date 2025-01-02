@@ -797,21 +797,21 @@ function runtime($report_id) {
 	// ----- Archive / Email -----
 	if ($run_scheduled) {
 		/* update the XML Archive */
-		if (read_config_option('reportit_archive') == 'on') {
-			update_xml_archive($report_id);
-		}
+		//if (read_config_option('reportit_archive') == 'on') {
+		//	update_xml_archive($report_id);
+		//}
 
 		/* export report to custom format */
-		if (read_config_option('reportit_auto_export') == 'on'
-			&& $report_definitions['report']['autoexport'] != 'None'
-			&& $report_definitions['report']['autoexport'] != '') {
-
-			$export = autoexport($report_id);
-
-			if ($export) {
-				$export_counter++;
-			}
-		}
+		//if (read_config_option('reportit_auto_export') == 'on'
+		//	&& $report_definitions['report']['autoexport'] != 'None'
+		//	&& $report_definitions['report']['autoexport'] != '') {
+		//
+		//	$export = autoexport($report_id);
+		//
+		//	if ($export) {
+		//		$export_counter++;
+		//	}
+		//}
 
 		/* create and send out an email */
 		if (read_config_option('reportit_email') == 'on') {
