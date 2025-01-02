@@ -47,6 +47,7 @@ function reportit_recreate_cache_tables() {
 
 	/* status column */
 	$data['columns'][] = array('name' => 'state', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'last_state', 'type' => 'timestamp', 'NULL' => true);
 
 	/* archive specific columns */
 	$data['columns'][] = array('name' => 'owner','type' => 'varchar(20)', 'NULL' => false, 'default' => '');
@@ -163,6 +164,7 @@ function reportit_system_install() {
 
 	/* status column */
 	$data['columns'][] = array('name' => 'state', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'last_state', 'type' => 'timestamp', 'NULL' => true);
 
 	/* scheduling attributes */
 	$data['columns'][] = array('name' => 'sched_type', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => false, 'default' => '0');

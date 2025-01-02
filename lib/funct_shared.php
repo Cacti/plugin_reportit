@@ -753,7 +753,6 @@ function get_template_status($template_id) {
 	return $status;
 }
 
-
 function in_process($report_id, $status = 1) {
 	$now = date("Y-m-d H:i:s");
 
@@ -762,7 +761,6 @@ function in_process($report_id, $status = 1) {
 		WHERE id = ?",
 		array($status, $now, $report_id));;
 }
-
 
 function stat_process($report_id) {
 	$sql = "SELECT state FROM plugin_reportit_reports WHERE id=$report_id";
@@ -809,8 +807,6 @@ function config_date_format($no_time=true) {
 	else
 		return $dd;
 }
-
-
 
 /* ********************* New functions ********************************* */
 function debug(&$value, $msg = '', $fmsg = '') {

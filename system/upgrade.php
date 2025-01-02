@@ -397,9 +397,12 @@ function reportit_system_upgrade($old_version) {
 				}
 
 				db_execute('ALTER TABLE plugin_reportit_reports DROP COLUMN enabled');
-				db_execute('ALTER TABLE plugin_reportit_reports DROP COLUMN state');
 				db_execute('ALTER TABLE plugin_reportit_reports ADD COLUMN enabled char(2) NOT NULL default "" AFTER name');
-				db_execute('ALTER TABLE plugin_reportit_reports ADD COLUMN state tinyint(3) unsigned NOT NULL default "0" AFTER enabled');
+
+				db_execute('ALTER TABLE plugin_reportit_reports DROP COLUMN state, DROP COLUMN last_state');
+				db_execute('ALTER TABLE plugin_reportit_reports
+					ADD COLUMN state tinyint(1) unsigned NOT NULL default "0" AFTER enabled,
+					ADD COLUMN last_state timestamp default NULL AFTER state');
 
 				foreach($reports as $r) {
 					switch($r['frequency']) {
@@ -507,12 +510,16 @@ function reportit_system_upgrade($old_version) {
 			} else {
 				db_execute('ALTER TABLE plugin_reportit_reports DROP COLUMN enabled');
 				db_execute('ALTER TABLE plugin_reportit_reports ADD COLUMN enabled char(2) NOT NULL default "" AFTER name');
+
+				db_execute('ALTER TABLE plugin_reportit_reports DROP COLUMN state, DROP COLUMN last_state');
+				db_execute('ALTER TABLE plugin_reportit_reports
+					ADD COLUMN state tinyint(1) unsigned NOT NULL default "0" AFTER enabled,
+					ADD COLUMN last_state timestamp default NULL AFTER state');
 			}
 
 			$drop_columns = array(
 				'frequency',
 				'last_run',
-				'last_state',
 				'runtime',
 				'autoexport',
 				'autoexport_max_records',
@@ -523,7 +530,7 @@ function reportit_system_upgrade($old_version) {
 			$alter = 'ALTER TABLE plugin_reportit_reports';
 			$alter = '';
 			foreach($drop_columns as $c) {
-				if (db_column_exists('plugin_reportit_reports', 'last_state')) {
+				if (db_column_exists('plugin_reportit_reports', $c)) {
 					$alter .= ($alter != '' ? ', ':'') . "DROP COLUMN `$c`";
 				}
 			}

@@ -149,12 +149,12 @@ function run_report($report_id) {
 	$start = microtime(true);
 	$start_time = time();
 
-	$report = db_fetch_row_prepared("SELECT a.id, a.template_id, a.name
-		FROM plugin_reportit_reports AS a
-		INNER JOIN plugin_reportit_templates AS b
-		ON b.locked = ''
-		AND a.template_id = b.id
-		WHERE a.id = ?",
+	$report = db_fetch_row_prepared("SELECT report.*
+		FROM plugin_reportit_reports AS report
+		INNER JOIN plugin_reportit_templates AS template
+		ON template.locked = ''
+		AND report.template_id = template.id
+		WHERE report.id = ?",
 		array($report_id));
 
 	if (!cacti_sizeof($report)) {
@@ -162,6 +162,7 @@ function run_report($report_id) {
 		display_help();
 	} else {
 		$start_time = time();
+
 		if (!get_template_status($report['template_id'])) {
 			$report_id = $report['id'];
 
@@ -183,7 +184,7 @@ function run_report($report_id) {
 		WHERE id = ?',
 		array(
 			date('Y-m-d H:i:s', $start_time),
-			$end-$start,
+			$end - $start,
 			$report_id
 		)
 	);
