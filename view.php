@@ -167,7 +167,7 @@ function standard() {
 		$rows = get_request_var('rows');
 	}
 
-	$sql_where  = 'WHERE a.last_run != 0';
+	$sql_where  = 'WHERE a.last_started != 0';
 	$sql_params = array();
 
 	/* form the 'where' clause for our main sql query */
@@ -341,7 +341,7 @@ function standard() {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="' . cacti_sizeof($desc_array) . '"><em>' . __('No Reports Found', 'reportit') . '</em></td></tr>';
+		print '<tr class="tableRow odd"><td colspan="' . cacti_sizeof($desc_array) . '"><em>' . __('No Reports Found', 'reportit') . '</em></td></tr>';
 	}
 
 	html_end_box();

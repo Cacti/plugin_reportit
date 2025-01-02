@@ -638,8 +638,6 @@ function runtime($report_id) {
 		}
 
 		foreach ($report_definitions['maxRRDValues'] as $key => $array) {
-cacti_log("Stage: " . $array[$i]['maxRRDValue']);
-
 			$variables['maxRRDValue:' . $report_definitions['ds_items'][$key]] = $array[$i]['maxRRDValue'];
 		}
 
@@ -698,11 +696,11 @@ cacti_log("Stage: " . $array[$i]['maxRRDValue']);
 			foreach($results as $key => $value) {
 			    if ($key != '_spanned_') {
 					foreach($value as $mea_key => $value) {
-					    $list .= " ADD `{$key}__$keys[$mea_key]` DOUBLE,";
+					    $list .= " ADD `{$key}__{$keys[$mea_key]}` DOUBLE,";
 					}
 			    } else {
 					foreach($value as $mea_key => $value) {
-					    $list .= " ADD `spanned__$keys[$mea_key]` DOUBLE,";
+					    $list .= " ADD `spanned__{$keys[$mea_key]}` DOUBLE,";
 					}
 			    }
 			}
@@ -727,7 +725,7 @@ cacti_log("Stage: " . $array[$i]['maxRRDValue']);
 			// Update variable 'Result Definition'
 			$first_element = reset($results);
 			foreach($first_element as $key => $value) {
-				$result_description = $result_description . "$keys[$key]|";
+				$result_description = $result_description . "{$keys[$key]}|";
 			}
 
 			// Remove last '|' and add the number of id
@@ -736,7 +734,7 @@ cacti_log("Stage: " . $array[$i]['maxRRDValue']);
 			// Update variable 'Spanned Definition'
 			$spanned_description = '';
 			foreach($results['_spanned_'] as $key => $value) {
-				$spanned_description = $spanned_description . "$keys[$key]|";
+				$spanned_description = $spanned_description . "{$keys[$key]}|";
 			}
 
 			// Remove last '|' and add the number of id
@@ -753,11 +751,11 @@ cacti_log("Stage: " . $array[$i]['maxRRDValue']);
 		foreach($results as $key => $value) {
 		    if ($key != '_spanned_') {
 				foreach($value as $mea_key => $value) {
-				    $list .= " `{$key}__$keys[$mea_key]` = $value,";
+				    $list .= " `{$key}__{$keys[$mea_key]}` = $value,";
 				}
 		    } else {
 				foreach($value as $mea_key => $value) {
-				    $list .= " `spanned__$keys[$mea_key]` = $value,";
+				    $list .= " `spanned__{$keys[$mea_key]}` = $value,";
 				}
 		    }
 		}
@@ -768,6 +766,8 @@ cacti_log("Stage: " . $array[$i]['maxRRDValue']);
 		// Save values
 		db_execute("REPLACE plugin_reportit_results_$report_id SET id = $local_data_id, $list");
 	}
+
+	/* store results in the table, with the report data */
 
 	// ----- Close socket connection if its open -----
 	if ($socket_handle != '' && !$run_scheduled) {

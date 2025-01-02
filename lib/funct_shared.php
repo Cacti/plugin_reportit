@@ -57,9 +57,9 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	$report_data['owner']	= owner($report_id);
 
 	/* load measurand configurations */
-	$tmps = db_fetch_assoc_prepared("SELECT *
+	$tmps = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_measurands
-		WHERE template_id = ?",
+		WHERE template_id = ?',
 		array($report_data['template_id']));
 
 	foreach ($tmps as $tmp) {
@@ -77,9 +77,9 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		array($report_id, $report_data['template_id']));
 
 	/* load data source alias */
-	$report_ds_alias = db_custom_fetch_assoc("SELECT data_source_name, data_source_alias
+	$report_ds_alias = db_custom_fetch_assoc('SELECT data_source_name, data_source_alias
 		FROM plugin_reportit_data_source_items
-		WHERE template_id = " . $report_data['template_id'], 'data_source_name', false, false);
+		WHERE template_id = ' . $report_data['template_id'], 'data_source_name', false, false);
 
 	switch ($type) {
 		case 'export':
@@ -462,9 +462,9 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 	if ($value === 0) {
 		return 0;
 	} elseif ($value == NULL) {
-		return "NA";
+		return 'NA';
 	} elseif ($prefixes == 0) {
-		return sprintf("%" . $data_precision . $data_type, $value);
+		return sprintf('%' . $data_precision . $data_type, $value);
 	} elseif ($prefixes == 0 || $value == 0) {
 		return $value;
 	}
@@ -484,86 +484,86 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 	switch($value) {
 	case ($absolute >= $pre['Y']): //YOTTA
 	    $value /= $pre['Y'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " Y$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " Y$i");
 
 	    break;
 	case ($absolute >= $pre['Y']*$threshold):
 	    $value /= $pre['Y'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " Y$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " Y$i");
 
 	    break;
 	case ($absolute >= $pre['Z']): //ZETTA
 	    $value /= $pre['Z'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " Z$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " Z$i");
 
 	    break;
 	case ($absolute >= $pre['Z']*$threshold):
 	    $value /= $pre['Z'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " Z$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " Z$i");
 
 	    break;
 	case ($absolute >= $pre['E']): //EXA
 	    $value /= $pre['E'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " E$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " E$i");
 
 	    break;
 	case ($absolute >= $pre['E']*$threshold):
 	    $value /= $pre['E'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " E$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " E$i");
 
 	    break;
 	case ($absolute >= $pre['P']): //PETA
 	    $value /= $pre['P'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " P$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " P$i");
 
 	    break;
 	case ($absolute >= $pre['P']*$threshold):
 	    $value /= $pre['P'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " P$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " P$i");
 
 	    break;
 	case ($absolute >= $pre['T']): //TERA
 	    $value /= $pre['T'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " T$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " T$i");
 
 	    break;
 	case ($absolute >= $pre['T']*$threshold):
 	    $value /= $pre['T'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " T$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " T$i");
 
 	    break;
 	case ($absolute >= $pre['G']): //GIGA
 	    $value /= $pre['G'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " G$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " G$i");
 
 	    break;
 	case ($absolute >= $pre['G']*$threshold):
 	    $value /= $pre['G'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " G$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " G$i");
 
 	    break;
 	case ($absolute >= $pre['M']): //MEGA
 	    $value /= $pre['M'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " M$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " M$i");
 
 	    break;
 	case ($absolute >= $pre['M']*$threshold):
 	    $value /= $pre['M'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " M$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " M$i");
 
 	    break;
 	case ($absolute >= $pre['K']): //KILO
 	    $value /= $pre['K'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " $k$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " $k$i");
 
 	    break;
 	case ($absolute >= $pre['K']*$threshold):
 	    $value /= $pre['K'];
-	    return (sprintf("%" . $data_precision . $data_type, $value) . " $k$i");
+	    return (sprintf('%' . $data_precision . $data_type, $value) . " $k$i");
 
 	    break;
 	default:
-	    return sprintf("%" . $data_precision . $data_type, $value);
+	    return sprintf('%' . $data_precision . $data_type, $value);
 
 	    break;
 	}
@@ -578,15 +578,24 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 	if (cacti_sizeof($ids)) {
 		$list = '';
 
-		foreach ($ids as $id) {
-			$list .= "($template_id, {$id['id']}, $variable_id, $default),";
-		}
-		//Remove last comma
-		$list = substr($list, 0, strlen($list)-1);
+		$params = array();
 
-		db_execute("INSERT INTO plugin_reportit_rvars
+		foreach ($ids as $id) {
+			$list .= '(?, ?, ?, ?),';
+
+			$params[] = $template_id;
+			$params[] = $id['id'];
+			$params[] = $variable_id;
+			$params[] = $default;
+		}
+
+		//Remove last comma
+		$list = rtrim($list, ',');
+
+		db_execute_prepared("INSERT INTO plugin_reportit_rvars
 			(template_id, report_id, variable_id, value)
-			VALUES $list");
+			VALUES $list",
+			$params);
 	}
 }
 
@@ -601,12 +610,13 @@ function get_possible_rra_names($template_id) {
 	$names = array();
 	$array = array();
 
-	$names = db_fetch_assoc_prepared("SELECT b.data_source_name
+	$names = db_fetch_assoc_prepared('SELECT b.data_source_name
 		FROM plugin_reportit_data_source_items AS a
 		LEFT JOIN data_template_rrd AS b
 		ON a.id = b.id
 		WHERE a.template_id = ?
-		AND a.id != 0", array($template_id));
+		AND a.id != 0',
+		array($template_id));
 
 	foreach ($names as $name) {
 		$array[] = $name['data_source_name'];
@@ -629,15 +639,18 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 	$interim_results = array();
 
 	$names = get_possible_rra_names($template_id);
-	$sql = "SELECT abbreviation, spanned
+	$sql = 'SELECT abbreviation, spanned
 		FROM plugin_reportit_measurands
-		WHERE template_id=$template_id ";
+		WHERE template_id = ?';
+
+	$params[] = $template_id;
 
 	if ($measurand_id != 0) {
-		$sql .= "AND id<$measurand_id";
+		$sql .= ' AND id < ?';
+		$params[] = $measurand_id;
 	}
 
-	$array = db_fetch_assoc($sql);
+	$array = db_fetch_assoc_prepared($sql, $params);
 
 	if (cacti_sizeof($array)) {
 	    foreach ($array as $interim_result) {
@@ -697,11 +710,11 @@ function get_possible_variables($template_id) {
  */
 function get_possible_data_query_variables($template_id) {
 	// any data query associated with this data template?
-	$available_data_queries = db_fetch_assoc_prepared("SELECT DISTINCT dl.snmp_query_id
+	$available_data_queries = db_fetch_assoc_prepared('SELECT DISTINCT dl.snmp_query_id
 		FROM data_local AS dl
-		INNER JOIN `plugin_reportit_templates` AS rt
+		INNER JOIN plugin_reportit_templates AS rt
 		ON dl.data_template_id = rt.data_template_id
-		WHERE rt.id = ?",
+		WHERE rt.id = ?',
 		array($template_id));
 
 	// in case there is no data query, have $names initialized
@@ -714,7 +727,7 @@ function get_possible_data_query_variables($template_id) {
 			$data_query_list .= $data_queries['snmp_query_id'] . ',';
 		}
 
-		$data_query_list = substr($data_query_list, 0, -1) . ")";
+		$data_query_list = substr($data_query_list, 0, -1) . ')';
 
 		// get all host_snmp_cache variables for those list of data queries
 		$names = db_fetch_assoc("SELECT DISTINCT field_name
@@ -737,65 +750,65 @@ function get_possible_data_query_variables($template_id) {
 
 function get_template_status($template_id) {
 	//Returns '1' if the template has been locked.
-	$status = db_fetch_cell_prepared("SELECT locked
+	$status = db_fetch_cell_prepared('SELECT locked
 		FROM plugin_reportit_templates
-		WHERE id = ?",
+		WHERE id = ?',
 		array($template_id));
 
 	return $status;
 }
 
 function in_process($report_id, $status = 1) {
-	$now = date("Y-m-d H:i:s");
+	$now = date('Y-m-d H:i:s');
 
-	db_execute_prepared("UPDATE plugin_reportit_reports
+	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET state = ?, last_state = ?
-		WHERE id = ?",
+		WHERE id = ?',
 		array($status, $now, $report_id));;
 }
 
 function stat_process($report_id) {
-	$sql = "SELECT state FROM plugin_reportit_reports WHERE id=$report_id";
-	return db_fetch_cell($sql);
+	$sql = 'SELECT state FROM plugin_reportit_reports WHERE id = ?';
+	return db_fetch_cell_prepared($sql, array($report_id));
 }
 
 function config_date_format($no_time=true) {
-	$date_fmt = read_graph_config_option("default_date_format");
-	$datechar = read_graph_config_option("default_datechar");
+	$date_fmt = read_graph_config_option('default_date_format');
+	$datechar = read_graph_config_option('default_datechar');
 
-	if (!isset($date_fmt)) return("Y-m-d H:i:s");
+	if (!isset($date_fmt)) return('Y-m-d H:i:s');
 
 	if ($datechar == GDC_HYPHEN) {
-		$datechar = "-";
+		$datechar = '-';
 	} else {
-		$datechar = "/";
+		$datechar = '/';
 	}
 
 	switch ($date_fmt) {
 		case GD_MO_D_Y:
-			$dd = ("m" . $datechar . "d" . $datechar . "Y");
+			$dd = ('m' . $datechar . 'd' . $datechar . 'Y');
 			break;
 		case GD_MN_D_Y:
-			$dd = ("M" . $datechar . "d" . $datechar . "Y");
+			$dd = ('M' . $datechar . 'd' . $datechar . 'Y');
 			break;
 		case GD_D_MO_Y:
-			$dd = ("d" . $datechar . "m" . $datechar . "Y");
+			$dd = ('d' . $datechar . 'm' . $datechar . 'Y');
 			break;
 		case GD_D_MN_Y:
-			$dd = ("d" . $datechar . "M" . $datechar . "Y");
+			$dd = ('d' . $datechar . 'M' . $datechar . 'Y');
 			break;
 		case GD_Y_MO_D:
-			$dd = ("Y" . $datechar . "m" . $datechar . "d");
+			$dd = ('Y' . $datechar . 'm' . $datechar . 'd');
 			break;
 		case GD_Y_MN_D:
-			$dd = ("Y" . $datechar . "M" . $datechar . "d");
+			$dd = ('Y' . $datechar . 'M' . $datechar . 'd');
 			break;
 		default:
-			return ("Y-m-d H:i:s");
+			return ('Y-m-d H:i:s');
 	}
 
 	if (!$no_time)
-		return ($dd . " -- H:i:s");
+		return ($dd . ' -- H:i:s');
 	else
 		return $dd;
 }
@@ -827,17 +840,18 @@ function debug(&$value, $msg = '', $fmsg = '') {
 }
 
 function get_report_setting($report_id, $column){
-	$sql = "SELECT $column FROM plugin_reportit_reports WHERE id = $report_id";
+	$sql = 'SELECT $column FROM plugin_reportit_reports WHERE id = ?';
 
-	return db_fetch_cell($sql);
+	return db_fetch_cell_parepared($sql, array($report_id));
 }
 
 function get_graph_config_option($config_name, $user_id){
-	$sql = "SELECT value FROM settings_graphs WHERE name='$config_name' and user_id='$user_id'";
-	$db_setting = db_fetch_row($sql);
+	$sql = 'SELECT value FROM settings_graphs WHERE name = ? AND user_id = ?';
 
-	if (isset($db_setting["value"])) {
-		return $db_setting["value"];
+	$db_setting = db_fetch_row_parepared($sql, array($config_name, $user_id));
+
+	if (isset($db_setting['value'])) {
+		return $db_setting['value'];
 	} else{
 		return read_default_graph_config_option($config_name);
 	}
@@ -863,7 +877,7 @@ function auto_rounding(&$values, $rounding, $order){
 
 	$devisor = pow($base, $exp-1);
 	foreach ($values as $key => $value){
-		$values[$key] = sprintf("%01.2f", ($value/=$devisor));
+		$values[$key] = sprintf('%01.2f', ($value/=$devisor));
 	}
 
 	return $exp-1;
@@ -887,7 +901,6 @@ function load_external_libs($name){
 	}
 }
 
-
 function clean_for_sql(&$str){
 	$str = substr($str, 0, strlen($str)-1);
 }
@@ -896,6 +909,16 @@ function clean_for_sql(&$str){
 function rename_xml_file($p_event, &$p_header) {
 	$p_header['stored_filename'] = $p_header['mtime'] . '.xml';
 	return 1;
+}
+
+function prepare_json_archive($report_id) {
+	/* load report data */
+	$data = get_prepared_report_data($report_id, 'view');
+
+	/* transform the data source aliases to the old style */
+	$data['report_data']['data_template_alias'] = $data['report_ds_alias'];
+
+	return json_encode($data);
 }
 
 function update_xml_archive($report_id) {
@@ -1184,9 +1207,10 @@ function transform_html_escape(&$data){
 }
 
 function return_bytes($val) {
-	$val = trim($val);
+	$val  = trim($val);
 	$last = strtolower($val[strlen($val)-1]);
-	$val = substr($val, 0, -1);
+	$val  = substr($val, 0, -1);
+
 	switch($last) {
 		case 'g':
 			$val *= 1024;
@@ -1195,6 +1219,7 @@ function return_bytes($val) {
 		case 'k':
 			$val *= 1024;
 	}
+
 	return $val;
 }
 
@@ -1312,7 +1337,7 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 	}
 
 	if ($log) {
-		print "{$indent_char}xml_to_array($log, " . count($out) . "): " . clean_up_lines(var_export($out, true)) . "\n\n";
+		print "{$indent_char}xml_to_array($log, " . count($out) . '): ' . clean_up_lines(var_export($out, true)) . "\n\n";
 	}
 
 	$indent--;
@@ -1478,15 +1503,21 @@ function import_template($report_template, $data_template_id) {
 	clean_xml_waste($template_data);
 
 	$template_id = sql_save($template_data, 'plugin_reportit_templates');
+
 	foreach ($template_variables as $template_variable) {
-		$variable = $template_variable;
-		$variable['id'] = 0;
+		$variable                = $template_variable;
+		$variable['id']          = 0;
 		$variable['template_id'] = $template_id;
+
 		$new_id = sql_save($variable, 'plugin_reportit_variables');
-		$old[] = $variable['abbreviation'];
-		$abbr = 'c' . $new_id . 'v';
-		$new[] = $abbr;
-		db_execute("UPDATE plugin_reportit_variables SET abbreviation = '$abbr' WHERE id = $new_id");
+		$old[]  = $variable['abbreviation'];
+		$abbr   = 'c' . $new_id . 'v';
+		$new[]  = $abbr;
+
+		db_execute_prepared('UPDATE plugin_reportit_variables
+			SET abbreviation = ?
+			WHERE id = ?',
+			array($abbr, $new_id));
 	}
 
 	foreach ($template_measurands as $template_measurand) {
@@ -1494,6 +1525,7 @@ function import_template($report_template, $data_template_id) {
 		$measurand['id']           = 0;
 		$measurand['template_id']  = $template_id;
 		$measurand['calc_formula'] = str_replace($old,$new, $measurand['calc_formula']);
+
 		sql_save($measurand, 'plugin_reportit_measurands');
 	}
 
@@ -1502,7 +1534,7 @@ function import_template($report_template, $data_template_id) {
 		clean_xml_waste($ds_item);
 
 		$ds_item['id'] = db_fetch_cell_prepared('SELECT id
-				FROM `data_template_rrd`
+				FROM data_template_rrd
 				WHERE local_data_id = 0
 				AND data_template_id = ?
 				AND data_source_name = ?',
