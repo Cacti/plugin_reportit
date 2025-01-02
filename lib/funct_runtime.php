@@ -24,16 +24,17 @@
 
 function create_result_table($report_id) {
 	// Create the sql syntax
-	db_execute('CREATE TABLE IF NOT EXISTS plugin_reportit_results_' . $report_id . ' (
-		`id` 	int(11) NOT NULL DEFAULT 0,
+	db_execute("CREATE TABLE IF NOT EXISTS plugin_reportit_results_$report_id (
+		`id` int(11) NOT NULL DEFAULT 0,
 		PRIMARY KEY (`id`))
-		ENGINE=InnoDB');
+		ENGINE=InnoDB");
 
 	// Copy all actual ids from rrdlist
-	db_execute('INSERT INTO plugin_reportit_results_' . $report_id . '
+	db_execute_prepared("INSERT INTO plugin_reportit_results_$report_id
 		SELECT `id`
 		FROM plugin_reportit_data_items
-		WHERE report_id = '. $report_id);
+		WHERE report_id = ?",
+		array($report_id));
 }
 
 function get_report_definitions($report_id) {
@@ -48,16 +49,18 @@ function get_report_definitions($report_id) {
 		array($report_id));
 
 	// Fetch all RRD definitions
-	$data_items = db_fetch_assoc_prepared('SELECT c.field_value as `maxValue`, a.*
+	$data_items = db_fetch_assoc_prepared('SELECT
+		MAX(IF(c.field_name = "ifSpeed", c.field_value, c.field_value * 1000000)) AS `maxValue`, a.*
 		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_local AS b
-		ON b.id=a.id
+		ON b.id = a.id
 		LEFT JOIN host_snmp_cache AS c
-		ON c.host_id=b.host_id
-		AND c.snmp_index=b.snmp_index
-		AND c.snmp_query_id=b.snmp_query_id
-		AND c.field_name="ifSpeed"
+		ON c.host_id = b.host_id
+		AND c.snmp_index = b.snmp_index
+		AND c.snmp_query_id = b.snmp_query_id
+		AND c.field_name IN ("ifSpeed", "ifHighSpeed")
 		WHERE a.report_id = ?
+		GROUP BY a.id
 		ORDER BY a.id',
 		array($report_id));
 
@@ -87,25 +90,52 @@ function get_report_definitions($report_id) {
 		WHERE template_id = ' . $report['template_id'] . '
 		AND id != 0
 		ORDER BY id';
+
 	$ds_items = db_custom_fetch_flat_array($sql);
 
 	foreach ($ds_items as $key => $data_source_name) {
-		$maxRRDValues[$key] = db_fetch_assoc_prepared('SELECT b.id, a.rrd_maximum AS maxRRDValue
-			FROM data_template_rrd AS a
-			RIGHT JOIN plugin_reportit_data_items AS b
-			ON a.local_data_id = b.id
-			WHERE a.data_template_id = ?
-			AND b.report_id = ?
-			AND a.data_source_name = ?
-			ORDER BY b.id',
+		/**
+		 * We need to process this list as the maxRRDValue can contain |query_ifSpeed|
+		 * and |query_ifHighSpeed|.
+		 */
+		$temp_results = db_fetch_assoc_prepared('SELECT rdi.id, dtr.rrd_maximum AS maxRRDValue,
+			dl.host_id, dl.snmp_query_id, dl.snmp_index
+			FROM plugin_reportit_data_items AS rdi
+			LEFT JOIN data_template_rrd AS dtr
+			ON dtr.local_data_id = rdi.id
+			LEFT JOIN data_local AS dl
+			ON dl.id = dtr.local_data_id
+			WHERE dtr.data_template_id = ?
+			AND rdi.report_id = ?
+			AND dtr.data_source_name = ?
+			ORDER BY rdi.id',
 			array($template['data_template_id'], $report_id, $data_source_name));
+
+		$fin_results = array();
+
+		if (cacti_sizeof($temp_results)) {
+			foreach($temp_results as $r) {
+				$pre = $r['maxRRDValue'];
+
+				if (strpos($pre, '|') !== false) {
+					$post = substitute_snmp_query_data($pre, $r['host_id'], $r['snmp_query_id'], $r['snmp_index']);
+				} else {
+					$post = $pre;
+				}
+
+				$fin_results[] = array('id' => $r['id'], 'maxRRDValue' => $post);
+			}
+		}
+
+		$maxRRDValues[$key] = $fin_results;
 	}
 
 	// Fetch all measurands
 	$measurands = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?
-		ORDER BY id', array($report['template_id']));
+		ORDER BY id',
+		array($report['template_id']));
 
 	// filter out all used consolidation function
 	$cf = array();

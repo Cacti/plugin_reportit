@@ -63,6 +63,7 @@ require_once(CACTI_PATH_LIBRARY . '/rrd.php');
 require_once(CACTI_PATH_LIBRARY . '/boost.php');
 require_once(CACTI_PATH_LIBRARY . '/poller.php');
 require_once(CACTI_PATH_LIBRARY . '/reports.php');
+require_once(CACTI_PATH_LIBRARY . '/variables.php');
 require_once(REPORTIT_BASE_PATH . '/setup.php');
 require_once(REPORTIT_BASE_PATH . '/lib/const_view.php');
 require_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
@@ -298,6 +299,7 @@ function runtime($report_id) {
 	//Check number of defined RRDs
 	if (!$number_of_rrds > 0) {
 		run_error(2, $report_id);
+
 		in_process($report_id, 0);
 
 		unregister_process('reportit', 'report', $report_id);
@@ -636,6 +638,8 @@ function runtime($report_id) {
 		}
 
 		foreach ($report_definitions['maxRRDValues'] as $key => $array) {
+cacti_log("Stage: " . $array[$i]['maxRRDValue']);
+
 			$variables['maxRRDValue:' . $report_definitions['ds_items'][$key]] = $array[$i]['maxRRDValue'];
 		}
 

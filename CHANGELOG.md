@@ -2,6 +2,7 @@
 
 --- develop ---
 
+* issue: ReportIt was not properly parsing maxRRDValues of |query_ifSpeed| and |query_ifHighSpeed|
 * feature: Dropping support for Cacti 1.2.x
 * feature: Remove archive and export functionality.  Using Cacti's report log instead
 

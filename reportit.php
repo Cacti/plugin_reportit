@@ -219,7 +219,7 @@ function report_filter() {
 }
 
 function standard() {
-	global $report_actions, $minutes, $report_states, $report_schedule_frequency;
+	global $report_actions, $minutes, $report_states, $sched_types, $report_schedule_frequency;
 
 	$affix       = '';
 	$columns     = 0;
@@ -427,7 +427,7 @@ function standard() {
 			}
 
 			if ($report['enabled'] == 'on') {
-				form_selectable_cell($report_schedule_frequency[$report['frequency']], $report['id']);
+				form_selectable_cell($sched_types[$report['sched_type']], $report['id']);
 			} else {
 				form_selectable_cell(__('Disabled', 'reportit'), $report['id']);
 			}

@@ -307,7 +307,7 @@ function f_if (&$array, &$p_cache) {
 	return $p_cache['f_if'];
 }
 
-// "Greater than" logic supporting predefined return values for true and false
+// 'Greater than' logic supporting predefined return values for true and false
 function f_gt(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
 		$p_cache['f_gt'] = REPORTIT_NAN;
@@ -317,7 +317,7 @@ function f_gt(&$array, &$p_cache) {
 	}
 }
 
-/* Alias for f_cmp - "Lower than" logic */
+/* Alias for f_cmp - 'Lower than' logic */
 function f_lt(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
 		$p_cache['f_lt'] = REPORTIT_NAN;
@@ -327,7 +327,7 @@ function f_lt(&$array, &$p_cache) {
 	}
 }
 
-/* Alias for f_cmp - "Greater than or equal" logic */
+/* Alias for f_cmp - 'Greater than or equal' logic */
 function f_ge(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
 		$p_cache['f_ge'] = REPORTIT_NAN;
@@ -337,7 +337,7 @@ function f_ge(&$array, &$p_cache) {
 	}
 }
 
-/* Alias for f_cmp - "Lower than or equal " logic */
+/* Alias for f_cmp - 'Lower than or equal ' logic */
 function f_le(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
 		$p_cache['f_le'] = REPORTIT_NAN;
@@ -347,7 +347,7 @@ function f_le(&$array, &$p_cache) {
 	}
 }
 
-/* Alias for f_cmp - "Equal" logic */
+/* Alias for f_cmp - 'Equal' logic */
 function f_eq(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
 		$p_cache['f_eq'] = REPORTIT_NAN;
@@ -357,7 +357,7 @@ function f_eq(&$array, &$p_cache) {
 	}
 }
 
-/* Alias for f_cmp - "Equal" logic */
+/* Alias for f_cmp - 'Equal' logic */
 function f_uq(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
 		$p_cache['f_uq'] = REPORTIT_NAN;
@@ -369,7 +369,7 @@ function f_uq(&$array, &$p_cache) {
 
 /* compare function */
 function f_cmp(&$array, &$p_cache, $function, $args) {
-	$operators = array("eq" => "==", "lt" => "<", "gt" => ">", "le" => "<=", "ge" => ">=", "uq" => "!=");
+	$operators = array('eq' => '==', 'lt' => '<', 'gt' => '>', 'le' => '<=', 'ge' => '>=', 'uq' => '!=');
 
 	$condition = 'return (' . $args[0] .  $operators[$function] . $args[1] . ') ? true : false;';
 
@@ -426,7 +426,7 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 	$m_cache = $dm_cache;	//Metrics
 	$r_cache = $dr_cache;	//Interim results
 	$p_cache = $dp_cache;	//Functions with parameters
-	$s_cache = $ds_cache;	//Metrics with flag "spanned"
+	$s_cache = $ds_cache;	//Metrics with flag 'spanned'
 
 	$n_rra   = $params['rrd_ds_cnt'];
 	$ds_namv = $params['rras'];
@@ -450,13 +450,13 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 
 	//Build the calculation command and execute it
 	foreach ($m_cache as $k => $m) {
-		debug($cache, "Main Cache Status: f,m,p");
+		debug($cache, 'Main Cache Status: f,m,p');
 
 		// we need the correct rra index to choose the right data
 		$rra_index = $params['rra_indexes'][$k];
 
 		foreach ($ds_namv as $i => $ds_name) {
-			debug($cache, "Main Cache Status: f,m,p");
+			debug($cache, 'Main Cache Status: f,m,p');
 
 			// Debug
 			$debug = array();
@@ -522,18 +522,18 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 			$debug[]= $formula;
 
 			//calculate
-			$result = false;
+			$result    = false;
 			$completed = false;
 
-			debug($debug, "Interpretation");
+			debug($debug, 'Interpretation');
 
 			if (stripos($formula, '|query_NAN|') !== false) {
 				return 'NULL';
 			}
 
-			$calculate_last_formula = "$formula";
+			$calculate_last_formula = $formula;
 			eval("\$result = $formula;");
-			$calculate_last_formula = "";
+			$calculate_last_formula = '';
 
 			if ($result === false || is_nan($result) || is_null($result)) {
 				$result = 'NULL';
@@ -542,9 +542,9 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 			$debug = array();
 			$debug[] = $result;
 
-			debug($debug, "Result");
+			debug($debug, 'Result');
 
-			//If its flagged as "spanned" then update the s_cache, update the main cache
+			//If its flagged as 'spanned' then update the s_cache, update the main cache
 			//and jump to the next measurand
 			if (array_key_exists($k, $s_cache)) {
 				$s_cache[$k] = $result;
@@ -576,7 +576,7 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 
 	//Fall back to normal error handler
 	restore_error_handler();
-	debug($cache, "Main Cache Status: f,m,p");
+	debug($cache, 'Main Cache Status: f,m,p');
 
 	return $result;
 }
