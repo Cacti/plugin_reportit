@@ -678,11 +678,11 @@ function reportit_poller_bottom() {
 	reports_log('Cacti ReportIt Reports reports found: ' . cacti_sizeof($reports), true, 'REPORTS', POLLER_VERBOSITY_MEDIUM);
 
 	if (cacti_sizeof($reports)) {
-		foreach($reports as $r) {
-			if (api_scheduler_is_time_to_start($report, 'reports') || $force) {
+		foreach($reports as $report) {
+			if (api_scheduler_is_time_to_start($report, 'plugin_reportit_reports')) {
 				reports_log('Reports processing report: ' . $report['name'], true, 'REPORTS', POLLER_VERBOSITY_MEDIUM);
 
-				$queued[] = reportit_schedule_report($r);
+				$queued[] = reportit_schedule_report($report);
 			}
 		}
 	}
@@ -706,8 +706,10 @@ function reportit_schedule_report(&$report) {
 
 	$command = CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php';
 	$id      = $report['id'];
-	$name    = $report['description'];
+	$name    = $report['name'];
 	$notify  = $report['notify_list'];
+
+	$notification = array();
 
 	$emails = db_fetch_cell_prepared('SELECT GROUP_CONCAT(CONCAT(name, "<", email, ">"))
 		FROM plugin_reportit_recipients

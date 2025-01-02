@@ -648,13 +648,13 @@ function reportit_report_run($id) {
 	$command     = $report['run_command'] . " --report-id=$id";
 	$timeout     = $report['run_timeout'];
 
-	cacti_log("The report:$id has command was:$command");
+	cacti_log("NOTE: Report:{$report['name']} Command:'$command'", false, 'REPORTIT', POLLER_VERBOSITY_MEDIUM);
 
 	$last_line = exec_with_timeout($command, $output, $return_code, $timeout);
 
 	$end  = microtime(true);
 
-	$stats = sprintf("REPORTIT REPORT STATS: Time:0.2f Report:'%s' Source:%s SourceID:%s", $end-$start, $report['name'], $report['source'], $report['source_id']);
+	$stats = sprintf("REPORTIT STATS: Time:%0.2f Report:'%s' Source:%s Id:%s", $end-$start, $report['name'], $report['source'], $report['source_id']);
 
 	cacti_log($stats, false, 'SYSTEM');
 

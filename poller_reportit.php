@@ -51,7 +51,7 @@ $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
 $debug          = false;
-$scheduled      = false;
+$schedule       = false;
 
 $path = dirname(__FILE__);
 
@@ -90,7 +90,7 @@ if (cacti_sizeof($parms)) {
 
 				break;
 			case '--scheduled':
-				$scheduled = true;
+				$schedule  = true;
 
 				break;
 			case '--verbose':
@@ -127,7 +127,7 @@ if (cacti_sizeof($parms)) {
 }
 
 if ($schedule == true) {
-	$pending = db_fetch_assoc('SELECT *
+	$pending = db_fetch_assoc_prepared('SELECT *
 		FROM reports_queued
 		WHERE status = ?
 		AND source = ?',
@@ -148,33 +148,26 @@ function run_report($report_id) {
 
 	$start = microtime(true);
 
-	if (is_numeric($frequency)) {
-		$reports = db_fetch_assoc_prepared("SELECT a.id, a.template_id
-			FROM plugin_reportit_reports AS a
-			INNER JOIN plugin_reportit_templates AS b
-			ON b.locked = ''
-			AND a.template_id = b.id
-			WHERE a.id = ?",
-			array($report_id));
-	}
+	$report = db_fetch_row_prepared("SELECT a.id, a.template_id
+		FROM plugin_reportit_reports AS a
+		INNER JOIN plugin_reportit_templates AS b
+		ON b.locked = ''
+		AND a.template_id = b.id
+		WHERE a.id = ?",
+		array($report_id));
 
-	$number  = cacti_sizeof($reports);
-
-	if ($number == 0) {
+	if (!cacti_sizeof($report)) {
 		print PHP_EOL . PHP_EOL . "ERROR: Invalid report ID !" . PHP_EOL;
 		display_help();
 	} else {
-		foreach($reports as $report) {
-			if (!get_template_status($report['template_id'])) {
-				$report_id = $report['id'];
+		$start_time = time();
+		if (!get_template_status($report['template_id'])) {
+			$report_id = $report['id'];
 
-				runtime($report_id);
-			} else {
-				$report_id = $report['id'];
-				run_error(10, $report_id);
-
-				continue;
-			}
+			runtime($report_id);
+		} else {
+			$report_id = $report['id'];
+			run_error(10, $report_id);
 		}
 	}
 
@@ -182,7 +175,17 @@ function run_report($report_id) {
 	$time  = round($end - $start, 2);
 	$usage = get_mem_usage();
 
-	cacti_log("REPORTIT STATS: Time:$time Report:{$report['name']} Id:$report_id Emails:$email_counter Exports:$export_counter PeakMemory:{$usage['peak']}", $run_verb, 'SYSTEM');
+	cacti_log("REPORTIT STATS: Time:$time Report:'{$report['name']}' Id:$report_id Emails:$email_counter Exports:$export_counter PeakMemory:{$usage['peak']}", $run_verb, 'SYSTEM');
+
+	db_execute_prepared('UPDATE plugin_reportit_reports
+		SET last_started = ?, last_runtime = ?
+		WHERE id = ?',
+		array(
+			date('Y-m-d H:i:s', $start_time),
+			$time,
+			$report['id']
+		)
+	);
 
 	exit(0);
 }
