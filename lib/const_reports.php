@@ -120,7 +120,6 @@ $tabs = array(
 	'general' => __('General', 'reportit'),
 	'presets' => __('Data Source Presets', 'reportit'),
 	'email'   => __('Email', 'reportit'),
-	'admin'   => __('Administration', 'reportit'),
 	'items'   => __('Data Sources', 'reportit')
 );
 
@@ -179,61 +178,61 @@ if (db_table_exists('plugin_notification_lists')) {
 $form_array_email = array(
 	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
 	'id' => array(
 		'method' => 'hidden_zero',
-		'value' => '|arg1:id|',
+		'value'  => '|arg1:id|',
 	),
 	'tab' => array(
 		'method' => 'hidden_zero',
-		'value' => 'email',
+		'value'  => 'email',
 	),
 	'email_subject' => array(
 		'friendly_name' => __('Subject', 'reportit'),
-		'description' => __('Enter the subject of your email.<br> Following variables will be supported (without quotes): \'|title|\' and \'|period|\'', 'reportit'),
-		'size' => '60',
-		'max_length' => '100',
-		'method' => 'textbox',
-		'default' => __('Scheduled report - |title| - |period|', 'reportit'),
-		'value' => '|arg1:email_subject|',
+		'description'   => __('Enter the subject of your email.<br> Following variables will be supported (without quotes): \'|title|\' and \'|period|\'', 'reportit'),
+		'size'          => '60',
+		'max_length'    => '100',
+		'method'        => 'textbox',
+		'default'       => __('Scheduled report - |title| - |period|', 'reportit'),
+		'value'         => '|arg1:email_subject|',
 	),
 	'email_body' => array(
 		'friendly_name' => __('Body (optional)', 'reportit'),
-		'description' => __('Enter a message which will be displayed in the body of your email', 'reportit'),
-		'method' => 'textarea',
+		'description'   => __('Enter a message which will be displayed in the body of your email', 'reportit'),
+		'method'        => 'textarea',
 		'textarea_rows' => '3',
 		'textarea_cols' => '45',
-		'default' => __('This is a scheduled report generated from Cacti.', 'reportit'),
-		'value' => '|arg1:email_body|',
+		'default'       => __('This is a scheduled report generated from Cacti.', 'reportit'),
+		'value'         => '|arg1:email_body|',
 	),
 	'email_format' => array(
 		'friendly_name' => __('Attachment', 'reportit'),
-		'method' => 'drop_array',
-		'description' => __('Only to receive an email as a notification that a new report is available choose \'None\'.<br> Otherwise select the format the report should be attached as.', 'reportit'),
-		'value' => '|arg1:email_format|',
-		'array' => $format,
-		'default' => '1',
+		'method'        => 'drop_array',
+		'description'   => __('Only to receive an email as a notification that a new report is available choose \'None\'.<br> Otherwise select the format the report should be attached as.', 'reportit'),
+		'value'         => '|arg1:email_format|',
+		'array'         => $format,
+		'default'       => '1',
 	),
 	'header_2' => array(
 		'friendly_name' => __('Email Recipients', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
 	'notify_list' => array(
 		'friendly_name' => __('Notification List Recipients', 'reportit'),
-		'description' => __('To add a Recipients based upon an valid Notification List.', 'reportit'),
-		'method' => 'drop_array',
-		'array' => $notify_lists,
-		'default' => '',
-		'none_value' => __('None', 'reportit'),
-		'value' => '|arg1:notify_list|',
+		'description'   => __('To add a Recipients based upon an valid Notification List.', 'reportit'),
+		'method'        => 'drop_array',
+		'array'         => $notify_lists,
+		'default'       => '',
+		'none_value'    => __('None', 'reportit'),
+		'value'         => '|arg1:notify_list|',
 	),
 	'email_recipient' => array(
 		'friendly_name' => __('New Email Recipients', 'reportit'),
-		'description' => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: \';\' or \',\'', 'reportit'),
-		'method' => 'custom',
-		'default' => 'false',
-		'value' => "<div style='line-height: 1.5em;'>
+		'description'   => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: \';\' or \',\'', 'reportit'),
+		'method'        => 'custom',
+		'default'       => 'false',
+		'value'         => "<div style='line-height: 1.5em;'>
 			<div>
 				<input type='text' id='email_address' name='email_address' size='60' maxlength='2500' align='top'>
 				<input type='submit' id='add_recipients_x' name='add_recipients_x' value='add' title='Add recipients'>
@@ -249,217 +248,116 @@ if (!cacti_sizeof($notify_lists)) {
 	unset($form_array_email['notify_list']);
 }
 
-$form_array_scheduling = array(
-	'header_3' => array(
-		'friendly_name' => __('Scheduled Reporting', 'reportit'),
-		'method' => 'spacer',
-	),
-	'enabled' => array(
-		'friendly_name' => __('Enabled', 'reportit'),
-		'description' => __('Enable/disable scheduled reporting. Sliding time frame should be enabled.', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:enabled|',
-		'default' => '',
-	),
-	'frequency' => array(
-		'friendly_name' => __('Frequency', 'reportit'),
-		'description' => __('Select the frequency for processing this Report. ReportIt has a basic scheduler that will dispatch reports at midnight each day based upon the dispatch frequency specified by the user.', 'reportit'),
-		'method' => 'drop_array',
-		'value' => '|arg1:frequency|',
-		'array' => $frequency
-	),
-	'autorrdlist' => array(
-		'friendly_name' => __('Auto Generated Data Items', 'reportit'),
-		'description' => __('Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added.', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:autorrdlist|',
-		'default' => '',
-	),
-);
-
-if (read_config_option('reportit_archive')) {
-	$form_array_scheduling['autoarchive'] = array(
-		'friendly_name' => __('Auto Generated Archive', 'reportit'),
-		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose "off" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run.', 'reportit'),
-		'method' => 'drop_array',
-		'value' => '|arg1:autoarchive|',
-		'default' => '0',
-		'array' => $archive
-	);
-}
-
-if (read_config_option('reportit_email')) {
-	$form_array_scheduling['email'] = array(
-		'friendly_name' => __('Auto Generated Email', 'reportit'),
-		'description' => __('If enabled tab \'Email\' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report.', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:auto_email|',
-		'default' => ''
-	);
-}
-
-if (read_config_option('reportit_auto_export')) {
-	$form_array_scheduling['autoexport'] = array(
-		'friendly_name' => __('Auto Generated Export', 'reportit'),
-		'description' => __('If enabled the report will be automatically exported to a separate subfolder.  This will be placed within the export folder defined in the report template.', 'reportit'),
-		'method' => 'drop_array',
-		'value' => '|arg1:autoexport|',
-		'array' => $format,
-		'default' => '0'
-	);
-	$form_array_scheduling['autoexport_max_records'] = array(
-		'friendly_name' => __('Export Limitation', 'reportit'),
-		'description' => __('Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \'off\' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run.', 'reportit'),
-		'method' => 'drop_array',
-		'value' => '|arg1:autoexport_max_records|',
-		'default' => '0',
-		'array' => $archive
-	);
-	$form_array_scheduling['autoexport_no_formatting'] = array(
-		'friendly_name' => __('Raw Data Export', 'reportit'),
-		'description' => __('If enabled auto generated exports will contain raw data only. The formatting of measurands will be ignored.', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:autoexport_no_formatting|',
-		'default' => ''
-	);
-}
-
-$form_array_admin = array(
-	'header_1' => array(
-		'friendly_name' => __('General', 'reportit'),
-		'method' => 'spacer',
-	),
-	'id' => array(
-		'method' => 'hidden_zero',
-		'value' => '|arg1:id|',
-	),
-	'tab' => array(
-		'method' => 'hidden_zero',
-		'value' => 'admin',
-	),
-	'owner' => array(
-		'friendly_name' => __('Change Report Owner', 'reportit'),
-		'description' => __('Change the owner of this report. Only users with a minimum of reporting rights (\'View\' or higher) can be selected.', 'reportit'),
-		'method' => 'drop_sql',
-		'sql' => "SELECT DISTINCT a.id, a.username as name FROM user_auth AS a INNER JOIN user_auth_realm AS b ON a.id = b.user_id WHERE (b.realm_id = " . REPORTIT_USER_OWNER . " OR b.realm_id = " . REPORTIT_USER_VIEWER . ") ORDER BY username",
-		'value' => '|arg1:user_id|',
-	),
-	'graph_permission' => array(
-		'friendly_name' => __('Enable Use of Graph Permissions', 'reportit'),
-		'description' => __('If enabled (default) the list of available data items will be filtered automatically by owner\'s graph permission: \'by device\'.', 'reportit'),
-		'method' => 'checkbox',
-		'value' => '|arg1:graph_permission|',
-		'default' => 'on',
-	),
-);
-
-if (!read_config_option('reportit_operator')) {
-	$form_array_admin = array_merge($form_array_admin, $form_array_scheduling);
-}
-
 $form_array_presets = array(
 	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
-	'rrdlist_subhead' => array(
+	'subhead' => array(
 		'friendly_name' => __('Optional Sub-heading', 'reportit'),
-		'description' => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\'', 'reportit'),
-		'method' => 'textarea',
+		'description'   => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\'', 'reportit'),
+		'method'        => 'textarea',
 		'textarea_rows' => '2',
 		'textarea_cols' => '45',
-		'value' => '|arg1:description|',
-		'default' => '',
-	)
+		'value'         => '|arg1:description|',
+		'default'       => '',
+	),
 );
 
 if (read_config_option('reportit_use_tmz') == 'on') {
-	$form_array_presets['rrdlist_timezone'] = array(
+	$form_array_presets['timezone'] = array(
 		'friendly_name' => __('Time Zone', 'reportit'),
-		'description' => __('Select the time zone your following shifttime informations will be based on.', 'reportit'),
-		'method' => 'drop_array',
-		'value' => '|arg1:timezone|',
-		'default' => '17',
-		'array' => array_keys($timezones)
+		'description'   => __('Select the time zone your following shifttime informations will be based on.', 'reportit'),
+		'method'        => 'drop_array',
+		'value'         => '|arg1:timezone|',
+		'default'       => '17',
+		'array'         => array_keys($timezones)
 	);
 }
 
 $form_array_presets_2 = array(
 	'data_source_header' => array(
 		'friendly_name' => __('Optional Data Source Pre-Filters', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
 	'site_id' => array(
 		'friendly_name' => __('Site Filter', 'reportit'),
-		'description' => __('Use this Sites matching Data Sources only.<br>Select \'None\' (default) to deactivate this filter setting.', 'reportit'),
-		'method' => 'drop_sql',
-		'sql' => 'SELECT id, name FROM sites ORDER BY name',
-		'none_value' => __('None', 'reportit'),
-		'value' => '|arg2:site_id|',
+		'description'   => __('Use this Sites matching Data Sources only.<br>Select \'None\' (default) to deactivate this filter setting.', 'reportit'),
+		'method'        => 'drop_sql',
+		'sql'           => 'SELECT id, name FROM sites ORDER BY name',
+		'none_value'    => __('None', 'reportit'),
+		'value'         => '|arg2:site_id|',
 	),
 	'host_template_id' => array(
 		'friendly_name' => __('Device Template Filter', 'reportit'),
-		'description' => __('Use this Device Templates Data Sources only.<br>Select \'None\' (default) to deactivate this filter setting.', 'reportit'),
-		'method' => 'drop_sql',
-		'sql' => 'SELECT id, name FROM host_template ORDER BY name',
-		'none_value' => __('None', 'reportit'),
-		'value' => '|arg2:host_template_id|',
+		'description'   => __('Use this Device Templates Data Sources only.<br>Select \'None\' (default) to deactivate this filter setting.', 'reportit'),
+		'method'        => 'drop_sql',
+		'sql'           => 'SELECT id, name FROM host_template ORDER BY name',
+		'none_value'    => __('None', 'reportit'),
+		'value'         => '|arg2:host_template_id|',
 	),
 	'data_source_filter' => array(
 		'friendly_name' => __('Data Source Name Filter', 'reportit'),
-		'description' => __('Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!', 'reportit'),
-		'method' => 'textbox',
-		'size' => 50,
-		'max_length' => '100',
-		'value' => '|arg2:data_source_filter|',
+		'description'   => __('Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!', 'reportit'),
+		'method'        => 'textbox',
+		'size'          => 50,
+		'max_length'    => '100',
+		'value'         => '|arg2:data_source_filter|',
+	),
+	'autorrdlist' => array(
+		'friendly_name' => __('Auto Generated Data Items', 'reportit'),
+		'description'   => __('Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added.', 'reportit'),
+		'method'        => 'checkbox',
+		'value'         => '|arg1:autorrdlist|',
+		'default'       => '',
 	),
 	'header_2' => array(
 		'friendly_name' => __('Working Time', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
 	'id' => array(
 		'method' => 'hidden_zero',
-		'value' => '|arg1:id|',
+		'value'  => '|arg1:id|',
 	),
 	'tab' => array(
 		'method' => 'hidden_zero',
-		'value' => 'presets',
+		'value'  => 'presets',
 	),
-	'rrdlist_shifttime_start' => array(
+	'shifttime_start' => array(
 		'friendly_name' => __('From', 'reportit'),
-		'description' => __('The startpoint of duration you want to analyse', 'reportit'),
-		'method' => 'drop_array',
-		'default' => '0',
-		'value' => '|arg1:start_time|',
-		'array' => $shifttime,
+		'description'   => __('The startpoint of duration you want to analyse', 'reportit'),
+		'method'        => 'drop_array',
+		'default'       => '0',
+		'value'         => '|arg1:start_time|',
+		'array'         => $shifttime,
 	),
-	'rrdlist_shifttime_end' => array(
+	'shifttime_end' => array(
 		'friendly_name' => __('To', 'reportit'),
-		'description' => __('The end of analysing time.', 'reportit'),
-		'method' => 'drop_array',
-		'default' => '288',
-		'value' => '|arg1:end_time|',
-		'array' => $shifttime2,
+		'description'   => __('The end of analysing time.', 'reportit'),
+		'method'        => 'drop_array',
+		'default'       => '288',
+		'value'         => '|arg1:end_time|',
+		'array'         => $shifttime2,
 	),
-	'rrdlist_header_3' => array(
+	'header_3' => array(
 		'friendly_name' => __('Working Days', 'reportit'),
-		'method' => 'spacer',
+		'method'        => 'spacer',
 	),
-	'rrdlist_weekday_start' => array(
+	'weekday_start' => array(
 		'friendly_name' => __('From', 'reportit'),
-		'description' => __('Define the band of days where shift STARTS!', 'reportit'),
-		'method' => 'drop_array',
-		'value' => '|arg1:start_day|',
-		'default' => '0',
-		'array' => $weekday
+		'description'   => __('Define the band of days where shift STARTS!', 'reportit'),
+		'method'        => 'drop_array',
+		'value'         => '|arg1:start_day|',
+		'default'       => '0',
+		'array'         => $weekday
 	),
-	'rrdlist_weekday_end' => array(
+	'weekday_end' => array(
 		'friendly_name' => __('To', 'reportit'),
-		'method' => 'drop_array',
-		'description' => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday', 'reportit'),
-		'value' => '|arg1:end_day|',
-		'default' => '6',
-		'array' => $weekday
+		'method'        => 'drop_array',
+		'description'   => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday', 'reportit'),
+		'value'         => '|arg1:end_day|',
+		'default'       => '6',
+		'array'         => $weekday
 	),
 );
 
@@ -518,9 +416,16 @@ $form_array_general = array(
 	'owner' => array(
 		'friendly_name' => __('Owner', 'reportit'),
 		'description'   => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.', 'reportit'),
-		'method'        => ( user_auth_realm( REPORTIT_USER_ADMIN, my_id() ) ? 'drop_sql' : 'hidden_zero'),
+		'method'        => (user_auth_realm(REPORTIT_USER_ADMIN, my_id()) ? 'drop_sql':'hidden_zero'),
 		'sql'           => $owner_sql,
 		'value'         => '|arg1:user_id|',
+	),
+	'enabled' => array(
+		'friendly_name' => __('Enabled', 'reportit'),
+		'description'   => __('Enable/disable scheduled reporting. Sliding time frame should be enabled.', 'reportit'),
+		'method'        => 'checkbox',
+		'value'         => '|arg1:enabled|',
+		'default'       => '',
 	),
 	'public' => array(
 		'friendly_name' => __('Public', 'reportit'),
@@ -528,6 +433,20 @@ $form_array_general = array(
 		'method'        => 'checkbox',
 		'value'         => '|arg1:public|',
 		'default'       => '',
+	),
+	'graph_permission' => array(
+		'friendly_name' => __('Enable Use of Graph Permissions', 'reportit'),
+		'description'   => __('If enabled (default) the list of available data items will be filtered automatically by owner\'s graph permission: \'by device\'.', 'reportit'),
+		'method'        => 'checkbox',
+		'value'         => '|arg1:graph_permission|',
+		'default'       => 'on',
+	),
+	'email' => array(
+		'friendly_name' => __('Auto Generated Email', 'reportit'),
+		'description'   => __('If enabled tab \'Email\' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report.', 'reportit'),
+		'method'        => 'checkbox',
+		'value'         => '|arg1:auto_email|',
+		'default'       => ''
 	),
 	'header_2' => array(
 		'friendly_name' => __('Reporting Period', 'reportit'),
@@ -571,8 +490,4 @@ $form_array_general = array(
 );
 
 $form_array_general += api_scheduler_form();
-
-if (read_config_option('reportit_operator')) {
-	$form_array_general = array_merge($form_array_general, $form_array_scheduling);
-}
 
