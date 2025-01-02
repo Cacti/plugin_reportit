@@ -704,7 +704,9 @@ function reportit_poller_bottom() {
 function reportit_schedule_report(&$report) {
 	require_once(CACTI_PATH_BASE . '/plugins/reportit/lib/funct_runtime.php');
 
-	$command = CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php';
+	$command  = read_config_option('path_php_binary');
+    $command .= ' ' . CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php';
+
 	$id      = $report['id'];
 	$name    = $report['name'];
 	$notify  = $report['notify_list'];
@@ -724,7 +726,7 @@ function reportit_schedule_report(&$report) {
 		$notification['notification_list']['id'] = $notify;
 	}
 
-	return reportit_report_queue($name, 1, 'reportit', $id, $command, $notification);
+	return reports_queue($name, 1, 'reportit', $id, $command, $notification);
 }
 
 function reportit_clog_regex_array($regex_array) {

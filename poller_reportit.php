@@ -136,7 +136,7 @@ if ($schedule == true) {
 	if (cacti_sizeof($pending)) {
 		foreach($pending as $report) {
 			printf('Running Scheduled report %s with id %s' . PHP_EOL, $report['name'], $report['source_id']);
-			reportit_report_run($report['id']);
+			reports_run($report['id']);
 		}
 	}
 } elseif ($run_id > 0) {
@@ -182,8 +182,8 @@ function run_report($report_id) {
 		WHERE id = ?',
 		array(
 			date('Y-m-d H:i:s', $start_time),
-			$time,
-			$report['id']
+			$end-$start,
+			$report_id
 		)
 	);
 
