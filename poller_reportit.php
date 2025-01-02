@@ -147,8 +147,9 @@ function run_report($report_id) {
 	global $run_verb, $email_counter, $export_counter;
 
 	$start = microtime(true);
+	$start_time = time();
 
-	$report = db_fetch_row_prepared("SELECT a.id, a.template_id
+	$report = db_fetch_row_prepared("SELECT a.id, a.template_id, a.name
 		FROM plugin_reportit_reports AS a
 		INNER JOIN plugin_reportit_templates AS b
 		ON b.locked = ''
