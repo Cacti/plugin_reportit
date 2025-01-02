@@ -662,6 +662,7 @@ function reportit_define_constants(){
 }
 
 function reportit_poller_bottom() {
+	require_once(CACTI_PATH_LIBRARY . '/api_scheduler.php');
 	require_once(CACTI_PATH_LIBRARY . '/reports.php');
 
 	$str   = '';
