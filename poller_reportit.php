@@ -253,9 +253,6 @@ function runtime($report_id) {
 	// ----- Make a note of our startpoint -----
 	$runtime_sp = microtime(true);
 
-	// ----- Reset report -----
-	reset_report($report_id);
-
 	// ----- load default settings -----
 	$report_settings = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
@@ -1033,9 +1030,6 @@ function autorrdlist($reportid) {
 
 		/* save */
 		db_execute("INSERT INTO plugin_reportit_data_items ($columns) VALUES $rrd");
-
-		// Reset report
-		reset_report($reportid);
 	}
 }
 

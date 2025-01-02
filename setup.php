@@ -750,7 +750,7 @@ function reportit_clog_regex_report($matches) {
 		$reportDescriptions = array();
 		if (cacti_sizeof($reports)) {
 			foreach ($reports as $report) {
-				$reportDescriptions[$report['id']] = html_escape($report['description']);
+				$reportDescriptions[$report['id']] = html_escape($report['name']);
 			}
 		}
 

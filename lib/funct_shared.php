@@ -590,14 +590,6 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 	}
 }
 
-function reset_report($report_id) {
-	// Set report values last_run and runtime to zero
-	db_execute_prepared("UPDATE plugin_reportit_reports
-		SET last_run = '0000-00-00 00:00:00', runtime = '0'
-		WHERE id = ?",
-		array($report_id));
-}
-
 /**
  * get_possible_rra_names()
  * returns an array with all possible names of the Round Robbin Archives for this report template

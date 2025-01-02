@@ -598,9 +598,6 @@ function form_save() {
 				/* save settings */
 				sql_save($rrdlist_data, 'plugin_reportit_data_items', array('id', 'report_id'), false);
 
-				/* reset report */
-				reset_report($post['report_id']);
-
 				/* return to list view */
 				raise_message(1);
 
@@ -761,9 +758,6 @@ function form_save() {
 
 			/* save settings */
 			sql_save($rrdlist_data, 'plugin_reportit_data_items', array('id', 'report_id'), false);
-
-			/* reset report */
-			reset_report($post['report_id']);
 
 			/* return to list view */
 			raise_message(1);
@@ -1773,9 +1767,6 @@ function form_actions() {
 							sql_save($recipient, 'plugin_reportit_recipients');
 						}
 					}
-
-					/* reset the new report configuration */
-					reset_report($new_id);
 				}
 			}
 
@@ -1826,9 +1817,6 @@ function form_actions() {
 						db_execute_prepared('DELETE FROM plugin_reportit_data_items
 							WHERE report_id = ?
 							AND id = ?', array(get_request_var('id'), $rrdlist_data['id']));
-
-						//Reset report
-						reset_report(get_request_var('id'));
 					}
 				}
 			} elseif (get_request_var('drp_action') == '3') { // Add Data Source to the Report
@@ -1868,9 +1856,6 @@ function form_actions() {
 
 				/* save */
 				db_execute("REPLACE INTO plugin_reportit_data_items ($columns) VALUES $rrd");
-
-				/* reset report */
-				reset_report(get_request_var('id'));
 			} elseif (get_request_var('drp_action') == '2') { //Copy RRD's reference settings to all other RRDs
 				$reference_items = unserialize(stripslashes(get_request_var('reference_items')), array('allowed_classes' => false));
 
@@ -1886,9 +1871,6 @@ function form_actions() {
 						get_request_var('id')
 					)
 				);
-
-				//Reset report
-				reset_report(get_request_var('id'));
 			}
 
 			header('Location: reportit.php?action=report_edit&tab=items&id=' . get_request_var('id'));
