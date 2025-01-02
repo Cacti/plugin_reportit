@@ -742,7 +742,7 @@ function reportit_clog_regex_report($matches) {
 	$report_ids = explode(',', str_replace(' ', '', $matches[2]));
 	if (cacti_sizeof($report_ids)) {
 		$result = '';
-		$reports = db_fetch_assoc_prepared('SELECT id, description
+		$reports = db_fetch_assoc_prepared('SELECT id, name
 			FROM plugin_reportit_reports
 			WHERE id in (?)',
 			array(implode(',',$report_ids)));
