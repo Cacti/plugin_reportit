@@ -41,6 +41,7 @@ require_once(REPORTIT_BASE_PATH . '/lib/const_rrdlist.php');
 require_once(REPORTIT_BASE_PATH . '/lib/funct_validate.php');
 require_once(REPORTIT_BASE_PATH . '/lib/funct_shared.php');
 require_once(REPORTIT_BASE_PATH . '/lib/funct_html.php');
+require_once(REPORTIT_BASE_PATH . '/lib/funct_reports.php');
 
 set_default_action();
 
@@ -1677,21 +1678,8 @@ function form_actions() {
 			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 			if (get_request_var('drp_action') == '1') { // Run Report Now
-				$php_binary = read_config_option('path_php_binary');
-
-				for ($i=0;($i<count($selected_items));$i++) {
-					/* ================= input validation ================= */
-					input_validate_input_number($selected_items[$i]);
-					/* ==================================================== */
-					//Only one report is allowed to run at the same time, so select the first one:
-					$report_id = $selected_items[$i];
-
-					if (intval($report_id) > 0) {
-						//Update $_SESSION
-						$_SESSION['run'] = '1';
-
-						exec_background($php_binary, CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php --report-id=' . $report_id);
-					}
+				foreach($selected_items as $id) {
+					api_reportit_run_report($id);
 				}
 
 				sleep(2);
@@ -1702,18 +1690,9 @@ function form_actions() {
 
 				if (cacti_sizeof($report_datas) > 0) {
 					$counter_data_items = 0;
-					foreach ($report_datas as $report_data) {
-						$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
-							FROM plugin_reportit_data_items
-							WHERE report_id = ?',
-							array($report_data['id']));
 
-						db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($report_data['id']));
-						db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($report_data['id']));
-						db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_data['id']));
-						db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($report_data['id']));
-						db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', array($report_data['id']));
-						db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $report_data['id']);
+					foreach ($report_datas as $report_data) {
+						api_reportit_delete_report($report_data['id']);
 					}
 
 					if ($counter_data_items > 200) {
@@ -1721,61 +1700,34 @@ function form_actions() {
 					}
 				}
 			} elseif (get_request_var('drp_action') == '3') { // Duplicate Report
-				for ($i=0;($i<count($selected_items));$i++) {
-					/* ================= input validation ================= */
-					input_validate_input_number($selected_items[$i]);
-					/* ==================================================== */
-
-					$report_data = db_fetch_row_prepared('SELECT *
-						FROM plugin_reportit_reports
-						WHERE id = ?', array($selected_items[$i]));
-
-					$report_data['id']   = 0;
-					$report_data['name'] = str_replace("<report_title>", $report_data['name'], get_request_var('report_addition'));
-					$new_id = sql_save($report_data, 'plugin_reportit_reports');
-
-					//Copy original rrdlist table  to new rrdlist table
-					$data_items = db_fetch_assoc_prepared('SELECT *
-						FROM plugin_reportit_data_items
-						WHERE report_id = ?',
-						array($selected_items[$i]));
-
-					if (cacti_sizeof($data_items)) {
-						foreach($data_items as $data_item) {
-							$data_item['report_id'] = $new_id;
-							sql_save($data_item, 'plugin_reportit_data_items', array('id', 'report_id'), false);
-						}
-					}
-
-					/* duplicate the presets settings */
-					$report_presets = db_fetch_row_prepared('SELECT *
-						FROM plugin_reportit_presets
-						WHERE id = ?',
-						array($selected_items[$i]));
-
-					$report_presets['id'] = $new_id;
-					sql_save($report_presets, 'plugin_reportit_presets', 'id', false);
-
-					/* duplicate list of recipients */
-					$report_recipients = db_fetch_assoc_prepared('SELECT *
-						FROM plugin_reportit_recipients
-						WHERE report_id = ?',
-						array($selected_items[$i]));
-
-					if (cacti_sizeof($report_recipients)) {
-						foreach($report_recipients as $recipient) {
-							$recipient['id'] = 0;
-							$recipient['report_id']=$new_id;
-							sql_save($recipient, 'plugin_reportit_recipients');
-						}
-					}
+				foreach($selected_items as $id) {
+					api_reportit_duplicate_report($id, get_request_var('report_addition'));
 				}
 			}
 
 			header('Location: reportit.php');
 			exit;
 		}
+	} elseif (isset_request_var('selected_items')) {
+		$selected_items = sanitize_unserialize_selected_items(get_request_var('selected_items'));
 
+		if (get_request_var('drp_action') == '1') { // Remove Data Source from the Report
+			api_reportit_remove_data_sources(get_request_var('id'), $selected_items);
+		} elseif (get_request_var('drp_action') == '3') { // Add Data Source to the Report
+			api_reportit_add_data_source(get_request_var('id'));
+		} elseif (get_request_var('drp_action') == '2') { //Copy RRD's reference settings to all other RRDs
+			api_reportit_update_data_source(get_request_var('id'), get_request_var('reference_items'));
+		}
+
+		header('Location: reportit.php?action=report_edit&tab=items&id=' . get_request_var('id'));
+		exit;
+	}
+
+	top_header();
+
+	form_start('reportit.php?tab=' . get_request_var('tab') . '&id=' . get_filter_request_var('id'));
+
+	if (get_request_var('tab') != 'items') {
 		//Set preconditions
 		$limit_state = (get_filter_request_var('drp_action') == 1 ? ' LIMIT 1' : '');
 
@@ -1795,96 +1747,16 @@ function form_actions() {
 		if (cacti_sizeof($report_ids)) {
 			$reports_sql = "SELECT id, description, state
 				FROM plugin_reportit_reports
-				WHERE id IN (" . implode(',',$report_ids) . ")
+				WHERE id IN (" . implode(',', $report_ids) . ")
 				AND state <> 1
 				$limit_state";
+
 			$reports = db_fetch_assoc($reports_sql);
 		} else {
 			$reports_sql = '';
 			$reports = array();
 		}
-	} else {
-		if (isset_request_var('selected_items')) {
-			$selected_items = sanitize_unserialize_selected_items(get_request_var('selected_items'));
 
-			if (get_request_var('drp_action') == '1') { // Remove Data Source from the Report
-				$rrdlist_datas = db_fetch_assoc_prepared('SELECT id
-					FROM plugin_reportit_data_items
-					WHERE report_id = ?
-					AND ' . array_to_sql_or($selected_items, 'id'),
-					array(get_request_var('id')));
-
-				if (cacti_sizeof($rrdlist_datas)) {
-					foreach ($rrdlist_datas as $rrdlist_data) {
-						db_execute_prepared('DELETE FROM plugin_reportit_data_items
-							WHERE report_id = ?
-							AND id = ?', array(get_request_var('id'), $rrdlist_data['id']));
-					}
-				}
-			} elseif (get_request_var('drp_action') == '3') { // Add Data Source to the Report
-				$enable_tmz	= read_config_option('reportit_use_tmz');
-				$tmz		= ($enable_tmz) ? "'GMT'" : "'".date('T')."'";
-				$columns	= '';
-				$values		= '';
-				$rrd 		= '';
-
-				/* load data item presets */
-				$presets = db_fetch_row_prepared('SELECT *
-					FROM plugin_reportit_presets
-					WHERE id = ?',
-					array(get_request_var('id')));
-
-				if (cacti_sizeof($presets)) {
-					$presets['report_id'] = get_request_var('id');
-
-					foreach($presets as $key => $value) {
-						$columns .= ', ' . $key;
-
-						if ($key != 'id') {
-							$values .= ',' . db_qstr($value);
-						}
-					}
-				} else {
-					$columns = ' id, report_id';
-					$values .= ', ' . db_qstr(get_request_var('id'));
-				}
-
-				foreach($selected_items as $rd) {
-					$rrd .= "($rd $values),";
-				}
-
-				$rrd = substr($rrd, 0, strlen($rrd)-1);
-				$columns = substr($columns, 1);
-
-				/* save */
-				db_execute("REPLACE INTO plugin_reportit_data_items ($columns) VALUES $rrd");
-			} elseif (get_request_var('drp_action') == '2') { //Copy RRD's reference settings to all other RRDs
-				$reference_items = unserialize(stripslashes(get_request_var('reference_items')), array('allowed_classes' => false));
-
-				db_execute_prepared("UPDATE plugin_reportit_data_items
-					SET `start_day` = ?, `end_day` = ?, `start_time` = ?,
-					 `end_time` = ?, `timezone` = ? WHERE `report_id` = ?",
-					array(
-						$reference_items[0]['start_day'],
-						$reference_items[0]['end_day'],
-						$reference_items[0]['start_time'],
-						$reference_items[0]['end_time'],
-						$reference_items[0]['timezone'],
-						get_request_var('id')
-					)
-				);
-			}
-
-			header('Location: reportit.php?action=report_edit&tab=items&id=' . get_request_var('id'));
-			exit;
-		}
-	}
-
-	top_header();
-
-	form_start('reportit.php?tab=' . get_request_var('tab') . '&id=' . get_filter_request_var('id'));
-
-	if (get_request_var('tab') != 'items') {
 		html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 		if (cacti_sizeof($reports)) {
@@ -1900,6 +1772,7 @@ function form_actions() {
 		}
 
 		$report_ids = array();
+
 		if ($reports === false || empty($reports)) {
 			print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one unlocked, not running, report.', 'reportit') . "</span>$reports_sql</td></tr>";
 			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
@@ -2043,3 +1916,4 @@ function form_actions() {
 
 	bottom_footer();
 }
+
