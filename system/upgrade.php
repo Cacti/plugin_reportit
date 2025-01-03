@@ -353,25 +353,48 @@ function reportit_system_upgrade($old_version) {
 			WHERE file = "reports.php,rrdlist.php,items.php,run.php"');
 
 		/* migrate to the cacti scheduler syntax */
-		if (!db_column_exists('plugin_reportit_reports', 'next_start')) {
-			db_execute("ALTER TABLE plugin_reportit_reports
-				ADD COLUMN `sched_type` int(10) unsigned NOT NULL default '0' AFTER name,
-				ADD COLUMN `run_limit` int(10) unsigned default '0' AFTER sched_type,
-				ADD COLUMN `start_at` varchar(20) default NULL AFTER run_limit,
-				ADD COLUMN `next_start` timestamp NOT NULL default '0000-00-00 00:00:00' AFTER start_at,
-				ADD COLUMN `recur_every` int(10) unsigned default '1' AFTER next_start,
-				ADD COLUMN `day_of_week` varchar(45) default NULL AFTER recur_every,
-				ADD COLUMN `month` varchar(45) default NULL AFTER day_of_week,
-				ADD COLUMN `day_of_month` varchar(45) default NULL AFTER month,
-				ADD COLUMN `monthly_week` varchar(45) default NULL AFTER day_of_month,
-				ADD COLUMN `monthly_day` varchar(45) default NULL AFTER monthly_week,
-				ADD COLUMN `last_runtime` double NOT NULL default '0' AFTER monthly_day,
-				ADD COLUMN `last_started` timestamp NOT NULL default '0000-00-00 00:00:00' AFTER last_runtime,
-				ADD COLUMN `last_status` varchar(128) NOT NULL default '' AFTER last_started,
-				ADD INDEX `last_started` (`last_started`),
-				ADD INDEX `next_start` (`next_start`)");
+		$alters = '';
 
-			/* migrate the schedules as close as possible */
+		$columns = array(
+			'sched_type'   => "ADD COLUMN `sched_type` int(10) unsigned NOT NULL default '0' AFTER name",
+			'run_limit'    => "ADD COLUMN `run_limit` int(10) unsigned default '0' AFTER sched_type",
+			'start_at'     => "ADD COLUMN `start_at` varchar(20) default NULL AFTER run_limit",
+			'next_start'   => "ADD COLUMN `next_start` timestamp NOT NULL default '0000-00-00 00:00:00' AFTER start_at",
+			'recur_every'  => "ADD COLUMN `recur_every` int(10) unsigned default '1' AFTER next_start",
+			'day_of_week'  => "ADD COLUMN `day_of_week` varchar(45) default NULL AFTER recur_every",
+			'month'        => "ADD COLUMN `month` varchar(45) default NULL AFTER day_of_week",
+			'day_of_month' => "ADD COLUMN `day_of_month` varchar(45) default NULL AFTER month",
+			'monthly_week' => "ADD COLUMN `monthly_week` varchar(45) default NULL AFTER day_of_month",
+			'monthly_day'  => "ADD COLUMN `monthly_day` varchar(45) default NULL AFTER monthly_week",
+			'last_runtime' => "ADD COLUMN `last_runtime` double NOT NULL default '0' AFTER monthly_day",
+			'last_started' => "ADD COLUMN `last_started` timestamp NOT NULL default '0000-00-00 00:00:00' AFTER last_runtime",
+			'last_status'  => "ADD COLUMN `last_status` varchar(128) NOT NULL default '' AFTER last_started",
+			'email'        => "ADD COLUMN `email` text default NULL AFTER email_format",
+			'bcc'          => "ADD COLUMN `bcc` text default NULL AFTER email",
+		);
+
+		foreach($columns as $column => $alter) {
+			if (!db_column_exists('plugin_reportit_reports', $column)) {
+				$alters .= ($alters != '' ? ', ':'') . $alter;
+			}
+		}
+
+		$indexes = array(
+			'last_started' => "ADD INDEX `last_started` (`last_started`)",
+			'next_start'   => "ADD INDEX `next_start` (`next_start`)"
+		);
+
+		foreach($indexes as $index => $alter) {
+			if (!db_index_exists('plugin_reportit_reports', $index)) {
+				$alters .= ($alters != '' ? ', ':'') . $alter;
+			}
+		}
+
+		if ($alters != '') {
+			db_execute("ALTER TABLE plugin_reportit_reports $alters");
+		}
+
+		if (db_column_exists('plugin_reportit_reports', 'last_run')) {
 			$reports = db_fetch_assoc('SELECT * FROM plugin_reportit_reports');
 
 			// Legacy Scheduling columns and the migration plan
@@ -527,16 +550,15 @@ function reportit_system_upgrade($old_version) {
 				'autoarchive'
 			);
 
-			$alter = 'ALTER TABLE plugin_reportit_reports';
-			$alter = '';
+			$alters = '';
 			foreach($drop_columns as $c) {
 				if (db_column_exists('plugin_reportit_reports', $c)) {
-					$alter .= ($alter != '' ? ', ':'') . "DROP COLUMN `$c`";
+					$alters .= ($alters != '' ? ', ':'') . "DROP COLUMN `$c`";
 				}
 			}
 
-			if ($alter != '') {
-				db_execute("ALTER TABLE plugin_reportit_reports $alter");
+			if ($alters != '') {
+				db_execute("ALTER TABLE plugin_reportit_reports $alters");
 			}
 		}
 

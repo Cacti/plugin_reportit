@@ -683,6 +683,8 @@ function form_save() {
 				$report_data['email_subject'] = $post['email_subject'];
 				$report_data['email_body']    = $post['email_body'];
 				$report_data['email_format']  = $post['email_format'];
+				$report_data['email']         = $post['email'];
+				$report_data['bcc']           = $post['bcc'];
 
 				/* save settings */
 				sql_save($report_data, 'plugin_reportit_reports');

@@ -89,7 +89,9 @@ function reportit_recreate_cache_tables() {
 	$data['columns'][] = array('name' => 'email_subject', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1000)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_format', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'notify_list', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'email', 'type' => 'text', 'NULL' => true);
+	$data['columns'][] = array('name' => 'bcc', 'type' => 'text', 'NULL' => true);
+	$data['columns'][] = array('name' => 'notify_list', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'subhead', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'graph_permission', 'type' => 'varchar(2)', 'NULL' => false, 'default' => 'on');
 	$data['primary'] = 'cache_id';

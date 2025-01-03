@@ -227,6 +227,28 @@ $form_array_email = array(
 		'none_value'    => __('None', 'reportit'),
 		'value'         => '|arg1:notify_list|',
 	),
+	'email' => array(
+		'friendly_name' => __('To Email Address(es)'),
+		'method'        => 'textarea',
+		'textarea_rows' => '5',
+		'textarea_cols' => '60',
+		'class'         => 'textAreaNotes',
+		'default'       => '',
+		'description'   => __('Please separate multiple addresses by comma (,)'),
+		'max_length'    => 255,
+		'value'         => '|arg1:email|'
+	),
+	'bcc' => array(
+		'friendly_name' => __('BCC Address(es)'),
+		'method'        => 'textarea',
+		'textarea_rows' => '5',
+		'textarea_cols' => '60',
+		'class'         => 'textAreaNotes',
+		'default'       => '',
+		'description'   => __('Blind carbon copy. Please separate multiple addresses by comma (,)'),
+		'max_length'    => 255,
+		'value'         => '|arg1:bcc|'
+	),
 	'email_recipient' => array(
 		'friendly_name' => __('New Email Recipients', 'reportit'),
 		'description'   => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: \';\' or \',\'', 'reportit'),

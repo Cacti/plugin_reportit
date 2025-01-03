@@ -637,6 +637,30 @@ function send_scheduled_email($id, $report_id) {
 		WHERE report_id = ?',
 		array($report_id));
 
+	if ($report_settings['email'] != '') {
+		$emails = explode(',', $report_settings['email']);
+		$to += $emails;
+	}
+
+	if ($report_settings['bcc'] != '') {
+		$bcc = explode(',', $report_settings['bcc']);
+	} else {
+		$bcc = array();
+	}
+
+	if (api_plugin_installed('thold') && $report['notify_list'] > 0) {
+		$nl_to_emails  = get_notification_emails($report_settings['notify_list'], 'to');
+		$nl_bcc_emails = get_notification_emails($report_settings['notify_list'], 'bcc');
+
+		if ($nl_to_emails != '') {
+			$to += explode(',', $nl_to_emails);
+		}
+
+		if ($nl_bcc_emails != '') {
+			$bcc += explode(',', $nl_bcc_emails);
+		}
+	}
+
 	$attachment = array();
 	$data = '';
 
@@ -680,145 +704,14 @@ function send_scheduled_email($id, $report_id) {
 		}
 	}
 
-	$return = mailer($from, $to, '', '', '', $subject, $body, '', array($attachment), '', true);
+	//function mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html, $epandsIds);
 
-//	reports_log_and_notify($id, $start_time, 'html', 'reportit', $report_id, $subject, $data['data'], $body, $body_html, $body_text, $attachment, $headers);
+	$return = mailer($from, $to, '', $bcc, '', $subject, $body, '', array($attachment), '', true);
+
+	//	reports_log_and_notify($id, $start_time, 'html', 'reportit', $report_id, $subject, $data, $body, $body_html, $body_text, $attachment, $headers);
 
 	unlink($filename);
 
 	return $return;
-}
-
-function reportit_report_log_and_notify($id, $start_time, $report_type, $source, $source_id,
-	$subject, &$raw_data, &$oput_raw, &$oput_html, &$oput_text, $attachments = array(), $headers = false) {
-	$report = db_fetch_row_prepared('SELECT *
-		FROM reports_queued
-		WHERE id = ?',
-		array($id));
-
-	if ($oput_text == null) {
-		$oput_text = '';
-	}
-
-	$fromemail = read_config_option('settings_from_email');
-	if ($fromemail == '') {
-		$fromemail = 'cacti@cacti.net';
-	}
-
-	$fromname = read_config_option('settings_from_name');
-	if ($fromname == '') {
-		$fromname = __('Cacti %s', ucfirst($source), 'flowview');
-	}
-
-	$from[0] = $fromemail;
-	$from[1] = $fromname;
-
-	if (cacti_sizeof($report)) {
-		if ($report['notification'] != '') {
-			$notifications = json_decode($report['notification'], true);
-
-			foreach($notifications as $type => $data) {
-				switch($type) {
-					case 'email':
-						if (!isset($data['to_email'])) {
-							cacti_log(sprintf("WARNING: Email Report '%s' not sent!  Missing 'to_email' attribute in request", $report['name']), false, 'REPORTS');
-							break;
-						} else {
-							$to_email = $data['to_email'];
-						}
-
-						if (isset($data['cc_email'])) {
-							$cc_email = $data['cc_email'];
-						} else {
-							$cc_email = '';
-						}
-
-						if (isset($data['bcc_email'])) {
-							$bcc_email = $data['bcc_email'];
-						} else {
-							$bcc_email = '';
-						}
-
-						if (isset($data['reply_to'])) {
-							$reply_to = $data['reply_to'];
-						} else {
-							$reply_to = '';
-						}
-
-						mailer($from, $to_email, $cc_email, $bcc_email, $reply_to, $subject, $oput_html, $oput_text, $attachments, $headers);
-
-						break;
-					case 'notification_list':
-						if (!isset($data['id'])) {
-							cacti_log(sprintf("WARNING: Email Report '%s' not sent!  Missing notification list 'id' attribute in request", $report['name']), false, 'REPORTS');
-							break;
-						} else {
-							$list = db_fetch_row_prepared('SELECT *
-								FROM plugin_notify_list
-								WHERE id = ?',
-								array($data['id']));
-
-							if (cacti_sizeof($list)) {
-								/* process the format file */
-								$report_tag  = '';
-								$theme       = 'modern';
-								$output_html = '';
-								$format      = $list['format_file'] != '' ? $list['format_file']:'default';
-
-								$format_ok = reports_load_format_file($format, $output, $report_tag, $theme);
-
-								flowview_debug('Format File Loaded, Format is ' . ($format_ok ? 'Ok':'Not Ok') . ', Report Tag is ' . $report_tag);
-
-								if ($format_ok) {
-									if ($report_tag) {
-										$oput_html = str_replace('<REPORT>', $oput_raw, $output);
-									} else {
-										$oput_html = $output . PHP_EOL . $oput_raw;
-									}
-								} else {
-									$oput_html = $oput_raw;
-								}
-
-								$to_email   = $list['emails'];
-								$cc_emails  = isset($list['cc_emails']) ? $list['cc_emails']:'';
-								$bcc_emails = $list['bcc_emails'];
-								$reply_to   = isset($list['reply_to'])  ? $list['reply_to']:'';
-
-								mailer($from, $to_email, $cc_emails, $bcc_emails, $reply_to, $subject, $oput_html, $oput_text, $attachments, $headers);
-							} else {
-								cacti_log(sprintf("WARNING: Email Report '%s' not sent!  Unable to locate notification list '%s'", $report['name'], $id), false, 'REPORTS');
-							}
-						}
-
-						break;
-					default:
-						cacti_log(sprintf("WARNING: Email Report '%s' not sent!  Unknown notification type '%s' attribute in request", $report['name'], $type), false, 'REPORTS');
-						break;
-				}
-			}
-		}
-
-		$end_time = microtime(true);
-
-		$save = array();
-
-		$save['id']                 = 0;
-		$save['name']               = $report['name'];
-		$save['source']             = $source;
-		$save['source_id']          = $source_id;
-		$save['report_output_type'] = $report_type;
-		$save['report_raw_data']    = json_encode($raw_data);
-		$save['report_raw_output']  = $oput_raw;
-		$save['report_html_output'] = $oput_html;
-		$save['report_txt_output']  = $oput_text;
-		$save['send_type']          = $report['request_type'];
-		$save['send_time']          = date('Y-m-d H:i:s');
-		$save['run_time']           = $end_time - $start_time;
-		$save['sent_by']            = $report['requested_by'];
-		$save['sent_id']            = $report['requested_id'];
-		$save['notification']       = $report['notification'];
-
-		sql_save($save, 'reports_log');
-	}
 }
 
