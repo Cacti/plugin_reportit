@@ -110,11 +110,13 @@ function api_reportit_run_report($id) {
 	input_validate_input_number($id);
 	/* ==================================================== */
 
-	//Only one report is allowed to run at the same time, so select the first one:
-
 	if ($id > 0) {
 		exec_background($php_binary, CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php --report-id=' . $id);
 	}
+}
+
+function api_reportit_take_ownership($id, $user) {
+	db_execute_prepared('UPDATE plugin_reportit_reports SET user_id = ? WHERE id = ?', array($user, $id));
 }
 
 function api_reportit_remove_data_sources($id, $items) {
