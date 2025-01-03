@@ -24,6 +24,7 @@
 
 chdir(__DIR__ . '/../../');
 require('include/auth.php');
+
 require_once(CACTI_PATH_LIBRARY . '/reports.php');
 require_once(CACTI_PATH_LIBRARY . '/poller.php');
 require_once(CACTI_PATH_LIBRARY . '/api_scheduler.php');
@@ -1557,31 +1558,31 @@ function rrdlist_edit() {
 	$form_array = array(
 		'header1' => array(
 			'friendly_name' => __('General', 'reportit'),
-			'method' => 'spacer'
+			'method'        => 'spacer'
 		),
 		'save_component_rrdlist' => array(
 			'method' => 'hidden',
-			'value' => '1'
+			'value'  => '1'
 		),
 		'subhead' => array(
 			'friendly_name' => __('Subhead (optional)', 'reportit'),
-			'description' => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\'', 'reportit'),
-			'method' => 'textarea',
-			'textarea_rows'	 => '2',
+			'description'   => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\'', 'reportit'),
+			'method'        => 'textarea',
+			'textarea_rows' => '2',
 			'textarea_cols' => '45',
-			'default' => '',
-			'value' => $rrdlist_data['description']
+			'default'       => '',
+			'value'         => $rrdlist_data['description']
 		)
 	);
 
 	if ($enable_tmz) {
 		$rrdlist_timezone = array(
 			'friendly_name' => __('Time Zone', 'reportit'),
-			'description' => __('Select the time zone your following shifttime information will be based on.', 'reportit'),
-			'method' => 'drop_array',
-			'default' => '17',
-			'value' => array_search($rrdlist_data['timezone'], $timezone),
-			'array' => $timezone
+			'description'   => __('Select the time zone your following shifttime information will be based on.', 'reportit'),
+			'method'        => 'drop_array',
+			'default'       => '17',
+			'value'         => array_search($rrdlist_data['timezone'], $timezone),
+			'array'         => $timezone
 		);
 
 		$form_array['timezone'] = $rrdlist_timezone;
@@ -1597,31 +1598,31 @@ function rrdlist_edit() {
 	$shift_array = array(
 		'header2' => array(
 			'friendly_name' => __('Working Time', 'reportit'),
-			'method' => 'spacer',
+			'method'        => 'spacer',
 		),
 		'start_time' => array(
 			'friendly_name' => __('From', 'reportit'),
-			'description' => __('The startpoint of duration you want to analyse', 'reportit'),
-			'method' => 'drop_array',
-			'default' => '0',
-			'value' => array_search($rrdlist_data['start_time'], $shifttime),
-			'array' => $shifttime
+			'description'   => __('The startpoint of duration you want to analyse', 'reportit'),
+			'method'        => 'drop_array',
+			'default'       => '0',
+			'value'         => array_search($rrdlist_data['start_time'], $shifttime),
+			'array'         => $shifttime
 		),
 		'end_time' => array(
 			'friendly_name' => __('To', 'reportit'),
-			'description' => __('The end of analysing time.', 'reportit'),
-			'method' => 'drop_array',
-			'default' => '287',
-			'value' => array_search($rrdlist_data['end_time'], $shifttime2),
-			'array' => $shifttime2
+			'description'   => __('The end of analysing time.', 'reportit'),
+			'method'        => 'drop_array',
+			'default'       => '287',
+			'value'         => array_search($rrdlist_data['end_time'], $shifttime2),
+			'array'         => $shifttime2
 		),
 		'id' => array(
 			'method' => 'hidden_zero',
-			'value' => get_request_var('id')
+			'value'  => get_request_var('id')
 		),
 		'report_id' => array(
 			'method' => 'hidden_zero',
-			'value' => get_request_var('report_id')
+			'value'  => get_request_var('report_id')
 		)
 	);
 
@@ -1635,21 +1636,21 @@ function rrdlist_edit() {
 	$weekday_array = array(
 		'header3' => array(
 			'friendly_name' => __('Working Days', 'reportit'),
-			'method' => 'spacer',
+			'method'        => 'spacer',
 		),
 		'start_day' => array(
 			'friendly_name' => __('From', 'reportit'),
-			'description' => __('Define the band of days where shift STARTS!', 'reportit'),
-			'method' => 'drop_array',
-			'value' => array_search($rrdlist_data['start_day'], $weekday),
-			'array' => $weekday
+			'description'   => __('Define the band of days where shift STARTS!', 'reportit'),
+			'method'        => 'drop_array',
+			'value'         => array_search($rrdlist_data['start_day'], $weekday),
+			'array'         => $weekday
 		),
 		'end_day' => array(
 			'friendly_name' => __('To', 'reportit'),
-			'description' => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday', 'reportit'),
-			'method' => 'drop_array',
-			'value' => array_search($rrdlist_data['end_day'], $weekday),
-			'array' => $weekday
+			'description'   => __('Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday', 'reportit'),
+			'method'        => 'drop_array',
+			'value'         => array_search($rrdlist_data['end_day'], $weekday),
+			'array'         => $weekday
 		)
 	);
 
@@ -1703,6 +1704,18 @@ function form_actions() {
 				foreach($selected_items as $id) {
 					api_reportit_duplicate_report($id, get_request_var('report_addition'));
 				}
+			} elseif (get_request_var('drp_action') == '4') { // Disable Report
+				foreach($selected_items as $id) {
+					api_reportit_disable_report($id);
+				}
+			} elseif (get_request_var('drp_action') == '5') { // Enable Report
+				foreach($selected_items as $id) {
+					api_reportit_enable_report($id);
+				}
+			} elseif (get_request_var('drp_action') == '6') { // Take Ownership
+				foreach($selected_items as $id) {
+					api_reportit_take_ownership($id);
+				}
 			}
 
 			header('Location: reportit.php');
@@ -1745,7 +1758,7 @@ function form_actions() {
 
 		//Fetch report details
 		if (cacti_sizeof($report_ids)) {
-			$reports_sql = "SELECT id, description, state
+			$reports_sql = "SELECT id, name, state
 				FROM plugin_reportit_reports
 				WHERE id IN (" . implode(',', $report_ids) . ")
 				AND state <> 1
@@ -1760,14 +1773,20 @@ function form_actions() {
 		html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 		if (cacti_sizeof($reports)) {
-			if (get_request_var('drp_action') == '1') {
+			if (get_request_var('drp_action') == '1') { // Run Report Now
 				$section = '<p>' . __('Click \'Continue\' to Run the following Report:', 'reportit') . '</p>';
-			} elseif (get_request_var('drp_action') == '2') { //DELETE REPORT
+			} elseif (get_request_var('drp_action') == '2') { // Delete Report
 				$section = '<p>' . __('Click \'Continue\' to Delete the following Reports:', 'reportit') . '</p>';
-			} elseif (get_request_var('drp_action') == '3') { // DUPLICATE REPORT
+			} elseif (get_request_var('drp_action') == '3') { // Duplicate Report
 				$section = '<p>' . __('Click \'Continue\' to duplicate the following Report configurations.  You may also change the title format during this operation.', 'reportit') . '</p>';
 				$section .= '<p>' . __('Title Format:', 'reportit') . '</p>';
 				$section .= '<p>' . form_text_box('report_addition', __('<report_title> (1)', 'reportit'), '', '255', '30', 'text') .'</p>';
+			} elseif (get_request_var('drp_action') == '4') { // Disable REPORT
+				$section = '<p>' . __('Click \'Continue\' to Disable the following Report:', 'reportit') . '</p>';
+			} elseif (get_request_var('drp_action') == '5') { // Enable REPORT
+				$section = '<p>' . __('Click \'Continue\' to Enable the following Report:', 'reportit') . '</p>';
+			} elseif (get_request_var('drp_action') == '6') { // Take Ownership
+				$section = '<p>' . __('Click \'Continue\' to Take Ownership of the following Report:', 'reportit') . '</p>';
 			}
 		}
 
@@ -1775,7 +1794,7 @@ function form_actions() {
 
 		if ($reports === false || empty($reports)) {
 			print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one unlocked, not running, report.', 'reportit') . "</span>$reports_sql</td></tr>";
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>";
 		} else {
 			print "<tr><td class='textArea'>$section</td></tr><tr><td>";
 			print '<div class="itemlist"><ul>';
@@ -1787,7 +1806,7 @@ function form_actions() {
 
 			print '</ul></div>';
 			print '</td></tr>';
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue', 'reportit') . "'>";
+			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>&nbsp;<input type='submit' value='" . __('Continue', 'reportit') . "'>";
 		}
 
 		print "<tr>
@@ -1891,9 +1910,9 @@ function form_actions() {
 		if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
 			print "<tr><td class='odd''><span class='textError'>" . __('You must select at least one Report.', 'reportit') . '</span></td></tr>';
 
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>";
 		} else {
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;
+			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>&nbsp;
 				<input type='submit' value='" . __('Continue', 'reportit') . "'>";
 		}
 

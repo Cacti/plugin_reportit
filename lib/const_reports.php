@@ -25,9 +25,12 @@
 //----- CONSTANTS FOR: reports.php -----
 
 $report_actions = array(
-	1 => __('Run Now', 'reportit'),
 	2 => __('Delete', 'reportit'),
-	3 => __('Duplicate', 'reportit')
+	4 => __('Disable', 'reportit'),
+	3 => __('Duplicate', 'reportit'),
+	5 => __('Enable', 'reportit'),
+	1 => __('Run Now', 'reportit'),
+	6 => __('Take Ownership', 'reportit')
 );
 
 $report_states = array(
