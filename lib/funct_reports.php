@@ -22,18 +22,32 @@
  +-------------------------------------------------------------------------+
 */
 
-function api_reportit_delete_report($report_id) {
+function api_reportit_disable_report($id) {
+	db_execute_prepared('UPDATE plugin_reportit_reports
+		SET enabled = ""
+		WHERE id = ?',
+		array($id));
+}
+
+function api_reportit_enable_report($id) {
+	db_execute_prepared('UPDATE plugin_reportit_reports
+		SET enabled = "on"
+		WHERE id = ?',
+		array($id));
+}
+
+function api_reportit_delete_report($id) {
 	$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?',
-		array($report_id));
+		array($id));
 
-	db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($report_id));
-	db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($report_id));
-	db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($report_id));
-	db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($report_id));
-	db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', array($report_id));
-	db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $report_id);
+	db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($id));
+	db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($id));
+	db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($id));
+	db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($id));
+	db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', array($id));
+	db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $id);
 }
 
 function api_reportit_duplicate_report($id, $addition) {
@@ -98,7 +112,7 @@ function api_reportit_run_report($id) {
 
 	//Only one report is allowed to run at the same time, so select the first one:
 
-	if ($report_id > 0) {
+	if ($id > 0) {
 		exec_background($php_binary, CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php --report-id=' . $id);
 	}
 }
