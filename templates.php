@@ -2152,15 +2152,16 @@ function measurands() {
 			form_selectable_cell($measurand['abbreviation'], $measurand['id']);
 			form_selectable_cell($measurand['unit'], $measurand['id']);
 			form_selectable_cell($consolidation_functions[$measurand['cf']], $measurand['id']);
-			form_selectable_cell(($measurand['visible'] ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>'), $measurand['id']);
-			form_selectable_cell(($measurand['spanned'] ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>'), $measurand['id']);
+			form_selectable_cell(($measurand['visible'] ? '<i class="fa fa-check deviceUp" aria-hidden="true"></i>' : '<i class="fa fa-times deviceDown" aria-hidden="true"></i>'), $measurand['id']);
+			form_selectable_cell(($measurand['spanned'] ? '<i class="fa fa-check deviceUp" aria-hidden="true"></i>' : '<i class="fa fa-times deviceDown" aria-hidden="true"></i>'), $measurand['id']);
 			form_selectable_cell($measurand['calc_formula'], $measurand['id']);
+
 			form_checkbox_cell($measurand['description'], $measurand['id']);
 
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="' . (cacti_sizeof($display_text)+1) . '"><em>' . __('No Metrics Found', 'reportit') . '</em></td></tr>';
+		print '<tr class="tableRow odd"><td colspan="' . (cacti_sizeof($display_text)+1) . '"><em>' . __('No Metrics Found', 'reportit') . '</em></td></tr>';
 	}
 
 	$form_array = array(

@@ -357,19 +357,20 @@ function standard() {
 			'display' => __('Name', 'reportit'),
 			'sort'    => 'ASC',
 		),
-		'id' => array(
-			'display' => __('ID', 'reportit'),
-			'sort'    => 'ASC',
-		),
 		'nosort0' => array(
 			'display' => __("Period %s From - To", $tmz, 'reportit')
 		),
 		'frequency' => array(
-			'display' => __('Schedule Frequency', 'reportit'),
+			'display' => __('Schedule', 'reportit'),
 			'sort'    => 'ASC'
 		),
 		'state' => array(
 			'display' => __('State', 'reportit'),
+			'sort'    => 'ASC',
+		),
+		'next_start' => array(
+			'display' => __('Next Start %s', $tmz, 'reportit'),
+			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
 		'last_started' => array(
@@ -378,7 +379,7 @@ function standard() {
 			'sort'    => 'ASC',
 		),
 		'last_runtime' => array(
-			'display' => __('Last Runtime [s]', 'reportit'),
+			'display' => __('Last Runtime', 'reportit'),
 			'align'   => 'right',
 			'sort'    => 'ASC',
 		),
@@ -419,7 +420,6 @@ function standard() {
 			form_alternate_row('line' . $report['id'], true);
 
 			form_selectable_cell(filter_value($report['name'], get_request_var('filter'), $link), $report['id']);
-			form_selectable_cell(filter_value($report['id'], get_request_var('filter'), $link), $report['id']);
 
 			if ($report['sliding'] == 'on' && $report['last_started'] == '0000-00-00 00:00:00') {
 				$dates = rp_get_timespan($report['preset_timespan'], $report['present'], $enable_tmz);
@@ -428,13 +428,11 @@ function standard() {
 				form_selectable_cell(($report['start_date'] == '0000-00-00' ? '00-00-0000' : date(config_date_format(), strtotime($report['start_date']))) . ' - ' . ($report['start_date'] == '0000-00-00' ? '00-00-0000' : date(config_date_format(), strtotime($report['end_date']))), $report['id']);
 			}
 
-			if ($report['enabled'] == 'on') {
-				form_selectable_cell($sched_types[$report['sched_type']], $report['id']);
-			} else {
-				form_selectable_cell(__('Disabled', 'reportit'), $report['id']);
-			}
+			form_selectable_cell($sched_types[$report['sched_type']], $report['id']);
 
 			form_selectable_cell($report_states[$report['state']], $report['id']);
+
+			form_selectable_cell($report['next_start'], $report['id'], '', 'right');
 
 			if ($report['last_started'] == '0000-00-00 00:00:00') {
 				form_selectable_cell(__('N/A', 'reportit'), $report['id'], '', 'right');
@@ -444,7 +442,7 @@ function standard() {
 				form_selectable_cell(filter_value($report['last_started'], '', $link), $report['id'], '', 'right');
 			}
 
-			form_selectable_cell(sprintf("%01.1f", $report['last_runtime']), $report['id'], '', 'right');
+			form_selectable_cell(sprintf("%0.2f sec", $report['last_runtime']), $report['id'], '', 'right');
 			form_selectable_cell(html_check_icon($report['public']), $report['id'], '', 'right');
 			form_selectable_cell(html_check_icon($report['enabled']), $report['id'], '', 'right');
 

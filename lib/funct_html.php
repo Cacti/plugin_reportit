@@ -241,7 +241,7 @@ function html_lock_icon($value, $title_on = 'Locked', $title_off = 'Unlocked') {
 }
 
 function html_check_icon($value, $title_on = 'Yes', $title_off = 'No') {
-	return html_onoff_icon($value, 'fa-check', $title_on, 'fa-times', $title_off);
+	return html_onoff_icon($value, 'fa-check deviceUp', $title_on, 'fa-times deviceDown', $title_off);
 }
 
 function html_sources_icon($values, $title_on, $title_off) {
