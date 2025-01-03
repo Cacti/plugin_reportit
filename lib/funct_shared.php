@@ -54,7 +54,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	}
 
 	/* get the owner of this report */
-	$report_data['owner']	= owner($report_id);
+	$report_data['owner'] = owner($report_id);
 
 	/* load measurand configurations */
 	$tmps = db_fetch_assoc_prepared('SELECT *
@@ -82,11 +82,13 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		WHERE template_id = ' . $report_data['template_id'], 'data_source_name', false, false);
 
 	switch ($type) {
+		case 'view':
 		case 'export':
 			$sql = "SELECT c.name_cache, b.*, a.*
 				FROM plugin_reportit_results_$report_id AS a
 				INNER JOIN plugin_reportit_data_items AS b
-				ON a.id = b.id AND b.report_id = $report_id
+				ON a.id = b.id
+				AND b.report_id = $report_id
 				INNER JOIN data_template_data AS c
 				ON c.local_data_id = a.id
 				$sql_where";
@@ -101,17 +103,6 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 				'report_data'       => $report_data,
 				'report_measurands' => $report_measurands
 			);
-
-			break;
-		case 'view':
-			$sql = "SELECT a.*, b.*, c.name_cache
-				FROM plugin_reportit_results_$report_id AS a
-				INNER JOIN plugin_reportit_data_items AS b
-				ON (a.id = b.id
-				AND b.report_id = $report_id)
-				INNER JOIN data_template_data AS c
-				ON c.local_data_id = a.id
-				$sql_where";
 
 			break;
 	}

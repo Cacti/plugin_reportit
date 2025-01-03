@@ -705,25 +705,68 @@ function reportit_schedule_report(&$report) {
 	require_once(CACTI_PATH_BASE . '/plugins/reportit/lib/funct_runtime.php');
 
 	$command  = read_config_option('path_php_binary');
-    $command .= ' ' . CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php';
+	$command .= ' ' . CACTI_PATH_BASE . '/plugins/reportit/poller_reportit.php';
 
-	$id      = $report['id'];
-	$name    = $report['name'];
-	$notify  = $report['notify_list'];
+	$id     = $report['id'];
+	$name   = $report['name'];
+	$notify = $report['notify_list'];
+	$from   = array();
+
+	if (isset($report['from_email']) && $report['from_email'] != '') {
+		$from_email = $report['from_email'];
+	} else {
+		$from_email = read_config_option('settings_from_email');
+	}
+
+	if (isset($report['from_name']) && $report['from_name'] != '') {
+		$from_name = $report['from_name'];
+	} else {
+		$from_name = read_config_option('settings_from_name');
+	}
+
+	if ($from_email != '' && $from_name != '') {
+		$from['email'] = $from_email;
+		$from['name']  = $from_name;
+	}
+
+	$to_emails = db_fetch_assoc_prepared('SELECT email, name
+		FROM plugin_reportit_recipients
+		WHERE report_id = ?',
+		array($report['id']));
+
+	if ($report['email'] != '') {
+		$emails = explode(',', $report['email']);
+		$emails = array_map('trim', $emails);
+
+		$to_emails += $emails;
+	}
+
+	if ($report['bcc'] != '') {
+		$bcc_emails = explode(',', $report['bcc']);
+		$bcc_emails = array_map('trim', $bcc);
+	} else {
+		$bcc_emails = array();
+	}
+
+	if (isset($report['reply_to'])) {
+		$reply_to = $report['reply_to'];
+	} else {
+		$reply_to = '';
+	}
 
 	$notification = array();
 
-	$emails = db_fetch_cell_prepared('SELECT GROUP_CONCAT(CONCAT(name, "<", email, ">"))
-		FROM plugin_reportit_recipients
-		WHERE report_id = ?',
-		array($id));
-
-	if ($emails != '') {
-		$notification['email']['to_email'] = $emails;
+	if (cacti_sizeof($emails) || cacti_sizeof($bcc)) {
+		$notification['email']['to_email']  = $to_emails;
+		$notification['email']['bcc_email'] = $bcc_emails;
+		$notification['email']['reply_to']  = $reply_to;
+		$notification['email']['from']      = $from;
 	}
 
 	if ($notify > 0) {
-		$notification['notification_list']['id'] = $notify;
+		$notification['notification_list']['id']       = $notify;
+		$notification['notification_list']['reply_to'] = $reply_to;
+		$notification['notification_list']['from']     = $from;
 	}
 
 	return reports_queue($name, 1, 'reportit', $id, $command, $notification);

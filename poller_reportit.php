@@ -44,6 +44,7 @@ $PATH_DID_VIEW  = "<a href='reports.php?action=rrdlist_edit&tab=items&id=<DID>&r
 
 $run_return     = array();
 $run_id         = false;
+$queue_id       = false;
 $run_verb       = false;
 $run_scheduled  = true;
 $run_search     = array('<NOTICE>', '<RID>', '<DID>');
@@ -88,6 +89,10 @@ if (cacti_sizeof($parms)) {
 		switch($arg) {
 			case '--report-id':
 				$run_id = $value;
+
+				break;
+			case '--queue-id':
+				$queue_id = $value;
 
 				break;
 			case '--scheduled':
@@ -141,10 +146,10 @@ if ($schedule == true) {
 		}
 	}
 } elseif ($run_id > 0) {
-	run_report($run_id);
+	run_report($run_id, $queue_id);
 }
 
-function run_report($report_id) {
+function run_report($report_id, $queue_id = 0) {
 	global $run_verb, $email_counter, $export_counter;
 
 	$start = microtime(true);
@@ -167,7 +172,7 @@ function run_report($report_id) {
 		if (!get_template_status($report['template_id'])) {
 			$report_id = $report['id'];
 
-			runtime($report_id);
+			runtime($report_id, $queue_id, $start_time);
 		} else {
 			$report_id = $report['id'];
 			run_error(10, $report_id);
@@ -224,7 +229,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice = '') {
 	}
 }
 
-function runtime($report_id) {
+function runtime($report_id, $queue_id, $start_time = 0) {
 	global $timezones, $run_scheduled, $run_return, $consolidation_functions;
 	global $rrdtool_api, $socket_handle, $calc_fct_names, $calc_fct_names_params;
 	global $calc_fct_aliases, $error, $email_counter, $export_counter;
@@ -818,18 +823,23 @@ function runtime($report_id) {
 		//		$export_counter++;
 		//	}
 		//}
+		$report_data = reportit_prepare_store_report_results($report_id, $queue_id, $start_time);
+
+		if ($report_data) {
+			run_error(13, $report_id, 0, "EMAIL: $error");
+		}
 
 		/* create and send out an email */
-		if (read_config_option('reportit_email') == 'on') {
-			if ($report_definitions['report']['auto_email'] == 'on') {
-				$error = send_scheduled_email('0', $report_id);
-				if ($error) {
-					run_error(13, $report_id, 0, "EMAIL: $error");
-				} else {
-					$email_counter++;
-				}
-			}
-		}
+//		if (read_config_option('reportit_email') == 'on') {
+//			if ($report_definitions['report']['auto_email'] == 'on') {
+//				$error = send_scheduled_email('0', $report_id);
+//				if ($error) {
+//					run_error(13, $report_id, 0, "EMAIL: $error");
+//				} else {
+//					$email_counter++;
+//				}
+//			}
+//		}
 	}
 
 	// ----- Return messages and runtime-----
@@ -1214,12 +1224,13 @@ function display_help() {
 
 	print PHP_EOL;
 
-	print 'usage: poller_reportit.php [ --report-id=N ] [ --scheduled ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
+	print 'usage: poller_reportit.php [ --report-id=N ] [ --queue-id=N ] [ --scheduled ] [--verbose] [--debug]' . PHP_EOL . PHP_EOL;
 
     print 'Cacti\'s ReportIt main poller.  This poller is the launcher for ReportIt reports.' . PHP_EOL . PHP_EOL;
 
 	print 'Provide either of the following:' . PHP_EOL;
 	print '  --report-id=N  Run as specific report now' . PHP_EOL;
+	print '  --queue-id=N   The queued report id' . PHP_EOL;
 
 	print 'Optional:' . PHP_EOL;
 	print '  --debug        Provide debug output' . PHP_EOL;

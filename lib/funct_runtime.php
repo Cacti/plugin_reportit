@@ -602,8 +602,86 @@ function check_DST_support() {
 	return $return;
 }
 
-function check_rra_header(& $rra_data){
+function check_rra_header(&$rra_data){
 
+}
+
+function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start_time = false) {
+	$report = db_fetch_row_prepared('SELECT *
+		FROM plugin_reportit_reports
+		WHERE id = ?',
+		array($report_id));
+
+	$attachments = array();
+	$data        = get_prepared_report_data($report_id, 'export');
+	$search      = array('|title|', '|period|');
+	$replace     = array($report['name'], $report['start_date'] . '-' . $report['end_date']);
+
+	$subject     = ($report['email_subject'] != '') ? $report['email_subject'] : 'Scheduled report - |title| - |period|';
+	$subject     = str_replace($search, $replace, $subject);
+	$filename    = '';
+
+	/* very simple Email body for now. */
+	$body        = ($report['email_body'] != '')   ? $report['email_body'] : 'This is a scheduled report generated from Cacti.';
+	$format      = ($report['email_format'] != '') ? $report['email_format'] : 'CSV';
+	$body_html   = $body;
+
+	/* load list of recipients */
+	$file_type   = ($format != 'SML') ? strtolower($format) : 'xml';
+	$mime_type   = ($format != 'SML') ? 'application/' . strtolower($format) : 'application/vnd-ms-excel';
+
+	if ($data == '') {
+		cacti_log(sprintf('WARNING: Unable to retreive ReportIt Report Data for Report:%s', $report['name']), false, 'REPORTIT');
+
+		return 'Export Failed';
+	}
+
+	if ($format != 'None') {
+		/* define additional attachment settings */
+		$filebase = read_config_option('reportit_exp_filename');
+
+		if (empty($filebase)) {
+			$filebase = 'report_<report_id>';
+		}
+
+		$dirbase = dirname($filebase);
+		if (empty($dirbase) || $dirbase == '.') {
+			$dirbase = sys_get_temp_dir();
+		}
+
+		$filebase         = $dirbase . '/' . $filebase . ".$file_type";
+		$filename         = str_replace('<report_id>', $report_id, $filebase);
+		$export_function  = 'export_to_' . $format;
+
+		print "Attachment: $filename\n";
+
+		/* load export data and define the attachment file */
+		if (function_exists($export_function)) {
+			$export_data = $export_function($data);
+
+			$attachments[] = array(
+				'attachment' => $filename,
+				'mime_type'  => $mime_type,
+				'inline'     => 'attachment',
+			);
+
+			file_put_contents($filename, $export_data);
+		} else {
+			cacti_log("WARNING: Missing function '$export_function'", true, 'REPORTIT');
+		}
+	}
+
+	$v = CACTI_VERSION;
+
+	$headers['User-Agent'] = 'Cacti-ReportIt-Report-v' . $v;
+
+	$result = reports_log_and_notify($queue_id, $start_time, 'html', 'reportit', $report_id, $subject, $data, $body, $body_html, $body_text, $attachments, $headers);
+
+	if ($filename != '') {
+		unlink($filename);
+	}
+
+	return $result;
 }
 
 function send_scheduled_email($id, $report_id) {
@@ -661,56 +739,9 @@ function send_scheduled_email($id, $report_id) {
 		}
 	}
 
-	$attachment = array();
-	$data = '';
-
-	if ($format != 'None') {
-		/* define additional attachment settings */
-		$filebase = read_config_option('reportit_exp_filename');
-
-		if (empty($filebase)) {
-			$filebase = 'report_<report_id>';
-		}
-
-		$dirbase = dirname($filebase);
-		if (empty($dirbase) || $dirbase == '.') {
-			$dirbase = sys_get_temp_dir();
-		}
-
-		$filebase         = $dirbase . '/' . $filebase . ".$file_type";
-		$filename         = str_replace('<report_id>', $report_id, $filebase);
-		$export_function  = 'export_to_' . $format;
-
-		print "Attachment: $filename\n";
-
-		/* load export data and define the attachment file */
-		if (function_exists($export_function)) {
-			$data = get_prepared_report_data($report_id, 'export');
-			if ($data == '') {
-				return('Export failed');
-			}
-
-			$data = $export_function($data);
-
-			$attachment = array(
-				'attachment' => $filename,
-				'mime_type'  => $mime_type,
-				'inline'     => 'attachment',
-			);
-
-			file_put_contents($filename, $data);
-		} else {
-			cacti_log("WARNING: Missing function '$export_function'", true, 'REPORTIT');
-		}
-	}
-
-	//function mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html, $epandsIds);
+	// function mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html, $epandsIds);
 
 	$return = mailer($from, $to, '', $bcc, '', $subject, $body, '', array($attachment), '', true);
-
-	//	reports_log_and_notify($id, $start_time, 'html', 'reportit', $report_id, $subject, $data, $body, $body_html, $body_text, $attachment, $headers);
-
-	unlink($filename);
 
 	return $return;
 }

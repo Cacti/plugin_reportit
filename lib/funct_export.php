@@ -38,11 +38,10 @@ function export_to_CSV(&$data) {
 	$data_sources = array();
 
 	$csv_c_sep    = array(',', ';', "\t", ' ');
-
 	$csv_d_sep    = array(',', '.');
 
-	$measurands  = isset_request_var('measurand')   ? get_request_var('measurand')   : '-1';
-	$datasources = isset_request_var('data_source') ? get_request_var('data_source') : '-1';
+	$measurands   = isset_request_var('measurand')   ? get_request_var('measurand')   : '-1';
+	$datasources  = isset_request_var('data_source') ? get_request_var('data_source') : '-1';
 
 	$report_ds_alias   = $data['report_ds_alias'];
 	$report_data       = $data['report_data'];
@@ -50,7 +49,7 @@ function export_to_CSV(&$data) {
 	$report_measurands = $data['report_measurands'];
 	$report_variables  = $data['report_variables'];
 
-	$csv_column_s = read_config_option('reportit_csv_column_s');
+	$csv_column_s  = read_config_option('reportit_csv_column_s');
 	$csv_decimal_s = read_config_option('reportit_csv_decimal_s');
 
 	/* load user settings */
@@ -61,7 +60,7 @@ function export_to_CSV(&$data) {
 		$d_sep = $csv_d_sep[$csv_decimal_s];
 	} else {
 		/* request via cli */
-		$no_formatting = $report_data['autoexport_no_formatting'];
+		$no_formatting = 0;
 		$c_sep = $csv_c_sep[$csv_column_s];
 		$d_sep = $csv_d_sep[$csv_decimal_s];
 	}
@@ -75,7 +74,7 @@ function export_to_CSV(&$data) {
 
 	/* compose additional informations */
 	$report_settings = array(
-		__('Report title', 'reportit') => "{$report_data['description']}",
+		__('Report title', 'reportit') => "{$report_data['name']}",
 		__('Owner', 'reportit')        => "{$report_data['owner']}",
 		__('Template', 'reportit')     => "{$report_data['template_name']}",
 		__('Start', 'reportit')        => "{$report_data['start_date']}",
@@ -162,7 +161,7 @@ function export_to_CSV(&$data) {
 	/* build a legend to explain the abbreviations of measurands */
 	print $eol . "# Legend: $eol";
 	foreach ($report_measurands as $id) {
-		print "# {$id['abbreviation']}: {$id['description']} $eol";
+		print "# {$id['abbreviation']}: {$id['name']} $eol";
 	}
 
 	/* print table header */
@@ -245,7 +244,7 @@ function export_to_XML(&$data) {
 	$report_measurands = $data['report_measurands'];
 	$report_variables  = $data['report_variables'];
 	$ds_description    = explode('|', $report_data['ds_description']);
-	$no_formatting     = ($run_scheduled !== true) ? 0 : $report_data['autoexport_no_formatting'];
+	$no_formatting     = 0;
 
 	/* form the export header */
 	$header = read_config_option('reportit_exp_header');
@@ -400,7 +399,7 @@ function export_to_JSON(&$data) {
 	$report_measurands = $data['report_measurands'];
 	$report_variables  = $data['report_variables'];
 	$ds_description    = explode('|', $report_data['ds_description']);
-	$no_formatting     = ($run_scheduled !== true) ? 0 : $report_data['autoexport_no_formatting'];
+	$no_formatting     = 0;
 
 	/* compose additional informations */
 	$report_settings = array(
@@ -557,7 +556,7 @@ function new_worksheet(&$data, &$styles){
 	$report_results    = $data['report_results'];
 	$report_measurands = $data['report_measurands'];
 	$report_variables  = $data['report_variables'];
-	$no_formatting     = ($run_scheduled !== true) ? 0 : $report_data['autoexport_no_formatting'];
+	$no_formatting     = 0;
 
 	/* form the export header */
 	$info = $info = plugin_reportit_version();
