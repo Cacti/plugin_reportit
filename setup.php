@@ -743,7 +743,7 @@ function reportit_schedule_report(&$report) {
 
 	if ($report['bcc'] != '') {
 		$bcc_emails = explode(',', $report['bcc']);
-		$bcc_emails = array_map('trim', $bcc);
+		$bcc_emails = array_map('trim', $bcc_emails);
 	} else {
 		$bcc_emails = array();
 	}
@@ -756,7 +756,7 @@ function reportit_schedule_report(&$report) {
 
 	$notification = array();
 
-	if (cacti_sizeof($emails) || cacti_sizeof($bcc)) {
+	if (cacti_sizeof($to_emails) || cacti_sizeof($bcc_emails)) {
 		$notification['email']['to_email']  = $to_emails;
 		$notification['email']['bcc_email'] = $bcc_emails;
 		$notification['email']['reply_to']  = $reply_to;
