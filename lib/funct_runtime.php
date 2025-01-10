@@ -631,7 +631,7 @@ function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start
 	$mime_type   = ($format != 'SML') ? 'application/' . strtolower($format) : 'application/vnd-ms-excel';
 
 	if ($data == '') {
-		cacti_log(sprintf('WARNING: Unable to retreive ReportIt Report Data for Report:%s', $report['name']), false, 'REPORTIT');
+		cacti_log(sprintf('WARNING: Unable to retrieve ReportIt Report Data for Report:%s', $report['name']), false, 'REPORTIT');
 
 		return 'Export Failed';
 	}
