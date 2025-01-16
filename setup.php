@@ -32,7 +32,7 @@ function plugin_reportit_install() {
 	api_plugin_register_hook('reportit', 'clog_regex_array',      'reportit_clog_regex_array',     'setup.php');
 
 	api_plugin_register_realm('reportit', 'view.php,charts.php', 'ReportIt - Report Viewing', 1);
-	api_plugin_register_realm('reportit', 'reportsit.php,view.php', 'ReportIt - Create Reports', 1);
+	api_plugin_register_realm('reportit', 'reportit.php,view.php', 'ReportIt - Create Reports', 1);
 	api_plugin_register_realm('reportit', 'templates.php', 'ReportIt - Manage Reports', 1);
 
 	$realm_array = array(
