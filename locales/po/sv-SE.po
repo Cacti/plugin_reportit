@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2024-09-25 20:00-0400\n"
-"PO-Revision-Date: 2024-09-25 20:06-0400\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: sv_SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-03-14 13:09+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -801,7 +790,7 @@ msgstr "1 Minut"
 #: include/global_arrays.php:552 include/global_arrays.php:553
 #: include/global_arrays.php:554 include/global_arrays.php:555
 #: include/global_arrays.php:556
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes"
 msgstr "%d minuter"
 
@@ -993,9 +982,8 @@ msgid "Running"
 msgstr "Kör"
 
 #: lib/const_reports.php:47
-#, fuzzy
 msgid "- No template available -"
-msgstr "- inte tillgänglig -"
+msgstr "- Ingen mall tillgänglig -"
 
 #: lib/const_reports.php:59 lib/const_rrdlist.php:55 lib/funct_runtime.php:170
 msgid "Monday"
@@ -1026,9 +1014,8 @@ msgid "Sunday"
 msgstr "Söndag"
 
 #: lib/const_reports.php:121
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "Förinställningar för dataobjekt"
+msgstr "Förinställningar för datakälla"
 
 #: lib/const_reports.php:122 reports.php:1128
 msgid "Email"
@@ -1191,9 +1178,8 @@ msgid "If enabled (default) the list of available data items will be filtered au
 msgstr "Om det är aktiverat (standard) filtreras listan över tillgängliga dataobjekt automatiskt efter ägarens diagrambehörighet: \"per enhet\"."
 
 #: lib/const_reports.php:361
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[Valfritt] Version"
+msgstr "Valfri underrubrik"
 
 #: lib/const_reports.php:362 reports.php:1636
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
@@ -1208,39 +1194,32 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "Välj den tidszon som din följande skifttidsinformation kommer att baseras på."
 
 #: lib/const_reports.php:384
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "Ytterligare förfilter"
+msgstr "Förfilter för valfri datakälla"
 
 #: lib/const_reports.php:388
-#, fuzzy
 msgid "Site Filter"
-msgstr "Filter för rapporter"
+msgstr "Filter för webbplats"
 
 #: lib/const_reports.php:389
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Använd endast de dataobjekt som tillhör värdar för den här värdmallen.<br>Välj \"Ingen\" (standard) för att inaktivera den här filterinställningen."
+msgstr "Använd endast denna Site för att matcha datakällor.<br>Välj \"None\" (standard) för att inaktivera denna filterinställning."
 
 #: lib/const_reports.php:396
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "Ta bort mallvariabler"
+msgstr "Filter för enhetsmall"
 
 #: lib/const_reports.php:397
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Använd endast de dataobjekt som tillhör värdar för den här värdmallen.<br>Välj \"Ingen\" (standard) för att inaktivera den här filterinställningen."
+msgstr "Använd endast denna Device Templates Data Sources.<br>Välj \"None\" (standard) för att avaktivera denna filterinställning."
 
 #: lib/const_reports.php:404
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "Alias för datakälla"
+msgstr "Filter för namn på datakälla"
 
 #: lib/const_reports.php:405
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Tillåter ytterligare filtrering av beskrivningarna av dataobjekten.<br> Använd SQL-jokertecken som % and/eller _. Inga reguljära uttryck!"
+msgstr "Använd datakällor vars namn matchar detta filter.<br> Använd SQL-jokertecken som % and/eller _. Inga reguljära uttryck!"
 
 #: lib/const_reports.php:412 reports.php:1667
 msgid "Working Time"
@@ -1351,16 +1330,14 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "Använd följande format för att definiera slutdatumet: <b>åååå-mm-dd</b>"
 
 #: lib/const_rrdlist.php:28
-#, fuzzy
 msgid "Add to Report"
-msgstr "Visa rapport"
+msgstr "Lägg till i rapport"
 
 #: lib/const_rrdlist.php:29
 msgid "Remove from Report"
 msgstr "Ta bort från rapport"
 
 #: lib/const_rrdlist.php:30
-#, fuzzy
 msgid "Copy Settings to All"
 msgstr "Kopiera inställningar till alla"
 
@@ -1414,9 +1391,8 @@ msgid "Average"
 msgstr "Medel"
 
 #: lib/funct_export.php:82 lib/funct_export.php:448
-#, fuzzy
 msgid "Report title"
-msgstr "Rapporttitel"
+msgstr "Rapportens titel"
 
 #: lib/funct_export.php:85 lib/funct_export.php:451
 msgid "Start"
@@ -1482,7 +1458,6 @@ msgid "Unknown Owner"
 msgstr "Okänd ägare"
 
 #: lib/funct_validate.php:274 lib/funct_validate.php:277
-#, fuzzy
 msgid "The file is to big."
 msgstr "Filen är för stor."
 
@@ -1577,9 +1552,8 @@ msgid "Period %s From - To"
 msgstr "Period %s från - till"
 
 #: reports.php:370
-#, fuzzy
 msgid "Schedule Frequency"
-msgstr "Frekvens"
+msgstr "Schema Frekvens"
 
 #: reports.php:374
 msgid "State"
@@ -1624,9 +1598,8 @@ msgid "Report has been locked"
 msgstr "Rapporten har låsts"
 
 #: reports.php:462
-#, fuzzy
 msgid "No reports"
-msgstr "Rapporter"
+msgstr "Inga rapporter"
 
 #: reports.php:547
 msgid "Not Authorized"
@@ -1678,9 +1651,8 @@ msgid "Does not exist anymore"
 msgstr "Finns inte längre"
 
 #: reports.php:1428
-#, fuzzy
 msgid "Included in Report"
-msgstr "Kör rapport"
+msgstr "Ingår i rapporten"
 
 #: reports.php:1430
 msgid "Not Included in Report"
@@ -1703,9 +1675,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[VALFRITT] Namnet på en mottagare (eller en kommaavgränsad lista med namn)"
 
 #: reports.php:1617
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "Dataobjekt [redigera: %s]"
+msgstr "Datakälla [redigera: %s]"
 
 #: reports.php:1635
 msgid "Subhead (optional)"
@@ -1728,9 +1700,8 @@ msgid "Click 'Continue' to duplicate the following Report configurations.  You m
 msgstr "Klicka på \"Fortsätt\" för att duplicera följande rapportkonfigurationer.  Du kan också ändra titelformatet under den här åtgärden."
 
 #: reports.php:1978
-#, fuzzy
 msgid "Title Format:"
-msgstr "Rubrikformat"
+msgstr "Titelformat:"
 
 #: reports.php:1979
 msgid "<report_title> (1)"
@@ -1741,34 +1712,29 @@ msgid "You must select at least one unlocked, not running, report."
 msgstr "Du måste välja minst en olåst rapport som inte körs."
 
 #: reports.php:2039
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "Klicka på \"Fortsätt\" för att ta bort följande dataobjekt."
+msgstr "Klicka på \"Fortsätt\" för att ta bort följande datakällor från rapporten."
 
 #: reports.php:2042 reports.php:2059
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "Lista över valda dataobjekt:"
+msgstr "Lista över utvalda datakällor nedan."
 
 #: reports.php:2047 reports.php:2064 view.php:973
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "Datakälla"
+msgstr "Datakälla: %s"
 
 #: reports.php:2056
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "Klicka på \"Fortsätt\" för att köra följande rapport:"
+msgstr "Klicka på \"Fortsätt\" för att lägga till följande datakällor i rapporten."
 
 #: reports.php:2086
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "Klicka på \"Fortsätt\" för att kopiera inställningarna till de andra dataobjekten"
+msgstr "Klicka på \"Fortsätt\" för att kopiera inställningarna till de andra datakällorna."
 
 #: reports.php:2088
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "Valt dataobjekt som referens:"
+msgstr "Vald datakälla som referens:"
 
 #: reports.php:2091
 msgid "Time Zone:"
@@ -1787,19 +1753,16 @@ msgid "You must select at least one Report."
 msgstr "Du måste välja minst en rapport."
 
 #: setup.php:39
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "Visa rapporter"
+msgstr "ReportIt - Visning av rapporter"
 
 #: setup.php:40
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "Skapa rapporter"
+msgstr "ReportIt - Skapa rapporter"
 
 #: setup.php:41
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "ReportIt Allmänna inställningar"
+msgstr "ReportIt - Hantera rapporter"
 
 #: setup.php:141 setup.php:153 setup.php:171 setup.php:177 setup.php:195
 #: setup.php:207 setup.php:213 setup.php:267 setup.php:273 setup.php:291
@@ -1924,37 +1887,32 @@ msgid "Time Zones"
 msgstr "Tidszoner"
 
 #: setup.php:432
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "Aktivera/inaktivera användningen av tidszoner för dataobjektets konfiguration och rapportberäkning.  I det förstnämnda fallet måste servertiden ställas in på GMT/UTC!"
+msgstr "Aktivera/avaktivera användningen av tidszoner för Data Items konfiguration och rapportberäkning.  I det förstnämnda fallet måste servertiden ställas in på GMT/UTC!"
 
 #: setup.php:437
 msgid "Show Local Time Zone"
 msgstr "Visa lokal tidszon"
 
 #: setup.php:438
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "Aktivera/inaktivera för att visa serverns tidszon på rubrikerna."
+msgstr "Aktivera/Desaktivera visning av serverns tidszon på rubrikerna."
 
 #: setup.php:443
-#, fuzzy
 msgid "Allow Scheduling by Operators"
-msgstr "Tillåt schemaläggning av operatorer"
+msgstr "Tillåt schemaläggning av operatörer"
 
 #: setup.php:444
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "Aktivera/inaktivera operatörens möjlighet att schemalägga rapporter.  När den är inaktiverad kan endast administratörer ändra schemaläggningen."
+msgstr "Aktivera/avaktivera operatörens möjlighet att schemalägga rapporter.  När Disabled är aktiverat kan endast administratörer ändra schemaläggningen."
 
 #: setup.php:449
 msgid "SI-Prefixes"
 msgstr "SI-prefix"
 
 #: setup.php:450
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "Aktivera/inaktivera användningen av korrekta SI-prefix för binära multiplar enligt villkoren i <a href='http://www.ieee.org'>IEEE 1541</a> och <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Aktivera/inaktivera användningen av korrekta SI-refix för binära multiplar enligt villkoren i <a href='http://www.ieee.org'>IEEE 1541</a> och <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
 #: setup.php:455
 msgid "Export Settings"
@@ -2029,9 +1987,8 @@ msgid "The main path to an export folder for saving the exports."
 msgstr "Huvudsökvägen till en exportmapp för att spara exporterna."
 
 #: setup.php:539
-#, fuzzy
 msgid "Report View Settings"
-msgstr "ReportIt Allmänna inställningar"
+msgstr "Inställningar för rapportvy"
 
 #: setup.php:544
 msgid "Separate Report View Filter"
@@ -2050,9 +2007,8 @@ msgid "The number of rows to display on a single page."
 msgstr "Antalet rader som ska visas på en enda sida."
 
 #: setup.php:557
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "Exportinställningar för ReportIt"
+msgstr "Inställningar för rapport-export"
 
 #: setup.php:562
 msgid "CSV Column Separator"
@@ -2164,9 +2120,8 @@ msgid "Edit variables"
 msgstr "Redigera variabler"
 
 #: templates.php:692
-#, fuzzy
 msgid "No templates"
-msgstr "Mallar"
+msgstr "Enhetsmallar:"
 
 #: templates.php:857
 msgid "Maximum has to be greater than minimum."
@@ -2185,19 +2140,17 @@ msgid "Interim results are used by other measurands."
 msgstr "Interimsresultat används av andra mätstorheter."
 
 #: templates.php:1048
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "Mall: %s"
+msgstr "Mall [ %s - %s ]"
 
 #: templates.php:1052
-#, fuzzy
 msgid "Template [new]"
-msgstr "Mall"
+msgstr "Mall [ny]"
 
 #: templates.php:1145
-#, fuzzy
 msgid "<template_title>"
-msgstr "Mallens titel"
+msgstr "<template_title>"
 
 #: templates.php:1305
 msgid "Click 'Continue' to Delete the following Report Templates"
@@ -2266,9 +2219,9 @@ msgid "List of selected variables:"
 msgstr "Lista över valda variabler:"
 
 #: templates.php:1484
-#, fuzzy, php-format
+#, php-format
 msgid "Variable: %s"
-msgstr "variabel : %s"
+msgstr "Variabel: %s"
 
 #: templates.php:1495
 msgid "There are one or more variables in use."
@@ -2283,27 +2236,25 @@ msgid "Delete Template Variables"
 msgstr "Ta bort mallvariabler"
 
 #: templates.php:1574
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "Klicka på \"Fortsätt\" för att ta bort följande mätstorheter.  Observera: Om det inte finns några andra mätstorheter kvar efter denna process kommer rapportmallen att låsas automatiskt."
+msgstr "Klicka på \"Fortsätt\" för att ta bort följande mätvärden.  Observera: Om det inte finns några andra mätvärden kvar efter denna process låses rapportmallen automatiskt."
 
 #: templates.php:1577
 msgid "List of selected measurands:"
 msgstr "Lista över utvalda mätstorheter:"
 
 #: templates.php:1581
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
-msgstr "Mätstorhet: %s"
+msgstr "Metrisk: %s"
 
 #: templates.php:1592
 msgid "You must select at least one measurand."
 msgstr "Du måste välja minst en mätstorhet."
 
 #: templates.php:1598
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "Ta bort mallmätstorheter"
+msgstr "Ta bort mätvärden för mall"
 
 #: templates.php:1683
 #, php-format
@@ -2315,9 +2266,9 @@ msgid "No Variables Found"
 msgstr "Inga variabler hittades"
 
 #: templates.php:1765
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "Variabel konfiguration [redigera: %s]"
+msgstr "Variabelkonfiguration [ redigera: %s ]"
 
 #: templates.php:1767
 msgid "Variable Configuration [new]"
@@ -2384,14 +2335,13 @@ msgid "Defines the distance between two values if method \"DropDown\" has been c
 msgstr "Definierar avståndet mellan två värden om metoden \"DropDown\" har valts. Se till att detta värde inte är för lågt, eftersom det indirekt definierar antalet alternativ som rullgardinsfältet kommer att ha. Till exempel kommer följande parametrar: MAX:100, MIN:0, STEP:0.01 att resultera i en urvalsruta med 10.001 alternativ. Detta kan orsaka dramatiska prestandaproblem på grund av en hög CPU-belastning på klientsidan. Försök att hålla det under 1000."
 
 #: templates.php:1911
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "Mätkonfiguration [redigera: %s]"
+msgstr "Metrisk konfiguration [ redigera: %s - %s ]"
 
 #: templates.php:1913
-#, fuzzy
 msgid "Metric Configuration [new]"
-msgstr "Mätrandkonfiguration [ny]"
+msgstr "Metrisk konfiguration [ny]"
 
 #: templates.php:1936
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2462,14 +2412,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "Klicka på en av de listade operatorerna eller operanden för att lägga till dem i din kalukaljonformel. Verktygstipset visar dig ytterligare information som beskrivning, returvärde, argument och användning."
 
 #: templates.php:2109
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "Mall: %s"
+msgstr "Mätetal [ Mall: %s - %s ]"
 
 #: templates.php:2147
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "Inga rapporter hittades"
+msgstr "Inga mätvärden hittades"
 
 #: view.php:204
 msgid "Reports Filter"
@@ -2504,9 +2453,8 @@ msgid "Data Source"
 msgstr "Datakälla"
 
 #: view.php:643
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "Visa TOP10-grafer"
+msgstr "Visa de 10 bästa graferna"
 
 #: view.php:644
 msgid "Show Subheads"
@@ -2565,18 +2513,18 @@ msgid "No Data Items"
 msgstr "Inga dataposter"
 
 #: view.php:1008
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "Mätstorhet: %s"
+msgstr "Metrisk: %s (%s)"
 
 #: view.php:1029
 msgid "Pos."
 msgstr "Plats."
 
 #: view.php:1037
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
-msgstr "Resultat [ %s]"
+msgstr "Resultat [%s]"
 
 #~ msgid "Click 'Continue' to Copy the Settings to the other Data Items"
 #~ msgstr "Klicka på \"Fortsätt\" för att kopiera inställningarna till de andra dataobjekten"
