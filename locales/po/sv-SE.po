@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-03-14 13:09+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-03-18 09:57+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -197,7 +197,7 @@ msgstr "Senaste 28 dagarna"
 
 #: include/global_arrays.php:104 lib/const_reports.php:86
 msgid "Current Month"
-msgstr "Nuvarande månad"
+msgstr "Aktuell månad"
 
 #: include/global_arrays.php:105 lib/const_reports.php:87
 msgid "Last Month"
@@ -225,7 +225,7 @@ msgstr "Senaste 6 månaderna"
 
 #: include/global_arrays.php:111 lib/const_reports.php:93
 msgid "Current Year"
-msgstr "Nuvarande år"
+msgstr "Aktuellt år"
 
 #: include/global_arrays.php:112 lib/const_reports.php:94
 msgid "Last Year"
@@ -1972,7 +1972,7 @@ msgstr "Automatisk e-postutskick"
 
 #: setup.php:506
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
-msgstr "Om det här alternativet är aktiverat kan schemalagda rapporter skickas automatiskt via e-post till en lista med mottagare.<br> Den här funktionen kräver en konfigurerad version av \"Inställningar Plugin\"."
+msgstr "Om det här alternativet är aktiverat kan schemalagda rapporter skickas automatiskt via e-post till en lista med mottagare.<br> Den här funktionen kräver en konfigurerad version av \"Inställningstillägg\"."
 
 #: setup.php:511
 msgid "Auto Exporting"
@@ -2121,7 +2121,7 @@ msgstr "Redigera variabler"
 
 #: templates.php:692
 msgid "No templates"
-msgstr "Enhetsmallar:"
+msgstr "Inga mallar"
 
 #: templates.php:857
 msgid "Maximum has to be greater than minimum."
@@ -2478,7 +2478,7 @@ msgstr "Arkiv"
 
 #: view.php:702
 msgid "Current"
-msgstr "Nuvarande"
+msgstr "Aktuell"
 
 #: view.php:761
 msgid "Title"
