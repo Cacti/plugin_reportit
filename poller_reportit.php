@@ -1062,7 +1062,7 @@ function autocleanup($report_id) {
 		AND b.name_cache IS NULL");
 
 	if ($data_items) {
-		db_execute_prapared("DELETE FROM `plugin_reportit_data_items`
+		db_execute_prepared("DELETE FROM `plugin_reportit_data_items`
 			WHERE `plugin_reportit_data_items`.`report_id` = ?
 			AND `plugin_reportit_data_items`.`id` in ($data_items)",
 			array($report_id));
