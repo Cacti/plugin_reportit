@@ -4,32 +4,32 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: ka\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-01 15:52+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
 #: include/global_arrays.php:44 lib/const_reports.php:29
 #: lib/const_variables.php:28 templates.php:44 templates.php:67
 msgid "Delete"
-msgstr ""
+msgstr "წაშლა"
 
 #: include/global_arrays.php:28 include/global_arrays.php:41
 #: include/global_arrays.php:45 lib/const_reports.php:30
 msgid "Duplicate"
-msgstr ""
+msgstr "დუბლირება"
 
 #: include/global_arrays.php:29
 msgid "Lock"
-msgstr ""
+msgstr "ჩაკეტვა"
 
 #: include/global_arrays.php:30
 msgid "Unlock"
-msgstr ""
+msgstr "განბლოკვა"
 
 #: include/global_arrays.php:31 setup.php:237 setup.php:243 setup.php:249
 #: templates.php:1389
 msgid "Export"
-msgstr ""
+msgstr "გატანa"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:48 lib/const_reports.php:499
@@ -37,31 +37,31 @@ msgstr ""
 #: templates.php:261 templates.php:583 templates.php:1622 templates.php:1800
 #: templates.php:2118
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1627
 msgid "Internal Name"
-msgstr ""
+msgstr "შიდა სახელი"
 
 #: include/global_arrays.php:53 lib/const_variables.php:53
 #: lib/const_view.php:101 templates.php:1631
 msgid "Maximum"
-msgstr ""
+msgstr "მაქსიმუმი"
 
 #: include/global_arrays.php:54 lib/const_variables.php:54
 #: lib/const_view.php:100 templates.php:1635
 msgid "Minimum"
-msgstr ""
+msgstr "მინიმუმი"
 
 #: include/global_arrays.php:55 lib/const_variables.php:55 reports.php:164
 #: reports.php:1329 templates.php:433 templates.php:1639 view.php:232
 #: view.php:690
 msgid "Default"
-msgstr ""
+msgstr "ნაგულისხმევი"
 
 #: include/global_arrays.php:56 templates.php:1643 templates.php:1846
 msgid "Stepping"
-msgstr ""
+msgstr "ნაბიჯი"
 
 #: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1647
 msgid "Input Type"
@@ -69,36 +69,36 @@ msgstr ""
 
 #: include/global_arrays.php:58 templates.php:1651
 msgid "Options"
-msgstr ""
+msgstr "მორგება"
 
 #: include/global_arrays.php:61 include/global_arrays.php:71 reports.php:363
 #: reports.php:1283 templates.php:589
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: include/global_arrays.php:62 templates.php:1942 templates.php:2119
 msgid "Abbreviation"
-msgstr ""
+msgstr "აბრევიატურა"
 
 #: include/global_arrays.php:63
 msgid "Group"
-msgstr ""
+msgstr "ჯგუფი"
 
 #: include/global_arrays.php:64 templates.php:1949 templates.php:2120
 msgid "Unit"
-msgstr ""
+msgstr "ერთეული"
 
 #: include/global_arrays.php:65 templates.php:2121
 msgid "Consolidation Function"
-msgstr ""
+msgstr "კონსოლიდაციის ფუნქცია"
 
 #: include/global_arrays.php:66 templates.php:1964 templates.php:2122
 msgid "Visible"
-msgstr ""
+msgstr "ხილული"
 
 #: include/global_arrays.php:67 templates.php:1973 templates.php:2123
 msgid "Separate"
-msgstr ""
+msgstr "ცალკე"
 
 #: include/global_arrays.php:68 templates.php:2013 templates.php:2124
 msgid "Calculation Formula"
@@ -110,12 +110,12 @@ msgstr ""
 
 #: include/global_arrays.php:74
 msgid "Elements"
-msgstr ""
+msgstr "ელემენტები"
 
 #: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:261
 #: templates.php:138 templates.php:619
 msgid "Metrics"
-msgstr ""
+msgstr "მეტრიკები"
 
 #: include/global_arrays.php:76
 msgid "Associated Data Templates"
@@ -127,7 +127,7 @@ msgstr ""
 #: lib/const_reports.php:495 reports.php:1627 setup.php:412 templates.php:136
 #: templates.php:1789 templates.php:1930
 msgid "General"
-msgstr ""
+msgstr "ზოგადი"
 
 #: include/global_arrays.php:82
 msgid "Data Templates"
@@ -135,17 +135,17 @@ msgstr ""
 
 #: include/global_arrays.php:83
 msgid "Groups"
-msgstr ""
+msgstr "ჯგუფები"
 
 #: include/global_arrays.php:85 include/global_arrays.php:532
 #: lib/const_measurands.php:355 lib/funct_html.php:171 lib/funct_html.php:247
 #: setup.php:285 templates.php:137 templates.php:624
 msgid "Variables"
-msgstr ""
+msgstr "ცვლადები"
 
 #: include/global_arrays.php:91 lib/const_reports.php:73
 msgid "Today"
-msgstr ""
+msgstr "დღეს"
 
 #: include/global_arrays.php:92 lib/const_reports.php:74
 msgid "Last 1 Day"
@@ -229,7 +229,7 @@ msgstr ""
 
 #: include/global_arrays.php:112 lib/const_reports.php:94
 msgid "Last Year"
-msgstr ""
+msgstr "შარშან"
 
 #: include/global_arrays.php:113 lib/const_reports.php:95
 msgid "Last 2 Years"
@@ -237,27 +237,27 @@ msgstr ""
 
 #: include/global_arrays.php:118 lib/const_reports.php:105
 msgid "Daily"
-msgstr ""
+msgstr "ყოველდღიური"
 
 #: include/global_arrays.php:119 lib/const_reports.php:106
 msgid "Weekly"
-msgstr ""
+msgstr "კვირაში ერთხელ"
 
 #: include/global_arrays.php:120 lib/const_reports.php:107
 msgid "Monthly"
-msgstr ""
+msgstr "თვეში ერთხელ"
 
 #: include/global_arrays.php:121 lib/const_reports.php:108
 msgid "Quarterly"
-msgstr ""
+msgstr "ყოველ კვარტალში"
 
 #: include/global_arrays.php:122 lib/const_reports.php:109
 msgid "Yearly"
-msgstr ""
+msgstr "ყოველწლიურად"
 
 #: include/global_arrays.php:126 lib/const_variables.php:32 templates.php:48
 msgid "Dropdown"
-msgstr ""
+msgstr "ჩამოსაშლელი"
 
 #: include/global_arrays.php:127 lib/const_variables.php:33 templates.php:49
 msgid "Input field"
@@ -268,11 +268,11 @@ msgstr ""
 #: lib/const_reports.php:223 lib/const_reports.php:392
 #: lib/const_reports.php:400 lib/const_view.php:97
 msgid "None"
-msgstr ""
+msgstr "არცერთი"
 
 #: include/global_arrays.php:133 lib/const_measurands.php:367
 msgid "Binary"
-msgstr ""
+msgstr "ორობითი"
 
 #: include/global_arrays.php:134 lib/const_measurands.php:368
 msgid "Floating point"
@@ -280,7 +280,7 @@ msgstr ""
 
 #: include/global_arrays.php:135 lib/const_measurands.php:369
 msgid "Integer"
-msgstr ""
+msgstr "მთელი რიცხვი"
 
 #: include/global_arrays.php:136 lib/const_measurands.php:370
 msgid "Integer (unsigned)"
@@ -288,7 +288,7 @@ msgstr ""
 
 #: include/global_arrays.php:137 lib/const_measurands.php:371
 msgid "Hexadecimal (lower-case)"
-msgstr ""
+msgstr "თექვსმეტობითი (პატარა ასოებით)"
 
 #: include/global_arrays.php:138 lib/const_measurands.php:372
 msgid "Hexadecimal (upper-case)"
@@ -296,19 +296,19 @@ msgstr ""
 
 #: include/global_arrays.php:139 lib/const_measurands.php:373
 msgid "Octal"
-msgstr ""
+msgstr "რვაობითი"
 
 #: include/global_arrays.php:140 lib/const_measurands.php:374
 msgid "Scientific Notation"
-msgstr ""
+msgstr "სამეცნიერო ნოტაცია"
 
 #: include/global_arrays.php:154 lib/const_measurands.php:388
 msgid "Unchanged"
-msgstr ""
+msgstr "შეუცვლელი"
 
 #: include/global_arrays.php:158 lib/const_measurands.php:361
 msgid "off"
-msgstr ""
+msgstr "გამრთ"
 
 #: include/global_arrays.php:159 lib/const_measurands.php:362
 msgid "Binary SI-Prefixes (Base 1024)"
@@ -341,7 +341,7 @@ msgstr ""
 #: lib/const_measurands.php:99 lib/const_measurands.php:106
 #: lib/const_measurands.php:113 lib/const_measurands.php:120
 msgid "none"
-msgstr ""
+msgstr "არცერთი"
 
 #: include/global_arrays.php:173 lib/const_measurands.php:34
 msgid "f_max - Maximum Value"
@@ -617,7 +617,7 @@ msgstr ""
 
 #: include/global_arrays.php:422 lib/const_measurands.php:266
 msgid "Addition"
-msgstr ""
+msgstr "დამატება"
 
 #: include/global_arrays.php:423 lib/const_measurands.php:267
 msgid "Mathematical Operation to return the sum of two or more summands"
@@ -625,7 +625,7 @@ msgstr ""
 
 #: include/global_arrays.php:429 lib/const_measurands.php:273
 msgid "Subtraction"
-msgstr ""
+msgstr "გამოკლება"
 
 #: include/global_arrays.php:430 lib/const_measurands.php:274
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
@@ -633,7 +633,7 @@ msgstr ""
 
 #: include/global_arrays.php:436 lib/const_measurands.php:280
 msgid "Multiplication"
-msgstr ""
+msgstr "გამრავლება"
 
 #: include/global_arrays.php:437 lib/const_measurands.php:281
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
@@ -641,7 +641,7 @@ msgstr ""
 
 #: include/global_arrays.php:443 lib/const_measurands.php:287
 msgid "Division"
-msgstr ""
+msgstr "დივიზია"
 
 #: include/global_arrays.php:444 lib/const_measurands.php:288
 msgid "Mathematical Operation to return the fraction of divident and divisor"
@@ -649,7 +649,7 @@ msgstr ""
 
 #: include/global_arrays.php:450 lib/const_measurands.php:294
 msgid "Modulus"
-msgstr ""
+msgstr "მოდული"
 
 #: include/global_arrays.php:451 lib/const_measurands.php:295
 msgid "Mathematical Operation to return the remainder of a division of two integers"
@@ -665,7 +665,7 @@ msgstr ""
 
 #: include/global_arrays.php:466
 msgid "Decimal Mark"
-msgstr ""
+msgstr "წილადის ნიშანი"
 
 #: include/global_arrays.php:467
 msgid "Decimal Mark used to separate the integer part from the fractional part"
@@ -723,19 +723,19 @@ msgstr ""
 
 #: include/global_arrays.php:528 lib/const_measurands.php:352
 msgid "Aliases"
-msgstr ""
+msgstr "ფსევდონიმები"
 
 #: include/global_arrays.php:529 lib/const_measurands.php:353
 msgid "Operators"
-msgstr ""
+msgstr "ოპერატორები"
 
 #: include/global_arrays.php:530
 msgid "Numbers"
-msgstr ""
+msgstr "რიცხვები"
 
 #: include/global_arrays.php:531
 msgid "Others"
-msgstr ""
+msgstr "სხვები"
 
 #: include/global_arrays.php:533 lib/const_measurands.php:356
 #: lib/funct_html.php:174
@@ -749,7 +749,7 @@ msgstr ""
 
 #: include/global_arrays.php:538
 msgid "Unlimited"
-msgstr ""
+msgstr "ულიმიტო"
 
 #: include/global_arrays.php:539
 msgid "500 Data Items"
@@ -792,7 +792,7 @@ msgstr ""
 #: include/global_arrays.php:556
 #, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d წუთი"
 
 #: include/global_forms.php:51
 msgid "The unique name given to this Report Template."
@@ -801,7 +801,7 @@ msgstr ""
 #: include/global_forms.php:55 templates.php:266 templates.php:1808
 #: templates.php:1935 view.php:288 view.php:1033
 msgid "Description"
-msgstr ""
+msgstr "აღწერა"
 
 #: include/global_forms.php:60
 msgid "A longer description of this Report Template."
@@ -809,7 +809,7 @@ msgstr ""
 
 #: include/global_forms.php:64 templates.php:263 templates.php:601
 msgid "Version"
-msgstr ""
+msgstr "ვერსია"
 
 #: include/global_forms.php:67
 msgid "A version number for this template"
@@ -817,7 +817,7 @@ msgstr ""
 
 #: include/global_forms.php:72 templates.php:264 templates.php:595
 msgid "Author"
-msgstr ""
+msgstr "ავტორი"
 
 #: include/global_forms.php:75
 msgid "The author of this template"
@@ -825,7 +825,7 @@ msgstr ""
 
 #: include/global_forms.php:81
 msgid "Publish"
-msgstr ""
+msgstr "გამოქვეყნება"
 
 #: include/global_forms.php:82
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
@@ -833,7 +833,7 @@ msgstr ""
 
 #: include/global_forms.php:86 templates.php:615
 msgid "Locked"
-msgstr ""
+msgstr "ჩაკეტილია"
 
 #: include/global_forms.php:88
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
@@ -849,7 +849,7 @@ msgstr ""
 
 #: include/global_forms.php:100 setup.php:522
 msgid "Export Path"
-msgstr ""
+msgstr "გატანის ბილიკი"
 
 #: include/global_forms.php:101
 msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
@@ -903,15 +903,15 @@ msgstr ""
 
 #: lib/const_graphs.php:68
 msgid "Bar (horizontal)"
-msgstr ""
+msgstr "ზოლი (ჰორიზონტალური)"
 
 #: lib/const_graphs.php:74
 msgid "Line"
-msgstr ""
+msgstr "ხაზი"
 
 #: lib/const_graphs.php:80
 msgid "Area"
-msgstr ""
+msgstr "არე"
 
 #: lib/const_graphs.php:87
 msgid "Pie chart 3D"
@@ -919,7 +919,7 @@ msgstr ""
 
 #: lib/const_graphs.php:91 lib/const_view.php:74
 msgid "Spider"
-msgstr ""
+msgstr "ობობა"
 
 #: lib/const_measurands.php:97
 msgid "f_mode - Mode"
@@ -959,7 +959,7 @@ msgstr ""
 
 #: lib/const_measurands.php:354
 msgid "Parentheses"
-msgstr ""
+msgstr "ფრჩხილები"
 
 #: lib/const_reports.php:28
 msgid "Run Now"
@@ -967,19 +967,19 @@ msgstr ""
 
 #: lib/const_reports.php:34
 msgid "CRASHED"
-msgstr ""
+msgstr "ავარიულად დასრულდა"
 
 #: lib/const_reports.php:35
 msgid "FAILED"
-msgstr ""
+msgstr "ჩავარდა"
 
 #: lib/const_reports.php:36
 msgid "Idle"
-msgstr ""
+msgstr "უქმე"
 
 #: lib/const_reports.php:37
 msgid "Running"
-msgstr ""
+msgstr "გაშვებულია"
 
 #: lib/const_reports.php:47
 msgid "- No template available -"
@@ -987,31 +987,31 @@ msgstr ""
 
 #: lib/const_reports.php:59 lib/const_rrdlist.php:55 lib/funct_runtime.php:170
 msgid "Monday"
-msgstr ""
+msgstr "ორშაბათი"
 
 #: lib/const_reports.php:60 lib/const_rrdlist.php:56 lib/funct_runtime.php:173
 msgid "Tuesday"
-msgstr ""
+msgstr "სამშაბათი"
 
 #: lib/const_reports.php:61 lib/const_rrdlist.php:57 lib/funct_runtime.php:176
 msgid "Wednesday"
-msgstr ""
+msgstr "ოთხშაბათი"
 
 #: lib/const_reports.php:62 lib/const_rrdlist.php:58 lib/funct_runtime.php:179
 msgid "Thursday"
-msgstr ""
+msgstr "ხუთშაბათი"
 
 #: lib/const_reports.php:63 lib/const_rrdlist.php:59 lib/funct_runtime.php:182
 msgid "Friday"
-msgstr ""
+msgstr "პარასკევი"
 
 #: lib/const_reports.php:64 lib/const_rrdlist.php:60 lib/funct_runtime.php:185
 msgid "Saturday"
-msgstr ""
+msgstr "შაბათი"
 
 #: lib/const_reports.php:65 lib/const_rrdlist.php:61 lib/funct_runtime.php:188
 msgid "Sunday"
-msgstr ""
+msgstr "კვირა"
 
 #: lib/const_reports.php:121
 msgid "Data Source Presets"
@@ -1019,11 +1019,11 @@ msgstr ""
 
 #: lib/const_reports.php:122 reports.php:1128
 msgid "Email"
-msgstr ""
+msgstr "ელფოსტა"
 
 #: lib/const_reports.php:123
 msgid "Administration"
-msgstr ""
+msgstr "ადმინისტრაცია"
 
 #: lib/const_reports.php:124 reports.php:394 reports.php:1399
 msgid "Data Sources"
@@ -1043,7 +1043,7 @@ msgstr ""
 
 #: lib/const_reports.php:188
 msgid "Subject"
-msgstr ""
+msgstr "თემა"
 
 #: lib/const_reports.php:189
 msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
@@ -1067,7 +1067,7 @@ msgstr ""
 
 #: lib/const_reports.php:206
 msgid "Attachment"
-msgstr ""
+msgstr "მიმაგრებული ფაილი"
 
 #: lib/const_reports.php:208
 msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
@@ -1099,7 +1099,7 @@ msgstr ""
 
 #: lib/const_reports.php:253 setup.php:505
 msgid "Enable"
-msgstr ""
+msgstr "ჩართვა"
 
 #: lib/const_reports.php:254
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
@@ -1107,7 +1107,7 @@ msgstr ""
 
 #: lib/const_reports.php:260
 msgid "Frequency"
-msgstr ""
+msgstr "სიხშირე"
 
 #: lib/const_reports.php:261
 msgid "Select the frequency for processing this Report. ReportIt has a basic scheduler that will dispatch reports at midnight each day based upon the dispatch frequency specified by the user."
@@ -1147,7 +1147,7 @@ msgstr ""
 
 #: lib/const_reports.php:306
 msgid "Export Limitation"
-msgstr ""
+msgstr "გატანის შეზღუდვა"
 
 #: lib/const_reports.php:307
 msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose 'off' if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current export folder contains then it will get shrunk automatically within the next run."
@@ -1199,7 +1199,7 @@ msgstr ""
 
 #: lib/const_reports.php:388
 msgid "Site Filter"
-msgstr ""
+msgstr "საიტის ფილტრი"
 
 #: lib/const_reports.php:389
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
@@ -1228,7 +1228,7 @@ msgstr ""
 #: lib/const_reports.php:424 lib/const_reports.php:444 reports.php:1671
 #: reports.php:1709
 msgid "From"
-msgstr ""
+msgstr "ვისგან"
 
 #: lib/const_reports.php:425 reports.php:1672
 msgid "The startpoint of duration you want to analyse"
@@ -1237,7 +1237,7 @@ msgstr ""
 #: lib/const_reports.php:432 lib/const_reports.php:452 reports.php:1679
 #: reports.php:1716
 msgid "To"
-msgstr ""
+msgstr "სადამდე"
 
 #: lib/const_reports.php:433 reports.php:1680
 msgid "The end of analysing time."
@@ -1262,7 +1262,7 @@ msgstr ""
 #: lib/const_reports.php:506 lib/funct_export.php:84 lib/funct_export.php:450
 #: view.php:298
 msgid "Template"
-msgstr ""
+msgstr "ნიმუში"
 
 #: lib/const_reports.php:507
 msgid "The template your configuration depends on"
@@ -1271,7 +1271,7 @@ msgstr ""
 #: lib/const_reports.php:514 lib/funct_export.php:83 lib/funct_export.php:449
 #: view.php:293 view.php:764
 msgid "Owner"
-msgstr ""
+msgstr "მფლობელი"
 
 #: lib/const_reports.php:515
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
@@ -1279,7 +1279,7 @@ msgstr ""
 
 #: lib/const_reports.php:521 reports.php:386
 msgid "Public"
-msgstr ""
+msgstr "საჯარო"
 
 #: lib/const_reports.php:522
 msgid "If enabled everyone can see your report under tab 'reports'"
@@ -1344,7 +1344,7 @@ msgstr ""
 #: lib/const_rrdlist.php:34 lib/funct_html.php:63 setup.php:147 setup.php:189
 #: setup.php:219
 msgid "Add"
-msgstr ""
+msgstr "დამატება"
 
 #: lib/const_view.php:69
 msgid "Bar chart: vertical"
@@ -1380,15 +1380,15 @@ msgstr ""
 
 #: lib/const_view.php:89 lib/const_view.php:98 view.php:616 view.php:631
 msgid "Any"
-msgstr ""
+msgstr "ნებისმიერი"
 
 #: lib/const_view.php:99
 msgid "Sum"
-msgstr ""
+msgstr "ჯამი"
 
 #: lib/const_view.php:102
 msgid "Average"
-msgstr ""
+msgstr "საშუალო"
 
 #: lib/funct_export.php:82 lib/funct_export.php:448
 msgid "Report title"
@@ -1396,11 +1396,11 @@ msgstr ""
 
 #: lib/funct_export.php:85 lib/funct_export.php:451
 msgid "Start"
-msgstr ""
+msgstr "დაწყება"
 
 #: lib/funct_export.php:86 lib/funct_export.php:452
 msgid "End"
-msgstr ""
+msgstr "დასასრული"
 
 #: lib/funct_export.php:87 lib/funct_export.php:453 view.php:767
 msgid "Last Run"
@@ -1414,7 +1414,7 @@ msgstr ""
 #: lib/funct_html.php:204
 #, php-format
 msgid "Syntax:      %s"
-msgstr ""
+msgstr "სინტაქსი:      %s"
 
 #: lib/funct_html.php:205
 #, php-format
@@ -1508,12 +1508,12 @@ msgstr ""
 #: templates.php:334 templates.php:1376 templates.php:1500 templates.php:1502
 #: templates.php:1596 templates.php:1598
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #: reports.php:113 reports.php:1998 reports.php:2105 templates.php:194
 #: templates.php:1385 templates.php:1387 templates.php:1502 templates.php:1598
 msgid "Continue"
-msgstr ""
+msgstr "გაგრძელება"
 
 #: reports.php:113
 msgid "Create a new report"
@@ -1525,26 +1525,26 @@ msgstr ""
 
 #: reports.php:146
 msgid "Report Filters"
-msgstr ""
+msgstr "ანგარისის ფილტრები"
 
 #: reports.php:154 reports.php:1319 templates.php:423 view.php:213 view.php:672
 msgid "Search"
-msgstr ""
+msgstr "ძებნა"
 
 #: reports.php:160 reports.php:402 setup.php:135 setup.php:408
 #: templates.php:629 view.php:228 view.php:318 view.php:801
 msgid "Reports"
-msgstr ""
+msgstr "ანგარიშები"
 
 #: reports.php:176 reports.php:1349 templates.php:445 view.php:663
 msgctxt "Button: use filter settings"
 msgid "Go"
-msgstr ""
+msgstr "მიდი"
 
 #: reports.php:177 reports.php:1350 templates.php:446 view.php:664
 msgctxt "Button: reset filter settings"
 msgid "Clear"
-msgstr ""
+msgstr "გასუფთავება"
 
 #: reports.php:367
 #, php-format
@@ -1557,7 +1557,7 @@ msgstr ""
 
 #: reports.php:374
 msgid "State"
-msgstr ""
+msgstr "შტატი"
 
 #: reports.php:378 view.php:307
 #, php-format
@@ -1570,15 +1570,15 @@ msgstr ""
 
 #: reports.php:390
 msgid "Scheduled"
-msgstr ""
+msgstr "დაგეგმილია"
 
 #: reports.php:431
 msgid "Disabled"
-msgstr ""
+msgstr "გათიშულია"
 
 #: reports.php:437 templates.php:1720
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: reports.php:449
 msgid "Add sources"
@@ -1586,7 +1586,7 @@ msgstr ""
 
 #: reports.php:449
 msgid "Edit sources"
-msgstr ""
+msgstr "წყაროების ჩასწორება"
 
 #: reports.php:452
 #, php-format
@@ -1599,7 +1599,7 @@ msgstr ""
 
 #: reports.php:462
 msgid "No reports"
-msgstr ""
+msgstr "ანგარიშების გარეშე"
 
 #: reports.php:547
 msgid "Not Authorized"
@@ -1612,7 +1612,7 @@ msgstr ""
 
 #: reports.php:1129
 msgid "Action"
-msgstr ""
+msgstr "ქმედება"
 
 #: reports.php:1144
 msgid "No recipients found"
@@ -1624,11 +1624,11 @@ msgstr ""
 
 #: reports.php:1288
 msgid "Associated"
-msgstr ""
+msgstr "ასოცირებული"
 
 #: reports.php:1292
 msgid "Subhead"
-msgstr ""
+msgstr "ქვესათაური"
 
 #: reports.php:1297
 msgid "Shifttime (From - To)"
@@ -1640,7 +1640,7 @@ msgstr ""
 
 #: reports.php:1325
 msgid "RRDs"
-msgstr ""
+msgstr "RRD-ები"
 
 #: reports.php:1342
 msgid "Show All"
@@ -1660,7 +1660,7 @@ msgstr ""
 
 #: reports.php:1453
 msgid "Select"
-msgstr ""
+msgstr "აირჩიეთ"
 
 #: reports.php:1458
 msgid "No data items found"
@@ -1701,7 +1701,7 @@ msgstr ""
 
 #: reports.php:1978
 msgid "Title Format:"
-msgstr ""
+msgstr "სათაურის ფორმატი:"
 
 #: reports.php:1979
 msgid "<report_title> (1)"
@@ -1742,11 +1742,11 @@ msgstr ""
 
 #: reports.php:2092
 msgid "Weekdays:"
-msgstr ""
+msgstr "სამუშაო დღეები:"
 
 #: reports.php:2093
 msgid "Shifttime:"
-msgstr ""
+msgstr "ცვლის დრო:"
 
 #: reports.php:2100
 msgid "You must select at least one Report."
@@ -1768,11 +1768,11 @@ msgstr ""
 #: setup.php:207 setup.php:213 setup.php:267 setup.php:273 setup.php:291
 #: setup.php:297
 msgid "(Edit)"
-msgstr ""
+msgstr "(ჩასწორება)"
 
 #: setup.php:159 setup.php:183 setup.php:255 setup.php:279 setup.php:303
 msgid "Actions"
-msgstr ""
+msgstr "ქმედებები"
 
 #: setup.php:165
 msgid "Data Items"
@@ -1784,7 +1784,7 @@ msgstr ""
 
 #: setup.php:225 setup.php:231 templates.php:239 templates.php:333
 msgid "Import"
-msgstr ""
+msgstr "შემოტანა"
 
 #: setup.php:309
 msgid "Report Calculation"
@@ -1812,7 +1812,7 @@ msgstr ""
 
 #: setup.php:351
 msgid "Pie Chart"
-msgstr ""
+msgstr "სექტორული გრაფიკი"
 
 #: setup.php:365
 msgid "Normal User"
@@ -1820,23 +1820,23 @@ msgstr ""
 
 #: setup.php:366
 msgid "General Administration"
-msgstr ""
+msgstr "ზოგადი ადმინისტრირება"
 
 #: setup.php:367
 msgid "System Administration"
-msgstr ""
+msgstr "სისტემის ადმინისტრირება"
 
 #: setup.php:372
 msgid "Management"
-msgstr ""
+msgstr "მართვა"
 
 #: setup.php:372 setup.php:373 setup.php:618
 msgid "ReportIt"
-msgstr ""
+msgstr "დარეპორტება"
 
 #: setup.php:373 templates.php:429 templates.php:636
 msgid "Templates"
-msgstr ""
+msgstr "შაბლონები"
 
 #: setup.php:377
 msgid "No data source item selected"
@@ -1852,11 +1852,11 @@ msgstr ""
 
 #: setup.php:398
 msgid "global"
-msgstr ""
+msgstr "გლობალური"
 
 #: setup.php:398
 msgid "local"
-msgstr ""
+msgstr "ლოკალური"
 
 #: setup.php:403
 msgid "Power User (Report Owner)"
@@ -1908,7 +1908,7 @@ msgstr ""
 
 #: setup.php:449
 msgid "SI-Prefixes"
-msgstr ""
+msgstr "SI პრეფიქსები"
 
 #: setup.php:450
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
@@ -1916,7 +1916,7 @@ msgstr ""
 
 #: setup.php:455
 msgid "Export Settings"
-msgstr ""
+msgstr "გატანის მორგება"
 
 #: setup.php:460
 msgid "Filename Format"
@@ -1944,7 +1944,7 @@ msgstr ""
 
 #: setup.php:480 setup.php:516
 msgid "Enabled"
-msgstr ""
+msgstr "ჩართულია"
 
 #: setup.php:481
 msgid "If enabled the result of every scheduled report will be archived automatically"
@@ -2056,11 +2056,11 @@ msgstr ""
 
 #: templates.php:262
 msgid "Compatible"
-msgstr ""
+msgstr "თავსებადი"
 
 #: templates.php:271
 msgid "Summary"
-msgstr ""
+msgstr "შეჯამება"
 
 #: templates.php:320
 msgid "No Compatible Templates Found"
@@ -2069,7 +2069,7 @@ msgstr ""
 #: templates.php:447
 msgctxt "Button: import button"
 msgid "Import"
-msgstr ""
+msgstr "შემოტანა"
 
 #: templates.php:586
 msgid "The name of this Report Template."
@@ -2089,7 +2089,7 @@ msgstr ""
 
 #: templates.php:611
 msgid "Published"
-msgstr ""
+msgstr "გამოქვეყნებულია"
 
 #: templates.php:632
 msgid "The total number of reports using this report template."
@@ -2105,7 +2105,7 @@ msgstr ""
 
 #: templates.php:679
 msgid "Add measurands"
-msgstr ""
+msgstr "გასაზომის დამატება"
 
 #: templates.php:679
 msgid "Edit measurands"
@@ -2150,7 +2150,7 @@ msgstr ""
 
 #: templates.php:1145
 msgid "<template_title>"
-msgstr ""
+msgstr "<შაბლონის_სახელი>"
 
 #: templates.php:1305
 msgid "Click 'Continue' to Delete the following Report Templates"
@@ -2172,7 +2172,7 @@ msgstr ""
 
 #: templates.php:1324
 msgid "Report: <i>None</i>"
-msgstr ""
+msgstr "ანგარიში: <i>არაფერი</i>"
 
 #: templates.php:1335
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
@@ -2184,11 +2184,11 @@ msgstr ""
 
 #: templates.php:1351
 msgid "Title:"
-msgstr ""
+msgstr "სათაური:"
 
 #: templates.php:1353
 msgid "<template_title> (1)"
-msgstr ""
+msgstr "<template_title> (1)"
 
 #: templates.php:1362
 msgid "Click 'Continue' to Export the following Report Templates"
@@ -2276,7 +2276,7 @@ msgstr ""
 
 #: templates.php:1793
 msgid "Internal name"
-msgstr ""
+msgstr "შიდა სახელი"
 
 #: templates.php:1794
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
@@ -2308,7 +2308,7 @@ msgstr ""
 
 #: templates.php:1825
 msgid "Minimum Value"
-msgstr ""
+msgstr "მინიმალური მნიშვნელობა"
 
 #: templates.php:1826
 msgid "Defines the lower limit of this variable."
@@ -2324,7 +2324,7 @@ msgstr ""
 
 #: templates.php:1839 templates.php:1987 view.php:219
 msgid "Type"
-msgstr ""
+msgstr "ტიპი"
 
 #: templates.php:1840
 msgid "The method the report owner should use to define this variable."
@@ -2357,7 +2357,7 @@ msgstr ""
 
 #: templates.php:1956
 msgid "Consolidation function"
-msgstr ""
+msgstr "კონსოლიდაციის ფუნქცია"
 
 #: templates.php:1957
 msgid "The name of the consolidation function to define which CDPs should be read out."
@@ -2373,7 +2373,7 @@ msgstr ""
 
 #: templates.php:1982
 msgid "Formatting"
-msgstr ""
+msgstr "დაფორმატება"
 
 #: templates.php:1990
 msgid "Defines as what type the data should be treated as."
@@ -2381,7 +2381,7 @@ msgstr ""
 
 #: templates.php:1994
 msgid "Precision"
-msgstr ""
+msgstr "სიზუსტე"
 
 #: templates.php:1995
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
@@ -2389,7 +2389,7 @@ msgstr ""
 
 #: templates.php:2001
 msgid "Prefixes"
-msgstr ""
+msgstr "პრეფიქსები"
 
 #: templates.php:2002
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
@@ -2397,7 +2397,7 @@ msgstr ""
 
 #: templates.php:2008
 msgid "Formula"
-msgstr ""
+msgstr "ფორმულა"
 
 #: templates.php:2014
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
@@ -2430,11 +2430,11 @@ msgstr ""
 
 #: view.php:244
 msgid "Go"
-msgstr ""
+msgstr "მიდი"
 
 #: view.php:245
 msgid "Clear"
-msgstr ""
+msgstr "გასუფთავება"
 
 #: view.php:303
 msgid "Period (From - To)"
@@ -2446,7 +2446,7 @@ msgstr ""
 
 #: view.php:612
 msgid "Metric"
-msgstr ""
+msgstr "მეტრული"
 
 #: view.php:627
 msgid "Data Source"
@@ -2466,35 +2466,35 @@ msgstr ""
 
 #: view.php:677
 msgid "Additional"
-msgstr ""
+msgstr "დამატებითი"
 
 #: view.php:687
 msgid "Items"
-msgstr ""
+msgstr "ელემენტები"
 
 #: view.php:699
 msgid "Archive"
-msgstr ""
+msgstr "არქივი"
 
 #: view.php:702
 msgid "Current"
-msgstr ""
+msgstr "მიმდინარე"
 
 #: view.php:761
 msgid "Title"
-msgstr ""
+msgstr "სათაური"
 
 #: view.php:762
 msgid "Runtime"
-msgstr ""
+msgstr "შესრულების დრო"
 
 #: view.php:768
 msgid "Scheduler"
-msgstr ""
+msgstr "დამგეგმავი"
 
 #: view.php:770
 msgid "Period"
-msgstr ""
+msgstr "პერიოდი"
 
 #: view.php:771
 msgid "Auto Generated RRD list"
@@ -2519,7 +2519,7 @@ msgstr ""
 
 #: view.php:1029
 msgid "Pos."
-msgstr ""
+msgstr "პოზ."
 
 #: view.php:1037
 #, php-format
