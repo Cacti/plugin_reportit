@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-04 04:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-04 18:12+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -866,7 +866,7 @@ msgstr ""
 
 #: include/global_forms.php:134
 msgid "Report Template"
-msgstr ""
+msgstr "ანგარიშის შაბლონი"
 
 #: include/global_forms.php:135
 msgid "Choose one of your Report Templates to export to XML."
@@ -1424,7 +1424,7 @@ msgstr "პარამეტრები:  %s"
 #: lib/funct_html.php:206
 #, php-format
 msgid "Examples:    %s"
-msgstr ""
+msgstr "მაგალითები:    %s"
 
 #: lib/funct_html.php:324
 #, php-format
@@ -2113,7 +2113,7 @@ msgstr "გაზომვების ჩასწორება"
 
 #: templates.php:685
 msgid "Add variables"
-msgstr ""
+msgstr "ცვლადების დამატება"
 
 #: templates.php:685
 msgid "Edit variables"
@@ -2426,7 +2426,7 @@ msgstr "ანგარიშების ფილტრი"
 
 #: view.php:224
 msgid "My Reports"
-msgstr ""
+msgstr "ჩემი ანგარიშები"
 
 #: view.php:244
 msgid "Go"
