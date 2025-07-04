@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-02 20:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-04 04:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -65,7 +65,7 @@ msgstr "ნაბიჯი"
 
 #: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1647
 msgid "Input Type"
-msgstr ""
+msgstr "შეყვანის ტიპი"
 
 #: include/global_arrays.php:58 templates.php:1651
 msgid "Options"
@@ -106,7 +106,7 @@ msgstr "გამოთვლის ფორმულა"
 
 #: include/global_arrays.php:73
 msgid "Generic ID"
-msgstr ""
+msgstr "ზოგადი ID"
 
 #: include/global_arrays.php:74
 msgid "Elements"
@@ -292,7 +292,7 @@ msgstr "თექვსმეტობითი (პატარა ასოე
 
 #: include/global_arrays.php:138 lib/const_measurands.php:372
 msgid "Hexadecimal (upper-case)"
-msgstr ""
+msgstr "თექვსმეტობითი (დიდი ასოებით)"
 
 #: include/global_arrays.php:139 lib/const_measurands.php:373
 msgid "Octal"
@@ -493,7 +493,7 @@ msgstr ""
 #: include/global_arrays.php:358 lib/const_measurands.php:132
 #: lib/const_measurands.php:172 lib/const_measurands.php:179
 msgid "$var: float"
-msgstr ""
+msgstr "$var: მცურავმძიმიანი"
 
 #: include/global_arrays.php:298 lib/const_measurands.php:177
 msgid "f_ceil - Round Fractions Up"
@@ -682,7 +682,7 @@ msgstr ""
 
 #: include/global_arrays.php:483
 msgid "Square Bracket"
-msgstr ""
+msgstr "კვადრატული ფრჩხილი"
 
 #: include/global_arrays.php:484 lib/const_measurands.php:326
 #: lib/const_measurands.php:333
@@ -691,7 +691,7 @@ msgstr ""
 
 #: include/global_arrays.php:491
 msgid "Punctuation mark"
-msgstr ""
+msgstr "პუნქტუაციის ნიშანი"
 
 #: include/global_arrays.php:492
 msgid "Used to separate arguments forwarded to a function"
@@ -745,7 +745,7 @@ msgstr ""
 #: include/global_arrays.php:534 lib/const_measurands.php:357
 #: lib/funct_html.php:177
 msgid "Interim Results"
-msgstr ""
+msgstr "შუალედური შედეგები"
 
 #: include/global_arrays.php:538
 msgid "Unlimited"
@@ -891,7 +891,7 @@ msgstr ""
 
 #: include/global_forms.php:162
 msgid "[Optional] Version"
-msgstr ""
+msgstr "[არასავალდებულო] ვერსია"
 
 #: include/global_forms.php:170
 msgid "[Optional] Contact"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 #: lib/const_reports.php:412 reports.php:1667
 msgid "Working Time"
-msgstr ""
+msgstr "სამუშაო დრო"
 
 #: lib/const_reports.php:424 lib/const_reports.php:444 reports.php:1671
 #: reports.php:1709
@@ -1370,7 +1370,7 @@ msgstr ""
 #: lib/const_view.php:81
 #, php-format
 msgid "%s Hi"
-msgstr ""
+msgstr "%s მაღ"
 
 #: lib/const_view.php:82 lib/const_view.php:83 lib/const_view.php:84
 #: lib/const_view.php:85
@@ -1392,7 +1392,7 @@ msgstr "საშუალო"
 
 #: lib/funct_export.php:82 lib/funct_export.php:448
 msgid "Report title"
-msgstr ""
+msgstr "ანგარიშის სათაური"
 
 #: lib/funct_export.php:85 lib/funct_export.php:451
 msgid "Start"
@@ -1404,7 +1404,7 @@ msgstr "დასასრული"
 
 #: lib/funct_export.php:87 lib/funct_export.php:453 view.php:767
 msgid "Last Run"
-msgstr ""
+msgstr "ბოლო გაშვება"
 
 #: lib/funct_html.php:203
 #, php-format
@@ -1419,7 +1419,7 @@ msgstr "სინტაქსი:      %s"
 #: lib/funct_html.php:205
 #, php-format
 msgid "Parameters:  %s"
-msgstr ""
+msgstr "პარამეტრები:  %s"
 
 #: lib/funct_html.php:206
 #, php-format
@@ -1455,7 +1455,7 @@ msgstr ""
 
 #: lib/funct_shared.php:36
 msgid "Unknown Owner"
-msgstr ""
+msgstr "უცნობი მფლობელი"
 
 #: lib/funct_validate.php:274 lib/funct_validate.php:277
 msgid "The file is to big."
@@ -1591,7 +1591,7 @@ msgstr "წყაროების ჩასწორება"
 #: reports.php:452
 #, php-format
 msgid "Select %s"
-msgstr ""
+msgstr "%s-ის არჩევა"
 
 #: reports.php:454
 msgid "Report has been locked"
@@ -1705,7 +1705,7 @@ msgstr "სათაურის ფორმატი:"
 
 #: reports.php:1979
 msgid "<report_title> (1)"
-msgstr ""
+msgstr "<report_title> (1)"
 
 #: reports.php:1985
 msgid "You must select at least one unlocked, not running, report."
@@ -1776,11 +1776,11 @@ msgstr "ქმედებები"
 
 #: setup.php:165
 msgid "Data Items"
-msgstr ""
+msgstr "მონაცემთა ელემენტები"
 
 #: setup.php:201 templates.php:415
 msgid "Report Templates"
-msgstr ""
+msgstr "ანგარიშის შაბლონები"
 
 #: setup.php:225 setup.php:231 templates.php:239 templates.php:333
 msgid "Import"
@@ -1792,7 +1792,7 @@ msgstr "ანგარიშის გამოთვლა"
 
 #: setup.php:315 view.php:223
 msgid "Public Reports"
-msgstr ""
+msgstr "საჯარო ანგარიშები"
 
 #: setup.php:321 setup.php:333
 msgid "Show Report"
@@ -1808,7 +1808,7 @@ msgstr ""
 
 #: setup.php:345
 msgid "Bar Chart"
-msgstr ""
+msgstr "ჰისტოგრამა"
 
 #: setup.php:351
 msgid "Pie Chart"
@@ -1884,7 +1884,7 @@ msgstr ""
 
 #: setup.php:431
 msgid "Time Zones"
-msgstr ""
+msgstr "დროის სარტყლები"
 
 #: setup.php:432
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
@@ -2133,7 +2133,7 @@ msgstr ""
 
 #: templates.php:930
 msgid "Duplicate abbreviation"
-msgstr ""
+msgstr "გამეორებული აბრევიატურა"
 
 #: templates.php:985
 msgid "Interim results are used by other measurands."
@@ -2168,7 +2168,7 @@ msgstr "შაბლონი: %s"
 #: templates.php:1317
 #, php-format
 msgid "Report: %s"
-msgstr ""
+msgstr "ანგარიში: %s"
 
 #: templates.php:1324
 msgid "Report: <i>None</i>"
@@ -2300,7 +2300,7 @@ msgstr ""
 
 #: templates.php:1818
 msgid "Maximum Value"
-msgstr ""
+msgstr "მაქსიმალური მნიშვნელობა"
 
 #: templates.php:1819
 msgid "Defines the upper limit of this variable."
@@ -2316,7 +2316,7 @@ msgstr ""
 
 #: templates.php:1832
 msgid "Default Value"
-msgstr ""
+msgstr "ნაგულისხმევი მნიშვნელობა"
 
 #: templates.php:1833
 msgid "Sets the default value."
@@ -2422,7 +2422,7 @@ msgstr ""
 
 #: view.php:204
 msgid "Reports Filter"
-msgstr ""
+msgstr "ანგარიშების ფილტრი"
 
 #: view.php:224
 msgid "My Reports"
@@ -2458,7 +2458,7 @@ msgstr ""
 
 #: view.php:644
 msgid "Show Subheads"
-msgstr ""
+msgstr "ქვეთავსართების ჩვენება"
 
 #: view.php:645
 msgid "Show Summary"
