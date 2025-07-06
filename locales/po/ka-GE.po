@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-04 18:12+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-06 03:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -149,7 +149,7 @@ msgstr "დღეს"
 
 #: include/global_arrays.php:92 lib/const_reports.php:74
 msgid "Last 1 Day"
-msgstr ""
+msgstr "ბოლო 1 დღე"
 
 #: include/global_arrays.php:93 lib/const_reports.php:75
 msgid "Last 2 Days"
@@ -157,7 +157,7 @@ msgstr ""
 
 #: include/global_arrays.php:94 lib/const_reports.php:76
 msgid "Last 3 Days"
-msgstr ""
+msgstr "ბოლო 3 დღე"
 
 #: include/global_arrays.php:95 lib/const_reports.php:77
 msgid "Last 4 Days"
@@ -169,7 +169,7 @@ msgstr ""
 
 #: include/global_arrays.php:97 lib/const_reports.php:79
 msgid "Last 6 Days"
-msgstr ""
+msgstr "ბოლო 6 დღე"
 
 #: include/global_arrays.php:98 lib/const_reports.php:80
 msgid "Last 7 Days"
@@ -221,7 +221,7 @@ msgstr ""
 
 #: include/global_arrays.php:110 lib/const_reports.php:92
 msgid "Last 6 Months"
-msgstr ""
+msgstr "ბოლო 6 თვე"
 
 #: include/global_arrays.php:111 lib/const_reports.php:93
 msgid "Current Year"
@@ -233,7 +233,7 @@ msgstr "შარშან"
 
 #: include/global_arrays.php:113 lib/const_reports.php:95
 msgid "Last 2 Years"
-msgstr ""
+msgstr "ბოლო 2 წელი"
 
 #: include/global_arrays.php:118 lib/const_reports.php:105
 msgid "Daily"
@@ -417,7 +417,7 @@ msgstr ""
 
 #: include/global_arrays.php:236 lib/const_measurands.php:104
 msgid "f_range - Range"
-msgstr ""
+msgstr "f_range - შუალედი"
 
 #: include/global_arrays.php:237 lib/const_measurands.php:105
 msgid "Returns the difference between the largest and the smallest value per DS"
@@ -441,7 +441,7 @@ msgstr ""
 
 #: include/global_arrays.php:257
 msgid "f_var - Variance"
-msgstr ""
+msgstr "f_var - დისპერსია"
 
 #: include/global_arrays.php:258
 msgid "Returns the variance per DS"
@@ -719,7 +719,7 @@ msgstr ""
 
 #: include/global_arrays.php:527 lib/const_measurands.php:351
 msgid "Functions with parameters"
-msgstr ""
+msgstr "ფუნქციები პარამეტრებით"
 
 #: include/global_arrays.php:528 lib/const_measurands.php:352
 msgid "Aliases"
@@ -740,7 +740,7 @@ msgstr "სხვები"
 #: include/global_arrays.php:533 lib/const_measurands.php:356
 #: lib/funct_html.php:174
 msgid "Data Query Variables"
-msgstr ""
+msgstr "მონაცემთა გამოთხოვის ცვლადები"
 
 #: include/global_arrays.php:534 lib/const_measurands.php:357
 #: lib/funct_html.php:177
@@ -753,7 +753,7 @@ msgstr "ულიმიტო"
 
 #: include/global_arrays.php:539
 msgid "500 Data Items"
-msgstr ""
+msgstr "500 მონაცემის ელემენტი"
 
 #: include/global_arrays.php:540
 msgid "1,000 Data Items"
@@ -874,7 +874,7 @@ msgstr ""
 
 #: include/global_forms.php:144
 msgid "[Optional] Description"
-msgstr ""
+msgstr "[არასავალდებულო] აღწერა"
 
 #: include/global_forms.php:145
 msgid "Describe the characteristics of your report template"
@@ -931,7 +931,7 @@ msgstr ""
 
 #: lib/const_measurands.php:311
 msgid "Left (Opening) parenthesis"
-msgstr ""
+msgstr "მარცხენა (გამხსნელი) ფრჩხილი"
 
 #: lib/const_measurands.php:318
 msgid "Right (Closing) parenthesis"
@@ -1015,7 +1015,7 @@ msgstr "კვირა"
 
 #: lib/const_reports.php:121
 msgid "Data Source Presets"
-msgstr ""
+msgstr "მონაცემთა წყაროს პრესეტები"
 
 #: lib/const_reports.php:122 reports.php:1128
 msgid "Email"
@@ -1139,7 +1139,7 @@ msgstr ""
 
 #: lib/const_reports.php:298
 msgid "Auto Generated Export"
-msgstr ""
+msgstr "ავტოგენერირებული გატანა"
 
 #: lib/const_reports.php:299
 msgid "If enabled the report will be automatically exported to a separate subfolder.  This will be placed within the export folder defined in the report template."
@@ -1467,11 +1467,11 @@ msgstr ""
 
 #: lib/funct_validate.php:283 lib/funct_validate.php:309
 msgid "No file uploaded."
-msgstr ""
+msgstr "ფაილი არ ატვირთულა."
 
 #: lib/funct_validate.php:286
 msgid "Temporary folder missing."
-msgstr ""
+msgstr "დროებითი საქაღალდე აკლია."
 
 #: lib/funct_validate.php:289
 msgid "Failed to write file to disk"
@@ -1483,7 +1483,7 @@ msgstr ""
 
 #: lib/funct_validate.php:303
 msgid "Invalid file extension."
-msgstr ""
+msgstr "არასწორი ფაილის გაფართოება."
 
 #: lib/funct_validate.php:321
 msgid "Unable to parse template file."
@@ -1681,7 +1681,7 @@ msgstr ""
 
 #: reports.php:1635
 msgid "Subhead (optional)"
-msgstr ""
+msgstr "ქვესათაური (არასავალდებულო)"
 
 #: reports.php:1648
 msgid "Select the time zone your following shifttime information will be based on."
@@ -1804,7 +1804,7 @@ msgstr "ანგარიშის გატანა"
 
 #: setup.php:339
 msgid "Public Report Charts"
-msgstr ""
+msgstr "საჯარო ანგარიშის დიაგრამები"
 
 #: setup.php:345
 msgid "Bar Chart"
@@ -2000,7 +2000,7 @@ msgstr ""
 
 #: setup.php:550
 msgid "Rows Per Page"
-msgstr ""
+msgstr "მწკრივი გვერდზე"
 
 #: setup.php:551
 msgid "The number of rows to display on a single page."
@@ -2008,7 +2008,7 @@ msgstr ""
 
 #: setup.php:557
 msgid "Report Export Settings"
-msgstr ""
+msgstr "ანგარიშის გატანის მორგება"
 
 #: setup.php:562
 msgid "CSV Column Separator"
@@ -2020,7 +2020,7 @@ msgstr ""
 
 #: setup.php:569
 msgid "CSV Decimal Separator"
-msgstr ""
+msgstr "CSV წილადის ნიშანი"
 
 #: setup.php:570
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
@@ -2233,7 +2233,7 @@ msgstr ""
 
 #: templates.php:1502
 msgid "Delete Template Variables"
-msgstr ""
+msgstr "შაბლონის ცვლადების წაშლა"
 
 #: templates.php:1574
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
@@ -2515,7 +2515,7 @@ msgstr ""
 #: view.php:1008
 #, php-format
 msgid "Metric: %s (%s)"
-msgstr ""
+msgstr "მეტრიკა: %s (%s)"
 
 #: view.php:1029
 msgid "Pos."
