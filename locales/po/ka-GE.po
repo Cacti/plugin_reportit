@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-06 03:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-07 04:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -153,7 +153,7 @@ msgstr "ბოლო 1 დღე"
 
 #: include/global_arrays.php:93 lib/const_reports.php:75
 msgid "Last 2 Days"
-msgstr ""
+msgstr "ბოლო 2 დღე"
 
 #: include/global_arrays.php:94 lib/const_reports.php:76
 msgid "Last 3 Days"
@@ -161,7 +161,7 @@ msgstr "ბოლო 3 დღე"
 
 #: include/global_arrays.php:95 lib/const_reports.php:77
 msgid "Last 4 Days"
-msgstr ""
+msgstr "ბოლო 4 დღეში"
 
 #: include/global_arrays.php:96 lib/const_reports.php:78
 msgid "Last 5 Days"
@@ -209,7 +209,7 @@ msgstr ""
 
 #: include/global_arrays.php:107 lib/const_reports.php:89
 msgid "Last 3 Months"
-msgstr ""
+msgstr "ბოლო 3 თვე"
 
 #: include/global_arrays.php:108 lib/const_reports.php:90
 msgid "Last 4 Months"
@@ -217,7 +217,7 @@ msgstr ""
 
 #: include/global_arrays.php:109 lib/const_reports.php:91
 msgid "Last 5 Months"
-msgstr ""
+msgstr "ბოლო 5 თვე"
 
 #: include/global_arrays.php:110 lib/const_reports.php:92
 msgid "Last 6 Months"
@@ -361,7 +361,7 @@ msgstr ""
 
 #: include/global_arrays.php:187 lib/const_measurands.php:48
 msgid "f_sum - Sum"
-msgstr ""
+msgstr "f_sum - ჯამი"
 
 #: include/global_arrays.php:188 lib/const_measurands.php:49
 msgid "Returns the sum of all measured values per DS"
@@ -409,7 +409,7 @@ msgstr ""
 
 #: include/global_arrays.php:229 lib/const_measurands.php:90
 msgid "f_median - Median"
-msgstr ""
+msgstr "f_median - მედიანი"
 
 #: include/global_arrays.php:230 lib/const_measurands.php:91
 msgid "Returns that value that separates the higher half from the lower half per DS"
@@ -715,7 +715,7 @@ msgstr ""
 
 #: include/global_arrays.php:526 lib/const_measurands.php:350
 msgid "Functions w/o parameters"
-msgstr ""
+msgstr "ფუნქციები პარამეტრების გარეშე"
 
 #: include/global_arrays.php:527 lib/const_measurands.php:351
 msgid "Functions with parameters"
@@ -761,7 +761,7 @@ msgstr ""
 
 #: include/global_arrays.php:541
 msgid "2,000 Data Items"
-msgstr ""
+msgstr "2,000 მონაცემის ელემენტი"
 
 #: include/global_arrays.php:542
 msgid "5,000 Data Source Items"
@@ -923,7 +923,7 @@ msgstr "ობობა"
 
 #: lib/const_measurands.php:97
 msgid "f_mode - Mode"
-msgstr ""
+msgstr "f_mode - რეჟიმი"
 
 #: lib/const_measurands.php:98
 msgid "Returns the value that appears most often per DS"
@@ -935,7 +935,7 @@ msgstr "მარცხენა (გამხსნელი) ფრჩხი�
 
 #: lib/const_measurands.php:318
 msgid "Right (Closing) parenthesis"
-msgstr ""
+msgstr "მარვენა (დამხურავი) ფრჩხილი"
 
 #: lib/const_measurands.php:325
 msgid "Left (Opening) Square Bracket"
@@ -1031,7 +1031,7 @@ msgstr "მონაცემთა წყაროები"
 
 #: lib/const_reports.php:157 lib/const_view.php:37
 msgid "Text CSV (.csv)"
-msgstr ""
+msgstr "ტექსტური CSV (.csv)"
 
 #: lib/const_reports.php:158 lib/const_view.php:39
 msgid "MS Excel 2003 XML (.xml)"
@@ -1039,7 +1039,7 @@ msgstr ""
 
 #: lib/const_reports.php:159 lib/const_view.php:38
 msgid "Raw XML (.xml)"
-msgstr ""
+msgstr "დაუმუშავებელი XML (.xml)"
 
 #: lib/const_reports.php:188
 msgid "Subject"
@@ -1087,7 +1087,7 @@ msgstr ""
 
 #: lib/const_reports.php:227
 msgid "New Email Recipients"
-msgstr ""
+msgstr "ახალი ელფოსტის მიმღებები"
 
 #: lib/const_reports.php:228
 msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
@@ -1291,7 +1291,7 @@ msgstr "ანგარიშის პერიოდი"
 
 #: lib/const_reports.php:532 view.php:765
 msgid "Sliding Time Frame"
-msgstr ""
+msgstr "სრიალა დროის ჩარჩოები"
 
 #: lib/const_reports.php:533
 msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
@@ -1335,7 +1335,7 @@ msgstr ""
 
 #: lib/const_rrdlist.php:29
 msgid "Remove from Report"
-msgstr ""
+msgstr "წაშლა ანგარიშიდან"
 
 #: lib/const_rrdlist.php:30
 msgid "Copy Settings to All"
@@ -1352,7 +1352,7 @@ msgstr ""
 
 #: lib/const_view.php:70
 msgid "Bar chart: horizontal"
-msgstr ""
+msgstr "ჰისტოგრამა: ჰორიზონტალური"
 
 #: lib/const_view.php:71
 msgid "Line chart"
@@ -1438,7 +1438,7 @@ msgstr ""
 
 #: lib/funct_html.php:334
 msgid "Data Source Alias"
-msgstr ""
+msgstr "მონაცემთა წყაროს ფსევდონიმი"
 
 #: lib/funct_html.php:335
 #, php-format
@@ -1463,7 +1463,7 @@ msgstr ""
 
 #: lib/funct_validate.php:280
 msgid "Incomplete file transfer."
-msgstr ""
+msgstr "დაუსრულებელი ფაილის გადაცემა."
 
 #: lib/funct_validate.php:283 lib/funct_validate.php:309
 msgid "No file uploaded."
@@ -1562,7 +1562,7 @@ msgstr "შტატი"
 #: reports.php:378 view.php:307
 #, php-format
 msgid "Last Run %s"
-msgstr ""
+msgstr "ბოლო გაშვება %s"
 
 #: reports.php:382 view.php:312
 msgid "Runtime [s]"
@@ -2012,7 +2012,7 @@ msgstr "ანგარიშის გატანის მორგება"
 
 #: setup.php:562
 msgid "CSV Column Separator"
-msgstr ""
+msgstr "CSV სვეტის გამყოფი"
 
 #: setup.php:563
 msgid "The column separator to be used for CSV exports."
@@ -2204,7 +2204,7 @@ msgstr ""
 
 #: templates.php:1387
 msgid "Duplicate Report Templates"
-msgstr ""
+msgstr "ანგარიშის შაბლონების დუბლირება"
 
 #: templates.php:1389
 msgid "Export Report Templates"
@@ -2405,7 +2405,7 @@ msgstr ""
 
 #: templates.php:2019
 msgid "Operators & Operands"
-msgstr ""
+msgstr "ოპერატორები და ოპერანდები"
 
 #: templates.php:2020
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
@@ -2418,7 +2418,7 @@ msgstr ""
 
 #: templates.php:2147
 msgid "No Metrics Found"
-msgstr ""
+msgstr "მეტრიკები აღმოჩენილი არაა"
 
 #: view.php:204
 msgid "Reports Filter"
@@ -2442,7 +2442,7 @@ msgstr ""
 
 #: view.php:344
 msgid "No Reports Found"
-msgstr ""
+msgstr "ანგარიშები აღმოჩენილი არაა"
 
 #: view.php:612
 msgid "Metric"
