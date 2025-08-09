@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-07-07 04:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-08-09 09:57+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -1155,7 +1155,7 @@ msgstr ""
 
 #: lib/const_reports.php:314
 msgid "Raw Data Export"
-msgstr ""
+msgstr "დაუმუშავებელი მონაცემთა გატანა"
 
 #: lib/const_reports.php:315
 msgid "If enabled auto generated exports will contain raw data only. The formatting of measurands will be ignored."
@@ -2044,7 +2044,7 @@ msgstr ""
 
 #: templates.php:228 templates.php:333
 msgid "Import Report Template"
-msgstr ""
+msgstr "ანგარიშის შაბლონის შემოტანა"
 
 #: templates.php:232
 msgid "Select the XML file that contains your Report Template."
@@ -2052,7 +2052,7 @@ msgstr ""
 
 #: templates.php:239
 msgid "Import Report Templates"
-msgstr ""
+msgstr "ანგარიშის შაბლონების შემოტანა"
 
 #: templates.php:262
 msgid "Compatible"
