@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-08-19 17:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-09-23 05:09+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -119,7 +119,7 @@ msgstr "მეტრიკები"
 
 #: include/global_arrays.php:76
 msgid "Associated Data Templates"
-msgstr ""
+msgstr "ასოცირებული მონაცემთა შაბლონები"
 
 #: include/global_arrays.php:81 include/global_forms.php:43
 #: lib/const_reports.php:120 lib/const_reports.php:176
@@ -757,7 +757,7 @@ msgstr "500 მონაცემის ელემენტი"
 
 #: include/global_arrays.php:540
 msgid "1,000 Data Items"
-msgstr ""
+msgstr "1,000 მონაცემის ელემენტი"
 
 #: include/global_arrays.php:541
 msgid "2,000 Data Items"
@@ -1652,7 +1652,7 @@ msgstr ""
 
 #: reports.php:1428
 msgid "Included in Report"
-msgstr ""
+msgstr "ჩასმულია ანგარიშში"
 
 #: reports.php:1430
 msgid "Not Included in Report"
@@ -2208,7 +2208,7 @@ msgstr "ანგარიშის შაბლონების დუბლ�
 
 #: templates.php:1389
 msgid "Export Report Templates"
-msgstr ""
+msgstr "ანგარიშის შაბლონების გატანა"
 
 #: templates.php:1457
 msgid "Click 'Continue to Delete the following variables."
