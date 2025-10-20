@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-10-17 17:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -817,7 +817,7 @@ msgstr "Ett versionsnummer för den här mallen"
 
 #: include/global_forms.php:72 templates.php:264 templates.php:595
 msgid "Author"
-msgstr "Författare"
+msgstr "Upphovsperson"
 
 #: include/global_forms.php:75
 msgid "The author of this template"
@@ -1392,7 +1392,7 @@ msgstr "Medel"
 
 #: lib/funct_export.php:82 lib/funct_export.php:448
 msgid "Report title"
-msgstr "Rapportens titel"
+msgstr "Rapporttitel"
 
 #: lib/funct_export.php:85 lib/funct_export.php:451
 msgid "Start"
@@ -1557,7 +1557,7 @@ msgstr "Schema Frekvens"
 
 #: reports.php:374
 msgid "State"
-msgstr "Län"
+msgstr "Tillstånd"
 
 #: reports.php:378 view.php:307
 #, php-format
@@ -1574,7 +1574,7 @@ msgstr "Schemalagd"
 
 #: reports.php:431
 msgid "Disabled"
-msgstr "Inaktiverat"
+msgstr "Inaktiverad"
 
 #: reports.php:437 templates.php:1720
 msgid "N/A"
