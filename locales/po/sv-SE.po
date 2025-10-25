@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-10-23 19:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-10-25 08:48+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -1388,7 +1388,7 @@ msgstr "Summa"
 
 #: lib/const_view.php:102
 msgid "Average"
-msgstr "Medel"
+msgstr "Genomsnitt"
 
 #: lib/funct_export.php:82 lib/funct_export.php:448
 msgid "Report title"
@@ -2470,7 +2470,7 @@ msgstr "Ytterligare"
 
 #: view.php:687
 msgid "Items"
-msgstr "Artiklar"
+msgstr "Objekt"
 
 #: view.php:699
 msgid "Archive"
@@ -2478,7 +2478,7 @@ msgstr "Arkiv"
 
 #: view.php:702
 msgid "Current"
-msgstr "Aktuell"
+msgstr "Aktuellt"
 
 #: view.php:761
 msgid "Title"
