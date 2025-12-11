@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-10-15 06:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-12-11 06:18+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -1988,7 +1988,7 @@ msgstr ""
 
 #: setup.php:539
 msgid "Report View Settings"
-msgstr ""
+msgstr "ანგარიშის ხედის მორგება"
 
 #: setup.php:544
 msgid "Separate Report View Filter"
@@ -2254,7 +2254,7 @@ msgstr ""
 
 #: templates.php:1598
 msgid "Delete Template Metrics"
-msgstr ""
+msgstr "შაბლონის მეტრიკების წაშლა"
 
 #: templates.php:1683
 #, php-format
@@ -2272,7 +2272,7 @@ msgstr ""
 
 #: templates.php:1767
 msgid "Variable Configuration [new]"
-msgstr ""
+msgstr "ცვლადის მორგება [ახალი]"
 
 #: templates.php:1793
 msgid "Internal name"
@@ -2510,7 +2510,7 @@ msgstr ""
 
 #: view.php:904
 msgid "No Data Items"
-msgstr ""
+msgstr "მონაცემთა ელემენტების გარეშე"
 
 #: view.php:1008
 #, php-format
