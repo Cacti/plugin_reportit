@@ -213,7 +213,7 @@ function standard() {
 							<?php print __('Search', 'reportit');?>
 						</td>
 						<td>
-							<input id='filter' type='text' size='25' value='<?php print get_request_var('filter');?>'>
+							<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 						</td>
 						<td>
 							<?php print __('Type', 'reportit');?>
@@ -672,7 +672,7 @@ function show_report() {
 							<?php print __('Search', 'reportit');?>
 						</td>
 						<td>
-							<input id='filter' size='30' type='text' value='<?php print get_request_var('filter');?>'>
+							<input id='filter' size='30' type='text' value='<?php print html_escape_request_var('filter'); ?>'>
 						</td>
 						<td><?php print __('Additional', 'reportit');?></td>
 						<td>
@@ -718,7 +718,7 @@ function show_report() {
 			<script type='text/javascript'>
 			function applyFilter() {
 				strURL  = 'view.php?action=show_report';
-				strURL += '&id=<?php print get_request_var('id');?>';
+				strURL += '&id=<?php print (int)get_filter_request_var('id'); ?>';
 				strURL += '&filter='+escape($('#filter').val());
 				strURL += '&info='+$('#info').val();
 				strURL += '&rows='+$('#rows').val();
@@ -732,7 +732,7 @@ function show_report() {
 			}
 
 			function clearFilter() {
-				strURL = 'view.php?action=show_report&id=<?php print get_request_var('id');?>&clear=1';
+				strURL = 'view.php?action=show_report&id=<?php print (int)get_filter_request_var('id'); ?>&clear=1';
 				loadUrl({ url: strURL });
 			}
 
