@@ -446,7 +446,8 @@ function show_report() {
 	$archive         = array();
 	$report_ds_alias = array();
 
-	$id = validate_report_vars();
+	$id      = validate_report_vars();
+	$archive = (int) get_request_var('archive');
 
 	if (get_request_var('rows') == '-1') {
 		$rows = read_config_option('num_rows_table');
@@ -488,19 +489,19 @@ function show_report() {
 //	}
 
 	/* load report data */
-	if (get_request_var('archive') == -1) {
-		$data = get_prepared_report_data(get_request_var('id'), 'view', $sql_affix);
+	if ($archive == -1) {
+		$data = get_prepared_report_data($id, 'view', $sql_affix);
 	} else {
 		$data = get_prepared_archive_data($cache_id, 'view', $sql_affix);
 	}
 
 	/* get total number of rows (data items) */
-	if (get_request_var('archive') != -1) {
-		$source = 'plugin_reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive') . ' AS a
+	if ($archive != -1) {
+		$source = 'plugin_reportit_tmp_' . $id . '_' . $archive . ' AS a
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id';
 	} else {
-		$source = 'plugin_reportit_results_' . get_request_var('id') . ' AS a
+		$source = 'plugin_reportit_results_' . $id . ' AS a
 			INNER JOIN data_template_data AS c
 			ON c.local_data_id = a.id';
 	}
@@ -967,6 +968,8 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 function show_graph_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs) {
 	global $graphs, $limit;
 
+	$id               = (int) get_request_var('id');
+	$archive          = (int) get_request_var('archive');
 	$affix            = '';
 	$description      = '';
 	$limitation       = 10;

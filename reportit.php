@@ -525,9 +525,7 @@ function form_save() {
 	get_filter_request_var('end_day');
 	/* ==================================================== */
 
-	if (!isset($post['tab'])) {
-		$post['tab'] = 'general';
-	}
+	$post['tab'] ??= 'general';
 
 	/* stop if user is not authorised to save a report config */
 	if ($post['tab'] != 'items') {
@@ -768,7 +766,7 @@ function form_save() {
 		default:
 			$report_data['id']               = $post['id'];
 
-			$report_data['user_id']          = isset($post['owner']) ? $post['owner']:'';
+			$report_data['user_id']          = $post['owner'] ?? '';
 			$report_data['name']             = $post['name'];
 			$report_data['template_id']      = $post['template_id'];
 			$report_data['public']           = $post['public'];
@@ -870,7 +868,7 @@ function form_save() {
 			}
 	}
 
-	header('Location: reportit.php?action=report_edit&id=' . (isset($report_id)? $report_id : $post['id']) . '&tab=' . $post['tab']);
+	header('Location: reportit.php?action=report_edit&id=' . ($report_id ?? $post['id']) . '&tab=' . $post['tab']);
 
 	raise_message(1);
 }
@@ -968,9 +966,7 @@ function report_edit() {
 	$rrdlist_data['id']= $id;
 
 	if (isset_request_var('template')) {
-		if (!isset($_SESSION['reportit']['template'])) {
-			$_SESSION['reportit']['template'] = get_request_var('template');
-		}
+		$_SESSION['reportit']['template'] ??= get_request_var('template');
 	}
 
 	if (isset($report_data['template_id'])) {

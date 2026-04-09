@@ -407,9 +407,7 @@ function validate_uploaded_templates(){
 		}
 
 		/* save data in the user session */
-		if (!isset($_SESSION['sess_reportit'])) {
-			$_SESSION['sess_reportit'] = array();
-		}
+		$_SESSION['sess_reportit'] ??= array();
 
 		$xmlstring = xml_to_string($xmldata);
 		$_SESSION['sess_reportit']['report_templates'] = $xmlstring;

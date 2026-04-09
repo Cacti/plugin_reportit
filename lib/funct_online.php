@@ -122,9 +122,7 @@ function session_custom_error_message($field, $custom_message, $toplevel_message
 	$_SESSION['sess_error_fields'][$field] = $field;
 
 	//Do not overwrite the first message.
-	if (!isset($_SESSION['sess_custom_error'])) {
-		$_SESSION['sess_custom_error'] = $custom_message;
-	}
+	$_SESSION['sess_custom_error'] ??= $custom_message;
 
 	if (!isset($_SESSION['sess_messages']) && $toplevel_message !== false) {
 		raise_message($toplevel_message);

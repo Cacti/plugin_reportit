@@ -60,7 +60,7 @@ function html_calc_syntax($measurand_id, $template_id) {
 				}
 			}
 
-			$title  = "<div class='header'>" . (isset($properties['title']) ? $properties['title'] : $name) . '</div>';
+			$title  = "<div class='header'>" . ($properties['title'] ?? $name) . '</div>';
 
 			if (isset($properties['description'])) {
 				$title .= "<div class='content preformatted'><br>"
@@ -116,7 +116,7 @@ function html_report_variables($report_id, $template_id) {
 
 	//Start with a transformation
 	foreach ($variables as $v) {
-		$value	= (isset($v['value']) ? $v['value'] : $v['default_value']);
+		$value	= ($v['value'] ?? $v['default_value']);
 		$method = $input_types[$v['input_type']];
 		$index 	= 'var_' . $v['id'];
 

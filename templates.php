@@ -731,7 +731,7 @@ function form_save() {
 		$template_data['data_template_id'] = $post['data_template_id'];
 		$template_data['enabled']          = isset($post['enabled']) ? 'on' : '';
 		$template_data['locked']           = isset($post['locked']) ? 'on' : '';
-		$template_data['export_folder']    = isset($post['export_folder']) ? $post['export_folder'] : '';
+		$template_data['export_folder']    = $post['export_folder'] ?? '';
 
 		$defined_data_sources = array_rekey(
 			db_fetch_assoc('SELECT id, data_source_name
@@ -998,10 +998,10 @@ function form_save() {
 		$measurand_data['unit']           = $post['unit'];
 		$measurand_data['visible']        = isset($post['visible']) ? 'on' : '';
 		$measurand_data['spanned']        = isset($post['spanned']) ? 'on' : '';
-		$measurand_data['rounding']       = isset($post['rounding']) ? $post['rounding']: '';
+		$measurand_data['rounding']       = $post['rounding'] ?? '';
 		$measurand_data['cf']             = $post['cf'];
 		$measurand_data['data_type']      = $post['data_type'];
-		$measurand_data['data_precision'] = isset($post['data_precision']) ? $post['data_precision'] : '';
+		$measurand_data['data_precision'] = $post['data_precision'] ?? '';
 
 		if (is_error_message()) {
 			header('Location: templates.php?action=measurand_edit&tab=measurands&id=' . $post['id'] . '&template_id=' . $post['template_id']);
@@ -1058,14 +1058,10 @@ function templates_general($id) {
 	}
 
 	if (isset_request_var('data_template')) {
-		if (!isset($_SESSION['reportit_tWizard']['data_template'])) {
-			$_SESSION['reportit_tWizard']['data_template'] = get_filter_request_var('data_template');
-		}
+		$_SESSION['reportit_tWizard']['data_template'] ??= get_filter_request_var('data_template');
 	}
 
-	if (!isset($template_data['data_template_id'])) {
-		$template_data['data_template_id'] = $_SESSION['reportit_tWizard']['data_template'];
-	}
+	$template_data['data_template_id'] ??= $_SESSION['reportit_tWizard']['data_template'];
 
 	$template_data['data_template_name'] =  $list_of_data_templates[$template_data['data_template_id']];
 
@@ -1806,7 +1802,7 @@ function variable_edit() {
 			'description'   => __('A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it.', 'reportit'),
 			'method'        => 'custom',
 			'max_length'    => '100',
-			'value'         => (isset($variable_data['abbreviation']) ? $variable_data['abbreviation'] : '-Available after first saving-')
+			'value'         => ($variable_data['abbreviation'] ?? '-Available after first saving-')
 		),
 		'name' => array(
 			'friendly_name' => __('Name'),
@@ -1814,7 +1810,7 @@ function variable_edit() {
 			'method'        => 'textbox',
 			'max_length'    => '100',
 			'placeholder'   => __('Provide a name for this Variable', 'reportit'),
-			'value'         => (isset($variable_data['name']) ? $variable_data['name'] : '')
+			'value'         => ($variable_data['name'] ?? '')
 		),
 		'description' => array(
 			'friendly_name' => __('Description', 'reportit'),
@@ -1824,35 +1820,35 @@ function variable_edit() {
 			'textarea_cols' => '50',
 			'default'       => '',
 			'placeholder'   => __('Provide a meaningful description', 'reportit'),
-			'value'         => (isset($variable_data['description']) ? $variable_data['description'] : '')
+			'value'         => ($variable_data['description'] ?? '')
 		),
 		'max_value' => array(
 			'friendly_name' => __('Maximum Value', 'reportit'),
 			'description'   => __('Defines the upper limit of this variable.', 'reportit'),
 			'method'        => 'textbox',
 			'max_length'    => '10',
-			'value'         => (isset($variable_data['max_value']) ? $variable_data['max_value'] : '')
+			'value'         => ($variable_data['max_value'] ?? '')
 		),
 		'min_value' => array(
 			'friendly_name' => __('Minimum Value', 'reportit'),
 			'description'   => __('Defines the lower limit of this variable.', 'reportit'),
 			'method'        => 'textbox',
 			'max_length'    => '10',
-			'value'         => (isset($variable_data['min_value']) ? $variable_data['min_value'] : '')
+			'value'         => ($variable_data['min_value'] ?? '')
 		),
 		'default_value' => array(
 			'friendly_name' => __('Default Value', 'reportit'),
 			'description'   => __('Sets the default value.', 'reportit'),
 			'method'        => 'textbox',
 			'max_length'    => '10',
-			'value'         => (isset($variable_data['default_value']) ? $variable_data['default_value'] : '')
+			'value'         => ($variable_data['default_value'] ?? '')
 		),
 		'input_type' => array(
 			'friendly_name' => __('Type', 'reportit'),
 			'description'   => __('The method the report owner should use to define this variable.', 'reportit'),
 			'method'        => 'drop_array',
 			'array'         => $var_types,
-			'value'         => (isset($variable_data['input_type']) ? $variable_data['input_type'] : '')
+			'value'         => ($variable_data['input_type'] ?? '')
 		),
 		'stepping' => array(
 			'friendly_name' => __('Stepping', 'reportit'),
@@ -1952,28 +1948,28 @@ function measurand_edit() {
 			'description'   => __('The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself.', 'reportit'),
 			'method'        => 'textbox',
 			'max_length'    => '255',
-			'value'         => (isset($measurand_data['name']) ? $measurand_data['name'] : '')
+			'value'         => ($measurand_data['name'] ?? '')
 		),
 		'abbreviation' => array(
 			'friendly_name' => __('Abbreviation', 'reportit'),
 			'description'   => __('Define a unique abbreviation for this measurand with max. 8 letters/numbers.', 'reportit'),
 			'method'        => 'textbox',
 			'max_length'    => '10',
-			'value'         => (isset($measurand_data['abbreviation']) ? $measurand_data['abbreviation'] : '')
+			'value'         => ($measurand_data['abbreviation'] ?? '')
 		),
 		'unit' => array(
 			'friendly_name' => __('Unit', 'reportit'),
 			'description'   => __('The unit given to this measurand. e.g. \'Bits/s\'', 'reportit'),
 			'method'        => 'textbox',
 			'max_length'    => '100',
-			'value'         => (isset($measurand_data['unit']) ? $measurand_data['unit'] : '')
+			'value'         => ($measurand_data['unit'] ?? '')
 		),
 		'cf' => array(
 			'friendly_name' => __('Consolidation function', 'reportit'),
 			'description'   => __('The name of the consolidation function to define which CDPs should be read out.', 'reportit'),
 			'method'        => 'drop_array',
 			'default'       => '0',
-			'value'         => (isset($measurand_data['cf']) ? $measurand_data['cf'] : ''),
+			'value'         => ($measurand_data['cf'] ?? ''),
 			'array'         => $consolidation_functions
 		),
 		'visible' => array(
@@ -2004,21 +2000,21 @@ function measurand_edit() {
 			'method'        => 'drop_array',
 			'array'         => $type_specifier,
 			'description'   => __('Defines as what type the data should be treated as.', 'reportit'),
-			'value'         => (isset($measurand_data['data_type']) ? $measurand_data['data_type'] : '1' )
+			'value'         => ($measurand_data['data_type'] ?? '1' )
 		),
 		'data_precision' => array(
 			'friendly_name' => __('Precision', 'reportit'),
 			'description'   => __('Defines how many decimal digits should be displayed for floating-point numbers.', 'reportit'),
 			'method'        => 'drop_array',
 			'array'         => $precision,
-			'value'         => (isset($measurand_data['data_precision']) ? $measurand_data['data_precision'] : '2' )
+			'value'         => ($measurand_data['data_precision'] ?? '2' )
 		),
 		'rounding' => array(
 			'friendly_name' => __('Prefixes', 'reportit'),
 			'description'   => __('Choose the type of prefix being used to format the result. With the use of decimal prefixes \'1024\' will be formatted to \'1.024k\' while the binary prefixes option returns \'1ki\'. Select \'off\' to display the raw data, here \'1024\'.', 'reportit'),
 			'method'        => 'drop_array',
 			'array'         => $rounding,
-			'value'         => (isset($measurand_data['rounding']) ? $measurand_data['rounding'] : '2' )
+			'value'         => ($measurand_data['rounding'] ?? '2' )
 		),
 		'header3' => array(
 			'friendly_name' => __('Formula', 'reportit'),
@@ -2029,7 +2025,7 @@ function measurand_edit() {
 			'friendly_name' => __('Calculation Formula', 'reportit'),
 			'description'   => __('The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations.', 'reportit'),
 			'method'        => 'custom',
-			'value'         => "<textarea aria-multiline='true' cols='60' rows='5' id='calc_formula' name='calc_formula'>" . (isset($measurand_data['calc_formula']) ? $measurand_data['calc_formula'] : "" ) . '</textarea>'
+			'value'         => "<textarea aria-multiline='true' cols='60' rows='5' id='calc_formula' name='calc_formula'>" . ($measurand_data['calc_formula'] ?? "" ) . '</textarea>'
 		),
 		'ops_and_opds' => array(
 			'friendly_name' => __('Operators & Operands', 'reportit'),
