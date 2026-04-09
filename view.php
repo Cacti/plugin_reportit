@@ -128,36 +128,36 @@ function standard() {
 
 	/* ================= input validation and session storage ================= */
 	$filters = array(
-		'rows' => array(
+		'rows' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'page' => array(
+		],
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-		),
+		],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
-		'type' => array(
+		'type' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '0',
 			'pageset' => true
-		)
+		]
 	);
 
 	validate_store_request_vars($filters, 'sess_reportit_view');
@@ -170,7 +170,7 @@ function standard() {
 	}
 
 	$sql_where  = 'WHERE a.last_started != 0';
-	$sql_params = array();
+	$sql_params = [];
 
 	/* form the 'where' clause for our main sql query */
 	if (strlen(get_request_var('filter'))) {
@@ -359,66 +359,66 @@ function validate_report_vars() {
 
 	/* ================= input validation and session storage ================= */
 	$filters = array(
-		'rows' => array(
+		'rows' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'page' => array(
+		],
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-		),
+		],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'a.id',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
-		'data_source' => array(
+		'data_source' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'measurand' => array(
+		],
+		'measurand' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'archive' => array(
+		],
+		'archive' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'info' => array(
+		],
+		'info' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '-2'
-		),
+		],
 		'subhead' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => false,
-			'options' => array('options' => 'sanitize_search_string'),
+			'options' => ['options' => 'sanitize_search_string'],
 			'pageset' => true
 		),
 		'summary' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => false,
-			'options' => array('options' => 'sanitize_search_string'),
+			'options' => ['options' => 'sanitize_search_string'],
 			'pageset' => true
 		),
 		'graph_mode' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => false,
-			'options' => array('options' => 'sanitize_search_string'),
+			'options' => ['options' => 'sanitize_search_string'],
 			'pageset' => true
 		)
 	);
@@ -440,13 +440,13 @@ function show_report() {
 	$include_mea     = '';
 	$cache_id        = '';
 	$table           = '';
-	$measurands      = array();
-	$ds_description  = array();
-	$rs_description  = array();
-	$ov_description  = array();
-	$report_summary  = array();
-	$archive         = array();
-	$report_ds_alias = array();
+	$measurands      = [];
+	$ds_description  = [];
+	$rs_description  = [];
+	$ov_description  = [];
+	$report_summary  = [];
+	$archive         = [];
+	$report_ds_alias = [];
 
 	$id = validate_report_vars();
 
@@ -589,7 +589,7 @@ function show_report() {
 
 	$data_sources = $ds_description;
 	foreach ($data_sources as $key => $value) {
-		if (is_array($report_ds_alias) && array_key_exists($value, $report_ds_alias) && $report_ds_alias[$value] != '')
+		if (is_[$report_ds_alias] && array_key_exists($value, $report_ds_alias) && $report_ds_alias[$value] != '')
 			$data_sources[$key] = $report_ds_alias[$value];
 	}
 
@@ -826,12 +826,12 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 				$title = $mea[$id]['name'];
 
 				if ($mea[$id]['visible'] != '') {
-					$display_text[$var] = array(
+					$display_text[$var] = [
 						'display' => $mea[$id]['abbreviation'] . ' [' . $mea[$id]['unit'] . ']',
 						'sort'    => 'DESC',
 						'align'   => 'right',
 						'tip'     => $title
-					);
+					];
 				}
 			}
 		}
@@ -843,11 +843,11 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 
 	/* Set preconditions */
 	$last_subhead = '';
-	$additional = array();
+	$additional = [];
 	if (cacti_sizeof($report_results)) {
 		foreach ($report_results as $result) {
 			if (!isempty_request_var('subhead')) {
-				$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+				$replace = [$result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']];
 				$subhead = str_replace($search, $replace, $result['name']);
 
 				if (empty($subhead)) {
@@ -863,7 +863,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 					foreach ($ds_description as $description) {
 						$counter = ($description != 'overall') ? $count_rs : $count_ov;
 
-						if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
+						if (is_[$report_ds_alias] && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
 							$description = $report_ds_alias[$description];
 						}
 
@@ -980,7 +980,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 
 	if (cacti_sizeof($ds_description)) {
 		foreach($ds_description as $datasource) {
-			$description = (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias))
+			$description = (is_[$report_ds_alias] && array_key_exists($datasource, $report_ds_alias))
 				? ($report_ds_alias[$datasource] != '') ? $report_ds_alias[$datasource] : $datasource : $datasource;
 
 			html_start_box(__('Data Source: %s', $description, 'reportit'), '100%', false, '3', 'center', '');
@@ -1021,7 +1021,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 							<td colspan='2' class='textHeaderDark'>" . __esc('Metric: %s (%s)', $title, $mea[$id]['abbreviation'], 'reportit') . '</td>
 						</tr>';
 
-						$graph_data = array();
+						$graph_data = [];
 
 						foreach ($data as $row)	{
 							$graph_data[$row['name_cache']] = $row[$var];
@@ -1141,8 +1141,8 @@ function plugin_reportit_graph($graph_id, $graph_data) {
 
 	$xid = substr(md5($graph_id), 0, 7);
 
-	$labels = array();
-	$values = array();
+	$labels = [];
+	$values = [];
 
 	$content  = '<div id="treemap_' . $xid. '"></div>';
 	$content .= '<script type="text/javascript">';

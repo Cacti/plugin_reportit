@@ -79,7 +79,7 @@ function plugin_reportit_version() {
 }
 
 function reportit_check_upgrade() {
-	$files = array('index.php', 'plugins.php', 'poller_reportit.php');
+	$files = ['index.php', 'plugins.php', 'poller_reportit.php'];
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
 		return;
 	}
@@ -112,13 +112,13 @@ function reportit_check_upgrade() {
 		db_execute_prepared('UPDATE plugin_config SET
 			name = ?, author = ?, webpage = ?, version = ?
 			WHERE id = ?',
-			array(
+			[
 				$info['longname'],
 				$info['author'],
 				$info['homepage'],
 				$info['version'],
 				$id
-			)
+			]
 		);
 
 		return true;
@@ -362,9 +362,9 @@ function reportit_config_arrays() {
 	reportit_define_constants();
 
 	if (function_exists('auth_augment_roles')) {
-		auth_augment_roles(__('Normal User'), array('view.php,charts.php'));
-		auth_augment_roles(__('General Administration'), array('reportsit.php'));
-		auth_augment_roles(__('System Administration'), array('templates.php', 'measurands.php', 'variables.php'));
+		auth_augment_roles(__('Normal User'), ['view.php,charts.php']);
+		auth_augment_roles(__('General Administration'), ['reportsit.php']);
+		auth_augment_roles(__('System Administration'), ['templates.php', 'measurands.php', 'variables.php']);
 	}
 
 	/* show additional menu entries if plugin is enabled */
@@ -396,8 +396,8 @@ function reportit_config_settings() {
 
 	/* presets */
 	$datetime              = array(__('local', 'reportit'), __('global', 'reportit'));
-	$csv_column_separator  = array(',', ';', 'Tab', 'Blank');
-	$csv_decimal_separator = array(',', '.');
+	$csv_column_separator  = [',', ';', 'Tab', 'Blank'];
+	$csv_decimal_separator = [',', '.'];
 
 	$operator = array(
 		__('Power User (Report Owner)', 'reportit'),
@@ -536,7 +536,7 @@ function reportit_config_settings() {
 }
 
 function db_setting_exists($setting) {
-	$results = db_fetch_row_prepared('SELECT * FROM settings WHERE name = ?', array($setting));
+	$results = db_fetch_row_prepared('SELECT * FROM settings WHERE name = ?', [$setting]);
 
 	if (cacti_sizeof($results)) {
 		return true;
@@ -673,7 +673,7 @@ function reportit_poller_bottom() {
 
 	$php_binary = read_config_option('path_php_binary');
 
-	$queued = array();
+	$queued = [];
 
 	$reports = db_fetch_assoc('SELECT * FROM plugin_reportit_reports WHERE enabled = "on"');
 
@@ -712,7 +712,7 @@ function reportit_schedule_report(&$report) {
 	$id     = $report['id'];
 	$name   = $report['name'];
 	$notify = $report['notify_list'];
-	$from   = array();
+	$from   = [];
 
 	if (isset($report['from_email']) && $report['from_email'] != '') {
 		$from_email = $report['from_email'];
@@ -734,7 +734,7 @@ function reportit_schedule_report(&$report) {
 	$to_emails = db_fetch_assoc_prepared('SELECT email, name
 		FROM plugin_reportit_recipients
 		WHERE report_id = ?',
-		array($report['id']));
+		[$report['id']]);
 
 	if ($report['email'] != '') {
 		$emails = explode(',', $report['email']);
@@ -747,7 +747,7 @@ function reportit_schedule_report(&$report) {
 		$bcc_emails = explode(',', $report['bcc']);
 		$bcc_emails = array_map('trim', $bcc_emails);
 	} else {
-		$bcc_emails = array();
+		$bcc_emails = [];
 	}
 
 	if (isset($report['reply_to'])) {
@@ -756,7 +756,7 @@ function reportit_schedule_report(&$report) {
 		$reply_to = '';
 	}
 
-	$notification = array();
+	$notification = [];
 
 	if (cacti_sizeof($to_emails) || cacti_sizeof($bcc_emails)) {
 		$notification['email']['to_email']  = $to_emails;
@@ -774,7 +774,7 @@ function reportit_schedule_report(&$report) {
 	return reports_queue($name, 1, 'reportit', $id, $command, $notification);
 }
 
-function reportit_clog_regex_array($regex_array) {
+function reportit_clog_regex_[$regex_array] {
 	$regex_array[] = array('name' => 'RIReport', 'regex' => '( RIReport\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_report');
 	$regex_array[] = array('name' => 'RIDataItem', 'regex' => '( RIDataItem\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_dataitem');
 
@@ -792,7 +792,7 @@ function reportit_clog_regex_report($matches) {
 			WHERE id in (?)',
 			array(implode(',',$report_ids)));
 
-		$reportDescriptions = array();
+		$reportDescriptions = [];
 		if (cacti_sizeof($reports)) {
 			foreach ($reports as $report) {
 				$reportDescriptions[$report['id']] = html_escape($report['name']);
@@ -820,8 +820,8 @@ function reportit_clog_regex_dataitem($matches) {
 			WHERE a.id in (?)',
 			array(implode(',',$dataitem_ids)));
 
-		$dataitemDescriptions = array();
-		$dataitemReports = array();
+		$dataitemDescriptions = [];
+		$dataitemReports = [];
 		if (cacti_sizeof($dataitems)) {
 			foreach ($dataitems as $dataitem) {
 				$dataitemReports[$dataitem['id']] = $dataitem['report_id'];

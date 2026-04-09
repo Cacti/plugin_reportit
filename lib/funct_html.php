@@ -83,9 +83,9 @@ function html_calc_syntax($measurand_id, $template_id) {
 
 function html_report_variables($report_id, $template_id) {
 	//Define some variables
-	$array           = array();
-	$form_array_vars = array();
-	$input_types     = array(1 => 'drop_array', 2 => 'textbox');
+	$array           = [];
+	$form_array_vars = [];
+	$input_types     = [1 => 'drop_array', 2 => 'textbox'];
 
 	//Load the possible variables
 	$variables = db_fetch_assoc_prepared('SELECT a.*, b.value
@@ -94,13 +94,13 @@ function html_report_variables($report_id, $template_id) {
 	    ON a.id = b.variable_id
 		AND report_id = ?
 	    WHERE a.template_id = ?',
-		array($report_id, $template_id));
+		[$report_id, $template_id]);
 
 	if (count($variables) == 0) {
 		$variables = db_fetch_assoc_prepared('SELECT *
 			FROM plugin_reportit_variables
 			WHERE template_id = ?',
-			array($template_id));
+			[$template_id]);
 	}
 
 	//Exit if there are no variables necessary for using this template
@@ -124,7 +124,7 @@ function html_report_variables($report_id, $template_id) {
 
 		if ($method == 'drop_array') {
 			$i     = 0;
-			$array = array();
+			$array = [];
 
 			$a = $v['min_value'];
 			$b = $v['max_value'];
@@ -144,14 +144,14 @@ function html_report_variables($report_id, $template_id) {
 
 		    $form_array_vars[$index] = $var;
 		} else {
-		    $var = array(
+		    $var = [
 				'friendly_name' => $v['name'],
 				'method'        => $method,
 				'description'   => $v['description'],
 				'max_length'    => 10,
 				'value'         => $value,
 				'default'       => $v['default_value']
-			);
+			];
 
 		    $form_array_vars[$index] = $var;
 		}
@@ -168,8 +168,8 @@ function html_report_variables($report_id, $template_id) {
  * @param  int   $data_template_id - internal Cacti id of the used data template
  */
 function html_template_ds_alias($template_id, $data_template_id) {
-	$form_array_alias  = array();
-	$data_source_items = array();
+	$form_array_alias  = [];
+	$data_source_items = [];
 
 	/* load information about defined data sources of that data template */
 	$data_source_items = db_fetch_assoc_prepared("SELECT a.id, a.data_source_name,
@@ -183,7 +183,7 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		ON a.data_source_name = b.data_source_name
 		WHERE a.local_data_id = 0
 		AND a.data_template_id = ?",
-		array($template_id, $data_template_id));
+		[$template_id, $data_template_id]);
 
 	/* create the necessary input field for defining the alias */
 	if (cacti_sizeof($data_source_items)) {
@@ -216,7 +216,7 @@ function html_template_ds_alias($template_id, $data_template_id) {
 		FROM plugin_reportit_data_source_items
 		WHERE id = 0
 		AND template_id = ?',
-		array($template_id));
+		[$template_id]);
 
 	$var = array(
 		'friendly_name' => __('Separate Group Title [overall]', 'reportit'),
@@ -247,7 +247,7 @@ function html_check_icon($value, $title_on = 'Yes', $title_off = 'No') {
 }
 
 function html_sources_icon($values, $title_on, $title_off) {
-	if (is_array($values)) {
+	if (is_[$values]) {
 		$values = count($values);
 	}
 

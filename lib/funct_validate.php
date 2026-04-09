@@ -31,10 +31,10 @@ $error = false;
 function last_error($errno, $errstr) {
 	global $error;
 
-	$error = array(
+	$error = [
 		'Number'  => $errno,
 		'Message' => $errstr
-	);
+	];
 }
 
 function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names, $calc_data_query_variables) {
@@ -57,32 +57,32 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	$valids['dq_variables']['R'] = 'E';
 
 	$valids['signs']['S']        = array('(', ')', '.', ',');
-	$valids['signs']['R']        = array('L', 'R', '.', ',');
-	$valids['operators']['S']    = array('+','-','*','/');
-	$valids['operators']['R']    = array('+','-','*','/');
-	$valids['numbers']['S']      = array('1','2','3','4','5','6','7','8','9','0');
+	$valids['signs']['R']        = ['L', 'R', '.', ','];
+	$valids['operators']['S']    = ['+','-','*','/'];
+	$valids['operators']['R']    = ['+','-','*','/'];
+	$valids['numbers']['S']      = ['1','2','3','4','5','6','7','8','9','0'];
 	$valids['numbers']['R']      = 'N';
 
 	//Invalid combinations of signs:
-	$invalids = array(
+	$invalids = [
 		'++', '+*', '+/', '--', '-*', '-/', '**', '*/', '/*', '//',
 		'NE', 'EN',
 		'LR', 'L*', 'L/', '.L', 'EL', 'NL',
 		'RL', '+R', '-R', '*R', '/R', 'R.', 'RE', 'RN',
 		'EE', '..', ',,', '.,', 'L,', ',R'
-	);
+	];
 
 	//Sometime it's better and easier to work with whitelists
 	$whitelist = array(
-		'P' => array('PL')
+		'P' => ['PL']
 	);
 
 	//Invalid divisions:
-	$invaldiv = array('/0');
+	$invaldiv = ['/0'];
 
 	//Search for invalid signs or function calls:
 	$debug = '';
-	$debug = str_replace(array(' ',"\r\n","\n"), '', $calc_formula);
+	$debug = str_replace([' ',"\r\n","\n"], '', $calc_formula);
 
 	foreach($valids as $array) {
 		$debug = str_replace($array['S'], '', $debug);
@@ -98,7 +98,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	}
 
 	//Check if the formula begins or ends with an operator
-	if (in_array($calc_formula[0], $valids['operators']['S'])) {
+	if (in_[$calc_formula[0], $valids['operators']['S']]) {
 		return 'Formula begins with an operator.';
 	}
 
@@ -175,7 +175,7 @@ function input_validate_input_whitelist($value, $valid_list, $undefined=false, $
 		return;
 	}
 
-	if (!in_array($value, $valid_list)) {
+	if (!in_[$value, $valid_list]) {
 		die_html_custom_error('', $header);
 	}
 }
@@ -185,7 +185,7 @@ function input_validate_input_blacklist($value, $black_list, $undefined=false, $
 		return;
 	}
 
-	if (in_array($value, $black_list)) {
+	if (in_[$value, $black_list]) {
 		die_html_custom_error('', $header);
 	}
 }
@@ -352,7 +352,7 @@ function validate_uploaded_templates(){
 
 			$ds_names = db_custom_fetch_assoc($sql,false,false,false);
 
-			if (in_array($template_ds_names, $ds_names) === false) {
+			if (in_[$template_ds_names, $ds_names] === false) {
 				$report_compatible = true;
 
 				$sql = ("SELECT id, name FROM data_template WHERE id = $data_template_id");
@@ -410,7 +410,7 @@ function validate_uploaded_templates(){
 
 		/* save data in the user session */
 		if (!isset($_SESSION['sess_reportit'])) {
-			$_SESSION['sess_reportit'] = array();
+			$_SESSION['sess_reportit'] = [];
 		}
 
 		$xmlstring = xml_to_string($xmldata);

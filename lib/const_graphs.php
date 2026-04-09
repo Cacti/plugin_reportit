@@ -30,12 +30,12 @@ $limit           = '';
 $affix           = '';
 $exponent        = '';
 $prefix          = '';
-$results         = array();
-$prefixes        = array();
-$x_values        = array();
-$report_ds_alias = array();
+$results         = [];
+$prefixes        = [];
+$x_values        = [];
+$report_ds_alias = [];
 
-$prefixes[1] = array(
+$prefixes[1] = [
 	0 => '',
 	1 => 'Ki',
 	2 => 'Mi',
@@ -45,9 +45,9 @@ $prefixes[1] = array(
 	6 => 'Ei',
 	7 => 'Zi',
 	8 => 'Yi'
-);
+];
 
-$prefixes[2] = array(
+$prefixes[2] = [
 	0 => '',
 	1 => 'k',
 	2 => 'M',
@@ -57,7 +57,7 @@ $prefixes[2] = array(
 	6 => 'E',
 	7 => 'Z',
 	8 => 'Y'
-);
+];
 
 $types = array(
 	'-10' => array (

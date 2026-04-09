@@ -30,7 +30,7 @@ function owner($report_id) {
 		INNER JOIN user_auth as b
 		ON b.id = a.user_id
 		WHERE a.id = ?' ,
-		array($report_id));
+		[$report_id]);
 
 	if (cacti_sizeof($tmp)) {
 		return $tmp['full_name'] . ' (' . $tmp['username'] . ')';
@@ -40,8 +40,8 @@ function owner($report_id) {
 }
 
 function get_prepared_report_data($report_id, $type, $sql_where = '') {
-	$report_measurands = array();
-	$report_variables  = array();
+	$report_measurands = [];
+	$report_variables  = [];
 
 	/* load report configuration + template description */
 	$report_data = db_fetch_row_prepared('SELECT a.*, b.description AS template_name
@@ -49,7 +49,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		INNER JOIN plugin_reportit_templates AS b
 		ON a.template_id = b.id
 		WHERE a.id = ?',
-		array($report_id));
+		[$report_id]);
 
 	if (!sizeof($report_data)) {
 		return false;
@@ -62,7 +62,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	$tmps = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?',
-		array($report_data['template_id']));
+		[$report_data['template_id']]);
 
 	foreach ($tmps as $tmp) {
 		$report_measurands[$tmp['id']] = $tmp;
@@ -76,7 +76,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		ON a.id = b.variable_id
 		AND b.report_id = ?
 		WHERE a.template_id = ?',
-		array($report_id, $report_data['template_id']));
+		[$report_id, $report_data['template_id']]);
 
 	/* load data source alias */
 	$report_ds_alias = db_custom_fetch_assoc('SELECT data_source_name, data_source_alias
@@ -101,10 +101,10 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 
 			break;
 		case 'graph':
-			return array(
+			return [
 				'report_data'       => $report_data,
 				'report_measurands' => $report_measurands
-			);
+			];
 
 			break;
 	}
@@ -112,26 +112,26 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	$report_results = db_fetch_assoc($sql);
 
 	/* build data package for return */
-	$data = array(
+	$data = [
 		'report_data'       => $report_data,
 		'report_results'    => $report_results,
 		'report_measurands' => $report_measurands,
 		'report_variables'  => $report_variables,
 		'report_ds_alias'   => $report_ds_alias
-	);
+	];
 
 	return $data;
 }
 
 function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
-	$report_measurands = array();
-	$report_variables  = array();
+	$report_measurands = [];
+	$report_variables  = [];
 
 	/* load report configuration */
 	$report_data = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_cache_reports
 		WHERE cache_id = ?',
-		array($cache_id));
+		[$cache_id]);
 
 	/* save serialized data source alias separately */
 	if (isset($report_data['data_template_alias'])) {
@@ -143,7 +143,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 	$tmps = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_cache_measurands
 		WHERE cache_id = ?',
-		array($cache_id));
+		[$cache_id]);
 
 	if (cacti_sizeof($tmps)) {
 		foreach ($tmps as $tmp) {
@@ -155,7 +155,7 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 	$report_variables = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_cache_variables
 		WHERE cache_id = ?',
-		array($cache_id));
+		[$cache_id]);
 
 	switch ($type) {
 		case 'export':
@@ -167,10 +167,10 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 
 			break;
 		case 'graph':
-			return array(
+			return [
 				'report_data'       => $report_data,
 				'report_measurands' => $report_measurands
-			);
+			];
 
 			break;
 		case 'view':
@@ -182,13 +182,13 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 	$report_results = db_fetch_assoc($sql);
 
 	/* build data package for return */
-	$data = array(
+	$data = [
 		'report_data'       => $report_data,
 		'report_results'    => $report_results,
 		'report_measurands' => $report_measurands,
 		'report_variables'  => $report_variables,
 		'report_ds_alias'   => $report_ds_alias
-	);
+	];
 
 	return $data;
 }
@@ -205,8 +205,8 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
  * @return binary				returns an array or false if the SQL command failed
  */
 function db_custom_fetch_assoc($sql, $index = false, $multi = true, $assoc = true){
-	$raw_data = array();
-	$srt_data = array();
+	$raw_data = [];
+	$srt_data = [];
 
 	$raw_data = db_fetch_assoc($sql);
 
@@ -245,9 +245,9 @@ function db_custom_fetch_assoc($sql, $index = false, $multi = true, $assoc = tru
  * @param string    $sql    contains the SQL call
  * @return
  */
-function db_custom_fetch_flat_array($sql){
-	$raw_data = array();
-	$srt_data = array();
+function db_custom_fetch_flat_[$sql]{
+	$raw_data = [];
+	$srt_data = [];
 
 	$raw_data = db_fetch_assoc($sql);
 
@@ -272,7 +272,7 @@ function db_custom_fetch_flat_array($sql){
  * @return
  */
 function db_custom_fetch_flat_string($sql, $delimiter = ','){
-	$raw_data = array();
+	$raw_data = [];
 	$srt_data = '';
 
 	$raw_data = db_fetch_assoc($sql);
@@ -397,7 +397,7 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 	    break;
 	}
 
-	$dates = array();
+	$dates = [];
 
 	$dates['start_date'] = ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $ms, $ds, $ys)) : date('Y-m-d', mktime(0,0,0, $ms, $ds, $ys));
 
@@ -441,12 +441,12 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 		$IEC = read_config_option('reportit_use_IEC');
 	}
 
-	$type_specifiers = array('b', 'f', 'd', 'u', 'x', 'X', 'o', 'e');
+	$type_specifiers = ['b', 'f', 'd', 'u', 'x', 'X', 'o', 'e'];
 
 	$data_type = $type_specifiers[$data_type];
 
 	/* use precision for type FLOAT and SCIENTIFIC NOTIFICATION only*/
-	if (is_numeric($data_precision) && in_array($data_type, array('f', 'e'))) {
+	if (is_numeric($data_precision) && in_array($data_type, ['f', 'e'])) {
 		$data_precision = '.' . $data_precision;
 	} else {
 		$data_precision = '';
@@ -566,12 +566,12 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 	$ids = db_fetch_assoc_prepared('SELECT id
 		FROM plugin_reportit_reports
 		WHERE template_id = ?',
-		array($template_id));
+		[$template_id]);
 
 	if (cacti_sizeof($ids)) {
 		$list = '';
 
-		$params = array();
+		$params = [];
 
 		foreach ($ids as $id) {
 			$list .= '(?, ?, ?, ?),';
@@ -600,8 +600,8 @@ function create_rvars_entries($variable_id, $template_id, $default) {
  */
 function get_possible_rra_names($template_id) {
 	//Get all possible names of the RRAs for this type of template
-	$names = array();
-	$array = array();
+	$names = [];
+	$array = [];
 
 	$names = db_fetch_assoc_prepared('SELECT b.data_source_name
 		FROM plugin_reportit_data_source_items AS a
@@ -609,7 +609,7 @@ function get_possible_rra_names($template_id) {
 		ON a.id = b.id
 		WHERE a.template_id = ?
 		AND a.id != 0',
-		array($template_id));
+		[$template_id]);
 
 	foreach ($names as $name) {
 		$array[] = $name['data_source_name'];
@@ -627,9 +627,9 @@ function get_possible_rra_names($template_id) {
  * @return array with the syntax of possible interim results
  */
 function get_interim_results($measurand_id, $template_id, $ln = false) {
-	$array           = array();
-	$names           = array();
-	$interim_results = array();
+	$array           = [];
+	$names           = [];
+	$interim_results = [];
 
 	$names = get_possible_rra_names($template_id);
 	$sql = 'SELECT abbreviation, spanned
@@ -664,8 +664,8 @@ function get_possible_variables($template_id) {
 	global $calc_var_names;
 
 	// Fetch all variables which has been defined for this template
-	$names = array();
-	$array = array();
+	$names = [];
+	$array = [];
 
 	// Check whether maxValue is valid
 	$maximum = db_fetch_cell_prepared('SELECT DISTINCT a.rrd_maximum
@@ -674,7 +674,7 @@ function get_possible_variables($template_id) {
 		ON a.data_template_id = b.data_template_id
 		AND b.id = ?
 		WHERE a.local_data_id = 0',
-		array($template_id));
+		[$template_id]);
 
 	if (!is_numeric($maximum) || $maximum == 0) {
 		unset($calc_var_names[0]);
@@ -683,7 +683,7 @@ function get_possible_variables($template_id) {
 	$names = db_fetch_assoc_prepared('SELECT abbreviation
 		FROM plugin_reportit_variables
 		WHERE template_id = ?',
-		array($template_id));
+		[$template_id]);
 
 	foreach ($calc_var_names as $name) {
 		$array[] = $name;
@@ -708,10 +708,10 @@ function get_possible_data_query_variables($template_id) {
 		INNER JOIN plugin_reportit_templates AS rt
 		ON dl.data_template_id = rt.data_template_id
 		WHERE rt.id = ?',
-		array($template_id));
+		[$template_id]);
 
 	// in case there is no data query, have $names initialized
-	$names = array();
+	$names = [];
 
 	if (cacti_sizeof($available_data_queries)) {
 		$data_query_list = 'snmp_query_id IN (';
@@ -728,7 +728,7 @@ function get_possible_data_query_variables($template_id) {
 			WHERE $data_query_list");
 	}
 
-	$array = array();
+	$array = [];
 
 	if (cacti_sizeof($names)) {
 		foreach ($names as $name) {
@@ -746,7 +746,7 @@ function get_template_status($template_id) {
 	$status = db_fetch_cell_prepared('SELECT locked
 		FROM plugin_reportit_templates
 		WHERE id = ?',
-		array($template_id));
+		[$template_id]);
 
 	return $status;
 }
@@ -757,12 +757,12 @@ function in_process($report_id, $status = 1) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET state = ?, last_state = ?
 		WHERE id = ?',
-		array($status, $now, $report_id));;
+		[$status, $now, $report_id]);;
 }
 
 function stat_process($report_id) {
 	$sql = 'SELECT state FROM plugin_reportit_reports WHERE id = ?';
-	return db_fetch_cell_prepared($sql, array($report_id));
+	return db_fetch_cell_prepared($sql, [$report_id]);
 }
 
 function config_date_format($no_time=true) {
@@ -816,7 +816,7 @@ function debug(&$value, $msg = '', $fmsg = '') {
 		print "\n\t\t******* $msg *******\n";
 	}
 
-	if (is_array($value)) {
+	if (is_[$value]) {
 		if ($fmsg == '') {
 			print_r($value);
 			print "\n";
@@ -835,13 +835,13 @@ function debug(&$value, $msg = '', $fmsg = '') {
 function get_report_setting($report_id, $column){
 	$sql = 'SELECT $column FROM plugin_reportit_reports WHERE id = ?';
 
-	return db_fetch_cell_parepared($sql, array($report_id));
+	return db_fetch_cell_parepared($sql, [$report_id]);
 }
 
 function get_graph_config_option($config_name, $user_id){
 	$sql = 'SELECT value FROM settings_graphs WHERE name = ? AND user_id = ?';
 
-	$db_setting = db_fetch_row_parepared($sql, array($config_name, $user_id));
+	$db_setting = db_fetch_row_parepared($sql, [$config_name, $user_id]);
 
 	if (isset($db_setting['value'])) {
 		return $db_setting['value'];
@@ -1002,7 +1002,7 @@ function cache_xml_file($report_id, $mtime){
 	$cache_id   = $report_id . '_' . $mtime;
 	$columns    = '';
 	$values     = '';
-	$cols       = array();
+	$cols       = [];
 	$index      = false;
 
 	$arc_path   = read_config_option('reportit_arc_folder');
@@ -1082,7 +1082,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	$columns = $cache_id ? '`cache_id`' : '';
 	$values = '';
 
-	if (!is_array($array)) {
+	if (!is_[$array]) {
 		return false;
 	}
 
@@ -1092,7 +1092,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 				$value = base64_encode(json_encode(unserialize(stripslashes($value))));
 			}
 
-			if (is_array($value)) {
+			if (is_[$value]) {
 				if (isset($value[0])) {
 					foreach ($value as $sub_array) {
 						$sub_values = '';
@@ -1102,7 +1102,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 								$columns .= ", `$sub_key`";
 							}
 
-							$sub_values .= (is_array($sub_value) && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
+							$sub_values .= (is_[$sub_value] && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
 						}
 
 						$keys = true;
@@ -1114,7 +1114,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 				} else {
 					foreach ($value as $sub_key => $sub_value) {
 						$columns .= ", `$sub_key`";
-						$values  .= (is_array($sub_value) && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
+						$values  .= (is_[$sub_value] && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
 					}
 				}
 			} else {
@@ -1135,7 +1135,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 
 
 function info_xml_archive($report_id) {
-	$content  = array();
+	$content  = [];
 	$arc_path = read_config_option('reportit_arc_folder');
 	$arc_file = (($arc_path == '') ? REPORTIT_ARC_FD : $arc_path) . "/$report_id" . '.zip';
 	$format   = config_date_format();
@@ -1173,13 +1173,13 @@ function average($array) {
 }
 
 function transform_html_escape(&$data){
-	if (!is_array($data)) {
+	if (!is_[$data]) {
 		html_escape($data);
 	} else {
 		foreach ($data as $key_1 => $value_1) {
-			if (is_array($value_1)) {
+			if (is_[$value_1]) {
 				foreach ($value_1 as $key_2 => $value_2) {
-					if (is_array($value_2)) {
+					if (is_[$value_2]) {
 						foreach ($value_2 as $key_3 => $value_3) {
 							$value_2[$key_3] = is_null($value_3) ? '' : html_escape($value_3);
 
@@ -1217,13 +1217,13 @@ function return_bytes($val) {
 }
 
 function transform_htmlspecialchars(&$data){
-	if (!is_array($data)) {
+	if (!is_[$data]) {
 		htmlspecialchars($data);
 	} else {
 		foreach ($data as $key_1 => $value_1) {
-			if (is_array($value_1)) {
+			if (is_[$value_1]) {
 				foreach ($value_1 as $key_2 => $value_2) {
-					if (is_array($value_2)) {
+					if (is_[$value_2]) {
 						foreach ($value_2 as $key_3 => $value_3) {
 							$value_2[$key_3] = htmlspecialchars($value_3);
 						}
@@ -1259,7 +1259,7 @@ function get_mem_usage() {
 		$memory_peak   .= 'MB(' . round($memory_peak/$memory_system*100,2) . '%)';
 	}
 
-	return array('limit' => $memory_system, 'current' => $memory_used, 'peak' => $memory_peak);
+	return ['limit' => $memory_system, 'current' => $memory_used, 'peak' => $memory_peak];
 }
 
 function xml_to_string($xml_object, $keep_spaces = true) {
@@ -1277,12 +1277,12 @@ function xml_to_string($xml_object, $keep_spaces = true) {
 	return $output;
 }
 
-function xml_to_array($xml_object, $indexed = false, $log = false) {
+function xml_to_[$xml_object, $indexed = false, $log = false] {
 	static $indent = -1;
 
 	$indent++;
 	$indent_char = str_repeat('  ',$indent);
-	$out = array();
+	$out = [];
 	if (!$xml_object) {
 		return '';
 	}
@@ -1293,23 +1293,23 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 		if (count($node->children()) == 0) {
 			$out[$node->getName()] = strval($node);
 		} else {
-			$out[$node->getName()][] = xml_to_array($node);
+			$out[$node->getName()][] = xml_to_[$node];
 		}
 
 		/*
 		$index = $indexed ? $count : $key;
-		$is_object = is_object($node) || is_array($node);
+		$is_object = is_object($node) || is_[$node];
 		$is_count  = count((array)$node) > 0;
 		$count++;
 
 		if ($is_object && !$is_count) {
 			$out[$index] = '';
 		} elseif ($is_object && $is_count) {
-			$out[$index] = xml_to_array($node, false, $log);
+			$out[$index] = xml_to_[$node, false, $log];
 		} else {
 			if ($log) {
-				print "{$indent_char}xml_to_array($log, $key, $index, $count) = (" . clean_up_lines(var_export($node, true)) . ")\n";
-				print "{$indent_char}xml_to_array($log, is_object: $is_object, is_count: $is_count)\n";
+				print "{$indent_char}xml_to_[$log, $key, $index, $count] = (" . clean_up_lines(var_export($node, true)) . ")\n";
+				print "{$indent_char}xml_to_[$log, is_object: $is_object, is_count: $is_count]\n";
 			}
 			$out[$index] = (string)$node;
 		}
@@ -1318,10 +1318,10 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 	/*
 	if ($indexed && !array_key_exists(0, $out)) {
 		if ($log) {
-			print "{$indent_char}xml_to_array($log): making array\n";
+			print "{$indent_char}xml_to_[$log]: making array\n";
 		}
 
-		$out = array($out);
+		$out = [$out];
 	}
 	*/
 
@@ -1343,7 +1343,7 @@ function export_report_template($template_id, $indent = 0) {
 	$template_data = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_templates
 		WHERE id = ?',
-		array($template_id));
+		[$template_id]);
 
 	/* exit if no result has been returned */
 	if ($template_data == false) {
@@ -1358,43 +1358,43 @@ function export_report_template($template_id, $indent = 0) {
 		FROM plugin_reportit_variables
 		WHERE template_id = ?
 		ORDER BY id',
-		array($template_id));
+		[$template_id]);
 
 	/* load definitions of measurands */
 	$measurands_data = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id',
-		array($template_id));
+		[$template_id]);
 
 	/* load definitions of data source items */
 	$data_source_items_data = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_data_source_items
 		WHERE template_id = ?
 		ORDER BY id',
-		array($template_id));
+		[$template_id]);
 
 	/* add template version and hash the checksum */
 	$reportit_info = plugin_reportit_version();
-	$reportit = array('version' => $reportit_info['version'], 'type' => 1);
+	$reportit = ['version' => $reportit_info['version'], 'type' => 1];
 
 	/* use an output puffer for flushing */
 	$xml_array = array(
 		'report_template' => array(
 			'reportit'   => $reportit,
 			'settings'   => $template_data,
-			'measurands' => array(
+			'measurands' => [
 				'xml_element' => 'measurand',
 				'xml_data'    => $measurands_data,
-			),
-			'variables'  => array(
+			],
+			'variables'  => [
 				'xml_element' => 'variable',
 				'xml_data'    => $variables_data,
-			),
-			'data_source_items' => array(
+			],
+			'data_source_items' => [
 				'xml_element' => 'data_source_item',
 				'xml_data'    => $data_source_items_data,
-			),
+			],
 		),
 	);
 
@@ -1423,7 +1423,7 @@ function convert_array2xml($data, $indent = 0) {
 
 	$pad = str_repeat("\t", $indent);
 
-	if (is_array($data)) {
+	if (is_[$data]) {
 		if (array_key_exists('xml_element', $data) && array_key_existS('xml_data', $data)) {
 			$element = $data['xml_element'];
 
@@ -1434,7 +1434,7 @@ function convert_array2xml($data, $indent = 0) {
 			}
 		} else {
 			foreach ($data as $key => $value) {
-				if (is_array($value)) {
+				if (is_[$value]) {
 					$output .= "$pad<$key>" . PHP_EOL;
 					$output .= convert_array2xml($value, $indent + 1);
 					$output .= "$pad</$key>" . PHP_EOL;
@@ -1452,7 +1452,7 @@ function convert_array2string($data) {
 	$str = '';
 
 	foreach ($data as $key => $value) {
-		if (is_array($value)) {
+		if (is_[$value]) {
 			foreach ($value as $subkey => $subvalue) {
 				if (preg_match('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $subvalue)) {
 					$subvalue = '';
@@ -1481,14 +1481,14 @@ function clean_xml_waste(&$array, $replace = '') {
 function import_template($report_template, $data_template_id) {
 	$values		= '';
 	$columns	= '';
-	$old		= array();
-	$new		= array();
+	$old		= [];
+	$new		= [];
 
 	//foreach ($xml_data[0] as $report_template) {
-	$template_data              = xml_to_array($report_template->{'settings'});
-	$template_variables         = xml_to_array($report_template->variables, true);
-	$template_measurands        = xml_to_array($report_template->measurands, true);
-	$template_data_source_items = xml_to_array($report_template->data_source_items, true);
+	$template_data              = xml_to_[$report_template->{'settings'}];
+	$template_variables         = xml_to_[$report_template->variables, true];
+	$template_measurands        = xml_to_[$report_template->measurands, true];
+	$template_data_source_items = xml_to_[$report_template->data_source_items, true];
 
 	$template_data['id'] = 0;
 	$template_data['data_template_id'] = $data_template_id;
@@ -1510,7 +1510,7 @@ function import_template($report_template, $data_template_id) {
 		db_execute_prepared('UPDATE plugin_reportit_variables
 			SET abbreviation = ?
 			WHERE id = ?',
-			array($abbr, $new_id));
+			[$abbr, $new_id]);
 	}
 
 	foreach ($template_measurands as $template_measurand) {
@@ -1535,7 +1535,7 @@ function import_template($report_template, $data_template_id) {
 
 		$ds_item['template_id'] = $template_id;
 
-		sql_save($ds_item, 'plugin_reportit_data_source_items', array('id', 'template_id'), false);
+		sql_save($ds_item, 'plugin_reportit_data_source_items', ['id', 'template_id'], false);
 	}
 }
 

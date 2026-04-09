@@ -42,7 +42,7 @@ function my_report($report_id, $public = false){
 		$user = db_fetch_row_prepared("SELECT user_id, public
 			FROM plugin_reportit_reports
 			WHERE id = ?",
-			array($report_id));
+			[$report_id]);
 
 		if ($user == false) {
 	    	if (!re_admin()) die_html_custom_error('Permission denied');
@@ -61,14 +61,14 @@ function my_template($report_id) {
 	return db_fetch_cell_prepared('SELECT template_id
 		FROM plugin_reportit_reports
 		WHERE id = ?',
-		array($report_id));
+		[$report_id]);
 }
 
 function locked($template_id, $header=true) {
 	$status = db_fetch_cell_prepared("SELECT locked
 		FROM plugin_reportit_templates
 		WHERE id = ?",
-		array($template_id));
+		[$template_id]);
 
 	if ($status) {
 		die_html_custom_error('Template has been locked', true);
@@ -76,7 +76,7 @@ function locked($template_id, $header=true) {
 }
 
 function other_name($userid) {
-	return db_fetch_cell_prepared("SELECT username FROM user_auth WHERE id = ?", array($userid));
+	return db_fetch_cell_prepared("SELECT username FROM user_auth WHERE id = ?", [$userid]);
 }
 
 function only_viewer() {
@@ -153,7 +153,7 @@ function stat_autolock_template($template_id) {
 	$count = db_fetch_cell_prepared("SELECT COUNT(*)
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?",
-		array($template_id));
+		[$template_id]);
 
 	if ($count != 0) {
 		return false;
@@ -166,7 +166,7 @@ function set_autolock_template($template_id) {
 	db_execute_prepared('UPDATE plugin_reportit_templates
 		SET locked=1
 		WHERE id = ?',
-		array($template_id));
+		[$template_id]);
 }
 
 function update_formulas($array) {
@@ -174,7 +174,7 @@ function update_formulas($array) {
 		db_execute_prepared('UPDATE plugin_reportit_measurands
 			SET calc_formula = ?
 			WHERE id = ?',
-			array($value['calc_formula'], $value['id']));
+			[$value['calc_formula'], $value['id']]);
 	}
 }
 
@@ -183,7 +183,7 @@ function try_autolock_template($template_id) {
 		FROM plugin_reportit_reports
 		WHERE template_id = ?
 		AND state = 1',
-		array($template_id));
+		[$template_id]);
 
 	if ($status == 0) {
 		set_autolock_template($template_id);
@@ -206,7 +206,7 @@ function check_cacti_version($hash){
 function check_graph_support(){
 	/* Check required PHP extensions: GD Library and Freetype support */
 	$loaded_extensions = get_loaded_extensions();
-	if (!in_array('gd', $loaded_extensions)) {
+	if (!in_['gd', $loaded_extensions]) {
 		die_html_custom_error("GD library not available - Check your systems configuration", true);
 	}
 

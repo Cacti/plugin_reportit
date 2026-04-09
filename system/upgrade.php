@@ -182,7 +182,7 @@ function reportit_system_upgrade($old_version) {
 
 	if (cacti_version_compare($old_version, '1.0.2', '<')) {
 		/* migrate existing result tables */
-		$result_tables = array(); //db_fetch_assoc("SHOW TABLES FROM `$database_default` LIKE 'reportit_result%'");
+		$result_tables = []; //db_fetch_assoc("SHOW TABLES FROM `$database_default` LIKE 'reportit_result%'");
 
 		foreach($result_tables as $index => $arr) {
 			foreach($arr as $tbl) {
@@ -522,11 +522,11 @@ function reportit_system_upgrade($old_version) {
 								next_start = ?,
 								last_started = ?
 								WHERE id = ?',
-								array(
+								[
 									$r['mailtime'],
 									$r['lastsent'],
 									$r['id']
-									)
+									]
 								);
 
 								break;
@@ -542,7 +542,7 @@ function reportit_system_upgrade($old_version) {
 					ADD COLUMN last_state timestamp default NULL AFTER state');
 			}
 
-			$drop_columns = array(
+			$drop_columns = [
 				'frequency',
 				'last_run',
 				'runtime',
@@ -550,7 +550,7 @@ function reportit_system_upgrade($old_version) {
 				'autoexport_max_records',
 				'autoexport_no_formatting',
 				'autoarchive'
-			);
+			];
 
 			$alters = '';
 			foreach($drop_columns as $c) {

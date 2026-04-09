@@ -26,11 +26,11 @@ declare(strict_types=1);
 
 function reportit_recreate_cache_tables() {
 	/* rebuild the cache tables */
-	$tables = array(
+	$tables = [
 		'plugin_reportit_cache_measurands',
 		'plugin_reportit_cache_reports',
 		'plugin_reportit_cache_variables'
-	);
+	];
 
 	foreach($tables as $t) {
 		db_execute("DROP TABLE IF EXISTS $t");
@@ -40,7 +40,7 @@ function reportit_recreate_cache_tables() {
 	 * Table `plugin_reportit_cache_reports`
 	 * - contains report definition parameters of archived reports read in temporarily
 	 */
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'cache_id', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
@@ -49,7 +49,7 @@ function reportit_recreate_cache_tables() {
 
 	/* status column */
 	$data['columns'][] = array('name' => 'state', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'last_state', 'type' => 'timestamp', 'NULL' => true);
+	$data['columns'][] = ['name' => 'last_state', 'type' => 'timestamp', 'NULL' => true];
 
 	/* archive specific columns */
 	$data['columns'][] = array('name' => 'owner','type' => 'varchar(20)', 'NULL' => false, 'default' => '');
@@ -60,15 +60,15 @@ function reportit_recreate_cache_tables() {
 	$data['columns'][] = array('name' => 'sched_type', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'run_limit', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => true, 'default' => '0');
 	$data['columns'][] = array('name' => 'start_at', 'type' => 'varchar(20)', 'NULL' => true, 'default' => '');
-	$data['columns'][] = array('name' => 'next_start', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
+	$data['columns'][] = ['name' => 'next_start', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00'];
 	$data['columns'][] = array('name' => 'recur_every', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => true, 'default' => '1');
 	$data['columns'][] = array('name' => 'day_of_week', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'month', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'day_of_month', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'monthly_week', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'monthly_day', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
-	$data['columns'][] = array('name' => 'last_runtime', 'type' => 'double', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'last_started', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
+	$data['columns'][] = ['name' => 'last_runtime', 'type' => 'double', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'last_started', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00'];
 	$data['columns'][] = array('name' => 'last_status', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 
 	/* reportit specific attributes */
@@ -79,8 +79,8 @@ function reportit_recreate_cache_tables() {
 	$data['columns'][] = array('name' => 'data_source_filter', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'preset_timespan', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'public', 'type' => 'varchar(2)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'start_date', 'type' => 'date', 'NULL' => true);
-	$data['columns'][] = array('name' => 'end_date', 'type' => 'date', 'NULL' => true);
+	$data['columns'][] = ['name' => 'start_date', 'type' => 'date', 'NULL' => true];
+	$data['columns'][] = ['name' => 'end_date', 'type' => 'date', 'NULL' => true];
 	$data['columns'][] = array('name' => 'ds_description', 'type' => 'varchar(5000)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'rs_def', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'sp_def', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
@@ -91,8 +91,8 @@ function reportit_recreate_cache_tables() {
 	$data['columns'][] = array('name' => 'email_subject', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1000)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_format', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'email', 'type' => 'text', 'NULL' => true);
-	$data['columns'][] = array('name' => 'bcc', 'type' => 'text', 'NULL' => true);
+	$data['columns'][] = ['name' => 'email', 'type' => 'text', 'NULL' => true];
+	$data['columns'][] = ['name' => 'bcc', 'type' => 'text', 'NULL' => true];
 	$data['columns'][] = array('name' => 'notify_list', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'subhead', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'graph_permission', 'type' => 'varchar(2)', 'NULL' => false, 'default' => 'on');
@@ -106,7 +106,7 @@ function reportit_recreate_cache_tables() {
 	 * Table `plugin_reportit_cache_measurands`
 	 * - defined measurands as part of an archived report
 	 */
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'cache_id', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
@@ -119,10 +119,10 @@ function reportit_recreate_cache_tables() {
 	$data['columns'][] = array('name' => 'spanned', 'type' => 'varchar(2)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'rounding', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cf', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '1');
-	$data['columns'][] = array('name' => 'data_type', 'type' => 'smallint', 'NULL' => false, 'default' => '1');
-	$data['columns'][] = array('name' => 'data_precision', 'type' => 'smallint', 'NULL' => false, 'default' => '2');
-	$data['keys'][] = array('name' => 'cache_id', 'columns' => 'cache_id');
-	$data['unique_keys'][] = array('name' => 'unique_cache_key', 'columns' => 'cache_id`, `id');
+	$data['columns'][] = ['name' => 'data_type', 'type' => 'smallint', 'NULL' => false, 'default' => '1'];
+	$data['columns'][] = ['name' => 'data_precision', 'type' => 'smallint', 'NULL' => false, 'default' => '2'];
+	$data['keys'][] = ['name' => 'cache_id', 'columns' => 'cache_id'];
+	$data['unique_keys'][] = ['name' => 'unique_cache_key', 'columns' => 'cache_id`, `id'];
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'holds measurands as part of an archived report';
 
@@ -132,21 +132,21 @@ function reportit_recreate_cache_tables() {
 	 * Table `plugin_reportit_cache_variables`
 	 * - definition of variables as part of an archived report
 	 */
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'cache_id', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'abbreviation', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'max_value', 'type' => 'float', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'min_value', 'type' => 'float', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'value', 'type' => 'float', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'default_value', 'type' => 'float', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = ['name' => 'max_value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'min_value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'default_value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
 	$data['columns'][] = array('name' => 'input_type', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'stepping', 'type' => 'float', 'NULL' => false, 'default' => '0');
-	$data['keys'][] = array('name' => 'cache_id', 'columns' => 'cache_id');
-	$data['unique_keys'][] = array('name' => 'unique_cache_key', 'columns' => 'cache_id`, `id');
+	$data['columns'][] = ['name' => 'stepping', 'type' => 'float', 'NULL' => false, 'default' => '0'];
+	$data['keys'][] = ['name' => 'cache_id', 'columns' => 'cache_id'];
+	$data['unique_keys'][] = ['name' => 'unique_cache_key', 'columns' => 'cache_id`, `id'];
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'holds variables as part of an archived report';
 
@@ -160,7 +160,7 @@ function reportit_system_install() {
 	*/
 
 	/* common report attributes */
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
@@ -168,21 +168,21 @@ function reportit_system_install() {
 
 	/* status column */
 	$data['columns'][] = array('name' => 'state', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'last_state', 'type' => 'timestamp', 'NULL' => true);
+	$data['columns'][] = ['name' => 'last_state', 'type' => 'timestamp', 'NULL' => true];
 
 	/* scheduling attributes */
 	$data['columns'][] = array('name' => 'sched_type', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'run_limit', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => true, 'default' => '0');
 	$data['columns'][] = array('name' => 'start_at', 'type' => 'varchar(20)', 'NULL' => true, 'default' => '');
-	$data['columns'][] = array('name' => 'next_start', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
+	$data['columns'][] = ['name' => 'next_start', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00'];
 	$data['columns'][] = array('name' => 'recur_every', 'unsigned' => true, 'type' => 'int(10)', 'NULL' => true, 'default' => '1');
 	$data['columns'][] = array('name' => 'day_of_week', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'month', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'day_of_month', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'monthly_week', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'monthly_day', 'type' => 'varchar(45)', 'NULL' => true, 'default' => '');
-	$data['columns'][] = array('name' => 'last_runtime', 'type' => 'double', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'last_started', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
+	$data['columns'][] = ['name' => 'last_runtime', 'type' => 'double', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'last_started', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00'];
 	$data['columns'][] = array('name' => 'last_status', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 
 	/* reportit specific attributes */
@@ -192,8 +192,8 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'data_source_filter', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'preset_timespan', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'public', 'type' => 'varchar(2)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'start_date', 'type' => 'date', 'NULL' => true);
-	$data['columns'][] = array('name' => 'end_date', 'type' => 'date', 'NULL' => true);
+	$data['columns'][] = ['name' => 'start_date', 'type' => 'date', 'NULL' => true];
+	$data['columns'][] = ['name' => 'end_date', 'type' => 'date', 'NULL' => true];
 	$data['columns'][] = array('name' => 'ds_description', 'type' => 'varchar(5000)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'rs_def', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'sp_def', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
@@ -217,7 +217,7 @@ function reportit_system_install() {
 	* Table `plugin_reportit_templates`
 	* - list of all report templates
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'mediumint(8)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
@@ -245,7 +245,7 @@ function reportit_system_install() {
 	* Table `plugin_reportit_measurands`
 	* - defined measurands as part of a report template
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'group_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
@@ -257,8 +257,8 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'spanned', 'type' => 'varchar(2)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'rounding', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cf', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '1');
-	$data['columns'][] = array('name' => 'data_type', 'type' => 'smallint', 'NULL' => false, 'default' => '1');
-	$data['columns'][] = array('name' => 'data_precision', 'type' => 'smallint', 'NULL' => false, 'default' => '2');
+	$data['columns'][] = ['name' => 'data_type', 'type' => 'smallint', 'NULL' => false, 'default' => '1'];
+	$data['columns'][] = ['name' => 'data_precision', 'type' => 'smallint', 'NULL' => false, 'default' => '2'];
 	$data['primary'] = 'id';
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'keeps definitions of all measurands';
@@ -269,17 +269,17 @@ function reportit_system_install() {
 	* Table `plugin_reportit_variables`
 	* - definition of variables assigned to a report template
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'abbreviation', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'max_value', 'type' => 'float', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'min_value', 'type' => 'float', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'default_value', 'type' => 'float', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = ['name' => 'max_value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'min_value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'default_value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
 	$data['columns'][] = array('name' => 'input_type', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'stepping', 'type' => 'float', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = ['name' => 'stepping', 'type' => 'float', 'NULL' => false, 'default' => '0'];
 	$data['primary'] = 'id';
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'keeps definitions of all variables';
@@ -290,12 +290,12 @@ function reportit_system_install() {
 	* Table `plugin_reportit_rvars`
 	* - list of variables set for a report
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'report_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'variable_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'value', 'type' => 'float', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = ['name' => 'value', 'type' => 'float', 'NULL' => false, 'default' => '0'];
 	$data['primary'] = 'id';
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'tracks defined values of variables per report';
@@ -306,13 +306,13 @@ function reportit_system_install() {
 	* Table `plugin_reportit_presets`
 	* - pre defined list of configuration parameters for new data source items
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'start_day', 'type' => 'varchar(255)', 'NULL' => false, 'default' => 'Monday');
 	$data['columns'][] = array('name' => 'end_day', 'type' => 'varchar(255)', 'NULL' => false, 'default' => 'Sunday');
-	$data['columns'][] = array('name' => 'start_time', 'type' => 'time', 'NULL' => false, 'default' => '00:00:00');
-	$data['columns'][] = array('name' => 'end_time', 'type' => 'time', 'NULL' => false, 'default' => '24:00:00');
+	$data['columns'][] = ['name' => 'start_time', 'type' => 'time', 'NULL' => false, 'default' => '00:00:00'];
+	$data['columns'][] = ['name' => 'end_time', 'type' => 'time', 'NULL' => false, 'default' => '24:00:00'];
 	$data['columns'][] = array('name' => 'timezone', 'type' => 'varchar(255)', 'NULL' => false, 'default' => 'GMT');
 	$data['primary'] = 'id';
 	$data['type'] = 'InnoDB';
@@ -324,7 +324,7 @@ function reportit_system_install() {
 	* Table `plugin_reportit_recipients`
 	* - list of contacts the report should automatically be forwarded to by email
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'report_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'email', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
@@ -339,17 +339,17 @@ function reportit_system_install() {
 	* Table `plugin_reportit_data_items`
 	* - pre defined list of configuration parameters for new data source items
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'report_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'start_day', 'type' => 'varchar(255)', 'NULL' => false, 'default' => 'Monday');
 	$data['columns'][] = array('name' => 'end_day', 'type' => 'varchar(255)', 'NULL' => false, 'default' => 'Sunday');
-	$data['columns'][] = array('name' => 'start_time', 'type' => 'time', 'NULL' => false, 'default' => '00:00:00');
-	$data['columns'][] = array('name' => 'end_time', 'type' => 'time', 'NULL' => false, 'default' => '24:00:00');
+	$data['columns'][] = ['name' => 'start_time', 'type' => 'time', 'NULL' => false, 'default' => '00:00:00'];
+	$data['columns'][] = ['name' => 'end_time', 'type' => 'time', 'NULL' => false, 'default' => '24:00:00'];
 	$data['columns'][] = array('name' => 'timezone', 'type' => 'varchar(255)', 'NULL' => false, 'default' => 'GMT');
-	$data['unique_keys'][] = array('name' => 'primary_key', 'columns' => 'id`, `report_id');
-	$data['keys'][] = array('name' => 'report_id', 'columns' => 'report_id');
+	$data['unique_keys'][] = ['name' => 'primary_key', 'columns' => 'id`, `report_id'];
+	$data['keys'][] = ['name' => 'report_id', 'columns' => 'report_id'];
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'holds a defined list of configuration parameters automatically being assigned to new data source items of a report';
 
@@ -359,7 +359,7 @@ function reportit_system_install() {
 	* Table `plugin_reportit_data_template_groups`
 	* - holds the definition of data template groups to aggregate different data templates
 	*/
-	$data = array();
+	$data = [];
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
@@ -367,7 +367,7 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'generic_group_id', 'type' => 'varchar(32)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'elements', 'type' => 'varchar(510)', 'NULL' => false, 'default' => '');
 	$data['primary'] = 'id';
-	$data['keys'][] = array('name' => 'template_id', 'columns' => 'template_id');
+	$data['keys'][] = ['name' => 'template_id', 'columns' => 'template_id'];
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'list of data template groups report template';
 
@@ -377,8 +377,8 @@ function reportit_system_install() {
 	* Table `plugin_reportit_data_source_items`
 	* - keeps track of ds items per data source template that should be part of a report template
 	*/
-	$data = array();
-	$data['columns'][] = array('name' => 'id', 'type' => 'mediumint', 'unsigned' => true,	'NULL' => false, 'default' => '0');
+	$data = [];
+	$data['columns'][] = ['name' => 'id', 'type' => 'mediumint', 'unsigned' => true,	'NULL' => false, 'default' => '0'];
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'group_id', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_id', 'type' => 'mediumint(8)', 'unsigned' => true,	'NULL' => false, 'default' => '0');
@@ -386,8 +386,8 @@ function reportit_system_install() {
 	$data['columns'][] = array('name' => 'data_source_alias', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_source_title', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_source_mp', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '1');
-	$data['unique_keys'][] = array('name' => 'primary_key', 'columns' => 'id`, `template_id`, `data_template_id');
-	$data['keys'][] = array('name' => 'data_template_id', 'columns' => 'data_template_id');
+	$data['unique_keys'][] = ['name' => 'primary_key', 'columns' => 'id`, `template_id`, `data_template_id'];
+	$data['keys'][] = ['name' => 'data_template_id', 'columns' => 'data_template_id'];
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'list of selected ds items and settings per report template';
 

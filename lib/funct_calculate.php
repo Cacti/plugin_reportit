@@ -371,7 +371,7 @@ function f_uq(&$array, &$p_cache) {
 
 /* compare function */
 function f_cmp(&$array, &$p_cache, $function, $args) {
-	$operators = array('eq' => '==', 'lt' => '<', 'gt' => '>', 'le' => '<=', 'ge' => '>=', 'uq' => '!=');
+	$operators = ['eq' => '==', 'lt' => '<', 'gt' => '>', 'le' => '<=', 'ge' => '>=', 'uq' => '!='];
 
 	$condition = 'return (' . $args[0] .  $operators[$function] . $args[1] . ') ? true : false;';
 
@@ -422,7 +422,7 @@ global $calculate_handler_set, $calculate_last_formula;
 
 //Normal way of calculation
 function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_cache, &$dp_cache, &$ds_cache) {
-	$results = array();
+	$results = [];
 
 	$f_cache = $df_cache;	//Functions
 	$m_cache = $dm_cache;	//Metrics
@@ -433,11 +433,11 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 	$n_rra   = $params['rrd_ds_cnt'];
 	$ds_namv = $params['rras'];
 
-	$specific_variables = array('maxValue', 'maxRRDValue');
+	$specific_variables = ['maxValue', 'maxRRDValue'];
 
 	//Create a cache for every Round Robin Archive
 	foreach ($ds_namv as $key => $ds_name) {
-		$cache[$key] = 	array($f_cache, $m_cache, $p_cache);
+		$cache[$key] = 	[$f_cache, $m_cache, $p_cache];
 	}
 
 	//Use reportit's error handler.
@@ -461,10 +461,10 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 			debug($cache, 'Main Cache Status: f,m,p');
 
 			// Debug
-			$debug = array();
+			$debug = [];
 
 			//Formula
-			$formula = str_replace(array(' ',"\r\n","\n"), '', $m);
+			$formula = str_replace([' ',"\r\n","\n"], '', $m);
 			$debug[]= $formula;
 
 			// transform RRA specific variables (maxValue, maxRRDValue) used in that formula
@@ -541,7 +541,7 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 				$result = 'NULL';
 			}
 
-			$debug = array();
+			$debug = [];
 			$debug[] = $result;
 
 			debug($debug, 'Result');
@@ -568,7 +568,7 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 	}
 
 	//Clear up and return to main function
-	$result = array();
+	$result = [];
 	foreach ($ds_namv as $i => $ds_name) {
 		$result[$ds_name] = $cache[$i][1];
 	}

@@ -27,13 +27,13 @@ declare(strict_types=1);
 if (!defined('REPORTIT_TMP_FD')) define('REPORTIT_TMP_FD', CACTI_BASE_PATH . '/plugins/reportit/tmp/');
 if (!defined('REPORTIT_ARC_FD')) define('REPORTIT_ARC_FD', CACTI_BASE_PATH . '/plugins/reportit/archive/');
 
-$search = array(
+$search = [
 	'|t1|',
 	'|t2|',
 	'|tmz|',
 	'|d1|',
 	'|d2|'
-);
+];
 
 $export_formats	= array(
 	'CSV' => __('Text CSV (.csv)', 'reportit'),

@@ -28,27 +28,27 @@ function api_reportit_disable_report($id) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET enabled = ""
 		WHERE id = ?',
-		array($id));
+		[$id]);
 }
 
 function api_reportit_enable_report($id) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET enabled = "on"
 		WHERE id = ?',
-		array($id));
+		[$id]);
 }
 
 function api_reportit_delete_report($id) {
 	$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?',
-		array($id));
+		[$id]);
 
-	db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', array($id));
-	db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', array($id));
-	db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', array($id));
-	db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', array($id));
-	db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', array($id));
+	db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', [$id]);
+	db_execute_prepared('DELETE FROM plugin_reportit_presets WHERE id = ?', [$id]);
+	db_execute_prepared('DELETE FROM plugin_reportit_rvars WHERE report_id = ?', [$id]);
+	db_execute_prepared('DELETE FROM plugin_reportit_recipients WHERE report_id = ?', [$id]);
+	db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', [$id]);
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $id);
 }
 
@@ -59,7 +59,7 @@ function api_reportit_duplicate_report($id, $addition) {
 
 	$report_data = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
-		WHERE id = ?', array($id));
+		WHERE id = ?', [$id]);
 
 	$report_data['id']   = 0;
 	$report_data['name'] = str_replace("<report_title>", $report_data['name'], $addition);
@@ -70,12 +70,12 @@ function api_reportit_duplicate_report($id, $addition) {
 	$data_items = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?',
-		array($id));
+		[$id]);
 
 	if (cacti_sizeof($data_items)) {
 		foreach($data_items as $data_item) {
 			$data_item['report_id'] = $new_id;
-			sql_save($data_item, 'plugin_reportit_data_items', array('id', 'report_id'), false);
+			sql_save($data_item, 'plugin_reportit_data_items', ['id', 'report_id'], false);
 		}
 	}
 
@@ -83,7 +83,7 @@ function api_reportit_duplicate_report($id, $addition) {
 	$report_presets = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_presets
 		WHERE id = ?',
-		array($id));
+		[$id]);
 
 	$report_presets['id'] = $new_id;
 
@@ -93,7 +93,7 @@ function api_reportit_duplicate_report($id, $addition) {
 	$report_recipients = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_reportit_recipients
 		WHERE report_id = ?',
-		array($id));
+		[$id]);
 
 	if (cacti_sizeof($report_recipients)) {
 		foreach($report_recipients as $recipient) {
@@ -118,7 +118,7 @@ function api_reportit_run_report($id) {
 }
 
 function api_reportit_take_ownership($id, $user) {
-	db_execute_prepared('UPDATE plugin_reportit_reports SET user_id = ? WHERE id = ?', array($user, $id));
+	db_execute_prepared('UPDATE plugin_reportit_reports SET user_id = ? WHERE id = ?', [$user, $id]);
 }
 
 function api_reportit_remove_data_sources($id, $items) {
@@ -126,14 +126,14 @@ function api_reportit_remove_data_sources($id, $items) {
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?
 		AND ' . array_to_sql_or($items, 'id'),
-		array($id));
+		[$id]);
 
 	if (cacti_sizeof($rrdlist_datas)) {
 		foreach ($rrdlist_datas as $rrdlist_data) {
 			db_execute_prepared('DELETE FROM plugin_reportit_data_items
 				WHERE report_id = ?
 				AND id = ?',
-				array($id, $rrdlist_data['id']));
+				[$id, $rrdlist_data['id']]);
 		}
 	}
 }
@@ -149,7 +149,7 @@ function api_reportit_add_data_source($id) {
 	$presets = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_presets
 		WHERE id = ?',
-		array($id));
+		[$id]);
 
 	if (cacti_sizeof($presets)) {
 		$presets['report_id'] = $id;
@@ -178,19 +178,19 @@ function api_reportit_add_data_source($id) {
 }
 
 function api_reportit_update_data_source($id, $reference_items) {
-	$reference_items = unserialize(stripslashes($reference_items), array('allowed_classes' => false));
+	$reference_items = unserialize(stripslashes($reference_items), ['allowed_classes' => false]);
 
 	db_execute_prepared("UPDATE plugin_reportit_data_items
 		SET start_day = ?, end_day = ?, start_time = ?, end_time = ?, timezone = ?
 		WHERE report_id = ?",
-		array(
+		[
 			$reference_items[0]['start_day'],
 			$reference_items[0]['end_day'],
 			$reference_items[0]['start_time'],
 			$reference_items[0]['end_time'],
 			$reference_items[0]['timezone'],
 			$id
-		)
+		]
 	);
 }
 

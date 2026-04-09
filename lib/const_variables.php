@@ -35,19 +35,19 @@ $var_types = array(
 	2 => __('Input field', 'reportit')
 );
 
-$link_array = array(
+$link_array = [
 	'name',
 	'abbreviation',
 	'max_value',
 	'min_value',
 	'default_value',
 	'input_type'
-);
+];
 
-$list_of_modes = array(
+$list_of_modes = [
 	'ASC',
 	'DESC'
-);
+];
 
 $desc_array = array(
 	'description' => array('display' => __('Name', 'reportit'),          'align' => 'left', 'sort' => 'ASC'),
