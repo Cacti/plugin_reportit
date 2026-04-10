@@ -903,7 +903,7 @@ function autorrdlist($reportid) {
 	    FROM plugin_reportit_reports AS a
 	    INNER JOIN plugin_reportit_templates AS b
 	    ON a.template_id = b.id
-	    WHERE a.id = ?', [$reportid]);;
+	    WHERE a.id = ?', [$reportid]);
 
 	$sql_params = [];
 

@@ -757,7 +757,7 @@ function in_process($report_id, $status = 1) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET state = ?, last_state = ?
 		WHERE id = ?',
-		[$status, $now, $report_id]);;
+		[$status, $now, $report_id]);
 }
 
 function stat_process($report_id) {
@@ -835,13 +835,13 @@ function debug(&$value, $msg = '', $fmsg = '') {
 function get_report_setting($report_id, $column){
 	$sql = 'SELECT $column FROM plugin_reportit_reports WHERE id = ?';
 
-	return db_fetch_cell_parepared($sql, [$report_id]);
+	return db_fetch_cell_prepared($sql, [$report_id]);
 }
 
 function get_graph_config_option($config_name, $user_id){
 	$sql = 'SELECT value FROM settings_graphs WHERE name = ? AND user_id = ?';
 
-	$db_setting = db_fetch_row_parepared($sql, [$config_name, $user_id]);
+	$db_setting = db_fetch_row_prepared($sql, [$config_name, $user_id]);
 
 	if (isset($db_setting['value'])) {
 		return $db_setting['value'];
