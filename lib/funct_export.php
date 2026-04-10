@@ -132,11 +132,11 @@ function export_to_CSV(&$data) {
 		}
 
 		if ($measurands == -1 ) {
-			if ($ov_cnt >0 && !in_['overall', $ds_description]) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description[]= 'overall';
 			}
-		} elseif (in_[$measurands, $ov_ids]) {
-			if ($ov_cnt >0 && !in_['overall', $ds_description]) {
+		} elseif (in_array($measurands, $ov_ids)) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description = ['overall'];
 			}
 		}
@@ -178,7 +178,7 @@ function export_to_CSV(&$data) {
 
 		if ($name !== false) {
 			foreach ($name as $id) {
-				if (is_[$report_ds_alias] && array_key_exists($datasource, $report_ds_alias) && $report_ds_alias[$datasource] != '') {
+				if (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias) && $report_ds_alias[$datasource] != '') {
 					$tab_head_1 .= $report_ds_alias[$datasource] . $c_sep;
 				} else {
 					$tab_head_1 .= $datasource . $c_sep;
@@ -625,11 +625,11 @@ function new_worksheet(&$data, &$styles){
 		}
 
 		if ($measurands == -1 ) {
-			if ($ov_cnt >0 && !in_['overall', $ds_description]) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description[]= 'overall';
 			}
-		} elseif (in_[$measurands, $ov_ids]) {
-			if ($ov_cnt >0 && !in_['overall', $ds_description]) {
+		} elseif (in_array($measurands, $ov_ids)) {
+			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
 				$ds_description = ['overall'];
 			}
 		}
@@ -680,7 +680,7 @@ function new_worksheet(&$data, &$styles){
 
 		if ($name !== false) {
 			foreach ($name as $id) {
-				if (is_[$report_ds_alias] && array_key_exists($datasource, $report_ds_alias) && $report_ds_alias[$datasource] != '') {
+				if (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias) && $report_ds_alias[$datasource] != '') {
 					$tab_head_1 .= sml_cell($report_ds_alias[$datasource]);
 				} else {
 					$tab_head_1 .= sml_cell($datasource);

@@ -324,7 +324,7 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
 		}
 
 		// Memorize the correct index number if the current wday matches and ...
-		if (in_[$date['wday'], $wdays]) {
+		if (in_array($date['wday'), $wdays]) {
 			// ...calculate start point's index
 			$index = floor(($f_sp - $rrd_sp)/$rrd_step+1);
 

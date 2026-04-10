@@ -943,7 +943,7 @@ function report_edit() {
 		];
 
 		foreach($report_data as $key => $value) {
-			if (in_[$key, $rpm]) {
+			if (in_array($key, $rpm)) {
 				if ($value == 1) {
 					$report_data[$key] = 'on';
 				}
@@ -1849,7 +1849,7 @@ function form_actions() {
 			print "<tr><td class='textArea'>
 				<p>" . __('Click \'Continue\' to Remove the following Data Sources from the Report.', 'reportit') . '</p>';
 
-			if (is_[$ds_list]) {
+			if (is_array($ds_list)) {
 				print	'<p>' . __('List of selected Data Sources below.', 'reportit') . '<p>';
 
 				print '<div class="itemlist"><ul>';
@@ -1866,7 +1866,7 @@ function form_actions() {
 			print "<tr><td class='textArea'>
 				<p>" . __('Click \'Continue\' to Add the following Data Sources to the Report.', 'reportit') . '</p>';
 
-			if (is_[$ds_list]) {
+			if (is_array($ds_list)) {
 				print	'<p>' . __('List of selected Data Sources below.', 'reportit') . '<p>';
 
 				print '<div class="itemlist"><ul>';
@@ -1907,7 +1907,7 @@ function form_actions() {
 			}
 		}
 
-		if ($ds_list === false || !is_[$ds_list] || empty($ds_list)) {
+		if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
 			print "<tr><td class='odd''><span class='textError'>" . __('You must select at least one Report.', 'reportit') . '</span></td></tr>';
 
 			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>";

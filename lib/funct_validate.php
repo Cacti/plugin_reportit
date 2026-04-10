@@ -98,7 +98,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	}
 
 	//Check if the formula begins or ends with an operator
-	if (in_[$calc_formula[0], $valids['operators']['S']]) {
+	if (in_array($calc_formula[0), $valids['operators']['S']]) {
 		return 'Formula begins with an operator.';
 	}
 
@@ -175,7 +175,7 @@ function input_validate_input_whitelist($value, $valid_list, $undefined=false, $
 		return;
 	}
 
-	if (!in_[$value, $valid_list]) {
+	if (!in_array($value, $valid_list)) {
 		die_html_custom_error('', $header);
 	}
 }
@@ -185,7 +185,7 @@ function input_validate_input_blacklist($value, $black_list, $undefined=false, $
 		return;
 	}
 
-	if (in_[$value, $black_list]) {
+	if (in_array($value, $black_list)) {
 		die_html_custom_error('', $header);
 	}
 }
@@ -352,7 +352,7 @@ function validate_uploaded_templates(){
 
 			$ds_names = db_custom_fetch_assoc($sql,false,false,false);
 
-			if (in_[$template_ds_names, $ds_names] === false) {
+			if (in_array($template_ds_names, $ds_names) === false) {
 				$report_compatible = true;
 
 				$sql = ("SELECT id, name FROM data_template WHERE id = $data_template_id");

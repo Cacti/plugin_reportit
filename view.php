@@ -589,7 +589,7 @@ function show_report() {
 
 	$data_sources = $ds_description;
 	foreach ($data_sources as $key => $value) {
-		if (is_[$report_ds_alias] && array_key_exists($value, $report_ds_alias) && $report_ds_alias[$value] != '')
+		if (is_array($report_ds_alias) && array_key_exists($value, $report_ds_alias) && $report_ds_alias[$value] != '')
 			$data_sources[$key] = $report_ds_alias[$value];
 	}
 
@@ -863,7 +863,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 					foreach ($ds_description as $description) {
 						$counter = ($description != 'overall') ? $count_rs : $count_ov;
 
-						if (is_[$report_ds_alias] && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
+						if (is_array($report_ds_alias) && array_key_exists($description, $report_ds_alias) && $report_ds_alias[$description] != '') {
 							$description = $report_ds_alias[$description];
 						}
 
@@ -980,7 +980,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 
 	if (cacti_sizeof($ds_description)) {
 		foreach($ds_description as $datasource) {
-			$description = (is_[$report_ds_alias] && array_key_exists($datasource, $report_ds_alias))
+			$description = (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias))
 				? ($report_ds_alias[$datasource] != '') ? $report_ds_alias[$datasource] : $datasource : $datasource;
 
 			html_start_box(__('Data Source: %s', $description, 'reportit'), '100%', false, '3', 'center', '');

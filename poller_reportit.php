@@ -543,7 +543,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		} else {
 			/* transform data that has not been fetch via the PHP based RRDtool API */
 			foreach($rrd_data as $rra_index => $data) {
-				if (in_[$rra_index, $valid_rra_indexes]) {
+				if (in_array($rra_index, $valid_rra_indexes)) {
 					transform($data, $rrd_data[$rra_index], $report_definitions['template']);
 					debug($rrd_data[$rra_index], 'Transformed RAW data.');
 				}
@@ -553,7 +553,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		// ----- Read header informations from rrd_data array -----
 		$index = $valid_rra_indexes[0];
 
-		if (is_[$rrd_data[$index]] && isset($rrd_data[$index]['start'])) {
+		if (is_array($rrd_data[$index)] && isset($rrd_data[$index]['start'])) {
 			$rrd_f_mp    = $rrd_data[$index]['start'] + $rrd_data[$index]['step'];    //rrd_f_mp = first measured value
 			$rrd_ep      = $rrd_data[$index]['end'];
 			$rrd_p_mp    = $rrd_data[$index]['end'] - $rrd_data[$index]['step'];      //rrd_p_mp = penultimate measured value
@@ -593,7 +593,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		}
 
 		/* intersect all used data source items get the correct index keys */
-		if (is_[$ds_items]) {
+		if (is_array($ds_items)) {
 			$rrd_ds_namv = array_intersect ($rrd_ds_namv, $ds_items);
 		} else {
 			$rrd_ds_namv = array_intersect ($rrd_ds_namv, [$ds_items]);

@@ -1119,7 +1119,7 @@ function form_actions() {
 							WHERE template_id = ?',
 							[$template_data['id']]);
 
-						if (is_[$template_reports]) {
+						if (is_array($template_reports)) {
 							foreach($template_reports as $template_report) {
 								db_execute_prepared('DELETE FROM plugin_reportit_reports WHERE id = ?', [$template_report['id']]);
 								db_execute_prepared('DELETE FROM plugin_reportit_data_items WHERE report_id = ?', [$template_report['id']]);
@@ -1310,13 +1310,13 @@ function form_actions() {
 				<td class='textArea'>
 					<p>" . __('Click \'Continue\' to Delete the following Report Templates', 'reportit') . '</p>';
 
-			if (is_[$ds_list]) {
+			if (is_array($ds_list)) {
 				print '<p>' . __('WARNING: Every Report that belongs to these Templates will also be deleted!', 'reportit') . '</p>';
 
 				foreach($ds_list as $key => $value) {
 					print '<p>' . __('Template: %s', $key, 'reportit') . '</p>';
 
-					if (is_[$ds_list[$key]]) {
+					if (is_array($ds_list[$key)]) {
 						print '<div class="itemlist"><ul>';
 
 						foreach($ds_list[$key] as $report_name => $value) {
@@ -1340,7 +1340,7 @@ function form_actions() {
 				<td class='textArea'>
 					<p>" . __('Click \'Continue\' to duplicate the following report templates. You can optionally change the title of those duplicates.', 'reportit') . '</p>';
 
-			if (is_[$ds_list]) {
+			if (is_array($ds_list)) {
 				print '<p>' . __('List of selected report templates:', 'reportit') . '</p>';
 
 				if (cacti_sizeof($ds_list)) {
@@ -1369,7 +1369,7 @@ function form_actions() {
 
 			print '<div class="itemlist"><ul>';
 
-			if (is_[$ds_list]) {
+			if (is_array($ds_list)) {
 				foreach($ds_list as $key => $value) {
 					print '<li>' . $key . '</li>';
 				}
@@ -1381,7 +1381,7 @@ function form_actions() {
 		$save_focus = ' class="ui-button ui-corner-all ui-widget ui-state-active"';
 		$save_html  = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 
-		if ($ds_list === false || !is_[$ds_list] || empty($ds_list)) {
+		if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
 			print "<tr>
 				<td class='textArea'>
 					<span class='textError'>" . __('You must select at least one Report Template.', 'reportit') . '</span>
@@ -1462,7 +1462,7 @@ function form_actions() {
 				<td class='textArea'
 					<p>" . __('Click \'Continue to Delete the following variables.', 'reportit') . '</p>';
 
-			if (is_[$ds_list]) {
+			if (is_array($ds_list)) {
 				//Check possible dependences for each variable
 				foreach($variable_ids as $id) {
 					$name = db_fetch_cell_prepared('SELECT abbreviation
@@ -1496,7 +1496,7 @@ function form_actions() {
 
 			print '</td></tr>';
 
-			if ($ds_list === false || empty($ds_list) || !is_[$ds_list] || $error == true) {
+			if ($ds_list === false || empty($ds_list) || !is_array($ds_list) || $error == true) {
 				if ($error) {
 					print "<tr><td class='odd'><span class='textError'>" . __('There are one or more variables in use.', 'reportit') . '</span></td></tr>';
 				} else {
@@ -1579,7 +1579,7 @@ function form_actions() {
 				<td class='textArea'>
 					<p>" . __('Click \'Continue\' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically.', 'reportit') . '<p>';
 
-			if (is_[$ds_list]) {
+			if (is_array($ds_list)) {
 				print '<p>' . __('List of selected measurands:', 'reportit') . '</p>';
 				print '<div class="itemlist"><ul>';
 
@@ -1592,7 +1592,7 @@ function form_actions() {
 
 			print '</td></tr>';
 
-			if (!is_[$ds_list] || empty($ds_list)) {
+			if (!is_array($ds_list) || empty($ds_list)) {
 				print "<tr>
 					<td class='textArea'>
 						<span class='textError'>" . __('You must select at least one measurand.', 'reportit') . '</span>

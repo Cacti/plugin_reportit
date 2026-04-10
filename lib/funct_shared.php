@@ -816,7 +816,7 @@ function debug(&$value, $msg = '', $fmsg = '') {
 		print "\n\t\t******* $msg *******\n";
 	}
 
-	if (is_[$value]) {
+	if (is_array($value)) {
 		if ($fmsg == '') {
 			print_r($value);
 			print "\n";
@@ -1082,7 +1082,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	$columns = $cache_id ? '`cache_id`' : '';
 	$values = '';
 
-	if (!is_[$array]) {
+	if (!is_array($array)) {
 		return false;
 	}
 
@@ -1092,7 +1092,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 				$value = base64_encode(json_encode(unserialize(stripslashes($value))));
 			}
 
-			if (is_[$value]) {
+			if (is_array($value)) {
 				if (isset($value[0])) {
 					foreach ($value as $sub_array) {
 						$sub_values = '';
@@ -1102,7 +1102,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 								$columns .= ", `$sub_key`";
 							}
 
-							$sub_values .= (is_[$sub_value] && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
+							$sub_values .= (is_array($sub_value) && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
 						}
 
 						$keys = true;
@@ -1114,7 +1114,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 				} else {
 					foreach ($value as $sub_key => $sub_value) {
 						$columns .= ", `$sub_key`";
-						$values  .= (is_[$sub_value] && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
+						$values  .= (is_array($sub_value) && !$sub_value) ? ", ''" : ', ' . db_qstr($sub_value);
 					}
 				}
 			} else {
@@ -1173,13 +1173,13 @@ function average($array) {
 }
 
 function transform_html_escape(&$data){
-	if (!is_[$data]) {
+	if (!is_array($data)) {
 		html_escape($data);
 	} else {
 		foreach ($data as $key_1 => $value_1) {
-			if (is_[$value_1]) {
+			if (is_array($value_1)) {
 				foreach ($value_1 as $key_2 => $value_2) {
-					if (is_[$value_2]) {
+					if (is_array($value_2)) {
 						foreach ($value_2 as $key_3 => $value_3) {
 							$value_2[$key_3] = is_null($value_3) ? '' : html_escape($value_3);
 
@@ -1217,13 +1217,13 @@ function return_bytes($val) {
 }
 
 function transform_htmlspecialchars(&$data){
-	if (!is_[$data]) {
+	if (!is_array($data)) {
 		htmlspecialchars($data);
 	} else {
 		foreach ($data as $key_1 => $value_1) {
-			if (is_[$value_1]) {
+			if (is_array($value_1)) {
 				foreach ($value_1 as $key_2 => $value_2) {
-					if (is_[$value_2]) {
+					if (is_array($value_2)) {
 						foreach ($value_2 as $key_3 => $value_3) {
 							$value_2[$key_3] = htmlspecialchars($value_3);
 						}
@@ -1298,7 +1298,7 @@ function xml_to_[$xml_object, $indexed = false, $log = false] {
 
 		/*
 		$index = $indexed ? $count : $key;
-		$is_object = is_object($node) || is_[$node];
+		$is_object = is_object($node) || is_array($node);
 		$is_count  = count((array)$node) > 0;
 		$count++;
 
@@ -1423,7 +1423,7 @@ function convert_array2xml($data, $indent = 0) {
 
 	$pad = str_repeat("\t", $indent);
 
-	if (is_[$data]) {
+	if (is_array($data)) {
 		if (array_key_exists('xml_element', $data) && array_key_existS('xml_data', $data)) {
 			$element = $data['xml_element'];
 
@@ -1434,7 +1434,7 @@ function convert_array2xml($data, $indent = 0) {
 			}
 		} else {
 			foreach ($data as $key => $value) {
-				if (is_[$value]) {
+				if (is_array($value)) {
 					$output .= "$pad<$key>" . PHP_EOL;
 					$output .= convert_array2xml($value, $indent + 1);
 					$output .= "$pad</$key>" . PHP_EOL;
@@ -1452,7 +1452,7 @@ function convert_array2string($data) {
 	$str = '';
 
 	foreach ($data as $key => $value) {
-		if (is_[$value]) {
+		if (is_array($value)) {
 			foreach ($value as $subkey => $subvalue) {
 				if (preg_match('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $subvalue)) {
 					$subvalue = '';

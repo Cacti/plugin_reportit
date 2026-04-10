@@ -206,7 +206,7 @@ function check_cacti_version($hash){
 function check_graph_support(){
 	/* Check required PHP extensions: GD Library and Freetype support */
 	$loaded_extensions = get_loaded_extensions();
-	if (!in_['gd', $loaded_extensions]) {
+	if (!in_array('gd', $loaded_extensions)) {
 		die_html_custom_error("GD library not available - Check your systems configuration", true);
 	}
 

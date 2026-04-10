@@ -247,7 +247,7 @@ function html_check_icon($value, $title_on = 'Yes', $title_off = 'No') {
 }
 
 function html_sources_icon($values, $title_on, $title_off) {
-	if (is_[$values]) {
+	if (is_array($values)) {
 		$values = count($values);
 	}
 
