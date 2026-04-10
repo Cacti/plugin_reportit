@@ -93,7 +93,7 @@ function get_report_definitions($report_id) {
 		AND id != 0
 		ORDER BY id';
 
-	$ds_items = db_custom_fetch_flat_[$sql];
+	$ds_items = db_custom_fetch_flat_array($sql);
 
 	foreach ($ds_items as $key => $data_source_name) {
 		/**
@@ -324,7 +324,7 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
 		}
 
 		// Memorize the correct index number if the current wday matches and ...
-		if (in_array($date['wday'), $wdays]) {
+		if (in_array($date['wday'], $wdays)) {
 			// ...calculate start point's index
 			$index = floor(($f_sp - $rrd_sp)/$rrd_step+1);
 

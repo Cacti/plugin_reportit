@@ -304,7 +304,7 @@ function template_wizard($action) {
 							*/
 						}
 					} else {
-						$templates_array = xml_to_[$report_template->data_templates, true];
+						$templates_array = xml_to_array($report_template->data_templates, true);
 						$templates = [];
 
 						foreach ($templates_array as $template_item) {
@@ -1316,7 +1316,7 @@ function form_actions() {
 				foreach($ds_list as $key => $value) {
 					print '<p>' . __('Template: %s', $key, 'reportit') . '</p>';
 
-					if (is_array($ds_list[$key)]) {
+					if (is_array($ds_list[$key])) {
 						print '<div class="itemlist"><ul>';
 
 						foreach($ds_list[$key] as $report_name => $value) {

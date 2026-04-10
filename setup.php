@@ -774,7 +774,7 @@ function reportit_schedule_report(&$report) {
 	return reports_queue($name, 1, 'reportit', $id, $command, $notification);
 }
 
-function reportit_clog_regex_[$regex_array] {
+function reportit_clog_regex_array($regex_array) {
 	$regex_array[] = array('name' => 'RIReport', 'regex' => '( RIReport\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_report');
 	$regex_array[] = array('name' => 'RIDataItem', 'regex' => '( RIDataItem\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_dataitem');
 

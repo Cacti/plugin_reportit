@@ -245,7 +245,7 @@ function db_custom_fetch_assoc($sql, $index = false, $multi = true, $assoc = tru
  * @param string    $sql    contains the SQL call
  * @return
  */
-function db_custom_fetch_flat_[$sql]{
+function db_custom_fetch_flat_array($sql){
 	$raw_data = [];
 	$srt_data = [];
 
@@ -1277,7 +1277,7 @@ function xml_to_string($xml_object, $keep_spaces = true) {
 	return $output;
 }
 
-function xml_to_[$xml_object, $indexed = false, $log = false] {
+function xml_to_array($xml_object, $indexed = false, $log = false) {
 	static $indent = -1;
 
 	$indent++;
@@ -1293,7 +1293,7 @@ function xml_to_[$xml_object, $indexed = false, $log = false] {
 		if (count($node->children()) == 0) {
 			$out[$node->getName()] = strval($node);
 		} else {
-			$out[$node->getName()][] = xml_to_[$node];
+			$out[$node->getName()][] = xml_to_array($node);
 		}
 
 		/*
@@ -1305,11 +1305,11 @@ function xml_to_[$xml_object, $indexed = false, $log = false] {
 		if ($is_object && !$is_count) {
 			$out[$index] = '';
 		} elseif ($is_object && $is_count) {
-			$out[$index] = xml_to_[$node, false, $log];
+			$out[$index] = xml_to_array($node, false, $log);
 		} else {
 			if ($log) {
-				print "{$indent_char}xml_to_[$log, $key, $index, $count] = (" . clean_up_lines(var_export($node, true)) . ")\n";
-				print "{$indent_char}xml_to_[$log, is_object: $is_object, is_count: $is_count]\n";
+				print "{$indent_char}xml_to_array[$log, $key, $index, $count] = (" . clean_up_lines(var_export($node, true)) . ")\n";
+				print "{$indent_char}xml_to_array[$log, is_object: $is_object, is_count: $is_count]\n";
 			}
 			$out[$index] = (string)$node;
 		}
@@ -1318,7 +1318,7 @@ function xml_to_[$xml_object, $indexed = false, $log = false] {
 	/*
 	if ($indexed && !array_key_exists(0, $out)) {
 		if ($log) {
-			print "{$indent_char}xml_to_[$log]: making array\n";
+			print "{$indent_char}xml_to_array[$log]: making array\n";
 		}
 
 		$out = [$out];
@@ -1485,10 +1485,10 @@ function import_template($report_template, $data_template_id) {
 	$new		= [];
 
 	//foreach ($xml_data[0] as $report_template) {
-	$template_data              = xml_to_[$report_template->{'settings'}];
-	$template_variables         = xml_to_[$report_template->variables, true];
-	$template_measurands        = xml_to_[$report_template->measurands, true];
-	$template_data_source_items = xml_to_[$report_template->data_source_items, true];
+	$template_data              = xml_to_array($report_template->{'settings'});
+	$template_variables         = xml_to_array($report_template->variables, true);
+	$template_measurands        = xml_to_array($report_template->measurands, true);
+	$template_data_source_items = xml_to_array($report_template->data_source_items, true);
 
 	$template_data['id'] = 0;
 	$template_data['data_template_id'] = $data_template_id;

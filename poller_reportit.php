@@ -553,7 +553,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		// ----- Read header informations from rrd_data array -----
 		$index = $valid_rra_indexes[0];
 
-		if (is_array($rrd_data[$index)] && isset($rrd_data[$index]['start'])) {
+		if (is_array($rrd_data[$index]) && isset($rrd_data[$index]['start'])) {
 			$rrd_f_mp    = $rrd_data[$index]['start'] + $rrd_data[$index]['step'];    //rrd_f_mp = first measured value
 			$rrd_ep      = $rrd_data[$index]['end'];
 			$rrd_p_mp    = $rrd_data[$index]['end'] - $rrd_data[$index]['step'];      //rrd_p_mp = penultimate measured value

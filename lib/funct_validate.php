@@ -98,7 +98,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	}
 
 	//Check if the formula begins or ends with an operator
-	if (in_array($calc_formula[0), $valids['operators']['S']]) {
+	if (in_array($calc_formula[0], $valids['operators']['S'])) {
 		return 'Formula begins with an operator.';
 	}
 
