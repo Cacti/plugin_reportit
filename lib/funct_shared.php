@@ -755,7 +755,7 @@ function in_process($report_id, $status = 1) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET state = ?, last_state = ?
 		WHERE id = ?',
-		array($status, $now, $report_id));;
+		array($status, $now, $report_id));
 }
 
 function stat_process($report_id) {
