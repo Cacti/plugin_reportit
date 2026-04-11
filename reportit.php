@@ -156,7 +156,7 @@ function report_filter() {
 							<?php print __('Search', 'reportit');?>
 						</td>
 						<td>
-							<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+							<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
 						</td>
 						<td>
 							<?php print __('Reports', 'reportit');?>
@@ -271,6 +271,8 @@ function standard() {
 	validate_store_request_vars($filters, 'sess_reportit_reports');
 	/* ================= Input validation ================= */
 
+	$where_clauses = array();
+
 	if ($reportAdmin) {
 		/* fetch user names */
 		$ownerlist = db_fetch_assoc('SELECT DISTINCT a.user_id as id, c.username
@@ -288,7 +290,7 @@ function standard() {
 			ON b.id = a.template_id';
 
 		if (get_request_var('owner') !== '-1' && !isempty_request_var('owner')) {
-			$sql .= ' WHERE a.user_id = ' . get_request_var('owner') . ' ORDER BY b.description';
+			$sql .= ' WHERE a.user_id = ' . (int) get_request_var('owner') . ' ORDER BY b.description';
 			$templatelist = db_fetch_assoc($sql);
 
 			if (cacti_sizeof($templatelist)>0) {
@@ -310,7 +312,7 @@ function standard() {
 
 	/* form the 'where' clause for our main sql query */
 	if (get_request_var('filter') != '') {
-		$affix .= " WHERE a.name LIKE '%" . get_request_var('filter') . "%'";
+		$where_clauses[] = 'a.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	/* check admin's filter settings */
@@ -319,17 +321,21 @@ function standard() {
 			/* filter nothing */
 		} elseif (!isempty_request_var('owner')) {
 			/* show only data items of selected report owner */
-			$affix .= ' AND a.user_id =' . get_request_var('owner');
+			$where_clauses[] = 'a.user_id = ' . (int) get_request_var('owner');
 		}
 		if (get_request_var('template') == '-1') {
 			/* filter nothing */
 		} elseif (!isempty_request_var('template')) {
 			/* show only data items of selected template */
-			$affix .= ' AND a.template_id =' . get_request_var('template');
+			$where_clauses[] = 'a.template_id = ' . (int) get_request_var('template');
 		}
 	} else {
 		/* filter for user */
-		$affix .= "AND a.user_id = $myId";
+		$where_clauses[] = 'a.user_id = ' . (int) $myId;
+	}
+
+	if (cacti_sizeof($where_clauses)) {
+		$affix = ' WHERE ' . implode(' AND ', $where_clauses);
 	}
 
 	if (get_request_var('rows') == '-1') {
@@ -403,7 +409,7 @@ function standard() {
 	/* start with HTML output */
 	report_filter();
 
-	$nav = html_nav_bar('reportit.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports', 'reportit'), 'page', 'main');
+	$nav = html_nav_bar('reportit.php?filter=' . rawurlencode(get_request_var('filter')), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports', 'reportit'), 'page', 'main');
 
 	print $nav;
 
@@ -1245,7 +1251,7 @@ function report_edit() {
 								<?php print __('Search', 'reportit');?>
 							</td>
 							<td>
-								<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+								<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
 							</td>
 							<td>
 								<?php print __('RRDs', 'reportit');?>
@@ -1321,7 +1327,7 @@ function report_edit() {
 
 			html_end_box();
 
-			$nav = html_nav_bar('reportit.php?tab=items&id=' . get_request_var('id') . '&filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Sources', 'reportit'), 'page', 'main');
+			$nav = html_nav_bar('reportit.php?tab=items&id=' . get_request_var('id') . '&filter=' . rawurlencode(get_request_var('filter')), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Data Sources', 'reportit'), 'page', 'main');
 
 			print $nav;
 
@@ -1929,4 +1935,3 @@ function form_actions() {
 
 	bottom_footer();
 }
-
