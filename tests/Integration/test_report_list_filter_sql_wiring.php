@@ -7,7 +7,7 @@
  +-------------------------------------------------------------------------+
 */
 
-$path = __DIR__ . '/../../reportit.php';
+$path     = __DIR__ . '/../../reportit.php';
 $contents = file_get_contents($path);
 
 if ($contents === false) {
@@ -15,14 +15,14 @@ if ($contents === false) {
 	exit(1);
 }
 
-$checks = array(
+$checks = [
 	"html_escape_request_var('filter')",
 	"\$where_clauses[] = 'a.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');",
 	"\$where_clauses[] = 'a.user_id = ' . (int) get_request_var('owner');",
 	"\$where_clauses[] = 'a.template_id = ' . (int) get_request_var('template');",
 	"\$affix = ' WHERE ' . implode(' AND ', \$where_clauses);",
 	"rawurlencode(get_request_var('filter'))",
-);
+];
 
 foreach ($checks as $check) {
 	if (strpos($contents, $check) === false) {

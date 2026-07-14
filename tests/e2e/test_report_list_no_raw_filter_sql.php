@@ -7,7 +7,7 @@
  +-------------------------------------------------------------------------+
 */
 
-$path = __DIR__ . '/../../reportit.php';
+$path     = __DIR__ . '/../../reportit.php';
 $contents = file_get_contents($path);
 
 if ($contents === false) {
@@ -15,13 +15,13 @@ if ($contents === false) {
 	exit(1);
 }
 
-$forbidden = array(
+$forbidden = [
 	'value=\'<?php print get_request_var(\'filter\');?>\'',
 	"WHERE a.name LIKE '%\" . get_request_var('filter') . \"%'",
 	"' AND a.user_id =' . get_request_var('owner')",
 	"' AND a.template_id =' . get_request_var('template')",
 	"'reportit.php?filter=' . get_request_var('filter')",
-);
+];
 
 foreach ($forbidden as $pattern) {
 	if (strpos($contents, $pattern) !== false) {

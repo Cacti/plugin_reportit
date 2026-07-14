@@ -22,156 +22,155 @@
  +-------------------------------------------------------------------------+
 */
 
-$fields_template_edit = array(
-	'id' => array(
+$fields_template_edit = [
+	'id' => [
 		'method' => 'hidden_zero',
-		'value' => '|arg1:id|'
-	),
-	'data_template_id' => array(
+		'value'  => '|arg1:id|'
+	],
+	'data_template_id' => [
 		'method' => 'hidden_zero',
-		'value' => '|arg1:data_template_id|'
-	),
-	'save_component_template' => array(
+		'value'  => '|arg1:data_template_id|'
+	],
+	'save_component_template' => [
 		'method' => 'hidden_zero',
-		'value' => 1
-	),
-	'ds_enabled__0' => array(
+		'value'  => 1
+	],
+	'ds_enabled__0' => [
 		'method' => 'hidden_zero',
-		'value' => 'on'
-	),
-	'template_header' => array(
+		'value'  => 'on'
+	],
+	'template_header' => [
 		'friendly_name' => __('General', 'reportit'),
-		'method' => 'spacer',
-		'collapsible' => 'true'
-	),
-	'template_name' => array(
+		'method'        => 'spacer',
+		'collapsible'   => 'true'
+	],
+	'template_name' => [
 		'friendly_name' => __('Name'),
-		'method' => 'textbox',
-		'max_length' => '100',
-		'description' => __('The unique name given to this Report Template.', 'reportit'),
-		'value' => '|arg1:name|'
-	),
-	'template_description' => array(
+		'method'        => 'textbox',
+		'max_length'    => '100',
+		'description'   => __('The unique name given to this Report Template.', 'reportit'),
+		'value'         => '|arg1:name|'
+	],
+	'template_description' => [
 		'friendly_name' => __('Description', 'reportit'),
-		'method' => 'textarea',
-		'max_length' => '255',
+		'method'        => 'textarea',
+		'max_length'    => '255',
 		'textarea_cols' => '80',
 		'textarea_rows' => '5',
-		'description' => __('A longer description of this Report Template.', 'reportit'),
-		'value' => '|arg1:description|'
-	),
-	'template_version' => array(
+		'description'   => __('A longer description of this Report Template.', 'reportit'),
+		'value'         => '|arg1:description|'
+	],
+	'template_version' => [
 		'friendly_name' => __('Version', 'reportit'),
-		'method' => 'textbox',
-		'max_length' => '100',
-		'description' => __('A version number for this template', 'reportit'),
-		'default' => '1.0',
-		'value' => '|arg1:version|'
-	),
-	'template_author' => array(
+		'method'        => 'textbox',
+		'max_length'    => '100',
+		'description'   => __('A version number for this template', 'reportit'),
+		'default'       => '1.0',
+		'value'         => '|arg1:version|'
+	],
+	'template_author' => [
 		'friendly_name' => __('Author', 'reportit'),
-		'method' => 'textbox',
-		'max_length' => '100',
-		'description' => __('The author of this template', 'reportit'),
-		'default' => get_username($_SESSION['sess_user_id']),
-		'value' => '|arg1:author|'
-	),
-	'template_enabled' => array(
-		'method' => 'checkbox',
+		'method'        => 'textbox',
+		'max_length'    => '100',
+		'description'   => __('The author of this template', 'reportit'),
+		'default'       => get_username($_SESSION['sess_user_id']),
+		'value'         => '|arg1:author|'
+	],
+	'template_enabled' => [
+		'method'        => 'checkbox',
 		'friendly_name' => __('Publish', 'reportit'),
-		'description' => __('Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box.', 'reportit'),
-		'value' => '|arg1:enabled|',
-	),
-	'template_locked' => array(
+		'description'   => __('Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box.', 'reportit'),
+		'value'         => '|arg1:enabled|',
+	],
+	'template_locked' => [
 		'friendly_name' => __('Locked', 'reportit'),
-		'method' => 'checkbox',
-		'description' => __('The status "locked" avoids any kind of modification to your report template as well as assigned measurands and variable definitions', 'reportit'),
-		'value' => '|arg1:locked|',
-	),
-	'template_filter' => array(
+		'method'        => 'checkbox',
+		'description'   => __('The status "locked" avoids any kind of modification to your report template as well as assigned measurands and variable definitions', 'reportit'),
+		'value'         => '|arg1:locked|',
+	],
+	'template_filter' => [
 		'friendly_name' => __('Additional Pre-filter', 'reportit'),
-		'method' => 'textbox',
-		'max_length' => '100',
-		'description' => __('Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!', 'reportit'),
-		'value' => '|arg1:pre_filter|',
-		'default' => ''
-	),
-	'template_export_folder' => array(
+		'method'        => 'textbox',
+		'max_length'    => '100',
+		'description'   => __('Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!', 'reportit'),
+		'value'         => '|arg1:pre_filter|',
+		'default'       => ''
+	],
+	'template_export_folder' => [
 		'friendly_name' => __('Export Path', 'reportit'),
-		'description' => __('Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id.', 'reportit'),
-		'method' => 'dirpath',
-		'max_length' => '255',
-		'value' => '|arg1:export_folder|',
-		'default' => ''
-	),
-	'template_header2' => array(
+		'description'   => __('Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id.', 'reportit'),
+		'method'        => 'dirpath',
+		'max_length'    => '255',
+		'value'         => '|arg1:export_folder|',
+		'default'       => ''
+	],
+	'template_header2' => [
 		'friendly_name' => __('Data Template', 'reportit'),
-		'method' => 'spacer',
-		'collapsible' => 'true'
-	),
-	'template_data_template_label' => array(
+		'method'        => 'spacer',
+		'collapsible'   => 'true'
+	],
+	'template_data_template_label' => [
 		'friendly_name' => __('Data Template', 'reportit'),
-		'method' => 'label',
-		'max_length' => '100',
-		'description' => __('The name of the data template this Report Template depends on.', 'reportit'),
-		'value' => '|arg1:data_template_name|'
-	),
-	'template_data_template' => array(
+		'method'        => 'label',
+		'max_length'    => '100',
+		'description'   => __('The name of the data template this Report Template depends on.', 'reportit'),
+		'value'         => '|arg1:data_template_name|'
+	],
+	'template_data_template' => [
 		'friendly_name' => __('Data Template', 'reportit'),
-		'method' => 'hidden',
-		'max_length' => '100',
-		'description' => __('The name of the data template this Report Template depends on.', 'reportit'),
-		'value' => '|arg1:data_template_id|'
-	)
-);
+		'method'        => 'hidden',
+		'max_length'    => '100',
+		'description'   => __('The name of the data template this Report Template depends on.', 'reportit'),
+		'value'         => '|arg1:data_template_id|'
+	]
+];
 
-$fields_template_export = array(
-	'action' => array(
+$fields_template_export = [
+	'action' => [
 		'method' => 'hidden_zero',
-		'value' => 'template_export'
-	),
-	'template_id' => array(
+		'value'  => 'template_export'
+	],
+	'template_id' => [
 		'friendly_name' => __('Report Template', 'reportit'),
-		'description' => __('Choose one of your Report Templates to export to XML.', 'reportit'),
-		'method' => 'drop_sql',
-		'sql' => 'SELECT id, description as name FROM plugin_reportit_templates WHERE locked = 0 ORDER BY description',
-		'default' => 0,
-		'none_value' => 'None',
-		'value' => '',
-	),
-	'template_description' => array(
-		'method' => 'textarea',
+		'description'   => __('Choose one of your Report Templates to export to XML.', 'reportit'),
+		'method'        => 'drop_sql',
+		'sql'           => 'SELECT id, description as name FROM plugin_reportit_templates WHERE locked = 0 ORDER BY description',
+		'default'       => 0,
+		'none_value'    => 'None',
+		'value'         => '',
+	],
+	'template_description' => [
+		'method'        => 'textarea',
 		'friendly_name' => __('[Optional] Description', 'reportit'),
-		'description' => __('Describe the characteristics of your report template', 'reportit'),
-		'value' => '',
-		'default' => '',
+		'description'   => __('Describe the characteristics of your report template', 'reportit'),
+		'value'         => '',
+		'default'       => '',
 		'textarea_rows' => '10',
 		'textarea_cols' => '50',
-		'class' => 'textAreaNotes'
-	),
-	'template_author' => array(
-		'method' => 'textbox',
+		'class'         => 'textAreaNotes'
+	],
+	'template_author' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('[Optional] Author', 'reportit'),
-		'description' => __('Add your name or nick here.', 'reportit'),
-		'value' => '',
-		'max_length' => '250',
-		'size' => 50
-	),
-	'template_version' => array(
-		'method' => 'textbox',
+		'description'   => __('Add your name or nick here.', 'reportit'),
+		'value'         => '',
+		'max_length'    => '250',
+		'size'          => 50
+	],
+	'template_version' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('[Optional] Version', 'reportit'),
-		'description' => __('Add your name or nick here.', 'reportit'),
-		'value' => '',
-		'max_length' => '250',
-		'size' => 50
-	),
-	'template_contact' => array(
-		'method' => 'textbox',
+		'description'   => __('Add your name or nick here.', 'reportit'),
+		'value'         => '',
+		'max_length'    => '250',
+		'size'          => 50
+	],
+	'template_contact' => [
+		'method'        => 'textbox',
 		'friendly_name' => __('[Optional] Contact', 'reportit'),
-		'description' => __('Add your name or nick here.', 'reportit'),
-		'value' => '',
-		'max_length' => '250',
-		'size' => 50
-	),
-);
-
+		'description'   => __('Add your name or nick here.', 'reportit'),
+		'value'         => '',
+		'max_length'    => '250',
+		'size'          => 50
+	],
+];

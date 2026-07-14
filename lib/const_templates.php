@@ -24,31 +24,31 @@
 
 // ----- CONSTANTS FOR: templates.php -----
 
-$template_actions = array(
+$template_actions = [
 	1 => 'Delete',
 	2 => 'Duplicate',
 	3 => 'Export',
-);
+];
 
-$desc_array = array(
+$desc_array = [
 	'Template Name',
 	'Data Template',
 	'Pre-filter',
 	'Locked',
 	'Metrics',
 	'Variables'
-);
+];
 
-$link_array = array(
+$link_array = [
 	'description',
 	'data_template_id',
 	'pre_filter',
 	'locked',
 	'measurands',
 	'variables'
-);
+];
 
-$order_array = array('ASC', 'DESC');
+$order_array = ['ASC', 'DESC'];
 
 $sql = 'SELECT DISTINCT b.id, b.name FROM data_template_rrd AS a
 	INNER JOIN data_template as b
@@ -56,33 +56,32 @@ $sql = 'SELECT DISTINCT b.id, b.name FROM data_template_rrd AS a
 	WHERE a.local_data_id != 0
 	ORDER BY b.name';
 
-$data_templates            = array();
-$list_of_data_templates    = array();
+$data_templates            = [];
+$list_of_data_templates    = [];
 $data_templates            = db_fetch_assoc($sql);
-foreach($data_templates as $data_template) {
+
+foreach ($data_templates as $data_template) {
 	$list_of_data_templates[$data_template['id']] = $data_template['name'];
 }
 
 $sql = 'SELECT DISTINCT b.id, b.name FROM data_template AS b
 	ORDER BY b.name';
 
-
 global $known_data_templates;
-$known_data_templates = array();
+$known_data_templates = [];
 
 $data_templates       = db_fetch_assoc($sql);
-foreach($data_templates as $data_template) {
+
+foreach ($data_templates as $data_template) {
 	$known_data_templates[$data_template['id']] = $data_template['name'];
 }
 
-
-$hashes = array(
-	'1' => array(
+$hashes = [
+	'1' => [
 		'reportit' => 'c0788d60041d96616d05b87892942948',
 		'general'  => 'b993b55029680216764b47d1da5c18d',
 		'settings' => 'd446e8da603362e98b7d868e99e144fd',
 		'measurand'=> 'd52041e0e00f5daac84f1cd15532732c',
 		'variable' => 'fa1e95ba13fc87fa80da64758628d68f'
-	)
-);
-
+	]
+];
