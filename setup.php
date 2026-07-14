@@ -79,7 +79,7 @@ function plugin_reportit_version() {
 function reportit_check_upgrade() {
 	$files = array('index.php', 'plugins.php', 'poller_reportit.php');
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
-		return;
+		return true;
 	}
 
 	$current = plugin_reportit_version();
@@ -121,6 +121,8 @@ function reportit_check_upgrade() {
 
 		return true;
 	}
+
+	return true;
 }
 
 function reportit_upgrade_requirements() {
