@@ -1003,8 +1003,8 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 function show_graph_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs) {
 	global $graphs, $limit;
 
-	$id               = (int) get_request_var('id');
-	$archive          = (int) get_request_var('archive');
+	$report_id        = (int) get_request_var('id');
+	$archive_id       = (int) get_request_var('archive');
 	$affix            = '';
 	$description      = '';
 	$limitation       = 10;
@@ -1026,35 +1026,34 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 			if ($name !== false) {
 				$graph_id = 0;
 
-				foreach ($name as $id) {
-					$var            = ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
-					$title          = $mea[$id]['name'];
-					$rounding       = $mea[$id]['rounding'];
-					$unit           = $mea[$id]['unit'];
-					$rounding       = $mea[$id]['rounding'];
-					$data_type      = $mea[$id]['data_type'];
-					$data_precision = $mea[$id]['data_precision'];
+				foreach ($name as $measurand_id) {
+					$var            = ($datasource != 'overall') ? $datasource . '__' . $measurand_id : 'spanned__' . $measurand_id;
+					$title          = $mea[$measurand_id]['name'];
+					$rounding       = $mea[$measurand_id]['rounding'];
+					$unit           = $mea[$measurand_id]['unit'];
+					$data_type      = $mea[$measurand_id]['data_type'];
+					$data_precision = $mea[$measurand_id]['data_precision'];
 					$order          = 'DESC';
 					$suffix			      = " ORDER BY a.$var $order LIMIT 0, $limitation";
 
-					if ($mea[$id]['visible'] != '') {
-						if (get_request_var('archive') == -1) {
+					if ($mea[$measurand_id]['visible'] != '') {
+						if ($archive_id == -1) {
 							$data = db_fetch_assoc("SELECT a.$var, b.*, c.name_cache
-								FROM plugin_reportit_results_" . get_request_var('id') . ' AS a
+								FROM plugin_reportit_results_$report_id AS a
 								INNER JOIN plugin_reportit_data_items AS b
 								ON b.id = a.id
-								AND b.report_id = ' . get_request_var('id') . "
+								AND b.report_id = $report_id
 								INNER JOIN data_template_data AS c
 								ON c.local_data_id = a.id
 								$suffix");
 						} else {
-							$table = 'plugin_reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive');
+							$table = 'plugin_reportit_tmp_' . $report_id . '_' . $archive_id;
 
 							$data = db_fetch_assoc("SELECT * FROM $table AS a $suffix");
 						}
 
 						print "<tr class='tableHeader'>
-							<td colspan='2' class='textHeaderDark'>" . __esc('Metric: %s (%s)', $title, $mea[$id]['abbreviation'], 'reportit') . '</td>
+							<td colspan='2' class='textHeaderDark'>" . __esc('Metric: %s (%s)', $title, $mea[$measurand_id]['abbreviation'], 'reportit') . '</td>
 						</tr>';
 
 						$graph_data = [];
@@ -1103,7 +1102,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 								print "<td title='$title'>$i</td>";
 
 								print "<td title='$title'>
-									<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>{$item['name_cache']}</a>
+									<a class='linkEditMain' href='view.php?action=show_graph_overview&id=$report_id&rrd={$item['id']}&cache=$archive_id'>{$item['name_cache']}</a>
 								</td>";
 
 								print "<td title='$title' class='right'>";
