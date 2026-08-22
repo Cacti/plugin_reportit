@@ -755,7 +755,7 @@ function in_process($report_id, $status = 1) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET state = ?, last_state = ?
 		WHERE id = ?',
-		array($status, $now, $report_id));;
+		array($status, $now, $report_id));
 }
 
 function stat_process($report_id) {
@@ -1087,7 +1087,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	if (cacti_sizeof($array)) {
 		foreach ($array as $key => $value) {
 			if ($key == 'data_template_alias') {
-				$value = base64_encode(json_encode(unserialize(stripslashes($value))));
+				$value = base64_encode(json_encode(unserialize(stripslashes($value), array('allowed_classes' => false))));
 			}
 
 			if (is_array($value)) {

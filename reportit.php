@@ -156,7 +156,7 @@ function report_filter() {
 							<?php print __('Search', 'reportit');?>
 						</td>
 						<td>
-							<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+							<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 						</td>
 						<td>
 							<?php print __('Reports', 'reportit');?>
@@ -1242,14 +1242,14 @@ function report_edit() {
 			?>
 			<tr class='odd'>
 				<td>
-				<form id='form_rrdlist' action='reportit.php?tab=items&id=<?php print get_request_var('id');?>'>
+				<form id='form_rrdlist' action='reportit.php?tab=items&id=<?php print (int)get_filter_request_var('id'); ?>'>
 					<table class='filterTable'>
 						<tr>
 							<td>
 								<?php print __('Search', 'reportit');?>
 							</td>
 							<td>
-								<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+								<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 							</td>
 							<td>
 								<?php print __('RRDs', 'reportit');?>
@@ -1286,7 +1286,7 @@ function report_edit() {
 				<script type='text/javascript'>
 				function applyFilter() {
 					strURL  = 'reportit.php?action=report_edit&tab=items';
-					strURL += '&id=<?php print get_request_var('id');?>';
+					strURL += '&id=<?php print (int)get_filter_request_var('id'); ?>';
 					strURL += '&filter='+escape($('#filter').val());
 					strURL += '&associated=' + $('#associated').is(':checked');
 					strURL += '&rows='+$('#rows').val();
@@ -1296,7 +1296,7 @@ function report_edit() {
 				function clearFilter() {
 					strURL  = 'reportit.php?action=report_edit&tab=items'
 					strURL += '&clear=1';
-					strURL += '&id=<?php print get_request_var('id');?>';
+					strURL += '&id=<?php print (int)get_filter_request_var('id'); ?>';
 					loadUrl({ url: strURL });
 				}
 
