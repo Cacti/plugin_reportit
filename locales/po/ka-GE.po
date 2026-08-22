@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2025-12-11 06:18+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2026-08-04 05:18+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -173,7 +173,7 @@ msgstr "ბოლო 6 დღე"
 
 #: include/global_arrays.php:98 lib/const_reports.php:80
 msgid "Last 7 Days"
-msgstr ""
+msgstr "ბოლო 7 დღეში"
 
 #: include/global_arrays.php:99 lib/const_reports.php:81
 msgid "Last Week (Sun - Sat)"
@@ -189,7 +189,7 @@ msgstr "ბოლო 14 დღე"
 
 #: include/global_arrays.php:102 lib/const_reports.php:84
 msgid "Last 21 Days"
-msgstr ""
+msgstr "ბოლო 21 დღე"
 
 #: include/global_arrays.php:103 lib/const_reports.php:85
 msgid "Last 28 Days"
@@ -1123,7 +1123,7 @@ msgstr ""
 
 #: lib/const_reports.php:277
 msgid "Auto Generated Archive"
-msgstr ""
+msgstr "ავტოგენერირებული არქივი"
 
 #: lib/const_reports.php:278
 msgid "Define the maximum number of instances which should be archived before the first one will be overwritten.  Choose \"off\" if you want to deactivate that RoundRobbin principle (default, but not recommend).  If you define a lower value of instances than the current archive contains then it will get shrunk automatically within the next run."
@@ -1620,7 +1620,7 @@ msgstr ""
 
 #: reports.php:1278
 msgid "Data Source Name"
-msgstr ""
+msgstr "მონაცემთა წყაროს სახელი"
 
 #: reports.php:1288
 msgid "Associated"
