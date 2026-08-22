@@ -22,7 +22,6 @@
  +-------------------------------------------------------------------------+
 */
 
-//----- CONSTANTS FOR: items.php -----
+// ----- CONSTANTS FOR: items.php -----
 
-$link_array = array('name_cache', '');
-
+$link_array = ['name_cache', ''];

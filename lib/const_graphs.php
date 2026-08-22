@@ -28,12 +28,12 @@ $limit           = '';
 $affix           = '';
 $exponent        = '';
 $prefix          = '';
-$results         = array();
-$prefixes        = array();
-$x_values        = array();
-$report_ds_alias = array();
+$results         = [];
+$prefixes        = [];
+$x_values        = [];
+$report_ds_alias = [];
 
-$prefixes[1] = array(
+$prefixes[1] = [
 	0 => '',
 	1 => 'Ki',
 	2 => 'Mi',
@@ -43,9 +43,9 @@ $prefixes[1] = array(
 	6 => 'Ei',
 	7 => 'Zi',
 	8 => 'Yi'
-);
+];
 
-$prefixes[2] = array(
+$prefixes[2] = [
 	0 => '',
 	1 => 'k',
 	2 => 'M',
@@ -55,42 +55,41 @@ $prefixes[2] = array(
 	6 => 'E',
 	7 => 'Z',
 	8 => 'Y'
-);
+];
 
-$types = array(
-	'-10' => array (
+$types = [
+	'-10' => [
 		'description' => __('Bar (vertical)', 'reportit'),
 		'name'        => 'b',
 		'x_axis'      => 'Position',
 		'y_axis'      => 1
-	),
-	'10' => array (
+	],
+	'10' => [
 		'description' => __('Bar (horizontal)', 'reportit'),
 		'name'        => 'hb',
 		'x_axis'      => 1,
 		'y_axis'      => 'Position'
-	),
-	'20' => array (
+	],
+	'20' => [
 		'description' => __('Line', 'reportit'),
 		'name'        => 'l',
 		'x_axis'      => 'Position',
 		'y_axis'      => 1
-	),
-	'21' => array (
+	],
+	'21' => [
 		'description' => __('Area', 'reportit'),
 		'name'        => 'l',
 		'x_axis'      => 'Position',
 		'y_axis'      => 1,
 		'filled'      => 1
-	),
-	'30' => array (
+	],
+	'30' => [
 		'description' => __('Pie chart 3D', 'reportit'),
 		'name'        => 'p'
-	),
-	'40' => array (
+	],
+	'40' => [
 		'description' => __('Spider', 'reportit'),
 		'name'        => 's',
 		'x_value'     => '1'
-	),
-);
-
+	],
+];

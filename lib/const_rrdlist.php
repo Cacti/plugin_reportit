@@ -22,26 +22,26 @@
  +-------------------------------------------------------------------------+
 */
 
-//----- CONSTANTS FOR: rrdlist.php -----
+// ----- CONSTANTS FOR: rrdlist.php -----
 
-$rrdlist_actions = array(
+$rrdlist_actions = [
 	3 => __('Add to Report', 'reportit'),
 	1 => __('Remove from Report', 'reportit'),
 	2 => __('Copy Settings to All', 'reportit')
-);
+];
 
-$rrdadd_actions = array(
+$rrdadd_actions = [
 	1 => __('Add', 'reportit')
-);
+];
 
-$link_array = array(
+$link_array = [
 	'name_cache',
 	'description',
 	'',
 	'',
 	'timezone',
 	''
-);
+];
 
 // $timezone - array, for dropdown menu
 //           - contains the $keys from $timezones array.
@@ -51,7 +51,7 @@ foreach ($timezones as $key => $value) {
 
 // $weekday - array, for dropdown menu
 //          - contains the names of all weekdays
-$weekday = array(
+$weekday = [
 	__('Monday', 'reportit'),
 	__('Tuesday', 'reportit'),
 	__('Wednesday', 'reportit'),
@@ -59,20 +59,20 @@ $weekday = array(
 	__('Friday', 'reportit'),
 	__('Saturday', 'reportit'),
 	__('Sunday', 'reportit')
-);
+];
 
 // $shifttime - array, for dropdown menu
 //            - contains all possible timestamps of a day by using steps of 5 minutes
-$shifttime = array();
+$shifttime = [];
 
-for($i = 0; $i < 24; $i++) {
-	$hour=$i;
+for ($i = 0; $i < 24; $i++) {
+	$hour = $i;
 
 	if ($hour < 10) {
 		$hour = '0' . $hour;
 	}
 
-	for($j = 0; $j < 60; $j += 5) {
+	for ($j = 0; $j < 60; $j += 5) {
 		$minutes = $j;
 
 		if ($minutes < 10) {
@@ -83,9 +83,8 @@ for($i = 0; $i < 24; $i++) {
 	}
 }
 
-$shifttime2  = $shifttime;
-$shifttime2[]= '24:00:00';
+$shifttime2   = $shifttime;
+$shifttime2[] = '24:00:00';
 
 unset($i);
 unset($j);
-
