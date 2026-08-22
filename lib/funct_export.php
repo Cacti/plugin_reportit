@@ -35,10 +35,10 @@ function export_to_CSV(&$data) {
 	$info_line    = '';
 	$tab_head_1   = '';
 	$tab_head_2   = '';
-	$data_sources = array();
+	$data_sources = [];
 
-	$csv_c_sep    = array(',', ';', "\t", ' ');
-	$csv_d_sep    = array(',', '.');
+	$csv_c_sep    = [',', ';', "\t", ' '];
+	$csv_d_sep    = [',', '.'];
 
 	$measurands   = isset_request_var('measurand')   ? get_request_var('measurand')   : '-1';
 	$datasources  = isset_request_var('data_source') ? get_request_var('data_source') : '-1';
@@ -86,9 +86,9 @@ function export_to_CSV(&$data) {
 
 	/* read out data sources */
 	if ($datasources > -1) {
-		$ds_description = array($ds_description[$datasources]);
+		$ds_description = [$ds_description[$datasources]];
 	} elseif ($datasources < -1) {
-		$ds_description = array('overall');
+		$ds_description = ['overall'];
 	}
 
 	/* read out the result ids */
@@ -135,7 +135,7 @@ function export_to_CSV(&$data) {
 			}
 		} elseif (in_array($measurands, $ov_ids)) {
 			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
-				$ds_description = array('overall');
+				$ds_description = ['overall'];
 			}
 		}
 	}
@@ -191,7 +191,7 @@ function export_to_CSV(&$data) {
 
 	/* print results */
 	foreach ($report_results as $result){
-		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$replace = [$result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']];
 		$subhead = str_replace($search, $replace, $result['description']);
 
 		print "\t\t\t<Row>$eol";
@@ -235,7 +235,7 @@ function export_to_XML(&$data) {
 	$output    = '';
 	$header    = '';
 
-	$mea = array();
+	$mea = [];
 
 	transform_htmlspecialchars($data);
 
@@ -253,14 +253,14 @@ function export_to_XML(&$data) {
 	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'], $header);
 
 	/* compose additional informations */
-	$report_settings = array(
+	$report_settings = [
 		'title'        => $report_data['description'],
 		'owner'        => $report_data['owner'],
 		'template'     => $report_data['template_name'],
 		'start'        => $report_data['start_date'],
 		'end'          => $report_data['end_date'],
 		'last_started' => $report_data['last_started']
-	);
+	];
 
 	/* read out the result ids */
 	list($rs_ids, $rs_cnt) = explode('-', $report_data['rs_def']);
@@ -317,7 +317,7 @@ function export_to_XML(&$data) {
 	print "</measurands>$eol<data_items>$eol";
 
 	foreach ($report_results as $result){
-		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$replace = [$result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']];
 		$subhead = str_replace($search, $replace, $result['description']);
 
 		print "<item>$eol";
@@ -380,19 +380,19 @@ function export_to_YAML(&$data) {
 function export_to_JSON(&$data) {
 	global $search, $run_scheduled;
 
-	$json_data = array();
+	$json_data = [];
 
 	$info = plugin_reportit_version();
 
 	transform_htmlspecialchars($data);
 
 	/* add some header components */
-	$json_data['header'] = str_replace(array('<cacti_version>', '<reportit_version>'), array('Cacti: ' . CACTI_VERSION, 'ReportIt: ' . $info['version']), read_config_option('reportit_exp_header'));
+	$json_data['header'] = str_replace(['<cacti_version>', '<reportit_version>'], ['Cacti: ' . CACTI_VERSION, 'ReportIt: ' . $info['version']], read_config_option('reportit_exp_header'));
 
 	$json_data['version_cacti']   = CACTI_VERSION;
 	$json_data['version_reporit'] = $info['version'];
 
-	$mea = array();
+	$mea = [];
 
 	$report_data       = $data['report_data'];
 	$report_results    = $data['report_results'];
@@ -402,14 +402,14 @@ function export_to_JSON(&$data) {
 	$no_formatting     = 0;
 
 	/* compose additional informations */
-	$report_settings = array(
+	$report_settings = [
 		'title'        => $report_data['description'],
 		'owner'        => $report_data['owner'],
 		'template'     => $report_data['template_name'],
 		'start'        => $report_data['start_date'],
 		'end'          => $report_data['end_date'],
 		'last_started' => $report_data['last_started']
-	);
+	];
 
 	/* read out the result ids */
 	list($rs_ids, $rs_cnt) = explode('-', $report_data['rs_def']);
@@ -454,7 +454,7 @@ function export_to_JSON(&$data) {
 	$i = 0;
 
 	foreach ($report_results as $result){
-		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$replace = [$result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']];
 		$subhead = str_replace($search, $replace, $result['description']);
 
 		$json_data['data_items']['item'][$i]['description'] = $result['name_cache'];
@@ -542,9 +542,9 @@ function new_worksheet(&$data, &$styles){
 	$info_line    = '';
 	$tab_head_1   = '';
 	$tab_head_2   = '';
-	$data_sources = array();
-	$csv_c_sep    = array(',', ';', "\t", ' ');
-	$csv_d_sep    = array(',', '.');
+	$data_sources = [];
+	$csv_c_sep    = [',', ';', "\t", ' '];
+	$csv_d_sep    = [',', '.'];
 
 	$measurands   = isset_request_var('measurand')? get_request_var('measurand') : '-1';
 	$datasources  = isset_request_var('data_source') ? get_request_var('data_source') : '-1';
@@ -578,9 +578,9 @@ function new_worksheet(&$data, &$styles){
 
 	/* read out data sources */
 	if ($datasources > -1) {
-		$ds_description = array($ds_description[$datasources]);
+		$ds_description = [$ds_description[$datasources]];
 	} elseif ($datasources < -1) {
-		$ds_description = array('overall');
+		$ds_description = ['overall'];
 	}
 
 	/* read out the result ids */
@@ -628,7 +628,7 @@ function new_worksheet(&$data, &$styles){
 			}
 		} elseif (in_array($measurands, $ov_ids)) {
 			if ($ov_cnt >0 && !in_array('overall', $ds_description)) {
-				$ds_description = array('overall');
+				$ds_description = ['overall'];
 			}
 		}
 	}
@@ -695,7 +695,7 @@ function new_worksheet(&$data, &$styles){
 
 	/* print results */
 	foreach ($report_results as $result){
-		$replace = array ($result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']);
+		$replace = [$result['start_time'], $result['end_time'], $result['timezone'], $result['start_day'], $result['end_day']];
 		$subhead = str_replace($search, $replace, $result['description']);
 
 		print "\t\t\t<Row>$eol";

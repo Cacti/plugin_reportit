@@ -88,8 +88,8 @@ switch (get_request_var('action')) {
 }
 
 function report_wizard() {
-	$templates_list = array();
-	$templates      = array();
+	$templates_list = [];
+	$templates      = [];
 
 	$templates_list = db_fetch_assoc("SELECT id, description
 		FROM plugin_reportit_templates
@@ -233,39 +233,39 @@ function standard() {
 
 	/* ================= input validation and session storage ================= */
 	$filters = array(
-		'rows' => array(
+		'rows' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'page' => array(
+		],
+		'page' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-		),
+		],
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => ['options' => 'sanitize_search_string']
 		),
-		'owner' => array(
+		'owner' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '-1'
-		),
-		'template' => array(
+		],
+		'template' => [
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '-1'
-		),
+		],
 	);
 
 	validate_store_request_vars($filters, 'sess_reportit_reports');
@@ -497,7 +497,7 @@ function form_save() {
 
 	global $timezone, $shifttime, $shifttime2, $weekday;
 
-	$owner = array();
+	$owner = [];
 	$post  = $_POST;
 
 	$sql = "SELECT DISTINCT a.id, a.username as name FROM user_auth AS a
@@ -545,7 +545,7 @@ function form_save() {
 	/* check for the type of saving if it was sent through the email tab */
 	switch($post['tab']) {
 		case 'presets':
-		 	input_validate_input_blacklist($post['id'], array(0));
+		 	input_validate_input_blacklist($post['id'], [0]);
 			input_validate_input_key($post['timezone'], $timezone, true);
 			input_validate_input_key($post['start_time'], $shifttime);
 			input_validate_input_key($post['end_time'], $shifttime2);
@@ -596,7 +596,7 @@ function form_save() {
 				}
 
 				/* save settings */
-				sql_save($rrdlist_data, 'plugin_reportit_data_items', array('id', 'report_id'), false);
+				sql_save($rrdlist_data, 'plugin_reportit_data_items', ['id', 'report_id'], false);
 
 				/* return to list view */
 				raise_message(1);
@@ -691,7 +691,7 @@ function form_save() {
 			} else {
 				$id = $post['id'];
 
-				$addresses = array();
+				$addresses = [];
 				if ($post['email_address'] != '' && strpos($post['email_address'], ';')) {
 					$addresses   = explode(';', $post['email_address']);
 				} elseif ($post['email_address'] != '' && strpos($post['email_address'], ',')) {
@@ -700,7 +700,7 @@ function form_save() {
 					$addresses[] = $post['email_address'];
 				}
 
-				$recipients = array();
+				$recipients = [];
 				if ($post['email_recipient'] != '' && strpos($post['email_recipient'], ';')) {
 					$recipients   = explode(';', $post['email_recipient']);
 				} elseif ($post['email_recipient'] != '' && strpos($post['email_recipient'], ',')) {
@@ -725,7 +725,7 @@ function form_save() {
 
 							db_execute_prepared('INSERT INTO plugin_reportit_recipients
 								(report_id, email, name) VALUES (?,?,?)',
-								array($id, $value, $name));
+								[$id, $value, $name]);
 						}
 					}
 				}
@@ -759,7 +759,7 @@ function form_save() {
 			}
 
 			/* save settings */
-			sql_save($rrdlist_data, 'plugin_reportit_data_items', array('id', 'report_id'), false);
+			sql_save($rrdlist_data, 'plugin_reportit_data_items', ['id', 'report_id'], false);
 
 			/* return to list view */
 			raise_message(1);
@@ -797,9 +797,9 @@ function form_save() {
 			}
 
 			//Now we've to keep our variables
-			$vars     = array();
-			$rvars    = array();
-			$var_data = array();
+			$vars     = [];
+			$rvars    = [];
+			$var_data = [];
 
 			foreach($post as $key => $value) {
 				if (strstr($key, 'var_')) {
@@ -814,13 +814,13 @@ function form_save() {
 				ON a.id = b.variable_id
 				AND report_id = ?
 				WHERE a.template_id = ?',
-				array($post['id'], $post['template_id']));
+				[$post['id'], $post['template_id']]);
 
 			foreach($rvars as $key => $v) {
 				$value = $vars[$v['id']];
 				if ($v['input_type'] == 1) {
 					$i = 0;
-					$array = array();
+					$array = [];
 					$a = $v['min_value'];
 					$b = $v['max_value'];
 					$c = $v['stepping'];
@@ -927,7 +927,7 @@ function report_edit() {
 		$report_data['preset_timespan'] = array_search($report_data['preset_timespan'], $timespans);
 
 		/* replace all binary settings to get compatible with Cacti's draw functions */
-		$rpm = array(
+		$rpm = [
 			'public',
 			'sliding',
 			'present',
@@ -938,7 +938,7 @@ function report_edit() {
 			'auto_email',
 			'email_compression',
 			'autoexport_no_formatting'
-		);
+		];
 
 		foreach($report_data as $key => $value) {
 			if (in_array($key, $rpm)) {
@@ -952,15 +952,15 @@ function report_edit() {
 		$filter = db_fetch_cell_prepared('SELECT pre_filter
 			FROM plugin_reportit_templates
 			WHERE id = ?',
-			array($report_data['template_id']));
+			[$report_data['template_id']]);
 
 		$tmp = db_fetch_assoc_prepared('SELECT id, description
 			FROM plugin_reportit_templates
 			WHERE pre_filter = ?',
-			array($filter));
+			[$filter]);
 	} else {
 		$header_label	= '[new]';
-		$report_data = array();
+		$report_data = [];
 		$report_data['user_id'] = my_id();
 	}
 
@@ -991,7 +991,7 @@ function report_edit() {
 	$report_data['template'] = db_fetch_cell_prepared('SELECT description
 		FROM plugin_reportit_templates
 		WHERE id = ?',
-		array($template_id));
+		[$template_id]);
 
 	/* start with HTML output */
 	if ($id != 0) {
@@ -1035,7 +1035,7 @@ function report_edit() {
 		case 'presets':
 			draw_edit_form(
 				array(
-					'config' => array('no_form_tag'=> true),
+					'config' => ['no_form_tag'=> true],
 					'fields' => inject_form_variables($form_array_presets, $rrdlist_data, $report_data)
 				)
 			);
@@ -1044,7 +1044,7 @@ function report_edit() {
 		case 'email':
 			draw_edit_form(
 				array(
-					'config' => array('no_form_tag'=> true),
+					'config' => ['no_form_tag'=> true],
 					'fields' => inject_form_variables($form_array_email, $report_data)
 				)
 			);
@@ -1081,20 +1081,20 @@ function report_edit() {
 
 			/* ================= input validation and session storage ================= */
 			$filters = array(
-				'rows' => array(
+				'rows' => [
 					'filter' => FILTER_VALIDATE_INT,
 					'pageset' => true,
 					'default' => '-1'
-				),
-				'page' => array(
+				],
+				'page' => [
 					'filter' => FILTER_VALIDATE_INT,
 					'default' => '1'
-				),
+				],
 				'filter' => array(
 					'filter' => FILTER_CALLBACK,
 					'pageset' => true,
 					'default' => '',
-					'options' => array('options' => 'sanitize_search_string')
+					'options' => ['options' => 'sanitize_search_string']
 				),
 				'associated' => array(
 					'filter' => FILTER_VALIDATE_REGEXP,
@@ -1105,12 +1105,12 @@ function report_edit() {
 				'sort_column' => array(
 					'filter' => FILTER_CALLBACK,
 					'default' => 'name_cache',
-					'options' => array('options' => 'sanitize_search_string')
+					'options' => ['options' => 'sanitize_search_string']
 				),
 				'sort_direction' => array(
 					'filter' => FILTER_CALLBACK,
 					'default' => 'ASC',
-					'options' => array('options' => 'sanitize_search_string')
+					'options' => ['options' => 'sanitize_search_string']
 				),
 			);
 
@@ -1136,7 +1136,7 @@ function report_edit() {
 			$template_data = db_fetch_row_prepared('SELECT *
 				FROM plugin_reportit_templates
 				WHERE id = ?',
-				array($report_data['template_id']));
+				[$report_data['template_id']]);
 
 			if (get_request_var('associated') != 'true') {
 				$sql_where    = 'WHERE ri.report_id = ? AND dtd.data_template_id = ? AND dtd.local_data_id > 0';
@@ -1401,7 +1401,7 @@ function report_edit() {
 		default:
 			draw_edit_form(
 				array(
-					'config' => array('no_form_tag'=> true),
+					'config' => ['no_form_tag'=> true],
 					'fields' => inject_form_variables($form_array_general, $report_data)
 				)
 			);
@@ -1414,7 +1414,7 @@ function report_edit() {
 			if ($template_variables !== false) {
 				draw_edit_form(
 					array(
-						'config' => array('no_form_tag'=> true),
+						'config' => ['no_form_tag'=> true],
 						'fields' => $template_variables
 					)
 				);
@@ -1558,10 +1558,10 @@ function rrdlist_edit() {
 			'friendly_name' => __('General', 'reportit'),
 			'method'        => 'spacer'
 		),
-		'save_component_rrdlist' => array(
+		'save_component_rrdlist' => [
 			'method' => 'hidden',
 			'value'  => '1'
-		),
+		],
 		'subhead' => array(
 			'friendly_name' => __('Subhead (optional)', 'reportit'),
 			'description'   => __('Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): \'|t1|\' \'|t2|\' \'|tmz|\' \'|d1|\' \'|d2|\'', 'reportit'),
@@ -1587,10 +1587,10 @@ function rrdlist_edit() {
 	}
 
 	draw_edit_form(
-		array(
-			'config' => array(),
+		[
+			'config' => [],
 			'fields' => $form_array
-		)
+		]
 	);
 
 	$shift_array = array(
@@ -1625,10 +1625,10 @@ function rrdlist_edit() {
 	);
 
 	draw_edit_form(
-		array(
-			'config' => array(),
+		[
+			'config' => [],
 			'fields' => $shift_array
-		)
+		]
 	);
 
 	$weekday_array = array(
@@ -1653,10 +1653,10 @@ function rrdlist_edit() {
 	);
 
 	draw_edit_form(
-		array(
-			'config' => array(),
+		[
+			'config' => [],
 			'fields' => $weekday_array
-		)
+		]
 	);
 
 	html_end_box();
@@ -1742,7 +1742,7 @@ function form_actions() {
 		//Set preconditions
 		$limit_state = (get_filter_request_var('drp_action') == 1 ? ' LIMIT 1' : '');
 
-		$report_ids = array();
+		$report_ids = [];
 		foreach($_POST as $key => $value) {
 			if (strstr($key, 'chk_')) {
 				//Fetch report id
@@ -1765,7 +1765,7 @@ function form_actions() {
 			$reports = db_fetch_assoc($reports_sql);
 		} else {
 			$reports_sql = '';
-			$reports = array();
+			$reports = [];
 		}
 
 		html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
@@ -1788,7 +1788,7 @@ function form_actions() {
 			}
 		}
 
-		$report_ids = array();
+		$report_ids = [];
 
 		if ($reports === false || empty($reports)) {
 			print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one unlocked, not running, report.', 'reportit') . "</span>$reports_sql</td></tr>";
@@ -1820,8 +1820,8 @@ function form_actions() {
 		html_start_box($rrdlist_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 		//Set preconditions
-		$ds_list = array();
-		$rrd_ids = array();
+		$ds_list = [];
+		$rrd_ids = [];
 
 		foreach($_POST as $key => $value) {
 			if (strstr($key, 'chk_')) {
@@ -1837,7 +1837,7 @@ function form_actions() {
 				$rrd_description = db_fetch_cell_prepared('SELECT dtd.name_cache
 					FROM data_template_data AS dtd
 					WHERE dtd.local_data_id = ?',
-					array($id));
+					[$id]);
 
 				$ds_list[] = $rrd_description;
 			}

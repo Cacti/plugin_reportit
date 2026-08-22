@@ -34,19 +34,19 @@ function create_result_table($report_id) {
 		SELECT `id`
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?",
-		array($report_id));
+		[$report_id]);
 }
 
 function get_report_definitions($report_id) {
 	global $consolidation_functions;
 
-	$report_definition = array();
+	$report_definition = [];
 
 	// Fetch report's definition
 	$report = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
-		array($report_id));
+		[$report_id]);
 
 	// Fetch all RRD definitions
 	$data_items = db_fetch_assoc_prepared('SELECT
@@ -62,7 +62,7 @@ function get_report_definitions($report_id) {
 		WHERE a.report_id = ?
 		GROUP BY a.id
 		ORDER BY a.id',
-		array($report_id));
+		[$report_id]);
 
 	// Fetch all high counters
 	$high_counters = db_fetch_assoc_prepared('SELECT c.field_value as maxHighValue, a.id
@@ -76,13 +76,13 @@ function get_report_definitions($report_id) {
 		AND c.field_name="ifHighSpeed"
 		WHERE a.report_id = ?
 		ORDER BY a.id',
-		array($report_id));
+		[$report_id]);
 
 	// Fetch all template informations
 	$template = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_templates
 		WHERE id = ?',
-		array($report['template_id']));
+		[$report['template_id']]);
 
 	// Fetch all all data source items
 	$sql = 'SELECT data_source_name
@@ -109,9 +109,9 @@ function get_report_definitions($report_id) {
 			AND rdi.report_id = ?
 			AND dtr.data_source_name = ?
 			ORDER BY rdi.id',
-			array($template['data_template_id'], $report_id, $data_source_name));
+			[$template['data_template_id'], $report_id, $data_source_name]);
 
-		$fin_results = array();
+		$fin_results = [];
 
 		if (cacti_sizeof($temp_results)) {
 			foreach($temp_results as $r) {
@@ -123,7 +123,7 @@ function get_report_definitions($report_id) {
 					$post = $pre;
 				}
 
-				$fin_results[] = array('id' => $r['id'], 'maxRRDValue' => $post);
+				$fin_results[] = ['id' => $r['id'], 'maxRRDValue' => $post];
 			}
 		}
 
@@ -135,10 +135,10 @@ function get_report_definitions($report_id) {
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?
 		ORDER BY id',
-		array($report['template_id']));
+		[$report['template_id']]);
 
 	// filter out all used consolidation function
-	$cf = array();
+	$cf = [];
 	if (cacti_sizeof($measurands)) {
 	    foreach ($measurands as $measurand) {
 			$cf[$measurand['cf']] = $consolidation_functions[$measurand['cf']];
@@ -149,14 +149,14 @@ function get_report_definitions($report_id) {
 	$rvars = db_fetch_assoc_prepared('SELECT variable_id AS id, value
 		FROM plugin_reportit_rvars
 		WHERE report_id = ?',
-		array($report_id));
+		[$report_id]);
 
 	// Fetch the data_source_type
 	$tmp = db_fetch_row_prepared('SELECT DISTINCT data_source_type_id AS ds_type, rrd_maximum AS maximum
 		FROM data_template_rrd
 		WHERE data_template_id = ?
 		AND local_data_id = 0',
-		array($template['data_template_id']));
+		[$template['data_template_id']]);
 
 	$template['ds_type'] = $tmp['ds_type'];
 	$template['maximum'] = $tmp['maximum'];
@@ -166,7 +166,7 @@ function get_report_definitions($report_id) {
 		FROM data_template_data
 		WHERE data_template_id = ?
 		AND local_data_id = 0',
-		array($template['data_template_id']));
+		[$template['data_template_id']]);
 
 	// Fetch RRA definitions
 	$template['RRA'] = db_fetch_assoc('SELECT steps, timespan
@@ -175,7 +175,7 @@ function get_report_definitions($report_id) {
 		ORDER BY timespan');
 
 	// Rebuild the variables
-	$variables = array();
+	$variables = [];
 	foreach ($rvars as $key => $value) {
 		$name = 'c' . $value['id'] .'v';
 		$variables[$name] = $value['value'];
@@ -610,12 +610,12 @@ function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start
 	$report = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
-		array($report_id));
+		[$report_id]);
 
-	$attachments = array();
+	$attachments = [];
 	$data        = get_prepared_report_data($report_id, 'export');
-	$search      = array('|title|', '|period|');
-	$replace     = array($report['name'], $report['start_date'] . '-' . $report['end_date']);
+	$search      = ['|title|', '|period|'];
+	$replace     = [$report['name'], $report['start_date'] . '-' . $report['end_date']];
 
 	$subject     = ($report['email_subject'] != '') ? $report['email_subject'] : 'Scheduled report - |title| - |period|';
 	$subject     = str_replace($search, $replace, $subject);
@@ -659,11 +659,11 @@ function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start
 		if (function_exists($export_function)) {
 			$export_data = $export_function($data);
 
-			$attachments[] = array(
+			$attachments[] = [
 				'attachment' => $filename,
 				'mime_type'  => $mime_type,
 				'inline'     => 'attachment',
-			);
+			];
 
 			file_put_contents($filename, $export_data);
 		} else {
@@ -691,11 +691,11 @@ function send_scheduled_email($id, $report_id) {
 	$report_settings  = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
-		array($report_id));
+		[$report_id]);
 
 	$data 	 = '';
-	$search  = array('|title|', '|period|');
-	$replace = array($report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']);
+	$search  = ['|title|', '|period|'];
+	$replace = [$report_settings['description'], $report_settings['start_date'] . '-' . $report_settings['end_date']];
 	$subject = ($report_settings['email_subject'] != '') ? $report_settings['email_subject'] : 'Scheduled report - |title| - |period|';
 	$subject = str_replace($search, $replace, $subject);
 
@@ -706,14 +706,14 @@ function send_scheduled_email($id, $report_id) {
 	$file_type = ($format != 'SML') ? strtolower($format) : 'xml';
 	$mime_type = ($format != 'SML') ? 'application/' . strtolower($format) : 'application/vnd-ms-excel';
 
-	$from   = array();
+	$from   = [];
 	$from[] = read_config_option('settings_from_email');
 	$from[] = read_config_option('settings_from_name');
 
 	$to = db_fetch_assoc_prepared('SELECT email, name
 		FROM plugin_reportit_recipients
 		WHERE report_id = ?',
-		array($report_id));
+		[$report_id]);
 
 	if ($report_settings['email'] != '') {
 		$emails = explode(',', $report_settings['email']);
@@ -723,7 +723,7 @@ function send_scheduled_email($id, $report_id) {
 	if ($report_settings['bcc'] != '') {
 		$bcc = explode(',', $report_settings['bcc']);
 	} else {
-		$bcc = array();
+		$bcc = [];
 	}
 
 	if (api_plugin_installed('thold') && $report['notify_list'] > 0) {
@@ -741,7 +741,7 @@ function send_scheduled_email($id, $report_id) {
 
 	// function mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html, $epandsIds);
 
-	$return = mailer($from, $to, '', $bcc, '', $subject, $body, '', array($attachment), '', true);
+	$return = mailer($from, $to, '', $bcc, '', $subject, $body, '', [$attachment], '', true);
 
 	return $return;
 }

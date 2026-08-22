@@ -34,14 +34,14 @@ $rrdadd_actions = array(
 	1 => __('Add', 'reportit')
 );
 
-$link_array = array(
+$link_array = [
 	'name_cache',
 	'description',
 	'',
 	'',
 	'timezone',
 	''
-);
+];
 
 // $timezone - array, for dropdown menu
 //           - contains the $keys from $timezones array.
@@ -63,7 +63,7 @@ $weekday = array(
 
 // $shifttime - array, for dropdown menu
 //            - contains all possible timestamps of a day by using steps of 5 minutes
-$shifttime = array();
+$shifttime = [];
 
 for($i = 0; $i < 24; $i++) {
 	$hour=$i;
