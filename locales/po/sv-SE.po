@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2026-03-16 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-09-25 20:00-0400\nPO-Revision-Date: 2026-09-12 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php:27 include/global_arrays.php:34
 #: include/global_arrays.php:37 include/global_arrays.php:40
@@ -82,7 +82,7 @@ msgstr "Förkortning"
 
 #: include/global_arrays.php:63
 msgid "Group"
-msgstr "Gruppera"
+msgstr "Grupp"
 
 #: include/global_arrays.php:64 templates.php:1949 templates.php:2120
 msgid "Unit"
@@ -127,11 +127,11 @@ msgstr "Associerade datamallar"
 #: lib/const_reports.php:495 reports.php:1627 setup.php:412 templates.php:136
 #: templates.php:1789 templates.php:1930
 msgid "General"
-msgstr "Allmänt"
+msgstr "Allmän"
 
 #: include/global_arrays.php:82
 msgid "Data Templates"
-msgstr "Mallar för data"
+msgstr "Dataskärmar"
 
 #: include/global_arrays.php:83
 msgid "Groups"
@@ -268,7 +268,7 @@ msgstr "Inmatningsfält"
 #: lib/const_reports.php:223 lib/const_reports.php:392
 #: lib/const_reports.php:400 lib/const_view.php:97
 msgid "None"
-msgstr "Ingen"
+msgstr "inget"
 
 #: include/global_arrays.php:133 lib/const_measurands.php:367
 msgid "Binary"
@@ -699,7 +699,7 @@ msgstr "Används för att separera argument som vidarebefordras till en funktion
 
 #: include/global_arrays.php:501
 msgid "The minimum value of data that is allowed to be collected."
-msgstr "Det minsta värdet av data som får samlas in."
+msgstr "Minsta värdet på data som får samlas in."
 
 #: include/global_arrays.php:502 include/global_arrays.php:510
 msgid "WARNING! This variable can be set to zero or unlimited"
@@ -765,7 +765,7 @@ msgstr "2 000 uppgifter"
 
 #: include/global_arrays.php:542
 msgid "5,000 Data Source Items"
-msgstr "5 000 objekt i datakällan"
+msgstr "5.000 datakälla objekt"
 
 #: include/global_arrays.php:543
 msgid "7,500 Data Source Items"
@@ -773,15 +773,15 @@ msgstr "7 500 objekt i datakällan"
 
 #: include/global_arrays.php:544
 msgid "10,000 Data Source Items"
-msgstr "10 000 objekt i datakällan"
+msgstr "10 000 datakälla objekt"
 
 #: include/global_arrays.php:545
 msgid "15,000 Data Source Items"
-msgstr "15 000 objekt i datakällan"
+msgstr "15 000 datakälla objekt"
 
 #: include/global_arrays.php:546 include/global_arrays.php:547
 msgid "25,000 Data Source Items"
-msgstr "25 000 objekt i datakällan"
+msgstr "25 000 datakällans artiklar"
 
 #: include/global_arrays.php:551
 msgid "1 Minute"
@@ -817,7 +817,7 @@ msgstr "Ett versionsnummer för den här mallen"
 
 #: include/global_forms.php:72 templates.php:264 templates.php:595
 msgid "Author"
-msgstr "Upphovsperson"
+msgstr "Författare"
 
 #: include/global_forms.php:75
 msgid "The author of this template"
@@ -971,11 +971,11 @@ msgstr "KRASCHADE"
 
 #: lib/const_reports.php:35
 msgid "FAILED"
-msgstr "MISSLYCKADES"
+msgstr "Misslyckad"
 
 #: lib/const_reports.php:36
 msgid "Idle"
-msgstr "Overksam"
+msgstr "Sysslolös"
 
 #: lib/const_reports.php:37
 msgid "Running"
@@ -1019,7 +1019,7 @@ msgstr "Förinställningar för datakälla"
 
 #: lib/const_reports.php:122 reports.php:1128
 msgid "Email"
-msgstr "E-post"
+msgstr "eMail"
 
 #: lib/const_reports.php:123
 msgid "Administration"
@@ -1380,7 +1380,7 @@ msgstr "%s Lo"
 
 #: lib/const_view.php:89 lib/const_view.php:98 view.php:616 view.php:631
 msgid "Any"
-msgstr "Alla"
+msgstr "Vilken som helst"
 
 #: lib/const_view.php:99
 msgid "Sum"
@@ -1388,7 +1388,7 @@ msgstr "Summa"
 
 #: lib/const_view.php:102
 msgid "Average"
-msgstr "Genomsnitt"
+msgstr "Medel"
 
 #: lib/funct_export.php:82 lib/funct_export.php:448
 msgid "Report title"
@@ -1557,7 +1557,7 @@ msgstr "Schema Frekvens"
 
 #: reports.php:374
 msgid "State"
-msgstr "Tillstånd"
+msgstr "Län"
 
 #: reports.php:378 view.php:307
 #, php-format
@@ -1578,7 +1578,7 @@ msgstr "Inaktiverad"
 
 #: reports.php:437 templates.php:1720
 msgid "N/A"
-msgstr "Inte tillgänglig"
+msgstr "N/A"
 
 #: reports.php:449
 msgid "Add sources"
@@ -1685,7 +1685,7 @@ msgstr "Underhuvud (valfritt)"
 
 #: reports.php:1648
 msgid "Select the time zone your following shifttime information will be based on."
-msgstr "Välj den tidszon som din följande tidsförskjutningsinformation kommer att baseras på."
+msgstr "Välj den tidszon som din följande skifttidsinformation kommer att baseras på."
 
 #: reports.php:1973
 msgid "Click 'Continue' to Run the following Report:"
@@ -1701,7 +1701,7 @@ msgstr "Klicka på \"Fortsätt\" för att duplicera följande rapportkonfigurati
 
 #: reports.php:1978
 msgid "Title Format:"
-msgstr "Rubrikformat:"
+msgstr "Titelformat:"
 
 #: reports.php:1979
 msgid "<report_title> (1)"
@@ -1820,11 +1820,11 @@ msgstr "Normal användare"
 
 #: setup.php:366
 msgid "General Administration"
-msgstr "Allmän administration"
+msgstr "Allmän administration u Stöd till transaktioner Jürgen MOEHRKE"
 
 #: setup.php:367
 msgid "System Administration"
-msgstr "Systemadministration"
+msgstr "Systemadministratör"
 
 #: setup.php:372
 msgid "Management"
@@ -2430,7 +2430,7 @@ msgstr "Mina rapporter"
 
 #: view.php:244
 msgid "Go"
-msgstr "Start"
+msgstr "Utför"
 
 #: view.php:245
 msgid "Clear"
@@ -2470,7 +2470,7 @@ msgstr "Ytterligare"
 
 #: view.php:687
 msgid "Items"
-msgstr "Objekt"
+msgstr "Artiklar"
 
 #: view.php:699
 msgid "Archive"
@@ -2478,7 +2478,7 @@ msgstr "Arkiv"
 
 #: view.php:702
 msgid "Current"
-msgstr "Aktuellt"
+msgstr "Nuvarande"
 
 #: view.php:761
 msgid "Title"
