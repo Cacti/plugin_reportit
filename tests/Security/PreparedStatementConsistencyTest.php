@@ -13,12 +13,12 @@
  */
 
 it('uses prepared DB helpers in migrated plugin files', function () {
-	$targetFiles = array(
-	'lib/funct_calculate.php',
-	'lib/funct_export.php',
-	'lib/funct_html.php',
-	'lib/funct_validate.php',
-	);
+	$targetFiles = [
+		'lib/funct_calculate.php',
+		'lib/funct_export.php',
+		'lib/funct_html.php',
+		'lib/funct_validate.php',
+	];
 
 	$rawPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';
 	$preparedPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)_prepared\s*\(/';

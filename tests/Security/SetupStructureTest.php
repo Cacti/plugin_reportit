@@ -11,17 +11,15 @@
  * Verify setup.php defines required plugin hooks and info function.
  */
 
-$setupPath = realpath(__DIR__ . '/../../setup.php');
+$source = plugin_test_read_source('setup.php');
 
-if ($setupPath === false) {
-	throw new RuntimeException('Unable to resolve setup.php for structure tests.');
+$infoFile = parse_ini_file(__DIR__ . '/../../INFO', true);
+
+if (!is_array($infoFile) || !isset($infoFile['info']) || !is_array($infoFile['info'])) {
+	throw new RuntimeException('Unable to parse the INFO section');
 }
 
-$source = file_get_contents($setupPath);
-
-if ($source === false) {
-	throw new RuntimeException('Unable to read setup.php for structure tests.');
-}
+$info = $infoFile['info'];
 
 it('defines plugin_reportit_install function', function () use ($source) {
 	expect($source)->toContain('function plugin_reportit_install');
@@ -35,10 +33,10 @@ it('defines plugin_reportit_uninstall function', function () use ($source) {
 	expect($source)->toContain('function plugin_reportit_uninstall');
 });
 
-it('returns version array with name key', function () use ($source) {
-	expect($source)->toMatch('/[\'\""]name[\'\""]\s*=>/');
+it('declares a plugin name in INFO', function () use ($info) {
+	expect($info)->toHaveKey('name');
 });
 
-it('returns version array with version key', function () use ($source) {
-	expect($source)->toMatch('/[\'\""]version[\'\""]\s*=>/');
+it('declares a plugin version in INFO', function () use ($info) {
+	expect($info)->toHaveKey('version');
 });

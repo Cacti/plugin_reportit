@@ -12,7 +12,7 @@
  * Cacti 1.2.x plugins must remain compatible with PHP 7.4.
  */
 
-$files = array(
+$files = [
 	'lib/funct_calculate.php',
 	'lib/funct_export.php',
 	'lib/funct_html.php',
@@ -21,7 +21,7 @@ $files = array(
 	'lib/funct_shared.php',
 	'lib/funct_validate.php',
 	'setup.php',
-);
+];
 
 $readFileContents = function (string $relativeFile): string {
 	$path = realpath(__DIR__ . '/../../' . $relativeFile);
