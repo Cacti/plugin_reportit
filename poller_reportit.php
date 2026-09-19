@@ -42,12 +42,12 @@ $PATH_DID_LOG   = "<a href='./plugins/reportit/reports.php?action=rrdlist_edit&t
 $PATH_RID_VIEW  = "<a href='reports.php?action=report_edit&tab=general&id=<RID>'><RID></a>";
 $PATH_DID_VIEW  = "<a href='reports.php?action=rrdlist_edit&tab=items&id=<DID>&report_id=<RID>'><DID></a>";
 
-$run_return     = array();
+$run_return     = [];
 $run_id         = false;
 $queue_id       = false;
 $run_verb       = false;
 $run_scheduled  = true;
-$run_search     = array('<NOTICE>', '<RID>', '<DID>');
+$run_search     = ['<NOTICE>', '<RID>', '<DID>'];
 $socket_handle  = '';
 $email_counter  = 0;
 $export_counter = 0;
@@ -137,7 +137,7 @@ if ($schedule == true) {
 		FROM reports_queued
 		WHERE status = ?
 		AND source = ?',
-		array('pending', 'reportit'));
+		['pending', 'reportit']);
 
 	if (cacti_sizeof($pending)) {
 		foreach($pending as $report) {
@@ -161,7 +161,7 @@ function run_report($report_id, $queue_id = 0) {
 		ON template.locked = ''
 		AND report.template_id = template.id
 		WHERE report.id = ?",
-		array($report_id));
+		[$report_id]);
 
 	if (!cacti_sizeof($report)) {
 		print PHP_EOL . PHP_EOL . "ERROR: Invalid report ID !" . PHP_EOL;
@@ -205,9 +205,9 @@ function run_error($code, $RID = 0, $DID = 0, $notice = '') {
 	$run_output     = '';
 	$run_logging    = '';
 
-	$run_repl_log   = array( $notice, $PATH_RID_LOG,  $PATH_DID_LOG);
-	$run_repl_view  = array( $notice, $PATH_RID_VIEW, $PATH_DID_VIEW);
-	$run_repl_fin   = array( $notice, $RID, $DID);
+	$run_repl_log   = [ $notice, $PATH_RID_LOG,  $PATH_DID_LOG];
+	$run_repl_view  = [ $notice, $PATH_RID_VIEW, $PATH_DID_VIEW];
+	$run_repl_fin   = [ $notice, $RID, $DID];
 
 	$run_logging = str_replace($run_search, $run_repl_fin, $runtime_messages[$code]);
 
@@ -263,7 +263,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 	$report_settings = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
-		array($report_id));
+		[$report_id]);
 
 	// ----- auto clean-up RRDlist -----
 	autocleanup($report_id);
@@ -325,8 +325,8 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 
 	// We need a key identifier to create columns with a unique name
 	// and an array with the used cf indexes.
-	$keys        = array();
-	$rra_indexes = array();
+	$keys        = [];
+	$rra_indexes = [];
 
 	foreach($report_definitions['measurands'] as $measurand) {
 		$keys[$measurand['abbreviation']]        = $measurand['id'];
@@ -349,12 +349,12 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 	/************************************************************************************/
 	//Define 5 caches to save the result of our system functions during the calculation.
 
-	$cache     = array();
-	$df_cache  = array();	//Functions > Multi-dimensional
-	$dm_cache  = array();	//Metrics
-	$dr_cache  = array();	//Interim results
-	$dp_cache  = array();	//Functions with parameters >Multi-dimensional
-	$ds_cache  = array();	//Metrics with flag 'spanned'
+	$cache     = [];
+	$df_cache  = [];	//Functions > Multi-dimensional
+	$dm_cache  = [];	//Metrics
+	$dr_cache  = [];	//Interim results
+	$dp_cache  = [];	//Functions with parameters >Multi-dimensional
+	$ds_cache  = [];	//Metrics with flag 'spanned'
 
 	foreach($rra_types as $rra_type) {
 		foreach($calc_fct_names as $value) {
@@ -515,8 +515,8 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		}
 
 		// ----- Set options for rrd_fetch and run it! -----
-		$rrd_data          = array();
-		$valid_rra_indexes = array();
+		$rrd_data          = [];
+		$valid_rra_indexes = [];
 
 		foreach($rra_types as $rra_type => $rra_index) {
 			$cmd_line = "fetch $data_source_path $rra_type -s $f_sp -e $l_ep";
@@ -596,7 +596,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		if (is_array($ds_items)) {
 			$rrd_ds_namv = array_intersect ($rrd_ds_namv, $ds_items);
 		} else {
-			$rrd_ds_namv = array_intersect ($rrd_ds_namv, array($ds_items));
+			$rrd_ds_namv = array_intersect ($rrd_ds_namv, [$ds_items]);
 		}
 
 		// ----- Prepare data for normal calculating -----
@@ -658,7 +658,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 			$data_local = db_fetch_row_prepared('SELECT *
 				FROM data_local
 				WHERE id = ?',
-				array($local_data_id));
+				[$local_data_id]);
 
 			foreach($data_query_variables as $dq_variable) {
 				if (isset($data_local['id'])) {
@@ -672,7 +672,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 						AND present > 0';
 
 					// and update the value for the given data query cache variable
-					$dq_variable_value = db_fetch_cell_prepared($sql, array($data_local['host_id'], $data_local['snmp_query_id'], $dq_variable, $data_local['snmp_index']));
+					$dq_variable_value = db_fetch_cell_prepared($sql, [$data_local['host_id'], $data_local['snmp_query_id'], $dq_variable, $data_local['snmp_index']]);
 
 					$variables[$dq_variable] = ($dq_variable_value === false) ? REPORTIT_NAN : $dq_variable_value;
 				} else {
@@ -803,7 +803,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		SET last_started = ?, last_runtime = ?, start_date = ?, end_date = ?,
 		ds_description = ?, rs_def = ?, sp_def = ?
 		WHERE id = ?",
-		array($now, $runtime, $s_date, $e_date, $ds_description, $rs_def, $sp_def, $report_id));
+		[$now, $runtime, $s_date, $e_date, $ds_description, $rs_def, $sp_def, $report_id]);
 
 	// ----- Archive / Email -----
 	if ($run_scheduled) {
@@ -866,7 +866,7 @@ function autorrdlist($reportid) {
 	$report_data = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
-		array($reportid));
+		[$reportid]);
 
 	$header_label = $report_data['description'] . ' ID: ' . $reportid;
 
@@ -874,7 +874,7 @@ function autorrdlist($reportid) {
 		$desc = db_fetch_cell_prepared('SELECT name
 			FROM host_template
 			WHERE id = ?',
-			array($report_data['host_template_id']));
+			[$report_data['host_template_id']]);
 
 		$header_label .= ', using Device Template Filter: ' . $desc;
 	}
@@ -883,7 +883,7 @@ function autorrdlist($reportid) {
 		$desc = db_fetch_cell_prepared('SELECT name
 			FROM sites
 			WHERE id = ?',
-			array($report_data['host_template_id']));
+			[$report_data['host_template_id']]);
 
 		$header_label .= ', using Site Filter: ' . $desc;
 	}
@@ -896,16 +896,16 @@ function autorrdlist($reportid) {
 	$current_rows = db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?',
-		array($reportid));
+		[$reportid]);
 
 	//Get the filter setting by template
 	$template_filter = db_fetch_row_prepared('SELECT b.pre_filter, b.data_template_id
 	    FROM plugin_reportit_reports AS a
 	    INNER JOIN plugin_reportit_templates AS b
 	    ON a.template_id = b.id
-	    WHERE a.id = ?', array($reportid));;
+	    WHERE a.id = ?', [$reportid]);
 
-	$sql_params = array();
+	$sql_params = [];
 
 	//Get all RRDs which are not in RRD table and match with filter settings
 	$sql = 'SELECT a.local_data_id AS id, a.name_cache
@@ -1016,7 +1016,7 @@ function autorrdlist($reportid) {
 		$presets = db_fetch_row_prepared('SELECT *
 			FROM plugin_reportit_presets
 			WHERE id = ?',
-			array($reportid));
+			[$reportid]);
 
 		if (cacti_sizeof($presets)) {
 			$presets['report_id'] = $reportid;
@@ -1065,7 +1065,7 @@ function autocleanup($report_id) {
 		db_execute_prepared("DELETE FROM `plugin_reportit_data_items`
 			WHERE `plugin_reportit_data_items`.`report_id` = ?
 			AND `plugin_reportit_data_items`.`id` in ($data_items)",
-			array($report_id));
+			[$report_id]);
 	}
 }
 
@@ -1074,7 +1074,7 @@ function autoexport($report_id) {
 	$report_settings = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
-		array($report_id));
+		[$report_id]);
 
 	/* main export folder */
 	$main_folder = read_config_option('reportit_exp_folder');
@@ -1090,7 +1090,7 @@ function autoexport($report_id) {
 		INNER JOIN plugin_reportit_templates as b
 		ON a.template_id = b.id
 		WHERE a.id = ?',
-		array($report_id));
+		[$report_id]);
 
 	$template_id = $report_settings['template_id'];
 
@@ -1149,7 +1149,7 @@ function autoexport($report_id) {
 		if ($path_handle = opendir($report_folder)) {
 			$file_format_length = strlen($file_format);
 
-			$files = array();
+			$files = [];
 
 			while (false !== ($file = readdir($path_handle))) {
 				if (substr($file, -$file_format_length) == $file_type) {

@@ -128,7 +128,7 @@ $tabs = array(
 
 // $shifttime		- array, for dropdown menu
 //			- contains all possible timestamps of a day by using steps of 5 minutes
-$shifttime = array();
+$shifttime = [];
 
 for($i=0; $i<24; $i++) {
 	$hour=$i;
@@ -175,7 +175,7 @@ if (db_table_exists('plugin_notification_lists')) {
 		'id', 'name'
 	);
 } else {
-	$notify_lists = array();
+	$notify_lists = [];
 }
 
 $form_array_email = array(
@@ -183,14 +183,14 @@ $form_array_email = array(
 		'friendly_name' => __('General', 'reportit'),
 		'method'        => 'spacer',
 	),
-	'id' => array(
+	'id' => [
 		'method' => 'hidden_zero',
 		'value'  => '|arg1:id|',
-	),
-	'tab' => array(
+	],
+	'tab' => [
 		'method' => 'hidden_zero',
 		'value'  => 'email',
-	),
+	],
 	'email_subject' => array(
 		'friendly_name' => __('Subject', 'reportit'),
 		'description'   => __('Enter the subject of your email.<br> Following variables will be supported (without quotes): \'|title|\' and \'|period|\'', 'reportit'),
@@ -340,14 +340,14 @@ $form_array_presets_2 = array(
 		'friendly_name' => __('Working Time', 'reportit'),
 		'method'        => 'spacer',
 	),
-	'id' => array(
+	'id' => [
 		'method' => 'hidden_zero',
 		'value'  => '|arg1:id|',
-	),
-	'tab' => array(
+	],
+	'tab' => [
 		'method' => 'hidden_zero',
 		'value'  => 'presets',
-	),
+	],
 	'start_time' => array(
 		'friendly_name' => __('From', 'reportit'),
 		'description'   => __('The startpoint of duration you want to analyse', 'reportit'),
@@ -407,18 +407,18 @@ $owner_sql = 'SELECT user_auth.id, user_auth.username AS name
 	WHERE group_member.user_id IS NOT NULL OR user_realm.user_id IS NOT NULL';
 
 $form_array_general = array(
-	'id' => array(
+	'id' => [
 		'method' => 'hidden_zero',
 		'value'  => '|arg1:id|',
-	),
-	'tab' => array(
+	],
+	'tab' => [
 		'method' => 'hidden_zero',
 		'value'  => 'general',
-	),
-	'template_id' => array(
+	],
+	'template_id' => [
 		'method' => 'hidden_zero',
 		'value'  => '|arg1:template_id|',
-	),
+	],
 	'header_1' => array(
 		'friendly_name' => __('General', 'reportit'),
 		'method'        => 'spacer',
