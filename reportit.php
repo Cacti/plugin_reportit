@@ -288,7 +288,7 @@ function standard() {
 			ON b.id = a.template_id';
 
 		if (get_request_var('owner') !== '-1' && !isempty_request_var('owner')) {
-			$sql .= ' WHERE a.user_id = ' . (int) get_request_var('owner') . ' ORDER BY b.description';
+			$sql .= ' WHERE a.user_id = ' . get_filter_request_var('owner') . ' ORDER BY b.description';
 			$templatelist = db_fetch_assoc($sql);
 
 			if (cacti_sizeof($templatelist)>0) {
@@ -321,13 +321,13 @@ function standard() {
 			/* filter nothing */
 		} elseif (!isempty_request_var('owner')) {
 			/* show only data items of selected report owner */
-			$where_clauses[] = 'a.user_id = ' . (int) get_request_var('owner');
+			$where_clauses[] = 'a.user_id = ' . get_filter_request_var('owner');
 		}
 		if (get_request_var('template') == '-1') {
 			/* filter nothing */
 		} elseif (!isempty_request_var('template')) {
 			/* show only data items of selected template */
-			$where_clauses[] = 'a.template_id = ' . (int) get_request_var('template');
+			$where_clauses[] = 'a.template_id = ' . get_filter_request_var('template');
 		}
 	} else {
 		/* filter for user */

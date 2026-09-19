@@ -970,8 +970,8 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 	$affix            = '';
 	$description      = '';
 	$limitation       = 10;
-	$report_id        = (int) get_request_var('id');
-	$archive_id       = (int) get_request_var('archive');
+	$report_id        = get_filter_request_var('id');
+	$archive_id       = get_filter_request_var('archive');
 
 	$report_ds_alias  = $data['report_ds_alias'];
 	$report_data      = $data['report_data'];
