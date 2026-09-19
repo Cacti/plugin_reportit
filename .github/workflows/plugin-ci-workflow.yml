@@ -32,7 +32,9 @@ on:
       - develop
 
 env:
-  CACTI: 1.2.x
+  # reportit's INFO declares compat = 1.3.0 and support for Cacti 1.2.x has been
+  # dropped (see CHANGELOG.md), so CI tracks the develop branch instead.
+  CACTI: develop
 
 jobs:
   integration-test:
@@ -80,6 +82,7 @@ jobs:
       with:
         php-version: ${{ matrix.php }}
         extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring, snmp
+        coverage: pcov
         ini-values: "post_max_size=256M, max_execution_time=60, date.timezone=America/New_York"
 
     - name: Check PHP version
@@ -193,6 +196,7 @@ jobs:
         COMPOSER_ROOT_VERSION: 1.3.0-dev
       run: |
         cd ${{ github.workspace }}/cacti
+        mkdir -p plugins/reportit/coverage
         include/vendor/bin/pest --configuration=plugins/reportit/phpunit.xml \
           --coverage-clover=plugins/reportit/coverage/clover.xml \
           plugins/reportit/tests/Security
