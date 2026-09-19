@@ -23,22 +23,22 @@
 */
 
 $fields_template_edit = array(
-	'id' => array(
+	'id' => [
 		'method' => 'hidden_zero',
 		'value' => '|arg1:id|'
-	),
-	'data_template_id' => array(
+	],
+	'data_template_id' => [
 		'method' => 'hidden_zero',
 		'value' => '|arg1:data_template_id|'
-	),
-	'save_component_template' => array(
+	],
+	'save_component_template' => [
 		'method' => 'hidden_zero',
 		'value' => 1
-	),
-	'ds_enabled__0' => array(
+	],
+	'ds_enabled__0' => [
 		'method' => 'hidden_zero',
 		'value' => 'on'
-	),
+	],
 	'template_header' => array(
 		'friendly_name' => __('General', 'reportit'),
 		'method' => 'spacer',
@@ -126,10 +126,10 @@ $fields_template_edit = array(
 );
 
 $fields_template_export = array(
-	'action' => array(
+	'action' => [
 		'method' => 'hidden_zero',
 		'value' => 'template_export'
-	),
+	],
 	'template_id' => array(
 		'friendly_name' => __('Report Template', 'reportit'),
 		'description' => __('Choose one of your Report Templates to export to XML.', 'reportit'),
