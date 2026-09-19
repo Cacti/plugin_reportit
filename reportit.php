@@ -223,7 +223,6 @@ function report_filter() {
 function standard() {
 	global $report_actions, $minutes, $report_states, $sched_types, $report_schedule_frequency;
 
-	$affix       = '';
 	$columns     = 0;
 	$myId        = my_id();
 	$myName      = my_name();
@@ -309,10 +308,12 @@ function standard() {
 	}
 
 	/* form the 'where' clause for our main sql query */
-	$where_clauses = [];
+	$sql_where  = '';
+	$sql_params = [];
 
 	if (get_request_var('filter') != '') {
-		$where_clauses[] = 'a.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+		$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.name LIKE ?';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
 	}
 
 	/* check admin's filter settings */
@@ -321,21 +322,20 @@ function standard() {
 			/* filter nothing */
 		} elseif (!isempty_request_var('owner')) {
 			/* show only data items of selected report owner */
-			$where_clauses[] = 'a.user_id = ' . get_filter_request_var('owner');
+			$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.user_id = ?';
+			$sql_params[] = get_filter_request_var('owner');
 		}
 		if (get_request_var('template') == '-1') {
 			/* filter nothing */
 		} elseif (!isempty_request_var('template')) {
 			/* show only data items of selected template */
-			$where_clauses[] = 'a.template_id = ' . get_filter_request_var('template');
+			$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.template_id = ?';
+			$sql_params[] = get_filter_request_var('template');
 		}
 	} else {
 		/* filter for user */
-		$where_clauses[] = 'a.user_id = ' . (int) $myId;
-	}
-
-	if (cacti_sizeof($where_clauses)) {
-		$affix = ' WHERE ' . implode(' AND ', $where_clauses);
+		$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.user_id = ?';
+		$sql_params[] = (int) $myId;
 	}
 
 	if (get_request_var('rows') == '-1') {
@@ -344,9 +344,9 @@ function standard() {
 		$rows = get_request_var('rows');
 	}
 
-	$total_rows  = db_fetch_cell("SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $affix");
+	$total_rows  = db_fetch_cell_prepared("SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $sql_where", $sql_params);
 
-	$report_list = db_fetch_assoc('SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
+	$report_list = db_fetch_assoc_prepared('SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
 		FROM plugin_reportit_reports AS a
 		LEFT JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
@@ -354,9 +354,10 @@ function standard() {
 		(SELECT report_id, count(*) as ds_cnt FROM `plugin_reportit_data_items` GROUP BY report_id) AS c
 		ON c.report_id = a.id
 		LEFT JOIN user_auth AS d
-		ON d.id = a.user_id' . $affix .
+		ON d.id = a.user_id ' . $sql_where .
 		' ORDER BY ' . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
-		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows);
+		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows,
+		$sql_params);
 
 	$desc_array = array(
 		'name' => array(
