@@ -156,7 +156,7 @@ function report_filter() {
 							<?php print __('Search', 'reportit'); ?>
 						</td>
 						<td>
-							<input type='text' id='filter' size='25' value='<?php print get_request_var('filter'); ?>'>
+							<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 						</td>
 						<td>
 							<?php print __('Reports', 'reportit'); ?>
@@ -227,7 +227,6 @@ function report_filter() {
 function standard() {
 	global $report_actions, $minutes, $report_states, $sched_types, $report_schedule_frequency;
 
-	$affix       = '';
 	$columns     = 0;
 	$myId        = my_id();
 	$myName      = my_name();
@@ -292,7 +291,7 @@ function standard() {
 			ON b.id = a.template_id';
 
 		if (get_request_var('owner') !== '-1' && !isempty_request_var('owner')) {
-			$sql .= ' WHERE a.user_id = ' . get_request_var('owner') . ' ORDER BY b.description';
+			$sql .= ' WHERE a.user_id = ' . get_filter_request_var('owner') . ' ORDER BY b.description';
 			$templatelist = db_fetch_assoc($sql);
 
 			if (cacti_sizeof($templatelist) > 0) {
@@ -313,9 +312,13 @@ function standard() {
 		}
 	}
 
-	// form the 'where' clause for our main sql query
+	/* form the 'where' clause for our main sql query */
+	$sql_where  = '';
+	$sql_params = [];
+
 	if (get_request_var('filter') != '') {
-		$affix .= " WHERE a.name LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.name LIKE ?';
+		$sql_params[] = '%' . get_request_var('filter') . '%';
 	}
 
 	// check admin's filter settings
@@ -323,19 +326,22 @@ function standard() {
 		if (get_request_var('owner') == '-1') {
 			// filter nothing
 		} elseif (!isempty_request_var('owner')) {
-			// show only data items of selected report owner
-			$affix .= ' AND a.user_id =' . get_request_var('owner');
+			/* show only data items of selected report owner */
+			$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.user_id = ?';
+			$sql_params[] = get_filter_request_var('owner');
 		}
 
 		if (get_request_var('template') == '-1') {
 			// filter nothing
 		} elseif (!isempty_request_var('template')) {
-			// show only data items of selected template
-			$affix .= ' AND a.template_id =' . get_request_var('template');
+			/* show only data items of selected template */
+			$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.template_id = ?';
+			$sql_params[] = get_filter_request_var('template');
 		}
 	} else {
-		// filter for user
-		$affix .= "AND a.user_id = $myId";
+		/* filter for user */
+		$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.user_id = ?';
+		$sql_params[] = (int) $myId;
 	}
 
 	if (get_request_var('rows') == '-1') {
@@ -344,9 +350,9 @@ function standard() {
 		$rows = get_request_var('rows');
 	}
 
-	$total_rows  = db_fetch_cell("SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $affix");
+	$total_rows  = db_fetch_cell_prepared("SELECT COUNT(a.id) FROM plugin_reportit_reports AS a $sql_where", $sql_params);
 
-	$report_list = db_fetch_assoc('SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
+	$report_list = db_fetch_assoc_prepared('SELECT a.*, b.description AS template_description, c.ds_cnt, d.username, b.locked
 		FROM plugin_reportit_reports AS a
 		LEFT JOIN plugin_reportit_templates AS b
 		ON b.id = a.template_id
@@ -354,9 +360,10 @@ function standard() {
 		(SELECT report_id, count(*) as ds_cnt FROM `plugin_reportit_data_items` GROUP BY report_id) AS c
 		ON c.report_id = a.id
 		LEFT JOIN user_auth AS d
-		ON d.id = a.user_id' . $affix .
+		ON d.id = a.user_id ' . $sql_where .
 		' ORDER BY ' . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
-		' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows);
+		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows,
+		$sql_params);
 
 	$desc_array = [
 		'name' => [
@@ -409,7 +416,7 @@ function standard() {
 	// start with HTML output
 	report_filter();
 
-	$nav = html_nav_bar('reportit.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports', 'reportit'), 'page', 'main');
+	$nav = html_nav_bar('reportit.php?filter=' . rawurlencode(get_request_var('filter')), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, sizeof($desc_array), __('Reports', 'reportit'), 'page', 'main');
 
 	print $nav;
 
@@ -1259,14 +1266,14 @@ function report_edit() {
 			?>
 			<tr class='odd'>
 				<td>
-				<form id='form_rrdlist' action='reportit.php?tab=items&id=<?php print get_request_var('id'); ?>'>
+				<form id='form_rrdlist' action='reportit.php?tab=items&id=<?php print get_filter_request_var('id'); ?>'>
 					<table class='filterTable'>
 						<tr>
 							<td>
 								<?php print __('Search', 'reportit'); ?>
 							</td>
 							<td>
-								<input type='text' id='filter' size='25' value='<?php print get_request_var('filter'); ?>'>
+								<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 							</td>
 							<td>
 								<?php print __('RRDs', 'reportit'); ?>
@@ -1307,7 +1314,7 @@ function report_edit() {
 				<script type='text/javascript'>
 				function applyFilter() {
 					strURL  = 'reportit.php?action=report_edit&tab=items';
-					strURL += '&id=<?php print get_request_var('id'); ?>';
+					strURL += '&id=<?php print get_filter_request_var('id'); ?>';
 					strURL += '&filter='+escape($('#filter').val());
 					strURL += '&associated=' + $('#associated').is(':checked');
 					strURL += '&rows='+$('#rows').val();
@@ -1317,7 +1324,7 @@ function report_edit() {
 				function clearFilter() {
 					strURL  = 'reportit.php?action=report_edit&tab=items'
 					strURL += '&clear=1';
-					strURL += '&id=<?php print get_request_var('id'); ?>';
+					strURL += '&id=<?php print get_filter_request_var('id'); ?>';
 					loadUrl({ url: strURL });
 				}
 

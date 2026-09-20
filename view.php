@@ -219,7 +219,7 @@ function standard() {
 							<?php print __('Search', 'reportit'); ?>
 						</td>
 						<td>
-							<input id='filter' type='text' size='25' value='<?php print get_request_var('filter'); ?>'>
+							<input id='filter' type='text' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 						</td>
 						<td>
 							<?php print __('Type', 'reportit'); ?>
@@ -693,7 +693,7 @@ function show_report() {
 							<?php print __('Search', 'reportit'); ?>
 						</td>
 						<td>
-							<input id='filter' size='30' type='text' value='<?php print get_request_var('filter'); ?>'>
+							<input id='filter' size='30' type='text' value='<?php print html_escape_request_var('filter'); ?>'>
 						</td>
 						<td><?php print __('Additional', 'reportit'); ?></td>
 						<td>
@@ -751,7 +751,7 @@ function show_report() {
 			<script type='text/javascript'>
 			function applyFilter() {
 				strURL  = 'view.php?action=show_report';
-				strURL += '&id=<?php print get_request_var('id'); ?>';
+				strURL += '&id=<?php print get_filter_request_var('id'); ?>';
 				strURL += '&filter='+escape($('#filter').val());
 				strURL += '&info='+$('#info').val();
 				strURL += '&rows='+$('#rows').val();
@@ -765,7 +765,7 @@ function show_report() {
 			}
 
 			function clearFilter() {
-				strURL = 'view.php?action=show_report&id=<?php print get_request_var('id'); ?>&clear=1';
+				strURL = 'view.php?action=show_report&id=<?php print get_filter_request_var('id'); ?>&clear=1';
 				loadUrl({ url: strURL });
 			}
 
@@ -1005,6 +1005,8 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 	$affix            = '';
 	$description      = '';
 	$limitation       = 10;
+	$report_id        = get_filter_request_var('id');
+	$archive_id       = get_filter_request_var('archive');
 
 	$report_ds_alias  = $data['report_ds_alias'];
 	$report_data      = $data['report_data'];
@@ -1023,35 +1025,35 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 			if ($name !== false) {
 				$graph_id = 0;
 
-				foreach ($name as $id) {
-					$var            = ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
-					$title          = $mea[$id]['name'];
-					$rounding       = $mea[$id]['rounding'];
-					$unit           = $mea[$id]['unit'];
-					$rounding       = $mea[$id]['rounding'];
-					$data_type      = $mea[$id]['data_type'];
-					$data_precision = $mea[$id]['data_precision'];
+				foreach($name as $measurand_id) {
+					$var            = ($datasource != 'overall') ? $datasource.'__'.$measurand_id : 'spanned__'.$measurand_id;
+					$title          = $mea[$measurand_id]['name'];
+					$rounding       = $mea[$measurand_id]['rounding'];
+					$unit           = $mea[$measurand_id]['unit'];
+					$rounding       = $mea[$measurand_id]['rounding'];
+					$data_type      = $mea[$measurand_id]['data_type'];
+					$data_precision = $mea[$measurand_id]['data_precision'];
 					$order          = 'DESC';
 					$suffix			      = " ORDER BY a.$var $order LIMIT 0, $limitation";
 
-					if ($mea[$id]['visible'] != '') {
-						if (get_request_var('archive') == -1) {
+					if ($mea[$measurand_id]['visible'] != '') {
+						if ($archive_id == -1) {
 							$data = db_fetch_assoc("SELECT a.$var, b.*, c.name_cache
-								FROM plugin_reportit_results_" . get_request_var('id') . ' AS a
+								FROM plugin_reportit_results_$report_id AS a
 								INNER JOIN plugin_reportit_data_items AS b
 								ON b.id = a.id
-								AND b.report_id = ' . get_request_var('id') . "
+								AND b.report_id = $report_id
 								INNER JOIN data_template_data AS c
 								ON c.local_data_id = a.id
 								$suffix");
 						} else {
-							$table = 'plugin_reportit_tmp_' . get_request_var('id') . '_' . get_request_var('archive');
+							$table = "plugin_reportit_tmp_{$report_id}_{$archive_id}";
 
 							$data = db_fetch_assoc("SELECT * FROM $table AS a $suffix");
 						}
 
 						print "<tr class='tableHeader'>
-							<td colspan='2' class='textHeaderDark'>" . __esc('Metric: %s (%s)', $title, $mea[$id]['abbreviation'], 'reportit') . '</td>
+							<td colspan='2' class='textHeaderDark'>" . __esc('Metric: %s (%s)', $title, $mea[$measurand_id]['abbreviation'], 'reportit') . '</td>
 						</tr>';
 
 						$graph_data = [];
@@ -1100,7 +1102,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 								print "<td title='$title'>$i</td>";
 
 								print "<td title='$title'>
-									<a class='linkEditMain' href='view.php?action=show_graph_overview&id=" . get_request_var('id') . "&rrd={$item['id']}&cache=" . get_request_var('archive') . "'>{$item['name_cache']}</a>
+									<a class='linkEditMain' href='view.php?action=show_graph_overview&id=$report_id&rrd={$item['id']}&cache=$archive_id'>{$item['name_cache']}</a>
 								</td>";
 
 								print "<td title='$title' class='right'>";
