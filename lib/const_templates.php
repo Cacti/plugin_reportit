@@ -59,24 +59,24 @@ $sql = 'SELECT DISTINCT b.id, b.name FROM data_template_rrd AS a
 $data_templates            = [];
 $list_of_data_templates    = [];
 $data_templates            = db_fetch_assoc($sql);
-foreach($data_templates as $data_template) {
+
+foreach ($data_templates as $data_template) {
 	$list_of_data_templates[$data_template['id']] = $data_template['name'];
 }
 
 $sql = 'SELECT DISTINCT b.id, b.name FROM data_template AS b
 	ORDER BY b.name';
 
-
 global $known_data_templates;
 $known_data_templates = [];
 
 $data_templates       = db_fetch_assoc($sql);
-foreach($data_templates as $data_template) {
+
+foreach ($data_templates as $data_template) {
 	$known_data_templates[$data_template['id']] = $data_template['name'];
 }
 
-
-$hashes = array(
+$hashes = [
 	'1' => [
 		'reportit' => 'c0788d60041d96616d05b87892942948',
 		'general'  => 'b993b55029680216764b47d1da5c18d',
@@ -84,5 +84,4 @@ $hashes = array(
 		'measurand'=> 'd52041e0e00f5daac84f1cd15532732c',
 		'variable' => 'fa1e95ba13fc87fa80da64758628d68f'
 	]
-);
-
+];

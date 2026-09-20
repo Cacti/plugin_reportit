@@ -20,7 +20,7 @@ it('uses prepared DB helpers in migrated plugin files', function () {
 		'lib/funct_validate.php',
 	];
 
-	$rawPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';
+	$rawPattern      = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';
 	$preparedPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)_prepared\s*\(/';
 
 	foreach ($targetFiles as $relativeFile) {
@@ -36,7 +36,7 @@ it('uses prepared DB helpers in migrated plugin files', function () {
 			"Failed to read target file {$relativeFile}"
 		);
 
-		$lines = explode("\n", $contents);
+		$lines                   = explode("\n", $contents);
 		$rawCallsOutsideComments = 0;
 
 		foreach ($lines as $line) {

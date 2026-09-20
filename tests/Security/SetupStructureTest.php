@@ -7,9 +7,7 @@
  +-------------------------------------------------------------------------+
 */
 
-/*
- * Verify setup.php defines required plugin hooks and info function.
- */
+// Verify setup.php defines required plugin hooks and info function.
 
 $source = plugin_test_read_source('setup.php');
 
