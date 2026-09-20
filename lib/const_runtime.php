@@ -25,11 +25,19 @@
 // ----- CONSTANTS FOR: runtime.php -----
 define('REPORTIT_NAN', sqrt(-1));
 
-if (!defined('REPORTIT_TMP_FD')) define('REPORTIT_TMP_FD', CACTI_PATH_BASE . '/plugins/reportit/tmp/');
-if (!defined('REPORTIT_ARC_FD')) define('REPORTIT_ARC_FD', CACTI_PATH_BASE . '/plugins/reportit/archive/');
-if (!defined('REPORTIT_EXP_FD')) define('REPORTIT_EXP_FD', CACTI_PATH_BASE . '/plugins/reportit/exports/');
+if (!defined('REPORTIT_TMP_FD')) {
+	define('REPORTIT_TMP_FD', CACTI_PATH_BASE . '/plugins/reportit/tmp/');
+}
 
-$timezones = array(
+if (!defined('REPORTIT_ARC_FD')) {
+	define('REPORTIT_ARC_FD', CACTI_PATH_BASE . '/plugins/reportit/archive/');
+}
+
+if (!defined('REPORTIT_EXP_FD')) {
+	define('REPORTIT_EXP_FD', CACTI_PATH_BASE . '/plugins/reportit/exports/');
+}
+
+$timezones = [
 	'AEDT (GMT+11 )'  => ['hour' => 11, 'min' =>  0],
 	'ACDT (GMT+10.5)' => ['hour' => 10, 'min' => 30],
 	'AEST (GMT+10 )'  => ['hour' => 10, 'min' =>  0],
@@ -59,19 +67,18 @@ $timezones = array(
 	'MST (GMT-07)'    => ['hour' => -7, 'min' =>  0],
 	'PDT (GMT-07)'    => ['hour' => -7, 'min' =>  0],
 	'PST (GMT-08)'    => ['hour' => -8, 'min' =>  0]
-);
-
+];
 
 $runtime_messages = [
-	1 => 'ERROR: PHP module for RRDtool is not available.',
-	2 => 'ERROR: No data items defined. RIReport[<RID>]',
-	3 => 'ERROR: Startpoint is a part of future. RIReport[<RID>] RIDataItem[<DID>]',
-	4 => 'ERROR: No valid data found. Check your configuration. RIReport[<RID>]',
-	5 => 'WARNING: RRDfetch: <NOTICE> RIReport[<RID>] RIDataItem[<DID>]',
-	6 => 'WARNING: End of working time is a part of future. Can only calculate data till now. RIReport[<RID>] RIDataItem[<DID>]',
-	7 => 'WARNING: No startpoints available. Check your working days! RIReport[<RID>] RIDataItem[<DID>]',
-	8 => 'WARNING: No values available. RIReport[<RID>] RIDataItem[<DID>]',
-	9 => 'ERROR: Unable to connect to RRDtool server.',
+	1  => 'ERROR: PHP module for RRDtool is not available.',
+	2  => 'ERROR: No data items defined. RIReport[<RID>]',
+	3  => 'ERROR: Startpoint is a part of future. RIReport[<RID>] RIDataItem[<DID>]',
+	4  => 'ERROR: No valid data found. Check your configuration. RIReport[<RID>]',
+	5  => 'WARNING: RRDfetch: <NOTICE> RIReport[<RID>] RIDataItem[<DID>]',
+	6  => 'WARNING: End of working time is a part of future. Can only calculate data till now. RIReport[<RID>] RIDataItem[<DID>]',
+	7  => 'WARNING: No startpoints available. Check your working days! RIReport[<RID>] RIDataItem[<DID>]',
+	8  => 'WARNING: No values available. RIReport[<RID>] RIDataItem[<DID>]',
+	9  => 'ERROR: Unable to connect to RRDtool server.',
 	10 => 'ERROR: Data Template for RIReport[<RID>] has been locked during the scheduled task',
 	11 => 'WARNING: Unknown timezone: <NOTICE>. Please update configuration of Report [<RID>] RIDataItem[<DID>]',
 	12 => 'ERROR: <NOTICE> RIReport[<RID>]',
@@ -81,4 +88,3 @@ $runtime_messages = [
 	16 => 'NOTICE: <NOTICE>',
 	17 => 'ERROR: <NOTICE>'
 ];
-

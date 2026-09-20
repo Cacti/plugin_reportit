@@ -57,40 +57,39 @@ $prefixes[2] = [
 	8 => 'Y'
 ];
 
-$types = array(
-	'-10' => array (
+$types = [
+	'-10' => [
 		'description' => __('Bar (vertical)', 'reportit'),
 		'name'        => 'b',
 		'x_axis'      => 'Position',
 		'y_axis'      => 1
-	),
-	'10' => array (
+	],
+	'10' => [
 		'description' => __('Bar (horizontal)', 'reportit'),
 		'name'        => 'hb',
 		'x_axis'      => 1,
 		'y_axis'      => 'Position'
-	),
-	'20' => array (
+	],
+	'20' => [
 		'description' => __('Line', 'reportit'),
 		'name'        => 'l',
 		'x_axis'      => 'Position',
 		'y_axis'      => 1
-	),
-	'21' => array (
+	],
+	'21' => [
 		'description' => __('Area', 'reportit'),
 		'name'        => 'l',
 		'x_axis'      => 'Position',
 		'y_axis'      => 1,
 		'filled'      => 1
-	),
-	'30' => array (
+	],
+	'30' => [
 		'description' => __('Pie chart 3D', 'reportit'),
 		'name'        => 'p'
-	),
-	'40' => array (
+	],
+	'40' => [
 		'description' => __('Spider', 'reportit'),
 		'name'        => 's',
 		'x_value'     => '1'
-	),
-);
-
+	],
+];
