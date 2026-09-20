@@ -1025,8 +1025,8 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 			if ($name !== false) {
 				$graph_id = 0;
 
-				foreach($name as $measurand_id) {
-					$var            = ($datasource != 'overall') ? $datasource.'__'.$measurand_id : 'spanned__'.$measurand_id;
+				foreach ($name as $measurand_id) {
+					$var            = ($datasource != 'overall') ? $datasource . '__' . $measurand_id : 'spanned__' . $measurand_id;
 					$title          = $mea[$measurand_id]['name'];
 					$rounding       = $mea[$measurand_id]['rounding'];
 					$unit           = $mea[$measurand_id]['unit'];

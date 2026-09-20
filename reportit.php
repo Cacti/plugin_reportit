@@ -312,12 +312,12 @@ function standard() {
 		}
 	}
 
-	/* form the 'where' clause for our main sql query */
+	// form the 'where' clause for our main sql query
 	$sql_where  = '';
 	$sql_params = [];
 
 	if (get_request_var('filter') != '') {
-		$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.name LIKE ?';
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'a.name LIKE ?';
 		$sql_params[] = '%' . get_request_var('filter') . '%';
 	}
 
@@ -326,21 +326,21 @@ function standard() {
 		if (get_request_var('owner') == '-1') {
 			// filter nothing
 		} elseif (!isempty_request_var('owner')) {
-			/* show only data items of selected report owner */
-			$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.user_id = ?';
+			// show only data items of selected report owner
+			$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'a.user_id = ?';
 			$sql_params[] = get_filter_request_var('owner');
 		}
 
 		if (get_request_var('template') == '-1') {
 			// filter nothing
 		} elseif (!isempty_request_var('template')) {
-			/* show only data items of selected template */
-			$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.template_id = ?';
+			// show only data items of selected template
+			$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'a.template_id = ?';
 			$sql_params[] = get_filter_request_var('template');
 		}
 	} else {
-		/* filter for user */
-		$sql_where   .= ($sql_where != '' ? ' AND ':'WHERE ') . 'a.user_id = ?';
+		// filter for user
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'a.user_id = ?';
 		$sql_params[] = (int) $myId;
 	}
 
@@ -362,7 +362,7 @@ function standard() {
 		LEFT JOIN user_auth AS d
 		ON d.id = a.user_id ' . $sql_where .
 		' ORDER BY ' . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
-		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows,
+		' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows,
 		$sql_params);
 
 	$desc_array = [
