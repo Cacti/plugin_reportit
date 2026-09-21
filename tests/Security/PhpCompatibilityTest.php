@@ -125,4 +125,3 @@ it('does not use create_function() (removed in PHP 8.0)', function () use ($file
 		);
 	}
 });
-
