@@ -23,9 +23,10 @@
 */
 
 /*
- * Verify plugin source files do not use PHP 8.3+/8.4-only syntax.
- * This plugin's floor version is PHP 8.2, matching the shared CI test
- * matrix (php: ['8.2', '8.3', '8.4']).
+ * Verify plugin source files do not use PHP 8.4-only syntax.
+ * This plugin's floor version is PHP 8.3, matching the shared CI test
+ * matrix (php: ['8.3', '8.4']) - this repo tracks Cacti's `develop` branch
+ * rather than `1.2.x`, which requires PHP 8.3+.
  */
 
 // Discovered recursively so new production PHP files are covered automatically.
@@ -84,16 +85,6 @@ it('does not use asymmetric visibility (PHP 8.4)', function () use ($files) {
         }
 });
 
-it('does not use the #[Override] attribute (PHP 8.3)', function () use ($files) {
-        foreach ($files as $relativeFile) {
-                $contents = plugin_test_read_source_file($relativeFile);
-
-                expect(preg_match('/#\[\s*\\\\?Override\s*\]/i', $contents))->toBe(0,
-                        "{$relativeFile} uses #[Override] which requires PHP 8.3"
-                );
-        }
-});
-
 it('does not use the #[Deprecated] attribute (PHP 8.4)', function () use ($files) {
         foreach ($files as $relativeFile) {
                 $contents = plugin_test_read_source_file($relativeFile);
@@ -104,42 +95,12 @@ it('does not use the #[Deprecated] attribute (PHP 8.4)', function () use ($files
         }
 });
 
-it('does not use json_validate() (PHP 8.3)', function () use ($files) {
-        foreach ($files as $relativeFile) {
-                $contents = plugin_test_read_source_file($relativeFile);
-
-                expect(preg_match('/\bjson_validate\s*\(/', $contents))->toBe(0,
-                        "{$relativeFile} uses json_validate() which requires PHP 8.3"
-                );
-        }
-});
-
 it('does not use array_find()/array_any()/array_all() (PHP 8.4)', function () use ($files) {
         foreach ($files as $relativeFile) {
                 $contents = plugin_test_read_source_file($relativeFile);
 
                 expect(preg_match('/\barray_(find|any|all)\s*\(/', $contents))->toBe(0,
                         "{$relativeFile} uses array_find()/array_any()/array_all() which requires PHP 8.4"
-                );
-        }
-});
-
-it('does not use typed class constants (PHP 8.3)', function () use ($files) {
-        foreach ($files as $relativeFile) {
-                $contents = plugin_test_read_source_file($relativeFile);
-
-                expect(preg_match('/\bconst\s+(?:\?\s*)?[A-Za-z_\\\\][A-Za-z0-9_\\\\]*(?:\s*\|\s*(?:\?\s*)?[A-Za-z_\\\\][A-Za-z0-9_\\\\]*)*\s+[A-Za-z_][A-Za-z0-9_]*\s*=/', $contents))->toBe(0,
-                        "{$relativeFile} uses a typed class constant which requires PHP 8.3"
-                );
-        }
-});
-
-it('does not use a dynamic class constant fetch (PHP 8.3)', function () use ($files) {
-        foreach ($files as $relativeFile) {
-                $contents = plugin_test_read_source_file($relativeFile);
-
-                expect(preg_match('/::\s*\{\s*\$/', $contents))->toBe(0,
-                        "{$relativeFile} uses a dynamic class constant fetch (Foo::" . '{$bar}' . ") which requires PHP 8.3"
                 );
         }
 });
