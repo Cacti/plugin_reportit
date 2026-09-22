@@ -30,6 +30,7 @@ it('registers every hook reportit depends on, its realms, and provisions its tab
 	plugin_reportit_install();
 
 	$hooks = [];
+
 	foreach ($GLOBALS['__test_registered_hooks'] as $registered) {
 		$hooks[$registered['hook']] = $registered;
 	}

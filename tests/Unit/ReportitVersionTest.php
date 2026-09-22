@@ -5,9 +5,7 @@
  +-------------------------------------------------------------------------+
 */
 
-/*
- * Unit coverage for plugin_reportit_version() in setup.php.
- */
+// Unit coverage for plugin_reportit_version() in setup.php.
 
 beforeAll(function () {
 	require_once __DIR__ . '/../../setup.php';

@@ -16,7 +16,7 @@ beforeAll(function () {
 });
 
 beforeEach(function () {
-	$GLOBALS['__test_db_calls']              = [];
+	$GLOBALS['__test_db_calls']               = [];
 	$GLOBALS['__test_db_fetch_row_return']    = [];
 	unset($_SERVER['PHP_SELF']);
 });
