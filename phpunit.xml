@@ -15,6 +15,8 @@
     <testsuites>
         <testsuite name="Plugin ReportIt">
             <directory>tests/Security</directory>
+            <directory>tests/Unit</directory>
+            <directory>tests/Integration</directory>
         </testsuite>
     </testsuites>
 
