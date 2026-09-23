@@ -109,9 +109,19 @@ if (!function_exists('db_fetch_assoc_prepared')) {
 	}
 }
 
+$GLOBALS['__test_db_fetch_row_return'] = [];
+
 if (!function_exists('db_fetch_row')) {
 	function db_fetch_row($sql) {
-		return [];
+		$GLOBALS['__test_db_calls'][] = ['fn' => 'db_fetch_row', 'sql' => $sql, 'params' => []];
+
+		return $GLOBALS['__test_db_fetch_row_return'];
+	}
+}
+
+if (!function_exists('reportit_test_set_db_fetch_row_return')) {
+	function reportit_test_set_db_fetch_row_return($value) {
+		$GLOBALS['__test_db_fetch_row_return'] = $value;
 	}
 }
 
@@ -123,7 +133,11 @@ if (!function_exists('db_fetch_row_prepared')) {
 
 if (!function_exists('db_fetch_cell')) {
 	function db_fetch_cell($sql) {
-		return '';
+		// '0' rather than '' - some setup.php helpers (e.g.
+		// reportit_define_constants()) do numeric arithmetic directly on
+		// this return value, which throws a TypeError against a
+		// non-numeric empty string under PHP 8's stricter operator rules.
+		return '0';
 	}
 }
 
@@ -241,6 +255,62 @@ if (!function_exists('is_error_message')) {
 if (!function_exists('sql_save')) {
 	function sql_save($array, $table, $key = 'id') {
 		return isset($array['id']) ? $array['id'] : 1;
+	}
+}
+
+$GLOBALS['__test_registered_hooks']  = [];
+$GLOBALS['__test_registered_realms'] = [];
+
+if (!function_exists('api_plugin_register_hook')) {
+	function api_plugin_register_hook($name, $hook, $function, $file, $enabled = 1) {
+		$GLOBALS['__test_registered_hooks'][] = [
+			'name'     => $name,
+			'hook'     => $hook,
+			'function' => $function,
+			'file'     => $file,
+			'enabled'  => $enabled,
+		];
+
+		return true;
+	}
+}
+
+if (!function_exists('api_plugin_register_realm')) {
+	function api_plugin_register_realm($name, $file, $description, $enabled = 1) {
+		$GLOBALS['__test_registered_realms'][] = [
+			'name'        => $name,
+			'file'        => $file,
+			'description' => $description,
+			'enabled'     => $enabled,
+		];
+
+		return true;
+	}
+}
+
+$GLOBALS['__test_enabled_plugins'] = [];
+
+if (!function_exists('api_plugin_is_enabled')) {
+	function api_plugin_is_enabled($plugin) {
+		return in_array($plugin, $GLOBALS['__test_enabled_plugins'], true);
+	}
+}
+
+if (!function_exists('reportit_test_set_plugin_enabled')) {
+	function reportit_test_set_plugin_enabled($plugin, $enabled = true) {
+		$GLOBALS['__test_enabled_plugins'] = array_diff($GLOBALS['__test_enabled_plugins'], [$plugin]);
+
+		if ($enabled) {
+			$GLOBALS['__test_enabled_plugins'][] = $plugin;
+		}
+	}
+}
+
+$GLOBALS['__test_auth_augment_roles_calls'] = [];
+
+if (!function_exists('auth_augment_roles')) {
+	function auth_augment_roles($role, $files) {
+		$GLOBALS['__test_auth_augment_roles_calls'][] = ['role' => $role, 'files' => $files];
 	}
 }
 
