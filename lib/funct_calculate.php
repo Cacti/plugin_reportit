@@ -25,12 +25,31 @@
 // ----- Functions without external parameters -----
 
 // Count the number of available measuring points
+/**
+ * Calculation function: counts the number of values in a data series,
+ * caching the result. Called via the calculation engine for the 'num'
+ * formula function.
+ *
+ * @param array $array   Reference, the data series to count.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return int The count of values.
+ */
 function f_num(&$array, &$f_cache) {
 	$f_cache['f_count'] = count($array);
 
 	return $f_cache['f_count'];
 }
 
+/**
+ * Calculation function: sums a data series, caching the result. Called
+ * via the calculation engine for the 'sum' formula function.
+ *
+ * @param array $array   Reference, the data series to sum.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The sum of values, or REPORTIT_NAN if $array is empty.
+ */
 // Sum
 function f_sum(&$array, &$f_cache) {
 	$f_cache['f_sum'] = empty($array) ? REPORTIT_NAN : array_sum($array);
@@ -38,6 +57,16 @@ function f_sum(&$array, &$f_cache) {
 	return $f_cache['f_sum'];
 }
 
+/**
+ * Calculation function: computes the arithmetic mean of a data series,
+ * caching the result. Called via the calculation engine for the 'avg'
+ * formula function.
+ *
+ * @param array $array   Reference, the data series to average.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The average value, or REPORTIT_NAN if $array is empty.
+ */
 // Average
 function f_avg(&$array, &$f_cache) {
 	$f_cache['f_avg'] = empty($array) ? REPORTIT_NAN : array_sum($array) / count($array);
@@ -45,6 +74,16 @@ function f_avg(&$array, &$f_cache) {
 	return $f_cache['f_avg'];
 }
 
+/**
+ * Calculation function: finds the maximum value in a data series,
+ * caching the result. Called via the calculation engine for the 'max'
+ * formula function.
+ *
+ * @param array $array   Reference, the data series to search.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The maximum value, or REPORTIT_NAN if $array is empty.
+ */
 // Maximum
 function f_max(&$array, &$f_cache) {
 	$f_cache['f_max'] = empty($array) ? REPORTIT_NAN : max($array);
@@ -52,6 +91,16 @@ function f_max(&$array, &$f_cache) {
 	return $f_cache['f_max'];
 }
 
+/**
+ * Calculation function: finds the minimum value in a data series,
+ * caching the result. Called via the calculation engine for the 'min'
+ * formula function.
+ *
+ * @param array $array   Reference, the data series to search.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The minimum value, or REPORTIT_NAN if $array is empty.
+ */
 // Minimum
 function f_min(&$array, &$f_cache) {
 	$f_cache['f_min'] = empty($array) ? REPORTIT_NAN : min($array);
@@ -59,6 +108,16 @@ function f_min(&$array, &$f_cache) {
 	return $f_cache['f_min'];
 }
 
+/**
+ * Calculation function: returns the first value in a data series,
+ * caching the result. Called via the calculation engine for the '1st'
+ * formula function.
+ *
+ * @param array $array   Reference, the data series to read from.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The first value, or REPORTIT_NAN if $array is empty.
+ */
 // First measured value
 function f_1st(&$array, &$f_cache) {
 	$f_cache['f_1st'] = empty($array) ? REPORTIT_NAN : reset($array);
@@ -66,6 +125,16 @@ function f_1st(&$array, &$f_cache) {
 	return $f_cache['f_1st'];
 }
 
+/**
+ * Calculation function: returns the last value in a data series,
+ * caching the result. Called via the calculation engine for the 'last'
+ * formula function.
+ *
+ * @param array $array   Reference, the data series to read from.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The last value, or REPORTIT_NAN if $array is empty.
+ */
 // Last measured value
 function f_last(&$array, &$f_cache) {
 	$f_cache['f_last'] = empty($array) ? REPORTIT_NAN : end($array);
@@ -73,6 +142,17 @@ function f_last(&$array, &$f_cache) {
 	return $f_cache['f_last'];
 }
 
+/**
+ * Calculation function: computes the linear-regression gradient (slope)
+ * of a data series against its sample indexes, caching the result.
+ * Called via the calculation engine for the 'grd' formula function.
+ *
+ * @param array $array   Reference, the data series to analyze.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The computed gradient/slope, or REPORTIT_NAN if
+ *              $array is empty.
+ */
 // Gradient
 function f_grd(&$array, &$f_cache) {
 	if (empty($array)) {
@@ -102,6 +182,16 @@ function f_grd(&$array, &$f_cache) {
 	return $f_cache['f_grd'];
 }
 
+/**
+ * Calculation function: computes the median of a data series, caching
+ * the result. Called via the calculation engine for the 'median'
+ * formula function.
+ *
+ * @param array $array   Reference, the data series to analyze.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The median value, or REPORTIT_NAN if $array is empty.
+ */
 // returns the median
 function f_median(&$array, &$f_cache) {
 	if ($f_cache['f_median'] === false) {
@@ -125,6 +215,16 @@ function f_median(&$array, &$f_cache) {
 	return $f_cache['f_median'];
 }
 
+/**
+ * Calculation function: computes the range (max minus min) of a data
+ * series, caching the result. Called via the calculation engine for
+ * the 'range' formula function.
+ *
+ * @param array $array   Reference, the data series to analyze.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The range value, or REPORTIT_NAN if $array is empty.
+ */
 // returns the distance between the highest and lowest measured value
 function f_range(&$array, &$f_cache) {
 	if ($f_cache['f_range'] === false) {
@@ -134,6 +234,17 @@ function f_range(&$array, &$f_cache) {
 	return $f_cache['f_range'];
 }
 
+/**
+ * Calculation function: computes the interquartile range (Q3-Q1) of a
+ * data series, caching the result. Called via the calculation engine
+ * for the 'iqr' formula function.
+ *
+ * @param array $array   Reference, the data series to analyze.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The interquartile range, or REPORTIT_NAN if $array is
+ *              empty.
+ */
 // returns the interquartile range
 function f_iqr(&$array, &$f_cache) {
 	if ($f_cache['f_iqr'] === false) {
@@ -150,6 +261,17 @@ function f_iqr(&$array, &$f_cache) {
 	return $f_cache['f_iqr'];
 }
 
+/**
+ * Calculation function: computes the variance of a data series, caching
+ * the result. Called via the calculation engine for the 'var' formula
+ * function (and internally by f_sd()).
+ *
+ * @param array $array   Reference, the data series to analyze.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The computed variance, or REPORTIT_NAN if $array is
+ *              empty.
+ */
 // returns the variance
 function f_var(&$array, &$f_cache) {
 	if ($f_cache['f_var'] === false) {
@@ -170,6 +292,17 @@ function f_var(&$array, &$f_cache) {
 	return $f_cache['f_var'];
 }
 
+/**
+ * Calculation function: computes the standard deviation of a data
+ * series (via f_var()), caching the result. Called via the calculation
+ * engine for the 'sd' formula function.
+ *
+ * @param array $array   Reference, the data series to analyze.
+ * @param array $f_cache Reference, the per-formula result cache.
+ *
+ * @return float The standard deviation, or REPORTIT_NAN if $array is
+ *              empty or its variance is NaN.
+ */
 // returns the standard deviation
 function f_sd(&$array, &$f_cache) {
 	if ($f_cache['f_sd'] === false) {
@@ -186,6 +319,21 @@ function f_sd(&$array, &$f_cache) {
 
 // ----- Functions with external variables -----
 
+/**
+ * Calculation function: computes the Xth percentile of a sorted data
+ * series. Called via the calculation engine for the 'xth' formula
+ * function.
+ *
+ * @param array $array   Reference, the data series to analyze (sorted
+ *                      in place).
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ * @param float $value   The percentile to compute (0-100 exclusive of
+ *                      0).
+ *
+ * @return float The value at the requested percentile, or REPORTIT_NAN
+ *              if $array is empty or $value is out of range.
+ */
 // Xth percentitle
 function f_xth(&$array, &$p_cache, $value) {
 	if ($value > 100 || $value <= 0) {
@@ -206,6 +354,20 @@ function f_xth(&$array, &$p_cache, $value) {
 	return $p_cache['f_xth'];
 }
 
+/**
+ * Calculation function: sums the amount by which each value in a data
+ * series exceeds a given threshold (values at or below the threshold
+ * contribute nothing). Called via the calculation engine for the 'sot'
+ * formula function.
+ *
+ * @param array $array     Reference, the data series to analyze.
+ * @param array $p_cache   Reference, the per-formula-parameter result
+ *                        cache.
+ * @param float $threshold The threshold value.
+ *
+ * @return float The sum of amounts over the threshold, or REPORTIT_NAN
+ *              if $array is empty.
+ */
 // Sum Over Threshold
 function f_sot(&$array, &$p_cache, $threshold) {
 	if (empty($array)) {
@@ -231,6 +393,19 @@ function f_sot(&$array, &$p_cache, $threshold) {
 	return $p_cache['f_sot'];
 }
 
+/**
+ * Calculation function: computes the percentage of samples in a data
+ * series that exceed a given threshold. Called via the calculation
+ * engine for the 'dot' formula function.
+ *
+ * @param array $array     Reference, the data series to analyze.
+ * @param array $p_cache   Reference, the per-formula-parameter result
+ *                        cache.
+ * @param float $threshold The threshold value.
+ *
+ * @return float The percentage (0-100) of samples exceeding the
+ *              threshold, or REPORTIT_NAN if $array is empty.
+ */
 // Duration Over Threshold
 function f_dot(&$array, &$p_cache, $threshold) {
 	if (empty($array)) {
@@ -255,6 +430,19 @@ function f_dot(&$array, &$p_cache, $threshold) {
 	return $p_cache['f_dot'];
 }
 
+/**
+ * Calculation function: truncates a value to an integer (rounding down,
+ * an alias of f_floor()). Called via the calculation engine for the
+ * 'int' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness (result
+ *                      is otherwise based solely on $value).
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ * @param float $value   The value to truncate.
+ *
+ * @return float The floored value, or REPORTIT_NAN if $array is empty.
+ */
 // Get the integer value <-- should become an alias of 'f_floor'
 function f_int(&$array, &$p_cache, $value) {
 	$p_cache['f_int']   = empty($array) ? REPORTIT_NAN : floor($value);
@@ -263,6 +451,18 @@ function f_int(&$array, &$p_cache, $value) {
 	return $p_cache['f_int'];
 }
 
+/**
+ * Calculation function: rounds a value down to the nearest integer.
+ * Called via the calculation engine for the 'floor' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness (result
+ *                      is otherwise based solely on $value).
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ * @param float $value   The value to floor.
+ *
+ * @return float The floored value, or REPORTIT_NAN if $array is empty.
+ */
 // Round fractions down
 function f_floor(&$array, &$p_cache, $value) {
 	$p_cache['f_floor'] = empty($array) ? REPORTIT_NAN : floor($value);
@@ -271,6 +471,18 @@ function f_floor(&$array, &$p_cache, $value) {
 	return $p_cache['f_floor'];
 }
 
+/**
+ * Calculation function: rounds a value up to the nearest integer.
+ * Called via the calculation engine for the 'ceil' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness (result
+ *                      is otherwise based solely on $value).
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ * @param float $value   The value to ceil.
+ *
+ * @return float The ceiled value, or REPORTIT_NAN if $array is empty.
+ */
 // Round fractions up
 function f_ceil(&$array, &$p_cache, $value) {
 	$p_cache['f_ceil'] = empty($array) ? REPORTIT_NAN : ceil($value);
@@ -278,6 +490,19 @@ function f_ceil(&$array, &$p_cache, $value) {
 	return $p_cache['f_ceil'];
 }
 
+/**
+ * Calculation function: rounds a value to the nearest integer (an alias
+ * of f_round()). Called via the calculation engine for the 'rnd'
+ * formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness (result
+ *                      is otherwise based solely on $value).
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ * @param float $value   The value to round.
+ *
+ * @return float The rounded value, or REPORTIT_NAN if $array is empty.
+ */
 // Get the rounded integer value   <--- should become an alias of 'f_round'
 function f_rnd(&$array, &$p_cache, $value) {
 	$p_cache['f_rnd']   = empty($array) ? REPORTIT_NAN : round($value);
@@ -286,6 +511,18 @@ function f_rnd(&$array, &$p_cache, $value) {
 	return $p_cache['f_rnd'];
 }
 
+/**
+ * Calculation function: rounds a value to the nearest integer. Called
+ * via the calculation engine for the 'round' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness (result
+ *                      is otherwise based solely on $value).
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ * @param float $value   The value to round.
+ *
+ * @return float The rounded value, or REPORTIT_NAN if $array is empty.
+ */
 // Get the rounded integer value
 function f_round(&$array, &$p_cache, $value) {
 	$p_cache['f_round'] = empty($array) ? REPORTIT_NAN : round($value);
@@ -294,6 +531,21 @@ function f_round(&$array, &$p_cache, $value) {
 	return $p_cache['f_round'];
 }
 
+/**
+ * Calculation function: returns the highest of a variadic list of
+ * given numbers (not a data series aggregate). Called via the
+ * calculation engine for the 'high' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the
+ *                      variadic numeric arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return float The highest supplied value, or REPORTIT_NAN if fewer
+ *              than one extra argument was supplied or $array is
+ *              empty.
+ */
 // Get the highest value of a list of given numbers
 function f_high(&$array, &$p_cache) {
 	if (func_num_args() < 3 || empty($array)) {
@@ -307,6 +559,21 @@ function f_high(&$array, &$p_cache) {
 	return $p_cache['f_high'];
 }
 
+/**
+ * Calculation function: returns the lowest of a variadic list of given
+ * numbers (not a data series aggregate). Called via the calculation
+ * engine for the 'low' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the
+ *                      variadic numeric arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return float The lowest supplied value, or REPORTIT_NAN if fewer
+ *              than one extra argument was supplied or $array is
+ *              empty.
+ */
 // Get the lowest values of a list of given numbers
 function f_low(&$array, &$p_cache) {
 	if (func_num_args() < 3 || empty($array)) {
@@ -320,6 +587,21 @@ function f_low(&$array, &$p_cache) {
 	return $p_cache['f_low'];
 }
 
+/**
+ * Calculation function: ternary if/then/else logic - returns the
+ * second extra argument if the first is truthy, otherwise the third.
+ * Called via the calculation engine for the 'if' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the
+ *                      three extra arguments (condition, true-value,
+ *                      false-value) are read via func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed The selected true/false-value argument, or REPORTIT_NAN
+ *              if not exactly 3 extra arguments were supplied or $array
+ *              is empty.
+ */
 // If then else logic .. If arg1 is true then return arg2 else arg3
 function f_if(&$array, &$p_cache) {
 	if (func_num_args() != 5 || empty($array)) {
@@ -332,6 +614,20 @@ function f_if(&$array, &$p_cache) {
 	return $p_cache['f_if'];
 }
 
+/**
+ * Calculation function: 'greater than' comparison with optional
+ * true/false return values, delegating to f_cmp(). Called via the
+ * calculation engine for the 'gt' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the 2-4
+ *                      extra comparison arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed The comparison result (see f_cmp()), or REPORTIT_NAN if
+ *              the argument count is out of range or $array is empty.
+ */
 // 'Greater than' logic supporting predefined return values for true and false
 function f_gt(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
@@ -343,6 +639,20 @@ function f_gt(&$array, &$p_cache) {
 	}
 }
 
+/**
+ * Calculation function: 'lower than' comparison with optional true/
+ * false return values, delegating to f_cmp(). Called via the
+ * calculation engine for the 'lt' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the 2-4
+ *                      extra comparison arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed The comparison result (see f_cmp()), or REPORTIT_NAN if
+ *              the argument count is out of range or $array is empty.
+ */
 // Alias for f_cmp - 'Lower than' logic
 function f_lt(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
@@ -354,6 +664,20 @@ function f_lt(&$array, &$p_cache) {
 	}
 }
 
+/**
+ * Calculation function: 'greater than or equal' comparison with
+ * optional true/false return values, delegating to f_cmp(). Called via
+ * the calculation engine for the 'ge' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the 2-4
+ *                      extra comparison arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed The comparison result (see f_cmp()), or REPORTIT_NAN if
+ *              the argument count is out of range or $array is empty.
+ */
 // Alias for f_cmp - 'Greater than or equal' logic
 function f_ge(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
@@ -365,6 +689,20 @@ function f_ge(&$array, &$p_cache) {
 	}
 }
 
+/**
+ * Calculation function: 'lower than or equal' comparison with optional
+ * true/false return values, delegating to f_cmp(). Called via the
+ * calculation engine for the 'le' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the 2-4
+ *                      extra comparison arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed The comparison result (see f_cmp()), or REPORTIT_NAN if
+ *              the argument count is out of range or $array is empty.
+ */
 // Alias for f_cmp - 'Lower than or equal ' logic
 function f_le(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
@@ -376,6 +714,20 @@ function f_le(&$array, &$p_cache) {
 	}
 }
 
+/**
+ * Calculation function: 'equal' comparison with optional true/false
+ * return values, delegating to f_cmp(). Called via the calculation
+ * engine for the 'eq' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the 2-4
+ *                      extra comparison arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed The comparison result (see f_cmp()), or REPORTIT_NAN if
+ *              the argument count is out of range or $array is empty.
+ */
 // Alias for f_cmp - 'Equal' logic
 function f_eq(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
@@ -387,6 +739,20 @@ function f_eq(&$array, &$p_cache) {
 	}
 }
 
+/**
+ * Calculation function: 'not equal' comparison with optional true/false
+ * return values, delegating to f_cmp(). Called via the calculation
+ * engine for the 'uq' formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the 2-4
+ *                      extra comparison arguments are read via
+ *                      func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed The comparison result (see f_cmp()), or REPORTIT_NAN if
+ *              the argument count is out of range or $array is empty.
+ */
 // Alias for f_cmp - 'Equal' logic
 function f_uq(&$array, &$p_cache) {
 	if (func_num_args() < 4 || func_num_args() > 6 || empty($array)) {
@@ -398,6 +764,28 @@ function f_uq(&$array, &$p_cache) {
 	}
 }
 
+/**
+ * Shared comparison engine backing f_gt()/f_lt()/f_ge()/f_le()/f_eq()/
+ * f_uq(): evaluates 'arg0 OP arg1' (via eval()) for the operator
+ * corresponding to $function, returning 1/0 for a bare boolean result,
+ * or a caller-supplied true-value (and optional false-value) instead.
+ * Called from each of the f_gt/f_lt/f_ge/f_le/f_eq/f_uq wrapper
+ * functions.
+ *
+ * @param array  $array    Reference, only checked for emptiness by the
+ *                        callers; not used directly here.
+ * @param array  $p_cache  Reference, the per-formula-parameter result
+ *                        cache, keyed as 'f_' . $function.
+ * @param string $function The comparison type: 'eq', 'lt', 'gt', 'le',
+ *                        'ge', or 'uq'.
+ * @param array  $args     The comparison operands ($args[0], $args[1])
+ *                        plus optional true-value ($args[2]) and
+ *                        false-value ($args[3]).
+ *
+ * @return mixed The comparison result: 1/0, a supplied true-value/0, or
+ *              a supplied true-value/false-value, depending on how many
+ *              extra arguments were given.
+ */
 // compare function
 function f_cmp(&$array, &$p_cache, $function, $args) {
 	$operators = ['eq' => '==', 'lt' => '<', 'gt' => '>', 'le' => '<=', 'ge' => '>=', 'uq' => '!='];
@@ -419,6 +807,23 @@ function f_cmp(&$array, &$p_cache, $function, $args) {
 	return $p_cache['f_' . $function];
 }
 
+/**
+ * Calculation function: tests whether a value is NaN/null, with
+ * optional true/false return values (mirroring f_cmp()'s argument-count
+ * conventions). Called via the calculation engine for the 'isnan'
+ * formula function.
+ *
+ * @param array $array   Reference, only checked for emptiness; the 1-3
+ *                      extra arguments (value to test, plus optional
+ *                      true/false-value) are read via func_get_args().
+ * @param array $p_cache Reference, the per-formula-parameter result
+ *                      cache.
+ *
+ * @return mixed 1/0, a supplied true-value/0, or a supplied true-value/
+ *              false-value depending on argument count, or REPORTIT_NAN
+ *              if the argument count is out of range or $array is
+ *              empty.
+ */
 function f_isNaN(&$array, &$p_cache) {
 	if (func_num_args() < 3 || func_num_args() > 5 || empty($array)) {
 		$p_cache['f_nan'] = REPORTIT_NAN;
@@ -441,6 +846,18 @@ function f_isNaN(&$array, &$p_cache) {
 	return $p_cache['f_nan'];
 }
 
+/**
+ * Shutdown-function safety net that logs the last-attempted calculation
+ * formula if the script terminated abnormally (e.g. a fatal error
+ * inside an eval() call in f_cmp()/calculate()), aiding diagnosis of
+ * bad measurand formulas. Registered once (via calculate()) as a PHP
+ * shutdown function.
+ *
+ * @return void
+ *
+ * @global string $calculate_last_formula The most recently attempted
+ *                                       formula string, if any.
+ */
 function calculate_handler() {
 	global $calculate_last_formula;
 
@@ -454,6 +871,46 @@ function calculate_handler() {
 global $calculate_handler_set, $calculate_last_formula;
 
 // Normal way of calculation
+/**
+ * Core calculation engine: for every measurand formula and every RRA
+ * (Round Robin Archive)/data-source combination, substitutes in
+ * RRA-specific variables (maxValue/maxRRDValue) and report variable
+ * values, then evaluates the resulting formula (via eval()) against the
+ * extracted RRD data to produce each measurand's final result,
+ * registering a shutdown-time error handler to log any formula that
+ * causes a fatal evaluation error. Called from runtime() once report
+ * data extraction is complete, to compute every report measurand's
+ * value.
+ *
+ * @param array $data      Reference, the extracted/prepared RRD data
+ *                         series to calculate against.
+ * @param array $params    Reference, calculation parameters (RRA
+ *                         indexes, data source count/names, etc.).
+ * @param array $variables Reference, the report's resolved variable
+ *                         name => value substitutions.
+ * @param array $df_cache  Reference, the initial 'functions' cache
+ *                         state (per-RRA copy seeded from this).
+ * @param array $dm_cache  Reference, the map of measurand id => formula
+ *                         string to evaluate.
+ * @param array $dr_cache  Reference, the initial 'interim results'
+ *                         cache state.
+ * @param array $dp_cache  Reference, the initial 'functions with
+ *                         parameters' cache state.
+ * @param array $ds_cache  Reference, the initial 'spanned metrics'
+ *                         cache state.
+ *
+ * @return array The computed results, keyed by data-source/RRA and
+ *              measurand id.
+ *
+ * @global bool   $calculate_handler_set    Whether the shutdown error
+ *                                         handler has already been
+ *                                         registered, to avoid
+ *                                         double-registration.
+ * @global string $calculate_last_formula   Updated with the formula
+ *                                         currently being evaluated,
+ *                                         for calculate_handler() to
+ *                                         report on fatal errors.
+ */
 function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_cache, &$dp_cache, &$ds_cache) {
 	$results = [];
 

@@ -29,6 +29,14 @@ function api_reportit_disable_report($id) {
 		[$id]);
 }
 
+/**
+ * Enables scheduling for a report. Called from the report list's bulk
+ * 'enable' action.
+ *
+ * @param int $id The plugin_reportit_reports id to enable.
+ *
+ * @return void
+ */
 function api_reportit_enable_report($id) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET enabled = "on"
@@ -36,6 +44,15 @@ function api_reportit_enable_report($id) {
 		[$id]);
 }
 
+/**
+ * Deletes a report and all of its associated data (presets, run
+ * variables, recipients, data items) as well as its dedicated results
+ * table. Called from the report list's bulk 'delete' action.
+ *
+ * @param int $id The plugin_reportit_reports id to delete.
+ *
+ * @return void
+ */
 function api_reportit_delete_report($id) {
 	$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_data_items
@@ -50,6 +67,19 @@ function api_reportit_delete_report($id) {
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_results_' . $id);
 }
 
+/**
+ * Duplicates a report as a new report, copying its data items, preset
+ * settings, and recipient list, with the new name derived from a
+ * caller-supplied title format containing a '<report_title>'
+ * placeholder. Called from the report list's bulk 'duplicate' action.
+ *
+ * @param int    $id       The plugin_reportit_reports id to duplicate.
+ * @param string $addition The title format for the new report's name,
+ *                         with '<report_title>' replaced by the
+ *                         original report's name.
+ *
+ * @return void
+ */
 function api_reportit_duplicate_report($id, $addition) {
 	// ================= input validation =================
 	input_validate_input_number($id);
@@ -103,6 +133,15 @@ function api_reportit_duplicate_report($id, $addition) {
 	}
 }
 
+/**
+ * Launches a background poller_reportit.php process to run a single
+ * report immediately. Called from the report list's/report edit
+ * page's 'run now' action.
+ *
+ * @param int $id The plugin_reportit_reports id to run.
+ *
+ * @return void
+ */
 function api_reportit_run_report($id) {
 	$php_binary = read_config_option('path_php_binary');
 
@@ -115,10 +154,31 @@ function api_reportit_run_report($id) {
 	}
 }
 
+/**
+ * Transfers ownership of a report to a different user. Called from the
+ * report list's/report edit page's ownership-transfer action.
+ *
+ * @param int $id   The plugin_reportit_reports id whose owner is being
+ *                  changed.
+ * @param int $user The user id to assign as the new owner.
+ *
+ * @return void
+ */
 function api_reportit_take_ownership($id, $user) {
 	db_execute_prepared('UPDATE plugin_reportit_reports SET user_id = ? WHERE id = ?', [$user, $id]);
 }
 
+/**
+ * Removes one or more data source items from a report's RRD/graph item
+ * list. Called from the report's items tab bulk 'delete' action.
+ *
+ * @param int   $id    The report id whose data items should be
+ *                      removed from.
+ * @param array $items The list of plugin_reportit_data_items ids to
+ *                      remove.
+ *
+ * @return void
+ */
 function api_reportit_remove_data_sources($id, $items) {
 	$rrdlist_datas = db_fetch_assoc_prepared('SELECT id
 		FROM plugin_reportit_data_items
@@ -136,6 +196,16 @@ function api_reportit_remove_data_sources($id, $items) {
 	}
 }
 
+/**
+ * Adds newly selected RRD/graph items to a report's data item list,
+ * applying the report's configured item presets (or a minimal default
+ * row set if no presets exist) to each newly inserted item. Called from
+ * the report's items tab 'add' action.
+ *
+ * @param int $id The report id to add data source items to.
+ *
+ * @return void
+ */
 function api_reportit_add_data_source($id) {
 	$enable_tmz	 = read_config_option('reportit_use_tmz');
 	$tmz		       = ($enable_tmz) ? "'GMT'" : "'" . date('T') . "'";
@@ -175,6 +245,19 @@ function api_reportit_add_data_source($id) {
 	db_execute("REPLACE INTO plugin_reportit_data_items ($columns) VALUES $rrd");
 }
 
+/**
+ * Bulk-updates the timespan fields (start/end day and time, timezone)
+ * on all of a report's data items from a single reference item's
+ * values. Called from the report's items tab 'apply to all' action.
+ *
+ * @param int    $id               The report id whose data items should
+ *                                 be updated.
+ * @param string $reference_items  A serialized array whose first
+ *                                 element supplies the reference
+ *                                 timespan values.
+ *
+ * @return void
+ */
 function api_reportit_update_data_source($id, $reference_items) {
 	$reference_items = unserialize(stripslashes($reference_items), ['allowed_classes' => false]);
 

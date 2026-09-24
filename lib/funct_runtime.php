@@ -37,6 +37,26 @@ function create_result_table($report_id) {
 		[$report_id]);
 }
 
+/**
+ * Gathers the full set of information needed to run a report: the
+ * report row, its data items (with resolved max RRD/high-speed
+ * values), its template, its measurands (and their used consolidation
+ * functions), its saved variable values, and the underlying data
+ * template's RRD source type/step/RRA definitions. Called from
+ * runtime() at the start of a report run.
+ *
+ * @param int $report_id The plugin_reportit_reports id to gather
+ *                       definitions for.
+ *
+ * @return array The assembled report definitions: report, data_items,
+ *              high_counters, maxRRDValues, template, measurands,
+ *              variables, cf, ds_items.
+ *
+ * @global array $consolidation_functions Map of RRA consolidation
+ *                                       function identifiers, used to
+ *                                       resolve each measurand's
+ *                                       consolidation function label.
+ */
 function get_report_definitions($report_id) {
 	global $consolidation_functions;
 
@@ -197,6 +217,16 @@ function get_report_definitions($report_id) {
 	return $report_definitions;
 }
 
+/**
+ * Converts a localized weekday name (Monday-Sunday) into its ISO-8601
+ * numeric day-of-week (1-7). Called from schedule/timespan calculation
+ * code when a weekday is specified by name.
+ *
+ * @param string $day The localized weekday name to convert.
+ *
+ * @return int|null The ISO-8601 day number (1=Monday..7=Sunday), or
+ *                  null if $day doesn't match a known weekday name.
+ */
 function day_to_number($day) {
 	switch($day) {
 		case __('Monday', 'reportit'):
@@ -230,6 +260,34 @@ function day_to_number($day) {
 	}
 }
 
+/**
+ * Classifies a report's requested time range against the underlying
+ * RRD's actual stored range/step and DST support, computing weekday
+ * inclusion vectors and other parameters needed to extract the correct
+ * subset of RRD samples for the requested shift/timespan combination.
+ * Called from get_prepared_data() while assembling a report's raw RRD
+ * data extraction plan.
+ *
+ * @param string $startday        The report's starting weekday name.
+ * @param string $endday          The report's ending weekday name.
+ * @param int    $f_sp             The first data point's start time.
+ * @param int    $l_sp             The last data point's start time.
+ * @param int    $e_hour           The report's end hour.
+ * @param int    $shift_duration   The report's shift duration in
+ *                                seconds.
+ * @param int    $rrd_sp           The RRD's actual first data point
+ *                                time.
+ * @param int    $rrd_ep           The RRD's actual last data point
+ *                                time.
+ * @param int    $rrd_step         The RRD's step size in seconds.
+ * @param int    $rrd_ds_cnt       The number of data sources in the
+ *                                RRD.
+ * @param bool   $dst_support      Whether DST-aware time handling is
+ *                                enabled.
+ *
+ * @return array The computed request-type/adaptation parameters used to
+ *              extract the requested data subset from the RRD.
+ */
 function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_duration,
 	$rrd_sp, $rrd_ep, $rrd_step, $rrd_ds_cnt, $dst_support) {
 	/**
@@ -471,6 +529,35 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
 	return $rrd_ad_data;
 }
 
+/**
+ * Extracts and normalizes the actual subset of raw RRD sample values a
+ * report needs (per computed shift/step indexes from
+ * get_type_of_request()), applying start/end counter-correction
+ * factors for 'Counter' type data sources so partial-interval samples
+ * aren't misrepresented. Called from runtime() while assembling a
+ * report's calculation input data.
+ *
+ * @param array $rrd_data          Reference, the raw RRD sample values
+ *                                (by absolute index).
+ * @param array $rrd_ad_data       Reference, the index/step adaptation
+ *                                plan produced by get_type_of_request().
+ * @param int   $rrd_ds_cnt        The number of data sources in the
+ *                                RRD.
+ * @param int   $ds_type           The data source type (2 = Counter,
+ *                                requiring correction factors).
+ * @param float $corr_factor_start The correction factor to apply to the
+ *                                first sample of a Counter series.
+ * @param float $corr_factor_end   The correction factor to apply to the
+ *                                last sample of a Counter series.
+ * @param array $ds_namv           Reference, the map of data source
+ *                                index => name, used to select which
+ *                                indexes to process.
+ * @param mixed $rrd_nan           Reference, reserved for signaling/
+ *                                tracking NaN sample handling.
+ *
+ * @return array The extracted, corrected data values per data source
+ *              index, ready for calculation.
+ */
 function get_prepared_data(&$rrd_data, &$rrd_ad_data, $rrd_ds_cnt, $ds_type, $corr_factor_start, $corr_factor_end, &$ds_namv, &$rrd_nan) {
 	for ($i = 0; $i < $rrd_ds_cnt; $i++) {
 		if (!array_key_exists($i, $ds_namv)) {
@@ -523,11 +610,42 @@ function get_prepared_data(&$rrd_data, &$rrd_ad_data, $rrd_ds_cnt, $ds_type, $co
 	return $data;
 }
 
+/**
+ * Normalizes a raw RRD text-fetch value string (comma decimal separator
+ * tolerant) into a float, or the plugin's NaN sentinel if not numeric.
+ * Called via array_walk() from transform() to normalize every raw RRD
+ * sample value.
+ *
+ * @param string $value Reference, the raw value to normalize in place.
+ *
+ * @return void
+ */
 function strtoNaN(&$value) {
 	$value = str_replace(',', '.', $value);
 	$value = (is_numeric($value)) ? doubleval($value) : REPORTIT_NAN;
 }
 
+/**
+ * Parses the raw text output of an rrdtool 'fetch' command into a
+ * structured array (data source names/count, start/end/step, and the
+ * flattened numeric sample values with timestamps stripped and NaN
+ * normalization applied), inferring the step size from the template's
+ * RRA definitions when only a single timestamp was returned. Called
+ * from runtime() after fetching a data source's raw RRD data.
+ *
+ * @param string $data     Reference, the raw rrdtool fetch text output;
+ *                        replaced with intermediate working state
+ *                        during parsing.
+ * @param array  $rrd_data Reference, populated with the parsed result
+ *                        (ds_namv, ds_cnt, start, end, step, data).
+ * @param array  $template Reference, the report's template info,
+ *                        providing RRA/step definitions used to infer
+ *                        the step size when needed.
+ *
+ * @return bool|void False if the fetched data is empty/malformed,
+ *                   otherwise no explicit return (result is populated
+ *                   into $rrd_data by reference).
+ */
 function transform(&$data, &$rrd_data, &$template) {
 	// Transform into the 'normal' form:
 	$ds_names = substr($data, 0, strpos($data, PHP_EOL));
@@ -606,6 +724,15 @@ function transform(&$data, &$rrd_data, &$template) {
 	array_walk($rrd_data['data'], 'strtoNaN');
 }
 
+/**
+ * Determines whether the server's configured timezone observes
+ * Daylight Saving Time (i.e. is not UTC/GMT/UCT), used to decide
+ * whether DST-aware timespan calculations are needed. Called from
+ * report timespan calculation code.
+ *
+ * @return bool True if the timezone may observe DST, false for
+ *             UTC/GMT/UCT.
+ */
 function check_DST_support() {
 	$tmz    = date('T');
 	$return = ($tmz == 'UTC' || $tmz == 'GMT' || $tmz == 'UCT') ? false : true;
@@ -613,9 +740,37 @@ function check_DST_support() {
 	return $return;
 }
 
+/**
+ * Validates an RRA header/definition array. Not yet implemented
+ * (no-op placeholder). Reserved for future RRA-consistency validation
+ * during report execution.
+ *
+ * @param array $rra_data Reference, the RRA header data to validate.
+ *
+ * @return void
+ */
 function check_rra_header(&$rra_data) {
 }
 
+/**
+ * Builds a report's scheduled-delivery notification: generates its
+ * export attachment (in the report's configured format) to a temp
+ * file, composes the subject/body with placeholder substitution, and
+ * dispatches it via Cacti's report logging/notification pipeline
+ * (reports_log_and_notify()), cleaning up the temp attachment file
+ * afterward. Called from runtime()/send_scheduled_email() when a report
+ * run needs to send its results by email.
+ *
+ * @param int       $report_id  The plugin_reportit_reports id to email.
+ * @param int       $queue_id   The queue id this notification belongs
+ *                             to.
+ * @param int|false $start_time The Unix timestamp the run started at,
+ *                             for logging.
+ *
+ * @return mixed The result of reports_log_and_notify(), or the string
+ *              'Export Failed' if the report's data couldn't be
+ *              retrieved.
+ */
 function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start_time = false) {
 	$report = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
@@ -695,6 +850,19 @@ function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start
 	return $result;
 }
 
+/**
+ * Sends a report's completed run results to its configured recipients
+ * by email, using the report's stored subject/body/format settings.
+ * Called from runtime() after a report has finished generating when
+ * email delivery is enabled for it.
+ *
+ * @param int $id        The email/notification tracking id (queue-
+ *                       related).
+ * @param int $report_id The plugin_reportit_reports id whose results
+ *                       should be emailed.
+ *
+ * @return mixed The result of the underlying notification dispatch.
+ */
 function send_scheduled_email($id, $report_id) {
 	$start_time = microtime(true);
 

@@ -80,6 +80,21 @@ function html_calc_syntax($measurand_id, $template_id) {
 	return $output;
 }
 
+/**
+ * Builds the form field definitions for a report's user-configurable
+ * variables (using stored per-report values where set, falling back to
+ * each variable's default), rendering either a stepped drop-down or a
+ * free-text box per the variable's configured input type. Called when
+ * rendering the report run/edit form's variable inputs.
+ *
+ * @param int $report_id  The report id whose stored variable values (if
+ *                       any) should be used.
+ * @param int $template_id The report's template id, whose variable
+ *                       definitions are used.
+ *
+ * @return array|false The form field definitions array, or false if
+ *                     the template defines no variables.
+ */
 function html_report_variables($report_id, $template_id) {
 	// Define some variables
 	$array           = [];
@@ -231,20 +246,70 @@ function html_template_ds_alias($template_id, $data_template_id) {
 	return $form_array_alias;
 }
 
+/**
+ * Renders one of two Font Awesome icons based on a boolean-ish 'on'/
+ * other value, with the corresponding tooltip title. Called from
+ * html_lock_icon()/html_check_icon() and other status-icon renderers.
+ *
+ * @param string $value     The value to test ('on' selects the 'on'
+ *                         icon).
+ * @param string $class_on  The Font Awesome class to use when $value is
+ *                         'on'.
+ * @param string $title_on  The tooltip title to use when $value is
+ *                         'on'.
+ * @param string $class_off The Font Awesome class to use otherwise.
+ * @param string $title_off The tooltip title to use otherwise.
+ *
+ * @return string The rendered &lt;i&gt; icon HTML.
+ */
 function html_onoff_icon($value, $class_on, $title_on, $class_off, $title_off) {
 	return $value == 'on'
 		? "<i class='fa $class_on' ria-hidden='true' title='$title_on'></i>"
 		: "<i class='fa $class_off' ria-hidden='true' title='$title_off'></i>";
 }
 
+/**
+ * Renders a lock/unlock status icon. Called when displaying a
+ * template's locked/unlocked state.
+ *
+ * @param string $value    The value to test ('on' means locked).
+ * @param string $title_on  The tooltip title when locked.
+ * @param string $title_off The tooltip title when unlocked.
+ *
+ * @return string The rendered lock/unlock icon HTML.
+ */
 function html_lock_icon($value, $title_on = 'Locked', $title_off = 'Unlocked') {
 	return html_onoff_icon($value, 'fa-lock', $title_on, 'fa-lock-open', $title_off);
 }
 
+/**
+ * Renders a check/cross status icon. Called when displaying a simple
+ * yes/no boolean field.
+ *
+ * @param string $value    The value to test ('on' means yes/checked).
+ * @param string $title_on  The tooltip title when checked.
+ * @param string $title_off The tooltip title when unchecked.
+ *
+ * @return string The rendered check/cross icon HTML.
+ */
 function html_check_icon($value, $title_on = 'Yes', $title_off = 'No') {
 	return html_onoff_icon($value, 'fa-check deviceUp', $title_on, 'fa-times deviceDown', $title_off);
 }
 
+/**
+ * Renders a data-sources status icon with an optional count suffix.
+ * Called when displaying how many data source items are
+ * enabled/associated with a template.
+ *
+ * @param array|int $values   The data source count, or an array whose
+ *                           count will be used.
+ * @param string    $title_on  The tooltip title to use.
+ * @param string    $title_off The tooltip title to use when there are
+ *                           no sources.
+ *
+ * @return string The rendered icon HTML, with a '(N)' count suffix
+ *               when applicable.
+ */
 function html_sources_icon($values, $title_on, $title_off) {
 	if (is_array($values)) {
 		$values = count($values);

@@ -87,6 +87,14 @@ switch (get_request_var('action')) {
 		break;
 }
 
+/**
+ * Renders the first step of the new-report wizard: a template-selection
+ * form, listing only unlocked/enabled templates (raising an error and
+ * redirecting away if none are available). Called from this script's
+ * main request-dispatch switch when action=report_wizard.
+ *
+ * @return void
+ */
 function report_wizard() {
 	$templates_list = [];
 	$templates      = [];
@@ -142,6 +150,17 @@ function report_wizard() {
 	form_end();
 }
 
+/**
+ * Renders the Reports list's filter box (row-count selector and text
+ * filter input) along with its supporting client-side JS handlers for
+ * applying/clearing the filter. Called from standard() before
+ * rendering the report list table.
+ *
+ * @return void
+ *
+ * @global array $item_rows Cacti's standard row-count option list,
+ *                         used to populate the rows-per-page dropdown.
+ */
 function report_filter() {
 	global $item_rows;
 
@@ -224,6 +243,29 @@ function report_filter() {
 	html_end_box();
 }
 
+/**
+ * Renders the main Reports list page: validates/stores this view's
+ * filter request variables (rows, page, text filter, sort), renders
+ * the filter box, then queries and displays a sortable/paginated table
+ * of reports the current user is permitted to see, along with each
+ * report's schedule/state info and the bulk-actions dropdown. Called
+ * from this script's main request-dispatch switch as the default view.
+ *
+ * @return void
+ *
+ * @global array $report_actions             Map of drp_action value =>
+ *                                          action label, used for the
+ *                                          bulk-actions dropdown.
+ * @global array $minutes                    Option list of minute
+ *                                          values used in schedule
+ *                                          displays.
+ * @global array $report_states              Map of report state code
+ *                                          => display label.
+ * @global array $sched_types                Map of schedule type code
+ *                                          => display label.
+ * @global array $report_schedule_frequency  Map of schedule frequency
+ *                                          code => display label.
+ */
 function standard() {
 	global $report_actions, $minutes, $report_states, $sched_types, $report_schedule_frequency;
 
@@ -486,6 +528,14 @@ function standard() {
 	form_end();
 }
 
+/**
+ * Removes a single email recipient from a report (after verifying the
+ * current user is authorized to edit that report) and redirects back
+ * to the report's email tab. Called from this script's main
+ * request-dispatch switch when action=remove_recipient.
+ *
+ * @return void
+ */
 function remove_recipient() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -505,6 +555,45 @@ function remove_recipient() {
 	exit;
 }
 
+/**
+ * Top-level POST handler for the report edit form: validates access to
+ * the target report, then, based on which sub-tab (general/presets/
+ * admin/email/items) was submitted, persists the corresponding subset
+ * of report configuration (metadata, timespan/schedule presets,
+ * ownership/permissions, email recipients, or included RRD/graph
+ * items). Called from this script's main request-dispatch switch when
+ * action=save.
+ *
+ * @return void
+ *
+ * @global array $templates      Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global array $timespans      Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global array $frequency      Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global mixed $timezone       Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global mixed $shifttime      Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global mixed $shifttime2     Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global mixed $weekday        Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global mixed $format         Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ * @global array $add_recipients Reserved/declared for use by included
+ *                               form-rendering code; not set directly
+ *                               here.
+ */
 function form_save() {
 	global $templates, $timespans, $frequency, $timezone, $shifttime, $shifttime2, $weekday, $format, $add_recipients;
 
@@ -899,6 +988,60 @@ function form_save() {
 	raise_message(1);
 }
 
+/**
+ * Renders the tabbed report edit page (general/presets/admin/email/
+ * items tabs) for a report the current user is authorized to edit,
+ * defaulting to the 'general' tab. Called from this script's main
+ * request-dispatch switch when action=report_edit.
+ *
+ * @return void
+ *
+ * @global array $templates            Available report templates,
+ *                                     used to populate the general
+ *                                     tab.
+ * @global array $timespans            Timespan option list used by
+ *                                     the presets tab.
+ * @global array $graph_timespans      Graph timespan option list used
+ *                                     by the presets tab.
+ * @global array $frequency            Schedule frequency option list
+ *                                     used by the presets tab.
+ * @global mixed $archive               Reserved/declared for use by
+ *                                     included tab-rendering code; not
+ *                                     set directly here.
+ * @global array $tabs                  The tab definitions rendered
+ *                                     at the top of the page.
+ * @global mixed $weekday               Reserved/declared for use by
+ *                                     included tab-rendering code; not
+ *                                     set directly here.
+ * @global mixed $timezone              Reserved/declared for use by
+ *                                     included tab-rendering code; not
+ *                                     set directly here.
+ * @global mixed $shifttime             Reserved/declared for use by
+ *                                     included tab-rendering code; not
+ *                                     set directly here.
+ * @global mixed $shifttime2            Reserved/declared for use by
+ *                                     included tab-rendering code; not
+ *                                     set directly here.
+ * @global mixed $format                Reserved/declared for use by
+ *                                     included tab-rendering code; not
+ *                                     set directly here.
+ * @global array $form_array_admin      Field definitions for the admin
+ *                                     tab.
+ * @global array $form_array_presets    Field definitions for the
+ *                                     presets tab.
+ * @global array $form_array_general    Field definitions for the
+ *                                     general tab.
+ * @global array $form_array_email      Field definitions for the email
+ *                                     tab.
+ * @global array $rrdlist_actions       Bulk-action definitions for the
+ *                                     items tab's RRD list.
+ * @global array $link_array            Reserved/declared for use by
+ *                                     included tab-rendering code; not
+ *                                     set directly here.
+ * @global array $item_rows             Cacti's standard row-count
+ *                                     option list, used on the items
+ *                                     tab.
+ */
 function report_edit() {
 	global $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs;
 	global $weekday, $timezone, $shifttime, $shifttime2, $format;
@@ -1547,6 +1690,24 @@ function report_edit() {
 	}
 }
 
+/**
+ * Renders the RRD/graph item editor for a report (after verifying
+ * access to the report), letting the user add/configure the individual
+ * RRD data items included in the report's 'items' tab. Called from
+ * report_edit()'s items tab / this script's main request-dispatch
+ * switch when action=rrdlist_edit.
+ *
+ * @return void
+ *
+ * @global mixed $timezone   Reserved/declared for use by included
+ *                          form-rendering code; not set directly here.
+ * @global mixed $shifttime  Reserved/declared for use by included
+ *                          form-rendering code; not set directly here.
+ * @global mixed $shifttime2 Reserved/declared for use by included
+ *                          form-rendering code; not set directly here.
+ * @global mixed $weekday    Reserved/declared for use by included
+ *                          form-rendering code; not set directly here.
+ */
 function rrdlist_edit() {
 	global $timezone, $shifttime, $shifttime2, $weekday;
 
@@ -1692,6 +1853,26 @@ function rrdlist_edit() {
 	form_save_button('reportit.php?action=report_edit&tab=items&id=' . get_request_var('report_id'));
 }
 
+/**
+ * Handles the bulk-action confirmation page/submission for either the
+ * Reports list or a report's RRD items list (which list depends on the
+ * current 'tab'): on first display, renders a confirmation box listing
+ * the selected items; on confirmed submission, performs the selected
+ * action (e.g. delete, enable/disable) for each item and redirects back
+ * to the appropriate view. Called from this script's main
+ * request-dispatch switch when action=actions.
+ *
+ * @return void
+ *
+ * @global array $report_actions  Map of drp_action value => action
+ *                                label, used for the Reports list bulk
+ *                                actions.
+ * @global array $report_states   Map of report state code => display
+ *                                label.
+ * @global array $rrdlist_actions Map of drp_action value => action
+ *                                label, used for the RRD items list
+ *                                bulk actions.
+ */
 function form_actions() {
 	global $report_actions, $report_states, $rrdlist_actions;
 
