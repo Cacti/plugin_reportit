@@ -149,6 +149,29 @@ if ($schedule == true) {
 	run_report($run_id, $queue_id);
 }
 
+/**
+ * Top-level entry point for running a single ReportIt report: looks up
+ * the report, checks whether its template is locked (via
+ * get_template_status()) and aborts if so, delegates to runtime() to
+ * actually generate it, logs summary stats, and records the report's
+ * last-run timestamp/duration before exiting. Called from this
+ * script's main flow when invoked with a specific '--id' (report id).
+ *
+ * @param int $report_id The plugin_reportit_reports id to run.
+ * @param int $queue_id  The queue id this report run belongs to (0 for
+ *                       an ad-hoc/manual run).
+ *
+ * @return void This function calls exit() and never returns normally.
+ *
+ * @global bool $run_verb        Whether verbose poller logging is
+ *                               enabled, passed to cacti_log().
+ * @global int  $email_counter   Accumulates the number of emails sent
+ *                               during this report run, for the
+ *                               summary log line.
+ * @global int  $export_counter  Accumulates the number of exports
+ *                               performed during this report run, for
+ *                               the summary log line.
+ */
 function run_report($report_id, $queue_id = 0) {
 	global $run_verb, $email_counter, $export_counter;
 
@@ -198,6 +221,51 @@ function run_report($report_id, $queue_id = 0) {
 	exit(0);
 }
 
+/**
+ * Logs a runtime error/warning/notice message for a report/data-item
+ * run, selecting the message template by code and substituting in the
+ * report/data-item ids and an optional extra notice string, and (when
+ * not running as a scheduled/background job) appends a rendered
+ * version of the message to the return output shown to the requesting
+ * user. Called throughout runtime() and its helpers whenever a
+ * reportable error/warning condition occurs.
+ *
+ * @param int    $code   The runtime_messages template code identifying
+ *                       which message to log.
+ * @param int    $RID    The report id involved, substituted into the
+ *                       message template.
+ * @param int    $DID    The data-item id involved (if any), substituted
+ *                       into the message template.
+ * @param string $notice An optional extra notice string substituted
+ *                       into the message template.
+ *
+ * @return void
+ *
+ * @global bool   $run_verb                Whether verbose poller
+ *                                         logging is enabled, passed to
+ *                                         cacti_log().
+ * @global bool   $run_scheduled           Whether this run is a
+ *                                         scheduled/background job;
+ *                                         when true, the rendered
+ *                                         message is not appended to
+ *                                         $run_return.
+ * @global array  $run_return              Accumulates rendered output
+ *                                         messages for interactive
+ *                                         (non-scheduled) runs.
+ * @global array  $run_search              The list of placeholder
+ *                                         tokens to replace in each
+ *                                         message template.
+ * @global array  $runtime_messages        The message template array,
+ *                                         keyed by $code.
+ * @global string $PATH_RID_LOG            Log-oriented report-id link
+ *                                         template fragment.
+ * @global string $PATH_DID_LOG            Log-oriented data-item-id
+ *                                         link template fragment.
+ * @global string $PATH_RID_VIEW           View-oriented report-id link
+ *                                         template fragment.
+ * @global string $PATH_DID_VIEW           View-oriented data-item-id
+ *                                         link template fragment.
+ */
 function run_error($code, $RID = 0, $DID = 0, $notice = '') {
 	global $run_verb, $run_scheduled, $run_return, $run_search, $runtime_messages,
 	$PATH_RID_LOG, $PATH_DID_LOG, $PATH_RID_VIEW, $PATH_DID_VIEW;
@@ -230,6 +298,56 @@ function run_error($code, $RID = 0, $DID = 0, $notice = '') {
 	}
 }
 
+/**
+ * Core report-generation engine: acquires a per-report process lock,
+ * marks the report as in-process, opens an rrdtool pipe, and drives the
+ * full report build (data source/RRA collection, calculations,
+ * rendering, and any configured email/export delivery) for the given
+ * report. Called from run_report() once its template/report lookup has
+ * succeeded.
+ *
+ * @param int $report_id  The plugin_reportit_reports id to generate.
+ * @param int $queue_id   The queue id this report run belongs to.
+ * @param int $start_time The Unix timestamp this run started at, used
+ *                        for logging/statistics.
+ *
+ * @return void
+ *
+ * @global array $timezones                Map of timezone identifiers
+ *                                         used when rendering
+ *                                         timestamps.
+ * @global bool  $run_scheduled            Whether this run is a
+ *                                         scheduled/background job
+ *                                         (affects execution time
+ *                                         limits and error output
+ *                                         behavior).
+ * @global array $run_return               Accumulates rendered output
+ *                                         messages for interactive
+ *                                         runs.
+ * @global array $consolidation_functions  Map of RRA consolidation
+ *                                         function identifiers used
+ *                                         when reading RRD data.
+ * @global mixed $rrdtool_api              The RRDtool API handle/mode
+ *                                         in use.
+ * @global mixed $socket_handle            The RRDtool pipe/socket
+ *                                         handle used for RRD reads.
+ * @global array $calc_fct_names           The list of available
+ *                                         calculation function names.
+ * @global array $calc_fct_names_params    Map of calculation function
+ *                                         name => parameter
+ *                                         definitions.
+ * @global array $calc_fct_aliases         Map of calculation function
+ *                                         alias => canonical name.
+ * @global mixed $error                    Reserved/declared for parity
+ *                                         with helper functions; not
+ *                                         used directly here.
+ * @global int   $email_counter            Accumulates the number of
+ *                                         emails sent during this
+ *                                         report run.
+ * @global int   $export_counter           Accumulates the number of
+ *                                         exports performed during this
+ *                                         report run.
+ */
 function runtime($report_id, $queue_id, $start_time = 0) {
 	global $timezones, $run_scheduled, $run_return, $consolidation_functions;
 	global $rrdtool_api, $socket_handle, $calc_fct_names, $calc_fct_names_params;
@@ -857,11 +975,15 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 }
 
 /**
- * function autorrdlist
- * deletes all rrdlist entries that are no longer existing
- * adds all items defined by Device Template Filter and Data Source Filter
+ * Rebuilds a report's list of data items: removes any rrdlist entries
+ * that no longer exist, then re-adds all items currently matching the
+ * report's configured Device Template Filter and Data Source Filter.
+ * Called from runtime() before a report is generated.
  *
- * @param unknown_type $reportid
+ * @param int $reportid The plugin_reportit_reports id to rebuild the
+ *                      data item list for.
+ *
+ * @return void
  */
 function autorrdlist($reportid) {
 	global $timezone, $shifttime, $shifttime2, $weekday;
@@ -1052,10 +1174,15 @@ function autorrdlist($reportid) {
 }
 
 /**
- * autocleanup()
- * removes automatically all data items which do not exist any longer
- * @param int $report_id contains the report identifier
- * @return
+ * Removes a report's data items whose underlying data source no
+ * longer exists (left-joined against data_template_data and matched on
+ * a null name_cache). Called from runtime() before a report is
+ * generated.
+ *
+ * @param int $report_id The plugin_reportit_reports id to clean up
+ *                       data items for.
+ *
+ * @return void
  */
 function autocleanup($report_id) {
 	$data_items = db_custom_fetch_flat_string("SELECT a.id
@@ -1073,6 +1200,18 @@ function autocleanup($report_id) {
 	}
 }
 
+/**
+ * Automatically exports a completed report's output file to its
+ * configured export folder (report-specific, template-specific, or the
+ * global default), creating the destination directory structure as
+ * needed. Called from runtime() after a report has finished generating
+ * when auto-export is enabled for it.
+ *
+ * @param int $report_id The plugin_reportit_reports id whose output
+ *                       should be exported.
+ *
+ * @return void
+ */
 function autoexport($report_id) {
 	// load report settings
 	$report_settings = db_fetch_row_prepared('SELECT *
@@ -1227,6 +1366,13 @@ function display_version() {
 	print "ReportIt Main Poller, Version $version, " . COPYRIGHT_YEARS . PHP_EOL;
 }
 
+/**
+ * Prints the version banner followed by this script's command-line
+ * usage summary. Called when invoked with '--help'/'-h' or with
+ * invalid/missing arguments.
+ *
+ * @return void
+ */
 function display_help() {
 	display_version();
 

@@ -70,6 +70,18 @@ switch (get_request_var('action')) {
 		break;
 }
 
+/**
+ * Exports a single report's (live or archived) data table in the
+ * requested format (CSV/XML/etc.), streaming it as a downloadable file
+ * with the appropriate content type. Called from this script's main
+ * request-dispatch switch when action=actions.
+ *
+ * @return void
+ *
+ * @global array $export_formats Reserved/declared for parity with
+ *                               other functions in this file; not used
+ *                               directly here.
+ */
 function export() {
 	global $export_formats;
 
@@ -124,6 +136,18 @@ function export() {
 	print $output;
 }
 
+/**
+ * Renders the main Report Viewer list page: validates/stores this
+ * view's filter request variables, then queries and displays a
+ * sortable/paginated table of reports the current user is permitted to
+ * view, each linking to its rendered output. Called from this script's
+ * main request-dispatch switch as the default view.
+ *
+ * @return void
+ *
+ * @global array $item_rows Cacti's standard row-count option list, used
+ *                         to populate the rows dropdown.
+ */
 function standard() {
 	global $item_rows;
 
@@ -361,6 +385,18 @@ function standard() {
 	}
 }
 
+/**
+ * Validates and stores the report-viewing filter/selection request
+ * variables (report id, archive selection, rows, page, text filter,
+ * sort) into the session, respecting the 'reportit_view_filter' setting
+ * for whether the report id filter persists across requests. Called
+ * from show_report()/export() and other report-detail views before
+ * querying report data.
+ *
+ * @return string The resolved report id (empty string if the filter
+ *                setting disables id persistence and none was
+ *                supplied).
+ */
 function validate_report_vars() {
 	// if the user pushed the 'clear' button
 	$id = (read_graph_config_option('reportit_view_filter') == 'on') ? get_filter_request_var('id') : '';
@@ -437,6 +473,30 @@ function validate_report_vars() {
 	return $id;
 }
 
+/**
+ * Renders a single report's viewer page: resolves the requested report
+ * (live or archived), gathers its measurand/data-source descriptions
+ * and summary, and dispatches to the appropriate display mode (table,
+ * graph, or graph overview). Called from this script's main
+ * request-dispatch switch when action=show_report.
+ *
+ * @return void
+ *
+ * @global mixed $search           Reserved/declared for use by included
+ *                                report-rendering code; not set
+ *                                directly here.
+ * @global mixed $t_limit          Reserved/declared for use by included
+ *                                report-rendering code; not set
+ *                                directly here.
+ * @global mixed $add_info         Reserved/declared for use by included
+ *                                report-rendering code; not set
+ *                                directly here.
+ * @global array $export_formats   The list of available export formats,
+ *                                used to render export links.
+ * @global array $item_rows        Cacti's standard row-count option
+ *                                list, used to populate the rows
+ *                                dropdown.
+ */
 function show_report() {
 	global $search, $t_limit, $add_info, $export_formats, $item_rows;
 
@@ -825,6 +885,27 @@ function show_report() {
 	}
 }
 
+/**
+ * Renders a report's data as an HTML table view, given its pre-fetched
+ * data source/result-set/overview measurand descriptions and row
+ * counts. Called from show_report() when the report's display mode is
+ * set to table view.
+ *
+ * @param array $data           The report's prepared data rows.
+ * @param array $ds_description Data-source-level measurand
+ *                              descriptions.
+ * @param array $rs_description Result-set-level measurand
+ *                              descriptions.
+ * @param array $ov_description Overview-level measurand descriptions.
+ * @param int   $count_ov       The number of overview measurands.
+ * @param int   $count_rs       The number of result-set measurands.
+ * @param int   $columns        The total number of table columns to
+ *                              render.
+ * @param array $rows           The report's data rows to render.
+ * @param int   $total_rows     The total row count (for pagination).
+ *
+ * @return void
+ */
 function show_table_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs, $columns, $rows, $total_rows) {
 	global $search, $t_limit, $add_info, $export_formats, $item_rows;
 
@@ -999,6 +1080,22 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 	ob_end_flush();
 }
 
+/**
+ * Renders a report's data as a graph/chart view, given its pre-fetched
+ * data source/result-set/overview measurand descriptions. Called from
+ * show_report() when the report's display mode is set to graph view.
+ *
+ * @param array $data           The report's prepared data rows.
+ * @param array $ds_description Data-source-level measurand
+ *                              descriptions.
+ * @param array $rs_description Result-set-level measurand
+ *                              descriptions.
+ * @param array $ov_description Overview-level measurand descriptions.
+ * @param int   $count_ov       The number of overview measurands.
+ * @param int   $count_rs       The number of result-set measurands.
+ *
+ * @return void
+ */
 function show_graph_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs) {
 	global $graphs, $limit;
 
@@ -1135,6 +1232,14 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 	ob_end_flush();
 }
 
+/**
+ * Redirects the browser to Cacti's native graph zoom view for a
+ * specific RRD/data source referenced from a report, scoped to the
+ * report's own time range. Called from this script's main
+ * request-dispatch switch when action=show_graph_overview.
+ *
+ * @return void This function calls exit() after issuing the redirect.
+ */
 function show_graph_overview() {
 	// ================= Input validation =================
 	input_validate_input_number(get_request_var('id'));
@@ -1172,6 +1277,19 @@ function show_graph_overview() {
 	exit;
 }
 
+/**
+ * Renders a treemap-style chart (via the billboard.js 'bb' library) for
+ * a graph-mode report, visualizing hierarchical graph_data values.
+ * Called from show_graph_view() for reports configured to render a
+ * treemap visualization.
+ *
+ * @param int|string $graph_id   An identifier for the graph, used to
+ *                               build a unique DOM/JS element id.
+ * @param array      $graph_data The hierarchical data to render as a
+ *                               treemap.
+ *
+ * @return string The rendered HTML/JS markup for the treemap chart.
+ */
 function plugin_reportit_graph($graph_id, $graph_data) {
 	$content = '';
 

@@ -22,6 +22,15 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Drops and recreates this plugin's three cache tables
+ * (plugin_reportit_cache_measurands, plugin_reportit_cache_reports,
+ * plugin_reportit_cache_variables), which hold temporary data read in
+ * from an archived report while it is being viewed. Called during
+ * plugin install/upgrade to ensure the cache schema is current.
+ *
+ * @return void
+ */
 function reportit_recreate_cache_tables() {
 	// rebuild the cache tables
 	$tables = [
@@ -151,6 +160,15 @@ function reportit_recreate_cache_tables() {
 	api_plugin_db_table_create('reportit', 'plugin_reportit_cache_variables', $data);
 }
 
+/**
+ * Creates all of this plugin's database tables (reports, templates,
+ * data items/sources, measurands, presets, recipients, variables,
+ * data-template groups, and archive/cache tables) with their full
+ * column/key/engine definitions. Called from reportit_system_setup()
+ * during plugin install.
+ *
+ * @return void
+ */
 function reportit_system_install() {
 	/*
 	 * Table `plugin_reportit_reports`

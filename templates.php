@@ -128,6 +128,18 @@ switch (get_request_var('action')) {
 		break;
 }
 
+/**
+ * Renders the tabbed navigation bar for the template edit page
+ * (general/variables/measurands, plus any plugin-hook-added tabs),
+ * hiding the variables/measurands tabs for a not-yet-saved new
+ * template. Called from template_edit() before rendering the active
+ * tab's content.
+ *
+ * @param int|string $id The template id being edited, or empty for a
+ *                       new template.
+ *
+ * @return void
+ */
 function template_tabs($id) {
 	// present a tabbed interface
 	$tabs = [
@@ -166,6 +178,31 @@ function template_tabs($id) {
 	print '</ul></nav></div>';
 }
 
+/**
+ * Handles the multi-step new-template creation/import wizard: renders
+ * the initial data-template selection form ('new'), the XML file
+ * upload form ('upload'), processes an uploaded template file and
+ * shows a compatibility summary for confirmation ('import' - first
+ * pass), or performs the actual import of the confirmed templates
+ * ('import' - final pass triggered from template_import()). Called
+ * from this script's main request-dispatch switch for the
+ * template_new/template_upload_wizard/template_import_wizard actions.
+ *
+ * @param string $action Which wizard step to render/process ('new',
+ *                       'upload', or 'import').
+ *
+ * @return void
+ *
+ * @global array $list_of_data_templates   The list of in-use data
+ *                                        templates available to base a
+ *                                        new report template on.
+ * @global array $known_data_templates     Reserved/declared for parity
+ *                                        with other functions in this
+ *                                        file; not used directly here.
+ * @global array $fields_template_export   Reserved/declared for parity
+ *                                        with other functions in this
+ *                                        file; not used directly here.
+ */
 function template_wizard($action) {
 	global $list_of_data_templates, $known_data_templates, $fields_template_export;
 
@@ -351,6 +388,13 @@ function template_wizard($action) {
 	}
 }
 
+/**
+ * Exports the selected report templates as a downloadable combined XML
+ * file. Called from this script's main request-dispatch switch when
+ * action=template_export.
+ *
+ * @return void This function calls exit() and never returns normally.
+ */
 function template_export() {
 	// if we are to save this form, instead of display it
 	if (isset_request_var('selected_items')) {
@@ -380,6 +424,15 @@ function template_export() {
 	exit();
 }
 
+/**
+ * Performs the final import of report templates previously uploaded
+ * and confirmed via template_wizard()'s 'import' step, mapping each
+ * template to its selected compatible data template, then redirects
+ * back to the template list. Called from this script's main
+ * request-dispatch switch when action=template_import.
+ *
+ * @return void
+ */
 function template_import() {
 	header('Location: templates.php?action=template_upload_wizard');
 
@@ -407,6 +460,17 @@ function template_import() {
 	header('Location: templates.php');
 }
 
+/**
+ * Renders the Report Templates list's filter box (row-count selector
+ * and text filter input) along with its supporting client-side JS
+ * handlers for applying/clearing the filter. Called from templates()
+ * before rendering the template list table.
+ *
+ * @return void
+ *
+ * @global array $item_rows Cacti's standard row-count option list,
+ *                         used to populate the rows-per-page dropdown.
+ */
 function template_filter() {
 	global $item_rows;
 
@@ -497,6 +561,44 @@ function template_filter() {
 	html_end_box();
 }
 
+/**
+ * Renders the main Report Templates list page: validates/stores this
+ * view's filter request variables (rows, page, text filter, sort),
+ * renders the filter box, then queries and displays a sortable/
+ * paginated table of report templates along with the bulk-actions
+ * dropdown. Called from this script's main request-dispatch switch as
+ * the default view.
+ *
+ * @return void
+ *
+ * @global array $template_actions           Map of drp_action value =>
+ *                                          action label, used for the
+ *                                          bulk-actions dropdown.
+ * @global array $link_array                 Reserved/declared for
+ *                                          parity with other functions
+ *                                          in this file; not used
+ *                                          directly here.
+ * @global array $desc_array                 Reserved/declared for
+ *                                          parity with other functions
+ *                                          in this file; not used
+ *                                          directly here.
+ * @global array $consolidation_functions     Reserved/declared for
+ *                                          parity with other functions
+ *                                          in this file; not used
+ *                                          directly here.
+ * @global array $known_data_templates        Reserved/declared for
+ *                                          parity with other functions
+ *                                          in this file; not used
+ *                                          directly here.
+ * @global array $list_of_data_templates       The list of in-use data
+ *                                          templates, used to display
+ *                                          each report template's
+ *                                          associated data template.
+ * @global array $order_array                 Reserved/declared for
+ *                                          parity with other functions
+ *                                          in this file; not used
+ *                                          directly here.
+ */
 function templates() {
 	global $template_actions, $link_array, $desc_array, $consolidation_functions, $known_data_templates, $list_of_data_templates, $order_array;
 
@@ -706,6 +808,31 @@ function templates() {
 	form_end();
 }
 
+/**
+ * Top-level POST handler for saving a report template's general
+ * settings (name/author/version/description, pre-filter, and included
+ * data source items), validating input and tracking used data sources.
+ * Called from this script's main request-dispatch switch when
+ * action=save and the general template save form was submitted.
+ *
+ * @return void
+ *
+ * @global array $list_of_data_templates The list of in-use data
+ *                                       templates, used to validate the
+ *                                       template's data_template_id.
+ * @global array $calc_var_names         Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $rounding                Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $precision               Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $type_specifier           Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ */
 function form_save() {
 	global $list_of_data_templates;
 	global $calc_var_names, $rounding, $precision, $type_specifier;
@@ -1027,6 +1154,14 @@ function form_save() {
 	}
 }
 
+/**
+ * Renders the template edit page: draws the tab bar, then delegates to
+ * templates_general()/variables()/measurands() based on the currently
+ * active tab. Called from this script's main request-dispatch switch
+ * when action=template_edit.
+ *
+ * @return void
+ */
 function template_edit() {
 	// ================= input validation =================
 	$id = get_filter_request_var('id', FILTER_VALIDATE_INT, ['default'=>0]);
@@ -1043,6 +1178,28 @@ function template_edit() {
 	}
 }
 
+/**
+ * Renders the template edit page's General tab: the template's core
+ * metadata fields (name/author/version/description/pre-filter/export
+ * folder) plus the data source alias fields for its associated data
+ * template, pre-populated for an existing template or defaulted (and
+ * force-locked) for a new one carried over from the creation wizard.
+ * Called from template_edit() when the general tab is active.
+ *
+ * @param int $id The template id being edited, or 0 for a new
+ *                template.
+ *
+ * @return void
+ *
+ * @global array $consolidation_functions Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $list_of_data_templates The list of in-use data
+ *                                       templates, used to resolve the
+ *                                       template's data template name.
+ * @global array $fields_template_edit   The general tab's field
+ *                                       definitions.
+ */
 function templates_general($id) {
 	global $consolidation_functions, $list_of_data_templates, $fields_template_edit;
 
@@ -1101,6 +1258,27 @@ function templates_general($id) {
 	form_save_button('templates.php');
 }
 
+/**
+ * Handles the bulk-action confirmation page/submission for whichever
+ * template sub-list is active (general/variables/measurands tab): on
+ * first display, renders a confirmation box listing the selected
+ * items; on confirmed submission, performs the selected action (e.g.
+ * delete) for each item and redirects back to the appropriate tab.
+ * Called from this script's main request-dispatch switch when
+ * action=actions.
+ *
+ * @return void
+ *
+ * @global array $template_actions  Map of drp_action value => action
+ *                                  label, used for the general tab's
+ *                                  bulk actions.
+ * @global array $variable_actions  Map of drp_action value => action
+ *                                  label, used for the variables tab's
+ *                                  bulk actions.
+ * @global array $measurand_actions Map of drp_action value => action
+ *                                  label, used for the measurands tab's
+ *                                  bulk actions.
+ */
 function form_actions() {
 	global $template_actions, $variable_actions, $measurand_actions;
 
@@ -1628,6 +1806,29 @@ function form_actions() {
 	}
 }
 
+/**
+ * Renders the template edit page's Variables tab: a sortable table of
+ * a template's user-input variables (with computed select-option-count
+ * hints for stepped/range variables), plus the add/bulk-actions
+ * controls. Called from template_edit() when the variables tab is
+ * active.
+ *
+ * @return void
+ *
+ * @global array $variable_actions Map of drp_action value => action
+ *                                label, used for the bulk-actions
+ *                                dropdown.
+ * @global array $link_array       The list of valid sortable column
+ *                                names, used to validate the 'sort'
+ *                                request variable.
+ * @global array $list_of_modes    The list of valid sort directions,
+ *                                used to validate the 'mode' request
+ *                                variable.
+ * @global array $var_types        Map of variable input-type code =>
+ *                                display label.
+ * @global array $desc_array       Populated here with the column header
+ *                                definitions for the sortable table.
+ */
 function variables() {
 	global $variable_actions, $link_array, $list_of_modes, $var_types, $desc_array;
 
@@ -1768,6 +1969,21 @@ function variables() {
 	form_end();
 }
 
+/**
+ * Renders the add/edit form for a single template variable
+ * (name/abbreviation, min/max/default/stepping, input type), draws the
+ * template tab bar first. Called from this script's main
+ * request-dispatch switch when action=variable_edit.
+ *
+ * @return void
+ *
+ * @global array $template_actions Reserved/declared for parity with
+ *                                other functions in this file; not used
+ *                                directly here.
+ * @global array $var_types        Map of variable input-type code =>
+ *                                display label, used to populate the
+ *                                input-type dropdown.
+ */
 function variable_edit() {
 	global $template_actions, $var_types;
 
@@ -1914,6 +2130,31 @@ function variable_edit() {
 	html_end_box();
 }
 
+/**
+ * Renders the add/edit form for a single template measurand/metric
+ * (calculated result definition, using a calculation expression built
+ * from the template's data source items and variables). Called from
+ * this script's main request-dispatch switch when action=measurand_edit.
+ *
+ * @return void
+ *
+ * @global array $template_actions        Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $rounding                 Rounding-mode option list
+ *                                       used for the measurand's
+ *                                       rounding field.
+ * @global array $consolidation_functions Map of RRA consolidation
+ *                                       function identifiers used for
+ *                                       the measurand's data-source
+ *                                       consolidation field.
+ * @global array $type_specifier           printf-style type specifier
+ *                                       option list used for the
+ *                                       measurand's format field.
+ * @global array $precision                Precision option list used
+ *                                       for the measurand's rounding
+ *                                       precision field.
+ */
 function measurand_edit() {
 	global $template_actions, $rounding, $consolidation_functions, $type_specifier, $precision;
 
@@ -2111,6 +2352,22 @@ function measurand_edit() {
 	print '<div id="tooltip"></div>';
 }
 
+/**
+ * Renders the template edit page's Metrics tab: a table of a
+ * template's defined measurands/metrics, plus the add/bulk-actions
+ * controls. Called from template_edit() when the measurands tab is
+ * active.
+ *
+ * @return void
+ *
+ * @global array $measurand_actions       Map of drp_action value =>
+ *                                       action label, used for the
+ *                                       bulk-actions dropdown.
+ * @global array $consolidation_functions Map of RRA consolidation
+ *                                       function identifiers, used to
+ *                                       display each measurand's
+ *                                       consolidation setting.
+ */
 function measurands() {
 	global $measurand_actions, $consolidation_functions;
 

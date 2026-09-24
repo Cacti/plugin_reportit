@@ -22,6 +22,18 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Resolves a report's owning user for display, formatted as
+ * 'Full Name (username)'. Called throughout this plugin's UI wherever
+ * a report's owner needs to be shown.
+ *
+ * @param int $report_id The plugin_reportit_reports id to look up the
+ *                       owner for.
+ *
+ * @return string The owner's 'Full Name (username)', or a localized
+ *                'Unknown Owner' string if the report/user is not
+ *                found.
+ */
 function owner($report_id) {
 	$tmp = db_fetch_row_prepared('SELECT b.username, b.full_name
 		FROM plugin_reportit_reports as a
@@ -37,6 +49,27 @@ function owner($report_id) {
 	}
 }
 
+/**
+ * Gathers a live (non-archived) report's full display/export data
+ * package: its configuration/owner/template, measurand definitions,
+ * variable values, data-source aliases, and (for view/export/graidle
+ * modes) its stored per-run results rows. Called from show_report(),
+ * export(), and reportit_prepare_store_report_results() to obtain a
+ * report's rendering/export data.
+ *
+ * @param int    $report_id The report id to gather data for.
+ * @param string $type      The data-package mode: 'view', 'export',
+ *                          'graidle' (raw SQL passthrough), or 'graph'
+ *                          (short-circuit, results omitted).
+ * @param string $sql_where Additional SQL WHERE clause (for
+ *                          view/export) or the full query (for
+ *                          'graidle') to apply to the results query.
+ *
+ * @return array|false The assembled data package (report_data,
+ *                     report_results, report_measurands,
+ *                     report_variables, report_ds_alias), or false if
+ *                     the report doesn't exist.
+ */
 function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	$report_measurands = [];
 	$report_variables  = [];
@@ -121,6 +154,25 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 	return $data;
 }
 
+/**
+ * Gathers an archived report run's full display/export data package
+ * (mirroring get_prepared_report_data()'s structure), reading from the
+ * report's cache tables instead of its live results table. Called from
+ * show_report(), export(), and show_graph_overview() when viewing/
+ * exporting a specific archived report run.
+ *
+ * @param string $cache_id  The archive's cache id (typically
+ *                          '{report_id}_{archive_id}').
+ * @param string $type      The data-package mode: 'view', 'export',
+ *                          'graidle', or 'graph' (see
+ *                          get_prepared_report_data()).
+ * @param string $sql_where Additional SQL WHERE clause (for
+ *                          view/export) or the full query (for
+ *                          'graidle') to apply to the results query.
+ *
+ * @return array|false The assembled data package, or false if the
+ *                     archived report doesn't exist.
+ */
 function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 	$report_measurands = [];
 	$report_variables  = [];
@@ -288,6 +340,23 @@ function db_custom_fetch_flat_string($sql, $delimiter = ',') {
 	}
 }
 
+/**
+ * Resolves a named preset timespan (e.g. 'Today', 'Last 7 Days', 'Last
+ * Week (Sun - Sat)') plus a presentation mode into concrete start/end
+ * dates relative to the current date, optionally computed in GMT.
+ * Called from report scheduling/display code to translate a report's
+ * configured preset timespan into actual dates.
+ *
+ * @param string $preset_timespan The named preset timespan to resolve.
+ * @param mixed  $present         The presentation mode affecting how
+ *                                the resolved range is further
+ *                                adjusted/displayed.
+ * @param bool   $enable_tmz      Whether to compute dates in GMT rather
+ *                                than local server time.
+ *
+ * @return array The resolved timespan (start/end date components and
+ *               related values).
+ */
 function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 	// Set preconditions
 	$today          = ($enable_tmz) ? gmdate('Y-m-d') : date('Y-m-d');
@@ -438,6 +507,33 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 	return $dates;
 }
 
+/**
+ * Formats a numeric value with an appropriate metric/binary/IEC unit
+ * prefix (K/M/G/T/P/E/Z/Y) scaled to keep the displayed magnitude
+ * reasonable, rounded to the requested precision. Called when
+ * rendering measurand values in report table/graph views.
+ *
+ * @param float  $value          The value to format.
+ * @param string $prefixes       Which prefix table to use ('decimal',
+ *                               'binary', or 'IEC').
+ * @param mixed  $data_type      The measurand's data type, affecting
+ *                               formatting behavior.
+ * @param int    $data_precision The number of decimal places to round
+ *                               the displayed value to.
+ *
+ * @return string The formatted value with its unit prefix suffix.
+ *
+ * @global float $threshold Cached scaling threshold, initialized once
+ *                         and reused across calls.
+ * @global array $binary    Cached binary (1024-based) prefix magnitude
+ *                         table, initialized once and reused across
+ *                         calls.
+ * @global array $decimal   Cached decimal (1000-based) prefix magnitude
+ *                         table, initialized once and reused across
+ *                         calls.
+ * @global array $IEC       Cached IEC prefix label table, initialized
+ *                         once and reused across calls.
+ */
 function get_unit($value, $prefixes, $data_type, $data_precision) {
 	global $threshold, $binary, $decimal, $IEC;
 
@@ -612,6 +708,19 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 	}
 }
 
+/**
+ * Bulk-inserts a default value entry for a newly created template
+ * variable into every existing report based on that template. Called
+ * when a new variable is added to a template that already has reports,
+ * so those reports gain a usable default for the new variable.
+ *
+ * @param int   $variable_id The newly created variable's id.
+ * @param int   $template_id The template id the variable belongs to.
+ * @param mixed $default     The variable's default value to seed each
+ *                           report with.
+ *
+ * @return void
+ */
 function create_rvars_entries($variable_id, $template_id, $default) {
 	$ids = db_fetch_assoc_prepared('SELECT id
 		FROM plugin_reportit_reports
@@ -713,6 +822,24 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
 	return $interim_results;
 }
 
+/**
+ * Builds the list of variable name tokens usable in a template's
+ * calculation formulas: the template's own defined variables, plus
+ * built-in tokens like 'maxValue' when the underlying data template
+ * declares a valid RRD maximum. Called from the measurand editor and
+ * validate_calc_formula() to determine which variable tokens a formula
+ * may legally reference.
+ *
+ * @param int $template_id The template id to resolve variable names
+ *                         for.
+ *
+ * @return array The list of valid variable name tokens for the
+ *               template.
+ *
+ * @global array $calc_var_names Reserved/declared for parity with other
+ *                              functions in this file; not used
+ *                              directly here.
+ */
 function get_possible_variables($template_id) {
 	global $calc_var_names;
 
@@ -794,6 +921,15 @@ function get_possible_data_query_variables($template_id) {
 	return $array;
 }
 
+/**
+ * Checks whether a template is locked. Called from run_report()/
+ * runtime() before running a report, to abort if its template is
+ * locked.
+ *
+ * @param int $template_id The template id to check.
+ *
+ * @return int '1' if locked, otherwise a falsy/empty value.
+ */
 function get_template_status($template_id) {
 	// Returns '1' if the template has been locked.
 	$status = db_fetch_cell_prepared('SELECT locked
@@ -804,6 +940,16 @@ function get_template_status($template_id) {
 	return $status;
 }
 
+/**
+ * Marks a report as currently running (or another state), recording
+ * the state-change timestamp. Called from runtime() at the start of a
+ * report run.
+ *
+ * @param int $report_id The report id to update.
+ * @param int $status    The state code to set (default 1 = running).
+ *
+ * @return void
+ */
 function in_process($report_id, $status = 1) {
 	$now = date('Y-m-d H:i:s');
 
@@ -813,12 +959,32 @@ function in_process($report_id, $status = 1) {
 		[$status, $now, $report_id]);
 }
 
+/**
+ * Reads a report's current state code. Called wherever a report's
+ * running/idle status needs to be checked (e.g. before auto-locking its
+ * template).
+ *
+ * @param int $report_id The report id to check.
+ *
+ * @return int The report's current state code.
+ */
 function stat_process($report_id) {
 	$sql = 'SELECT state FROM plugin_reportit_reports WHERE id = ?';
 
 	return db_fetch_cell_prepared($sql, [$report_id]);
 }
 
+/**
+ * Resolves Cacti's configured date display format/separator into a PHP
+ * date() format string, optionally including a time component. Called
+ * when rendering report dates/timestamps to match the user's configured
+ * date display preferences.
+ *
+ * @param bool $no_time Whether to omit the time portion from the
+ *                      returned format string.
+ *
+ * @return string The resolved PHP date() format string.
+ */
 function config_date_format($no_time = true) {
 	$date_fmt = read_graph_config_option('default_date_format');
 	$datechar = read_graph_config_option('default_datechar');
@@ -870,6 +1036,21 @@ function config_date_format($no_time = true) {
 }
 
 // New functions
+/**
+ * Prints a debug dump of a value (array or scalar) with an optional
+ * section header and inline label, only when the REPORTIT_DEBUG
+ * constant is defined. Called throughout runtime()/transform() and
+ * other report-generation code to trace intermediate calculation
+ * state.
+ *
+ * @param mixed  $value Reference, the value to dump.
+ * @param string $msg   An optional section header printed before the
+ *                      value.
+ * @param string $fmsg  An optional inline label printed alongside the
+ *                      value.
+ *
+ * @return void
+ */
 function debug(&$value, $msg = '', $fmsg = '') {
 	if (!defined('REPORTIT_DEBUG')) {
 		return;
@@ -896,12 +1077,40 @@ function debug(&$value, $msg = '', $fmsg = '') {
 	}
 }
 
+/**
+ * Reads a single column value from a report's row. Called wherever a
+ * specific report field needs to be fetched directly.
+ *
+ * Note: due to using a single-quoted SQL string, the `$column`
+ * placeholder is not interpolated by PHP; this always selects a
+ * literal column named `$column` rather than the caller's requested
+ * column.
+ *
+ * @param int    $report_id The report id to read from.
+ * @param string $column    The intended column name to read (not
+ *                          actually substituted into the query - see
+ *                          note above).
+ *
+ * @return mixed The queried cell value.
+ */
 function get_report_setting($report_id, $column) {
 	$sql = 'SELECT $column FROM plugin_reportit_reports WHERE id = ?';
 
 	return db_fetch_cell_prepared($sql, [$report_id]);
 }
 
+/**
+ * Reads a per-user graph-scoped Cacti setting, falling back to its
+ * system default if the user has no override stored. Called wherever a
+ * graph-related user preference (e.g. row limits, view filter
+ * behavior) needs to be resolved for a specific user.
+ *
+ * @param string $config_name The settings_graphs option name to read.
+ * @param int    $user_id     The user id to read the setting for.
+ *
+ * @return mixed The user's stored value, or the system default if none
+ *               is stored.
+ */
 function get_graph_config_option($config_name, $user_id) {
 	$sql = 'SELECT value FROM settings_graphs WHERE name = ? AND user_id = ?';
 
@@ -914,6 +1123,22 @@ function get_graph_config_option($config_name, $user_id) {
 	}
 }
 
+/**
+ * Automatically rescales a series of values to a human-friendly
+ * magnitude (choosing a power-of-1000/1024 divisor based on the
+ * highest absolute value), rewriting the values in place and returning
+ * the chosen scale exponent (for building an axis-unit label). Called
+ * when preparing graph data series for display.
+ *
+ * @param array  $values   Reference, the values to rescale in place.
+ * @param int    $rounding The rounding mode (2 selects a 1000-based
+ *                         scale, otherwise 1024-based).
+ * @param string $order    'DESC' to use the first value as the
+ *                         reference highest value, otherwise the last.
+ *
+ * @return int The chosen scale exponent (0 for no scaling), or 0 if all
+ *             values are zero.
+ */
 function auto_rounding(&$values, $rounding, $order) {
 	$threshold = 0.5;
 	$base      = ($rounding == 2) ? 1000 : 1024;
@@ -954,6 +1179,17 @@ function auto_rounding(&$values, $rounding, $order) {
 	return $exp - 1;
 }
 
+/**
+ * Loads an external/vendored library on demand by name, currently only
+ * the vendored PclZip library (defining its required temp-directory
+ * constant if not already set). Called from update_xml_archive() before
+ * using PclZip to add/rotate report archives.
+ *
+ * @param string $name The library to load: 'pclzip', 'graidle', or
+ *                     'cleanXML' (the latter two are currently no-ops).
+ *
+ * @return void
+ */
 function load_external_libs($name) {
 	switch ($name) {
 		case 'pclzip':
@@ -971,17 +1207,48 @@ function load_external_libs($name) {
 	}
 }
 
+/**
+ * Strips the trailing character from a string in place, typically used
+ * to remove a trailing separator before using the string in a SQL
+ * clause. Called wherever a trailing comma/delimiter needs trimming
+ * before building a SQL fragment.
+ *
+ * @param string $str Reference, the string to trim in place.
+ *
+ * @return void
+ */
 function clean_for_sql(&$str) {
 	$str = substr($str, 0, strlen($str) - 1);
 }
 
 // Archive Functions
+/**
+ * PclZip 'rename' event callback that names an archived report's XML
+ * entry using its file modification timestamp. Registered as a PclZip
+ * listener/callback during archive operations.
+ *
+ * @param string $p_event  The PclZip event name (unused).
+ * @param array  $p_header Reference, the archive entry's header,
+ *                         updated with 'stored_filename'.
+ *
+ * @return int Always 1 (PclZip success code).
+ */
 function rename_xml_file($p_event, &$p_header) {
 	$p_header['stored_filename'] = $p_header['mtime'] . '.xml';
 
 	return 1;
 }
 
+/**
+ * Builds a JSON representation of a report's current data, mapping its
+ * data source aliases into the legacy 'data_template_alias' field name
+ * for compatibility. Called when a report's data needs to be archived/
+ * cached in JSON form.
+ *
+ * @param int $report_id The report id to build a JSON archive for.
+ *
+ * @return string The JSON-encoded report data.
+ */
 function prepare_json_archive($report_id) {
 	// load report data
 	$data = get_prepared_report_data($report_id, 'view');
@@ -992,6 +1259,18 @@ function prepare_json_archive($report_id) {
 	return json_encode($data);
 }
 
+/**
+ * Builds an XML snapshot of a report's current settings/measurands/
+ * data items/variables, writes it to a temp file, and adds it to the
+ * report's ZIP archive (via the vendored PclZip library), rotating out
+ * old archive entries beyond the configured maximum count. Called from
+ * autoexport()-style archival code / the report run flow when
+ * auto-archiving is enabled for a report.
+ *
+ * @param int $report_id The report id to archive.
+ *
+ * @return void This function calls die() on a PclZip archive error.
+ */
 function update_xml_archive($report_id) {
 	$arc_path  = read_config_option('reportit_arc_folder');
 	$arc_path .= (substr($arc_path, -1) == '/') ? '' : '/';
@@ -1089,6 +1368,23 @@ function update_xml_archive($report_id) {
 	unlink($tmpfile);
 }
 
+/**
+ * Loads a single archived report run's XML entry from its ZIP archive
+ * (by modification time), parses it, and populates the plugin's
+ * temporary cache tables (cache_reports/cache_measurands/
+ * cache_variables and a dedicated per-archive results table) so it can
+ * be displayed like a live report. Skips work if already cached.
+ * Called from show_report()/export()/show_graph_overview() when
+ * viewing/exporting an archived report run for the first time in a
+ * session.
+ *
+ * @param int $report_id The report id whose archive should be cached.
+ * @param int $mtime     The archived entry's modification timestamp
+ *                       identifying which archived run to load.
+ *
+ * @return void This function calls die_html_custom_error() if the
+ *              requested archive entry isn't found.
+ */
 function cache_xml_file($report_id, $mtime) {
 	$cache_id   = $report_id . '_' . $mtime;
 	$columns    = '';
@@ -1165,6 +1461,29 @@ function cache_xml_file($report_id, $mtime) {
 	db_execute('REPLACE INTO plugin_reportit_tmp_' . $cache_id . " $columns VALUES $values");
 }
 
+/**
+ * Transforms a parsed XML archive section (settings/measurands/
+ * variables/data_items, as a nested array from json_decode) into a SQL
+ * INSERT-ready column list and VALUES clause, handling both single-row
+ * and multi-row (list-of-records) sections, and base64/JSON-re-encoding
+ * a legacy serialized 'data_template_alias' field when present. Called
+ * from cache_xml_file() once per archive section being cached.
+ *
+ * @param array        $array    Reference, the parsed archive section
+ *                               data to transform.
+ * @param string       $columns  Reference, populated with the resulting
+ *                               '(`col`, `col2`, ...)' column list
+ *                               fragment.
+ * @param string       $values   Reference, populated with the resulting
+ *                               VALUES clause fragment (one or more
+ *                               tuples).
+ * @param string|false $cache_id Optional cache id to prefix each row
+ *                               with (for multi-report cache tables); pass
+ *                               false to omit.
+ *
+ * @return bool True if the section was non-empty and transformed,
+ *              false if $array was empty/not an array.
+ */
 function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	$keys       = false;
 	$multi      = false;
@@ -1224,6 +1543,20 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	return true;
 }
 
+/**
+ * Lists the archived runs available for a report by reading its ZIP
+ * archive's entry metadata (modification times), formatted per the
+ * user's configured date display format. Called from the report
+ * viewer's archive-selection dropdown to populate available archived
+ * runs.
+ *
+ * @param int $report_id The report id whose archive listing should be
+ *                       read.
+ *
+ * @return array|false The list of archived entries (e.g. mtime/
+ *                     formatted date pairs) found in the report's ZIP
+ *                     archive, or false if the archive has no entries.
+ */
 function info_xml_archive($report_id) {
 	$content  = [];
 	$arc_path = read_config_option('reportit_arc_folder');
@@ -1254,6 +1587,16 @@ function info_xml_archive($report_id) {
 	}
 }
 
+/**
+ * Computes the arithmetic mean of an array of numbers. Called wherever
+ * a simple average calculation is needed outside the formula
+ * calculation engine.
+ *
+ * @param array $array The values to average.
+ *
+ * @return float|string The average value, or an empty string if
+ *                      $array is empty.
+ */
 function average($array) {
 	if (cacti_sizeof($array) == 0) {
 		return '';
@@ -1262,6 +1605,17 @@ function average($array) {
 	return (array_sum($array) / count($array));
 }
 
+/**
+ * Recursively HTML-escapes every scalar value in a (possibly up to
+ * 3-levels-deep nested) array in place, converting null values to
+ * empty strings. Called before rendering untrusted data (e.g. archived
+ * report content) as HTML.
+ *
+ * @param mixed $data Reference, the scalar or nested array to escape in
+ *                    place.
+ *
+ * @return void
+ */
 function transform_html_escape(&$data) {
 	if (!is_array($data)) {
 		html_escape($data);
@@ -1288,6 +1642,15 @@ function transform_html_escape(&$data) {
 	}
 }
 
+/**
+ * Converts a PHP ini-style size string (e.g. '128M', '1G') into a plain
+ * byte count. Called from get_mem_usage() to parse the configured
+ * memory_limit.
+ *
+ * @param string $val The size string to convert.
+ *
+ * @return int The equivalent number of bytes.
+ */
 function return_bytes($val) {
 	$val  = trim($val);
 	$last = strtolower($val[strlen($val) - 1]);
@@ -1305,6 +1668,17 @@ function return_bytes($val) {
 	return $val;
 }
 
+/**
+ * Recursively applies htmlspecialchars() to every scalar value in a
+ * (possibly up to 3-levels-deep nested) array in place. Called before
+ * rendering untrusted data in a context needing htmlspecialchars-style
+ * escaping rather than Cacti's html_escape().
+ *
+ * @param mixed $data Reference, the scalar or nested array to escape in
+ *                    place.
+ *
+ * @return void
+ */
 function transform_htmlspecialchars(&$data) {
 	if (!is_array($data)) {
 		htmlspecialchars($data);
@@ -1331,6 +1705,17 @@ function transform_htmlspecialchars(&$data) {
 	}
 }
 
+/**
+ * Reports the current PHP process's memory usage (current and peak, in
+ * MB) as a percentage of the configured memory_limit, for inclusion in
+ * report run statistics/logging. Called from run_report() when logging
+ * a completed report run's stats.
+ *
+ * @return array Memory usage info: 'limit' (the configured limit, or
+ *               'unlimited'), 'current', and 'peak' (formatted
+ *               'XMB(Y%)' strings, or 'Undetected' if usage couldn't be
+ *               computed).
+ */
 function get_mem_usage() {
 	$memory_system  = return_bytes(ini_get('memory_limit'));
 	$memory_used    = round(memory_get_usage() / pow(1024,2),2);
@@ -1351,6 +1736,19 @@ function get_mem_usage() {
 	return ['limit' => $memory_system, 'current' => $memory_used, 'peak' => $memory_peak];
 }
 
+/**
+ * Renders a SimpleXMLElement as canonical formatted XML text (optionally
+ * stripping all whitespace instead), used to build a stable/comparable
+ * text representation of an XML subtree. Called from
+ * validate_xml_template_section() to compute a template's checksum.
+ *
+ * @param SimpleXMLElement $xml_object  The XML element to render.
+ * @param bool             $keep_spaces Whether to keep formatted
+ *                                      whitespace (true) or strip all
+ *                                      whitespace (false).
+ *
+ * @return string The rendered XML text.
+ */
 function xml_to_string($xml_object, $keep_spaces = true) {
 	$dom                     = new DOMDocument();
 	$dom->preserveWhiteSpace = false;
@@ -1366,6 +1764,23 @@ function xml_to_string($xml_object, $keep_spaces = true) {
 	return $output;
 }
 
+/**
+ * Recursively converts a SimpleXMLElement into a nested PHP array,
+ * keyed by child element name (leaf nodes become their string value,
+ * repeated child names become a list). Called from template_wizard()'s
+ * import step to convert parsed template XML sections into a usable
+ * array structure.
+ *
+ * @param SimpleXMLElement $xml_object The XML element to convert.
+ * @param bool             $indexed    Whether to unwrap a single-item
+ *                                     result array down to its lone
+ *                                     element.
+ * @param bool             $log        Whether to print debug trace
+ *                                     output during conversion.
+ *
+ * @return array|string The converted array, or an empty string if
+ *                      $xml_object is falsy.
+ */
 function xml_to_array($xml_object, $indexed = false, $log = false) {
 	static $indent = -1;
 
@@ -1428,6 +1843,19 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
 	return $out;
 }
 
+/**
+ * Builds the XML representation of a single report template (settings,
+ * variables, measurands, data source items) for inclusion in a
+ * template export file. Called from template_export() for each
+ * selected template.
+ *
+ * @param int $template_id The template id to export.
+ * @param int $indent      The current XML indentation level (for
+ *                         nested pretty-printing).
+ *
+ * @return string|false The rendered XML fragment for this template, or
+ *                      false if the template doesn't exist.
+ */
 function export_report_template($template_id, $indent = 0) {
 	// load template data
 	$template_data = db_fetch_row_prepared('SELECT *
@@ -1503,6 +1931,19 @@ function export_report_template($template_id, $indent = 0) {
 	return xml_to_string($xml_obj);
 }
 
+/**
+ * Recursively renders a nested PHP array as indented XML text,
+ * supporting a special 'xml_element'/'xml_data' convention for
+ * rendering a repeated list of sibling elements under a shared tag
+ * name. Called from export_report_template() to build each template
+ * export's XML content.
+ *
+ * @param array|mixed $data   The data to render; non-array values are
+ *                            ignored (produce no output at this level).
+ * @param int         $indent The current indentation level (tabs).
+ *
+ * @return string The rendered XML text.
+ */
 function convert_array2xml($data, $indent = 0) {
 	$output = '';
 
@@ -1537,6 +1978,17 @@ function convert_array2xml($data, $indent = 0) {
 	return $output;
 }
 
+/**
+ * Flattens a (possibly one-level nested) associative array into a
+ * single concatenated string of key+value pairs, stripping out
+ * placeholder tokens of the form '{{N}}'. Used to build a comparable/
+ * hashable representation of template data during import matching.
+ * Called from import_template()-related comparison logic.
+ *
+ * @param array $data The data to flatten.
+ *
+ * @return string The concatenated key+value string.
+ */
 function convert_array2string($data) {
 	$str = '';
 
@@ -1561,12 +2013,39 @@ function convert_array2string($data) {
 	return $str;
 }
 
+/**
+ * Replaces placeholder tokens of the form '{{N}}' in every element of an
+ * array with a given replacement (empty string by default), in place.
+ * Called from import_template() to clean placeholder tokens left over
+ * from template variable substitution.
+ *
+ * @param array  $array   Reference, the array whose values should be
+ *                        cleaned in place.
+ * @param string $replace The replacement text for matched placeholder
+ *                        tokens.
+ *
+ * @return void
+ */
 function clean_xml_waste(&$array, $replace = '') {
 	foreach ($array as $key => $value) {
 		$array[$key] = preg_replace('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $replace, $value);
 	}
 }
 
+/**
+ * Imports a single parsed report template (from an uploaded template
+ * XML document) into the database, associating it with the selected
+ * compatible data template and recreating its variables/measurands/
+ * data source item rows. Called from template_wizard()'s 'import' step
+ * for each confirmed template in the uploaded file.
+ *
+ * @param object $report_template  The parsed XML template element to
+ *                                 import.
+ * @param int    $data_template_id The Cacti data template id the new
+ *                                 report template should be based on.
+ *
+ * @return void
+ */
 function import_template($report_template, $data_template_id) {
 	$values		 = '';
 	$columns	 = '';

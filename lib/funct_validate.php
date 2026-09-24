@@ -26,6 +26,21 @@ require_once(CACTI_PATH_LIBRARY . '/xml.php');
 
 $error = false;
 
+/**
+ * PHP error handler used to capture the most recent error into a
+ * global variable instead of letting it be displayed/logged normally.
+ * Called by PHP as the registered error handler during operations
+ * (e.g. XML parsing) where errors are inspected in code rather than
+ * surfaced directly.
+ *
+ * @param int    $errno  The PHP error level.
+ * @param string $errstr The error message text.
+ *
+ * @return void
+ *
+ * @global array|false $error Set here to ['Number' => ..., 'Message' =>
+ *                            ...] describing the captured error.
+ */
 function last_error($errno, $errstr) {
 	global $error;
 
@@ -35,6 +50,36 @@ function last_error($errno, $errstr) {
 	];
 }
 
+/**
+ * Validates a calculation formula's syntax by tokenizing it against
+ * known valid signs/operators/functions/variables/numbers, checking for
+ * balanced parentheses, leading/trailing operators, divide-by-zero
+ * literals, and invalid token-adjacency combinations. Called from the
+ * measurand/calculation editing UI before accepting a user-entered
+ * formula.
+ *
+ * @param string $calc_formula              The formula text to
+ *                                          validate.
+ * @param array  $calc_intersizes           Valid "intersize" tokens
+ *                                          (interval-size placeholders)
+ *                                          usable in the formula.
+ * @param array  $calc_var_names            Valid variable name tokens
+ *                                          usable in the formula.
+ * @param array  $calc_data_query_variables Valid data-query variable
+ *                                          tokens usable in the
+ *                                          formula.
+ *
+ * @return string 'VALID' if the formula passes all checks, otherwise a
+ *                descriptive error message (optionally with inline HTML
+ *                highlighting).
+ *
+ * @global array $calc_fct_names        Valid calculation function name
+ *                                     tokens.
+ * @global array $calc_fct_names_params Valid "function with params"
+ *                                     tokens.
+ * @global array $calc_fct_aliases      Valid function alias "with
+ *                                     params" tokens.
+ */
 function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names, $calc_data_query_variables) {
 	global $calc_fct_names, $calc_fct_names_params, $calc_fct_aliases;
 
@@ -152,6 +197,20 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
 	return 'VALID';
 }
 
+/**
+ * Renders a minimal page displaying a validation error message (inside
+ * the standard header/footer chrome) and terminates the request. Called
+ * from the various input_validate_input_*() helpers when a submitted
+ * value fails validation.
+ *
+ * @param string $msg        The error message to display; defaults to
+ *                           'Validation error' when empty.
+ * @param bool   $top_header Reserved/declared for parity with other
+ *                           validation helpers; not used to alter
+ *                           behavior here.
+ *
+ * @return void This function calls exit() and never returns.
+ */
 function die_html_custom_error($msg = '', $top_header = false) {
 	$message = '';
 	$message = ($msg == '') ? 'Validation error' : $msg;
@@ -170,6 +229,22 @@ function die_html_custom_error($msg = '', $top_header = false) {
 	exit;
 }
 
+/**
+ * Validates that a value is present in an allow-list, terminating the
+ * request with an error page if not (unless the value is empty and
+ * explicitly marked as an allowed 'undefined' state). Called throughout
+ * this plugin to validate request variables against known-good value
+ * sets.
+ *
+ * @param mixed $value      The value to validate.
+ * @param array $valid_list The list of allowed values.
+ * @param bool  $undefined  Whether an empty/false $value should be
+ *                          silently accepted.
+ * @param bool  $header     Passed through to die_html_custom_error() if
+ *                          validation fails.
+ *
+ * @return void
+ */
 function input_validate_input_whitelist($value, $valid_list, $undefined = false, $header = true) {
 	if ($value == false && $undefined == true) {
 		return;
@@ -180,6 +255,21 @@ function input_validate_input_whitelist($value, $valid_list, $undefined = false,
 	}
 }
 
+/**
+ * Validates that a value is NOT present in a deny-list, terminating the
+ * request with an error page if it is (unless the value is empty and
+ * explicitly marked as an allowed 'undefined' state). Called throughout
+ * this plugin to reject known-bad request variable values.
+ *
+ * @param mixed $value      The value to validate.
+ * @param array $black_list The list of disallowed values.
+ * @param bool  $undefined  Whether an empty/false $value should be
+ *                          silently accepted.
+ * @param bool  $header     Passed through to die_html_custom_error() if
+ *                          validation fails.
+ *
+ * @return void
+ */
 function input_validate_input_blacklist($value, $black_list, $undefined = false, $header = true) {
 	if ($value == false && $undefined == true) {
 		return;
@@ -190,6 +280,22 @@ function input_validate_input_blacklist($value, $black_list, $undefined = false,
 	}
 }
 
+/**
+ * Validates that a value exists as a key in a given array, terminating
+ * the request with an error page if not (unless the value is empty and
+ * explicitly marked as an allowed 'undefined' state). Called throughout
+ * this plugin to validate request variables that should reference a
+ * known map's keys (e.g. an id).
+ *
+ * @param mixed $value      The value to validate as a key.
+ * @param array $valid_list The map whose keys are the allowed values.
+ * @param bool  $undefined  Whether an empty/false $value should be
+ *                          silently accepted.
+ * @param bool  $header     Passed through to die_html_custom_error() if
+ *                          validation fails.
+ *
+ * @return void
+ */
 function input_validate_input_key($value, $valid_list, $undefined = false, $header = true) {
 	if ($value == false && $undefined == true) {
 		return;
@@ -220,6 +326,25 @@ function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside
 	}
 }
 
+/**
+ * Validates one section (reportit/settings/variables/measurands/
+ * data_source_items) of an uploaded template XML document is present
+ * and well-formed, accumulating a canonical checksum string across all
+ * validated sections and short-circuiting once any section fails.
+ * Called from validate_xml_template() once per required section.
+ *
+ * @param object $xml_template Reference, the parsed XML template
+ *                             object being validated.
+ * @param string $section      The XML section name to validate.
+ * @param bool   $valid        Reference, the running validity flag;
+ *                             cleared if this section is missing/
+ *                             malformed.
+ * @param string $checksum     Reference, the running checksum string,
+ *                             appended with this section's canonical
+ *                             XML text when valid.
+ *
+ * @return bool The (possibly newly cleared) $valid flag.
+ */
 function validate_xml_template_section(&$xml_template, $section, &$valid, &$checksum) {
 	// print "validate_xml_template_section:start(xml_template, $section, $valid, $checksum)\n";
 	if ($valid) {
@@ -234,6 +359,25 @@ function validate_xml_template_section(&$xml_template, $section, &$valid, &$chec
 	return $valid;
 }
 
+/**
+ * Validates an uploaded template XML document's overall structure
+ * (requiring a single 'reportit' root element), temporarily strips out
+ * its 'hash' field before computing section checksums (restoring it
+ * afterward), and validates each of its required sections via
+ * validate_xml_template_section(). Called from validate_uploaded_templates()
+ * to check a parsed template before accepting it for import.
+ *
+ * @param object $xml_template Reference, the parsed XML template object
+ *                             to validate.
+ * @param bool   $valid        Reference, set to false if the document or
+ *                             any required section is missing/
+ *                             malformed.
+ * @param string $checksum     Reference, accumulates the canonical
+ *                             checksum text across all validated
+ *                             sections.
+ *
+ * @return void
+ */
 function validate_xml_template(&$xml_template, &$valid, &$checksum) {
 	// print "validate_xml_template:begin(xml_template, $valid, $checksum)\n";
 	if (isset($xml_template->reportit) && is_object($xml_template->reportit)) {
@@ -266,6 +410,18 @@ function validate_xml_template(&$xml_template, &$valid, &$checksum) {
 	// print "validate_xml_template:end  (report_template, $valid, $checksum)\n";
 }
 
+/**
+ * Validates an uploaded report template file: checks for upload errors,
+ * verifies the MIME type is XML, parses it, and validates its structure
+ * via validate_xml_template(), storing the raw XML in the session for
+ * the subsequent import confirmation step on success. Called from
+ * template_wizard()'s 'import' step when a template file has been
+ * submitted.
+ *
+ * @return bool True if the uploaded file was valid and stored in the
+ *              session for import, false otherwise (with a session error
+ *              message set describing the failure).
+ */
 function validate_uploaded_templates() {
 	// check file transfer if used
 	if (isset($_FILES['file'])) {

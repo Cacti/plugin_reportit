@@ -22,9 +22,38 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * PDF export handler for report data. Not yet implemented (no-op
+ * placeholder). Called from export()/autoexport() when the requested
+ * export format is PDF.
+ *
+ * @param array $data Reference, the report's prepared data to export.
+ *
+ * @return void
+ */
 function export_to_PDF(&$data) {
 }
 
+/**
+ * Renders a report's prepared data as CSV text: a commented header
+ * block (Cacti/ReportIt versions, report settings, variable values,
+ * measurand legend), a two-row column header, and one data row per
+ * result, honoring the configured column/decimal separators and
+ * data-source/measurand filters. Called from export()/autoexport() when
+ * the requested export format is CSV.
+ *
+ * @param array $data Reference, the report's prepared data
+ *                    (report_data, report_results, report_measurands,
+ *                    report_variables, report_ds_alias) to export.
+ *
+ * @return string The rendered CSV text.
+ *
+ * @global array $search        The list of placeholder tokens replaced
+ *                              in each result's description template.
+ * @global bool  $run_scheduled Whether this export is running from a
+ *                              scheduled/CLI context vs. an interactive
+ *                              web request.
+ */
 function export_to_CSV(&$data) {
 	global $search, $run_scheduled;
 
@@ -231,6 +260,22 @@ function export_to_CSV(&$data) {
 	return ob_get_clean();
 }
 
+/**
+ * Renders a report's prepared data as an XML document (mirroring the
+ * CSV export's header/settings/variables/legend/rows structure in XML
+ * form). Called from export()/autoexport() when the requested export
+ * format is XML.
+ *
+ * @param array $data Reference, the report's prepared data to export.
+ *
+ * @return string The rendered XML document text.
+ *
+ * @global array $search        The list of placeholder tokens replaced
+ *                              in each result's description template.
+ * @global bool  $run_scheduled Whether this export is running from a
+ *                              scheduled/CLI context vs. an interactive
+ *                              web request.
+ */
 function export_to_XML(&$data) {
 	global $search, $run_scheduled;
 
@@ -370,6 +415,17 @@ function export_to_XML(&$data) {
 	return $output;
 }
 
+/**
+ * Renders a report's prepared data as YAML text by first generating its
+ * JSON export and re-encoding it via the PHP yaml extension. Called
+ * from export()/autoexport() when the requested export format is YAML.
+ *
+ * @param array $data Reference, the report's prepared data to export.
+ *
+ * @return string|false The rendered YAML text, or false if the PHP
+ *                      yaml extension isn't available (logged as a
+ *                      warning).
+ */
 function export_to_YAML(&$data) {
 	$report_data = export_to_JSON($data);
 
@@ -382,6 +438,22 @@ function export_to_YAML(&$data) {
 	}
 }
 
+/**
+ * Renders a report's prepared data as a JSON document (mirroring the
+ * CSV export's settings/variables/legend/rows structure in JSON form).
+ * Called from export()/autoexport() when the requested export format is
+ * JSON, and from export_to_YAML() as an intermediate representation.
+ *
+ * @param array $data Reference, the report's prepared data to export.
+ *
+ * @return string The rendered JSON text.
+ *
+ * @global array $search        The list of placeholder tokens replaced
+ *                              in each result's description template.
+ * @global bool  $run_scheduled Whether this export is running from a
+ *                              scheduled/CLI context vs. an interactive
+ *                              web request.
+ */
 function export_to_JSON(&$data) {
 	global $search, $run_scheduled;
 
@@ -498,6 +570,18 @@ function export_to_JSON(&$data) {
 	return json_encode($json_data, JSON_PRETTY_PRINT);
 }
 
+/**
+ * Renders a report's prepared data as a SpreadsheetML (Excel XML)
+ * workbook document, wrapping a single generated worksheet (via
+ * new_worksheet()) in the required Workbook/DocumentProperties/Styles
+ * XML scaffolding and re-encoding the output to UTF-8. Called from
+ * export()/autoexport() when the requested export format is SML
+ * (Excel).
+ *
+ * @param array $data Reference, the report's prepared data to export.
+ *
+ * @return string The rendered SpreadsheetML XML document text.
+ */
 function export_to_SML(&$data) {
 	$eol = PHP_EOL;
 
@@ -539,6 +623,24 @@ function export_to_SML(&$data) {
 	return $output;
 }
 
+/**
+ * Renders a report's prepared data as a single SpreadsheetML &lt;Worksheet&gt;
+ * XML fragment (header/settings/variables/legend rows plus the data
+ * table), used as the body of an export_to_SML() workbook. Called from
+ * export_to_SML() to build its single worksheet.
+ *
+ * @param array $data   Reference, the report's prepared data to render.
+ * @param array $styles Reference, the workbook's defined cell styles,
+ *                      referenced by style id when rendering cells.
+ *
+ * @return string The rendered &lt;Worksheet&gt; XML fragment.
+ *
+ * @global array $search        The list of placeholder tokens replaced
+ *                              in each result's description template.
+ * @global bool  $run_scheduled Whether this export is running from a
+ *                              scheduled/CLI context vs. an interactive
+ *                              web request.
+ */
 function new_worksheet(&$data, &$styles) {
 	global $search, $run_scheduled;
 
@@ -743,6 +845,20 @@ function new_worksheet(&$data, &$styles) {
 	return ob_get_clean();
 }
 
+/**
+ * Renders a single SpreadsheetML &lt;Cell&gt; (optionally wrapped in a
+ * &lt;Row&gt;) with the appropriate Number/String data type and optional
+ * style reference. Called from new_worksheet() for each cell of the
+ * exported spreadsheet.
+ *
+ * @param mixed        $data    The cell's value.
+ * @param bool         $row     Whether to wrap the cell in a &lt;Row&gt; element.
+ * @param string|false $styleID An optional style id to apply to the
+ *                              cell.
+ *
+ * @return string The rendered &lt;Cell&gt; (optionally &lt;Row&gt;-wrapped) XML
+ *                fragment.
+ */
 function sml_cell($data, $row = false, $styleID = false) {
 	$eol = PHP_EOL;
 

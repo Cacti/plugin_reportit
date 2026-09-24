@@ -22,6 +22,15 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Plugin install hook: registers this plugin's hooks (tab rendering,
+ * navigation text, config arrays/settings, poller bottom, log regex)
+ * and admin realms (viewing/creating/managing reports), then runs the
+ * initial database schema setup. Called by Cacti's plugin architecture
+ * when the plugin is installed.
+ *
+ * @return void
+ */
 function plugin_reportit_install() {
 	api_plugin_register_hook('reportit', 'top_header_tabs',       'reportit_show_tab',             'setup.php');
 	api_plugin_register_hook('reportit', 'top_graph_header_tabs', 'reportit_show_tab',             'setup.php');
@@ -44,6 +53,13 @@ function plugin_reportit_install() {
 	reportit_system_setup();
 }
 
+/**
+ * Plugin uninstall hook: drops all of this plugin's database tables.
+ * Called by Cacti's plugin architecture when the plugin is
+ * uninstalled.
+ *
+ * @return bool Always true.
+ */
 function plugin_reportit_uninstall() {
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_measurands');
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_reports');
@@ -62,22 +78,54 @@ function plugin_reportit_uninstall() {
 	return true;
 }
 
+/**
+ * Plugin config-check hook: ensures the plugin's schema/hooks are up to
+ * date by delegating to reportit_check_upgrade(). Called by Cacti's
+ * plugin architecture on relevant page loads.
+ *
+ * @return bool The result of reportit_check_upgrade() (always true).
+ */
 function plugin_reportit_check_config() {
 	return reportit_check_upgrade();
 }
 
+/**
+ * Plugin upgrade hook: brings the plugin's schema/hooks up to date by
+ * delegating to reportit_check_upgrade(). Called by Cacti's plugin
+ * architecture when the plugin is upgraded to a new version.
+ *
+ * @return bool Always true.
+ */
 function plugin_reportit_upgrade() {
 	reportit_check_upgrade();
 
 	return true;
 }
 
+/**
+ * Reads and returns this plugin's version/author/metadata info from its
+ * INFO file. Called wherever plugin metadata is needed (e.g.
+ * reportit_check_upgrade()).
+ *
+ * @return array The plugin's info array, as parsed from the INFO
+ *               file's '[info]' section.
+ */
 function plugin_reportit_version() {
 	$info = parse_ini_file(CACTI_PATH_BASE . '/plugins/reportit/INFO', true);
 
 	return $info['info'];
 }
 
+/**
+ * Checks whether the plugin's recorded database version differs from
+ * its actual (INFO file) version and, if so, runs the plugin's install/
+ * upgrade system scripts to bring its schema up to date, re-registers
+ * its hooks, and updates the plugin_config record. Only runs on
+ * index.php/plugins.php/poller_reportit.php page loads. Called from
+ * plugin_reportit_check_config() and plugin_reportit_upgrade().
+ *
+ * @return bool Always true.
+ */
 function reportit_check_upgrade() {
 	$files = ['index.php', 'plugins.php', 'poller_reportit.php'];
 
@@ -130,10 +178,28 @@ function reportit_check_upgrade() {
 	return true;
 }
 
+/**
+ * Reports whether this plugin's dependencies/requirements are
+ * satisfied. Called by Cacti's plugin architecture when checking
+ * whether the plugin can be enabled/upgraded.
+ *
+ * @return bool Always true (this plugin declares no unmet
+ *              requirements).
+ */
 function reportit_upgrade_requirements() {
 	return true;
 }
 
+/**
+ * Draw_navigation_text hook: registers the breadcrumb/navigation title
+ * entries for this plugin's report list/edit/data-item pages and their
+ * sub-views. Called by Cacti's navigation framework via the
+ * 'draw_navigation_text' hook.
+ *
+ * @param array $nav The navigation entries array being built up.
+ *
+ * @return array The $nav array with this plugin's entries added.
+ */
 function reportit_draw_navigation_text($nav) {
 	$nav['reportsit.php:'] = [
 		'title'   => __('Reports', 'reportit'),
@@ -360,6 +426,29 @@ function reportit_draw_navigation_text($nav) {
 	return $nav;
 }
 
+/**
+ * Config_arrays hook: defines this plugin's constants, augments Cacti's
+ * role system to grant the ReportIt realms to the appropriate roles,
+ * registers its Management/Templates menu entries when enabled, and
+ * registers its template-editing error messages. Called by Cacti's
+ * plugin framework via the 'config_arrays' hook on every page load.
+ *
+ * @return void
+ *
+ * @global array $user_auth_realms          Reserved/declared for parity
+ *                                         with other functions in this
+ *                                         file; not used directly here.
+ * @global array $user_auth_realm_filenames Reserved/declared for parity
+ *                                         with other functions in this
+ *                                         file; not used directly here.
+ * @global array $menu                      Cacti's admin menu registry;
+ *                                         appended with this plugin's
+ *                                         entries when enabled.
+ * @global array $messages                  Cacti's message-code
+ *                                         registry; appended with this
+ *                                         plugin's template-editing
+ *                                         error messages when enabled.
+ */
 function reportit_config_arrays() {
 	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
 
@@ -395,6 +484,28 @@ function reportit_config_arrays() {
 	}
 }
 
+/**
+ * Config_settings hook: registers this plugin's 'ReportIt' settings tab
+ * and all of its configuration fields (CSV export formatting, date/time
+ * display mode, operator role requirements, export folders, execution
+ * limits, and related report/scheduling defaults). Called by Cacti's
+ * settings framework via the 'config_settings' hook.
+ *
+ * @return void
+ *
+ * @global array $tabs           Cacti's settings tabs registry;
+ *                              appended with this plugin's tab.
+ * @global array $tabs_graphs    Populated here with this plugin's
+ *                              'Report General Settings' graph-tab
+ *                              label.
+ * @global array $settings       Cacti's settings fields registry;
+ *                              appended with this plugin's fields.
+ * @global array $settings_user  Populated here (merged with any
+ *                              existing entries) with this plugin's
+ *                              per-user setting fields.
+ * @global array $item_rows      Cacti's standard row-count option list,
+ *                              used for row-count settings.
+ */
 function reportit_config_settings() {
 	global $tabs, $tabs_graphs, $settings, $settings_user, $item_rows;
 
@@ -539,6 +650,16 @@ function reportit_config_settings() {
 	}
 }
 
+/**
+ * Checks whether a named row exists in Cacti's core 'settings' table.
+ * Called from setting-migration/compatibility code before reading or
+ * writing a setting that may not exist on older installations.
+ *
+ * @param string $setting The settings table 'name' column value to
+ *                        check.
+ *
+ * @return bool True if a row with that name exists, false otherwise.
+ */
 function db_setting_exists($setting) {
 	$results = db_fetch_row_prepared('SELECT * FROM settings WHERE name = ?', [$setting]);
 
@@ -549,6 +670,15 @@ function db_setting_exists($setting) {
 	}
 }
 
+/**
+ * Top_header_tabs/top_graph_header_tabs hook: triggers a schema upgrade
+ * check, then prints the ReportIt tab icon/link in Cacti's page header
+ * for users authorized to view reports, using the 'down' (active) icon
+ * when currently viewing view.php. Called by Cacti's header rendering
+ * via the 'top_header_tabs'/'top_graph_header_tabs' hooks.
+ *
+ * @return void
+ */
 function reportit_show_tab() {
 	reportit_check_upgrade();
 
@@ -557,18 +687,42 @@ function reportit_show_tab() {
 	}
 }
 
+/**
+ * Includes and runs this plugin's install system script to create its
+ * database schema. Called from plugin_reportit_install().
+ *
+ * @return void
+ */
 function reportit_system_setup() {
 	require_once(CACTI_PATH_BASE . '/plugins/reportit/system/install.php');
 
 	reportit_system_install();
 }
 
+/**
+ * Defines a PHP constant only if it isn't already defined, suppressing
+ * any redefinition warning. Called from reportit_define_constants() to
+ * safely (re-)establish this plugin's constants on every page load.
+ *
+ * @param string $constant The constant name to define.
+ * @param mixed  $value    The value to assign if not already defined.
+ *
+ * @return void
+ */
 function reportit_define($constant, $value) {
 	if (!defined($constant)) {
 		@define($constant, $value);
 	}
 }
 
+/**
+ * Defines this plugin's runtime constants: dynamically resolved realm
+ * ids (viewer/owner/admin) based on the plugin's registered realms,
+ * and its base/temp/archive/export filesystem paths. Called from
+ * reportit_config_arrays() on every page load.
+ *
+ * @return void
+ */
 function reportit_define_constants() {
 	// realm IDs which have been defined dynamically by PIA 2.x
 	$view = db_fetch_cell("SELECT id
@@ -604,6 +758,15 @@ function reportit_define_constants() {
 	reportit_define('REPORTIT_EXP_FD', REPORTIT_BASE_PATH . '/exports/');
 }
 
+/**
+ * Poller_bottom hook: purges expired report cache tables/rows past
+ * their configured lifecycle, then checks all enabled reports for ones
+ * due to run per their schedule, queuing them and launching a
+ * background poller_reportit.php process to execute the queue. Called
+ * by Cacti's poller via the 'poller_bottom' hook.
+ *
+ * @return void
+ */
 function reportit_poller_bottom() {
 	require_once(CACTI_PATH_LIBRARY . '/api_scheduler.php');
 	require_once(CACTI_PATH_LIBRARY . '/reports.php');
@@ -709,6 +872,19 @@ function reportit_poller_bottom() {
 	}
 }
 
+/**
+ * Queues a single due report for execution by inserting a run-queue
+ * entry, building the CLI command that will invoke poller_reportit.php
+ * for it, and returning bookkeeping info for the batch dispatch step.
+ * Called from reportit_poller_bottom() for each report found due to
+ * run.
+ *
+ * @param array $report Reference, the plugin_reportit_reports row to
+ *                      schedule.
+ *
+ * @return mixed The queued report's tracking info (used by the caller
+ *               to know a report was queued).
+ */
 function reportit_schedule_report(&$report) {
 	require_once(CACTI_PATH_BASE . '/plugins/reportit/lib/funct_runtime.php');
 
@@ -780,6 +956,17 @@ function reportit_schedule_report(&$report) {
 	return reports_queue($name, 1, 'reportit', $id, $command, $notification);
 }
 
+/**
+ * Clog_regex_array hook: registers regex patterns that let Cacti's log
+ * viewer (clog) turn 'RIReport[...]'/'RIDataItem[...]' tokens in log
+ * lines into clickable links to the relevant report/data item edit
+ * pages. Called by Cacti's log viewer via the 'clog_regex_array' hook.
+ *
+ * @param array $regex_array The list of regex/callback definitions
+ *                           being built up.
+ *
+ * @return array The $regex_array with this plugin's patterns added.
+ */
 function reportit_clog_regex_array($regex_array) {
 	$regex_array[] = ['name' => 'RIReport', 'regex' => '( RIReport\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_report'];
 	$regex_array[] = ['name' => 'RIDataItem', 'regex' => '( RIDataItem\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_dataitem'];
@@ -787,6 +974,19 @@ function reportit_clog_regex_array($regex_array) {
 	return $regex_array;
 }
 
+/**
+ * Regex-match callback resolving one or more report ids embedded in a
+ * clog 'RIReport[id,id,...]' token into HTML links (labeled with each
+ * report's name where known) to its edit page. Called by Cacti's log
+ * viewer for each 'RIReport[...]' match registered via
+ * reportit_clog_regex_array().
+ *
+ * @param array $matches The regex match groups: [0] full match, [1]
+ *                       leading token text, [2] comma-separated report
+ *                       ids, [3] trailing token text.
+ *
+ * @return string The rendered HTML replacement with report links.
+ */
 function reportit_clog_regex_report($matches) {
 	$result = $matches[0];
 
@@ -815,6 +1015,19 @@ function reportit_clog_regex_report($matches) {
 	return $result;
 }
 
+/**
+ * Regex-match callback resolving one or more data item ids embedded in
+ * a clog 'RIDataItem[id,id,...]' token into HTML links (labeled with
+ * each item's cached name where known) to its edit page. Called by
+ * Cacti's log viewer for each 'RIDataItem[...]' match registered via
+ * reportit_clog_regex_array().
+ *
+ * @param array $matches The regex match groups: [0] full match, [1]
+ *                       leading token text, [2] comma-separated data
+ *                       item ids, [3] trailing token text.
+ *
+ * @return string The rendered HTML replacement with data item links.
+ */
 function reportit_clog_regex_dataitem($matches) {
 	$result = $matches[0];
 
