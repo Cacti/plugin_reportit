@@ -148,7 +148,7 @@ function other_name($userid) {
  * navigation/permission-gating code to decide which UI to present.
  *
  * @return bool True if the user is view-only (or already viewing
- *             view.php), false otherwise.
+ *              view.php), false otherwise.
  */
 function only_viewer() {
 	$id = my_id();
@@ -176,7 +176,7 @@ function only_viewer() {
  * @param int $user_id  The user id to check.
  *
  * @return bool True if the user (directly or via a group) has the
- *             realm, false otherwise.
+ *              realm, false otherwise.
  */
 function user_auth_realm($realm_id, $user_id) {
 	$verified = db_fetch_cell('
@@ -202,7 +202,7 @@ function user_auth_realm($realm_id, $user_id) {
  * editing features.
  *
  * @return bool True if the current user is a report owner, false
- *             otherwise.
+ *              otherwise.
  */
 function re_owner() {
 	return user_auth_realm(REPORTIT_USER_OWNER, my_id()) ? true : false;
@@ -214,7 +214,7 @@ function re_owner() {
  * administrative/template-management features.
  *
  * @return bool True if the current user is a ReportIt admin, false
- *             otherwise.
+ *              otherwise.
  */
 function re_admin() {
 	return user_auth_realm(REPORTIT_USER_ADMIN, my_id()) ? true : false;
@@ -271,7 +271,7 @@ function session_custom_error_display() {
  * @param string $field The form field name to check.
  *
  * @return bool True if the field has a recorded error, false
- *             otherwise.
+ *              otherwise.
  */
 function is_error_message_field($field) {
 	if (isset($_SESSION['sess_error_fields'][$field])) {
@@ -289,7 +289,7 @@ function is_error_message_field($field) {
  * @param int $template_id The template id to check.
  *
  * @return bool True if the template has zero measurands (eligible for
- *             auto-lock), false otherwise.
+ *              auto-lock), false otherwise.
  */
 function stat_autolock_template($template_id) {
 	$count = db_fetch_cell_prepared('SELECT COUNT(*)
@@ -347,7 +347,7 @@ function update_formulas($array) {
  * @param int $template_id The template id to attempt to auto-lock.
  *
  * @return bool True if the template was locked, false if it wasn't
- *             eligible (has running reports).
+ *              eligible (has running reports).
  */
 function try_autolock_template($template_id) {
 	$status = db_fetch_cell_prepared('SELECT COUNT(*)
@@ -373,7 +373,7 @@ function try_autolock_template($template_id) {
  * @param int $hash The minimum required Cacti version hash code.
  *
  * @return bool True if the current Cacti version's hash code is
- *             greater than or equal to $hash, false otherwise.
+ *              greater than or equal to $hash, false otherwise.
  *
  * @global array $hash_version_codes Map of Cacti version string => hash
  *                                  code, used to resolve the running

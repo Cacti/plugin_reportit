@@ -309,7 +309,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice = '') {
  * @param int $report_id  The plugin_reportit_reports id to generate.
  * @param int $queue_id   The queue id this report run belongs to.
  * @param int $start_time The Unix timestamp this run started at, used
- *                       for logging/statistics.
+ *                        for logging/statistics.
  *
  * @return void
  *

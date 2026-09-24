@@ -394,8 +394,8 @@ function standard() {
  * querying report data.
  *
  * @return string The resolved report id (empty string if the filter
- *               setting disables id persistence and none was
- *               supplied).
+ *                setting disables id persistence and none was
+ *                supplied).
  */
 function validate_report_vars() {
 	// if the user pushed the 'clear' button
@@ -891,18 +891,18 @@ function show_report() {
  * counts. Called from show_report() when the report's display mode is
  * set to table view.
  *
- * @param array $data            The report's prepared data rows.
- * @param array $ds_description  Data-source-level measurand
- *                               descriptions.
- * @param array $rs_description  Result-set-level measurand
- *                               descriptions.
- * @param array $ov_description  Overview-level measurand descriptions.
- * @param int   $count_ov        The number of overview measurands.
- * @param int   $count_rs        The number of result-set measurands.
- * @param int   $columns         The total number of table columns to
- *                               render.
- * @param array $rows            The report's data rows to render.
- * @param int   $total_rows      The total row count (for pagination).
+ * @param array $data           The report's prepared data rows.
+ * @param array $ds_description Data-source-level measurand
+ *                              descriptions.
+ * @param array $rs_description Result-set-level measurand
+ *                              descriptions.
+ * @param array $ov_description Overview-level measurand descriptions.
+ * @param int   $count_ov       The number of overview measurands.
+ * @param int   $count_rs       The number of result-set measurands.
+ * @param int   $columns        The total number of table columns to
+ *                              render.
+ * @param array $rows           The report's data rows to render.
+ * @param int   $total_rows     The total row count (for pagination).
  *
  * @return void
  */
@@ -1085,14 +1085,14 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
  * data source/result-set/overview measurand descriptions. Called from
  * show_report() when the report's display mode is set to graph view.
  *
- * @param array $data            The report's prepared data rows.
- * @param array $ds_description  Data-source-level measurand
- *                               descriptions.
- * @param array $rs_description  Result-set-level measurand
- *                               descriptions.
- * @param array $ov_description  Overview-level measurand descriptions.
- * @param int   $count_ov        The number of overview measurands.
- * @param int   $count_rs        The number of result-set measurands.
+ * @param array $data           The report's prepared data rows.
+ * @param array $ds_description Data-source-level measurand
+ *                              descriptions.
+ * @param array $rs_description Result-set-level measurand
+ *                              descriptions.
+ * @param array $ov_description Overview-level measurand descriptions.
+ * @param int   $count_ov       The number of overview measurands.
+ * @param int   $count_rs       The number of result-set measurands.
  *
  * @return void
  */
@@ -1284,9 +1284,9 @@ function show_graph_overview() {
  * treemap visualization.
  *
  * @param int|string $graph_id   An identifier for the graph, used to
- *                              build a unique DOM/JS element id.
+ *                               build a unique DOM/JS element id.
  * @param array      $graph_data The hierarchical data to render as a
- *                              treemap.
+ *                               treemap.
  *
  * @return string The rendered HTML/JS markup for the treemap chart.
  */

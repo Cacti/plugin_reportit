@@ -59,8 +59,8 @@ function create_result_table($report_id) {
  *                       definitions for.
  *
  * @return array The assembled report definitions: report, data_items,
- *              high_counters, maxRRDValues, template, measurands,
- *              variables, cf, ds_items.
+ *               high_counters, maxRRDValues, template, measurands,
+ *               variables, cf, ds_items.
  *
  * @global array $consolidation_functions Map of RRA consolidation
  *                                       function identifiers, used to
@@ -278,25 +278,25 @@ function day_to_number($day) {
  * Called from get_prepared_data() while assembling a report's raw RRD
  * data extraction plan.
  *
- * @param string $startday        The report's starting weekday name.
- * @param string $endday          The report's ending weekday name.
- * @param int    $f_sp             The first data point's start time.
- * @param int    $l_sp             The last data point's start time.
- * @param int    $e_hour           The report's end hour.
- * @param int    $shift_duration   The report's shift duration in
- *                                seconds.
- * @param int    $rrd_sp           The RRD's actual first data point
- *                                time.
- * @param int    $rrd_ep           The RRD's actual last data point
- *                                time.
- * @param int    $rrd_step         The RRD's step size in seconds.
- * @param int    $rrd_ds_cnt       The number of data sources in the
- *                                RRD.
- * @param bool   $dst_support      Whether DST-aware time handling is
- *                                enabled.
+ * @param string $startday       The report's starting weekday name.
+ * @param string $endday         The report's ending weekday name.
+ * @param int    $f_sp           The first data point's start time.
+ * @param int    $l_sp           The last data point's start time.
+ * @param int    $e_hour         The report's end hour.
+ * @param int    $shift_duration The report's shift duration in
+ *                               seconds.
+ * @param int    $rrd_sp         The RRD's actual first data point
+ *                               time.
+ * @param int    $rrd_ep         The RRD's actual last data point
+ *                               time.
+ * @param int    $rrd_step       The RRD's step size in seconds.
+ * @param int    $rrd_ds_cnt     The number of data sources in the
+ *                               RRD.
+ * @param bool   $dst_support    Whether DST-aware time handling is
+ *                               enabled.
  *
  * @return array The computed request-type/adaptation parameters used to
- *              extract the requested data subset from the RRD.
+ *               extract the requested data subset from the RRD.
  */
 function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_duration,
 	$rrd_sp, $rrd_ep, $rrd_step, $rrd_ds_cnt, $dst_support) {
@@ -548,25 +548,25 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
  * report's calculation input data.
  *
  * @param array $rrd_data          Reference, the raw RRD sample values
- *                                (by absolute index).
+ *                                 (by absolute index).
  * @param array $rrd_ad_data       Reference, the index/step adaptation
- *                                plan produced by get_type_of_request().
+ *                                 plan produced by get_type_of_request().
  * @param int   $rrd_ds_cnt        The number of data sources in the
- *                                RRD.
+ *                                 RRD.
  * @param int   $ds_type           The data source type (2 = Counter,
- *                                requiring correction factors).
+ *                                 requiring correction factors).
  * @param float $corr_factor_start The correction factor to apply to the
- *                                first sample of a Counter series.
+ *                                 first sample of a Counter series.
  * @param float $corr_factor_end   The correction factor to apply to the
- *                                last sample of a Counter series.
+ *                                 last sample of a Counter series.
  * @param array $ds_namv           Reference, the map of data source
- *                                index => name, used to select which
- *                                indexes to process.
+ *                                 index => name, used to select which
+ *                                 indexes to process.
  * @param mixed $rrd_nan           Reference, reserved for signaling/
- *                                tracking NaN sample handling.
+ *                                 tracking NaN sample handling.
  *
  * @return array The extracted, corrected data values per data source
- *              index, ready for calculation.
+ *               index, ready for calculation.
  */
 function get_prepared_data(&$rrd_data, &$rrd_ad_data, $rrd_ds_cnt, $ds_type, $corr_factor_start, $corr_factor_end, &$ds_namv, &$rrd_nan) {
 	for ($i = 0; $i < $rrd_ds_cnt; $i++) {
@@ -644,13 +644,13 @@ function strtoNaN(&$value) {
  * from runtime() after fetching a data source's raw RRD data.
  *
  * @param string $data     Reference, the raw rrdtool fetch text output;
- *                        replaced with intermediate working state
- *                        during parsing.
+ *                         replaced with intermediate working state
+ *                         during parsing.
  * @param array  $rrd_data Reference, populated with the parsed result
- *                        (ds_namv, ds_cnt, start, end, step, data).
+ *                         (ds_namv, ds_cnt, start, end, step, data).
  * @param array  $template Reference, the report's template info,
- *                        providing RRA/step definitions used to infer
- *                        the step size when needed.
+ *                         providing RRA/step definitions used to infer
+ *                         the step size when needed.
  *
  * @return bool|void False if the fetched data is empty/malformed,
  *                   otherwise no explicit return (result is populated
@@ -741,7 +741,7 @@ function transform(&$data, &$rrd_data, &$template) {
  * report timespan calculation code.
  *
  * @return bool True if the timezone may observe DST, false for
- *             UTC/GMT/UCT.
+ *              UTC/GMT/UCT.
  */
 function check_DST_support() {
 	$tmz    = date('T');
@@ -773,13 +773,13 @@ function check_rra_header(&$rra_data) {
  *
  * @param int       $report_id  The plugin_reportit_reports id to email.
  * @param int       $queue_id   The queue id this notification belongs
- *                             to.
+ *                              to.
  * @param int|false $start_time The Unix timestamp the run started at,
- *                             for logging.
+ *                              for logging.
  *
  * @return mixed The result of reports_log_and_notify(), or the string
- *              'Export Failed' if the report's data couldn't be
- *              retrieved.
+ *               'Export Failed' if the report's data couldn't be
+ *               retrieved.
  */
 function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start_time = false) {
 	$report = db_fetch_row_prepared('SELECT *

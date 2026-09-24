@@ -108,7 +108,7 @@ function plugin_reportit_upgrade() {
  * reportit_check_upgrade()).
  *
  * @return array The plugin's info array, as parsed from the INFO
- *              file's '[info]' section.
+ *               file's '[info]' section.
  */
 function plugin_reportit_version() {
 	$info = parse_ini_file(CACTI_PATH_BASE . '/plugins/reportit/INFO', true);
@@ -883,7 +883,7 @@ function reportit_poller_bottom() {
  *                      schedule.
  *
  * @return mixed The queued report's tracking info (used by the caller
- *              to know a report was queued).
+ *               to know a report was queued).
  */
 function reportit_schedule_report(&$report) {
 	require_once(CACTI_PATH_BASE . '/plugins/reportit/lib/funct_runtime.php');

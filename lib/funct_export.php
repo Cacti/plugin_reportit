@@ -851,13 +851,13 @@ function new_worksheet(&$data, &$styles) {
  * style reference. Called from new_worksheet() for each cell of the
  * exported spreadsheet.
  *
- * @param mixed     $data    The cell's value.
- * @param bool      $row     Whether to wrap the cell in a &lt;Row&gt; element.
+ * @param mixed        $data    The cell's value.
+ * @param bool         $row     Whether to wrap the cell in a &lt;Row&gt; element.
  * @param string|false $styleID An optional style id to apply to the
- *                             cell.
+ *                              cell.
  *
  * @return string The rendered &lt;Cell&gt; (optionally &lt;Row&gt;-wrapped) XML
- *               fragment.
+ *                fragment.
  */
 function sml_cell($data, $row = false, $styleID = false) {
 	$eol = PHP_EOL;

@@ -31,8 +31,8 @@
  *                       owner for.
  *
  * @return string The owner's 'Full Name (username)', or a localized
- *               'Unknown Owner' string if the report/user is not
- *               found.
+ *                'Unknown Owner' string if the report/user is not
+ *                found.
  */
 function owner($report_id) {
 	$tmp = db_fetch_row_prepared('SELECT b.username, b.full_name
@@ -59,11 +59,11 @@ function owner($report_id) {
  *
  * @param int    $report_id The report id to gather data for.
  * @param string $type      The data-package mode: 'view', 'export',
- *                         'graidle' (raw SQL passthrough), or 'graph'
- *                         (short-circuit, results omitted).
+ *                          'graidle' (raw SQL passthrough), or 'graph'
+ *                          (short-circuit, results omitted).
  * @param string $sql_where Additional SQL WHERE clause (for
- *                         view/export) or the full query (for
- *                         'graidle') to apply to the results query.
+ *                          view/export) or the full query (for
+ *                          'graidle') to apply to the results query.
  *
  * @return array|false The assembled data package (report_data,
  *                     report_results, report_measurands,
@@ -355,7 +355,7 @@ function db_custom_fetch_flat_string($sql, $delimiter = ',') {
  *                                than local server time.
  *
  * @return array The resolved timespan (start/end date components and
- *              related values).
+ *               related values).
  */
 function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 	// Set preconditions
@@ -831,10 +831,10 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
  * may legally reference.
  *
  * @param int $template_id The template id to resolve variable names
- *                        for.
+ *                         for.
  *
  * @return array The list of valid variable name tokens for the
- *              template.
+ *               template.
  *
  * @global array $calc_var_names Reserved/declared for parity with other
  *                              functions in this file; not used
@@ -1109,7 +1109,7 @@ function get_report_setting($report_id, $column) {
  * @param int    $user_id     The user id to read the setting for.
  *
  * @return mixed The user's stored value, or the system default if none
- *              is stored.
+ *               is stored.
  */
 function get_graph_config_option($config_name, $user_id) {
 	$sql = 'SELECT value FROM settings_graphs WHERE name = ? AND user_id = ?';
@@ -1130,14 +1130,14 @@ function get_graph_config_option($config_name, $user_id) {
  * the chosen scale exponent (for building an axis-unit label). Called
  * when preparing graph data series for display.
  *
- * @param array $values   Reference, the values to rescale in place.
- * @param int   $rounding The rounding mode (2 selects a 1000-based
- *                        scale, otherwise 1024-based).
- * @param string $order   'DESC' to use the first value as the
- *                        reference highest value, otherwise the last.
+ * @param array  $values   Reference, the values to rescale in place.
+ * @param int    $rounding The rounding mode (2 selects a 1000-based
+ *                         scale, otherwise 1024-based).
+ * @param string $order    'DESC' to use the first value as the
+ *                         reference highest value, otherwise the last.
  *
  * @return int The chosen scale exponent (0 for no scaling), or 0 if all
- *            values are zero.
+ *             values are zero.
  */
 function auto_rounding(&$values, $rounding, $order) {
 	$threshold = 0.5;
@@ -1383,7 +1383,7 @@ function update_xml_archive($report_id) {
  *                       identifying which archived run to load.
  *
  * @return void This function calls die_html_custom_error() if the
- *             requested archive entry isn't found.
+ *              requested archive entry isn't found.
  */
 function cache_xml_file($report_id, $mtime) {
 	$cache_id   = $report_id . '_' . $mtime;
@@ -1469,20 +1469,20 @@ function cache_xml_file($report_id, $mtime) {
  * a legacy serialized 'data_template_alias' field when present. Called
  * from cache_xml_file() once per archive section being cached.
  *
- * @param array      $array    Reference, the parsed archive section
- *                             data to transform.
- * @param string     $columns  Reference, populated with the resulting
- *                             '(`col`, `col2`, ...)' column list
- *                             fragment.
- * @param string     $values   Reference, populated with the resulting
- *                             VALUES clause fragment (one or more
- *                             tuples).
+ * @param array        $array    Reference, the parsed archive section
+ *                               data to transform.
+ * @param string       $columns  Reference, populated with the resulting
+ *                               '(`col`, `col2`, ...)' column list
+ *                               fragment.
+ * @param string       $values   Reference, populated with the resulting
+ *                               VALUES clause fragment (one or more
+ *                               tuples).
  * @param string|false $cache_id Optional cache id to prefix each row
- *                             with (for multi-report cache tables); pass
- *                             false to omit.
+ *                               with (for multi-report cache tables); pass
+ *                               false to omit.
  *
  * @return bool True if the section was non-empty and transformed,
- *             false if $array was empty/not an array.
+ *              false if $array was empty/not an array.
  */
 function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	$keys       = false;
@@ -1712,9 +1712,9 @@ function transform_htmlspecialchars(&$data) {
  * a completed report run's stats.
  *
  * @return array Memory usage info: 'limit' (the configured limit, or
- *              'unlimited'), 'current', and 'peak' (formatted
- *              'XMB(Y%)' strings, or 'Undetected' if usage couldn't be
- *              computed).
+ *               'unlimited'), 'current', and 'peak' (formatted
+ *               'XMB(Y%)' strings, or 'Undetected' if usage couldn't be
+ *               computed).
  */
 function get_mem_usage() {
 	$memory_system  = return_bytes(ini_get('memory_limit'));
@@ -1744,8 +1744,8 @@ function get_mem_usage() {
  *
  * @param SimpleXMLElement $xml_object  The XML element to render.
  * @param bool             $keep_spaces Whether to keep formatted
- *                                     whitespace (true) or strip all
- *                                     whitespace (false).
+ *                                      whitespace (true) or strip all
+ *                                      whitespace (false).
  *
  * @return string The rendered XML text.
  */
@@ -1773,10 +1773,10 @@ function xml_to_string($xml_object, $keep_spaces = true) {
  *
  * @param SimpleXMLElement $xml_object The XML element to convert.
  * @param bool             $indexed    Whether to unwrap a single-item
- *                                    result array down to its lone
- *                                    element.
+ *                                     result array down to its lone
+ *                                     element.
  * @param bool             $log        Whether to print debug trace
- *                                    output during conversion.
+ *                                     output during conversion.
  *
  * @return array|string The converted array, or an empty string if
  *                      $xml_object is falsy.
@@ -1851,7 +1851,7 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
  *
  * @param int $template_id The template id to export.
  * @param int $indent      The current XML indentation level (for
- *                        nested pretty-printing).
+ *                         nested pretty-printing).
  *
  * @return string|false The rendered XML fragment for this template, or
  *                      false if the template doesn't exist.
@@ -1939,7 +1939,7 @@ function export_report_template($template_id, $indent = 0) {
  * export's XML content.
  *
  * @param array|mixed $data   The data to render; non-array values are
- *                           ignored (produce no output at this level).
+ *                            ignored (produce no output at this level).
  * @param int         $indent The current indentation level (tabs).
  *
  * @return string The rendered XML text.
@@ -2039,10 +2039,10 @@ function clean_xml_waste(&$array, $replace = '') {
  * data source item rows. Called from template_wizard()'s 'import' step
  * for each confirmed template in the uploaded file.
  *
- * @param object $report_template   The parsed XML template element to
- *                                  import.
- * @param int    $data_template_id  The Cacti data template id the new
- *                                  report template should be based on.
+ * @param object $report_template  The parsed XML template element to
+ *                                 import.
+ * @param int    $data_template_id The Cacti data template id the new
+ *                                 report template should be based on.
  *
  * @return void
  */

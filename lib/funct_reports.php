@@ -181,9 +181,9 @@ function api_reportit_take_ownership($id, $user) {
  * list. Called from the report's items tab bulk 'delete' action.
  *
  * @param int   $id    The report id whose data items should be
- *                      removed from.
+ *                     removed from.
  * @param array $items The list of plugin_reportit_data_items ids to
- *                      remove.
+ *                     remove.
  *
  * @return void
  */
@@ -258,11 +258,11 @@ function api_reportit_add_data_source($id) {
  * on all of a report's data items from a single reference item's
  * values. Called from the report's items tab 'apply to all' action.
  *
- * @param int    $id               The report id whose data items should
- *                                 be updated.
- * @param string $reference_items  A serialized array whose first
- *                                 element supplies the reference
- *                                 timespan values.
+ * @param int    $id              The report id whose data items should
+ *                                be updated.
+ * @param string $reference_items A serialized array whose first
+ *                                element supplies the reference
+ *                                timespan values.
  *
  * @return void
  */

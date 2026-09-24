@@ -70,8 +70,8 @@ function last_error($errno, $errstr) {
  *                                          formula.
  *
  * @return string 'VALID' if the formula passes all checks, otherwise a
- *               descriptive error message (optionally with inline HTML
- *               highlighting).
+ *                descriptive error message (optionally with inline HTML
+ *                highlighting).
  *
  * @global array $calc_fct_names        Valid calculation function name
  *                                     tokens.
@@ -334,14 +334,14 @@ function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside
  * Called from validate_xml_template() once per required section.
  *
  * @param object $xml_template Reference, the parsed XML template
- *                            object being validated.
- * @param string $section     The XML section name to validate.
- * @param bool   $valid       Reference, the running validity flag;
- *                            cleared if this section is missing/
- *                            malformed.
- * @param string $checksum    Reference, the running checksum string,
- *                            appended with this section's canonical
- *                            XML text when valid.
+ *                             object being validated.
+ * @param string $section      The XML section name to validate.
+ * @param bool   $valid        Reference, the running validity flag;
+ *                             cleared if this section is missing/
+ *                             malformed.
+ * @param string $checksum     Reference, the running checksum string,
+ *                             appended with this section's canonical
+ *                             XML text when valid.
  *
  * @return bool The (possibly newly cleared) $valid flag.
  */
@@ -368,13 +368,13 @@ function validate_xml_template_section(&$xml_template, $section, &$valid, &$chec
  * to check a parsed template before accepting it for import.
  *
  * @param object $xml_template Reference, the parsed XML template object
- *                            to validate.
- * @param bool   $valid       Reference, set to false if the document or
- *                            any required section is missing/
- *                            malformed.
- * @param string $checksum    Reference, accumulates the canonical
- *                            checksum text across all validated
- *                            sections.
+ *                             to validate.
+ * @param bool   $valid        Reference, set to false if the document or
+ *                             any required section is missing/
+ *                             malformed.
+ * @param string $checksum     Reference, accumulates the canonical
+ *                             checksum text across all validated
+ *                             sections.
  *
  * @return void
  */
@@ -419,8 +419,8 @@ function validate_xml_template(&$xml_template, &$valid, &$checksum) {
  * submitted.
  *
  * @return bool True if the uploaded file was valid and stored in the
- *             session for import, false otherwise (with a session error
- *             message set describing the failure).
+ *              session for import, false otherwise (with a session error
+ *              message set describing the failure).
  */
 function validate_uploaded_templates() {
 	// check file transfer if used
