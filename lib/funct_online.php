@@ -22,6 +22,12 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Returns the current session user's user id. Called throughout this
+ * plugin wherever the current user's id is needed.
+ *
+ * @return int|null The current user's session id, or null if not set.
+ */
 function my_id() {
 	return $_SESSION['sess_user_id'];
 }

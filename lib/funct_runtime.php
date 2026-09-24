@@ -22,6 +22,16 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Creates a report's dedicated per-report results table (if it does
+ * not already exist) and seeds it with one row per configured data
+ * item id. Called when a report is first run/scheduled.
+ *
+ * @param int $report_id The plugin_reportit_reports id to create the
+ *                       results table for.
+ *
+ * @return void
+ */
 function create_result_table($report_id) {
 	// Create the sql syntax
 	db_execute("CREATE TABLE IF NOT EXISTS plugin_reportit_results_$report_id (

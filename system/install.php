@@ -22,6 +22,15 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Drops and recreates this plugin's three cache tables
+ * (plugin_reportit_cache_measurands, plugin_reportit_cache_reports,
+ * plugin_reportit_cache_variables), which hold temporary data read in
+ * from an archived report while it is being viewed. Called during
+ * plugin install/upgrade to ensure the cache schema is current.
+ *
+ * @return void
+ */
 function reportit_recreate_cache_tables() {
 	// rebuild the cache tables
 	$tables = [

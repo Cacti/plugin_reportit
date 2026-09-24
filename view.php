@@ -74,7 +74,7 @@ switch (get_request_var('action')) {
  * Exports a single report's (live or archived) data table in the
  * requested format (CSV/XML/etc.), streaming it as a downloadable file
  * with the appropriate content type. Called from this script's main
- * request-dispatch switch when action=export.
+ * request-dispatch switch when action=actions.
  *
  * @return void
  *

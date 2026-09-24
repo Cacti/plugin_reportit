@@ -91,7 +91,7 @@ switch (get_request_var('action')) {
  * Renders the first step of the new-report wizard: a template-selection
  * form, listing only unlocked/enabled templates (raising an error and
  * redirecting away if none are available). Called from this script's
- * main request-dispatch switch when action=report_wizard.
+ * main request-dispatch switch when action=report_add.
  *
  * @return void
  */

@@ -22,6 +22,14 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Disables scheduling for a report. Called from the report list's bulk
+ * 'disable' action.
+ *
+ * @param int $id The plugin_reportit_reports id to disable.
+ *
+ * @return void
+ */
 function api_reportit_disable_report($id) {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET enabled = ""

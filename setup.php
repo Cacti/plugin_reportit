@@ -22,6 +22,15 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Plugin install hook: registers this plugin's hooks (tab rendering,
+ * navigation text, config arrays/settings, poller bottom, log regex)
+ * and admin realms (viewing/creating/managing reports), then runs the
+ * initial database schema setup. Called by Cacti's plugin architecture
+ * when the plugin is installed.
+ *
+ * @return void
+ */
 function plugin_reportit_install() {
 	api_plugin_register_hook('reportit', 'top_header_tabs',       'reportit_show_tab',             'setup.php');
 	api_plugin_register_hook('reportit', 'top_graph_header_tabs', 'reportit_show_tab',             'setup.php');
@@ -486,14 +495,14 @@ function reportit_config_arrays() {
  *
  * @global array $tabs           Cacti's settings tabs registry;
  *                              appended with this plugin's tab.
- * @global array $tabs_graphs    Reserved/declared for parity with other
- *                              functions in this file; not used
- *                              directly here.
+ * @global array $tabs_graphs    Populated here with this plugin's
+ *                              'Report General Settings' graph-tab
+ *                              label.
  * @global array $settings       Cacti's settings fields registry;
  *                              appended with this plugin's fields.
- * @global array $settings_user  Reserved/declared for parity with other
- *                              functions in this file; not used
- *                              directly here.
+ * @global array $settings_user  Populated here (merged with any
+ *                              existing entries) with this plugin's
+ *                              per-user setting fields.
  * @global array $item_rows      Cacti's standard row-count option list,
  *                              used for row-count settings.
  */

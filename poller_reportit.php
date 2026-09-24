@@ -151,11 +151,11 @@ if ($schedule == true) {
 
 /**
  * Top-level entry point for running a single ReportIt report: looks up
- * the report (requiring its template not be locked), verifies the
- * template isn't in an error state, delegates to runtime() to actually
- * generate it, logs summary stats, and records the report's last-run
- * timestamp/duration before exiting. Called from this script's main
- * flow when invoked with a specific '--id' (report id).
+ * the report, checks whether its template is locked (via
+ * get_template_status()) and aborts if so, delegates to runtime() to
+ * actually generate it, logs summary stats, and records the report's
+ * last-run timestamp/duration before exiting. Called from this
+ * script's main flow when invoked with a specific '--id' (report id).
  *
  * @param int $report_id The plugin_reportit_reports id to run.
  * @param int $queue_id  The queue id this report run belongs to (0 for
@@ -975,11 +975,15 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 }
 
 /**
- * function autorrdlist
- * deletes all rrdlist entries that are no longer existing
- * adds all items defined by Device Template Filter and Data Source Filter
+ * Rebuilds a report's list of data items: removes any rrdlist entries
+ * that no longer exist, then re-adds all items currently matching the
+ * report's configured Device Template Filter and Data Source Filter.
+ * Called from runtime() before a report is generated.
  *
- * @param unknown_type $reportid
+ * @param int $reportid The plugin_reportit_reports id to rebuild the
+ *                      data item list for.
+ *
+ * @return void
  */
 function autorrdlist($reportid) {
 	global $timezone, $shifttime, $shifttime2, $weekday;
@@ -1170,10 +1174,15 @@ function autorrdlist($reportid) {
 }
 
 /**
- * autocleanup()
- * removes automatically all data items which do not exist any longer
- * @param int $report_id contains the report identifier
- * @return
+ * Removes a report's data items whose underlying data source no
+ * longer exists (left-joined against data_template_data and matched on
+ * a null name_cache). Called from runtime() before a report is
+ * generated.
+ *
+ * @param int $report_id The plugin_reportit_reports id to clean up
+ *                       data items for.
+ *
+ * @return void
  */
 function autocleanup($report_id) {
 	$data_items = db_custom_fetch_flat_string("SELECT a.id

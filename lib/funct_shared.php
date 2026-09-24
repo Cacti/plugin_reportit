@@ -22,6 +22,18 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Resolves a report's owning user for display, formatted as
+ * 'Full Name (username)'. Called throughout this plugin's UI wherever
+ * a report's owner needs to be shown.
+ *
+ * @param int $report_id The plugin_reportit_reports id to look up the
+ *                       owner for.
+ *
+ * @return string The owner's 'Full Name (username)', or a localized
+ *               'Unknown Owner' string if the report/user is not
+ *               found.
+ */
 function owner($report_id) {
 	$tmp = db_fetch_row_prepared('SELECT b.username, b.full_name
 		FROM plugin_reportit_reports as a
@@ -1541,8 +1553,9 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
  * @param int $report_id The report id whose archive listing should be
  *                       read.
  *
- * @return array The list of archived entries (e.g. mtime/formatted
- *              date pairs) found in the report's ZIP archive.
+ * @return array|false The list of archived entries (e.g. mtime/
+ *                     formatted date pairs) found in the report's ZIP
+ *                     archive, or false if the archive has no entries.
  */
 function info_xml_archive($report_id) {
 	$content  = [];
