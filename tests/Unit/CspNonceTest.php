@@ -5,9 +5,7 @@
  +-------------------------------------------------------------------------+
 */
 
-/*
- * Unit coverage for plugin_reportit_csp_nonce() in setup.php.
- */
+// Unit coverage for plugin_reportit_csp_nonce() in setup.php.
 
 beforeAll(function () {
 	require_once __DIR__ . '/../../setup.php';
