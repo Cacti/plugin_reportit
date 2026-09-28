@@ -282,7 +282,7 @@ function standard() {
 					</tr>
 				</table>
 			</form>
-			<script type='text/javascript'>
+			<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 			function applyFilter() {
 				strURL  = 'view.php?action=standard';
 				strURL += '&filter='+escape($('#filter').val());
@@ -808,7 +808,7 @@ function show_report() {
 					</tr>
 				</table>
 			</form>
-			<script type='text/javascript'>
+			<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 			function applyFilter() {
 				strURL  = 'view.php?action=show_report';
 				strURL += '&id=<?php print get_filter_request_var('id'); ?>';
@@ -1299,7 +1299,7 @@ function plugin_reportit_graph($graph_id, $graph_data) {
 	$values = [];
 
 	$content  = '<div id="treemap_' . $xid . '"></div>';
-	$content .= '<script type="text/javascript">';
+	$content .= '<script type="text/javascript" ' . plugin_reportit_csp_nonce() . '>';
 	$content .= 'treemap_' . $xid . ' = bb.generate({';
 	$content .= ' tile: "dice",';
 	$content .= ' bindto: "#treemap_' . $xid . '",';

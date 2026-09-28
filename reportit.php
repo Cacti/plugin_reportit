@@ -205,7 +205,7 @@ function report_filter() {
 					</tr>
 				</table>
 			</form>
-			<script type='text/javascript'>
+			<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 
 			function applyFilter() {
 				strURL = 'reportit.php?filter='+
@@ -1454,7 +1454,7 @@ function report_edit() {
 						</tr>
 					</table>
 				</form>
-				<script type='text/javascript'>
+				<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 				function applyFilter() {
 					strURL  = 'reportit.php?action=report_edit&tab=items';
 					strURL += '&id=<?php print get_filter_request_var('id'); ?>';
@@ -1598,7 +1598,7 @@ function report_edit() {
 		form_save_button('reportit.php');
 
 		?>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 		$(function() {
 			if ($('#_dynamic').length > 0) {
 				dyn_general_tab();

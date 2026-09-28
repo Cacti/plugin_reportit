@@ -516,7 +516,7 @@ function template_filter() {
 					</tr>
 				</table>
 			</form>
-			<script type='text/javascript'>
+			<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 
 			function applyFilter() {
 				strURL = 'templates.php?filter='+$('#filter').val()+'&rows='+$('#rows').val();
@@ -1412,7 +1412,7 @@ function form_actions() {
 				top_header();
 
 				print '<div id="downloading"><p>Please wait ... downloading ...</p></div>
-					<script text="text/javascript">
+					<script text="text/javascript" ' . plugin_reportit_csp_nonce() . '>
 						function DownloadStart(url) {
 							document.getElementById("download_iframe").onload = function() {
 								document.location = "templates.php";
@@ -2090,7 +2090,7 @@ function variable_edit() {
 	];
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 	function change_variable_type(){
 		if ($('#input_type').val() == 2) {
 			$('#stepping').prop('disabled', true);
@@ -2289,7 +2289,7 @@ function measurand_edit() {
 	];
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_reportit_csp_nonce(); ?>>
 	function change_data_type(){
 		if ($('#data_type').val() in {0:'',2:'',3:'',4:'',5:'',6:''}) {
 	 		$('#data_precision').prop('disabled', true);
