@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-21 13:14-0400\n"
+"POT-Creation-Date: 2026-09-27 11:16-0400\n"
 "PO-Revision-Date: 2024-09-25 20:04-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,57 +37,57 @@ msgstr "ロック"
 msgid "Unlock"
 msgstr "ロック解除"
 
-#: include/global_arrays.php:31 setup.php:241 setup.php:247 setup.php:253
-#: templates.php:1400
+#: include/global_arrays.php:31 setup.php:323 setup.php:329 setup.php:335
+#: templates.php:1578
 msgid "Export"
 msgstr "エクスポート"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:48 lib/const_reports.php:428
-#: lib/const_variables.php:51 reportit.php:370 reportit.php:1081
-#: templates.php:255 templates.php:585 templates.php:1636 templates.php:1822
-#: templates.php:1961 templates.php:2142 view.php:298
+#: lib/const_variables.php:51 reportit.php:412 reportit.php:1224
+#: templates.php:292 templates.php:687 templates.php:1837 templates.php:2038
+#: templates.php:2202 templates.php:2399 view.php:322
 msgid "Name"
 msgstr "名前"
 
-#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1641
+#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1842
 msgid "Internal Name"
 msgstr "内部名称"
 
 #: include/global_arrays.php:53 lib/const_variables.php:53
-#: lib/const_view.php:106 templates.php:1645
+#: lib/const_view.php:106 templates.php:1846
 msgid "Maximum"
 msgstr "最大"
 
 #: include/global_arrays.php:54 lib/const_variables.php:54
-#: lib/const_view.php:105 templates.php:1649
+#: lib/const_view.php:105 templates.php:1850
 msgid "Minimum"
 msgstr "最小"
 
-#: include/global_arrays.php:55 lib/const_variables.php:55 reportit.php:166
-#: reportit.php:1283 templates.php:431 templates.php:1653 view.php:238
-#: view.php:715
+#: include/global_arrays.php:55 lib/const_variables.php:55 reportit.php:185
+#: reportit.php:1426 templates.php:495 templates.php:1854 view.php:262
+#: view.php:775
 msgid "Default"
 msgstr "デフォルト"
 
-#: include/global_arrays.php:56 templates.php:1657 templates.php:1868
+#: include/global_arrays.php:56 templates.php:1858 templates.php:2084
 msgid "Stepping"
 msgstr "ステッピング"
 
-#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1661
+#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1862
 msgid "Input Type"
 msgstr "入力タイプ"
 
-#: include/global_arrays.php:58 templates.php:1665
+#: include/global_arrays.php:58 templates.php:1866
 msgid "Options"
 msgstr "オプション"
 
-#: include/global_arrays.php:61 include/global_arrays.php:71 reportit.php:1237
-#: templates.php:591
+#: include/global_arrays.php:61 include/global_arrays.php:71 reportit.php:1380
+#: templates.php:693
 msgid "ID"
 msgstr "ID"
 
-#: include/global_arrays.php:62 templates.php:1968 templates.php:2143
+#: include/global_arrays.php:62 templates.php:2209 templates.php:2400
 msgid "Abbreviation"
 msgstr "略語"
 
@@ -95,23 +95,23 @@ msgstr "略語"
 msgid "Group"
 msgstr "グループ"
 
-#: include/global_arrays.php:64 templates.php:1975 templates.php:2144
+#: include/global_arrays.php:64 templates.php:2216 templates.php:2401
 msgid "Unit"
 msgstr "単位"
 
-#: include/global_arrays.php:65 templates.php:2145
+#: include/global_arrays.php:65 templates.php:2402
 msgid "Consolidation Function"
 msgstr "連結機能"
 
-#: include/global_arrays.php:66 templates.php:1990 templates.php:2146
+#: include/global_arrays.php:66 templates.php:2231 templates.php:2403
 msgid "Visible"
 msgstr "管理者とモデレータのみに表示されます"
 
-#: include/global_arrays.php:67 templates.php:1998 templates.php:2147
+#: include/global_arrays.php:67 templates.php:2239 templates.php:2404
 msgid "Separate"
 msgstr "セパレート"
 
-#: include/global_arrays.php:68 templates.php:2037 templates.php:2148
+#: include/global_arrays.php:68 templates.php:2278 templates.php:2405
 msgid "Calculation Formula"
 msgstr "計算式"
 
@@ -123,8 +123,8 @@ msgstr "汎用 ID"
 msgid "Elements"
 msgstr "要素"
 
-#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:265
-#: templates.php:136 templates.php:621
+#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:347
+#: templates.php:148 templates.php:723
 msgid "Metrics"
 msgstr "統計"
 
@@ -134,8 +134,8 @@ msgstr "関連データテンプレート"
 
 #: include/global_arrays.php:81 include/global_forms.php:43
 #: lib/const_reports.php:124 lib/const_reports.php:184
-#: lib/const_reports.php:279 lib/const_reports.php:424 reportit.php:1586
-#: setup.php:416 templates.php:134 templates.php:1811 templates.php:1956
+#: lib/const_reports.php:279 lib/const_reports.php:424 reportit.php:1747
+#: setup.php:543 templates.php:146 templates.php:2027 templates.php:2197
 msgid "General"
 msgstr "一般"
 
@@ -148,8 +148,8 @@ msgid "Groups"
 msgstr "グループ"
 
 #: include/global_arrays.php:85 include/global_arrays.php:530
-#: lib/const_measurands.php:355 lib/funct_html.php:35 lib/funct_html.php:112
-#: setup.php:289 templates.php:135 templates.php:626
+#: lib/const_measurands.php:355 lib/funct_html.php:35 lib/funct_html.php:127
+#: setup.php:371 templates.php:147 templates.php:728
 msgid "Variables"
 msgstr "変数"
 
@@ -808,8 +808,8 @@ msgstr "%d 分"
 msgid "The unique name given to this Report Template."
 msgstr "このレポート・テンプレートに付けられた一意の名前。"
 
-#: include/global_forms.php:55 templates.php:260 templates.php:1830
-#: view.php:1081
+#: include/global_forms.php:55 templates.php:297 templates.php:2046
+#: view.php:1178
 msgid "Description"
 msgstr "説明"
 
@@ -817,7 +817,7 @@ msgstr "説明"
 msgid "A longer description of this Report Template."
 msgstr "このレポートテンプレートの詳細な説明。"
 
-#: include/global_forms.php:64 templates.php:257 templates.php:607
+#: include/global_forms.php:64 templates.php:294 templates.php:709
 msgid "Version"
 msgstr "バージョン"
 
@@ -825,7 +825,7 @@ msgstr "バージョン"
 msgid "A version number for this template"
 msgstr "このテンプレートのバージョン番号"
 
-#: include/global_forms.php:72 templates.php:258 templates.php:597
+#: include/global_forms.php:72 templates.php:295 templates.php:699
 msgid "Author"
 msgstr "投稿者"
 
@@ -841,7 +841,7 @@ msgstr "公開"
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
 msgstr "このレポート テンプレートは、ユーザーがアクセスできるように公開する必要がありますか?新しいテンプレートや変更をテストする目的では、このボックスのチェックを外してください。"
 
-#: include/global_forms.php:86 templates.php:617
+#: include/global_forms.php:86 templates.php:719
 msgid "Locked"
 msgstr "ロック中"
 
@@ -866,7 +866,7 @@ msgid "Optional: The path to an folder for saving the exports.  If it does not e
 msgstr "オプション: エクスポートを保存するためのフォルダーへのパス。 存在しない場合は、最初にスケジュールされた計算中に自動的に作成を試みます。そうでない場合は、テンプレートIDを使用してメインエクスポートフォルダ内に新しいサブフォルダを作成しようとします。"
 
 #: include/global_forms.php:108 include/global_forms.php:113
-#: include/global_forms.php:120 templates.php:259 templates.php:603
+#: include/global_forms.php:120 templates.php:296 templates.php:705
 #, fuzzy
 msgid "Data Template"
 msgstr "このデータテンプレートに名前を与えてください。"
@@ -978,7 +978,7 @@ msgstr "カッコ"
 msgid "Disable"
 msgstr "無効"
 
-#: lib/const_reports.php:31 setup.php:464
+#: lib/const_reports.php:31 setup.php:591
 msgid "Enable"
 msgstr "有効"
 
@@ -1011,31 +1011,31 @@ msgstr "実行中"
 msgid "- No template available -"
 msgstr "- 利用不可 -"
 
-#: lib/const_reports.php:62 lib/const_rrdlist.php:55 lib/funct_runtime.php:202
+#: lib/const_reports.php:62 lib/const_rrdlist.php:55 lib/funct_runtime.php:242
 msgid "Monday"
 msgstr "月曜日"
 
-#: lib/const_reports.php:63 lib/const_rrdlist.php:56 lib/funct_runtime.php:206
+#: lib/const_reports.php:63 lib/const_rrdlist.php:56 lib/funct_runtime.php:246
 msgid "Tuesday"
 msgstr "火曜日"
 
-#: lib/const_reports.php:64 lib/const_rrdlist.php:57 lib/funct_runtime.php:210
+#: lib/const_reports.php:64 lib/const_rrdlist.php:57 lib/funct_runtime.php:250
 msgid "Wednesday"
 msgstr "水曜日"
 
-#: lib/const_reports.php:65 lib/const_rrdlist.php:58 lib/funct_runtime.php:214
+#: lib/const_reports.php:65 lib/const_rrdlist.php:58 lib/funct_runtime.php:254
 msgid "Thursday"
 msgstr "木曜日"
 
-#: lib/const_reports.php:66 lib/const_rrdlist.php:59 lib/funct_runtime.php:218
+#: lib/const_reports.php:66 lib/const_rrdlist.php:59 lib/funct_runtime.php:258
 msgid "Friday"
 msgstr "金曜日"
 
-#: lib/const_reports.php:67 lib/const_rrdlist.php:60 lib/funct_runtime.php:222
+#: lib/const_reports.php:67 lib/const_rrdlist.php:60 lib/funct_runtime.php:262
 msgid "Saturday"
 msgstr "土曜日"
 
-#: lib/const_reports.php:68 lib/const_rrdlist.php:61 lib/funct_runtime.php:226
+#: lib/const_reports.php:68 lib/const_rrdlist.php:61 lib/funct_runtime.php:266
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -1044,11 +1044,11 @@ msgstr "日曜日"
 msgid "Data Source Presets"
 msgstr "データ項目プリセット"
 
-#: lib/const_reports.php:126 reportit.php:1082
+#: lib/const_reports.php:126 reportit.php:1225
 msgid "Email"
 msgstr "メールアドレス"
 
-#: lib/const_reports.php:127 reportit.php:410 reportit.php:1356
+#: lib/const_reports.php:127 reportit.php:452 reportit.php:1499
 msgid "Data Sources"
 msgstr "データソース"
 
@@ -1145,11 +1145,11 @@ msgstr "新しい受信者を追加するには、有効なメールアドレス
 msgid "Optional Sub-heading"
 msgstr "[オプション]バージョン"
 
-#: lib/const_reports.php:284 reportit.php:1595
+#: lib/const_reports.php:284 reportit.php:1756
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 msgstr "インターフェースの説明の下に表示する必要がある追加の小見出しを定義します。<br> 次の変数がサポートされます (引用符なし): '|t1|''|t2|''|tmz|''|d1|''|d2|'"
 
-#: lib/const_reports.php:295 reportit.php:1257 reportit.php:1606
+#: lib/const_reports.php:295 reportit.php:1400 reportit.php:1767
 msgid "Time Zone"
 msgstr "タイムゾーン"
 
@@ -1200,37 +1200,37 @@ msgstr "自動生成データ項目"
 msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
 msgstr "特定のフィルターに基づくすべてのデータアイテムの自動作成を有効/無効にします。これは、レポートの実行前に呼び出されます。 廃止された RRD は削除され、フィルター設定に一致するすべての RRD が追加されます。"
 
-#: lib/const_reports.php:341 reportit.php:1626
+#: lib/const_reports.php:341 reportit.php:1787
 msgid "Working Time"
 msgstr "労働時間"
 
-#: lib/const_reports.php:353 lib/const_reports.php:373 reportit.php:1630
-#: reportit.php:1668
+#: lib/const_reports.php:353 lib/const_reports.php:373 reportit.php:1791
+#: reportit.php:1829
 msgid "From"
 msgstr "から"
 
-#: lib/const_reports.php:354 reportit.php:1631
+#: lib/const_reports.php:354 reportit.php:1792
 msgid "The startpoint of duration you want to analyse"
 msgstr "分析する期間の開始点"
 
-#: lib/const_reports.php:361 lib/const_reports.php:381 reportit.php:1638
-#: reportit.php:1675
+#: lib/const_reports.php:361 lib/const_reports.php:381 reportit.php:1799
+#: reportit.php:1836
 msgid "To"
 msgstr "まで"
 
-#: lib/const_reports.php:362 reportit.php:1639
+#: lib/const_reports.php:362 reportit.php:1800
 msgid "The end of analysing time."
 msgstr "分析時間の終了。"
 
-#: lib/const_reports.php:369 reportit.php:1664
+#: lib/const_reports.php:369 reportit.php:1825
 msgid "Working Days"
 msgstr "営業日"
 
-#: lib/const_reports.php:374 reportit.php:1669
+#: lib/const_reports.php:374 reportit.php:1830
 msgid "Define the band of days where shift STARTS!"
 msgstr "シフトが始まる日のバンドを定義してください!"
 
-#: lib/const_reports.php:383 reportit.php:1676
+#: lib/const_reports.php:383 reportit.php:1837
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
 msgstr "例: Mo(22:30) から Sat(06:30) までの夜勤の場合、月曜日から金曜日までを定義します"
 
@@ -1238,8 +1238,8 @@ msgstr "例: Mo(22:30) から Sat(06:30) までの夜勤の場合、月曜日か
 msgid "The name given to this report"
 msgstr "このレポートに付けられた名前"
 
-#: lib/const_reports.php:435 lib/funct_export.php:78 lib/funct_export.php:577
-#: view.php:308
+#: lib/const_reports.php:435 lib/funct_export.php:107 lib/funct_export.php:679
+#: view.php:332
 msgid "Template"
 msgstr "テンプレート"
 
@@ -1247,8 +1247,8 @@ msgstr "テンプレート"
 msgid "The template your configuration depends on"
 msgstr "構成が依存するテンプレート"
 
-#: lib/const_reports.php:443 lib/funct_export.php:77 lib/funct_export.php:576
-#: view.php:303 view.php:797
+#: lib/const_reports.php:443 lib/funct_export.php:106 lib/funct_export.php:678
+#: view.php:327 view.php:857
 msgid "Owner"
 msgstr "所有者"
 
@@ -1256,7 +1256,7 @@ msgstr "所有者"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "このレポートの所有者を変更します。「表示」以上の権限を持つユーザーのみ選択できます。"
 
-#: lib/const_reports.php:450 reportit.php:405 view.php:801
+#: lib/const_reports.php:450 reportit.php:447 view.php:861
 msgid "Enabled"
 msgstr "有効"
 
@@ -1264,7 +1264,7 @@ msgstr "有効"
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
 msgstr "スケジュールされたレポートを有効/無効にします。スライディングタイムフレームを有効にする必要があります。"
 
-#: lib/const_reports.php:457 reportit.php:400
+#: lib/const_reports.php:457 reportit.php:442
 msgid "Public"
 msgstr "公開"
 
@@ -1292,7 +1292,7 @@ msgstr "有効にすると、「メール」タブがアクティブになり、
 msgid "Reporting Period"
 msgstr "報告期間"
 
-#: lib/const_reports.php:482 view.php:798
+#: lib/const_reports.php:482 view.php:858
 msgid "Sliding Time Frame"
 msgstr "スライディングタイムフレーム"
 
@@ -1346,7 +1346,7 @@ msgstr "レポートから削除"
 msgid "Copy Settings to All"
 msgstr "設定を全員にコピー"
 
-#: lib/const_rrdlist.php:34 setup.php:151 setup.php:193 setup.php:223
+#: lib/const_rrdlist.php:34 setup.php:233 setup.php:275 setup.php:305
 msgid "Add"
 msgstr "追加"
 
@@ -1386,7 +1386,7 @@ msgstr "%s・ロー"
 msgid "Any"
 msgstr "任意"
 
-#: lib/const_view.php:103 view.php:629 view.php:648
+#: lib/const_view.php:103 view.php:689 view.php:708
 msgid "All"
 msgstr ""
 
@@ -1398,19 +1398,19 @@ msgstr "合計"
 msgid "Average"
 msgstr "平均"
 
-#: lib/funct_export.php:76 lib/funct_export.php:575
+#: lib/funct_export.php:105 lib/funct_export.php:677
 msgid "Report title"
 msgstr "レポートのタイトル"
 
-#: lib/funct_export.php:79 lib/funct_export.php:578
+#: lib/funct_export.php:108 lib/funct_export.php:680
 msgid "Start"
 msgstr "開始"
 
-#: lib/funct_export.php:80 lib/funct_export.php:579
+#: lib/funct_export.php:109 lib/funct_export.php:681
 msgid "End"
 msgstr "終了"
 
-#: lib/funct_export.php:81 lib/funct_export.php:580 view.php:800
+#: lib/funct_export.php:110 lib/funct_export.php:682 view.php:860
 msgid "Last Run"
 msgstr "前回の実行"
 
@@ -1434,1105 +1434,1105 @@ msgstr "パラメータ:%s"
 msgid "Examples:    %s"
 msgstr "例: %s"
 
-#: lib/funct_html.php:191
+#: lib/funct_html.php:206
 #, php-format
 msgid "Enable [%s]"
 msgstr "[%s] を有効にする"
 
-#: lib/funct_html.php:192
+#: lib/funct_html.php:207
 #, php-format
 msgid "Activate data source item '%s' for the calculation process."
 msgstr "計算処理のためにデータソースアイテム「%s」をアクティブにします。"
 
-#: lib/funct_html.php:201
+#: lib/funct_html.php:216
 msgid "Data Source Alias"
 msgstr "データ ソース エイリアス"
 
-#: lib/funct_html.php:202
+#: lib/funct_html.php:217
 #, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
 msgstr "オプション: レポートで内部データ・ソース名「%s」の代わりに表示する別名を定義できます。"
 
-#: lib/funct_html.php:221
+#: lib/funct_html.php:236
 msgid "Separate Group Title [overall]"
 msgstr "セパレートグループタイトル [全体]"
 
-#: lib/funct_html.php:222
+#: lib/funct_html.php:237
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr "オプション: レポート内のすべての個別の測定値のタイトルとして表示するグループ名を定義できます。"
 
-#: lib/funct_shared.php:36
+#: lib/funct_shared.php:48
 msgid "Unknown Owner"
 msgstr "所有者不明"
 
-#: lib/funct_validate.php:276 lib/funct_validate.php:280
+#: lib/funct_validate.php:432 lib/funct_validate.php:436
 #, fuzzy
 msgid "The file is to big."
 msgstr "ファイルの容量が越えています。"
 
-#: lib/funct_validate.php:284
+#: lib/funct_validate.php:440
 msgid "Incomplete file transfer."
 msgstr "ファイル転送が不完全です。"
 
-#: lib/funct_validate.php:288 lib/funct_validate.php:319
+#: lib/funct_validate.php:444 lib/funct_validate.php:475
 msgid "No file uploaded."
 msgstr "ファイルがアップロードされていません。"
 
-#: lib/funct_validate.php:292
+#: lib/funct_validate.php:448
 msgid "Temporary folder missing."
 msgstr "一時フォルダがありません。"
 
-#: lib/funct_validate.php:296
+#: lib/funct_validate.php:452
 msgid "Failed to write file to disk"
 msgstr "ディスクへのファイルの書き込みに失敗しました"
 
-#: lib/funct_validate.php:300
+#: lib/funct_validate.php:456
 msgid "File upload stopped by extension"
 msgstr "ファイルをアップロードする"
 
-#: lib/funct_validate.php:312
+#: lib/funct_validate.php:468
 msgid "Invalid file extension."
 msgstr "ファイル拡張子が無効です。"
 
-#: lib/funct_validate.php:332
+#: lib/funct_validate.php:488
 msgid "Unable to parse template file."
 msgstr "テンプレート ファイルを解析できません。"
 
-#: lib/funct_validate.php:346 lib/funct_validate.php:347
+#: lib/funct_validate.php:502 lib/funct_validate.php:503
 #, php-format
 msgid "Checksum error with Template %s in XML file"
 msgstr "XMLファイル内のテンプレート%sのチェックサムエラー"
 
-#: reportit.php:108
+#: reportit.php:116
 msgid "New Report"
 msgstr "管理者に報告"
 
-#: reportit.php:111
+#: reportit.php:119
 #, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "ロックされていない有効なレポート テンプレートはありません (ロックまたは無効になっている%s)。"
 
-#: reportit.php:115 reportit.php:1824 reportit.php:1836 reportit.php:1940
-#: reportit.php:1942 templates.php:190 templates.php:192 templates.php:329
-#: templates.php:330 templates.php:1387 templates.php:1513 templates.php:1515
-#: templates.php:1610 templates.php:1612
+#: reportit.php:123 reportit.php:2005 reportit.php:2017 reportit.php:2121
+#: reportit.php:2123 templates.php:227 templates.php:229 templates.php:366
+#: templates.php:367 templates.php:1565 templates.php:1691 templates.php:1693
+#: templates.php:1788 templates.php:1790
 msgid "Cancel"
 msgstr "取り消し"
 
-#: reportit.php:115 reportit.php:1836 reportit.php:1943 templates.php:192
-#: templates.php:1396 templates.php:1398 templates.php:1515 templates.php:1612
+#: reportit.php:123 reportit.php:2017 reportit.php:2124 templates.php:229
+#: templates.php:1574 templates.php:1576 templates.php:1693 templates.php:1790
 msgid "Continue"
 msgstr "続ける"
 
-#: reportit.php:115
+#: reportit.php:123
 msgid "Create a new report"
 msgstr "新しいレポートを作成する"
 
-#: reportit.php:123
+#: reportit.php:131
 msgid "Choose a template this report should depend on."
 msgstr "このレポートが依存するテンプレートを選択します。"
 
-#: reportit.php:148
+#: reportit.php:167
 msgid "Report Filters"
 msgstr "レポートのフィルター"
 
-#: reportit.php:156 reportit.php:1273 templates.php:421 view.php:219
-#: view.php:693
+#: reportit.php:175 reportit.php:1416 templates.php:485 view.php:243
+#: view.php:753
 msgid "Search"
 msgstr "検索"
 
-#: reportit.php:162 reportit.php:419 setup.php:139 setup.php:412
-#: templates.php:631 view.php:234 view.php:328 view.php:837
+#: reportit.php:181 reportit.php:461 setup.php:221 setup.php:539
+#: templates.php:733 view.php:258 view.php:352 view.php:918
 msgid "Reports"
 msgstr "レポート"
 
-#: reportit.php:182 reportit.php:1307 templates.php:447 view.php:684
+#: reportit.php:201 reportit.php:1450 templates.php:511 view.php:744
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Go"
 
-#: reportit.php:183 reportit.php:1308 templates.php:448 view.php:685
+#: reportit.php:202 reportit.php:1451 templates.php:512 view.php:745
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "クリア"
 
-#: reportit.php:374
+#: reportit.php:416
 #, php-format
 msgid "Period %s From - To"
 msgstr "期間 %s 開始 - 終了"
 
-#: reportit.php:377
+#: reportit.php:419
 #, fuzzy
 #| msgid "Scheduled"
 msgid "Schedule"
 msgstr "予定済み"
 
-#: reportit.php:381
+#: reportit.php:423
 msgid "State"
 msgstr "都道府県"
 
-#: reportit.php:385
+#: reportit.php:427
 #, php-format
 msgid "Next Start %s"
 msgstr ""
 
-#: reportit.php:390 view.php:317
+#: reportit.php:432 view.php:341
 #, fuzzy, php-format
 #| msgid "Last Run %s"
 msgid "Last Started %s"
 msgstr "最終実行%s"
 
-#: reportit.php:395
+#: reportit.php:437
 #, fuzzy
 #| msgid "Last Run"
 msgid "Last Runtime"
 msgstr "前回の実行"
 
-#: reportit.php:451 templates.php:1740
+#: reportit.php:493 templates.php:1941
 msgid "N/A"
 msgstr "該当なし"
 
-#: reportit.php:464
+#: reportit.php:506
 msgid "Add sources"
 msgstr "ソースを追加する"
 
-#: reportit.php:464
+#: reportit.php:506
 msgid "Edit sources"
 msgstr "ソースの編集"
 
-#: reportit.php:467
+#: reportit.php:509
 #, php-format
 msgid "Select %s"
 msgstr "%s を選択"
 
-#: reportit.php:469
+#: reportit.php:511
 msgid "Report has been locked"
 msgstr "レポートがロックされました"
 
-#: reportit.php:475
+#: reportit.php:517
 #, fuzzy
 msgid "No reports"
 msgstr "レポート"
 
-#: reportit.php:555
+#: reportit.php:644
 #, fuzzy
 msgid "Not Authorized"
 msgstr "承認"
 
-#: reportit.php:1056
+#: reportit.php:1199
 #, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "レポート設定(%s)%s"
 
-#: reportit.php:1083
+#: reportit.php:1226
 msgid "Action"
 msgstr "アクション"
 
-#: reportit.php:1098
+#: reportit.php:1241
 msgid "No recipients found"
 msgstr "受信者が見つかりませんでした"
 
-#: reportit.php:1232
+#: reportit.php:1375
 msgid "Data Source Name"
 msgstr "データソース名"
 
-#: reportit.php:1242
+#: reportit.php:1385
 #, fuzzy
 msgid "Associated"
 msgstr "関連グラフテンプレート"
 
-#: reportit.php:1246
+#: reportit.php:1389
 msgid "Subhead"
 msgstr "サブヘッド"
 
-#: reportit.php:1251
+#: reportit.php:1394
 msgid "Shifttime (From - To)"
 msgstr "シフトタイム (開始 - 終了)"
 
-#: reportit.php:1254
+#: reportit.php:1397
 msgid "Weekdays (From - To)"
 msgstr "平日(始業 - 至)"
 
-#: reportit.php:1279
+#: reportit.php:1422
 msgid "RRDs"
 msgstr "RRDの"
 
-#: reportit.php:1300
+#: reportit.php:1443
 msgid "Show All"
 msgstr "すべて表示"
 
-#: reportit.php:1375
+#: reportit.php:1518
 msgid "Does not exist anymore"
 msgstr "もう存在しません"
 
-#: reportit.php:1385
+#: reportit.php:1528
 #, fuzzy
 msgid "Included in Report"
 msgstr "レポートを実行"
 
-#: reportit.php:1387
+#: reportit.php:1530
 msgid "Not Included in Report"
 msgstr "レポートに含まれないもの"
 
-#: reportit.php:1410
+#: reportit.php:1553
 msgid "Select"
 msgstr "選択"
 
-#: reportit.php:1415
+#: reportit.php:1558
 msgid "No data items found"
 msgstr "データ項目が見つかりません"
 
-#: reportit.php:1487 reportit.php:1492
+#: reportit.php:1630 reportit.php:1635
 msgid "Email address of a recipient (or comma separated list)"
 msgstr "受信者のメールアドレス(またはコンマ区切りリスト)"
 
-#: reportit.php:1488 reportit.php:1493
+#: reportit.php:1631 reportit.php:1636
 msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[オプション]受信者の名前 (または名前のコンマ区切りリスト)"
 
-#: reportit.php:1576
+#: reportit.php:1737
 #, fuzzy, php-format
 msgid "Data Source [edit: %s]"
 msgstr "データ項目 [編集: %s]"
 
-#: reportit.php:1594
+#: reportit.php:1755
 msgid "Subhead (optional)"
 msgstr "小見出し (オプション)"
 
-#: reportit.php:1607
+#: reportit.php:1768
 msgid "Select the time zone your following shifttime information will be based on."
 msgstr "次のシフトタイム情報の基になるタイム ゾーンを選択します。"
 
-#: reportit.php:1804
+#: reportit.php:1985
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "「続行」をクリックして、次のレポートを実行します。"
 
-#: reportit.php:1806
+#: reportit.php:1987
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "[続行] をクリックして、次のレポートを削除します。"
 
-#: reportit.php:1808
+#: reportit.php:1989
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "[続行] をクリックして、次のレポート構成を複製します。 この操作中にタイトルの形式を変更することもできます。"
 
-#: reportit.php:1809
+#: reportit.php:1990
 msgid "Title Format:"
 msgstr "題名の書式:"
 
-#: reportit.php:1810
+#: reportit.php:1991
 msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
-#: reportit.php:1812
+#: reportit.php:1993
 #, fuzzy
 #| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
 msgstr "[続行] をクリックして、次のレポートを削除します。"
 
-#: reportit.php:1814
+#: reportit.php:1995
 #, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
 msgstr "「続行」をクリックして、次のレポートを実行します。"
 
-#: reportit.php:1816
+#: reportit.php:1997
 #, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
 msgstr "「続行」をクリックして、次のレポートを実行します。"
 
-#: reportit.php:1823
+#: reportit.php:2004
 msgid "You must select at least one unlocked, not running, report."
 msgstr "ロックされていない、実行されていないレポートを少なくとも 1 つ選択する必要があります。"
 
-#: reportit.php:1877
+#: reportit.php:2058
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
 msgstr "「続行」をクリックして、次のデータ項目を削除します。"
 
-#: reportit.php:1880 reportit.php:1897
+#: reportit.php:2061 reportit.php:2078
 #, fuzzy
 msgid "List of selected Data Sources below."
 msgstr "選択したデータ項目のリスト:"
 
-#: reportit.php:1885 reportit.php:1902 view.php:1021
+#: reportit.php:2066 reportit.php:2083 view.php:1118
 #, fuzzy, php-format
 msgid "Data Source: %s"
 msgstr "データソース"
 
-#: reportit.php:1894
+#: reportit.php:2075
 #, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
 msgstr "「続行」をクリックして、次のレポートを実行します。"
 
-#: reportit.php:1924
+#: reportit.php:2105
 #, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
 msgstr "「続行」をクリックして、設定を他のデータ項目にコピーします"
 
-#: reportit.php:1926
+#: reportit.php:2107
 #, fuzzy
 msgid "Selected Data Source as Reference:"
 msgstr "参照として選択したデータ項目:"
 
-#: reportit.php:1929
+#: reportit.php:2110
 msgid "Time Zone:"
 msgstr "時間帯："
 
-#: reportit.php:1930
+#: reportit.php:2111
 msgid "Weekdays:"
 msgstr "平日："
 
-#: reportit.php:1931
+#: reportit.php:2112
 msgid "Shifttime:"
 msgstr "シフトタイム:"
 
-#: reportit.php:1938
+#: reportit.php:2119
 msgid "You must select at least one Report."
 msgstr "少なくとも 1 つのレポートを選択する必要があります。"
 
-#: setup.php:39
+#: setup.php:64
 #, fuzzy
 msgid "ReportIt - Report Viewing"
 msgstr "レポートを表示"
 
-#: setup.php:40
+#: setup.php:65
 #, fuzzy
 msgid "ReportIt - Create Reports"
 msgstr "レポートの作成"
 
-#: setup.php:41
+#: setup.php:66
 #, fuzzy
 msgid "ReportIt - Manage Reports"
 msgstr "ReportItの一般設定"
 
-#: setup.php:145 setup.php:157 setup.php:175 setup.php:181 setup.php:199
-#: setup.php:211 setup.php:217 setup.php:271 setup.php:277 setup.php:295
-#: setup.php:301
+#: setup.php:227 setup.php:239 setup.php:257 setup.php:263 setup.php:281
+#: setup.php:293 setup.php:299 setup.php:353 setup.php:359 setup.php:377
+#: setup.php:383
 msgid "(Edit)"
 msgstr "(編集)"
 
-#: setup.php:163 setup.php:187 setup.php:259 setup.php:283 setup.php:307
+#: setup.php:245 setup.php:269 setup.php:341 setup.php:365 setup.php:389
 msgid "Actions"
 msgstr "操作"
 
-#: setup.php:169
+#: setup.php:251
 msgid "Data Items"
 msgstr "データ項目"
 
-#: setup.php:205 templates.php:413
+#: setup.php:287 templates.php:477
 msgid "Report Templates"
 msgstr "レポートテンプレート"
 
-#: setup.php:229 setup.php:235 templates.php:233 templates.php:329
+#: setup.php:311 setup.php:317 templates.php:270 templates.php:366
 msgid "Import"
 msgstr "インポート"
 
-#: setup.php:313
+#: setup.php:395
 msgid "Report Calculation"
 msgstr "レポートの計算"
 
-#: setup.php:319 view.php:229
+#: setup.php:401 view.php:253
 msgid "Public Reports"
 msgstr "公開レポート"
 
-#: setup.php:325 setup.php:337
+#: setup.php:407 setup.php:419
 msgid "Show Report"
 msgstr "レポートを表示"
 
-#: setup.php:331
+#: setup.php:413
 msgid "Export Report"
 msgstr "レポートのエクスポート"
 
-#: setup.php:343
+#: setup.php:425
 msgid "Public Report Charts"
 msgstr "公開レポートチャート"
 
-#: setup.php:349
+#: setup.php:431
 msgid "Bar Chart"
 msgstr "棒グラフ"
 
-#: setup.php:355
+#: setup.php:437
 msgid "Pie Chart"
 msgstr "円グラフ"
 
-#: setup.php:369
+#: setup.php:474
 msgid "Normal User"
 msgstr "一般ユーザー"
 
-#: setup.php:370
+#: setup.php:475
 msgid "General Administration"
 msgstr "総務"
 
-#: setup.php:371
+#: setup.php:476
 msgid "System Administration"
 msgstr "2. システム管理"
 
-#: setup.php:376
+#: setup.php:481
 msgid "Management"
 msgstr "マネジメント"
 
-#: setup.php:376
+#: setup.php:481
 #, fuzzy
 msgid "ReportIt Reports"
 msgstr "レポートの作成"
 
-#: setup.php:377 setup.php:556
+#: setup.php:482 setup.php:702
 msgid "ReportIt"
 msgstr "レポートイット"
 
-#: setup.php:377 templates.php:427 templates.php:638
+#: setup.php:482 templates.php:491 templates.php:740
 msgid "Templates"
 msgstr "テンプレート"
 
-#: setup.php:381
+#: setup.php:486
 msgid "No data source item selected"
 msgstr "データ ソース項目が選択されていません"
 
-#: setup.php:385
+#: setup.php:490
 msgid "Unselected data source items are still in use"
 msgstr "選択されていないデータ ソース アイテムはまだ使用されています"
 
-#: setup.php:389
+#: setup.php:494
 msgid "Unable to unlock this template without defined measurands"
 msgstr "測定値が定義されていないと、このテンプレートのロックを解除できません"
 
-#: setup.php:402
+#: setup.php:529
 msgid "global"
 msgstr "グローバル"
 
-#: setup.php:402
+#: setup.php:529
 msgid "local"
 msgstr "ローカル"
 
-#: setup.php:407
+#: setup.php:534
 msgid "Power User (Report Owner)"
 msgstr "パワー ユーザー (レポート所有者)"
 
-#: setup.php:408
+#: setup.php:535
 msgid "Super User (Report Admin)"
 msgstr "スーパー ユーザー (レポート管理者)"
 
-#: setup.php:421
+#: setup.php:548
 msgid "Maximum Execution Time (in seconds)"
 msgstr "最大実行時間 (秒)"
 
-#: setup.php:422
+#: setup.php:549
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "オプション: 1 つの計算の最大実行時間。"
 
-#: setup.php:428
+#: setup.php:555
 msgid "Maximum Record Count Change"
 msgstr "最大レコード数の変更"
 
-#: setup.php:429
+#: setup.php:556
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "オプション(RRDリストの自動生成):レコード数の変更がこの数より大きい場合、レポートのRRDリストを変更しないこれは、RRDリストの望ましくない悲惨な変更を回避するためです。"
 
-#: setup.php:435
+#: setup.php:562
 msgid "Time Zones"
 msgstr "タイム ゾーン"
 
-#: setup.php:436
+#: setup.php:563
 #, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "データ・アイテムの構成およびレポート計算のためのタイム・ゾーンの使用を有効/無効にします。 前者の場合、サーバー時間はGMT / UTCに設定する必要があります。"
 
-#: setup.php:441
+#: setup.php:568
 msgid "Show Local Time Zone"
 msgstr "Show Local Time Zone(ローカルタイムゾーンを表示)"
 
-#: setup.php:442
+#: setup.php:569
 #, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
 msgstr "ヘッドラインにサーバーのタイムゾーンを表示するように有効/無効にします。"
 
-#: setup.php:447
+#: setup.php:574
 #, fuzzy
 msgid "Allow Scheduling by Operators"
 msgstr "オペレーターによるスケジューリングを許可"
 
-#: setup.php:448
+#: setup.php:575
 #, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
 msgstr "オペレーターがレポートをスケジュールする機能を有効/無効にします。 無効にすると、管理者のみがスケジュールを変更できます。"
 
-#: setup.php:453
+#: setup.php:580
 msgid "SI-Prefixes"
 msgstr "SIプレフィックス"
 
-#: setup.php:454
+#: setup.php:581
 #, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> および <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> の条件に基づく 2 進数の正しい SI プレフィックスの使用を有効/無効にします。"
 
-#: setup.php:459
+#: setup.php:586
 msgid "Auto E-Mailing"
 msgstr "自動Eメール"
 
-#: setup.php:465
+#: setup.php:592
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "有効にすると、スケジュールされたレポートを受信者のリストに自動的に電子メールで送信できます。<br> この機能には、設定されたバージョンの「設定プラグイン」が必要です。"
 
-#: setup.php:480
+#: setup.php:607
 msgid "Separate Report View Filter"
 msgstr "個別のレポートビューフィルター"
 
-#: setup.php:481
+#: setup.php:608
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "レポートごとに個別のフィルターの使用を有効/無効にします。"
 
-#: setup.php:486
+#: setup.php:613
 msgid "Rows Per Page"
 msgstr "ページ毎の行数"
 
-#: setup.php:487
+#: setup.php:614
 msgid "The number of rows to display on a single page."
 msgstr "1 ページに表示する行数。"
 
-#: setup.php:493
+#: setup.php:620
 #, fuzzy
 msgid "Report Export Settings"
 msgstr "ReportIt エクスポート設定"
 
-#: setup.php:498
+#: setup.php:625
 msgid "CSV Column Separator"
 msgstr "CSV 列セパレータ"
 
-#: setup.php:499
+#: setup.php:626
 msgid "The column separator to be used for CSV exports."
 msgstr "CSV エクスポートに使用する列区切り記号。"
 
-#: setup.php:505
+#: setup.php:632
 msgid "CSV Decimal Separator"
 msgstr "CSV 小数点"
 
-#: setup.php:506
+#: setup.php:633
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "整数部の終了と小数部の開始を示す記号。"
 
-#: setup.php:519
+#: setup.php:646
 #, fuzzy
 msgid "Report General Settings"
 msgstr "ReportItの一般設定"
 
-#: templates.php:182
+#: templates.php:219
 msgid "New Report Template"
 msgstr "新しいレポートテンプレート"
 
-#: templates.php:187
+#: templates.php:224
 msgid "There are no Data Templates in use."
 msgstr "データテンプレートは使用されていません。"
 
-#: templates.php:192
+#: templates.php:229
 msgid "Create a new Report Template"
 msgstr "新しいレポートテンプレートの作成"
 
-#: templates.php:195
+#: templates.php:232
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
 msgstr "このレポートテンプレートが依存するデータテンプレートを選択します。 未使用のデータテンプレートは非表示になります。"
 
-#: templates.php:222 templates.php:329
+#: templates.php:259 templates.php:366
 msgid "Import Report Template"
 msgstr "レポートテンプレートのインポート"
 
-#: templates.php:226
+#: templates.php:263
 msgid "Select the XML file that contains your Report Template."
 msgstr "レポートテンプレートを含む XML ファイルを選択します。"
 
-#: templates.php:233
+#: templates.php:270
 msgid "Import Report Templates"
 msgstr "レポートテンプレートのインポート"
 
-#: templates.php:256
+#: templates.php:293
 msgid "Compatible"
 msgstr "互換"
 
-#: templates.php:265
+#: templates.php:302
 msgid "Summary"
 msgstr "概要"
 
-#: templates.php:281
+#: templates.php:318
 #, fuzzy
 #| msgid "None"
 msgid "No"
 msgstr "なし"
 
-#: templates.php:281
+#: templates.php:318
 msgid "Yes"
 msgstr ""
 
-#: templates.php:316
+#: templates.php:353
 msgid "No Compatible Templates Found"
 msgstr "互換性のあるテンプレートが見つかりません"
 
-#: templates.php:449
+#: templates.php:513
 msgctxt "Button: import button"
 msgid "Import"
 msgstr "インポート"
 
-#: templates.php:588
+#: templates.php:690
 msgid "The name of this Report Template."
 msgstr "このレポートテンプレートの名前。"
 
-#: templates.php:594
+#: templates.php:696
 msgid "The internal identifier of this Report Template."
 msgstr "このレポート テンプレートの内部識別子。"
 
-#: templates.php:600
+#: templates.php:702
 msgid "The Author of this Report Template."
 msgstr "このレポート テンプレートの作成者。"
 
-#: templates.php:610
+#: templates.php:712
 msgid "The version of this Report Template."
 msgstr "このレポート テンプレートのバージョン。"
 
-#: templates.php:613
+#: templates.php:715
 msgid "Published"
 msgstr "公開済み"
 
-#: templates.php:634
+#: templates.php:736
 msgid "The total number of reports using this report template."
 msgstr "このレポートテンプレートを使用しているレポートの総数。"
 
-#: templates.php:668
+#: templates.php:770
 msgid "No matching data sources"
 msgstr "一致するデータソースがありません"
 
-#: templates.php:670
+#: templates.php:772
 msgid "Data template not available"
 msgstr "データテンプレートは使用できません"
 
-#: templates.php:681
+#: templates.php:783
 msgid "Add measurands"
 msgstr "測定値を追加する"
 
-#: templates.php:681
+#: templates.php:783
 msgid "Edit measurands"
 msgstr "測定値の編集"
 
-#: templates.php:687
+#: templates.php:789
 msgid "Add variables"
 msgstr "変数を追加する"
 
-#: templates.php:687
+#: templates.php:789
 msgid "Edit variables"
 msgstr "変数の編集"
 
-#: templates.php:695
+#: templates.php:797
 msgid "No templates"
 msgstr "テンプレートはありません。"
 
-#: templates.php:863
+#: templates.php:990
 msgid "Maximum has to be greater than minimum."
 msgstr "最大値は最小値より大きくする必要があります。"
 
-#: templates.php:867
+#: templates.php:994
 msgid "Default value is out of values range."
 msgstr "デフォルト値が値の範囲外です。"
 
-#: templates.php:939
+#: templates.php:1066
 msgid "Duplicate abbreviation"
 msgstr "重複する省略形"
 
-#: templates.php:993
+#: templates.php:1120
 msgid "Interim results are used by other measurands."
 msgstr "中間結果は、他の測定値で使用されます。"
 
-#: templates.php:1056
+#: templates.php:1213
 #, fuzzy, php-format
 msgid "Template [ %s - %s ]"
 msgstr "テンプレート: %s"
 
-#: templates.php:1060
+#: templates.php:1217
 #, fuzzy
 msgid "Template [new]"
 msgstr "テンプレート"
 
-#: templates.php:1153
+#: templates.php:1331
 #, fuzzy
 msgid "<template_title>"
 msgstr "テンプレート タイトル"
 
-#: templates.php:1316
+#: templates.php:1494
 msgid "Click 'Continue' to Delete the following Report Templates"
 msgstr "[続行] をクリックして、次のレポート テンプレートを削除します"
 
-#: templates.php:1319
+#: templates.php:1497
 msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
 msgstr "警告:これらのテンプレートに属するすべてのレポートも削除されます。"
 
-#: templates.php:1322
+#: templates.php:1500
 #, php-format
 msgid "Template: %s"
 msgstr "テンプレート: %s"
 
-#: templates.php:1328
+#: templates.php:1506
 #, php-format
 msgid "Report: %s"
 msgstr "レポート:%s"
 
-#: templates.php:1335
+#: templates.php:1513
 msgid "Report: <i>None</i>"
 msgstr "レポート: <i>なし</i>"
 
-#: templates.php:1346
+#: templates.php:1524
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
 msgstr "[続行] をクリックして、次のレポート テンプレートを複製します。必要に応じて、これらの重複のタイトルを変更できます。"
 
-#: templates.php:1349
+#: templates.php:1527
 msgid "List of selected report templates:"
 msgstr "選択したレポートテンプレートのリスト:"
 
-#: templates.php:1362
+#: templates.php:1540
 msgid "Title:"
 msgstr "タイトル:"
 
-#: templates.php:1364
+#: templates.php:1542
 msgid "<template_title> (1)"
 msgstr "<template_title> (1)"
 
-#: templates.php:1373
+#: templates.php:1551
 msgid "Click 'Continue' to Export the following Report Templates"
 msgstr "[続行] をクリックして、次のレポート テンプレートをエクスポートします"
 
-#: templates.php:1392
+#: templates.php:1570
 msgid "You must select at least one Report Template."
 msgstr "少なくとも 1 つのレポート テンプレートを選択する必要があります。"
 
-#: templates.php:1396
+#: templates.php:1574
 msgid "Delete Report Templates"
 msgstr "レポートテンプレートの削除"
 
-#: templates.php:1398
+#: templates.php:1576
 msgid "Duplicate Report Templates"
 msgstr "重複するレポートテンプレート"
 
-#: templates.php:1400
+#: templates.php:1578
 msgid "Export Report Templates"
 msgstr "レポートテンプレートのエクスポート"
 
-#: templates.php:1469
+#: templates.php:1647
 msgid "Click 'Continue to Delete the following variables."
 msgstr "「Continue to Delete the following variables」をクリックします。"
 
-#: templates.php:1493
+#: templates.php:1671
 msgid "List of selected variables:"
 msgstr "選択した変数のリスト:"
 
-#: templates.php:1497
+#: templates.php:1675
 #, fuzzy, php-format
 msgid "Variable: %s"
 msgstr "変数 : %s"
 
-#: templates.php:1508
+#: templates.php:1686
 msgid "There are one or more variables in use."
 msgstr "1 つ以上の変数が使用されています。"
 
-#: templates.php:1510
+#: templates.php:1688
 msgid "You must select at least one variable."
 msgstr "少なくとも 1 つの変数を選択する必要があります。"
 
-#: templates.php:1515
+#: templates.php:1693
 msgid "Delete Template Variables"
 msgstr "テンプレート変数の削除"
 
-#: templates.php:1588
+#: templates.php:1766
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
 msgstr "「続行」をクリックして、次の測定値を削除します。 注意: このプロセスの後に他の測定値が残っていない場合、レポートテンプレートは自動的にロックされます。"
 
-#: templates.php:1591
+#: templates.php:1769
 msgid "List of selected measurands:"
 msgstr "選択した測定値のリスト:"
 
-#: templates.php:1595
+#: templates.php:1773
 #, fuzzy, php-format
 msgid "Metric: %s"
 msgstr "測定量:%s"
 
-#: templates.php:1606
+#: templates.php:1784
 msgid "You must select at least one measurand."
 msgstr "少なくとも 1 つの測定量を選択する必要があります。"
 
-#: templates.php:1612
+#: templates.php:1790
 #, fuzzy
 msgid "Delete Template Metrics"
 msgstr "テンプレート測定器の削除"
 
-#: templates.php:1697
+#: templates.php:1898
 #, php-format
 msgid "Variables [ Template: %s - %s ]"
 msgstr "変数 [ テンプレート: %s - %s ]"
 
-#: templates.php:1747
+#: templates.php:1948
 msgid "No Variables Found"
 msgstr "変数が見つかりません"
 
-#: templates.php:1787
+#: templates.php:2003
 #, fuzzy, php-format
 msgid "Variable Configuration [ edit: %s ]"
 msgstr "変数設定[編集:%s]"
 
-#: templates.php:1789
+#: templates.php:2005
 msgid "Variable Configuration [new]"
 msgstr "変数構成 [新規]"
 
-#: templates.php:1815
+#: templates.php:2031
 msgid "Internal name"
 msgstr "内部名"
 
-#: templates.php:1816
+#: templates.php:2032
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
 msgstr "ReportIt 自体によって作成される一意の識別子。この ID を計算式の定義内で使用して、レポート ユーザーが個別に定義した値を含めます。"
 
-#: templates.php:1823
+#: templates.php:2039
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
 msgstr "たとえば、「Threshold」などの名前は、レポート設定内の見出しとして使用する必要があります。"
 
-#: templates.php:1826
+#: templates.php:2042
 msgid "Provide a name for this Variable"
 msgstr "この変数の名前を指定します"
 
-#: templates.php:1831
+#: templates.php:2047
 #, fuzzy
 #| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
 msgstr "この変数の意味を説明する短くて辛辣な説明。"
 
-#: templates.php:1836
+#: templates.php:2052
 msgid "Provide a meaningful description"
 msgstr "意味のある説明を提供する"
 
-#: templates.php:1840
+#: templates.php:2056
 msgid "Maximum Value"
 msgstr "最大値は"
 
-#: templates.php:1841
+#: templates.php:2057
 msgid "Defines the upper limit of this variable."
 msgstr "この変数の上限を定義します。"
 
-#: templates.php:1847
+#: templates.php:2063
 msgid "Minimum Value"
 msgstr "最小値"
 
-#: templates.php:1848
+#: templates.php:2064
 msgid "Defines the lower limit of this variable."
 msgstr "この変数の下限を定義します。"
 
-#: templates.php:1854
+#: templates.php:2070
 msgid "Default Value"
 msgstr "初期値"
 
-#: templates.php:1855
+#: templates.php:2071
 msgid "Sets the default value."
 msgstr "デフォルト値を設定します。"
 
-#: templates.php:1861 templates.php:2011 view.php:225
+#: templates.php:2077 templates.php:2252 view.php:249
 msgid "Type"
 msgstr "タイプ"
 
-#: templates.php:1862
+#: templates.php:2078
 msgid "The method the report owner should use to define this variable."
 msgstr "レポートの所有者がこの変数を定義するために使用するメソッド。"
 
-#: templates.php:1869
+#: templates.php:2085
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
 msgstr "メソッド「DropDown」を選択した場合の 2 つの値間の距離を定義します。この値は、ドロップダウンフィールドに含まれるオプションの数を間接的に定義するため、低すぎないようにしてください。たとえば、MAX:100、MIN:0、STEP:0.01 のパラメータを指定すると、10.001 個のオプションが選択されます。これにより、クライアント側のCPU負荷が高いため、パフォーマンスの大幅な問題が発生する可能性があります。1000未満に保つようにしてください。"
 
-#: templates.php:1937
+#: templates.php:2178
 #, fuzzy, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
 msgstr "Measurand構成[編集:%s]"
 
-#: templates.php:1939
+#: templates.php:2180
 #, fuzzy
 msgid "Metric Configuration [new]"
 msgstr "測定および構成 [新規]"
 
-#: templates.php:1962
+#: templates.php:2203
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
 msgstr "この測定関数に与えられた説明。これは、エクスポート内では凡例として表示され、レポート自体のプレゼンテーション内ではツールチップとして表示されます。"
 
-#: templates.php:1969
+#: templates.php:2210
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
 msgstr "この測定値の一意の省略形を最大8文字/数字で定義します。"
 
-#: templates.php:1976
+#: templates.php:2217
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "この測定値に与えられる単位。例: 'Bits/s'"
 
-#: templates.php:1982
+#: templates.php:2223
 msgid "Consolidation function"
 msgstr "連結機能"
 
-#: templates.php:1983
+#: templates.php:2224
 msgid "The name of the consolidation function to define which CDPs should be read out."
 msgstr "読み出す CDP を定義する連結関数の名前。"
 
-#: templates.php:1991
+#: templates.php:2232
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
 msgstr "この測定値を最終レポート出力の一部にする場合は、「有効」を選択します。この測定値が補助計算としてのみ使用される場合は、フラグを立てないままにします。"
 
-#: templates.php:1999
+#: templates.php:2240
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
 msgstr "この測定値が、すべてのデータソースアイテムに対して1つではなく、合計で1つの結果のみを持つ場合は、「有効」を選択します。その結果です<br>は別々に表示されます。このオプションを「表示」=「オフ」と組み合わせて使用 します \"Visible\" = \"off\"測定を探している場合は、エンドユーザーに表示されないように、他の測定値の計算内で再利用する必要がある中間結果のみを保持します。"
 
-#: templates.php:2006
+#: templates.php:2247
 msgid "Formatting"
 msgstr "書式設定"
 
-#: templates.php:2014
+#: templates.php:2255
 msgid "Defines as what type the data should be treated as."
 msgstr "データを扱うタイプとして定義します。"
 
-#: templates.php:2018
+#: templates.php:2259
 msgid "Precision"
 msgstr "精度"
 
-#: templates.php:2019
+#: templates.php:2260
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
 msgstr "浮動小数点数に表示する 10 進数を定義します。"
 
-#: templates.php:2025
+#: templates.php:2266
 msgid "Prefixes"
 msgstr "プレフィックス"
 
-#: templates.php:2026
+#: templates.php:2267
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "結果の書式設定に使用するプレフィックスのタイプを選択します。10 進数のプレフィックスを使用すると、'1024' は '1.024k' に書式設定され、バイナリ プレフィックス オプションは '1ki' を返します。生データを表示するには 'off' を選択し、ここでは '1024' を選択します。"
 
-#: templates.php:2032
+#: templates.php:2273
 msgid "Formula"
 msgstr "数式"
 
-#: templates.php:2038
+#: templates.php:2279
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "この測定関数の数学的定義。以下に示す演算子とオペランドのすべての組み合わせは、数学のルールに従って使用できます。丸括弧と角括弧を使用して、複雑な用語と演算の順序を示します。"
 
-#: templates.php:2043
+#: templates.php:2284
 msgid "Operators & Operands"
 msgstr "演算子とオペランド"
 
-#: templates.php:2044
+#: templates.php:2285
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
 msgstr "リストされた演算子またはオペランドの1つをクリックして、それらをカルカリオン式に追加します。ツールチップには、説明、戻り値、引数、使用法などの追加情報が表示されます。"
 
-#: templates.php:2133
+#: templates.php:2390
 #, fuzzy, php-format
 msgid "Metrics [ Template: %s - %s ]"
 msgstr "テンプレート: %s"
 
-#: templates.php:2172
+#: templates.php:2429
 #, fuzzy
 msgid "No Metrics Found"
 msgstr "レポートが見つかりませんでした"
 
-#: view.php:210
+#: view.php:234
 msgid "Reports Filter"
 msgstr "レポートフィルター"
 
-#: view.php:230
+#: view.php:254
 msgid "My Reports"
 msgstr "レポート一覧"
 
-#: view.php:254
+#: view.php:278
 msgid "Go"
 msgstr "Go"
 
-#: view.php:255
+#: view.php:279
 msgid "Clear"
 msgstr "クリア"
 
-#: view.php:313
+#: view.php:337
 msgid "Period (From - To)"
 msgstr "期間 (開始 - 終了)"
 
-#: view.php:322
+#: view.php:346
 #, fuzzy
 #| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
 msgstr "ランタイム [s]"
 
-#: view.php:354
+#: view.php:378
 msgid "No Reports Found"
 msgstr "レポートが見つかりませんでした"
 
-#: view.php:625
+#: view.php:685
 msgid "Metric"
 msgstr "メトリック"
 
-#: view.php:644
+#: view.php:704
 msgid "Data Source"
 msgstr "データソース"
 
-#: view.php:664
+#: view.php:724
 #, fuzzy
 msgid "Show Top 10 Graphs"
 msgstr "TOP10グラフを表示"
 
-#: view.php:665
+#: view.php:725
 msgid "Show Subheads"
 msgstr "小見出しを表示"
 
-#: view.php:666
+#: view.php:726
 msgid "Show Summary"
 msgstr "概要を表示"
 
-#: view.php:698
+#: view.php:758
 msgid "Additional"
 msgstr "追加"
 
-#: view.php:712
+#: view.php:772
 msgid "Items"
 msgstr "アイテム"
 
-#: view.php:728
+#: view.php:788
 msgid "Archive"
 msgstr "アーカイブ"
 
-#: view.php:731
+#: view.php:791
 msgid "Current"
 msgstr "現在"
 
-#: view.php:794
+#: view.php:854
 msgid "Title"
 msgstr "題名"
 
-#: view.php:795
+#: view.php:855
 msgid "Runtime"
 msgstr "ランタイム"
 
-#: view.php:803
+#: view.php:863
 msgid "Period"
 msgstr "期間"
 
-#: view.php:804
+#: view.php:864
 msgid "Auto Generated RRD list"
 msgstr "自動生成された RRD リスト"
 
-#: view.php:845
+#: view.php:926
 msgid "Data Description"
 msgstr "データの説明"
 
-#: view.php:886
+#: view.php:967
 msgid "-- NO SUBHEADING --"
 msgstr "-- 小見出しなし --"
 
-#: view.php:943
+#: view.php:1024
 msgid "No Data Items"
 msgstr "データ項目なし"
 
-#: view.php:1056
+#: view.php:1153
 #, fuzzy, php-format
 msgid "Metric: %s (%s)"
 msgstr "測定量:%s"
 
-#: view.php:1077
+#: view.php:1174
 msgid "Pos."
 msgstr "位置。"
 
-#: view.php:1085
+#: view.php:1182
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "結果[％s]"
