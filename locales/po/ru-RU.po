@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-21 13:14-0400\n"
+"POT-Creation-Date: 2026-09-27 11:16-0400\n"
 "PO-Revision-Date: 2024-12-01 02:16+0000\n"
 "Last-Translator: Anton Zhuravlev <baka109g@gmail.com>\n"
 "Language-Team: Russian <http://translate.cacti.net/projects/cacti/reportit/ru/>\n"
@@ -38,58 +38,58 @@ msgstr "Заблокировать"
 msgid "Unlock"
 msgstr "Разблокировать"
 
-#: include/global_arrays.php:31 setup.php:241 setup.php:247 setup.php:253
-#: templates.php:1400
+#: include/global_arrays.php:31 setup.php:323 setup.php:329 setup.php:335
+#: templates.php:1578
 msgid "Export"
 msgstr "Экспорт"
 
 #: include/global_arrays.php:51 include/global_arrays.php:72
 #: include/global_forms.php:48 lib/const_reports.php:428
-#: lib/const_variables.php:51 reportit.php:370 reportit.php:1081
-#: templates.php:255 templates.php:585 templates.php:1636 templates.php:1822
-#: templates.php:1961 templates.php:2142 view.php:298
+#: lib/const_variables.php:51 reportit.php:412 reportit.php:1224
+#: templates.php:292 templates.php:687 templates.php:1837 templates.php:2038
+#: templates.php:2202 templates.php:2399 view.php:322
 msgid "Name"
 msgstr "Имя"
 
-#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1641
+#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1842
 #, fuzzy
 msgid "Internal Name"
 msgstr "Вы должны установить другое внутреннее имя"
 
 #: include/global_arrays.php:53 lib/const_variables.php:53
-#: lib/const_view.php:106 templates.php:1645
+#: lib/const_view.php:106 templates.php:1846
 msgid "Maximum"
 msgstr "Максимум"
 
 #: include/global_arrays.php:54 lib/const_variables.php:54
-#: lib/const_view.php:105 templates.php:1649
+#: lib/const_view.php:105 templates.php:1850
 msgid "Minimum"
 msgstr "Минимум"
 
-#: include/global_arrays.php:55 lib/const_variables.php:55 reportit.php:166
-#: reportit.php:1283 templates.php:431 templates.php:1653 view.php:238
-#: view.php:715
+#: include/global_arrays.php:55 lib/const_variables.php:55 reportit.php:185
+#: reportit.php:1426 templates.php:495 templates.php:1854 view.php:262
+#: view.php:775
 msgid "Default"
 msgstr "Стандартно"
 
-#: include/global_arrays.php:56 templates.php:1657 templates.php:1868
+#: include/global_arrays.php:56 templates.php:1858 templates.php:2084
 msgid "Stepping"
 msgstr "Шаг"
 
-#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1661
+#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1862
 msgid "Input Type"
 msgstr "Тип ввода"
 
-#: include/global_arrays.php:58 templates.php:1665
+#: include/global_arrays.php:58 templates.php:1866
 msgid "Options"
 msgstr "Опции"
 
-#: include/global_arrays.php:61 include/global_arrays.php:71 reportit.php:1237
-#: templates.php:591
+#: include/global_arrays.php:61 include/global_arrays.php:71 reportit.php:1380
+#: templates.php:693
 msgid "ID"
 msgstr "ИД"
 
-#: include/global_arrays.php:62 templates.php:1968 templates.php:2143
+#: include/global_arrays.php:62 templates.php:2209 templates.php:2400
 msgid "Abbreviation"
 msgstr "Сокращение"
 
@@ -97,23 +97,23 @@ msgstr "Сокращение"
 msgid "Group"
 msgstr "Группа"
 
-#: include/global_arrays.php:64 templates.php:1975 templates.php:2144
+#: include/global_arrays.php:64 templates.php:2216 templates.php:2401
 msgid "Unit"
 msgstr "Единица"
 
-#: include/global_arrays.php:65 templates.php:2145
+#: include/global_arrays.php:65 templates.php:2402
 msgid "Consolidation Function"
 msgstr "Функция консолидации"
 
-#: include/global_arrays.php:66 templates.php:1990 templates.php:2146
+#: include/global_arrays.php:66 templates.php:2231 templates.php:2403
 msgid "Visible"
 msgstr "Видимый"
 
-#: include/global_arrays.php:67 templates.php:1998 templates.php:2147
+#: include/global_arrays.php:67 templates.php:2239 templates.php:2404
 msgid "Separate"
 msgstr "Отдельный"
 
-#: include/global_arrays.php:68 templates.php:2037 templates.php:2148
+#: include/global_arrays.php:68 templates.php:2278 templates.php:2405
 msgid "Calculation Formula"
 msgstr "Формула расчета"
 
@@ -125,8 +125,8 @@ msgstr "Общий идентификатор"
 msgid "Elements"
 msgstr "Элементы"
 
-#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:265
-#: templates.php:136 templates.php:621
+#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:347
+#: templates.php:148 templates.php:723
 msgid "Metrics"
 msgstr "Метрики"
 
@@ -136,8 +136,8 @@ msgstr "Связанные шаблоны данных"
 
 #: include/global_arrays.php:81 include/global_forms.php:43
 #: lib/const_reports.php:124 lib/const_reports.php:184
-#: lib/const_reports.php:279 lib/const_reports.php:424 reportit.php:1586
-#: setup.php:416 templates.php:134 templates.php:1811 templates.php:1956
+#: lib/const_reports.php:279 lib/const_reports.php:424 reportit.php:1747
+#: setup.php:543 templates.php:146 templates.php:2027 templates.php:2197
 msgid "General"
 msgstr "Общие"
 
@@ -150,8 +150,8 @@ msgid "Groups"
 msgstr "Группы"
 
 #: include/global_arrays.php:85 include/global_arrays.php:530
-#: lib/const_measurands.php:355 lib/funct_html.php:35 lib/funct_html.php:112
-#: setup.php:289 templates.php:135 templates.php:626
+#: lib/const_measurands.php:355 lib/funct_html.php:35 lib/funct_html.php:127
+#: setup.php:371 templates.php:147 templates.php:728
 msgid "Variables"
 msgstr "Переменные"
 
@@ -810,8 +810,8 @@ msgstr "%d Минут"
 msgid "The unique name given to this Report Template."
 msgstr "Уникальное имя, присвоенное этому шаблону отчета."
 
-#: include/global_forms.php:55 templates.php:260 templates.php:1830
-#: view.php:1081
+#: include/global_forms.php:55 templates.php:297 templates.php:2046
+#: view.php:1178
 msgid "Description"
 msgstr "Описание"
 
@@ -819,7 +819,7 @@ msgstr "Описание"
 msgid "A longer description of this Report Template."
 msgstr "Более подробное описание этого шаблона отчета."
 
-#: include/global_forms.php:64 templates.php:257 templates.php:607
+#: include/global_forms.php:64 templates.php:294 templates.php:709
 msgid "Version"
 msgstr "Версия"
 
@@ -827,7 +827,7 @@ msgstr "Версия"
 msgid "A version number for this template"
 msgstr "Номер версии для этого шаблона"
 
-#: include/global_forms.php:72 templates.php:258 templates.php:597
+#: include/global_forms.php:72 templates.php:295 templates.php:699
 msgid "Author"
 msgstr "Автор"
 
@@ -843,7 +843,7 @@ msgstr "Опубликовать"
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
 msgstr "Должен ли этот шаблон отчета быть опубликован для доступа пользователей? Для тестирования новых шаблонов или модификаций вам следует снять этот флажок."
 
-#: include/global_forms.php:86 templates.php:617
+#: include/global_forms.php:86 templates.php:719
 msgid "Locked"
 msgstr "Заблокировано"
 
@@ -868,7 +868,7 @@ msgid "Optional: The path to an folder for saving the exports.  If it does not e
 msgstr "Необязательно: Путь к папке для сохранения экспорта.  Если он не существует, ReportIt автоматически пытается создать его во время первого запланированного расчета, в противном случае он попытается создать новую подпапку в основной папке экспорта, используя идентификатор шаблона."
 
 #: include/global_forms.php:108 include/global_forms.php:113
-#: include/global_forms.php:120 templates.php:259 templates.php:603
+#: include/global_forms.php:120 templates.php:296 templates.php:705
 msgid "Data Template"
 msgstr "Шаблон данных"
 
@@ -979,7 +979,7 @@ msgstr "Круглые скобки"
 msgid "Disable"
 msgstr "Выключен"
 
-#: lib/const_reports.php:31 setup.php:464
+#: lib/const_reports.php:31 setup.php:591
 msgid "Enable"
 msgstr "Включить"
 
@@ -1012,31 +1012,31 @@ msgstr "В процессе"
 msgid "- No template available -"
 msgstr "- не доступно -"
 
-#: lib/const_reports.php:62 lib/const_rrdlist.php:55 lib/funct_runtime.php:202
+#: lib/const_reports.php:62 lib/const_rrdlist.php:55 lib/funct_runtime.php:242
 msgid "Monday"
 msgstr "Понедельник"
 
-#: lib/const_reports.php:63 lib/const_rrdlist.php:56 lib/funct_runtime.php:206
+#: lib/const_reports.php:63 lib/const_rrdlist.php:56 lib/funct_runtime.php:246
 msgid "Tuesday"
 msgstr "Вторник"
 
-#: lib/const_reports.php:64 lib/const_rrdlist.php:57 lib/funct_runtime.php:210
+#: lib/const_reports.php:64 lib/const_rrdlist.php:57 lib/funct_runtime.php:250
 msgid "Wednesday"
 msgstr "Среда"
 
-#: lib/const_reports.php:65 lib/const_rrdlist.php:58 lib/funct_runtime.php:214
+#: lib/const_reports.php:65 lib/const_rrdlist.php:58 lib/funct_runtime.php:254
 msgid "Thursday"
 msgstr "Четверг"
 
-#: lib/const_reports.php:66 lib/const_rrdlist.php:59 lib/funct_runtime.php:218
+#: lib/const_reports.php:66 lib/const_rrdlist.php:59 lib/funct_runtime.php:258
 msgid "Friday"
 msgstr "Пятница"
 
-#: lib/const_reports.php:67 lib/const_rrdlist.php:60 lib/funct_runtime.php:222
+#: lib/const_reports.php:67 lib/const_rrdlist.php:60 lib/funct_runtime.php:262
 msgid "Saturday"
 msgstr "Суббота"
 
-#: lib/const_reports.php:68 lib/const_rrdlist.php:61 lib/funct_runtime.php:226
+#: lib/const_reports.php:68 lib/const_rrdlist.php:61 lib/funct_runtime.php:266
 msgid "Sunday"
 msgstr "Воскресенье"
 
@@ -1045,11 +1045,11 @@ msgstr "Воскресенье"
 msgid "Data Source Presets"
 msgstr "Предустановки элементов данных"
 
-#: lib/const_reports.php:126 reportit.php:1082
+#: lib/const_reports.php:126 reportit.php:1225
 msgid "Email"
 msgstr "Email"
 
-#: lib/const_reports.php:127 reportit.php:410 reportit.php:1356
+#: lib/const_reports.php:127 reportit.php:452 reportit.php:1499
 msgid "Data Sources"
 msgstr "Источники Данных"
 
@@ -1146,11 +1146,11 @@ msgstr "Чтобы добавить нового получателя, введ�
 msgid "Optional Sub-heading"
 msgstr "[Необязательный] Версия"
 
-#: lib/const_reports.php:284 reportit.php:1595
+#: lib/const_reports.php:284 reportit.php:1756
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 msgstr "Определите дополнительный подзаголовок, который должен отображаться под описанием интерфейса.<br> Будут поддерживаться следующие переменные (без кавычек): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 
-#: lib/const_reports.php:295 reportit.php:1257 reportit.php:1606
+#: lib/const_reports.php:295 reportit.php:1400 reportit.php:1767
 msgid "Time Zone"
 msgstr "Часовой пояс"
 
@@ -1201,37 +1201,37 @@ msgstr "Автоматически генерируемые элементы д�
 msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
 msgstr "Включение/выключение автоматического создания всех элементов данных на основе заданных фильтров. Это будет вызвано перед выполнением отчета.  Устаревшие RRD будут удалены, а все RRD, соответствующие настройкам фильтра, будут добавлены."
 
-#: lib/const_reports.php:341 reportit.php:1626
+#: lib/const_reports.php:341 reportit.php:1787
 msgid "Working Time"
 msgstr "Рабочее время"
 
-#: lib/const_reports.php:353 lib/const_reports.php:373 reportit.php:1630
-#: reportit.php:1668
+#: lib/const_reports.php:353 lib/const_reports.php:373 reportit.php:1791
+#: reportit.php:1829
 msgid "From"
 msgstr "От"
 
-#: lib/const_reports.php:354 reportit.php:1631
+#: lib/const_reports.php:354 reportit.php:1792
 msgid "The startpoint of duration you want to analyse"
 msgstr "Начальная точка длительности, которую вы хотите проанализировать"
 
-#: lib/const_reports.php:361 lib/const_reports.php:381 reportit.php:1638
-#: reportit.php:1675
+#: lib/const_reports.php:361 lib/const_reports.php:381 reportit.php:1799
+#: reportit.php:1836
 msgid "To"
 msgstr "Кому"
 
-#: lib/const_reports.php:362 reportit.php:1639
+#: lib/const_reports.php:362 reportit.php:1800
 msgid "The end of analysing time."
 msgstr "Окончание времени анализа."
 
-#: lib/const_reports.php:369 reportit.php:1664
+#: lib/const_reports.php:369 reportit.php:1825
 msgid "Working Days"
 msgstr "Рабочие дни"
 
-#: lib/const_reports.php:374 reportit.php:1669
+#: lib/const_reports.php:374 reportit.php:1830
 msgid "Define the band of days where shift STARTS!"
 msgstr "Определите диапазон дней, когда НАЧИНАЕТСЯ СМЕНА!"
 
-#: lib/const_reports.php:383 reportit.php:1676
+#: lib/const_reports.php:383 reportit.php:1837
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
 msgstr "Пример: Для ночной смены с Пн (22:30) по Сб (06:30) определите период с понедельника по пятницу"
 
@@ -1239,8 +1239,8 @@ msgstr "Пример: Для ночной смены с Пн (22:30) по Сб (
 msgid "The name given to this report"
 msgstr "Название, данное этому отчету"
 
-#: lib/const_reports.php:435 lib/funct_export.php:78 lib/funct_export.php:577
-#: view.php:308
+#: lib/const_reports.php:435 lib/funct_export.php:107 lib/funct_export.php:679
+#: view.php:332
 msgid "Template"
 msgstr "Шаблон"
 
@@ -1248,8 +1248,8 @@ msgstr "Шаблон"
 msgid "The template your configuration depends on"
 msgstr "От шаблона зависит конфигурация"
 
-#: lib/const_reports.php:443 lib/funct_export.php:77 lib/funct_export.php:576
-#: view.php:303 view.php:797
+#: lib/const_reports.php:443 lib/funct_export.php:106 lib/funct_export.php:678
+#: view.php:327 view.php:857
 msgid "Owner"
 msgstr "Владелец"
 
@@ -1257,7 +1257,7 @@ msgstr "Владелец"
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "Измените владельца этого отчета. Могут быть выбраны только пользователи с разрешением \"view\" или выше."
 
-#: lib/const_reports.php:450 reportit.php:405 view.php:801
+#: lib/const_reports.php:450 reportit.php:447 view.php:861
 msgid "Enabled"
 msgstr "Включенные"
 
@@ -1265,7 +1265,7 @@ msgstr "Включенные"
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
 msgstr "Включение/отключение запланированной отчетности. Скользящий таймфрейм должен быть включен."
 
-#: lib/const_reports.php:457 reportit.php:400
+#: lib/const_reports.php:457 reportit.php:442
 msgid "Public"
 msgstr "Публичный"
 
@@ -1293,7 +1293,7 @@ msgstr "Если эта функция включена, то вкладка «�
 msgid "Reporting Period"
 msgstr "Отчетный период"
 
-#: lib/const_reports.php:482 view.php:798
+#: lib/const_reports.php:482 view.php:858
 msgid "Sliding Time Frame"
 msgstr "Скользящие временные рамки"
 
@@ -1347,7 +1347,7 @@ msgstr "Удалить из отчета"
 msgid "Copy Settings to All"
 msgstr "Копирование настроек во все"
 
-#: lib/const_rrdlist.php:34 setup.php:151 setup.php:193 setup.php:223
+#: lib/const_rrdlist.php:34 setup.php:233 setup.php:275 setup.php:305
 msgid "Add"
 msgstr "Добавить"
 
@@ -1387,7 +1387,7 @@ msgstr "%s Ло"
 msgid "Any"
 msgstr "Любой"
 
-#: lib/const_view.php:103 view.php:629 view.php:648
+#: lib/const_view.php:103 view.php:689 view.php:708
 msgid "All"
 msgstr ""
 
@@ -1399,20 +1399,20 @@ msgstr "Summa"
 msgid "Average"
 msgstr "Средне"
 
-#: lib/funct_export.php:76 lib/funct_export.php:575
+#: lib/funct_export.php:105 lib/funct_export.php:677
 #, fuzzy
 msgid "Report title"
 msgstr "Название отчета"
 
-#: lib/funct_export.php:79 lib/funct_export.php:578
+#: lib/funct_export.php:108 lib/funct_export.php:680
 msgid "Start"
 msgstr "Начало"
 
-#: lib/funct_export.php:80 lib/funct_export.php:579
+#: lib/funct_export.php:109 lib/funct_export.php:681
 msgid "End"
 msgstr "Конец"
 
-#: lib/funct_export.php:81 lib/funct_export.php:580 view.php:800
+#: lib/funct_export.php:110 lib/funct_export.php:682 view.php:860
 msgid "Last Run"
 msgstr "Последнее обновление"
 
@@ -1436,1106 +1436,1106 @@ msgstr "Параметры: %s"
 msgid "Examples:    %s"
 msgstr "Примеры: %s"
 
-#: lib/funct_html.php:191
+#: lib/funct_html.php:206
 #, php-format
 msgid "Enable [%s]"
 msgstr "Включить [%s]"
 
-#: lib/funct_html.php:192
+#: lib/funct_html.php:207
 #, php-format
 msgid "Activate data source item '%s' for the calculation process."
 msgstr "Активируйте элемент источника данных '%s' для процесса расчета."
 
-#: lib/funct_html.php:201
+#: lib/funct_html.php:216
 msgid "Data Source Alias"
 msgstr "Псевдоним источника данных"
 
-#: lib/funct_html.php:202
+#: lib/funct_html.php:217
 #, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
 msgstr "Необязательно: Вы можете определить псевдоним, который должен отображаться в отчетах вместо имени внутреннего источника данных «%s»."
 
-#: lib/funct_html.php:221
+#: lib/funct_html.php:236
 msgid "Separate Group Title [overall]"
 msgstr "Титул отдельной группы [общий титул]"
 
-#: lib/funct_html.php:222
+#: lib/funct_html.php:237
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr "Необязательно: Вы можете определить имя группы, которое должно отображаться в качестве заголовка для всех отдельных измерений в отчетах."
 
-#: lib/funct_shared.php:36
+#: lib/funct_shared.php:48
 msgid "Unknown Owner"
 msgstr "Неизвестный владелец"
 
-#: lib/funct_validate.php:276 lib/funct_validate.php:280
+#: lib/funct_validate.php:432 lib/funct_validate.php:436
 #, fuzzy
 msgid "The file is to big."
 msgstr "Файл слишком велик."
 
-#: lib/funct_validate.php:284
+#: lib/funct_validate.php:440
 msgid "Incomplete file transfer."
 msgstr "Незавершенная передача файлов."
 
-#: lib/funct_validate.php:288 lib/funct_validate.php:319
+#: lib/funct_validate.php:444 lib/funct_validate.php:475
 msgid "No file uploaded."
 msgstr "Нет загруженных файлов."
 
-#: lib/funct_validate.php:292
+#: lib/funct_validate.php:448
 msgid "Temporary folder missing."
 msgstr "Временная папка отсутствует."
 
-#: lib/funct_validate.php:296
+#: lib/funct_validate.php:452
 msgid "Failed to write file to disk"
 msgstr "Не удалось записать файл на диск"
 
-#: lib/funct_validate.php:300
+#: lib/funct_validate.php:456
 msgid "File upload stopped by extension"
 msgstr "Загрузка файла остановлена расширением"
 
-#: lib/funct_validate.php:312
+#: lib/funct_validate.php:468
 msgid "Invalid file extension."
 msgstr "Некорректное расширение файла"
 
-#: lib/funct_validate.php:332
+#: lib/funct_validate.php:488
 msgid "Unable to parse template file."
 msgstr "Не удается разобрать файл шаблона."
 
-#: lib/funct_validate.php:346 lib/funct_validate.php:347
+#: lib/funct_validate.php:502 lib/funct_validate.php:503
 #, php-format
 msgid "Checksum error with Template %s in XML file"
 msgstr "Ошибка контрольной суммы с шаблоном %s в XML-файле"
 
-#: reportit.php:108
+#: reportit.php:116
 msgid "New Report"
 msgstr "Новая Жалоба"
 
-#: reportit.php:111
+#: reportit.php:119
 #, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "Разблокированные и включенные шаблоны отчетов недоступны (%s заблокированы или отключены)."
 
-#: reportit.php:115 reportit.php:1824 reportit.php:1836 reportit.php:1940
-#: reportit.php:1942 templates.php:190 templates.php:192 templates.php:329
-#: templates.php:330 templates.php:1387 templates.php:1513 templates.php:1515
-#: templates.php:1610 templates.php:1612
+#: reportit.php:123 reportit.php:2005 reportit.php:2017 reportit.php:2121
+#: reportit.php:2123 templates.php:227 templates.php:229 templates.php:366
+#: templates.php:367 templates.php:1565 templates.php:1691 templates.php:1693
+#: templates.php:1788 templates.php:1790
 msgid "Cancel"
 msgstr "Отмена"
 
-#: reportit.php:115 reportit.php:1836 reportit.php:1943 templates.php:192
-#: templates.php:1396 templates.php:1398 templates.php:1515 templates.php:1612
+#: reportit.php:123 reportit.php:2017 reportit.php:2124 templates.php:229
+#: templates.php:1574 templates.php:1576 templates.php:1693 templates.php:1790
 msgid "Continue"
 msgstr "Продолжить"
 
-#: reportit.php:115
+#: reportit.php:123
 msgid "Create a new report"
 msgstr "Создание нового отчета"
 
-#: reportit.php:123
+#: reportit.php:131
 msgid "Choose a template this report should depend on."
 msgstr "Выберите шаблон, от которого должен зависеть отчет."
 
-#: reportit.php:148
+#: reportit.php:167
 msgid "Report Filters"
 msgstr "Фильтры отчетов"
 
-#: reportit.php:156 reportit.php:1273 templates.php:421 view.php:219
-#: view.php:693
+#: reportit.php:175 reportit.php:1416 templates.php:485 view.php:243
+#: view.php:753
 msgid "Search"
 msgstr "Поиск"
 
-#: reportit.php:162 reportit.php:419 setup.php:139 setup.php:412
-#: templates.php:631 view.php:234 view.php:328 view.php:837
+#: reportit.php:181 reportit.php:461 setup.php:221 setup.php:539
+#: templates.php:733 view.php:258 view.php:352 view.php:918
 msgid "Reports"
 msgstr "Отчеты"
 
-#: reportit.php:182 reportit.php:1307 templates.php:447 view.php:684
+#: reportit.php:201 reportit.php:1450 templates.php:511 view.php:744
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Перейти"
 
-#: reportit.php:183 reportit.php:1308 templates.php:448 view.php:685
+#: reportit.php:202 reportit.php:1451 templates.php:512 view.php:745
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "Очистить"
 
-#: reportit.php:374
+#: reportit.php:416
 #, php-format
 msgid "Period %s From - To"
 msgstr "Период %s От - до"
 
-#: reportit.php:377
+#: reportit.php:419
 #, fuzzy
 #| msgid "Scheduled"
 msgid "Schedule"
 msgstr "Запланировано"
 
-#: reportit.php:381
+#: reportit.php:423
 msgid "State"
 msgstr "Область"
 
-#: reportit.php:385
+#: reportit.php:427
 #, php-format
 msgid "Next Start %s"
 msgstr ""
 
-#: reportit.php:390 view.php:317
+#: reportit.php:432 view.php:341
 #, fuzzy, php-format
 #| msgid "Last Run %s"
 msgid "Last Started %s"
 msgstr "Последний запуск %s"
 
-#: reportit.php:395
+#: reportit.php:437
 #, fuzzy
 #| msgid "Last Run"
 msgid "Last Runtime"
 msgstr "Последнее обновление"
 
-#: reportit.php:451 templates.php:1740
+#: reportit.php:493 templates.php:1941
 msgid "N/A"
 msgstr "Н/Д"
 
-#: reportit.php:464
+#: reportit.php:506
 msgid "Add sources"
 msgstr "Добавление источников"
 
-#: reportit.php:464
+#: reportit.php:506
 msgid "Edit sources"
 msgstr "Редактирование источников"
 
-#: reportit.php:467
+#: reportit.php:509
 #, php-format
 msgid "Select %s"
 msgstr "Выбрать %s"
 
-#: reportit.php:469
+#: reportit.php:511
 msgid "Report has been locked"
 msgstr "Отчет был заблокирован"
 
-#: reportit.php:475
+#: reportit.php:517
 #, fuzzy
 msgid "No reports"
 msgstr "Отчеты"
 
-#: reportit.php:555
+#: reportit.php:644
 msgid "Not Authorized"
 msgstr "Не разрешено"
 
-#: reportit.php:1056
+#: reportit.php:1199
 #, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "Конфигурация отчета (%s) %s"
 
-#: reportit.php:1083
+#: reportit.php:1226
 msgid "Action"
 msgstr "Действие"
 
-#: reportit.php:1098
+#: reportit.php:1241
 msgid "No recipients found"
 msgstr "Адресаты не найдены"
 
-#: reportit.php:1232
+#: reportit.php:1375
 msgid "Data Source Name"
 msgstr "Имя источника данных"
 
-#: reportit.php:1242
+#: reportit.php:1385
 msgid "Associated"
 msgstr "Связанный"
 
-#: reportit.php:1246
+#: reportit.php:1389
 msgid "Subhead"
 msgstr "Подзаголовок"
 
-#: reportit.php:1251
+#: reportit.php:1394
 msgid "Shifttime (From - To)"
 msgstr "Время смены (от - до)"
 
-#: reportit.php:1254
+#: reportit.php:1397
 msgid "Weekdays (From - To)"
 msgstr "Будние дни (С - До)"
 
-#: reportit.php:1279
+#: reportit.php:1422
 msgid "RRDs"
 msgstr "РРД"
 
-#: reportit.php:1300
+#: reportit.php:1443
 msgid "Show All"
 msgstr "Показать все"
 
-#: reportit.php:1375
+#: reportit.php:1518
 msgid "Does not exist anymore"
 msgstr "Больше не существует"
 
-#: reportit.php:1385
+#: reportit.php:1528
 #, fuzzy
 msgid "Included in Report"
 msgstr "Создать отчёт"
 
-#: reportit.php:1387
+#: reportit.php:1530
 msgid "Not Included in Report"
 msgstr "Не включено в отчет"
 
-#: reportit.php:1410
+#: reportit.php:1553
 msgid "Select"
 msgstr "Выбрать"
 
-#: reportit.php:1415
+#: reportit.php:1558
 msgid "No data items found"
 msgstr "Элементы данных не найдены"
 
-#: reportit.php:1487 reportit.php:1492
+#: reportit.php:1630 reportit.php:1635
 msgid "Email address of a recipient (or comma separated list)"
 msgstr "Адрес электронной почты получателя (или список, разделенный запятыми)"
 
-#: reportit.php:1488 reportit.php:1493
+#: reportit.php:1631 reportit.php:1636
 msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[НЕОБЯЗАТЕЛЬНЫЙ] Имя получателя (или список имен, разделенных запятыми)"
 
-#: reportit.php:1576
+#: reportit.php:1737
 #, fuzzy, php-format
 msgid "Data Source [edit: %s]"
 msgstr "Элемент данных [править: %s]"
 
-#: reportit.php:1594
+#: reportit.php:1755
 msgid "Subhead (optional)"
 msgstr "Подзаголовок (необязательный)"
 
-#: reportit.php:1607
+#: reportit.php:1768
 msgid "Select the time zone your following shifttime information will be based on."
 msgstr "Выберите часовой пояс, на котором будет основана следующая информация о времени смены."
 
-#: reportit.php:1804
+#: reportit.php:1985
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "Нажмите «Продолжить», чтобы запустить следующий отчет:"
 
-#: reportit.php:1806
+#: reportit.php:1987
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "Нажмите «Продолжить», чтобы удалить следующие отчеты:"
 
-#: reportit.php:1808
+#: reportit.php:1989
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "Нажмите «Продолжить», чтобы продублировать следующие конфигурации отчета.  Во время этой операции вы также можете изменить формат заголовка."
 
-#: reportit.php:1809
+#: reportit.php:1990
 msgid "Title Format:"
 msgstr "Формат заголовка:"
 
-#: reportit.php:1810
+#: reportit.php:1991
 msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
-#: reportit.php:1812
+#: reportit.php:1993
 #, fuzzy
 #| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
 msgstr "Нажмите «Продолжить», чтобы удалить следующие отчеты:"
 
-#: reportit.php:1814
+#: reportit.php:1995
 #, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
 msgstr "Нажмите «Продолжить», чтобы запустить следующий отчет:"
 
-#: reportit.php:1816
+#: reportit.php:1997
 #, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
 msgstr "Нажмите «Продолжить», чтобы запустить следующий отчет:"
 
-#: reportit.php:1823
+#: reportit.php:2004
 msgid "You must select at least one unlocked, not running, report."
 msgstr "Вы должны выбрать хотя бы один разблокированный, не работающий, отчет."
 
-#: reportit.php:1877
+#: reportit.php:2058
 #, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
 msgstr "Нажмите «Продолжить», чтобы удалить следующие элементы данных."
 
-#: reportit.php:1880 reportit.php:1897
+#: reportit.php:2061 reportit.php:2078
 #, fuzzy
 msgid "List of selected Data Sources below."
 msgstr "Список выбранных элементов данных:"
 
-#: reportit.php:1885 reportit.php:1902 view.php:1021
+#: reportit.php:2066 reportit.php:2083 view.php:1118
 #, fuzzy, php-format
 msgid "Data Source: %s"
 msgstr "Источник Данных"
 
-#: reportit.php:1894
+#: reportit.php:2075
 #, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
 msgstr "Нажмите «Продолжить», чтобы запустить следующий отчет:"
 
-#: reportit.php:1924
+#: reportit.php:2105
 #, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
 msgstr "Нажмите «Продолжить», чтобы скопировать настройки в другие элементы данных"
 
-#: reportit.php:1926
+#: reportit.php:2107
 #, fuzzy
 msgid "Selected Data Source as Reference:"
 msgstr "Выбранный элемент данных в качестве ориентира:"
 
-#: reportit.php:1929
+#: reportit.php:2110
 #, fuzzy
 msgid "Time Zone:"
 msgstr "Часовой пояс"
 
-#: reportit.php:1930
+#: reportit.php:2111
 msgid "Weekdays:"
 msgstr "Будни:"
 
-#: reportit.php:1931
+#: reportit.php:2112
 msgid "Shifttime:"
 msgstr "Время смены:"
 
-#: reportit.php:1938
+#: reportit.php:2119
 msgid "You must select at least one Report."
 msgstr "Необходимо выбрать хотя бы один Отчет."
 
-#: setup.php:39
+#: setup.php:64
 #, fuzzy
 msgid "ReportIt - Report Viewing"
 msgstr "Просмотр отчетов"
 
-#: setup.php:40
+#: setup.php:65
 #, fuzzy
 msgid "ReportIt - Create Reports"
 msgstr "Создание отчетов"
 
-#: setup.php:41
+#: setup.php:66
 #, fuzzy
 msgid "ReportIt - Manage Reports"
 msgstr "Общие настройки ReportIt"
 
-#: setup.php:145 setup.php:157 setup.php:175 setup.php:181 setup.php:199
-#: setup.php:211 setup.php:217 setup.php:271 setup.php:277 setup.php:295
-#: setup.php:301
+#: setup.php:227 setup.php:239 setup.php:257 setup.php:263 setup.php:281
+#: setup.php:293 setup.php:299 setup.php:353 setup.php:359 setup.php:377
+#: setup.php:383
 msgid "(Edit)"
 msgstr "(Редактировать)"
 
-#: setup.php:163 setup.php:187 setup.php:259 setup.php:283 setup.php:307
+#: setup.php:245 setup.php:269 setup.php:341 setup.php:365 setup.php:389
 msgid "Actions"
 msgstr "Действия"
 
-#: setup.php:169
+#: setup.php:251
 msgid "Data Items"
 msgstr "Элементы Данных"
 
-#: setup.php:205 templates.php:413
+#: setup.php:287 templates.php:477
 msgid "Report Templates"
 msgstr "Шаблоны отчетов"
 
-#: setup.php:229 setup.php:235 templates.php:233 templates.php:329
+#: setup.php:311 setup.php:317 templates.php:270 templates.php:366
 msgid "Import"
 msgstr "Импорт"
 
-#: setup.php:313
+#: setup.php:395
 msgid "Report Calculation"
 msgstr "Расчет отчета"
 
-#: setup.php:319 view.php:229
+#: setup.php:401 view.php:253
 msgid "Public Reports"
 msgstr "Публичные отчеты"
 
-#: setup.php:325 setup.php:337
+#: setup.php:407 setup.php:419
 msgid "Show Report"
 msgstr "Показать Отчет"
 
-#: setup.php:331
+#: setup.php:413
 msgid "Export Report"
 msgstr "Отчет об экспорте"
 
-#: setup.php:343
+#: setup.php:425
 msgid "Public Report Charts"
 msgstr "Графики публичных отчетов"
 
-#: setup.php:349
+#: setup.php:431
 msgid "Bar Chart"
 msgstr "Гистограмма"
 
-#: setup.php:355
+#: setup.php:437
 msgid "Pie Chart"
 msgstr "Круговая диаграмма"
 
-#: setup.php:369
+#: setup.php:474
 msgid "Normal User"
 msgstr "Обычный пользователь"
 
-#: setup.php:370
+#: setup.php:475
 msgid "General Administration"
 msgstr "Общая администрация"
 
-#: setup.php:371
+#: setup.php:476
 msgid "System Administration"
 msgstr "Администрирование системы."
 
-#: setup.php:376
+#: setup.php:481
 msgid "Management"
 msgstr "Управление"
 
-#: setup.php:376
+#: setup.php:481
 #, fuzzy
 msgid "ReportIt Reports"
 msgstr "Создание отчетов"
 
-#: setup.php:377 setup.php:556
+#: setup.php:482 setup.php:702
 msgid "ReportIt"
 msgstr "ОтчетИт"
 
-#: setup.php:377 templates.php:427 templates.php:638
+#: setup.php:482 templates.php:491 templates.php:740
 msgid "Templates"
 msgstr "Шаблоны"
 
-#: setup.php:381
+#: setup.php:486
 msgid "No data source item selected"
 msgstr "Элемент источника данных не выбран"
 
-#: setup.php:385
+#: setup.php:490
 msgid "Unselected data source items are still in use"
 msgstr "Невыбранные элементы источника данных все еще используются"
 
-#: setup.php:389
+#: setup.php:494
 msgid "Unable to unlock this template without defined measurands"
 msgstr "Не удается разблокировать этот шаблон без определенных измерений"
 
-#: setup.php:402
+#: setup.php:529
 msgid "global"
 msgstr "глобальный"
 
-#: setup.php:402
+#: setup.php:529
 msgid "local"
 msgstr "локальный"
 
-#: setup.php:407
+#: setup.php:534
 msgid "Power User (Report Owner)"
 msgstr "Опытный пользователь (владелец отчета)"
 
-#: setup.php:408
+#: setup.php:535
 msgid "Super User (Report Admin)"
 msgstr "Суперпользователь (администратор отчетов)"
 
-#: setup.php:421
+#: setup.php:548
 msgid "Maximum Execution Time (in seconds)"
 msgstr "Максимальное время выполнения (в секундах)"
 
-#: setup.php:422
+#: setup.php:549
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "Опционально: Максимальное время выполнения одного вычисления."
 
-#: setup.php:428
+#: setup.php:555
 msgid "Maximum Record Count Change"
 msgstr "Изменение максимального количества записей"
 
-#: setup.php:429
+#: setup.php:556
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "Опционально (Автоматическая генерация списка RRD): Не изменяйте список RRD любого отчета, если изменение количества записей больше этого числа. Это необходимо для предотвращения нежелательных и катастрофических изменений в списках RRD."
 
-#: setup.php:435
+#: setup.php:562
 msgid "Time Zones"
 msgstr "Часовые пояса"
 
-#: setup.php:436
+#: setup.php:563
 #, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "Включение/выключение использования часовых поясов для настройки элемента данных и расчета отчета.  В первом случае время сервера должно быть установлено на GMT/UTC!"
 
-#: setup.php:441
+#: setup.php:568
 msgid "Show Local Time Zone"
 msgstr "Показать местный часовой пояс"
 
-#: setup.php:442
+#: setup.php:569
 #, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
 msgstr "Включение/выключение отображения часового пояса сервера в заголовках."
 
-#: setup.php:447
+#: setup.php:574
 #, fuzzy
 msgid "Allow Scheduling by Operators"
 msgstr "Разрешить планирование по операторам"
 
-#: setup.php:448
+#: setup.php:575
 #, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
 msgstr "Включение/отключение возможности Оператора по планированию отчетов.  Если это отключено, только администраторы могут изменять расписание."
 
-#: setup.php:453
+#: setup.php:580
 msgid "SI-Prefixes"
 msgstr "Префиксы SI"
 
-#: setup.php:454
+#: setup.php:581
 #, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "Включение/отключение использования правильных префиксов SI для двоичных кратных чисел в соответствии с условиями <a href='http://www.ieee.org'>IEEE 1541</a> и <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
-#: setup.php:459
+#: setup.php:586
 msgid "Auto E-Mailing"
 msgstr "Автоматическая рассылка по электронной почте"
 
-#: setup.php:465
+#: setup.php:592
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "Если эта опция включена, запланированные отчеты могут автоматически отправляться по электронной почте списку получателей.<br> Для работы этой функции требуется настроенная версия плагина «Настройки»."
 
-#: setup.php:480
+#: setup.php:607
 msgid "Separate Report View Filter"
 msgstr "Отдельный фильтр представления отчета"
 
-#: setup.php:481
+#: setup.php:608
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "Включение/выключение использования отдельного фильтра для каждого отчета."
 
-#: setup.php:486
+#: setup.php:613
 msgid "Rows Per Page"
 msgstr "Количество записей на страницу"
 
-#: setup.php:487
+#: setup.php:614
 msgid "The number of rows to display on a single page."
 msgstr "Количество строк для отображения на одной странице."
 
-#: setup.php:493
+#: setup.php:620
 #, fuzzy
 msgid "Report Export Settings"
 msgstr "Настройки экспорта ReportIt"
 
-#: setup.php:498
+#: setup.php:625
 msgid "CSV Column Separator"
 msgstr "Колонный сепаратор CSV"
 
-#: setup.php:499
+#: setup.php:626
 msgid "The column separator to be used for CSV exports."
 msgstr "Разделитель столбцов, который будет использоваться для экспорта в CSV."
 
-#: setup.php:505
+#: setup.php:632
 msgid "CSV Decimal Separator"
 msgstr "Десятичный разделитель CSV"
 
-#: setup.php:506
+#: setup.php:633
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "Символ, обозначающий конец целой части и начало дробной части."
 
-#: setup.php:519
+#: setup.php:646
 #, fuzzy
 msgid "Report General Settings"
 msgstr "Общие настройки ReportIt"
 
-#: templates.php:182
+#: templates.php:219
 msgid "New Report Template"
 msgstr "Новый шаблон отчета"
 
-#: templates.php:187
+#: templates.php:224
 msgid "There are no Data Templates in use."
 msgstr "Шаблоны данных не используются."
 
-#: templates.php:192
+#: templates.php:229
 msgid "Create a new Report Template"
 msgstr "Создание нового шаблона отчета"
 
-#: templates.php:195
+#: templates.php:232
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
 msgstr "Выберите шаблон данных, от которого должен зависеть шаблон отчета.  Неиспользуемые шаблоны данных скрыты."
 
-#: templates.php:222 templates.php:329
+#: templates.php:259 templates.php:366
 msgid "Import Report Template"
 msgstr "Импорт шаблона отчета"
 
-#: templates.php:226
+#: templates.php:263
 msgid "Select the XML file that contains your Report Template."
 msgstr "Выберите XML-файл, содержащий шаблон отчета."
 
-#: templates.php:233
+#: templates.php:270
 msgid "Import Report Templates"
 msgstr "Импорт шаблонов отчетов"
 
-#: templates.php:256
+#: templates.php:293
 msgid "Compatible"
 msgstr "Совместимый"
 
-#: templates.php:265
+#: templates.php:302
 msgid "Summary"
 msgstr "Резюме"
 
-#: templates.php:281
+#: templates.php:318
 #, fuzzy
 #| msgid "None"
 msgid "No"
 msgstr "Нет"
 
-#: templates.php:281
+#: templates.php:318
 msgid "Yes"
 msgstr ""
 
-#: templates.php:316
+#: templates.php:353
 msgid "No Compatible Templates Found"
 msgstr "Совместимые шаблоны не найдены"
 
-#: templates.php:449
+#: templates.php:513
 msgctxt "Button: import button"
 msgid "Import"
 msgstr "Импорт"
 
-#: templates.php:588
+#: templates.php:690
 msgid "The name of this Report Template."
 msgstr "Имя данного шаблона отчета."
 
-#: templates.php:594
+#: templates.php:696
 msgid "The internal identifier of this Report Template."
 msgstr "Внутренний идентификатор данного шаблона отчета."
 
-#: templates.php:600
+#: templates.php:702
 msgid "The Author of this Report Template."
 msgstr "Автор данного шаблона отчета."
 
-#: templates.php:610
+#: templates.php:712
 msgid "The version of this Report Template."
 msgstr "Версия данного шаблона отчета."
 
-#: templates.php:613
+#: templates.php:715
 msgid "Published"
 msgstr "Опубликовано"
 
-#: templates.php:634
+#: templates.php:736
 msgid "The total number of reports using this report template."
 msgstr "Общее количество отчетов с использованием данного шаблона отчета."
 
-#: templates.php:668
+#: templates.php:770
 msgid "No matching data sources"
 msgstr "Нет совпадающих источников данных"
 
-#: templates.php:670
+#: templates.php:772
 msgid "Data template not available"
 msgstr "Шаблон данных недоступен"
 
-#: templates.php:681
+#: templates.php:783
 msgid "Add measurands"
 msgstr "Сложение мерных значений"
 
-#: templates.php:681
+#: templates.php:783
 msgid "Edit measurands"
 msgstr "Редактирование измерений"
 
-#: templates.php:687
+#: templates.php:789
 msgid "Add variables"
 msgstr "Добавление переменных"
 
-#: templates.php:687
+#: templates.php:789
 msgid "Edit variables"
 msgstr "Редактирование переменных"
 
-#: templates.php:695
+#: templates.php:797
 #, fuzzy
 msgid "No templates"
 msgstr "Шаблоны"
 
-#: templates.php:863
+#: templates.php:990
 msgid "Maximum has to be greater than minimum."
 msgstr "Максимум должен быть больше минимума."
 
-#: templates.php:867
+#: templates.php:994
 msgid "Default value is out of values range."
 msgstr "Значение по умолчанию находится вне диапазона значений."
 
-#: templates.php:939
+#: templates.php:1066
 msgid "Duplicate abbreviation"
 msgstr "Повторяющаяся аббревиатура"
 
-#: templates.php:993
+#: templates.php:1120
 msgid "Interim results are used by other measurands."
 msgstr "Промежуточные результаты используются для других измерений."
 
-#: templates.php:1056
+#: templates.php:1213
 #, fuzzy, php-format
 msgid "Template [ %s - %s ]"
 msgstr "Удалить шаблоны графиков"
 
-#: templates.php:1060
+#: templates.php:1217
 #, fuzzy
 msgid "Template [new]"
 msgstr "Шаблон"
 
-#: templates.php:1153
+#: templates.php:1331
 #, fuzzy
 msgid "<template_title>"
 msgstr "Название шаблона"
 
-#: templates.php:1316
+#: templates.php:1494
 msgid "Click 'Continue' to Delete the following Report Templates"
 msgstr "Нажмите «Продолжить», чтобы удалить следующие шаблоны отчетов"
 
-#: templates.php:1319
+#: templates.php:1497
 msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
 msgstr "ВНИМАНИЕ: Все отчеты, принадлежащие к этим шаблонам, также будут удалены!"
 
-#: templates.php:1322
+#: templates.php:1500
 #, fuzzy, php-format
 msgid "Template: %s"
 msgstr "Удалить шаблоны графиков"
 
-#: templates.php:1328
+#: templates.php:1506
 #, php-format
 msgid "Report: %s"
 msgstr "Отчет: %s"
 
-#: templates.php:1335
+#: templates.php:1513
 msgid "Report: <i>None</i>"
 msgstr "Отчет: <i>Нет</i>"
 
-#: templates.php:1346
+#: templates.php:1524
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
 msgstr "Нажмите «Продолжить», чтобы скопировать следующие шаблоны отчетов. При необходимости вы можете изменить заголовок этих дубликатов."
 
-#: templates.php:1349
+#: templates.php:1527
 msgid "List of selected report templates:"
 msgstr "Список выбранных шаблонов отчетов:"
 
-#: templates.php:1362
+#: templates.php:1540
 msgid "Title:"
 msgstr "Заголовок:"
 
-#: templates.php:1364
+#: templates.php:1542
 msgid "<template_title> (1)"
 msgstr "<template_title> (1)"
 
-#: templates.php:1373
+#: templates.php:1551
 msgid "Click 'Continue' to Export the following Report Templates"
 msgstr "Нажмите «Продолжить», чтобы экспортировать следующие шаблоны отчетов"
 
-#: templates.php:1392
+#: templates.php:1570
 msgid "You must select at least one Report Template."
 msgstr "Необходимо выбрать хотя бы один шаблон отчета."
 
-#: templates.php:1396
+#: templates.php:1574
 msgid "Delete Report Templates"
 msgstr "Удаление шаблонов отчетов"
 
-#: templates.php:1398
+#: templates.php:1576
 msgid "Duplicate Report Templates"
 msgstr "Дубликаты шаблонов отчетов"
 
-#: templates.php:1400
+#: templates.php:1578
 msgid "Export Report Templates"
 msgstr "Экспорт шаблонов отчетов"
 
-#: templates.php:1469
+#: templates.php:1647
 msgid "Click 'Continue to Delete the following variables."
 msgstr "Нажмите «Продолжить», чтобы удалить следующие переменные."
 
-#: templates.php:1493
+#: templates.php:1671
 msgid "List of selected variables:"
 msgstr "Список выбранных переменных:"
 
-#: templates.php:1497
+#: templates.php:1675
 #, fuzzy, php-format
 msgid "Variable: %s"
 msgstr "Переменная : %s"
 
-#: templates.php:1508
+#: templates.php:1686
 msgid "There are one or more variables in use."
 msgstr "Используется одна или несколько переменных."
 
-#: templates.php:1510
+#: templates.php:1688
 msgid "You must select at least one variable."
 msgstr "Необходимо выбрать хотя бы одну переменную."
 
-#: templates.php:1515
+#: templates.php:1693
 msgid "Delete Template Variables"
 msgstr "Удаление переменных шаблона"
 
-#: templates.php:1588
+#: templates.php:1766
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
 msgstr "Нажмите «Продолжить», чтобы удалить следующие измерения.  Примечание: Если после этого процесса не осталось других измерений, шаблон отчета будет автоматически заблокирован."
 
-#: templates.php:1591
+#: templates.php:1769
 msgid "List of selected measurands:"
 msgstr "Список выбранных измеряемых показателей:"
 
-#: templates.php:1595
+#: templates.php:1773
 #, fuzzy, php-format
 msgid "Metric: %s"
 msgstr "Размер: %s"
 
-#: templates.php:1606
+#: templates.php:1784
 msgid "You must select at least one measurand."
 msgstr "Необходимо выбрать хотя бы одну меру."
 
-#: templates.php:1612
+#: templates.php:1790
 #, fuzzy
 msgid "Delete Template Metrics"
 msgstr "Удаление шаблонов измерений"
 
-#: templates.php:1697
+#: templates.php:1898
 #, php-format
 msgid "Variables [ Template: %s - %s ]"
 msgstr "Переменные [ Шаблон: %s - %s ]"
 
-#: templates.php:1747
+#: templates.php:1948
 msgid "No Variables Found"
 msgstr "Переменные не найдены"
 
-#: templates.php:1787
+#: templates.php:2003
 #, fuzzy, php-format
 msgid "Variable Configuration [ edit: %s ]"
 msgstr "Конфигурация переменных [править: %s]"
 
-#: templates.php:1789
+#: templates.php:2005
 msgid "Variable Configuration [new]"
 msgstr "Конфигурация переменных [новое]"
 
-#: templates.php:1815
+#: templates.php:2031
 msgid "Internal name"
 msgstr "Вы должны установить другое внутреннее имя"
 
-#: templates.php:1816
+#: templates.php:2032
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
 msgstr "Уникальный идентификатор, который будет создан самим ReportIt. Используйте этот идентификатор в определении формулы вычисления, чтобы включить значение, которое пользователь отчета определил для него индивидуально."
 
-#: templates.php:1823
+#: templates.php:2039
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
 msgstr "Например, имя, такое как \"Threshold\", которое следует использовать в качестве заголовка в конфигурации отчета."
 
-#: templates.php:1826
+#: templates.php:2042
 msgid "Provide a name for this Variable"
 msgstr "Укажите имя для этой переменной"
 
-#: templates.php:1831
+#: templates.php:2047
 #, fuzzy
 #| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
 msgstr "Короткое, емкое описание, объясняющее смысл этой переменной."
 
-#: templates.php:1836
+#: templates.php:2052
 msgid "Provide a meaningful description"
 msgstr "Предоставьте содержательное описание"
 
-#: templates.php:1840
+#: templates.php:2056
 msgid "Maximum Value"
 msgstr "Максимальное значение"
 
-#: templates.php:1841
+#: templates.php:2057
 msgid "Defines the upper limit of this variable."
 msgstr "Определяет верхнюю границу этой переменной."
 
-#: templates.php:1847
+#: templates.php:2063
 msgid "Minimum Value"
 msgstr "Минимальное значение"
 
-#: templates.php:1848
+#: templates.php:2064
 msgid "Defines the lower limit of this variable."
 msgstr "Определяет нижнюю границу этой переменной."
 
-#: templates.php:1854
+#: templates.php:2070
 msgid "Default Value"
 msgstr "Значение по умолчанию"
 
-#: templates.php:1855
+#: templates.php:2071
 msgid "Sets the default value."
 msgstr "Устанавливает значение по умолчанию."
 
-#: templates.php:1861 templates.php:2011 view.php:225
+#: templates.php:2077 templates.php:2252 view.php:249
 msgid "Type"
 msgstr "Тип"
 
-#: templates.php:1862
+#: templates.php:2078
 msgid "The method the report owner should use to define this variable."
 msgstr "Метод, с помощью которого владелец отчета должен определить эту переменную."
 
-#: templates.php:1869
+#: templates.php:2085
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
 msgstr "Определяет расстояние между двумя значениями, если был выбран метод \"DropDown\". Пожалуйста, убедитесь, что это значение не установлено слишком низко, потому что оно косвенно определяет количество опций, которые будут иметь выпадающее поле. Например, следующие параметры: MAX:100, MIN:0, STEP:0.01 приведут к выбору из 10.001 вариантов. Это может привести к серьезным проблемам с производительностью из-за высокой нагрузки на процессор на стороне клиента. Старайтесь держать его ниже 1000."
 
-#: templates.php:1937
+#: templates.php:2178
 #, fuzzy, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
 msgstr "Конфигурация измерений [править: %s]"
 
-#: templates.php:1939
+#: templates.php:2180
 #, fuzzy
 msgid "Metric Configuration [new]"
 msgstr "Конфигурация Measurand [новое]"
 
-#: templates.php:1962
+#: templates.php:2203
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
 msgstr "Объяснение данного мерного показателя. Она будет отображаться в виде условных обозначений при экспорте, а также в виде всплывающей подсказки при представлении самого отчета."
 
-#: templates.php:1969
+#: templates.php:2210
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
 msgstr "Определите уникальную аббревиатуру для этой единицы измерения, содержащую не более 8 букв/цифр."
 
-#: templates.php:1976
+#: templates.php:2217
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "Единица, приведенная для этого измерения. например, «Бит/с»"
 
-#: templates.php:1982
+#: templates.php:2223
 msgid "Consolidation function"
 msgstr "Функция консолидации"
 
-#: templates.php:1983
+#: templates.php:2224
 msgid "The name of the consolidation function to define which CDPs should be read out."
 msgstr "Имя функции консолидации, определяющей, какие CDP должны быть считаны."
 
-#: templates.php:1991
+#: templates.php:2232
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
 msgstr "Выберите «включить», если это измерение должно стать частью выходных данных итогового отчета. Оставьте его неотмеченным, если эти меры будут использоваться только в качестве вспомогательного расчета."
 
-#: templates.php:1999
+#: templates.php:2240
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
 msgstr "Выберите 'enable', если это измерение будет иметь только один результат, а не один для каждого элемента источника данных. Это результат<br>будет показано отдельно. Используйте эту опцию в сочетании с \"Visible\" = \"off\", если вы ищете измеряемую сумму, сохраняющую только промежуточный результат, который следует повторно использовать при расчете других измеряемых параметров, не будучи видимым для конечных пользователей."
 
-#: templates.php:2006
+#: templates.php:2247
 msgid "Formatting"
 msgstr "Форматирование"
 
-#: templates.php:2014
+#: templates.php:2255
 msgid "Defines as what type the data should be treated as."
 msgstr "Определяет, к какому типу следует относить данные."
 
-#: templates.php:2018
+#: templates.php:2259
 msgid "Precision"
 msgstr "Точность"
 
-#: templates.php:2019
+#: templates.php:2260
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
 msgstr "Определяет, сколько десятичных знаков должно отображаться для чисел с плавающей запятой."
 
-#: templates.php:2025
+#: templates.php:2266
 msgid "Prefixes"
 msgstr "Префиксы"
 
-#: templates.php:2026
+#: templates.php:2267
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "Выберите тип префикса, который будет использоваться для форматирования результата. При использовании десятичных префиксов '1024' будет отформатирован как '1.024k', в то время как опция двоичных префиксов возвращает '1ki'. Выберите «Выкл», чтобы отобразить исходные данные, здесь «1024»."
 
-#: templates.php:2032
+#: templates.php:2273
 msgid "Formula"
 msgstr "Формула"
 
-#: templates.php:2038
+#: templates.php:2279
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "Математическое определение этого показателя. Допустимы все перечисленные ниже комбинации операторов и операндов в соответствии с правилами математики. Используйте круглые и квадратные скобки для обозначения сложных терминов и порядка операций."
 
-#: templates.php:2043
+#: templates.php:2284
 msgid "Operators & Operands"
 msgstr "Операторы и операнды"
 
-#: templates.php:2044
+#: templates.php:2285
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
 msgstr "Нажмите на один из перечисленных операторов или операндов, чтобы добавить их в формулу calucalion. Во всплывающей подсказке будет указана дополнительная информация, такая как описание, возвращаемое значение, аргументы и использование."
 
-#: templates.php:2133
+#: templates.php:2390
 #, fuzzy, php-format
 msgid "Metrics [ Template: %s - %s ]"
 msgstr "Удалить шаблоны графиков"
 
-#: templates.php:2172
+#: templates.php:2429
 #, fuzzy
 msgid "No Metrics Found"
 msgstr "Отчёты не найдены"
 
-#: view.php:210
+#: view.php:234
 msgid "Reports Filter"
 msgstr "Фильтр отчетов"
 
-#: view.php:230
+#: view.php:254
 msgid "My Reports"
 msgstr "Мои отчеты"
 
-#: view.php:254
+#: view.php:278
 msgid "Go"
 msgstr "Перейти"
 
-#: view.php:255
+#: view.php:279
 msgid "Clear"
 msgstr "Очистить"
 
-#: view.php:313
+#: view.php:337
 msgid "Period (From - To)"
 msgstr "Период (от - до)"
 
-#: view.php:322
+#: view.php:346
 #, fuzzy
 #| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
 msgstr "Время выполнения [с]"
 
-#: view.php:354
+#: view.php:378
 msgid "No Reports Found"
 msgstr "Отчёты не найдены"
 
-#: view.php:625
+#: view.php:685
 msgid "Metric"
 msgstr "Метрический"
 
-#: view.php:644
+#: view.php:704
 msgid "Data Source"
 msgstr "Источник Данных"
 
-#: view.php:664
+#: view.php:724
 #, fuzzy
 msgid "Show Top 10 Graphs"
 msgstr "Показать ТОП10 графиков"
 
-#: view.php:665
+#: view.php:725
 msgid "Show Subheads"
 msgstr "Показать подзаголовки"
 
-#: view.php:666
+#: view.php:726
 msgid "Show Summary"
 msgstr "Показать сводку"
 
-#: view.php:698
+#: view.php:758
 msgid "Additional"
 msgstr "Дополнительно"
 
-#: view.php:712
+#: view.php:772
 msgid "Items"
 msgstr "Элементы"
 
-#: view.php:728
+#: view.php:788
 msgid "Archive"
 msgstr "Архив"
 
-#: view.php:731
+#: view.php:791
 msgid "Current"
 msgstr "Текущий"
 
-#: view.php:794
+#: view.php:854
 msgid "Title"
 msgstr "Название"
 
-#: view.php:795
+#: view.php:855
 msgid "Runtime"
 msgstr "Время выполнения"
 
-#: view.php:803
+#: view.php:863
 msgid "Period"
 msgstr "Период"
 
-#: view.php:804
+#: view.php:864
 msgid "Auto Generated RRD list"
 msgstr "Автоматически сгенерированный список RRD"
 
-#: view.php:845
+#: view.php:926
 msgid "Data Description"
 msgstr "Описание данных"
 
-#: view.php:886
+#: view.php:967
 msgid "-- NO SUBHEADING --"
 msgstr "-- БЕЗ ПОДЗАГОЛОВКА --"
 
-#: view.php:943
+#: view.php:1024
 #, fuzzy
 msgid "No Data Items"
 msgstr "Элементы Данных"
 
-#: view.php:1056
+#: view.php:1153
 #, fuzzy, php-format
 msgid "Metric: %s (%s)"
 msgstr "Размер: %s"
 
-#: view.php:1077
+#: view.php:1174
 msgid "Pos."
 msgstr "Позиция."
 
-#: view.php:1085
+#: view.php:1182
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Результаты [%s]"
