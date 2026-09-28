@@ -35,7 +35,7 @@
  *
  * @return int The count of values.
  */
-function f_num(&$array, &$f_cache) {
+function f_num(&$array, &$f_cache): int {
 	$f_cache['f_count'] = count($array);
 
 	return $f_cache['f_count'];
@@ -51,7 +51,7 @@ function f_num(&$array, &$f_cache) {
  * @return float The sum of values, or REPORTIT_NAN if $array is empty.
  */
 // Sum
-function f_sum(&$array, &$f_cache) {
+function f_sum(&$array, &$f_cache): float {
 	$f_cache['f_sum'] = empty($array) ? REPORTIT_NAN : array_sum($array);
 
 	return $f_cache['f_sum'];
@@ -68,7 +68,7 @@ function f_sum(&$array, &$f_cache) {
  * @return float The average value, or REPORTIT_NAN if $array is empty.
  */
 // Average
-function f_avg(&$array, &$f_cache) {
+function f_avg(&$array, &$f_cache): float {
 	$f_cache['f_avg'] = empty($array) ? REPORTIT_NAN : array_sum($array) / count($array);
 
 	return $f_cache['f_avg'];
@@ -85,7 +85,7 @@ function f_avg(&$array, &$f_cache) {
  * @return float The maximum value, or REPORTIT_NAN if $array is empty.
  */
 // Maximum
-function f_max(&$array, &$f_cache) {
+function f_max(&$array, &$f_cache): float {
 	$f_cache['f_max'] = empty($array) ? REPORTIT_NAN : max($array);
 
 	return $f_cache['f_max'];
@@ -102,7 +102,7 @@ function f_max(&$array, &$f_cache) {
  * @return float The minimum value, or REPORTIT_NAN if $array is empty.
  */
 // Minimum
-function f_min(&$array, &$f_cache) {
+function f_min(&$array, &$f_cache): float {
 	$f_cache['f_min'] = empty($array) ? REPORTIT_NAN : min($array);
 
 	return $f_cache['f_min'];
@@ -119,7 +119,7 @@ function f_min(&$array, &$f_cache) {
  * @return float The first value, or REPORTIT_NAN if $array is empty.
  */
 // First measured value
-function f_1st(&$array, &$f_cache) {
+function f_1st(&$array, &$f_cache): float {
 	$f_cache['f_1st'] = empty($array) ? REPORTIT_NAN : reset($array);
 
 	return $f_cache['f_1st'];
@@ -136,7 +136,7 @@ function f_1st(&$array, &$f_cache) {
  * @return float The last value, or REPORTIT_NAN if $array is empty.
  */
 // Last measured value
-function f_last(&$array, &$f_cache) {
+function f_last(&$array, &$f_cache): float {
 	$f_cache['f_last'] = empty($array) ? REPORTIT_NAN : end($array);
 
 	return $f_cache['f_last'];
@@ -154,7 +154,7 @@ function f_last(&$array, &$f_cache) {
  *               $array is empty.
  */
 // Gradient
-function f_grd(&$array, &$f_cache) {
+function f_grd(&$array, &$f_cache): float {
 	if (empty($array)) {
 		$f_cache['f_grd'] = REPORTIT_NAN;
 
@@ -193,7 +193,7 @@ function f_grd(&$array, &$f_cache) {
  * @return float The median value, or REPORTIT_NAN if $array is empty.
  */
 // returns the median
-function f_median(&$array, &$f_cache) {
+function f_median(&$array, &$f_cache): float {
 	if ($f_cache['f_median'] === false) {
 		if (empty($array)) {
 			$f_cache['f_median'] = REPORTIT_NAN;
@@ -226,7 +226,7 @@ function f_median(&$array, &$f_cache) {
  * @return float The range value, or REPORTIT_NAN if $array is empty.
  */
 // returns the distance between the highest and lowest measured value
-function f_range(&$array, &$f_cache) {
+function f_range(&$array, &$f_cache): float {
 	if ($f_cache['f_range'] === false) {
 		$f_cache['f_range'] = empty($array) ? REPORTIT_NAN : f_max($array, $f_cache) - f_min($array, $f_cache);
 	}
@@ -246,7 +246,7 @@ function f_range(&$array, &$f_cache) {
  *               empty.
  */
 // returns the interquartile range
-function f_iqr(&$array, &$f_cache) {
+function f_iqr(&$array, &$f_cache): float {
 	if ($f_cache['f_iqr'] === false) {
 		if (empty($array)) {
 			$f_cache['f_iqr'] = REPORTIT_NAN;
@@ -254,7 +254,7 @@ function f_iqr(&$array, &$f_cache) {
 			$cnt              = f_num($array, $f_cache);
 			$first_quartile   = ((0.25 * $cnt) % 1 == 0) ? 0.5 * (0.25 * $cnt + (0.25 * $cnt + 1)) : intval(0.25 * $cnt + 1);
 			$fourth_quartile  = ((0.25 * $cnt) % 1 == 0) ? 0.5 * (0.75 * $cnt + (0.75 * $cnt + 1)) : intval(0.75 * $cnt + 1);
-			$f_cache['f_iqr'] = $array[$fourth_quartile - 1] - $array[$first_quartile - 1];
+			$f_cache['f_iqr'] = $array[(int) ($fourth_quartile - 1)] - $array[(int) ($first_quartile - 1)];
 		}
 	}
 
@@ -273,7 +273,7 @@ function f_iqr(&$array, &$f_cache) {
  *               empty.
  */
 // returns the variance
-function f_var(&$array, &$f_cache) {
+function f_var(&$array, &$f_cache): float {
 	if ($f_cache['f_var'] === false) {
 		if (empty($array)) {
 			$f_cache['f_var'] = REPORTIT_NAN;
@@ -304,7 +304,7 @@ function f_var(&$array, &$f_cache) {
  *               empty or its variance is NaN.
  */
 // returns the standard deviation
-function f_sd(&$array, &$f_cache) {
+function f_sd(&$array, &$f_cache): float {
 	if ($f_cache['f_sd'] === false) {
 		if (empty($array)) {
 			$f_cache['f_sd'] = REPORTIT_NAN;
@@ -335,7 +335,7 @@ function f_sd(&$array, &$f_cache) {
  *               if $array is empty or $value is out of range.
  */
 // Xth percentitle
-function f_xth(&$array, &$p_cache, $value) {
+function f_xth(&$array, &$p_cache, $value): float {
 	if ($value > 100 || $value <= 0) {
 		return REPORTIT_NAN;
 	}
@@ -369,7 +369,7 @@ function f_xth(&$array, &$p_cache, $value) {
  *               if $array is empty.
  */
 // Sum Over Threshold
-function f_sot(&$array, &$p_cache, $threshold) {
+function f_sot(&$array, &$p_cache, $threshold): float {
 	if (empty($array)) {
 		$p_cache['f_sot'] = REPORTIT_NAN;
 
@@ -407,7 +407,7 @@ function f_sot(&$array, &$p_cache, $threshold) {
  *               threshold, or REPORTIT_NAN if $array is empty.
  */
 // Duration Over Threshold
-function f_dot(&$array, &$p_cache, $threshold) {
+function f_dot(&$array, &$p_cache, $threshold): float {
 	if (empty($array)) {
 		$p_cache['f_dot'] = REPORTIT_NAN;
 
@@ -444,7 +444,7 @@ function f_dot(&$array, &$p_cache, $threshold) {
  * @return float The floored value, or REPORTIT_NAN if $array is empty.
  */
 // Get the integer value <-- should become an alias of 'f_floor'
-function f_int(&$array, &$p_cache, $value) {
+function f_int(&$array, &$p_cache, $value): float {
 	$p_cache['f_int']   = empty($array) ? REPORTIT_NAN : floor($value);
 	$p_cache['f_floor'] = $p_cache['f_int'];
 
@@ -464,7 +464,7 @@ function f_int(&$array, &$p_cache, $value) {
  * @return float The floored value, or REPORTIT_NAN if $array is empty.
  */
 // Round fractions down
-function f_floor(&$array, &$p_cache, $value) {
+function f_floor(&$array, &$p_cache, $value): float {
 	$p_cache['f_floor'] = empty($array) ? REPORTIT_NAN : floor($value);
 	$p_cache['f_int']   = $p_cache['f_floor'];
 
@@ -484,7 +484,7 @@ function f_floor(&$array, &$p_cache, $value) {
  * @return float The ceiled value, or REPORTIT_NAN if $array is empty.
  */
 // Round fractions up
-function f_ceil(&$array, &$p_cache, $value) {
+function f_ceil(&$array, &$p_cache, $value): float {
 	$p_cache['f_ceil'] = empty($array) ? REPORTIT_NAN : ceil($value);
 
 	return $p_cache['f_ceil'];
@@ -504,7 +504,7 @@ function f_ceil(&$array, &$p_cache, $value) {
  * @return float The rounded value, or REPORTIT_NAN if $array is empty.
  */
 // Get the rounded integer value   <--- should become an alias of 'f_round'
-function f_rnd(&$array, &$p_cache, $value) {
+function f_rnd(&$array, &$p_cache, $value): float {
 	$p_cache['f_rnd']   = empty($array) ? REPORTIT_NAN : round($value);
 	$p_cache['f_round'] = $p_cache['f_rnd'];
 
@@ -524,7 +524,7 @@ function f_rnd(&$array, &$p_cache, $value) {
  * @return float The rounded value, or REPORTIT_NAN if $array is empty.
  */
 // Get the rounded integer value
-function f_round(&$array, &$p_cache, $value) {
+function f_round(&$array, &$p_cache, $value): float {
 	$p_cache['f_round'] = empty($array) ? REPORTIT_NAN : round($value);
 	$p_cache['f_rnd']   = $p_cache['f_round'];
 
@@ -547,14 +547,15 @@ function f_round(&$array, &$p_cache, $value) {
  *               empty.
  */
 // Get the highest value of a list of given numbers
-function f_high(&$array, &$p_cache) {
+function f_high(&$array, &$p_cache): float {
 	if (func_num_args() < 3 || empty($array)) {
 		$p_cache['f_high'] = REPORTIT_NAN;
 
 		return $p_cache['f_high'];
 	}
 
-	$p_cache['f_high'] = max(array_slice(func_get_args(), 2));
+	$high_values       = array_slice(func_get_args(), 2);
+	$p_cache['f_high'] = $high_values !== [] ? max($high_values) : REPORTIT_NAN;
 
 	return $p_cache['f_high'];
 }
@@ -575,14 +576,15 @@ function f_high(&$array, &$p_cache) {
  *               empty.
  */
 // Get the lowest values of a list of given numbers
-function f_low(&$array, &$p_cache) {
+function f_low(&$array, &$p_cache): float {
 	if (func_num_args() < 3 || empty($array)) {
 		$p_cache['f_low'] = REPORTIT_NAN;
 
 		return $p_cache['f_low'];
 	}
 
-	$p_cache['f_low'] = min(array_slice(func_get_args(), 2));
+	$low_values       = array_slice(func_get_args(), 2);
+	$p_cache['f_low'] = $low_values !== [] ? min($low_values) : REPORTIT_NAN;
 
 	return $p_cache['f_low'];
 }
@@ -858,7 +860,7 @@ function f_isNaN(&$array, &$p_cache) {
  * @global string $calculate_last_formula The most recently attempted
  *                                       formula string, if any.
  */
-function calculate_handler() {
+function calculate_handler(): void {
 	global $calculate_last_formula;
 
 	if (!empty($calculate_last_formula)) {
@@ -899,8 +901,8 @@ global $calculate_handler_set, $calculate_last_formula;
  * @param array $ds_cache  Reference, the initial 'spanned metrics'
  *                         cache state.
  *
- * @return array The computed results, keyed by data-source/RRA and
- *               measurand id.
+ * @return array|string The computed results keyed by data-source/RRA and
+ *                      measurand id, or the string 'NULL' when a query value is NaN.
  *
  * @global bool   $calculate_handler_set    Whether the shutdown error
  *                                         handler has already been
@@ -911,7 +913,7 @@ global $calculate_handler_set, $calculate_last_formula;
  *                                         for calculate_handler() to
  *                                         report on fatal errors.
  */
-function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_cache, &$dp_cache, &$ds_cache) {
+function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_cache, &$dp_cache, &$ds_cache): array|string {
 	$results = [];
 
 	$f_cache = $df_cache;	// Functions
@@ -926,6 +928,8 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 	$specific_variables = ['maxValue', 'maxRRDValue'];
 
 	// Create a cache for every Round Robin Archive
+	$cache = [];
+
 	foreach ($ds_namv as $key => $ds_name) {
 		$cache[$key] = 	[$f_cache, $m_cache, $p_cache];
 	}
@@ -954,7 +958,7 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 			$debug = [];
 
 			// Formula
-			$formula = str_replace([' ', "\r\n", "\n"], '', $m);
+			$formula = str_replace([' ', "\r\n", "\n"], '', (string) $m);
 			$debug[] = $formula;
 
 			// transform RRA specific variables (maxValue, maxRRDValue) used in that formula
@@ -974,7 +978,7 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 			// Replace measurands (spanned)
 			foreach ($s_cache as $key => $value) {
 				$pattern = '/(^|[+|\-|*|\/|\(|\)|,| ])' . $key . '([+|\-|*|\/|\(|\)|,| ]|$)/';
-				$formula = preg_replace($pattern, "\${1}$value\${2}", $formula);
+				$formula = (string) preg_replace($pattern, "\${1}$value\${2}", $formula);
 			}
 
 			$debug[] = $formula;
@@ -991,7 +995,7 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 			// Replace measurands with an existing result if we have one
 			foreach ($cache[$i][1] as $key => $value) {
 				$pattern = '/(^|[+|\-|*|\/|\(|\)|,| ])' . $key . '([+|\-|*|\/|\(|\)|,| ]|$)/';
-				$formula = preg_replace($pattern, "\${1}$value\${2}", $formula);
+				$formula = (string) preg_replace($pattern, "\${1}$value\${2}", $formula);
 			}
 
 			$debug[] = $formula;
@@ -1028,6 +1032,8 @@ function calculate(&$data, &$params, &$variables, &$df_cache, &$dm_cache, &$dr_c
 			$calculate_last_formula = $formula;
 			eval("\$result = $formula;");
 			$calculate_last_formula = '';
+
+			/** @var mixed $result */
 
 			if ($result === false || is_nan($result) || is_null($result)) {
 				$result = 'NULL';

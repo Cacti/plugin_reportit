@@ -31,7 +31,7 @@
  *
  * @return void
  */
-function export_to_PDF(&$data) {
+function export_to_PDF(&$data): void {
 }
 
 /**
@@ -54,7 +54,7 @@ function export_to_PDF(&$data) {
  *                              scheduled/CLI context vs. an interactive
  *                              web request.
  */
-function export_to_CSV(&$data) {
+function export_to_CSV(&$data): string {
 	global $search, $run_scheduled;
 
 	$eol          = PHP_EOL;
@@ -95,7 +95,7 @@ function export_to_CSV(&$data) {
 	// plugin version
 	$info = plugin_reportit_version();
 	// form the export header
-	$header = read_config_option('reportit_exp_header');
+	$header = (string) read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', "$eol# Cacti: " . CACTI_VERSION, $header);
 
 	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'] , $header);
@@ -138,6 +138,9 @@ function export_to_CSV(&$data) {
 		}
 	}
 
+	$ov_ids = false;
+	$ov_cnt = 0;
+
 	if ($datasources < 0) {
 		// read out the 'spanned' ids
 		[$ov_ids, $ov_cnt]	 = explode('-', $report_data['sp_def']);
@@ -163,7 +166,7 @@ function export_to_CSV(&$data) {
 			if ($ov_cnt > 0 && !in_array('overall', $ds_description, true)) {
 				$ds_description[] = 'overall';
 			}
-		} elseif (in_array($measurands, $ov_ids, true)) {
+		} elseif (in_array($measurands, (array) $ov_ids, true)) {
 			if ($ov_cnt > 0 && !in_array('overall', $ds_description, true)) {
 				$ds_description = ['overall'];
 			}
@@ -247,7 +250,7 @@ function export_to_CSV(&$data) {
 
 					$var   = ($datasource != 'overall') ? $datasource . '__' . $id : 'spanned__' . $id;
 
-					$value = ($result[$var] == null) ? 'NA' : str_replace('.', $d_sep, (($no_formatting) ? $result[$var] : get_unit($result[$var], $rounding, $data_type, $data_precision)));
+					$value = ($result[$var] == null) ? 'NA' : str_replace('.', $d_sep, (string) get_unit($result[$var], $rounding, $data_type, $data_precision));
 
 					print '"' . $value . '"' . $c_sep;
 				}
@@ -257,7 +260,7 @@ function export_to_CSV(&$data) {
 		print "$eol";
 	}
 
-	return ob_get_clean();
+	return (string) ob_get_clean();
 }
 
 /**
@@ -276,7 +279,7 @@ function export_to_CSV(&$data) {
  *                              scheduled/CLI context vs. an interactive
  *                              web request.
  */
-function export_to_XML(&$data) {
+function export_to_XML(&$data): string {
 	global $search, $run_scheduled;
 
 	$eol       = PHP_EOL;
@@ -296,7 +299,7 @@ function export_to_XML(&$data) {
 	$no_formatting     = 0;
 
 	// form the export header
-	$header = read_config_option('reportit_exp_header');
+	$header = (string) read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', "\r\nCacti: " . CACTI_VERSION, $header);
 	$info   = plugin_reportit_version();
 	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'], $header);
@@ -393,7 +396,7 @@ function export_to_XML(&$data) {
 					$data_type      = $mea[$id]['data_type'];
 					$data_precision = $mea[$id]['data_precision'];
 
-					$value  = ($value == null) ? 'NA' : (($no_formatting) ? $value : get_unit($value, $rounding, $data_type, $data_precision));
+					$value  = ($value == null) ? 'NA' : get_unit($value, $rounding, $data_type, $data_precision);
 					print "<$abbr measurand=\"{$mea[$id]['abbreviation']}\" unit=\"{$mea[$id]['unit']}\">$eol";
 					print "$value";
 					print "</$abbr >$eol";
@@ -410,7 +413,7 @@ function export_to_XML(&$data) {
 	print "</data_items>$eol";
 
 	print "</report>$eol</cacti>$eol";
-	$output = mb_convert_encoding(ob_get_clean(), 'UTF-8', 'ISO-8859-1');
+	$output = mb_convert_encoding((string) ob_get_clean(), 'UTF-8', 'ISO-8859-1');
 
 	return $output;
 }
@@ -426,7 +429,7 @@ function export_to_XML(&$data) {
  *                      yaml extension isn't available (logged as a
  *                      warning).
  */
-function export_to_YAML(&$data) {
+function export_to_YAML(&$data): string|false {
 	$report_data = export_to_JSON($data);
 
 	if (function_exists('yaml_emit')) {
@@ -454,7 +457,7 @@ function export_to_YAML(&$data) {
  *                              scheduled/CLI context vs. an interactive
  *                              web request.
  */
-function export_to_JSON(&$data) {
+function export_to_JSON(&$data): string {
 	global $search, $run_scheduled;
 
 	$json_data = [];
@@ -555,7 +558,7 @@ function export_to_JSON(&$data) {
 					$data_type      = $mea[$id]['data_type'];
 					$data_precision = $mea[$id]['data_precision'];
 
-					$value  = ($value == null) ? 'NA' : (($no_formatting) ? $value : get_unit($value, $rounding, $data_type, $data_precision));
+					$value  = ($value == null) ? 'NA' : get_unit($value, $rounding, $data_type, $data_precision);
 
 					$json_data['data_items']['item'][$i]['results'][$datasource][$abbr]['measurand'] = $mea[$id]['abbreviation'];
 					$json_data['data_items']['item'][$i]['results'][$datasource][$abbr]['unit']      = $mea[$id]['unit'];
@@ -567,7 +570,7 @@ function export_to_JSON(&$data) {
 		$i++;
 	}
 
-	return json_encode($json_data, JSON_PRETTY_PRINT);
+	return (string) json_encode($json_data, JSON_PRETTY_PRINT);
 }
 
 /**
@@ -582,7 +585,7 @@ function export_to_JSON(&$data) {
  *
  * @return string The rendered SpreadsheetML XML document text.
  */
-function export_to_SML(&$data) {
+function export_to_SML(&$data): string {
 	$eol = PHP_EOL;
 
 	$sml_workbook	 = "<Workbook xmlns=\"urn:schemas-microsoft-com:office:spreadsheet\"$eol
@@ -618,7 +621,7 @@ function export_to_SML(&$data) {
 	print $sml_styles;
 	print new_worksheet($data, $sml_styles);
 	print $footer;
-	$output = mb_convert_encoding(ob_get_clean(), 'UTF-8', 'ISO-8859-1');
+	$output = mb_convert_encoding((string) ob_get_clean(), 'UTF-8', 'ISO-8859-1');
 
 	return $output;
 }
@@ -629,9 +632,9 @@ function export_to_SML(&$data) {
  * table), used as the body of an export_to_SML() workbook. Called from
  * export_to_SML() to build its single worksheet.
  *
- * @param array $data   Reference, the report's prepared data to render.
- * @param array $styles Reference, the workbook's defined cell styles,
- *                      referenced by style id when rendering cells.
+ * @param array  $data   Reference, the report's prepared data to render.
+ * @param string $styles Reference, the workbook's defined cell styles,
+ *                       referenced by style id when rendering cells.
  *
  * @return string The rendered &lt;Worksheet&gt; XML fragment.
  *
@@ -641,7 +644,7 @@ function export_to_SML(&$data) {
  *                              scheduled/CLI context vs. an interactive
  *                              web request.
  */
-function new_worksheet(&$data, &$styles) {
+function new_worksheet(array &$data, string &$styles): string {
 	global $search, $run_scheduled;
 
 	$eol          = PHP_EOL;
@@ -668,7 +671,7 @@ function new_worksheet(&$data, &$styles) {
 
 	// form the export header
 	$info   = $info = plugin_reportit_version();
-	$header = read_config_option('reportit_exp_header');
+	$header = (string) read_config_option('reportit_exp_header');
 	$header = str_replace('<cacti_version>', ' Cacti: ' . CACTI_VERSION, $header);
 	$header = str_replace('<reportit_version>', ' ReportIt: ' . $info['version'], $header);
 
@@ -710,6 +713,9 @@ function new_worksheet(&$data, &$styles) {
 		}
 	}
 
+	$ov_ids = false;
+	$ov_cnt = 0;
+
 	if ($datasources < 0) {
 		// read out the 'spanned' ids
 		[$ov_ids, $ov_cnt] = explode('-', $report_data['sp_def']);
@@ -734,7 +740,7 @@ function new_worksheet(&$data, &$styles) {
 			if ($ov_cnt > 0 && !in_array('overall', $ds_description, true)) {
 				$ds_description[] = 'overall';
 			}
-		} elseif (in_array($measurands, $ov_ids, true)) {
+		} elseif (in_array($measurands, (array) $ov_ids, true)) {
 			if ($ov_cnt > 0 && !in_array('overall', $ds_description, true)) {
 				$ds_description = ['overall'];
 			}
@@ -829,7 +835,7 @@ function new_worksheet(&$data, &$styles) {
 					$data_precision = $report_measurands[$id]['data_precision'];
 
 					$value = $result[$var];
-					$value = ($value == null) ? 'NA' : (($no_formatting) ? $value : get_unit($value, $rounding, $data_type, $data_precision));
+					$value = ($value == null) ? 'NA' : get_unit($value, $rounding, $data_type, $data_precision);
 					print sml_cell($value);
 				}
 			}
@@ -842,7 +848,7 @@ function new_worksheet(&$data, &$styles) {
 	print "\t\t</Table>$eol";
 	print "\t</Worksheet>$eol";
 
-	return ob_get_clean();
+	return (string) ob_get_clean();
 }
 
 /**
@@ -859,7 +865,7 @@ function new_worksheet(&$data, &$styles) {
  * @return string The rendered &lt;Cell&gt; (optionally &lt;Row&gt;-wrapped) XML
  *                fragment.
  */
-function sml_cell($data, $row = false, $styleID = false) {
+function sml_cell($data, bool $row = false, $styleID = false): string {
 	$eol = PHP_EOL;
 
 	$data_style = is_numeric($data) ? " ss:Type='Number'" : " ss:Type='String'";

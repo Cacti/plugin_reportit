@@ -95,7 +95,7 @@ switch (get_request_var('action')) {
  *
  * @return void
  */
-function report_wizard() {
+function report_wizard(): void {
 	$templates_list = [];
 	$templates      = [];
 
@@ -113,7 +113,7 @@ function report_wizard() {
 
 	form_start('reportit.php');
 
-	html_start_box(__('New Report', 'reportit'), '60%', '', '3', 'center', '');
+	html_start_box(__('New Report', 'reportit'), '60%', false, 3, 'center', '');
 
 	if (cacti_sizeof($templates_list) == 0) {
 		raise_message('no_unlocked', __('There are no unlocked and enabled report templates available (%s locked or disabled).', $templates_locked, 'reportit'), MESSAGE_LEVEL_ERROR);
@@ -161,10 +161,10 @@ function report_wizard() {
  * @global array $item_rows Cacti's standard row-count option list,
  *                         used to populate the rows-per-page dropdown.
  */
-function report_filter() {
+function report_filter(): void {
 	global $item_rows;
 
-	html_start_box(__('Report Filters', 'reportit'), '100%', '', '3', 'center', 'reportit.php?action=report_add');
+	html_start_box(__('Report Filters', 'reportit'), '100%', false, 3, 'center', 'reportit.php?action=report_add');
 	?>
 	<tr class='even'>
 		<td>
@@ -266,7 +266,7 @@ function report_filter() {
  * @global array $report_schedule_frequency  Map of schedule frequency
  *                                          code => display label.
  */
-function standard() {
+function standard(): void {
 	global $report_actions, $minutes, $report_states, $sched_types, $report_schedule_frequency;
 
 	$columns     = 0;
@@ -464,7 +464,7 @@ function standard() {
 
 	form_start('reportit.php');
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, 3, 'center', '');
 
 	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reportit.php');
 
@@ -506,7 +506,7 @@ function standard() {
 			print "<td class='right'><a class='linkEditMain href='$link'>" . html_sources_icon($report['ds_cnt'], __('Edit sources', 'reportit'), __('Add sources', 'reportit')) . '</a></td>';
 
 			if (!$report['locked'] && $report['state'] < 1) {
-				form_checkbox_cell(__esc('Select %s', $report['name'], 'reportit'), $report['id'], '', 'right');
+				form_checkbox_cell(__esc('Select %s', $report['name'], 'reportit'), $report['id'], false, false);
 			} else {
 				print '<td class="right">' . html_lock_icon('on', __('Report has been locked', 'reportit')) . '</td>';
 			}
@@ -536,7 +536,7 @@ function standard() {
  *
  * @return void
  */
-function remove_recipient() {
+function remove_recipient(): void {
 	// ================= input validation =================
 	get_filter_request_var('id');
 	get_filter_request_var('rec');
@@ -594,7 +594,7 @@ function remove_recipient() {
  *                               form-rendering code; not set directly
  *                               here.
  */
-function form_save() {
+function form_save(): void {
 	global $templates, $timespans, $frequency, $timezone, $shifttime, $shifttime2, $weekday, $format, $add_recipients;
 
 	global $timezone, $shifttime, $shifttime2, $weekday;
@@ -673,7 +673,7 @@ function form_save() {
 		case 'items':
 			if (isset($post['save_component_rrdlist'])) {
 				// ================= input validation =================
-				locked(my_template($post['report_id']));
+				locked((int) my_template($post['report_id']));
 				// ====================================================
 
 				// check start and end of shifttime
@@ -729,8 +729,8 @@ function form_save() {
 				}
 
 				if (!is_error_message()) {
-					[$ys, $ms, $ds] = explode('-', $post['start_date']);
-					[$ye, $me, $de] = explode('-', $post['end_date']);
+					[$ys, $ms, $ds] = array_map('intval', explode('-', $post['start_date']));
+					[$ye, $me, $de] = array_map('intval', explode('-', $post['end_date']));
 
 					if (!checkdate($ms, $ds, $ys)) {
 						session_custom_error_message('start_date', 'Invalid date');
@@ -844,7 +844,7 @@ function form_save() {
 			break;
 		case 'items':
 			// ================= input validation =================
-			locked(my_template($post['report_id']));
+			locked((int) my_template($post['report_id']));
 			// ====================================================
 
 			// check start and end of shifttime
@@ -1042,7 +1042,7 @@ function form_save() {
  *                                     option list, used on the items
  *                                     tab.
  */
-function report_edit() {
+function report_edit(): void {
 	global $templates, $timespans, $graph_timespans, $frequency, $archive, $tabs;
 	global $weekday, $timezone, $shifttime, $shifttime2, $format;
 	global $form_array_admin, $form_array_presets, $form_array_general, $form_array_email;
@@ -1062,6 +1062,9 @@ function report_edit() {
 	my_report(get_request_var('id'));
 	// ====================================================
 
+	$report_recipients = [];
+	$rrdlist_data      = [];
+
 	// load config settings if it's not a new one
 	if (!isempty_request_var('id')) {
 		$report_data = db_fetch_row_prepared('SELECT *
@@ -1079,10 +1082,22 @@ function report_edit() {
 			WHERE report_id = ?',
 			[get_request_var('id')]);
 
+		if (!is_array($report_data)) {
+			$report_data = [];
+		}
+
+		if (!is_array($rrdlist_data)) {
+			$rrdlist_data = [];
+		}
+
+		if (!is_array($report_recipients)) {
+			$report_recipients = [];
+		}
+
 		$header_label = '[edit: ' . $report_data['name'] . ']';
 
 		// update rrdlist_data
-		if ($rrdlist_data) {
+		if (is_array($rrdlist_data)) {
 			$rrdlist_data['timezone']   = array_search($rrdlist_data['timezone'],$timezone, true);
 			$rrdlist_data['start_time'] = array_search($rrdlist_data['start_time'],$shifttime, true);
 			$rrdlist_data['end_time']   = array_search($rrdlist_data['end_time'],$shifttime2, true);
@@ -1196,7 +1211,7 @@ function report_edit() {
 		form_start('reportit.php');
 	}
 
-	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label, 'reportit'), '100%', '', '3', 'center', '');
+	html_start_box(__('Report Configuration (%s) %s', $tabs[$current_tab], $header_label, 'reportit'), '100%', false, 3, 'center', '');
 
 	switch(get_request_var('tab')) {
 		case 'presets':
@@ -1218,7 +1233,7 @@ function report_edit() {
 
 			html_end_box();
 
-			html_start_box('Individual Email Recipients', '100%', '', '3', 'center', '');
+			html_start_box('Individual Email Recipients', '100%', false, 3, 'center', '');
 
 			$display_text = [
 				'name'   => ['display' => __('Name', 'reportit'), 'width' => '50%'],
@@ -1286,7 +1301,7 @@ function report_edit() {
 
 			// ==================== checkpoint ====================
 			my_report(get_filter_request_var('id'));
-			locked(my_template(get_filter_request_var('id')));
+			locked((int) my_template(get_filter_request_var('id')));
 			// ====================================================
 
 			if (get_request_var('rows') == '-1') {
@@ -1300,10 +1315,18 @@ function report_edit() {
 				WHERE id = ?',
 				[get_request_var('id')]);
 
+			if (!is_array($report_data)) {
+				$report_data = [];
+			}
+
 			$template_data = db_fetch_row_prepared('SELECT *
 				FROM plugin_reportit_templates
 				WHERE id = ?',
 				[$report_data['template_id']]);
+
+			if (!is_array($template_data)) {
+				$template_data = [];
+			}
 
 			if (get_request_var('associated') != 'true') {
 				$sql_where    = 'WHERE ri.report_id = ? AND dtd.data_template_id = ? AND dtd.local_data_id > 0';
@@ -1404,7 +1427,7 @@ function report_edit() {
 			];
 
 			// start with HTML output
-			html_start_box('', '100%', '', '3', 'center', '');
+			html_start_box('', '100%', false, 3, 'center', '');
 
 			?>
 			<tr class='odd'>
@@ -1502,7 +1525,7 @@ function report_edit() {
 
 			form_start('reportit.php?tab=items&id=' . get_request_var('id'));
 
-			html_start_box('', '100%', '', '3', 'center', '');
+			html_start_box('', '100%', false, 3, 'center', '');
 
 			html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'reportit.php?action=report_edit&tab=items&id=' . get_request_var('id'));
 
@@ -1708,7 +1731,7 @@ function report_edit() {
  * @global mixed $weekday    Reserved/declared for use by included
  *                          form-rendering code; not set directly here.
  */
-function rrdlist_edit() {
+function rrdlist_edit(): void {
 	global $timezone, $shifttime, $shifttime2, $weekday;
 
 	// ================= input validation =================
@@ -1718,7 +1741,7 @@ function rrdlist_edit() {
 
 	// ==================== checkpoint ====================
 	my_report(get_request_var('report_id'));
-	locked(my_template(get_request_var('report_id')));
+	locked((int) my_template(get_request_var('report_id')));
 	// ====================================================
 
 	$enable_tmz = read_config_option('reportit_use_tmz');
@@ -1730,7 +1753,11 @@ function rrdlist_edit() {
 		WHERE a.id = ?',
 		[get_request_var('id')]);
 
-	if ($rrdlist_data !== false && sizeof($rrdlist_data)) {
+	if (!is_array($rrdlist_data)) {
+		$rrdlist_data = [];
+	}
+
+	if (cacti_sizeof($rrdlist_data)) {
 		set_request_var('report_id', $rrdlist_data['report_id']);
 	}
 
@@ -1740,7 +1767,7 @@ function rrdlist_edit() {
 
 	form_start('reportit.php?action=rrdlist_edit&tab=items&id=' . get_request_var('id') . '&report_id=' . get_request_var('report_id'));
 
-	html_start_box($header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', false, 3, 'center', '');
 
 	$form_array = [
 		'header1' => [
@@ -1873,7 +1900,7 @@ function rrdlist_edit() {
  *                                label, used for the RRD items list
  *                                bulk actions.
  */
-function form_actions() {
+function form_actions(): void {
 	global $report_actions, $report_states, $rrdlist_actions;
 
 	// ================= input validation =================
@@ -1921,7 +1948,7 @@ function form_actions() {
 				}
 			} elseif (get_request_var('drp_action') == '6') { // Take Ownership
 				foreach ($selected_items as $id) {
-					api_reportit_take_ownership($id);
+					api_reportit_take_ownership($id, (int) my_id());
 				}
 			}
 
@@ -1934,7 +1961,7 @@ function form_actions() {
 		if (get_request_var('drp_action') == '1') { // Remove Data Source from the Report
 			api_reportit_remove_data_sources(get_request_var('id'), $selected_items);
 		} elseif (get_request_var('drp_action') == '3') { // Add Data Source to the Report
-			api_reportit_add_data_source(get_request_var('id'));
+			api_reportit_add_data_source(get_request_var('id'), $selected_items);
 		} elseif (get_request_var('drp_action') == '2') { // Copy RRD's reference settings to all other RRDs
 			api_reportit_update_data_source(get_request_var('id'), get_request_var('reference_items'));
 		}
@@ -1978,7 +2005,9 @@ function form_actions() {
 			$reports     = [];
 		}
 
-		html_start_box($report_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
+		$section = '';
+
+		html_start_box($report_actions[get_request_var('drp_action')], '60%', false, 3, 'center', '');
 
 		if (cacti_sizeof($reports)) {
 			if (get_request_var('drp_action') == '1') { // Run Report Now
@@ -1988,7 +2017,9 @@ function form_actions() {
 			} elseif (get_request_var('drp_action') == '3') { // Duplicate Report
 				$section = '<p>' . __('Click \'Continue\' to duplicate the following Report configurations.  You may also change the title format during this operation.', 'reportit') . '</p>';
 				$section .= '<p>' . __('Title Format:', 'reportit') . '</p>';
-				$section .= '<p>' . form_text_box('report_addition', __('<report_title> (1)', 'reportit'), '', '255', '30', 'text') . '</p>';
+				ob_start();
+				form_text_box('report_addition', __('<report_title> (1)', 'reportit'), '', '255', '30', 'text');
+				$section .= '<p>' . ob_get_clean() . '</p>';
 			} elseif (get_request_var('drp_action') == '4') { // Disable REPORT
 				$section = '<p>' . __('Click \'Continue\' to Disable the following Report:', 'reportit') . '</p>';
 			} elseif (get_request_var('drp_action') == '5') { // Enable REPORT
@@ -2021,13 +2052,13 @@ function form_actions() {
 			<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
 				<input type='hidden' name='tab' value='" . get_request_var('tab') . "'>
-				<input type='hidden' name='selected_items' value='" . (isset($report_ids) ? serialize($report_ids) : '') . "'>
+				<input type='hidden' name='selected_items' value='" . serialize($report_ids) . "'>
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 				$save_html
 			</td>
 		</tr>";
 	} else {
-		html_start_box($rrdlist_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
+		html_start_box($rrdlist_actions[get_request_var('drp_action')], '60%', false, 3, 'center', '');
 
 		// Set preconditions
 		$ds_list = [];
@@ -2115,7 +2146,7 @@ function form_actions() {
 			}
 		}
 
-		if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
+		if (empty($ds_list)) {
 			print "<tr><td class='odd''><span class='textError'>" . __('You must select at least one Report.', 'reportit') . '</span></td></tr>';
 
 			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>";
@@ -2128,7 +2159,7 @@ function form_actions() {
 			<td class='saveRow'>
 				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='selected_items' value='" . (isset($rrd_ids) ? serialize($rrd_ids) : '') . "'>
+				<input type='hidden' name='selected_items' value='" . serialize($rrd_ids) . "'>
 				<input type='hidden' name='tab' value='items'>
 				<input type='hidden' name='reference_items' value='" . (isset($rrd_settings) ? serialize($rrd_settings) : '') . "'>
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>

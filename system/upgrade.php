@@ -22,13 +22,28 @@
  +-------------------------------------------------------------------------+
 */
 
-function reportit_system_upgrade($old_version) {
+/**
+ * Runs the ReportIt schema/data upgrade steps for an existing install,
+ * migrating tables and columns from older layouts up to the current
+ * version. Called from reportit_check_upgrade() when the recorded DB
+ * version differs from the INFO file version.
+ *
+ * @param string $old_version The plugin's currently-recorded database
+ *                            version to upgrade from.
+ *
+ * @return void
+ */
+function reportit_system_upgrade(string $old_version): void {
 	require_once(CACTI_PATH_BASE . '/lib/api_scheduler.php');
 
 	$default_engine = db_fetch_row("SHOW GLOBAL VARIABLES LIKE 'default_storage_engine'");
 
-	if (!sizeof($default_engine)) {
+	if (!cacti_sizeof($default_engine)) {
 		$default_engine = db_fetch_row("SHOW GLOBAL VARIABLES LIKE 'storage_engine'");
+	}
+
+	if (!is_array($default_engine)) {
+		$default_engine = [];
 	}
 
 	if (cacti_sizeof($default_engine)) {
@@ -180,13 +195,9 @@ function reportit_system_upgrade($old_version) {
 
 	if (cacti_version_compare($old_version, '1.0.2', '<')) {
 		// migrate existing result tables
-		$result_tables = []; // db_fetch_assoc("SHOW TABLES FROM `$database_default` LIKE 'reportit_result%'");
-
-		foreach ($result_tables as $index => $arr) {
-			foreach ($arr as $tbl) {
-				db_execute("RENAME TABLE `$tbl` TO `plugin_$tbl`");
-			}
-		}
+		// $result_tables = db_fetch_assoc("SHOW TABLES FROM `$database_default` LIKE 'reportit_result%'");
+		// (result-table migration no longer applicable; the source fetch above is
+		//  disabled, so the original rename loop over $result_tables was dead code)
 	}
 
 	if (cacti_version_compare($old_version, '1.1.0', '<')) {

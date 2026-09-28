@@ -46,9 +46,11 @@ $report_states = [
  */
 $templates = db_fetch_assoc('SELECT * FROM plugin_reportit_templates WHERE locked = 0');
 
-if (!$templates) {
-	$templates['0'] = __('- No template available -', 'reportit');
+if (!is_array($templates) || !cacti_sizeof($templates)) {
+	$templates = ['0' => __('- No template available -', 'reportit')];
 } else {
+	$tmp = [];
+
 	foreach ($templates as $key => $value) {
 		$tmp[$templates[$key]['id']] = $templates[$key]['description'];
 	}
@@ -99,6 +101,8 @@ $timespans = [
 ];
 
 // Timezones
+global $timezones;
+
 foreach ($timezones as $tmz => $value) {
 	$timezone[] = $tmz;
 }
@@ -442,7 +446,7 @@ $form_array_general = [
 	'owner' => [
 		'friendly_name' => __('Owner', 'reportit'),
 		'description'   => __('Change the owner of this report. Only users with the permission "view" or above can be chosen.', 'reportit'),
-		'method'        => (user_auth_realm(REPORTIT_USER_ADMIN, my_id()) ? 'drop_sql' : 'hidden_zero'),
+		'method'        => (user_auth_realm(REPORTIT_USER_ADMIN, (int) my_id()) ? 'drop_sql' : 'hidden_zero'),
 		'sql'           => $owner_sql,
 		'value'         => '|arg1:user_id|',
 	],

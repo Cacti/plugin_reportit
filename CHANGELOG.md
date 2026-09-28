@@ -8,6 +8,11 @@
 * feature: Remove archive and export functionality.  Using Cacti's report log instead
 * feature: Add Notification Lists to Email Settings
 * feature: Add string based email and bcc to Email Settings
+* code: Bring the entire plugin to PHPStan level 8 (0 errors) and add native parameter/return type declarations across all files
+* bug: Fix the bulk "Add Data Source" action, which never added the selected items because `api_reportit_add_data_source()` was missing its `$selected_items` argument
+* bug: Fix a report-template data-source lookup that passed a prepared-statement placeholder to `db_fetch_assoc()` (now uses `db_fetch_assoc_prepared()`)
+* bug: Fix measurand formula-rename dependency propagation broken by a `$dependences`/`$dependencies` variable typo
+* bug: Guard the undefined `show_export_wizard()` call reachable via the export action
 
 --- 2.0.0 ---
 

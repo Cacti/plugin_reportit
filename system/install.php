@@ -31,7 +31,7 @@
  *
  * @return void
  */
-function reportit_recreate_cache_tables() {
+function reportit_recreate_cache_tables(): void {
 	// rebuild the cache tables
 	$tables = [
 		'plugin_reportit_cache_measurands',
@@ -169,7 +169,7 @@ function reportit_recreate_cache_tables() {
  *
  * @return void
  */
-function reportit_system_install() {
+function reportit_system_install(): void {
 	/*
 	 * Table `plugin_reportit_reports`
 	 * - contains the general definition of reports

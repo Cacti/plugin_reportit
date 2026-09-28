@@ -45,6 +45,8 @@ $link_array = [
 
 // $timezone - array, for dropdown menu
 //           - contains the $keys from $timezones array.
+global $timezones;
+
 foreach ($timezones as $key => $value) {
 	$timezone[] = $key;
 }

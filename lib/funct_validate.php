@@ -33,21 +33,28 @@ $error = false;
  * (e.g. XML parsing) where errors are inspected in code rather than
  * surfaced directly.
  *
- * @param int    $errno  The PHP error level.
- * @param string $errstr The error message text.
+ * @param int    $errno   The PHP error level.
+ * @param string $errstr  The error message text.
+ * @param string $errfile The file the error occurred in (unused; present
+ *                        for error-handler signature compatibility).
+ * @param int    $errline The line the error occurred on (unused; present
+ *                        for error-handler signature compatibility).
  *
- * @return void
+ * @return bool Always true, to suppress PHP's normal error handler for
+ *              the captured error.
  *
  * @global array|false $error Set here to ['Number' => ..., 'Message' =>
  *                            ...] describing the captured error.
  */
-function last_error($errno, $errstr) {
+function last_error($errno, $errstr, $errfile = '', $errline = 0): bool {
 	global $error;
 
 	$error = [
 		'Number'  => $errno,
 		'Message' => $errstr
 	];
+
+	return true;
 }
 
 /**
@@ -80,7 +87,7 @@ function last_error($errno, $errstr) {
  * @global array $calc_fct_aliases      Valid function alias "with
  *                                     params" tokens.
  */
-function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names, $calc_data_query_variables) {
+function validate_calc_formula(string $calc_formula, array $calc_intersizes, array $calc_var_names, array $calc_data_query_variables): string {
 	global $calc_fct_names, $calc_fct_names_params, $calc_fct_aliases;
 
 	// Valid signs:
@@ -211,7 +218,7 @@ function validate_calc_formula($calc_formula, $calc_intersizes, $calc_var_names,
  *
  * @return void This function calls exit() and never returns.
  */
-function die_html_custom_error($msg = '', $top_header = false) {
+function die_html_custom_error(string $msg = '', bool $top_header = false): void {
 	$message = '';
 	$message = ($msg == '') ? 'Validation error' : $msg;
 
@@ -245,7 +252,7 @@ function die_html_custom_error($msg = '', $top_header = false) {
  *
  * @return void
  */
-function input_validate_input_whitelist($value, $valid_list, $undefined = false, $header = true) {
+function input_validate_input_whitelist($value, array $valid_list, bool $undefined = false, bool $header = true): void {
 	if ($value == false && $undefined == true) {
 		return;
 	}
@@ -270,7 +277,7 @@ function input_validate_input_whitelist($value, $valid_list, $undefined = false,
  *
  * @return void
  */
-function input_validate_input_blacklist($value, $black_list, $undefined = false, $header = true) {
+function input_validate_input_blacklist($value, array $black_list, bool $undefined = false, bool $header = true): void {
 	if ($value == false && $undefined == true) {
 		return;
 	}
@@ -296,7 +303,7 @@ function input_validate_input_blacklist($value, $black_list, $undefined = false,
  *
  * @return void
  */
-function input_validate_input_key($value, $valid_list, $undefined = false, $header = true) {
+function input_validate_input_key($value, array $valid_list, bool $undefined = false, bool $header = true): void {
 	if ($value == false && $undefined == true) {
 		return;
 	}
@@ -309,14 +316,14 @@ function input_validate_input_key($value, $valid_list, $undefined = false, $head
 /**
  * input_validate_input_limits()
  *
- * @param float  $value       The input number that has to be checked
- * @param float  $lower_limit First limiting value
- * @param float  $upper_limit Second limiting value
- * @param binary $inside      Returns an error if the value is outside the limits.
- *                            If 'false', function returns an error if value is inside the limits
- * @param binary $header      show top_header_graph
+ * @param float $value       The input number that has to be checked
+ * @param float $lower_limit First limiting value
+ * @param float $upper_limit Second limiting value
+ * @param bool  $inside      Returns an error if the value is outside the limits.
+ *                           If 'false', function returns an error if value is inside the limits
+ * @param bool  $header      show top_header_graph
  */
-function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside = true, $header = true) {
+function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside = true, $header = true): void {
 	if ($inside) {
 		if ($value < $lower_limit && $value > $upper_limit) {
 			die_html_custom_error('', $header);
@@ -333,22 +340,22 @@ function input_validate_input_limits($value, $lower_limit, $upper_limit, $inside
  * validated sections and short-circuiting once any section fails.
  * Called from validate_xml_template() once per required section.
  *
- * @param object $xml_template Reference, the parsed XML template
- *                             object being validated.
- * @param string $section      The XML section name to validate.
- * @param bool   $valid        Reference, the running validity flag;
- *                             cleared if this section is missing/
- *                             malformed.
- * @param string $checksum     Reference, the running checksum string,
- *                             appended with this section's canonical
- *                             XML text when valid.
+ * @param SimpleXMLElement $xml_template Reference, the parsed XML template
+ *                                       object being validated.
+ * @param string           $section      The XML section name to validate.
+ * @param bool             $valid        Reference, the running validity flag;
+ *                                       cleared if this section is missing/
+ *                                       malformed.
+ * @param string           $checksum     Reference, the running checksum string,
+ *                                       appended with this section's canonical
+ *                                       XML text when valid.
  *
  * @return bool The (possibly newly cleared) $valid flag.
  */
-function validate_xml_template_section(&$xml_template, $section, &$valid, &$checksum) {
+function validate_xml_template_section(&$xml_template, string $section, bool &$valid, string &$checksum): bool {
 	// print "validate_xml_template_section:start(xml_template, $section, $valid, $checksum)\n";
 	if ($valid) {
-		if (isset($xml_template->$section) && is_object($xml_template->$section)) {
+		if (isset($xml_template->$section) && $xml_template->$section instanceof SimpleXMLElement) {
 			$checksum .= xml_to_string($xml_template->$section, false);
 		} else {
 			$valid = false;
@@ -367,24 +374,24 @@ function validate_xml_template_section(&$xml_template, $section, &$valid, &$chec
  * validate_xml_template_section(). Called from validate_uploaded_templates()
  * to check a parsed template before accepting it for import.
  *
- * @param object $xml_template Reference, the parsed XML template object
- *                             to validate.
- * @param bool   $valid        Reference, set to false if the document or
- *                             any required section is missing/
- *                             malformed.
- * @param string $checksum     Reference, accumulates the canonical
- *                             checksum text across all validated
- *                             sections.
+ * @param SimpleXMLElement $xml_template Reference, the parsed XML template object
+ *                                       to validate.
+ * @param bool             $valid        Reference, set to false if the document or
+ *                                       any required section is missing/
+ *                                       malformed.
+ * @param string           $checksum     Reference, accumulates the canonical
+ *                                       checksum text across all validated
+ *                                       sections.
  *
  * @return void
  */
-function validate_xml_template(&$xml_template, &$valid, &$checksum) {
+function validate_xml_template(&$xml_template, bool &$valid, string &$checksum): void {
 	// print "validate_xml_template:begin(xml_template, $valid, $checksum)\n";
-	if (isset($xml_template->reportit) && is_object($xml_template->reportit)) {
+	if (isset($xml_template->reportit)) {
 		$count = 0;
 
 		// Loop through the values of the first reportit element (there should be only one)
-		foreach ($xml_template->reportit[0] as $key => $value) {
+		foreach (($xml_template->reportit[0] ?? []) as $key => $value) {
 			if ($key == 'hash') {
 				// Lets do some magic and remove the hash, saving it for later
 				$hash = $value;
@@ -422,7 +429,7 @@ function validate_xml_template(&$xml_template, &$valid, &$checksum) {
  *              session for import, false otherwise (with a session error
  *              message set describing the failure).
  */
-function validate_uploaded_templates() {
+function validate_uploaded_templates(): bool {
 	// check file transfer if used
 	if (isset($_FILES['file'])) {
 		// check for errors first
@@ -478,13 +485,13 @@ function validate_uploaded_templates() {
 	}
 
 	// try to parse the report template
-	$xmldata    = simplexml_load_string($template_data);
+	$xmldata    = simplexml_load_string((string) $template_data);
 	$checksum   = '';
 	$valid      = true;
 	$hash       = false;
 	$compatible = false;
 
-	if (!is_object($xmldata)) {
+	if (!($xmldata instanceof SimpleXMLElement)) {
 		session_custom_error_message('file', __('Unable to parse template file.', 'reportit'));
 	} else {
 		// generate a hash to check the data structure and to find changes
@@ -508,6 +515,7 @@ function validate_uploaded_templates() {
 			// check dependences with existing data templates...
 			$data_template_id   = $report_template->settings->data_template_id;
 			$template_ds_items  = $report_template->data_source_items[0];
+			$template_ds_names  = [];
 
 			foreach ($template_ds_items as $template_ds_item) {
 				$template_ds_names[] = (string)$template_ds_item->data_source_name;
@@ -520,6 +528,10 @@ function validate_uploaded_templates() {
 				AND data_template_id = $data_template_id";
 
 			$ds_names = db_custom_fetch_assoc($sql,false,false,false);
+
+			if (!is_array($ds_names)) {
+				$ds_names = [];
+			}
 
 			if (in_array($template_ds_names, $ds_names, true) === false) {
 				$report_compatible = true;
@@ -567,7 +579,7 @@ function validate_uploaded_templates() {
 			if ($report_compatible) {
 				$tmp_node = $report_template->addChild('data_templates');
 
-				foreach ($data_templates as $id => $name) {
+				foreach ((array) $data_templates as $id => $name) {
 					$tmp_child = $tmp_node->addChild('data_template');
 					$tmp_child->addChild('id',$id);
 					$tmp_child->addChild('name',$name);

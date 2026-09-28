@@ -47,7 +47,7 @@ function plugin_reportit_csp_nonce(): string {
  *
  * @return void
  */
-function plugin_reportit_install() {
+function plugin_reportit_install(): void {
 	api_plugin_register_hook('reportit', 'top_header_tabs',       'reportit_show_tab',             'setup.php');
 	api_plugin_register_hook('reportit', 'top_graph_header_tabs', 'reportit_show_tab',             'setup.php');
 	api_plugin_register_hook('reportit', 'draw_navigation_text',  'reportit_draw_navigation_text', 'setup.php');
@@ -76,7 +76,7 @@ function plugin_reportit_install() {
  *
  * @return bool Always true.
  */
-function plugin_reportit_uninstall() {
+function plugin_reportit_uninstall(): bool {
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_measurands');
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_reports');
 	db_execute('DROP TABLE IF EXISTS plugin_reportit_cache_variables');
@@ -101,7 +101,7 @@ function plugin_reportit_uninstall() {
  *
  * @return bool The result of reportit_check_upgrade() (always true).
  */
-function plugin_reportit_check_config() {
+function plugin_reportit_check_config(): bool {
 	return reportit_check_upgrade();
 }
 
@@ -112,7 +112,7 @@ function plugin_reportit_check_config() {
  *
  * @return bool Always true.
  */
-function plugin_reportit_upgrade() {
+function plugin_reportit_upgrade(): bool {
 	reportit_check_upgrade();
 
 	return true;
@@ -126,8 +126,12 @@ function plugin_reportit_upgrade() {
  * @return array The plugin's info array, as parsed from the INFO
  *               file's '[info]' section.
  */
-function plugin_reportit_version() {
+function plugin_reportit_version(): array {
 	$info = parse_ini_file(CACTI_PATH_BASE . '/plugins/reportit/INFO', true);
+
+	if (!is_array($info) || empty($info['info'])) {
+		return [];
+	}
 
 	return $info['info'];
 }
@@ -142,7 +146,7 @@ function plugin_reportit_version() {
  *
  * @return bool Always true.
  */
-function reportit_check_upgrade() {
+function reportit_check_upgrade(): bool {
 	$files = ['index.php', 'plugins.php', 'poller_reportit.php'];
 
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files, true)) {
@@ -153,6 +157,10 @@ function reportit_check_upgrade() {
 	$current = $current['version'];
 	$old     = db_fetch_row("SELECT * FROM plugin_config WHERE directory='reportit'");
 	$tables  = db_fetch_assoc("SHOW TABLE STATUS WHERE `Name` LIKE 'reportit%'");
+
+	if (!is_array($old)) {
+		$old = [];
+	}
 
 	if (cacti_sizeof($old) && $current == $old['version']) {
 		// ReportIt is up to date
@@ -202,7 +210,7 @@ function reportit_check_upgrade() {
  * @return bool Always true (this plugin declares no unmet
  *              requirements).
  */
-function reportit_upgrade_requirements() {
+function reportit_upgrade_requirements(): bool {
 	return true;
 }
 
@@ -216,7 +224,7 @@ function reportit_upgrade_requirements() {
  *
  * @return array The $nav array with this plugin's entries added.
  */
-function reportit_draw_navigation_text($nav) {
+function reportit_draw_navigation_text($nav): array {
 	$nav['reportsit.php:'] = [
 		'title'   => __('Reports', 'reportit'),
 		'mapping' => 'index.php:',
@@ -465,7 +473,7 @@ function reportit_draw_navigation_text($nav) {
  *                                         plugin's template-editing
  *                                         error messages when enabled.
  */
-function reportit_config_arrays() {
+function reportit_config_arrays(): void {
 	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
 
 	reportit_define_constants();
@@ -522,7 +530,7 @@ function reportit_config_arrays() {
  * @global array $item_rows      Cacti's standard row-count option list,
  *                              used for row-count settings.
  */
-function reportit_config_settings() {
+function reportit_config_settings(): void {
 	global $tabs, $tabs_graphs, $settings, $settings_user, $item_rows;
 
 	// presets
@@ -676,7 +684,7 @@ function reportit_config_settings() {
  *
  * @return bool True if a row with that name exists, false otherwise.
  */
-function db_setting_exists($setting) {
+function db_setting_exists(string $setting): bool {
 	$results = db_fetch_row_prepared('SELECT * FROM settings WHERE name = ?', [$setting]);
 
 	if (cacti_sizeof($results)) {
@@ -695,7 +703,7 @@ function db_setting_exists($setting) {
  *
  * @return void
  */
-function reportit_show_tab() {
+function reportit_show_tab(): void {
 	reportit_check_upgrade();
 
 	if (api_user_realm_auth('view.php')) {
@@ -709,7 +717,7 @@ function reportit_show_tab() {
  *
  * @return void
  */
-function reportit_system_setup() {
+function reportit_system_setup(): void {
 	require_once(CACTI_PATH_BASE . '/plugins/reportit/system/install.php');
 
 	reportit_system_install();
@@ -725,7 +733,7 @@ function reportit_system_setup() {
  *
  * @return void
  */
-function reportit_define($constant, $value) {
+function reportit_define(string $constant, $value): void {
 	if (!defined($constant)) {
 		@define($constant, $value);
 	}
@@ -739,7 +747,7 @@ function reportit_define($constant, $value) {
  *
  * @return void
  */
-function reportit_define_constants() {
+function reportit_define_constants(): void {
 	// realm IDs which have been defined dynamically by PIA 2.x
 	$view = db_fetch_cell("SELECT id
 		FROM plugin_realms
@@ -783,7 +791,7 @@ function reportit_define_constants() {
  *
  * @return void
  */
-function reportit_poller_bottom() {
+function reportit_poller_bottom(): void {
 	require_once(CACTI_PATH_LIBRARY . '/api_scheduler.php');
 	require_once(CACTI_PATH_LIBRARY . '/reports.php');
 
@@ -983,7 +991,7 @@ function reportit_schedule_report(&$report) {
  *
  * @return array The $regex_array with this plugin's patterns added.
  */
-function reportit_clog_regex_array($regex_array) {
+function reportit_clog_regex_array($regex_array): array {
 	$regex_array[] = ['name' => 'RIReport', 'regex' => '( RIReport\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_report'];
 	$regex_array[] = ['name' => 'RIDataItem', 'regex' => '( RIDataItem\[)([, \d]+)(\])', 'func' => 'reportit_clog_regex_dataitem'];
 
@@ -1003,7 +1011,7 @@ function reportit_clog_regex_array($regex_array) {
  *
  * @return string The rendered HTML replacement with report links.
  */
-function reportit_clog_regex_report($matches) {
+function reportit_clog_regex_report($matches): string {
 	$result = $matches[0];
 
 	$report_ids = explode(',', str_replace(' ', '', $matches[2]));
@@ -1044,7 +1052,7 @@ function reportit_clog_regex_report($matches) {
  *
  * @return string The rendered HTML replacement with data item links.
  */
-function reportit_clog_regex_dataitem($matches) {
+function reportit_clog_regex_dataitem($matches): string {
 	$result = $matches[0];
 
 	$dataitem_ids = explode(',',str_replace(' ','',$matches[2]));
