@@ -34,7 +34,7 @@
  *                'Unknown Owner' string if the report/user is not
  *                found.
  */
-function owner($report_id) {
+function owner(int $report_id): string {
 	$tmp = db_fetch_row_prepared('SELECT b.username, b.full_name
 		FROM plugin_reportit_reports as a
 		INNER JOIN user_auth as b
@@ -42,7 +42,7 @@ function owner($report_id) {
 		WHERE a.id = ?' ,
 		[$report_id]);
 
-	if (cacti_sizeof($tmp)) {
+	if (is_array($tmp) && cacti_sizeof($tmp)) {
 		return $tmp['full_name'] . ' (' . $tmp['username'] . ')';
 	} else {
 		return __('Unknown Owner', 'reportit');
@@ -70,7 +70,7 @@ function owner($report_id) {
  *                     report_variables, report_ds_alias), or false if
  *                     the report doesn't exist.
  */
-function get_prepared_report_data($report_id, $type, $sql_where = '') {
+function get_prepared_report_data(int $report_id, string $type, string $sql_where = ''): array|false {
 	$report_measurands = [];
 	$report_variables  = [];
 
@@ -82,7 +82,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		WHERE a.id = ?',
 		[$report_id]);
 
-	if (!sizeof($report_data)) {
+	if (!is_array($report_data) || !cacti_sizeof($report_data)) {
 		return false;
 	}
 
@@ -114,6 +114,8 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 		FROM plugin_reportit_data_source_items
 		WHERE template_id = ' . $report_data['template_id'], 'data_source_name', false, false);
 
+	$sql = '';
+
 	switch ($type) {
 		case 'view':
 		case 'export':
@@ -136,8 +138,6 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
 				'report_data'       => $report_data,
 				'report_measurands' => $report_measurands
 			];
-
-			break;
 	}
 
 	$report_results = db_fetch_assoc($sql);
@@ -173,7 +173,7 @@ function get_prepared_report_data($report_id, $type, $sql_where = '') {
  * @return array|false The assembled data package, or false if the
  *                     archived report doesn't exist.
  */
-function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
+function get_prepared_archive_data(string $cache_id, string $type, string $sql_where = ''): array|false {
 	$report_measurands = [];
 	$report_variables  = [];
 
@@ -183,9 +183,15 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 		WHERE cache_id = ?',
 		[$cache_id]);
 
+	if (!is_array($report_data)) {
+		return false;
+	}
+
+	$report_ds_alias = [];
+
 	// save serialized data source alias separately
 	if (isset($report_data['data_template_alias'])) {
-		$report_ds_alias = json_decode(base64_decode($report_data['data_template_alias'], true), true);
+		$report_ds_alias = json_decode((string) base64_decode($report_data['data_template_alias'], true), true);
 		unset($report_data['data_template_alias']);
 	}
 
@@ -207,6 +213,8 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 		WHERE cache_id = ?',
 		[$cache_id]);
 
+	$sql = '';
+
 	switch ($type) {
 		case 'export':
 			$sql = 'SELECT * FROM plugin_reportit_tmp_' . $cache_id . ' as a ' . $sql_where;
@@ -221,8 +229,6 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 				'report_data'       => $report_data,
 				'report_measurands' => $report_measurands
 			];
-
-			break;
 		case 'view':
 			$sql = 'SELECT * FROM plugin_reportit_tmp_' . $cache_id . ' AS a ' . $sql_where;
 
@@ -246,15 +252,15 @@ function get_prepared_archive_data($cache_id, $type, $sql_where = '') {
 /**
  * db_custom_fetch_assoc()
  *
- * @param  string $sql   contains the SQL call
- * @param  string $index contains the name of the column which should be used as index
- *                       if false (default) the index will numerical beginning from zero.
- * @param  binary $multi save the columns multidimensional. if false then you will get only one result per index
- * @param  binary $assoc if true (default) then save the $values associated ($key => $value) into the index array
- *                       requires that $multi is true.
- * @return binary returns an array or false if the SQL command failed
+ * @param  string       $sql   contains the SQL call
+ * @param  string|false $index contains the name of the column which should be used as index
+ *                             if false (default) the index will numerical beginning from zero.
+ * @param  bool         $multi save the columns multidimensional. if false then you will get only one result per index
+ * @param  bool         $assoc if true (default) then save the $values associated ($key => $value) into the index array
+ *                             requires that $multi is true.
+ * @return array|false  returns an array or false if the SQL command failed
  */
-function db_custom_fetch_assoc($sql, $index = false, $multi = true, $assoc = true) {
+function db_custom_fetch_assoc(string $sql, $index = false, bool $multi = true, bool $assoc = true): array|false {
 	$raw_data = [];
 	$srt_data = [];
 
@@ -292,10 +298,10 @@ function db_custom_fetch_assoc($sql, $index = false, $multi = true, $assoc = tru
 /**
  * db_custom_fetch_flat()
  * returns an numerical array with only one dimension. Every row will be saved column for column.
- * @param string $sql contains the SQL call
- * @return
+ * @param  string      $sql contains the SQL call
+ * @return array|false
  */
-function db_custom_fetch_flat_array($sql) {
+function db_custom_fetch_flat_array(string $sql): array|false {
 	$raw_data = [];
 	$srt_data = [];
 
@@ -317,11 +323,11 @@ function db_custom_fetch_flat_array($sql) {
 /**
  * db_custom_fetch_string()
  * returns an string. Every row will be saved column for column and separated by a given delimiter.
- * @param string $sql       contains the SQL call
- * @param string $delimiter character for separating the columns. Default is ","
- * @return
+ * @param  string       $sql       contains the SQL call
+ * @param  string       $delimiter character for separating the columns. Default is ","
+ * @return string|false
  */
-function db_custom_fetch_flat_string($sql, $delimiter = ',') {
+function db_custom_fetch_flat_string(string $sql, string $delimiter = ','): string|false {
 	$raw_data = [];
 	$srt_data = '';
 
@@ -357,11 +363,11 @@ function db_custom_fetch_flat_string($sql, $delimiter = ',') {
  * @return array The resolved timespan (start/end date components and
  *               related values).
  */
-function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
+function rp_get_timespan(string $preset_timespan, $present, bool $enable_tmz = false): array {
 	// Set preconditions
 	$today          = ($enable_tmz) ? gmdate('Y-m-d') : date('Y-m-d');
-	[$ys, $ms, $ds] = explode('-', $today);
-	[$ye, $me, $de] = explode('-', $today);
+	[$ys, $ms, $ds] = array_map('intval', explode('-', $today));
+	[$ye, $me, $de] = array_map('intval', explode('-', $today));
 
 	// Set report start date
 	switch ($preset_timespan) {
@@ -403,12 +409,12 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 
 			break;
 		case 'Last Week (Sun - Sat)':
-			$ds -= ($enable_tmz) ? 7 + gmdate('w') : 7 + date('w');
+			$ds -= ($enable_tmz) ? 7 + (int) gmdate('w') : 7 + (int) date('w');
 			$de = $ds + 6;
 
 			break;
 		case 'Last Week (Mon - Sun)':
-			$ds -= ($enable_tmz) ? 6 + gmdate('w') : 6 + date('w');
+			$ds -= ($enable_tmz) ? 6 + (int) gmdate('w') : 6 + (int) date('w');
 			$de = $ds + 6;
 
 			break;
@@ -496,12 +502,12 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
 
 	$dates = [];
 
-	$dates['start_date'] = ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $ms, $ds, $ys)) : date('Y-m-d', mktime(0,0,0, $ms, $ds, $ys));
+	$dates['start_date'] = ($enable_tmz) ? gmdate('Y-m-d', (int) gmmktime(0,0,0, $ms, $ds, $ys)) : date('Y-m-d', (int) mktime(0,0,0, $ms, $ds, $ys));
 
 	if ($present) {
 		$dates['end_date'] = $today;
 	} else {
-		$dates['end_date'] = ($enable_tmz) ? gmdate('Y-m-d', gmmktime(0,0,0, $me, $de, $ye)) : date('Y-m-d', mktime(0,0,0, $me, $de, $ye));
+		$dates['end_date'] = ($enable_tmz) ? gmdate('Y-m-d', (int) gmmktime(0,0,0, $me, $de, $ye)) : date('Y-m-d', (int) mktime(0,0,0, $me, $de, $ye));
 	}
 
 	return $dates;
@@ -521,7 +527,7 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
  * @param int    $data_precision The number of decimal places to round
  *                               the displayed value to.
  *
- * @return string The formatted value with its unit prefix suffix.
+ * @return int|float|string The formatted value with its unit prefix suffix.
  *
  * @global float $threshold Cached scaling threshold, initialized once
  *                         and reused across calls.
@@ -534,7 +540,7 @@ function rp_get_timespan($preset_timespan, $present, $enable_tmz = false) {
  * @global array $IEC       Cached IEC prefix label table, initialized
  *                         once and reused across calls.
  */
-function get_unit($value, $prefixes, $data_type, $data_precision) {
+function get_unit(float $value, string $prefixes, $data_type, int $data_precision): int|float|string {
 	global $threshold, $binary, $decimal, $IEC;
 
 	if (!$threshold) {
@@ -609,102 +615,68 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
 			$value /= $pre['Y'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " Y$i");
-
-			break;
 		case ($absolute >= $pre['Y'] * $threshold):
 			$value /= $pre['Y'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " Y$i");
-
-			break;
 		case ($absolute >= $pre['Z']): // ZETTA
 			$value /= $pre['Z'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " Z$i");
-
-			break;
 		case ($absolute >= $pre['Z'] * $threshold):
 			$value /= $pre['Z'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " Z$i");
-
-			break;
 		case ($absolute >= $pre['E']): // EXA
 			$value /= $pre['E'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " E$i");
-
-			break;
 		case ($absolute >= $pre['E'] * $threshold):
 			$value /= $pre['E'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " E$i");
-
-			break;
 		case ($absolute >= $pre['P']): // PETA
 			$value /= $pre['P'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " P$i");
-
-			break;
 		case ($absolute >= $pre['P'] * $threshold):
 			$value /= $pre['P'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " P$i");
-
-			break;
 		case ($absolute >= $pre['T']): // TERA
 			$value /= $pre['T'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " T$i");
-
-			break;
 		case ($absolute >= $pre['T'] * $threshold):
 			$value /= $pre['T'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " T$i");
-
-			break;
 		case ($absolute >= $pre['G']): // GIGA
 			$value /= $pre['G'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " G$i");
-
-			break;
 		case ($absolute >= $pre['G'] * $threshold):
 			$value /= $pre['G'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " G$i");
-
-			break;
 		case ($absolute >= $pre['M']): // MEGA
 			$value /= $pre['M'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " M$i");
-
-			break;
 		case ($absolute >= $pre['M'] * $threshold):
 			$value /= $pre['M'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " M$i");
-
-			break;
 		case ($absolute >= $pre['K']): // KILO
 			$value /= $pre['K'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " $k$i");
-
-			break;
 		case ($absolute >= $pre['K'] * $threshold):
 			$value /= $pre['K'];
 
 			return (sprintf('%' . $data_precision . $data_type, $value) . " $k$i");
-
-			break;
 		default:
 			return sprintf('%' . $data_precision . $data_type, $value);
-
-			break;
 	}
 }
 
@@ -721,7 +693,7 @@ function get_unit($value, $prefixes, $data_type, $data_precision) {
  *
  * @return void
  */
-function create_rvars_entries($variable_id, $template_id, $default) {
+function create_rvars_entries(int $variable_id, int $template_id, $default): void {
 	$ids = db_fetch_assoc_prepared('SELECT id
 		FROM plugin_reportit_reports
 		WHERE template_id = ?',
@@ -754,10 +726,10 @@ function create_rvars_entries($variable_id, $template_id, $default) {
 /**
  * get_possible_rra_names()
  * returns an array with all possible names of the Round Robbin Archives for this report template
- * @param  int $template_id contains the id of the current report template
- * @return an  array with all possible round robin archives
+ * @param  int   $template_id contains the id of the current report template
+ * @return array with all possible round robin archives
  */
-function get_possible_rra_names($template_id) {
+function get_possible_rra_names(int $template_id): array {
 	// Get all possible names of the RRAs for this type of template
 	$names = [];
 	$array = [];
@@ -785,7 +757,7 @@ function get_possible_rra_names($template_id) {
  * @param  boolean $ln           returns a line break after every interim result
  * @return array   with the syntax of possible interim results
  */
-function get_interim_results($measurand_id, $template_id, $ln = false) {
+function get_interim_results(int $measurand_id, int $template_id, $ln = false): array {
 	$array           = [];
 	$names           = [];
 	$interim_results = [];
@@ -840,7 +812,7 @@ function get_interim_results($measurand_id, $template_id, $ln = false) {
  *                              functions in this file; not used
  *                              directly here.
  */
-function get_possible_variables($template_id) {
+function get_possible_variables(int $template_id): array {
 	global $calc_var_names;
 
 	// Fetch all variables which has been defined for this template
@@ -881,7 +853,7 @@ function get_possible_variables($template_id) {
  * @param  int   $template_id - the data template id
  * @return array - array of data query cache variables
  */
-function get_possible_data_query_variables($template_id) {
+function get_possible_data_query_variables(int $template_id): array {
 	// any data query associated with this data template?
 	$available_data_queries = db_fetch_assoc_prepared('SELECT DISTINCT dl.snmp_query_id
 		FROM data_local AS dl
@@ -930,7 +902,7 @@ function get_possible_data_query_variables($template_id) {
  *
  * @return int '1' if locked, otherwise a falsy/empty value.
  */
-function get_template_status($template_id) {
+function get_template_status(int $template_id): int {
 	// Returns '1' if the template has been locked.
 	$status = db_fetch_cell_prepared('SELECT locked
 		FROM plugin_reportit_templates
@@ -950,7 +922,7 @@ function get_template_status($template_id) {
  *
  * @return void
  */
-function in_process($report_id, $status = 1) {
+function in_process(int $report_id, int $status = 1): void {
 	$now = date('Y-m-d H:i:s');
 
 	db_execute_prepared('UPDATE plugin_reportit_reports
@@ -968,7 +940,7 @@ function in_process($report_id, $status = 1) {
  *
  * @return int The report's current state code.
  */
-function stat_process($report_id) {
+function stat_process(int $report_id): int {
 	$sql = 'SELECT state FROM plugin_reportit_reports WHERE id = ?';
 
 	return db_fetch_cell_prepared($sql, [$report_id]);
@@ -985,11 +957,11 @@ function stat_process($report_id) {
  *
  * @return string The resolved PHP date() format string.
  */
-function config_date_format($no_time = true) {
+function config_date_format(bool $no_time = true): string {
 	$date_fmt = read_graph_config_option('default_date_format');
 	$datechar = read_graph_config_option('default_datechar');
 
-	if (!isset($date_fmt)) {
+	if (empty($date_fmt)) {
 		return ('Y-m-d H:i:s');
 	}
 
@@ -1051,7 +1023,7 @@ function config_date_format($no_time = true) {
  *
  * @return void
  */
-function debug(&$value, $msg = '', $fmsg = '') {
+function debug(&$value, string $msg = '', string $fmsg = ''): void {
 	if (!defined('REPORTIT_DEBUG')) {
 		return;
 	}
@@ -1093,7 +1065,7 @@ function debug(&$value, $msg = '', $fmsg = '') {
  *
  * @return mixed The queried cell value.
  */
-function get_report_setting($report_id, $column) {
+function get_report_setting(int $report_id, string $column) {
 	$sql = 'SELECT $column FROM plugin_reportit_reports WHERE id = ?';
 
 	return db_fetch_cell_prepared($sql, [$report_id]);
@@ -1111,7 +1083,7 @@ function get_report_setting($report_id, $column) {
  * @return mixed The user's stored value, or the system default if none
  *               is stored.
  */
-function get_graph_config_option($config_name, $user_id) {
+function get_graph_config_option(string $config_name, int $user_id) {
 	$sql = 'SELECT value FROM settings_graphs WHERE name = ? AND user_id = ?';
 
 	$db_setting = db_fetch_row_prepared($sql, [$config_name, $user_id]);
@@ -1139,7 +1111,7 @@ function get_graph_config_option($config_name, $user_id) {
  * @return int The chosen scale exponent (0 for no scaling), or 0 if all
  *             values are zero.
  */
-function auto_rounding(&$values, $rounding, $order) {
+function auto_rounding(array &$values, int $rounding, string $order): int {
 	$threshold = 0.5;
 	$base      = ($rounding == 2) ? 1000 : 1024;
 
@@ -1190,7 +1162,7 @@ function auto_rounding(&$values, $rounding, $order) {
  *
  * @return void
  */
-function load_external_libs($name) {
+function load_external_libs(string $name): void {
 	switch ($name) {
 		case 'pclzip':
 			if (!defined('PCLZIP_TEMPORARY_DIR')) {
@@ -1217,7 +1189,7 @@ function load_external_libs($name) {
  *
  * @return void
  */
-function clean_for_sql(&$str) {
+function clean_for_sql(string &$str): void {
 	$str = substr($str, 0, strlen($str) - 1);
 }
 
@@ -1233,7 +1205,7 @@ function clean_for_sql(&$str) {
  *
  * @return int Always 1 (PclZip success code).
  */
-function rename_xml_file($p_event, &$p_header) {
+function rename_xml_file(string $p_event, array &$p_header): int {
 	$p_header['stored_filename'] = $p_header['mtime'] . '.xml';
 
 	return 1;
@@ -1249,14 +1221,18 @@ function rename_xml_file($p_event, &$p_header) {
  *
  * @return string The JSON-encoded report data.
  */
-function prepare_json_archive($report_id) {
+function prepare_json_archive(int $report_id): string {
 	// load report data
 	$data = get_prepared_report_data($report_id, 'view');
+
+	if (!is_array($data)) {
+		return '';
+	}
 
 	// transform the data source aliases to the old style
 	$data['report_data']['data_template_alias'] = $data['report_ds_alias'];
 
-	return json_encode($data);
+	return (string) json_encode($data);
 }
 
 /**
@@ -1271,7 +1247,7 @@ function prepare_json_archive($report_id) {
  *
  * @return void This function calls die() on a PclZip archive error.
  */
-function update_xml_archive($report_id) {
+function update_xml_archive(int $report_id): void {
 	$arc_path  = read_config_option('reportit_arc_folder');
 	$arc_path .= (substr($arc_path, -1) == '/') ? '' : '/';
 	$tmp_path  = REPORTIT_TMP_FD;
@@ -1283,6 +1259,10 @@ function update_xml_archive($report_id) {
 	// load report data
 	$data = get_prepared_report_data($report_id, 'view');
 
+	if (!is_array($data)) {
+		return;
+	}
+
 	// transform the data source aliases to the old style
 	$data['report_data']['data_template_alias'] = serialize($data['report_ds_alias']);
 
@@ -1292,7 +1272,7 @@ function update_xml_archive($report_id) {
 	print '<cacti>' . PHP_EOL . '<report>' . PHP_EOL . '<settings>' . PHP_EOL;
 
 	foreach ($data['report_data'] as $key => $value) {
-		print "<$key>" . html_escape($value, ENT_NOQUOTES) . "</$key>" . PHP_EOL;
+		print "<$key>" . html_escape($value) . "</$key>" . PHP_EOL;
 	}
 	print '</settings>' . PHP_EOL . '<measurands>' . PHP_EOL;
 
@@ -1300,7 +1280,7 @@ function update_xml_archive($report_id) {
 		print '<measurand>' . PHP_EOL;
 
 		foreach ($measurand as $key => $value) {
-			print "<$key>" . html_escape($value, ENT_NOQUOTES) . "</$key>" . PHP_EOL;
+			print "<$key>" . html_escape($value) . "</$key>" . PHP_EOL;
 		}
 		print '</measurand>' . PHP_EOL;
 	}
@@ -1310,7 +1290,7 @@ function update_xml_archive($report_id) {
 		print '<item>' . PHP_EOL;
 
 		foreach ($results as $key => $value) {
-			print "<_di__$key>" . html_escape($value, ENT_NOQUOTES) . "</_di__$key>" . PHP_EOL;
+			print "<_di__$key>" . html_escape($value) . "</_di__$key>" . PHP_EOL;
 		}
 		print '</item>' . PHP_EOL;
 	}
@@ -1320,21 +1300,24 @@ function update_xml_archive($report_id) {
 		print '<variable>' . PHP_EOL;
 
 		foreach ($variable as $key => $value) {
-			print "<$key>" . html_escape($value, ENT_NOQUOTES) . "</$key>" . PHP_EOL;
+			print "<$key>" . html_escape($value) . "</$key>" . PHP_EOL;
 		}
 		print '</variable>' . PHP_EOL;
 	}
 
 	print '</variables>' . PHP_EOL . '</report>' . PHP_EOL . '</cacti>' . PHP_EOL;
 	$content = ob_get_clean();
-	$content = mb_convert_encoding($content, 'UTF-8', 'ISO-8859-1');
+	$content = mb_convert_encoding((string) $content, 'UTF-8', 'ISO-8859-1');
 
 	// create a tempary file and save XML output
 	$cfg        = $data['report_data'];
 	$tmpfile    = REPORTIT_TMP_FD . strtotime($cfg['start_date']) . '_' . strtotime($cfg['end_date']) . '_' . time() . '.xml';
 	$filehandle = fopen($tmpfile, 'w');
-	fwrite($filehandle, $content);
-	fclose($filehandle);
+
+	if ($filehandle !== false) {
+		fwrite($filehandle, $content);
+		fclose($filehandle);
+	}
 
 	// load zip file support
 	load_external_libs('pclzip');
@@ -1385,7 +1368,7 @@ function update_xml_archive($report_id) {
  * @return void This function calls die_html_custom_error() if the
  *              requested archive entry isn't found.
  */
-function cache_xml_file($report_id, $mtime) {
+function cache_xml_file(int $report_id, int $mtime): void {
 	$cache_id   = $report_id . '_' . $mtime;
 	$columns    = '';
 	$values     = '';
@@ -1425,7 +1408,7 @@ function cache_xml_file($report_id, $mtime) {
 	$data         = $archive->extractByIndex($index, PCLZIP_OPT_EXTRACT_AS_STRING);
 	$content      = simplexml_load_string($data[0]['content']);
 	$json_content = json_encode($content);
-	$archive      = json_decode($json_content, true);
+	$archive      = json_decode((string) $json_content, true);
 
 	// transform data and fill up the cache tables
 	trans_array2sql($archive['report']['settings'], $columns, $values, $cache_id);
@@ -1484,7 +1467,7 @@ function cache_xml_file($report_id, $mtime) {
  * @return bool True if the section was non-empty and transformed,
  *              false if $array was empty/not an array.
  */
-function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
+function trans_array2sql(array &$array, string &$columns, string &$values, $cache_id = false): bool {
 	$keys       = false;
 	$multi      = false;
 	$sub_values = '';
@@ -1500,7 +1483,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
 	if (cacti_sizeof($array)) {
 		foreach ($array as $key => $value) {
 			if ($key == 'data_template_alias') {
-				$value = base64_encode(json_encode(unserialize(stripslashes($value), ['allowed_classes' => false])));
+				$value = base64_encode((string) json_encode(unserialize(stripslashes($value), ['allowed_classes' => false])));
 			}
 
 			if (is_array($value)) {
@@ -1557,7 +1540,7 @@ function trans_array2sql(&$array, &$columns, &$values, $cache_id = false) {
  *                     formatted date pairs) found in the report's ZIP
  *                     archive, or false if the archive has no entries.
  */
-function info_xml_archive($report_id) {
+function info_xml_archive(int $report_id): array|false {
 	$content  = [];
 	$arc_path = read_config_option('reportit_arc_folder');
 	$arc_file = (($arc_path == '') ? REPORTIT_ARC_FD : $arc_path) . "/$report_id" . '.zip';
@@ -1573,7 +1556,7 @@ function info_xml_archive($report_id) {
 	if (($list = $archive->listContent()) != 0) {
 		foreach ($list as $key => $file) {
 			if ($file['status'] == 'ok') {
-				[$from, $to]             = explode('_', str_replace('.xml', '', $file['filename']));
+				[$from, $to]             = array_map('intval', explode('_', str_replace('.xml', '', $file['filename'])));
 				$content[$file['mtime']] = date($format, $from) . ' -> ' . date($format, $to);
 			}
 		}
@@ -1597,7 +1580,7 @@ function info_xml_archive($report_id) {
  * @return float|string The average value, or an empty string if
  *                      $array is empty.
  */
-function average($array) {
+function average(array $array): float|string {
 	if (cacti_sizeof($array) == 0) {
 		return '';
 	}
@@ -1616,7 +1599,7 @@ function average($array) {
  *
  * @return void
  */
-function transform_html_escape(&$data) {
+function transform_html_escape(&$data): void {
 	if (!is_array($data)) {
 		html_escape($data);
 	} else {
@@ -1649,20 +1632,24 @@ function transform_html_escape(&$data) {
  *
  * @param string $val The size string to convert.
  *
- * @return int The equivalent number of bytes.
+ * @return int|string The equivalent number of bytes, or '-' when unlimited.
  */
-function return_bytes($val) {
+function return_bytes(string $val): int|string {
 	$val  = trim($val);
 	$last = strtolower($val[strlen($val) - 1]);
 	$val  = substr($val, 0, -1);
 
-	switch($last) {
-		case 'g':
-			$val *= 1024;
-		case 'm':
-			$val *= 1024;
-		case 'k':
-			$val *= 1024;
+	if (is_numeric($val)) {
+		$val = (int) $val;
+
+		switch($last) {
+			case 'g':
+				$val *= 1024;
+			case 'm':
+				$val *= 1024;
+			case 'k':
+				$val *= 1024;
+		}
 	}
 
 	return $val;
@@ -1679,9 +1666,9 @@ function return_bytes($val) {
  *
  * @return void
  */
-function transform_htmlspecialchars(&$data) {
+function transform_htmlspecialchars(&$data): void {
 	if (!is_array($data)) {
-		htmlspecialchars($data);
+		$data = htmlspecialchars((string) $data);
 	} else {
 		foreach ($data as $key_1 => $value_1) {
 			if (is_array($value_1)) {
@@ -1716,21 +1703,18 @@ function transform_htmlspecialchars(&$data) {
  *               'XMB(Y%)' strings, or 'Undetected' if usage couldn't be
  *               computed).
  */
-function get_mem_usage() {
+function get_mem_usage(): array {
 	$memory_system  = return_bytes(ini_get('memory_limit'));
 	$memory_used    = round(memory_get_usage() / pow(1024,2),2);
 	$memory_peak    = round(memory_get_peak_usage() / pow(1024,2),2);
 
-	if ($memory_system == -1 || $memory_system == '-') {
+	if ($memory_system == '-') {
 		$memory_system  = 'unlimited';
 		$memory_used .= 'MB';
 		$memory_peak .= 'MB';
-	} elseif (!is_numeric($memory_used) || !is_numeric($memory_peak) || !is_numeric($memory_system)) {
-		$memory_used = 'Undetected';
-		$memory_peak = 'Undetected';
 	} else {
-		$memory_used .= 'MB(' . round($memory_used / $memory_system * 100,2) . '%)';
-		$memory_peak .= 'MB(' . round($memory_peak / $memory_system * 100,2) . '%)';
+		$memory_used .= 'MB(' . round($memory_used / (int) $memory_system * 100,2) . '%)';
+		$memory_peak .= 'MB(' . round($memory_peak / (int) $memory_system * 100,2) . '%)';
 	}
 
 	return ['limit' => $memory_system, 'current' => $memory_used, 'peak' => $memory_peak];
@@ -1749,16 +1733,16 @@ function get_mem_usage() {
  *
  * @return string The rendered XML text.
  */
-function xml_to_string($xml_object, $keep_spaces = true) {
+function xml_to_string($xml_object, bool $keep_spaces = true): string {
 	$dom                     = new DOMDocument();
 	$dom->preserveWhiteSpace = false;
 	$dom->formatOutput       = true;
-	$dom->loadXML($xml_object->asXml());
+	$dom->loadXML((string) $xml_object->asXml());
 
-	$output = $dom->saveXML($dom->firstChild);
+	$output = (string) $dom->saveXML($dom->firstChild);
 
 	if (!$keep_spaces) {
-		$output = preg_replace('/(\v|\s)+/','',$output);
+		$output = (string) preg_replace('/(\v|\s)+/','',$output);
 	}
 
 	return $output;
@@ -1781,11 +1765,12 @@ function xml_to_string($xml_object, $keep_spaces = true) {
  * @return array|string The converted array, or an empty string if
  *                      $xml_object is falsy.
  */
-function xml_to_array($xml_object, $indexed = false, $log = false) {
+function xml_to_array($xml_object, bool $indexed = false, bool $log = false): array|string {
 	static $indent = -1;
 
 	$indent++;
 	$indent_char = str_repeat('  ',$indent);
+	/** @var array<string, mixed> $out */
 	$out         = [];
 
 	if (!$xml_object) {
@@ -1856,7 +1841,7 @@ function xml_to_array($xml_object, $indexed = false, $log = false) {
  * @return string|false The rendered XML fragment for this template, or
  *                      false if the template doesn't exist.
  */
-function export_report_template($template_id, $indent = 0) {
+function export_report_template(int $template_id, int $indent = 0): string|false {
 	// load template data
 	$template_data = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_templates
@@ -1864,7 +1849,7 @@ function export_report_template($template_id, $indent = 0) {
 		[$template_id]);
 
 	// exit if no result has been returned
-	if ($template_data == false) {
+	if (!is_array($template_data)) {
 		return false;
 	}
 
@@ -1919,6 +1904,10 @@ function export_report_template($template_id, $indent = 0) {
 	$xml_temp = convert_array2xml($xml_array, $indent);
 	$xml_obj  = simplexml_load_string($xml_temp);
 
+	if ($xml_obj === false) {
+		return false;
+	}
+
 	$valid    = true;
 	$checksum = '';
 
@@ -1944,7 +1933,7 @@ function export_report_template($template_id, $indent = 0) {
  *
  * @return string The rendered XML text.
  */
-function convert_array2xml($data, $indent = 0) {
+function convert_array2xml($data, int $indent = 0): string {
 	$output = '';
 
 	if ($indent < 0) {
@@ -1969,7 +1958,7 @@ function convert_array2xml($data, $indent = 0) {
 					$output .= convert_array2xml($value, $indent + 1);
 					$output .= "$pad</$key>" . PHP_EOL;
 				} else {
-					$output .= "$pad<$key>" . html_escape($value, ENT_NOQUOTES) . "</$key>" . PHP_EOL;
+					$output .= "$pad<$key>" . html_escape($value) . "</$key>" . PHP_EOL;
 				}
 			}
 		}
@@ -1989,7 +1978,7 @@ function convert_array2xml($data, $indent = 0) {
  *
  * @return string The concatenated key+value string.
  */
-function convert_array2string($data) {
+function convert_array2string(array $data): string {
 	$str = '';
 
 	foreach ($data as $key => $value) {
@@ -2026,7 +2015,7 @@ function convert_array2string($data) {
  *
  * @return void
  */
-function clean_xml_waste(&$array, $replace = '') {
+function clean_xml_waste(array &$array, string $replace = ''): void {
 	foreach ($array as $key => $value) {
 		$array[$key] = preg_replace('/(^[\{]{2}([0-9]*)[\}]{2}$)/', $replace, $value);
 	}
@@ -2039,14 +2028,14 @@ function clean_xml_waste(&$array, $replace = '') {
  * data source item rows. Called from template_wizard()'s 'import' step
  * for each confirmed template in the uploaded file.
  *
- * @param object $report_template  The parsed XML template element to
- *                                 import.
- * @param int    $data_template_id The Cacti data template id the new
- *                                 report template should be based on.
+ * @param SimpleXMLElement $report_template  The parsed XML template element to
+ *                                           import.
+ * @param int              $data_template_id The Cacti data template id the new
+ *                                           report template should be based on.
  *
  * @return void
  */
-function import_template($report_template, $data_template_id) {
+function import_template($report_template, int $data_template_id): void {
 	$values		 = '';
 	$columns	 = '';
 	$old		    = [];
@@ -2057,6 +2046,22 @@ function import_template($report_template, $data_template_id) {
 	$template_variables         = xml_to_array($report_template->variables, true);
 	$template_measurands        = xml_to_array($report_template->measurands, true);
 	$template_data_source_items = xml_to_array($report_template->data_source_items, true);
+
+	if (!is_array($template_data)) {
+		$template_data = [];
+	}
+
+	if (!is_array($template_variables)) {
+		$template_variables = [];
+	}
+
+	if (!is_array($template_measurands)) {
+		$template_measurands = [];
+	}
+
+	if (!is_array($template_data_source_items)) {
+		$template_data_source_items = [];
+	}
 
 	$template_data['id']               = 0;
 	$template_data['data_template_id'] = $data_template_id;

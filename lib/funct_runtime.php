@@ -32,7 +32,7 @@
  *
  * @return void
  */
-function create_result_table($report_id) {
+function create_result_table(int $report_id): void {
 	// Create the sql syntax
 	db_execute("CREATE TABLE IF NOT EXISTS plugin_reportit_results_$report_id (
 		`id` int(11) NOT NULL DEFAULT 0,
@@ -67,7 +67,7 @@ function create_result_table($report_id) {
  *                                       resolve each measurand's
  *                                       consolidation function label.
  */
-function get_report_definitions($report_id) {
+function get_report_definitions(int $report_id): array {
 	global $consolidation_functions;
 
 	$report_definition = [];
@@ -77,6 +77,10 @@ function get_report_definitions($report_id) {
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		[$report_id]);
+
+	if (!is_array($report)) {
+		$report = [];
+	}
 
 	// Fetch all RRD definitions
 	$data_items = db_fetch_assoc_prepared('SELECT
@@ -114,6 +118,10 @@ function get_report_definitions($report_id) {
 		WHERE id = ?',
 		[$report['template_id']]);
 
+	if (!is_array($template)) {
+		$template = [];
+	}
+
 	// Fetch all all data source items
 	$sql = 'SELECT data_source_name
 		FROM plugin_reportit_data_source_items
@@ -122,6 +130,12 @@ function get_report_definitions($report_id) {
 		ORDER BY id';
 
 	$ds_items = db_custom_fetch_flat_array($sql);
+
+	if (!is_array($ds_items)) {
+		$ds_items = [];
+	}
+
+	$maxRRDValues = [];
 
 	foreach ($ds_items as $key => $data_source_name) {
 		/**
@@ -189,6 +203,10 @@ function get_report_definitions($report_id) {
 		AND local_data_id = 0',
 		[$template['data_template_id']]);
 
+	if (!is_array($tmp)) {
+		$tmp = [];
+	}
+
 	$template['ds_type'] = $tmp['ds_type'];
 	$template['maximum'] = $tmp['maximum'];
 
@@ -237,37 +255,25 @@ function get_report_definitions($report_id) {
  * @return int|null The ISO-8601 day number (1=Monday..7=Sunday), or
  *                  null if $day doesn't match a known weekday name.
  */
-function day_to_number($day) {
+function day_to_number(string $day): int|null {
 	switch($day) {
 		case __('Monday', 'reportit'):
 			return 1;
-
-			break;
 		case __('Tuesday', 'reportit'):
 			return 2;
-
-			break;
 		case __('Wednesday', 'reportit'):
 			return 3;
-
-			break;
 		case __('Thursday', 'reportit'):
 			return 4;
-
-			break;
 		case __('Friday', 'reportit'):
 			return 5;
-
-			break;
 		case __('Saturday', 'reportit'):
 			return 6;
-
-			break;
 		case __('Sunday', 'reportit'):
 			return 7;
-
-			break;
 	}
+
+	return null;
 }
 
 /**
@@ -278,28 +284,28 @@ function day_to_number($day) {
  * Called from get_prepared_data() while assembling a report's raw RRD
  * data extraction plan.
  *
- * @param string $startday       The report's starting weekday name.
- * @param string $endday         The report's ending weekday name.
- * @param int    $f_sp           The first data point's start time.
- * @param int    $l_sp           The last data point's start time.
- * @param int    $e_hour         The report's end hour.
- * @param int    $shift_duration The report's shift duration in
- *                               seconds.
- * @param int    $rrd_sp         The RRD's actual first data point
- *                               time.
- * @param int    $rrd_ep         The RRD's actual last data point
- *                               time.
- * @param int    $rrd_step       The RRD's step size in seconds.
- * @param int    $rrd_ds_cnt     The number of data sources in the
- *                               RRD.
- * @param bool   $dst_support    Whether DST-aware time handling is
- *                               enabled.
+ * @param int  $startday       The report's starting weekday name.
+ * @param int  $endday         The report's ending weekday name.
+ * @param int  $f_sp           The first data point's start time.
+ * @param int  $l_sp           The last data point's start time.
+ * @param int  $e_hour         The report's end hour.
+ * @param int  $shift_duration The report's shift duration in
+ *                             seconds.
+ * @param int  $rrd_sp         The RRD's actual first data point
+ *                             time.
+ * @param int  $rrd_ep         The RRD's actual last data point
+ *                             time.
+ * @param int  $rrd_step       The RRD's step size in seconds.
+ * @param int  $rrd_ds_cnt     The number of data sources in the
+ *                             RRD.
+ * @param bool $dst_support    Whether DST-aware time handling is
+ *                             enabled.
  *
- * @return array The computed request-type/adaptation parameters used to
- *               extract the requested data subset from the RRD.
+ * @return array|false The computed request-type/adaptation parameters used to
+ *                     extract the requested data subset from the RRD.
  */
-function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_duration,
-	$rrd_sp, $rrd_ep, $rrd_step, $rrd_ds_cnt, $dst_support) {
+function get_type_of_request(int $startday, int $endday, int $f_sp, int $l_sp, int $e_hour, int $shift_duration,
+	int $rrd_sp, int $rrd_ep, int $rrd_step, int $rrd_ds_cnt, bool $dst_support): array|false {
 	/**
 	 * -----------------------------------------------------------------------------------------------------------
 	 * Calculate all included weekdays
@@ -313,6 +319,13 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
 	 *                     information to grep the adapted data out of the rrd_data array.
 	 * -----------------------------------------------------------------------------------------------------------
 	 */
+
+	$startday = (int) $startday;
+	$endday   = (int) $endday;
+
+	$wdays = [];
+	$dis   = 0;
+	$off   = 7;
 
 	// ----- Calculate all included weekdays -----
 	switch ($startday) {
@@ -401,7 +414,7 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
 		// Memorize the correct index number if the current wday matches and ...
 		if (in_array($date['wday'], $wdays, true)) {
 			// ...calculate start point's index
-			$index = floor(($f_sp - $rrd_sp) / $rrd_step + 1);
+			$index = (int) floor(($f_sp - $rrd_sp) / $rrd_step + 1);
 
 			// ...if the tmz has been changed calculate the new number of rrd_steps
 			if ($tmz_change) {
@@ -482,7 +495,7 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
 
 			// Memorize the correct index number:
 			// ...calculate start point's index
-			$index = floor(($f_sp - $rrd_sp) / $rrd_step + 1);
+			$index = (int) floor(($f_sp - $rrd_sp) / $rrd_step + 1);
 
 			// ...if the tmz has been changed calculate the new number of rrd_steps
 			if ($tmz_change) {
@@ -510,10 +523,6 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
 
 			// Break out if $l_sp has been exceeded
 			if ($f_sp > $l_sp) {
-				if ($ldis == 0) {
-					$offs--;
-				}
-
 				break 2;
 			}
 		}
@@ -568,7 +577,10 @@ function get_type_of_request($startday, $endday, $f_sp, $l_sp, $e_hour, $shift_d
  * @return array The extracted, corrected data values per data source
  *               index, ready for calculation.
  */
-function get_prepared_data(&$rrd_data, &$rrd_ad_data, $rrd_ds_cnt, $ds_type, $corr_factor_start, $corr_factor_end, &$ds_namv, &$rrd_nan) {
+function get_prepared_data(array &$rrd_data, array &$rrd_ad_data, int $rrd_ds_cnt, int $ds_type, float $corr_factor_start, float $corr_factor_end, array &$ds_namv, &$rrd_nan): array {
+	$data  = [];
+	$multi = [];
+
 	for ($i = 0; $i < $rrd_ds_cnt; $i++) {
 		if (!array_key_exists($i, $ds_namv)) {
 			continue;
@@ -626,12 +638,12 @@ function get_prepared_data(&$rrd_data, &$rrd_ad_data, $rrd_ds_cnt, $ds_type, $co
  * Called via array_walk() from transform() to normalize every raw RRD
  * sample value.
  *
- * @param string $value Reference, the raw value to normalize in place.
+ * @param mixed $value Reference, the raw value to normalize in place.
  *
  * @return void
  */
-function strtoNaN(&$value) {
-	$value = str_replace(',', '.', $value);
+function strtoNaN(&$value): void {
+	$value = str_replace(',', '.', (string) $value);
 	$value = (is_numeric($value)) ? doubleval($value) : REPORTIT_NAN;
 }
 
@@ -656,13 +668,13 @@ function strtoNaN(&$value) {
  *                   otherwise no explicit return (result is populated
  *                   into $rrd_data by reference).
  */
-function transform(&$data, &$rrd_data, &$template) {
+function transform(string $data, array &$rrd_data, array &$template) {
 	// Transform into the 'normal' form:
-	$ds_names = substr($data, 0, strpos($data, PHP_EOL));
+	$ds_names = substr($data, 0, (int) strpos($data, PHP_EOL));
 	$ds_names = str_replace('timestamp', '', $ds_names);
 	debug($ds_names, 'Data sources');
 
-	$data = substr($data, strpos($data, PHP_EOL));
+	$data = substr($data, (int) strpos($data, PHP_EOL));
 
 	preg_match_all('/\S+/', $ds_names, $rrd_data);
 	debug($rrd_data, 'Preg_match_all');
@@ -676,7 +688,7 @@ function transform(&$data, &$rrd_data, &$template) {
 	$last_timestamp    = $zahl - $rrd_data['ds_cnt'] - 1;
 
 	// catch a cases with a missing data source
-	if (!isset($data[0]) || !cacti_sizeof($data[0])) {
+	if (!cacti_sizeof($data[0])) {
 		return false;
 	}
 
@@ -691,13 +703,15 @@ function transform(&$data, &$rrd_data, &$template) {
 
 		$i = 0;
 
+		$array = [];
+
 		foreach ($template['RRA'] as $key => $array) {
 			if ($diff > $array['timespan']) {
 				$i++;
 			}
 		}
 
-		if ($diff > $array['timespan']) {
+		if ($diff > ($array['timespan'] ?? 0)) {
 			$i--;
 		}
 
@@ -743,7 +757,7 @@ function transform(&$data, &$rrd_data, &$template) {
  * @return bool True if the timezone may observe DST, false for
  *              UTC/GMT/UCT.
  */
-function check_DST_support() {
+function check_DST_support(): bool {
 	$tmz    = date('T');
 	$return = ($tmz == 'UTC' || $tmz == 'GMT' || $tmz == 'UCT') ? false : true;
 
@@ -759,7 +773,7 @@ function check_DST_support() {
  *
  * @return void
  */
-function check_rra_header(&$rra_data) {
+function check_rra_header(array &$rra_data): void {
 }
 
 /**
@@ -781,11 +795,15 @@ function check_rra_header(&$rra_data) {
  *               'Export Failed' if the report's data couldn't be
  *               retrieved.
  */
-function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start_time = false) {
+function reportit_prepare_store_report_results(int $report_id, int $queue_id = 0, $start_time = false) {
 	$report = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		[$report_id]);
+
+	if (!is_array($report)) {
+		$report = [];
+	}
 
 	$attachments = [];
 	$data        = get_prepared_report_data($report_id, 'export');
@@ -826,7 +844,7 @@ function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start
 		}
 
 		$filebase         = $dirbase . '/' . $filebase . ".$file_type";
-		$filename         = str_replace('<report_id>', $report_id, $filebase);
+		$filename         = str_replace('<report_id>', (string) $report_id, $filebase);
 		$export_function  = 'export_to_' . $format;
 
 		print "Attachment: $filename\n";
@@ -851,7 +869,9 @@ function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start
 
 	$headers['User-Agent'] = 'Cacti-ReportIt-Report-v' . $v;
 
-	$result = reports_log_and_notify($queue_id, $start_time, 'html', 'reportit', $report_id, $subject, $data, $body, $body_html, $body_text, $attachments, $headers);
+	$body_text = $body;
+
+	$result = reports_log_and_notify($queue_id, (int) $start_time, 'html', 'reportit', $report_id, $subject, $data, $body, $body_html, $body_text, $attachments, $headers);
 
 	if ($filename != '') {
 		unlink($filename);
@@ -873,7 +893,7 @@ function reportit_prepare_store_report_results($report_id, $queue_id = 0, $start
  *
  * @return mixed The result of the underlying notification dispatch.
  */
-function send_scheduled_email($id, $report_id) {
+function send_scheduled_email(int $id, int $report_id) {
 	$start_time = microtime(true);
 
 	// load report based email settings
@@ -881,6 +901,10 @@ function send_scheduled_email($id, $report_id) {
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		[$report_id]);
+
+	if (!is_array($report_settings)) {
+		$report_settings = [];
+	}
 
 	$data 	  = '';
 	$search  = ['|title|', '|period|'];
@@ -904,6 +928,10 @@ function send_scheduled_email($id, $report_id) {
 		WHERE report_id = ?',
 		[$report_id]);
 
+	if (!is_array($to)) {
+		$to = [];
+	}
+
 	if ($report_settings['email'] != '') {
 		$emails = explode(',', $report_settings['email']);
 		$to += $emails;
@@ -915,7 +943,7 @@ function send_scheduled_email($id, $report_id) {
 		$bcc = [];
 	}
 
-	if (api_plugin_installed('thold') && $report['notify_list'] > 0) {
+	if (api_plugin_installed('thold') && $report_settings['notify_list'] > 0) {
 		$nl_to_emails  = get_notification_emails($report_settings['notify_list'], 'to');
 		$nl_bcc_emails = get_notification_emails($report_settings['notify_list'], 'bcc');
 
@@ -930,7 +958,7 @@ function send_scheduled_email($id, $report_id) {
 
 	// function mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html, $epandsIds);
 
-	$return = mailer($from, $to, '', $bcc, '', $subject, $body, '', [$attachment], '', true);
+	$return = mailer($from, $to, '', $bcc, '', $subject, $body, '', [], [], true);
 
 	return $return;
 }

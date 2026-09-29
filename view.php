@@ -54,7 +54,10 @@ switch (get_request_var('action')) {
 		break;
 	case 'export':
 		general_header();
-		show_export_wizard(true);
+
+		if (function_exists('show_export_wizard')) {
+			show_export_wizard(true);
+		}
 		bottom_footer();
 
 		break;
@@ -78,11 +81,11 @@ switch (get_request_var('action')) {
  *
  * @return void
  *
- * @global array $export_formats Reserved/declared for parity with
- *                               other functions in this file; not used
- *                               directly here.
+ * @global array $export_formats Allowlist of valid export formats, used
+ *                               to constrain the dynamic export dispatch
+ *                               to known functions only.
  */
-function export() {
+function export(): void {
 	global $export_formats;
 
 	$id = validate_report_vars();
@@ -98,6 +101,8 @@ function export() {
 
 	$sql_order = get_order_string();
 
+	$cache_id = '';
+
 	// get informations about the archive if it exists
 //	$archive = info_xml_archive(get_request_var('id'));
 
@@ -112,9 +117,21 @@ function export() {
 		? get_prepared_report_data(get_request_var('id'), 'export', $sql_where)
 		: get_prepared_archive_data($cache_id, 'export', $sql_where);
 
-	// call export function
-	$export_function = 'export_to_' . get_request_var('drp_action');
-	$output	         = $export_function($data);
+	if (!is_array($data)) {
+		$data = [];
+	}
+
+	// call export function; restrict dispatch to the known export formats
+	$format  = get_request_var('drp_action');
+	$output  = '';
+
+	if (isset($export_formats[$format])) {
+		$export_function = 'export_to_' . $format;
+
+		if (function_exists($export_function)) {
+			$output = $export_function($data);
+		}
+	}
 
 	$content_type = strtolower(get_request_var('drp_action'));
 
@@ -148,7 +165,7 @@ function export() {
  * @global array $item_rows Cacti's standard row-count option list, used
  *                         to populate the rows dropdown.
  */
-function standard() {
+function standard(): void {
 	global $item_rows;
 
 	$myId = my_id();
@@ -231,7 +248,7 @@ function standard() {
 		$sql_params);
 
 	// start with HTML output
-	html_start_box(__('Reports Filter', 'reportit'), '100%', '', '3', 'center', '');
+	html_start_box(__('Reports Filter', 'reportit'), '100%', false, 3, 'center', '');
 
 	?>
 	<tr class='odd'>
@@ -353,7 +370,7 @@ function standard() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, 3, 'center', '');
 
 	html_header_sort($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'));
 
@@ -397,7 +414,7 @@ function standard() {
  *                setting disables id persistence and none was
  *                supplied).
  */
-function validate_report_vars() {
+function validate_report_vars(): string {
 	// if the user pushed the 'clear' button
 	$id = (read_graph_config_option('reportit_view_filter') == 'on') ? get_filter_request_var('id') : '';
 
@@ -497,7 +514,7 @@ function validate_report_vars() {
  *                                list, used to populate the rows
  *                                dropdown.
  */
-function show_report() {
+function show_report(): void {
 	global $search, $t_limit, $add_info, $export_formats, $item_rows;
 
 	$limitation      = 0;
@@ -513,7 +530,9 @@ function show_report() {
 	$rs_description  = [];
 	$ov_description  = [];
 	$report_summary  = [];
+	/** @var array<int|string,string> $archive */
 	$archive         = [];
+	/** @var array<int|string,string> $report_ds_alias */
 	$report_ds_alias = [];
 
 	$id = validate_report_vars();
@@ -562,6 +581,10 @@ function show_report() {
 		$data = get_prepared_report_data(get_request_var('id'), 'view', $sql_affix);
 	} else {
 		$data = get_prepared_archive_data($cache_id, 'view', $sql_affix);
+	}
+
+	if (!is_array($data)) {
+		$data = [];
 	}
 
 	// get total number of rows (data items)
@@ -672,7 +695,7 @@ function show_report() {
 	// start HTML output
 	$report_header = $data['report_data']['name'];
 
-	html_start_box(__($report_header), '100%', '', '3', 'center', '');
+	html_start_box(__($report_header), '100%', false, 3, 'center', '');
 
 	ob_start();
 	?>
@@ -863,7 +886,7 @@ function show_report() {
 		$report_summary[4][__('Period', 'reportit')]                  = $data['report_data']['start_date'] . ' - ' . $data['report_data']['end_date'];
 		$report_summary[4][__('Auto Generated RRD list', 'reportit')] = ($data['report_data']['autorrdlist'] == '') ? 'disabled' : 'enabled';
 
-		html_start_box('', '100%', '', '3', 'center', '');
+		html_start_box('', '100%', false, 3, 'center', '');
 
 		foreach ($report_summary as $array) {
 			print '<tr>';
@@ -879,9 +902,9 @@ function show_report() {
 	}
 
 	if (isempty_request_var('graph_mode')) {
-		show_table_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs, $columns, $rows, $total_rows);
+		show_table_view($data, $ds_description, $rs_description, $ov_description, (int) $count_ov, $count_rs, $columns, $rows, $total_rows);
 	} else {
-		show_graph_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs);
+		show_graph_view($data, $ds_description, $rs_description, $ov_description, (int) $count_ov, $count_rs);
 	}
 }
 
@@ -891,22 +914,22 @@ function show_report() {
  * counts. Called from show_report() when the report's display mode is
  * set to table view.
  *
- * @param array $data           The report's prepared data rows.
- * @param array $ds_description Data-source-level measurand
- *                              descriptions.
- * @param array $rs_description Result-set-level measurand
- *                              descriptions.
- * @param array $ov_description Overview-level measurand descriptions.
- * @param int   $count_ov       The number of overview measurands.
- * @param int   $count_rs       The number of result-set measurands.
- * @param int   $columns        The total number of table columns to
- *                              render.
- * @param array $rows           The report's data rows to render.
- * @param int   $total_rows     The total row count (for pagination).
+ * @param array       $data           The report's prepared data rows.
+ * @param array       $ds_description Data-source-level measurand
+ *                                    descriptions.
+ * @param array|false $rs_description Result-set-level measurand
+ *                                    descriptions.
+ * @param array|false $ov_description Overview-level measurand descriptions.
+ * @param int         $count_ov       The number of overview measurands.
+ * @param int         $count_rs       The number of result-set measurands.
+ * @param int         $columns        The total number of table columns to
+ *                                    render.
+ * @param int         $rows           The number of rows to display per page.
+ * @param int         $total_rows     The total row count (for pagination).
  *
  * @return void
  */
-function show_table_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs, $columns, $rows, $total_rows) {
+function show_table_view(array $data, array $ds_description, $rs_description, $ov_description, int $count_ov, int $count_rs, int $columns, int $rows, int $total_rows): void {
 	global $search, $t_limit, $add_info, $export_formats, $item_rows;
 
 	$report_ds_alias = $data['report_ds_alias'];
@@ -918,7 +941,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 	$nav = html_nav_bar('view.php?action=show_report&id=' . get_request_var('id'), 20, get_request_var('page'), $rows, $total_rows, $columns, __('Reports', 'reportit'), 'page', 'main');
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, 3, 'center', '');
 
 	// print table header
 	$display_text = [
@@ -950,7 +973,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 	}
 
 	if (isempty_request_var('graph_mode')) {
-		html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), '1', 'view.php?action=show_report&id=' . get_request_var('id'));
+		html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), 1, 'view.php?action=show_report&id=' . get_request_var('id'));
 	}
 
 	// Set preconditions
@@ -998,7 +1021,7 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
 				$name  = ($datasource != 'overall') ? $rs_description : $ov_description;
 				$first = '';
 
-				foreach ($name as $id) {
+				foreach ((array) $name as $id) {
 					$rounding       = $mea[$id]['rounding'];
 					$data_type      = $mea[$id]['data_type'];
 					$data_precision = $mea[$id]['data_precision'];
@@ -1085,18 +1108,18 @@ function show_table_view($data, $ds_description, $rs_description, $ov_descriptio
  * data source/result-set/overview measurand descriptions. Called from
  * show_report() when the report's display mode is set to graph view.
  *
- * @param array $data           The report's prepared data rows.
- * @param array $ds_description Data-source-level measurand
- *                              descriptions.
- * @param array $rs_description Result-set-level measurand
- *                              descriptions.
- * @param array $ov_description Overview-level measurand descriptions.
- * @param int   $count_ov       The number of overview measurands.
- * @param int   $count_rs       The number of result-set measurands.
+ * @param array       $data           The report's prepared data rows.
+ * @param array       $ds_description Data-source-level measurand
+ *                                    descriptions.
+ * @param array|false $rs_description Result-set-level measurand
+ *                                    descriptions.
+ * @param array|false $ov_description Overview-level measurand descriptions.
+ * @param int         $count_ov       The number of overview measurands.
+ * @param int         $count_rs       The number of result-set measurands.
  *
  * @return void
  */
-function show_graph_view($data, $ds_description, $rs_description, $ov_description, $count_ov, $count_rs) {
+function show_graph_view(array $data, array $ds_description, $rs_description, $ov_description, int $count_ov, int $count_rs): void {
 	global $graphs, $limit;
 
 	$affix            = '';
@@ -1115,7 +1138,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 			$description = (is_array($report_ds_alias) && array_key_exists($datasource, $report_ds_alias))
 				? ($report_ds_alias[$datasource] != '') ? $report_ds_alias[$datasource] : $datasource : $datasource;
 
-			html_start_box(__('Data Source: %s', $description, 'reportit'), '100%', false, '3', 'center', '');
+			html_start_box(__('Data Source: %s', $description, 'reportit'), '100%', false, 3, 'center', '');
 
 			$name = ($datasource != 'overall') ? $rs_description : $ov_description;
 
@@ -1166,7 +1189,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
 
 						print "<td style='width:100%;vertical-align:text-top'>";
 
-						html_start_box('', '100%', '', '3', 'center', '');
+						html_start_box('', '100%', false, 3, 'center', '');
 
 						if (cacti_sizeof($data)) {
 							$display_text = [
@@ -1240,7 +1263,7 @@ function show_graph_view($data, $ds_description, $rs_description, $ov_descriptio
  *
  * @return void This function calls exit() after issuing the redirect.
  */
-function show_graph_overview() {
+function show_graph_overview(): void {
 	// ================= Input validation =================
 	input_validate_input_number(get_request_var('id'));
 	input_validate_input_number(get_request_var('rrd'));
@@ -1248,6 +1271,8 @@ function show_graph_overview() {
 	// ====================================================
 
 	// load report archive and fill up report cache if requested
+	$cache_id = '';
+
 	if (get_request_var('cache') != -1) {
 		cache_xml_file(get_request_var('id'), get_request_var('cache'));
 		$cache_id = get_request_var('id') . '_' . get_request_var('cache');
@@ -1257,6 +1282,10 @@ function show_graph_overview() {
 	$data = (get_request_var('cache') == -1)
 		? get_prepared_report_data(get_request_var('id'),'view')
 		: get_prepared_archive_data($cache_id, 'view');
+
+	if (!is_array($data)) {
+		$data = [];
+	}
 
 	$report_data = $data['report_data'];
 
@@ -1290,10 +1319,10 @@ function show_graph_overview() {
  *
  * @return string The rendered HTML/JS markup for the treemap chart.
  */
-function plugin_reportit_graph($graph_id, $graph_data) {
+function plugin_reportit_graph($graph_id, $graph_data): string {
 	$content = '';
 
-	$xid = substr(md5($graph_id), 0, 7);
+	$xid = substr(md5((string) $graph_id), 0, 7);
 
 	$labels = [];
 	$values = [];

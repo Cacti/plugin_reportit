@@ -28,7 +28,7 @@
  *
  * @return int|null The current user's session id, or null if not set.
  */
-function my_id() {
+function my_id(): int|null {
 	return $_SESSION['sess_user_id'];
 }
 
@@ -39,7 +39,7 @@ function my_id() {
  * @return string|null The current user's username, or null if not
  *                     found.
  */
-function my_name() {
+function my_name(): string|null {
 	return db_fetch_cell_prepared('SELECT username
 		FROM user_auth
 		WHERE id = ?',
@@ -62,7 +62,7 @@ function my_name() {
  *
  * @return void
  */
-function my_report($report_id, $public = false) {
+function my_report(int $report_id, bool $public = false): void {
 	if (is_numeric($report_id) && $report_id != 0) {
 		$user_id  = my_id();
 
@@ -70,6 +70,10 @@ function my_report($report_id, $public = false) {
 			FROM plugin_reportit_reports
 			WHERE id = ?',
 			[$report_id]);
+
+		if (!is_array($user)) {
+			$user = [];
+		}
 
 		if ($user == false) {
 			if (!re_admin()) {
@@ -100,7 +104,7 @@ function my_report($report_id, $public = false) {
  * @return int|null The associated plugin_reportit_templates id, or
  *                  null if not found.
  */
-function my_template($report_id) {
+function my_template(int $report_id): int|null {
 	return db_fetch_cell_prepared('SELECT template_id
 		FROM plugin_reportit_reports
 		WHERE id = ?',
@@ -118,7 +122,7 @@ function my_template($report_id) {
  *
  * @return void
  */
-function locked($template_id, $header = true) {
+function locked(int $template_id, bool $header = true): void {
 	$status = db_fetch_cell_prepared('SELECT locked
 		FROM plugin_reportit_templates
 		WHERE id = ?',
@@ -137,7 +141,7 @@ function locked($template_id, $header = true) {
  *
  * @return string|null The user's username, or null if not found.
  */
-function other_name($userid) {
+function other_name(int $userid): string|null {
 	return db_fetch_cell_prepared('SELECT username FROM user_auth WHERE id = ?', [$userid]);
 }
 
@@ -150,7 +154,7 @@ function other_name($userid) {
  * @return bool True if the user is view-only (or already viewing
  *              view.php), false otherwise.
  */
-function only_viewer() {
+function only_viewer(): bool {
 	$id = my_id();
 
 	$report_viewer = db_fetch_cell("SELECT *
@@ -178,7 +182,7 @@ function only_viewer() {
  * @return bool True if the user (directly or via a group) has the
  *              realm, false otherwise.
  */
-function user_auth_realm($realm_id, $user_id) {
+function user_auth_realm(int $realm_id, int $user_id): bool {
 	$verified = db_fetch_cell('
 		SELECT user_auth.id FROM user_auth
 			LEFT JOIN (
@@ -204,8 +208,8 @@ function user_auth_realm($realm_id, $user_id) {
  * @return bool True if the current user is a report owner, false
  *              otherwise.
  */
-function re_owner() {
-	return user_auth_realm(REPORTIT_USER_OWNER, my_id()) ? true : false;
+function re_owner(): bool {
+	return user_auth_realm(REPORTIT_USER_OWNER, (int) my_id()) ? true : false;
 }
 
 /**
@@ -216,8 +220,8 @@ function re_owner() {
  * @return bool True if the current user is a ReportIt admin, false
  *              otherwise.
  */
-function re_admin() {
-	return user_auth_realm(REPORTIT_USER_ADMIN, my_id()) ? true : false;
+function re_admin(): bool {
+	return user_auth_realm(REPORTIT_USER_ADMIN, (int) my_id()) ? true : false;
 }
 
 /**
@@ -235,7 +239,7 @@ function re_admin() {
  *
  * @return void
  */
-function session_custom_error_message($field, $custom_message, $toplevel_message = 2) {
+function session_custom_error_message(string $field, string $custom_message, $toplevel_message = 2): void {
 	$_SESSION['sess_error_fields'][$field] = $field;
 
 	// Do not overwrite the first message.
@@ -256,7 +260,7 @@ function session_custom_error_message($field, $custom_message, $toplevel_message
  *
  * @return void
  */
-function session_custom_error_display() {
+function session_custom_error_display(): void {
 	if (isset($_SESSION['sess_custom_error'])) {
 		display_custom_error_message($_SESSION['sess_custom_error']);
 		kill_session_var('sess_custom_error');
@@ -273,7 +277,7 @@ function session_custom_error_display() {
  * @return bool True if the field has a recorded error, false
  *              otherwise.
  */
-function is_error_message_field($field) {
+function is_error_message_field(string $field): bool {
 	if (isset($_SESSION['sess_error_fields'][$field])) {
 		return true;
 	} else {
@@ -291,7 +295,7 @@ function is_error_message_field($field) {
  * @return bool True if the template has zero measurands (eligible for
  *              auto-lock), false otherwise.
  */
-function stat_autolock_template($template_id) {
+function stat_autolock_template(int $template_id): bool {
 	$count = db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_measurands
 		WHERE template_id = ?',
@@ -312,7 +316,7 @@ function stat_autolock_template($template_id) {
  *
  * @return void
  */
-function set_autolock_template($template_id) {
+function set_autolock_template(int $template_id): void {
 	db_execute_prepared('UPDATE plugin_reportit_templates
 		SET locked=1
 		WHERE id = ?',
@@ -329,7 +333,7 @@ function set_autolock_template($template_id) {
  *
  * @return void
  */
-function update_formulas($array) {
+function update_formulas(array $array): void {
 	foreach ($array as $key => $value) {
 		db_execute_prepared('UPDATE plugin_reportit_measurands
 			SET calc_formula = ?
@@ -349,7 +353,7 @@ function update_formulas($array) {
  * @return bool True if the template was locked, false if it wasn't
  *              eligible (has running reports).
  */
-function try_autolock_template($template_id) {
+function try_autolock_template(int $template_id): bool {
 	$status = db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_reports
 		WHERE template_id = ?
@@ -379,7 +383,7 @@ function try_autolock_template($template_id) {
  *                                  code, used to resolve the running
  *                                  version's code.
  */
-function check_cacti_version($hash) {
+function check_cacti_version(int $hash): bool {
 	global $hash_version_codes;
 
 	if ($hash_version_codes[CACTI_VERSION] < $hash) {
@@ -397,7 +401,7 @@ function check_cacti_version($hash) {
  *
  * @return void
  */
-function check_graph_support() {
+function check_graph_support(): void {
 	// Check required PHP extensions: GD Library and Freetype support
 	$loaded_extensions = get_loaded_extensions();
 
@@ -420,13 +424,13 @@ function check_graph_support() {
  *
  * @return int The effective maximum row count to use.
  */
-function get_valid_max_rows() {
+function get_valid_max_rows(): int {
 	// return the default if a user defined an invalid value for maximum number of rows
 	$session_max_rows = read_graph_config_option('reportit_max_rows');
 
 	if (is_numeric($session_max_rows) && $session_max_rows > 0) {
-		return $session_max_rows;
+		return (int) $session_max_rows;
 	} else {
-		return read_default_graph_config_option('reportit_max_rows');
+		return (int) read_default_graph_config_option('reportit_max_rows');
 	}
 }

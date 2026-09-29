@@ -140,7 +140,7 @@ switch (get_request_var('action')) {
  *
  * @return void
  */
-function template_tabs($id) {
+function template_tabs($id): void {
 	// present a tabbed interface
 	$tabs = [
 		'general'    => __('General', 'reportit'),
@@ -203,7 +203,7 @@ function template_tabs($id) {
  *                                        with other functions in this
  *                                        file; not used directly here.
  */
-function template_wizard($action) {
+function template_wizard(string $action): void {
 	global $list_of_data_templates, $known_data_templates, $fields_template_export;
 
 	switch ($action) {
@@ -216,7 +216,7 @@ function template_wizard($action) {
 
 			form_start('templates.php', 'chk');
 
-			html_start_box(__('New Report Template', 'reportit'), '60%', '', '3', 'left', '');
+			html_start_box(__('New Report Template', 'reportit'), '60%', false, 3, 'left', '');
 
 			if (cacti_sizeof($list_of_data_templates) == 0) {
 				print "<tr class='textArea'>
@@ -256,7 +256,7 @@ function template_wizard($action) {
 
 			form_start('templates.php', 'reportit_upload', true);
 
-			html_start_box(__('Import Report Template', 'reportit'), '60%', '', '3', 'center', '');
+			html_start_box(__('Import Report Template', 'reportit'), '60%', false, 3, 'center', '');
 
 			print "<tr>
 				<td class='textArea'>
@@ -286,7 +286,7 @@ function template_wizard($action) {
 				top_header();
 
 				$data      = $_SESSION['sess_reportit']['report_templates'];
-				$xmldata   = simplexml_load_string($data);
+				$xmldata   = simplexml_load_string((string) $data);
 
 				$header_array = [
 					'name'          => ['display' => __('Name', 'reportit')],
@@ -299,14 +299,14 @@ function template_wizard($action) {
 
 				form_start('templates.php?action=template_import_wizard');
 
-				html_start_box(__('Summary', 'reportit'), '100%', '', '3', 'center', '');
+				html_start_box(__('Summary', 'reportit'), '100%', false, 3, 'center', '');
 
 				html_header($header_array);
 
 				$compatible   = false;
 				$report_count = 0;
 
-				foreach ($xmldata as $report_template) {
+				foreach (($xmldata !== false ? $xmldata : []) as $report_template) {
 					$info = $report_template->settings;
 
 					if ($report_template->compatible) {
@@ -343,7 +343,7 @@ function template_wizard($action) {
 						$templates_array = xml_to_array($report_template->data_templates, true);
 						$templates       = [];
 
-						foreach ($templates_array as $template_item) {
+						foreach ((is_array($templates_array) ? $templates_array : []) as $template_item) {
 							$templates[$template_item['id']] = $template_item['name'];
 						}
 
@@ -395,7 +395,7 @@ function template_wizard($action) {
  *
  * @return void This function calls exit() and never returns normally.
  */
-function template_export() {
+function template_export(): void {
 	// if we are to save this form, instead of display it
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
@@ -433,7 +433,7 @@ function template_export() {
  *
  * @return void
  */
-function template_import() {
+function template_import(): void {
 	header('Location: templates.php?action=template_upload_wizard');
 
 	// ================= input validation =================
@@ -445,11 +445,11 @@ function template_import() {
 	}
 
 	$xml_string = $_SESSION['sess_reportit']['report_templates'];
-	$xml_data   = simplexml_load_string($xml_string);
+	$xml_data   = simplexml_load_string((string) $xml_string);
 
 	$report_count = 0;
 
-	foreach ($xml_data as $report_template) {
+	foreach (($xml_data !== false ? $xml_data : []) as $report_template) {
 		import_template($report_template, get_request_var('tds' . $report_count));
 		$report_count++;
 	}
@@ -471,10 +471,10 @@ function template_import() {
  * @global array $item_rows Cacti's standard row-count option list,
  *                         used to populate the rows-per-page dropdown.
  */
-function template_filter() {
+function template_filter(): void {
 	global $item_rows;
 
-	html_start_box(__('Report Templates', 'reportit'), '100%', '', '3', 'center', 'templates.php?action=template_new');
+	html_start_box(__('Report Templates', 'reportit'), '100%', false, 3, 'center', 'templates.php?action=template_new');
 	?>
 	<tr class='even'>
 		<td>
@@ -599,7 +599,7 @@ function template_filter() {
  *                                          in this file; not used
  *                                          directly here.
  */
-function templates() {
+function templates(): void {
 	global $template_actions, $link_array, $desc_array, $consolidation_functions, $known_data_templates, $list_of_data_templates, $order_array;
 
 	// ================= input validation and session storage =================
@@ -747,7 +747,7 @@ function templates() {
 
 	form_hidden_box('tab', 'general', '');
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, 3, 'center', '');
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
@@ -833,7 +833,7 @@ function templates() {
  *                                       with other functions in this
  *                                       file; not used directly here.
  */
-function form_save() {
+function form_save(): void {
 	global $list_of_data_templates;
 	global $calc_var_names, $rounding, $precision, $type_specifier;
 
@@ -868,7 +868,7 @@ function form_save() {
 		$template_data['export_folder']    = isset($post['export_folder']) ? $post['export_folder'] : '';
 
 		$defined_data_sources = array_rekey(
-			db_fetch_assoc('SELECT id, data_source_name
+			db_fetch_assoc_prepared('SELECT id, data_source_name
 				FROM data_template_rrd
 				WHERE local_data_id = 0
 				AND data_template_id = ?',
@@ -1081,7 +1081,6 @@ function form_save() {
 
 		// Check possible dependences with other measurands
 		if (!is_error_message_field('abbreviation') && $post['id'] != 0) {
-			$dependences  = [];
 			$dependencies = [];
 
 			$new = $post['abbreviation'];
@@ -1100,9 +1099,9 @@ function form_save() {
 					[$post['template_id'], $post['id']]);
 
 				if (cacti_sizeof($dependencies)) {
-					foreach ($dependences as $key => $value) {
-						$value['calc_formula'] = str_replace($old, $new, $value['calc_formula']);
-						$dependences[$key]     = $value;
+					foreach ($dependencies as $key => $value) {
+						$value['calc_formula']  = str_replace($old, $new, $value['calc_formula']);
+						$dependencies[$key]     = $value;
 					}
 				}
 			}
@@ -1143,8 +1142,8 @@ function form_save() {
 			sql_save($measurand_data, 'plugin_reportit_measurands');
 
 			// Update dependences if it's necessary
-			if (isset($dependences) && sizeof($dependencies)) {
-				update_formulas($dependences);
+			if (isset($dependencies) && sizeof($dependencies)) {
+				update_formulas($dependencies);
 			}
 
 			// Return to list view if it was an existing report
@@ -1162,7 +1161,7 @@ function form_save() {
  *
  * @return void
  */
-function template_edit() {
+function template_edit(): void {
 	// ================= input validation =================
 	$id = get_filter_request_var('id', FILTER_VALIDATE_INT, ['default'=>0]);
 	// ====================================================
@@ -1200,7 +1199,7 @@ function template_edit() {
  * @global array $fields_template_edit   The general tab's field
  *                                       definitions.
  */
-function templates_general($id) {
+function templates_general(int $id): void {
 	global $consolidation_functions, $list_of_data_templates, $fields_template_edit;
 
 	session_custom_error_display();
@@ -1209,6 +1208,10 @@ function templates_general($id) {
 		$template_data = db_fetch_row_prepared('SELECT *
 			FROM plugin_reportit_templates
 			WHERE id = ?', [$id]);
+
+		if (!is_array($template_data)) {
+			$template_data = [];
+		}
 
 		$header_label = __esc('Template [ %s - %s ]', $template_data['name'], $template_data['description'], 'reportit');
 	} else {
@@ -1244,7 +1247,7 @@ function templates_general($id) {
 
 	form_hidden_box('tab', 'general', '');
 
-	html_start_box($header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', false, 3, 'center', '');
 
 	draw_edit_form(
 		[
@@ -1279,7 +1282,7 @@ function templates_general($id) {
  *                                  label, used for the measurands tab's
  *                                  bulk actions.
  */
-function form_actions() {
+function form_actions(): void {
 	global $template_actions, $variable_actions, $measurand_actions;
 
 	if (get_nfilter_request_var('tab') == 'general') {
@@ -1325,6 +1328,10 @@ function form_actions() {
 						FROM plugin_reportit_templates
 						WHERE id = ?',
 						[$selected_items[$i]]);
+
+					if (!is_array($template_data)) {
+						$template_data = [];
+					}
 
 					$template_data['id'] = 0;
 
@@ -1402,7 +1409,7 @@ function form_actions() {
 						FROM plugin_reportit_templates WHERE id = ?',
 						[$selected_items[$i]]);
 
-					if ($template_data === false || sizeof($template_data) == 0) {
+					if (!is_array($template_data) || cacti_sizeof($template_data) == 0) {
 						raise_message(2);
 						header('Location: templates.php');
 						exit;
@@ -1458,7 +1465,7 @@ function form_actions() {
 					WHERE id = ?',
 					[$id]);
 
-				if ($template === false) {
+				if (!is_array($template)) {
 					$template = ['name' => 'Unknown Template', 'description' => ''];
 				}
 
@@ -1485,7 +1492,7 @@ function form_actions() {
 
 		form_start('templates.php');
 
-		html_start_box($template_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
+		html_start_box($template_actions[get_request_var('drp_action')], '60%', false, 3, 'center', '');
 
 		if (get_request_var('drp_action') == '1') {
 			// delete report template(s)
@@ -1564,7 +1571,7 @@ function form_actions() {
 		$save_focus = ' class="ui-button ui-corner-all ui-widget ui-state-active"';
 		$save_html  = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
 
-		if ($ds_list === false || !is_array($ds_list) || empty($ds_list)) {
+		if (empty($ds_list)) {
 			print "<tr>
 				<td class='textArea'>
 					<span class='textError'>" . __('You must select at least one Report Template.', 'reportit') . '</span>
@@ -1613,8 +1620,10 @@ function form_actions() {
 		}
 
 		// Set preconditions
-		$ds_list = [];
-		$i       = 0;
+		$ds_list      = [];
+		$variable_ids = [];
+		$save_html    = '';
+		$i            = 0;
 
 		foreach ($_POST as $key => $value) {
 			if (strstr($key, 'chk_')) {
@@ -1639,7 +1648,7 @@ function form_actions() {
 
 		form_start('templates.php?action=template_edit&tab=variables&id=' . get_request_var('id') . '&tab=variables');
 
-		html_start_box($variable_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
+		html_start_box($variable_actions[get_request_var('drp_action')], '60%', false, 3, 'center', '');
 
 		if (get_request_var('drp_action') == '1') { // DELETE REPORT
 			print "<tr>
@@ -1699,7 +1708,7 @@ function form_actions() {
 				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
 				<input type='hidden' name='action' value='actions'>
 				<input type='hidden' name='tab' value='variables'>
-				<input type='hidden' name='selected_items' value='" . (isset($variable_ids) ? serialize($variable_ids) : '') . "'>
+				<input type='hidden' name='selected_items' value='" . serialize($variable_ids) . "'>
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 				$save_html
 			</td>
@@ -1732,8 +1741,10 @@ function form_actions() {
 		}
 
 		// Set preconditions
-		$ds_list = [];
-		$i       = 0;
+		$ds_list       = [];
+		$measurand_ids = [];
+		$save_html     = '';
+		$i             = 0;
 
 		foreach ($_POST as $key => $value) {
 			if (strstr($key, 'chk_')) {
@@ -1758,7 +1769,7 @@ function form_actions() {
 
 		form_start('measurands.php');
 
-		html_start_box($measurand_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
+		html_start_box($measurand_actions[get_request_var('drp_action')], '60%', false, 3, 'center', '');
 
 		if (get_request_var('drp_action') == '2') { // DELETE REPORT
 			print "<tr class='odd'>
@@ -1796,7 +1807,7 @@ function form_actions() {
 				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
 				<input type='hidden' name='action' value='actions'>
 				<input type='hidden' name='tab' value='measurands'>
-				<input type='hidden' name='selected_items' value='" . (isset($measurand_ids) ? serialize($measurand_ids) : '') . "'>
+				<input type='hidden' name='selected_items' value='" . serialize($measurand_ids) . "'>
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 				$save_html
 			</td>
@@ -1829,7 +1840,7 @@ function form_actions() {
  * @global array $desc_array       Populated here with the column header
  *                                definitions for the sortable table.
  */
-function variables() {
+function variables(): void {
 	global $variable_actions, $link_array, $list_of_modes, $var_types, $desc_array;
 
 	$desc_array = [
@@ -1893,6 +1904,10 @@ function variables() {
 		WHERE id = ?',
 		[get_request_var('id')]);
 
+	if (!is_array($template)) {
+		$template = [];
+	}
+
 	$i = 0;
 
 	$header_label = __('Variables [ Template: %s - %s ]', $template['name'], $template['description'], 'reportit');
@@ -1901,7 +1916,7 @@ function variables() {
 
 	form_hidden_box('tab', 'variables', '');
 
-	html_start_box($header_label, '100%', '', '3', 'center', 'templates.php?action=variable_edit&tab=variables&id=0&template_id=' . get_request_var('id'));
+	html_start_box($header_label, '100%', false, 3, 'center', 'templates.php?action=variable_edit&tab=variables&id=0&template_id=' . get_request_var('id'));
 
 	html_header_sort_checkbox($desc_array, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
@@ -1984,7 +1999,7 @@ function variables() {
  *                                display label, used to populate the
  *                                input-type dropdown.
  */
-function variable_edit() {
+function variable_edit(): void {
 	global $template_actions, $var_types;
 
 	// ================= input validation =================
@@ -1994,11 +2009,17 @@ function variable_edit() {
 
 	template_tabs(get_request_var('id'));
 
+	$variable_data = [];
+
 	if (!isempty_request_var('id')) {
 		$variable_data = db_fetch_row_prepared('SELECT *
 			FROM plugin_reportit_variables
 			WHERE id = ?',
 			[get_request_var('id')]);
+
+		if (!is_array($variable_data)) {
+			$variable_data = [];
+		}
 
 		$header_label = __('Variable Configuration [ edit: %s ]', $variable_data['name'], 'reportit');
 	} else {
@@ -2116,7 +2137,7 @@ function variable_edit() {
 		form_start('templates.php?action=template_edit&tab=variables&template_id=' . $template_id);
 	}
 
-	html_start_box($header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', false, 3, 'center', '');
 
 	draw_edit_form(
 		[
@@ -2155,25 +2176,35 @@ function variable_edit() {
  *                                       for the measurand's rounding
  *                                       precision field.
  */
-function measurand_edit() {
+function measurand_edit(): void {
 	global $template_actions, $rounding, $consolidation_functions, $type_specifier, $precision;
 
 	// ================= input validation =================
 	get_filter_request_var('id');
 	// ====================================================
 
+	$measurand_data = [];
+
 	$measurand_id = (isset_request_var('id') ? get_request_var('id') : '0');
-	$template_id  = (isset_request_var('template_id') ? get_request_var('template_id') : $measurand_data['template_id']);
+	$template_id  = (isset_request_var('template_id') ? get_request_var('template_id') : 0);
 
 	$template = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_templates
 		WHERE id = ?', [$template_id]);
+
+	if (!is_array($template)) {
+		$template = [];
+	}
 
 	if (!isempty_request_var('id')) {
 		$measurand_data = db_fetch_row_prepared('SELECT *
 			FROM plugin_reportit_measurands
 			WHERE id = ?',
 			[get_request_var('id')]);
+
+		if (!is_array($measurand_data)) {
+			$measurand_data = [];
+		}
 
 		$header_label = __('Metric Configuration [ edit: %s - %s ]', $template['name'], $measurand_data['description'], 'reportit');
 	} else {
@@ -2336,7 +2367,7 @@ function measurand_edit() {
 
 	form_start('templates.php?action=template_edit&tab=measurands&id=' . get_request_var('id') . '&template_id=' . $template_id);
 
-	html_start_box($header_label, '100%', '', '3', 'center', '');
+	html_start_box($header_label, '100%', false, 3, 'center', '');
 
 	draw_edit_form(
 		[
@@ -2368,7 +2399,7 @@ function measurand_edit() {
  *                                       display each measurand's
  *                                       consolidation setting.
  */
-function measurands() {
+function measurands(): void {
 	global $measurand_actions, $consolidation_functions;
 
 	// ================= input validation =================
@@ -2385,6 +2416,10 @@ function measurands() {
 		WHERE id = ?',
 		[get_request_var('id')]);
 
+	if (!is_array($template)) {
+		$template = [];
+	}
+
 	$i = 0;
 
 	$header_label = __('Metrics [ Template: %s - %s ]', $template['name'], $template['description'], 'reportit');
@@ -2393,7 +2428,7 @@ function measurands() {
 
 	form_hidden_box('tab', 'measurands', '');
 
-	html_start_box($header_label, '100%', '', '3', 'center', 'templates.php?action=measurand_edit&tab=measurands&id=0&template_id=' . get_request_var('id'));
+	html_start_box($header_label, '100%', false, 3, 'center', 'templates.php?action=measurand_edit&tab=measurands&id=0&template_id=' . get_request_var('id'));
 
 	$display_text = [
 		__('Name', 'reportit'),
@@ -2445,7 +2480,7 @@ function measurands() {
 
 	html_end_box(true);
 
-	draw_actions_dropdown($measurand_actions, 'templates.php?action=template_edit&tab=measurands&id=' . get_request_var('id'));
+	draw_actions_dropdown($measurand_actions);
 
 	form_end();
 }

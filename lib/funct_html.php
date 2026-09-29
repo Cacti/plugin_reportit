@@ -28,8 +28,10 @@
  * to the calculation formula
  * @param int $measurand_id contains the id of the current measurand
  * @param int $template_id  contains the id of the template which contains the measurand
+ *
+ * @return string The rendered variable/interim-result link HTML.
  */
-function html_calc_syntax($measurand_id, $template_id) {
+function html_calc_syntax($measurand_id, $template_id): string {
 	global $rubrics;
 
 	$rubrics[__('Variables', 'reportit')] = get_possible_variables($template_id);
@@ -95,7 +97,7 @@ function html_calc_syntax($measurand_id, $template_id) {
  * @return array|false The form field definitions array, or false if
  *                     the template defines no variables.
  */
-function html_report_variables($report_id, $template_id) {
+function html_report_variables(int $report_id, int $template_id): array|false {
 	// Define some variables
 	$array           = [];
 	$form_array_vars = [];
@@ -180,8 +182,10 @@ function html_report_variables($report_id, $template_id) {
  * an alias for every internal data source item.
  * @param int $template_id      - report template id, if available (new template => 0)
  * @param int $data_template_id - internal Cacti id of the used data template
+ *
+ * @return array The form field definitions for each data source item alias.
  */
-function html_template_ds_alias($template_id, $data_template_id) {
+function html_template_ds_alias($template_id, $data_template_id): array {
 	$form_array_alias  = [];
 	$data_source_items = [];
 
@@ -262,7 +266,7 @@ function html_template_ds_alias($template_id, $data_template_id) {
  *
  * @return string The rendered &lt;i&gt; icon HTML.
  */
-function html_onoff_icon($value, $class_on, $title_on, $class_off, $title_off) {
+function html_onoff_icon(string $value, string $class_on, string $title_on, string $class_off, string $title_off): string {
 	return $value == 'on'
 		? "<i class='fa $class_on' ria-hidden='true' title='$title_on'></i>"
 		: "<i class='fa $class_off' ria-hidden='true' title='$title_off'></i>";
@@ -278,7 +282,7 @@ function html_onoff_icon($value, $class_on, $title_on, $class_off, $title_off) {
  *
  * @return string The rendered lock/unlock icon HTML.
  */
-function html_lock_icon($value, $title_on = 'Locked', $title_off = 'Unlocked') {
+function html_lock_icon(string $value, string $title_on = 'Locked', string $title_off = 'Unlocked'): string {
 	return html_onoff_icon($value, 'fa-lock', $title_on, 'fa-lock-open', $title_off);
 }
 
@@ -292,7 +296,7 @@ function html_lock_icon($value, $title_on = 'Locked', $title_off = 'Unlocked') {
  *
  * @return string The rendered check/cross icon HTML.
  */
-function html_check_icon($value, $title_on = 'Yes', $title_off = 'No') {
+function html_check_icon(string $value, string $title_on = 'Yes', string $title_off = 'No'): string {
 	return html_onoff_icon($value, 'fa-check deviceUp', $title_on, 'fa-times deviceDown', $title_off);
 }
 
@@ -310,7 +314,7 @@ function html_check_icon($value, $title_on = 'Yes', $title_off = 'No') {
  * @return string The rendered icon HTML, with a '(N)' count suffix
  *                when applicable.
  */
-function html_sources_icon($values, $title_on, $title_off) {
+function html_sources_icon($values, string $title_on, string $title_off): string {
 	if (is_array($values)) {
 		$values = count($values);
 	}
@@ -318,5 +322,5 @@ function html_sources_icon($values, $title_on, $title_off) {
 	$value_text = ($values == null ? '' : ' (' . $values . ')');
 	$value_on   = ($values == null ? '' : 'on');
 
-	return html_onoff_icon($values, 'fa-plus', $title_off, 'fa-wrench', $title_on) . $value_text;
+	return html_onoff_icon((string) $values, 'fa-plus', $title_off, 'fa-wrench', $title_on) . $value_text;
 }

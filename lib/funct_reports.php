@@ -30,7 +30,7 @@
  *
  * @return void
  */
-function api_reportit_disable_report($id) {
+function api_reportit_disable_report(int $id): void {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET enabled = ""
 		WHERE id = ?',
@@ -45,7 +45,7 @@ function api_reportit_disable_report($id) {
  *
  * @return void
  */
-function api_reportit_enable_report($id) {
+function api_reportit_enable_report(int $id): void {
 	db_execute_prepared('UPDATE plugin_reportit_reports
 		SET enabled = "on"
 		WHERE id = ?',
@@ -61,7 +61,8 @@ function api_reportit_enable_report($id) {
  *
  * @return void
  */
-function api_reportit_delete_report($id) {
+function api_reportit_delete_report(int $id): void {
+	$counter_data_items = 0;
 	$counter_data_items += db_fetch_cell_prepared('SELECT COUNT(*)
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?',
@@ -88,7 +89,7 @@ function api_reportit_delete_report($id) {
  *
  * @return void
  */
-function api_reportit_duplicate_report($id, $addition) {
+function api_reportit_duplicate_report(int $id, string $addition): void {
 	// ================= input validation =================
 	input_validate_input_number($id);
 	// ====================================================
@@ -96,6 +97,10 @@ function api_reportit_duplicate_report($id, $addition) {
 	$report_data = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?', [$id]);
+
+	if (!is_array($report_data)) {
+		$report_data = [];
+	}
 
 	$report_data['id']   = 0;
 	$report_data['name'] = str_replace('<report_title>', $report_data['name'], $addition);
@@ -120,6 +125,10 @@ function api_reportit_duplicate_report($id, $addition) {
 		FROM plugin_reportit_presets
 		WHERE id = ?',
 		[$id]);
+
+	if (!is_array($report_presets)) {
+		$report_presets = [];
+	}
 
 	$report_presets['id'] = $new_id;
 
@@ -150,7 +159,7 @@ function api_reportit_duplicate_report($id, $addition) {
  *
  * @return void
  */
-function api_reportit_run_report($id) {
+function api_reportit_run_report(int $id): void {
 	$php_binary = read_config_option('path_php_binary');
 
 	// ================= input validation =================
@@ -172,7 +181,7 @@ function api_reportit_run_report($id) {
  *
  * @return void
  */
-function api_reportit_take_ownership($id, $user) {
+function api_reportit_take_ownership(int $id, int $user): void {
 	db_execute_prepared('UPDATE plugin_reportit_reports SET user_id = ? WHERE id = ?', [$user, $id]);
 }
 
@@ -187,7 +196,7 @@ function api_reportit_take_ownership($id, $user) {
  *
  * @return void
  */
-function api_reportit_remove_data_sources($id, $items) {
+function api_reportit_remove_data_sources(int $id, array $items): void {
 	$rrdlist_datas = db_fetch_assoc_prepared('SELECT id
 		FROM plugin_reportit_data_items
 		WHERE report_id = ?
@@ -210,11 +219,12 @@ function api_reportit_remove_data_sources($id, $items) {
  * row set if no presets exist) to each newly inserted item. Called from
  * the report's items tab 'add' action.
  *
- * @param int $id The report id to add data source items to.
+ * @param int   $id             The report id to add data source items to.
+ * @param array $selected_items The selected RRD/graph item ids to add.
  *
  * @return void
  */
-function api_reportit_add_data_source($id) {
+function api_reportit_add_data_source(int $id, array $selected_items): void {
 	$enable_tmz	 = read_config_option('reportit_use_tmz');
 	$tmz		       = ($enable_tmz) ? "'GMT'" : "'" . date('T') . "'";
 	$columns	    = '';
@@ -226,6 +236,10 @@ function api_reportit_add_data_source($id) {
 		FROM plugin_reportit_presets
 		WHERE id = ?',
 		[$id]);
+
+	if (!is_array($presets)) {
+		$presets = [];
+	}
 
 	if (cacti_sizeof($presets)) {
 		$presets['report_id'] = $id;
@@ -242,7 +256,7 @@ function api_reportit_add_data_source($id) {
 		$values .= ', ' . db_qstr($id);
 	}
 
-	foreach ($selected_items as $rd) {
+	foreach ((array) $selected_items as $rd) {
 		$rrd .= "($rd $values),";
 	}
 
@@ -266,7 +280,7 @@ function api_reportit_add_data_source($id) {
  *
  * @return void
  */
-function api_reportit_update_data_source($id, $reference_items) {
+function api_reportit_update_data_source(int $id, string $reference_items): void {
 	$reference_items = unserialize(stripslashes($reference_items), ['allowed_classes' => false]);
 
 	db_execute_prepared('UPDATE plugin_reportit_data_items

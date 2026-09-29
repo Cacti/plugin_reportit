@@ -146,7 +146,7 @@ if ($schedule == true) {
 		}
 	}
 } elseif ($run_id > 0) {
-	run_report($run_id, $queue_id);
+	run_report((int) $run_id, (int) $queue_id);
 }
 
 /**
@@ -172,7 +172,7 @@ if ($schedule == true) {
  *                               performed during this report run, for
  *                               the summary log line.
  */
-function run_report($report_id, $queue_id = 0) {
+function run_report($report_id, $queue_id = 0): void {
 	global $run_verb, $email_counter, $export_counter;
 
 	$start      = microtime(true);
@@ -185,6 +185,10 @@ function run_report($report_id, $queue_id = 0) {
 		AND report.template_id = template.id
 		WHERE report.id = ?",
 		[$report_id]);
+
+	if (!is_array($report)) {
+		$report = [];
+	}
 
 	if (!cacti_sizeof($report)) {
 		print PHP_EOL . PHP_EOL . 'ERROR: Invalid report ID !' . PHP_EOL;
@@ -266,7 +270,7 @@ function run_report($report_id, $queue_id = 0) {
  * @global string $PATH_DID_VIEW           View-oriented data-item-id
  *                                         link template fragment.
  */
-function run_error($code, $RID = 0, $DID = 0, $notice = '') {
+function run_error(int $code, int $RID = 0, int $DID = 0, string $notice = ''): void {
 	global $run_verb, $run_scheduled, $run_return, $run_search, $runtime_messages,
 	$PATH_RID_LOG, $PATH_DID_LOG, $PATH_RID_VIEW, $PATH_DID_VIEW;
 
@@ -275,7 +279,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice = '') {
 
 	$run_repl_log   = [ $notice, $PATH_RID_LOG,  $PATH_DID_LOG];
 	$run_repl_view  = [ $notice, $PATH_RID_VIEW, $PATH_DID_VIEW];
-	$run_repl_fin   = [ $notice, $RID, $DID];
+	$run_repl_fin   = [ (string) $notice, (string) $RID, (string) $DID];
 
 	$run_logging = str_replace($run_search, $run_repl_fin, $runtime_messages[$code]);
 
@@ -311,7 +315,7 @@ function run_error($code, $RID = 0, $DID = 0, $notice = '') {
  * @param int $start_time The Unix timestamp this run started at, used
  *                        for logging/statistics.
  *
- * @return void
+ * @return mixed
  *
  * @global array $timezones                Map of timezone identifiers
  *                                         used when rendering
@@ -383,6 +387,13 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		[$report_id]);
+
+	if (!is_array($report_settings)) {
+		$report_settings = [];
+	}
+
+	$rs_def = '';
+	$sp_def = '';
 
 	// ----- auto clean-up RRDlist -----
 	autocleanup($report_id);
@@ -560,8 +571,8 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		$shift_endday   = day_to_number($report_definitions['data_items'][$i]['end_day']);
 
 		// ----- Participate reporting times -----
-		[$s_hour, $s_min] = explode(':',$s_time);
-		[$e_hour, $e_min] = explode(':',$e_time);
+		[$s_hour, $s_min] = array_map('intval', explode(':', $s_time));
+		[$e_hour, $e_min] = array_map('intval', explode(':', $e_time));
 
 		if ($enable_tmz) {
 			if (!isset($timezones[$timezone])) {
@@ -575,8 +586,8 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		}
 
 		// ----- Participate reporting start- and enddate -----
-		[$s_year, $s_month, $s_day] = explode('-',$s_date);
-		[$e_year, $e_month, $e_day] = explode('-',$e_date);
+		[$s_year, $s_month, $s_day] = array_map('intval', explode('-', $s_date));
+		[$e_year, $e_month, $e_day] = array_map('intval', explode('-', $e_date));
 
 		// ----- Calculate correct timestamps -----
 		$f_sp = ($enable_tmz) ? gmmktime($s_hour - $offset_hour,$s_min - $offset_min,0,$s_month,$s_day,$s_year) : mktime($s_hour,$s_min,0,$s_month,$s_day,$s_year);
@@ -688,7 +699,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 		}
 
 		// ----- Generate all required informations for calculating -----
-		$rrd_ad_data = get_type_of_request($shift_startday, $shift_endday, $f_sp, $l_sp, $e_hour,
+		$rrd_ad_data = get_type_of_request((int) $shift_startday, (int) $shift_endday, (int) $f_sp, (int) $l_sp, $e_hour,
 			$shift_duration, $rrd_f_mp, $rrd_ep, $rrd_step,
 			$rrd_ds_cnt, $dst_support);
 
@@ -898,7 +909,9 @@ function runtime($report_id, $queue_id, $start_time = 0) {
 
 	// ----- Close socket connection if its open -----
 	if ($socket_handle != '' && !$run_scheduled) {
-		disc_rrdtool_server();
+		if (function_exists('disc_rrdtool_server')) {
+			disc_rrdtool_server();
+		}
 	}
 
 	// ----- Make a note of our endpoint -----
@@ -985,7 +998,7 @@ function runtime($report_id, $queue_id, $start_time = 0) {
  *
  * @return void
  */
-function autorrdlist($reportid) {
+function autorrdlist($reportid): void {
 	global $timezone, $shifttime, $shifttime2, $weekday;
 
 	// fetch data for current report
@@ -993,6 +1006,10 @@ function autorrdlist($reportid) {
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		[$reportid]);
+
+	if (!is_array($report_data)) {
+		$report_data = [];
+	}
 
 	$header_label = $report_data['description'] . ' ID: ' . $reportid;
 
@@ -1030,6 +1047,10 @@ function autorrdlist($reportid) {
 	    INNER JOIN plugin_reportit_templates AS b
 	    ON a.template_id = b.id
 	    WHERE a.id = ?', [$reportid]);
+
+	if (!is_array($template_filter)) {
+		$template_filter = [];
+	}
 
 	$sql_params = [];
 
@@ -1144,6 +1165,10 @@ function autorrdlist($reportid) {
 			WHERE id = ?',
 			[$reportid]);
 
+		if (!is_array($presets)) {
+			$presets = [];
+		}
+
 		if (cacti_sizeof($presets)) {
 			$presets['report_id'] = $reportid;
 
@@ -1184,7 +1209,7 @@ function autorrdlist($reportid) {
  *
  * @return void
  */
-function autocleanup($report_id) {
+function autocleanup($report_id): void {
 	$data_items = db_custom_fetch_flat_string("SELECT a.id
 		FROM plugin_reportit_data_items AS a
 		LEFT JOIN data_template_data AS b
@@ -1210,14 +1235,18 @@ function autocleanup($report_id) {
  * @param int $report_id The plugin_reportit_reports id whose output
  *                       should be exported.
  *
- * @return void
+ * @return bool
  */
-function autoexport($report_id) {
+function autoexport($report_id): bool {
 	// load report settings
 	$report_settings = db_fetch_row_prepared('SELECT *
 		FROM plugin_reportit_reports
 		WHERE id = ?',
 		[$report_id]);
+
+	if (!is_array($report_settings)) {
+		$report_settings = [];
+	}
 
 	// main export folder
 	$main_folder = read_config_option('reportit_exp_folder');
@@ -1299,7 +1328,7 @@ function autoexport($report_id) {
 			while (false !== ($file = readdir($path_handle))) {
 				if (substr($file, -$file_format_length) == $file_type) {
 					[$start, $end]        = explode('_', $file);
-					[$year, $month, $day] = explode('-', $start);
+					[$year, $month, $day] = array_map('intval', explode('-', $start));
 
 					$files[mktime(0,0,0,$month, $day, $year)] = $file;
 				}
@@ -1361,7 +1390,7 @@ function autoexport($report_id) {
 /**
  * display_version - displays version information
  */
-function display_version() {
+function display_version(): void {
 	$version = plugin_reportit_version()['version'];
 	print "ReportIt Main Poller, Version $version, " . COPYRIGHT_YEARS . PHP_EOL;
 }
@@ -1373,7 +1402,7 @@ function display_version() {
  *
  * @return void
  */
-function display_help() {
+function display_help(): void {
 	display_version();
 
 	print PHP_EOL;
