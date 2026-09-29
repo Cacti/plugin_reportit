@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-27 11:16-0400\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
 "PO-Revision-Date: 2026-09-12 08:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\n"
@@ -18,2485 +18,2426 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: include/global_arrays.php:27 include/global_arrays.php:34
-#: include/global_arrays.php:37 include/global_arrays.php:40
-#: include/global_arrays.php:44 lib/const_reports.php:28
-#: lib/const_variables.php:28 templates.php:44 templates.php:67
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
 msgid "Delete"
 msgstr "Ta bort"
 
-#: include/global_arrays.php:28 include/global_arrays.php:41
-#: include/global_arrays.php:45 lib/const_reports.php:30
+#: include/global_arrays.php lib/const_reports.php
 msgid "Duplicate"
 msgstr "Duplicera"
 
-#: include/global_arrays.php:29
+#: include/global_arrays.php
 msgid "Lock"
 msgstr "Lås"
 
-#: include/global_arrays.php:30
+#: include/global_arrays.php
 msgid "Unlock"
 msgstr "Lås upp"
 
-#: include/global_arrays.php:31 setup.php:323 setup.php:329 setup.php:335
-#: templates.php:1578
+#: include/global_arrays.php setup.php templates.php
 msgid "Export"
 msgstr "Exportera"
 
-#: include/global_arrays.php:51 include/global_arrays.php:72
-#: include/global_forms.php:48 lib/const_reports.php:428
-#: lib/const_variables.php:51 reportit.php:412 reportit.php:1224
-#: templates.php:292 templates.php:687 templates.php:1837 templates.php:2038
-#: templates.php:2202 templates.php:2399 view.php:322
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
 msgid "Name"
 msgstr "Namn"
 
-#: include/global_arrays.php:52 lib/const_variables.php:52 templates.php:1842
+#: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Internal Name"
 msgstr "Internt namn"
 
-#: include/global_arrays.php:53 lib/const_variables.php:53
-#: lib/const_view.php:106 templates.php:1846
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
 msgid "Maximum"
 msgstr "Maximal"
 
-#: include/global_arrays.php:54 lib/const_variables.php:54
-#: lib/const_view.php:105 templates.php:1850
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
 msgid "Minimum"
 msgstr "Minimum"
 
-#: include/global_arrays.php:55 lib/const_variables.php:55 reportit.php:185
-#: reportit.php:1426 templates.php:495 templates.php:1854 view.php:262
-#: view.php:775
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
 msgid "Default"
 msgstr "Standard"
 
-#: include/global_arrays.php:56 templates.php:1858 templates.php:2084
+#: include/global_arrays.php templates.php
 msgid "Stepping"
 msgstr "Kliva"
 
-#: include/global_arrays.php:57 lib/const_variables.php:56 templates.php:1862
+#: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input Type"
 msgstr "Typ"
 
-#: include/global_arrays.php:58 templates.php:1866
+#: include/global_arrays.php templates.php
 msgid "Options"
 msgstr "Alternativ"
 
-#: include/global_arrays.php:61 include/global_arrays.php:71 reportit.php:1380
-#: templates.php:693
+#: include/global_arrays.php reportit.php templates.php
 msgid "ID"
 msgstr "ID"
 
-#: include/global_arrays.php:62 templates.php:2209 templates.php:2400
+#: include/global_arrays.php templates.php
 msgid "Abbreviation"
 msgstr "Förkortning"
 
-#: include/global_arrays.php:63
+#: include/global_arrays.php
 msgid "Group"
 msgstr "Grupp"
 
-#: include/global_arrays.php:64 templates.php:2216 templates.php:2401
+#: include/global_arrays.php templates.php
 msgid "Unit"
 msgstr "Enhet"
 
-#: include/global_arrays.php:65 templates.php:2402
+#: include/global_arrays.php templates.php
 msgid "Consolidation Function"
 msgstr "Funktion för konsolidering"
 
-#: include/global_arrays.php:66 templates.php:2231 templates.php:2403
+#: include/global_arrays.php templates.php
 msgid "Visible"
 msgstr "Synlig"
 
-#: include/global_arrays.php:67 templates.php:2239 templates.php:2404
+#: include/global_arrays.php templates.php
 msgid "Separate"
 msgstr "Separera"
 
-#: include/global_arrays.php:68 templates.php:2278 templates.php:2405
+#: include/global_arrays.php templates.php
 msgid "Calculation Formula"
 msgstr "Beräkningsformel"
 
-#: include/global_arrays.php:73
+#: include/global_arrays.php
 msgid "Generic ID"
 msgstr "Allmänt ID"
 
-#: include/global_arrays.php:74
+#: include/global_arrays.php
 msgid "Elements"
 msgstr "Element"
 
-#: include/global_arrays.php:75 include/global_arrays.php:84 setup.php:347
-#: templates.php:148 templates.php:723
+#: include/global_arrays.php setup.php templates.php
 msgid "Metrics"
 msgstr "Mätvärde"
 
-#: include/global_arrays.php:76
+#: include/global_arrays.php
 msgid "Associated Data Templates"
 msgstr "Associerade datamallar"
 
-#: include/global_arrays.php:81 include/global_forms.php:43
-#: lib/const_reports.php:124 lib/const_reports.php:184
-#: lib/const_reports.php:279 lib/const_reports.php:424 reportit.php:1747
-#: setup.php:543 templates.php:146 templates.php:2027 templates.php:2197
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
 msgid "General"
 msgstr "Allmän"
 
-#: include/global_arrays.php:82
+#: include/global_arrays.php
 msgid "Data Templates"
 msgstr "Dataskärmar"
 
-#: include/global_arrays.php:83
+#: include/global_arrays.php
 msgid "Groups"
 msgstr "Grupper"
 
-#: include/global_arrays.php:85 include/global_arrays.php:530
-#: lib/const_measurands.php:355 lib/funct_html.php:35 lib/funct_html.php:127
-#: setup.php:371 templates.php:147 templates.php:728
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
 msgid "Variables"
 msgstr "Variabler"
 
-#: include/global_arrays.php:90 lib/const_reports.php:76
+#: include/global_arrays.php lib/const_reports.php
 msgid "Today"
 msgstr "Idag"
 
-#: include/global_arrays.php:91 lib/const_reports.php:77
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 1 Day"
 msgstr "Sista 1 dagen"
 
-#: include/global_arrays.php:92 lib/const_reports.php:78
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Days"
 msgstr "Senaste 2 dagarna"
 
-#: include/global_arrays.php:93 lib/const_reports.php:79
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 3 Days"
 msgstr "Senaste 3 dagarna"
 
-#: include/global_arrays.php:94 lib/const_reports.php:80
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 4 Days"
 msgstr "Senaste 4 dagarna"
 
-#: include/global_arrays.php:95 lib/const_reports.php:81
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 5 Days"
 msgstr "Senaste 5 dagarna"
 
-#: include/global_arrays.php:96 lib/const_reports.php:82
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 6 Days"
 msgstr "Senaste 6 dagarna"
 
-#: include/global_arrays.php:97 lib/const_reports.php:83
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 7 Days"
 msgstr "Senaste 7 dagarna"
 
-#: include/global_arrays.php:98 lib/const_reports.php:84
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last Week (Sun - Sat)"
 msgstr "Förra veckan (sön - lör)"
 
-#: include/global_arrays.php:99 lib/const_reports.php:85
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last Week (Mon - Sun)"
 msgstr "Förra veckan (mån - sön)"
 
-#: include/global_arrays.php:100 lib/const_reports.php:86
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 14 Days"
 msgstr "Senaste 14 dagarna"
 
-#: include/global_arrays.php:101 lib/const_reports.php:87
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 21 Days"
 msgstr "Senaste 21 dagarna"
 
-#: include/global_arrays.php:102 lib/const_reports.php:88
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 28 Days"
 msgstr "Senaste 28 dagarna"
 
-#: include/global_arrays.php:103 lib/const_reports.php:89
+#: include/global_arrays.php lib/const_reports.php
 msgid "Current Month"
 msgstr "Aktuell månad"
 
-#: include/global_arrays.php:104 lib/const_reports.php:90
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last Month"
 msgstr "Föregående månad"
 
-#: include/global_arrays.php:105 lib/const_reports.php:91
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Months"
 msgstr "Senaste 2 månaderna"
 
-#: include/global_arrays.php:106 lib/const_reports.php:92
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 3 Months"
 msgstr "Senaste 3 månaderna"
 
-#: include/global_arrays.php:107 lib/const_reports.php:93
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 4 Months"
 msgstr "Senaste 4 månaderna"
 
-#: include/global_arrays.php:108 lib/const_reports.php:94
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 5 Months"
 msgstr "Senaste 5 månaderna"
 
-#: include/global_arrays.php:109 lib/const_reports.php:95
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 6 Months"
 msgstr "Senaste 6 månaderna"
 
-#: include/global_arrays.php:110 lib/const_reports.php:96
+#: include/global_arrays.php lib/const_reports.php
 msgid "Current Year"
 msgstr "Aktuellt år"
 
-#: include/global_arrays.php:111 lib/const_reports.php:97
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last Year"
 msgstr "Föregående år"
 
-#: include/global_arrays.php:112 lib/const_reports.php:98
+#: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Years"
 msgstr "De senaste 2 åren"
 
-#: include/global_arrays.php:116 lib/const_reports.php:108
+#: include/global_arrays.php lib/const_reports.php
 msgid "Daily"
 msgstr "Dagligen"
 
-#: include/global_arrays.php:117 lib/const_reports.php:109
+#: include/global_arrays.php lib/const_reports.php
 msgid "Weekly"
 msgstr "Veckovis"
 
-#: include/global_arrays.php:118 lib/const_reports.php:110
+#: include/global_arrays.php lib/const_reports.php
 msgid "Monthly"
 msgstr "Månadsvis"
 
-#: include/global_arrays.php:119 lib/const_reports.php:111
+#: include/global_arrays.php lib/const_reports.php
 msgid "Quarterly"
 msgstr "Kvartalsvis"
 
-#: include/global_arrays.php:120 lib/const_reports.php:112
+#: include/global_arrays.php lib/const_reports.php
 msgid "Yearly"
 msgstr "Årlig"
 
-#: include/global_arrays.php:124 lib/const_variables.php:32 templates.php:48
+#: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Dropdown"
 msgstr "Rullgardin"
 
-#: include/global_arrays.php:125 lib/const_variables.php:33 templates.php:49
+#: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input field"
 msgstr "Inmatningsfält"
 
-#: include/global_arrays.php:130 include/global_arrays.php:142
-#: lib/const_measurands.php:378 lib/const_reports.php:159
-#: lib/const_reports.php:231 lib/const_reports.php:314
-#: lib/const_reports.php:322 lib/const_view.php:102
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
 msgid "None"
 msgstr "inget"
 
-#: include/global_arrays.php:131 lib/const_measurands.php:367
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Binary"
 msgstr "Binär"
 
-#: include/global_arrays.php:132 lib/const_measurands.php:368
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Floating point"
 msgstr "Flyttal"
 
-#: include/global_arrays.php:133 lib/const_measurands.php:369
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Integer"
 msgstr "Heltal"
 
-#: include/global_arrays.php:134 lib/const_measurands.php:370
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Integer (unsigned)"
 msgstr "Heltal (osignerat)"
 
-#: include/global_arrays.php:135 lib/const_measurands.php:371
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Hexadecimal (lower-case)"
 msgstr "Hexadecimal (gemener)"
 
-#: include/global_arrays.php:136 lib/const_measurands.php:372
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Hexadecimal (upper-case)"
 msgstr "Hexadecimal (versaler)"
 
-#: include/global_arrays.php:137 lib/const_measurands.php:373
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Octal"
 msgstr "Oktalt"
 
-#: include/global_arrays.php:138 lib/const_measurands.php:374
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Scientific Notation"
 msgstr "Vetenskaplig notation"
 
-#: include/global_arrays.php:152 lib/const_measurands.php:388
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Unchanged"
 msgstr "Oförändrad"
 
-#: include/global_arrays.php:156 lib/const_measurands.php:361
+#: include/global_arrays.php lib/const_measurands.php
 msgid "off"
 msgstr "av"
 
-#: include/global_arrays.php:157 lib/const_measurands.php:362
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Binary SI-Prefixes (Base 1024)"
 msgstr "Binära SI-prefix (Bas 1024)"
 
-#: include/global_arrays.php:158 lib/const_measurands.php:363
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Decimal SI-Prefixes (Base 1000)"
 msgstr "Decimala SI-prefix (bas 1000)"
 
-#: include/global_arrays.php:164 lib/const_measurands.php:27
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_avg - Arithmetic Average"
 msgstr "f_avg - Aritmetiskt medelvärde"
 
-#: include/global_arrays.php:165 lib/const_measurands.php:28
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the average value of all measured values per DS"
 msgstr "Returnerar medelvärdet för alla uppmätta värden per DS"
 
-#: include/global_arrays.php:166 include/global_arrays.php:173
-#: include/global_arrays.php:180 include/global_arrays.php:187
-#: include/global_arrays.php:194 include/global_arrays.php:201
-#: include/global_arrays.php:208 include/global_arrays.php:215
-#: include/global_arrays.php:222 include/global_arrays.php:229
-#: include/global_arrays.php:236 include/global_arrays.php:243
-#: include/global_arrays.php:250 include/global_arrays.php:257
-#: lib/const_measurands.php:29 lib/const_measurands.php:36
-#: lib/const_measurands.php:43 lib/const_measurands.php:50
-#: lib/const_measurands.php:57 lib/const_measurands.php:64
-#: lib/const_measurands.php:71 lib/const_measurands.php:78
-#: lib/const_measurands.php:85 lib/const_measurands.php:92
-#: lib/const_measurands.php:99 lib/const_measurands.php:106
-#: lib/const_measurands.php:113 lib/const_measurands.php:120
+#: include/global_arrays.php lib/const_measurands.php
 msgid "none"
 msgstr "inget"
 
-#: include/global_arrays.php:171 lib/const_measurands.php:34
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_max - Maximum Value"
 msgstr "f_max - Maximalt värde"
 
-#: include/global_arrays.php:172 lib/const_measurands.php:35
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the highest measured value per DS"
 msgstr "Returnerar det högsta uppmätta värdet per DS"
 
-#: include/global_arrays.php:178 lib/const_measurands.php:41
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_min - Minimum Value"
 msgstr "f_min - Minsta värde"
 
-#: include/global_arrays.php:179 lib/const_measurands.php:42
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the lowest measured value per DS"
 msgstr "Returnerar det lägsta uppmätta värdet per DS"
 
-#: include/global_arrays.php:185 lib/const_measurands.php:48
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_sum - Sum"
 msgstr "f_sum - Summa"
 
-#: include/global_arrays.php:186 lib/const_measurands.php:49
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of all measured values per DS"
 msgstr "Returnerar summan av alla uppmätta värden per DS"
 
-#: include/global_arrays.php:192 lib/const_measurands.php:55
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_num - Number of Values (Not NaN)"
 msgstr "f_num - Antal värden (inte NaN)"
 
-#: include/global_arrays.php:193 lib/const_measurands.php:56
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the number of valid measured values per DS"
 msgstr "Returnerar antalet giltiga uppmätta värden per DS"
 
-#: include/global_arrays.php:199 lib/const_measurands.php:62
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_grd - Gradient"
 msgstr "f_grd - Lutning"
 
-#: include/global_arrays.php:200 lib/const_measurands.php:63
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the gradient of a straight line by using linear regression per DS"
 msgstr "Returnerar gradienten för en rak linje med hjälp av linjär regression per DS"
 
-#: include/global_arrays.php:206 lib/const_measurands.php:69
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_last - Last Value"
 msgstr "f_last - Sista värdet"
 
-#: include/global_arrays.php:207 lib/const_measurands.php:70
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the last valid measured value per DS"
 msgstr "Returnerar det sista giltiga uppmätta värdet per DS"
 
-#: include/global_arrays.php:213 lib/const_measurands.php:76
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_1st - First Value"
 msgstr "f_1st - Första värdet"
 
-#: include/global_arrays.php:214 lib/const_measurands.php:77
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the first valid measured value per DS"
 msgstr "Returnerar det första giltiga uppmätta värdet per DS"
 
-#: include/global_arrays.php:220 lib/const_measurands.php:83
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_nan - Number of NaNs"
 msgstr "f_nan - Antal NaN"
 
-#: include/global_arrays.php:221 lib/const_measurands.php:84
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the number of NaNs stored per DS"
 msgstr "Returnerar antalet NaN som lagras per DS"
 
-#: include/global_arrays.php:227 lib/const_measurands.php:90
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_median - Median"
 msgstr "f_median - Median"
 
-#: include/global_arrays.php:228 lib/const_measurands.php:91
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns that value that separates the higher half from the lower half per DS"
 msgstr "Returnerar det värde som skiljer den övre halvan från den nedre halvan per DS"
 
-#: include/global_arrays.php:234 lib/const_measurands.php:104
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_range - Range"
 msgstr "f_range - Räckvidd"
 
-#: include/global_arrays.php:235 lib/const_measurands.php:105
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the difference between the largest and the smallest value per DS"
 msgstr "Returnerar differensen mellan det största och det minsta värdet per DS"
 
-#: include/global_arrays.php:241 lib/const_measurands.php:111
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_iqr - Interquartile Range"
 msgstr "f_iqr - Intervall mellan kvartiler"
 
-#: include/global_arrays.php:242 lib/const_measurands.php:112
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the distance of the middle50&#037; around the median per DS"
 msgstr "Returnerar avståndet för de mellersta 50 % runt medianen per DS"
 
-#: include/global_arrays.php:248 lib/const_measurands.php:118
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_sd - Standard Deviation"
 msgstr "f_sd - Standardavvikelse"
 
-#: include/global_arrays.php:249 lib/const_measurands.php:119
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the square root per data source variance"
 msgstr "Returnerar kvadratroten per varians för datakällan"
 
-#: include/global_arrays.php:255
+#: include/global_arrays.php
 msgid "f_var - Variance"
 msgstr "f_var - Varians"
 
-#: include/global_arrays.php:256
+#: include/global_arrays.php
 msgid "Returns the variance per DS"
 msgstr "Returnerar variansen per DS"
 
-#: include/global_arrays.php:264 lib/const_measurands.php:149
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_xth - Xth Percentile"
 msgstr "f_xth - X:e percentilen"
 
-#: include/global_arrays.php:265 lib/const_measurands.php:150
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the xth percentitle."
 msgstr "Returnerar den x:e percentitlen."
 
-#: include/global_arrays.php:266 lib/const_measurands.php:151
+#: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
 msgstr "$var: tröskelvärde i procent. Räckvidd: [0&lt; $var ≤100]"
 
-#: include/global_arrays.php:272 lib/const_measurands.php:156
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_dot - Duration Over Threshold"
 msgstr "f_dot - Varaktighet över tröskelvärde"
 
-#: include/global_arrays.php:273 lib/const_measurands.php:157
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the duration over a defined threshold in percent."
 msgstr "Returnerar varaktigheten över ett definierat tröskelvärde i procent."
 
-#: include/global_arrays.php:274 include/global_arrays.php:282
-#: lib/const_measurands.php:158 lib/const_measurands.php:165
+#: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold (absolute)"
 msgstr "$var: tröskelvärde (absolut)"
 
-#: include/global_arrays.php:280 lib/const_measurands.php:163
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_sot - Sum Over Threshold"
 msgstr "f_sot - Summa över tröskelvärdet"
 
-#: include/global_arrays.php:281 lib/const_measurands.php:164
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of values over a defined threshold."
 msgstr "Returnerar summan av värdena över ett definierat tröskelvärde."
 
-#: include/global_arrays.php:288 lib/const_measurands.php:170
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_floor - Round Fractions Down"
 msgstr "f_floor - Avrunda bråk nedåt"
 
-#: include/global_arrays.php:289 include/global_arrays.php:355
-#: lib/const_measurands.php:131 lib/const_measurands.php:171
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the next lowest integer value by rounding down value if necessary."
 msgstr "Returnerar det näst lägsta heltalsvärdet genom att avrunda värdet nedåt om det behövs."
 
-#: include/global_arrays.php:290 include/global_arrays.php:298
-#: include/global_arrays.php:356 lib/const_measurands.php:132
-#: lib/const_measurands.php:172 lib/const_measurands.php:179
+#: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float"
 msgstr "$var: flyta"
 
-#: include/global_arrays.php:296 lib/const_measurands.php:177
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_ceil - Round Fractions Up"
 msgstr "f_ceil - Avrunda bråk uppåt"
 
-#: include/global_arrays.php:297 lib/const_measurands.php:178
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the next highest integer value by rounding up value if necessary."
 msgstr "Returnerar det näst högsta heltalsvärdet genom att avrunda värdet uppåt om det behövs."
 
-#: include/global_arrays.php:304 lib/const_measurands.php:184
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_round - Round A Float"
 msgstr "f_round - Runda Ett Flöte"
 
-#: include/global_arrays.php:305 include/global_arrays.php:363
-#: lib/const_measurands.php:138 lib/const_measurands.php:185
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
 msgstr "Returnerar det avrundade heltalsvärdet för ett givet flyttal."
 
-#: include/global_arrays.php:306 include/global_arrays.php:364
-#: lib/const_measurands.php:139 lib/const_measurands.php:186
+#: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float or string value"
 msgstr "$var: flyttal eller strängvärde"
 
-#: include/global_arrays.php:312 lib/const_measurands.php:191
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Highest Value"
 msgstr "f_high - Hitta högsta värde"
 
-#: include/global_arrays.php:313 lib/const_measurands.php:192
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the highest value of a given list of parameters"
 msgstr "Returnerar det högsta värdet i en given lista med parametrar"
 
-#: include/global_arrays.php:314 include/global_arrays.php:322
-#: lib/const_measurands.php:193 lib/const_measurands.php:200
+#: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
 msgstr "$var 1, $var 2, $var 3 ...: värden som ska jämföras"
 
-#: include/global_arrays.php:320 lib/const_measurands.php:198
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
 msgstr "f_high - Hitta lägsta värde"
 
-#: include/global_arrays.php:321 lib/const_measurands.php:199
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the lowest value of a given list of parameters"
 msgstr "Returnerar det lägsta värdet i en given lista med parametrar"
 
-#: include/global_arrays.php:328 lib/const_measurands.php:205
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
 msgstr "f_if – villkorsstyrd åtgärd – IF-THEN-ELSE-logik"
 
-#: include/global_arrays.php:329 lib/const_measurands.php:206
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns B if A is true or C if A is false"
 msgstr "Returnerar B om A är sant eller C om A är falskt"
 
-#: include/global_arrays.php:336 lib/const_measurands.php:212
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_isNaN - Find whether a value is not a number"
 msgstr "f_isNaN - Ta reda på om ett värde inte är ett tal"
 
-#: include/global_arrays.php:337 include/global_arrays.php:345
-#: lib/const_measurands.php:213
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
 msgstr "Returnerar 1 (eller B) om A === NaN eller 0 (eller C) om inte. Parametrarna B och C är valfria."
 
-#: include/global_arrays.php:344
+#: include/global_arrays.php
 msgid "f_cmp - Complex Comparison"
 msgstr "f_cmp - Komplex jämförelse"
 
-#: include/global_arrays.php:354 lib/const_measurands.php:130
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_int - Alias of f_floor"
 msgstr "f_int - Alias för f_floor"
 
-#: include/global_arrays.php:362 lib/const_measurands.php:137
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_rnd - Alias of f_round"
 msgstr "f_rnd - Alias för f_round"
 
-#: include/global_arrays.php:370 lib/const_measurands.php:219
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_eq - Alias of f_cmp - IS EQUAL"
 msgstr "f_eq - Alias för f_cmp - ÄR LIKA"
 
-#: include/global_arrays.php:371 lib/const_measurands.php:220
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Returnerar 1 (eller C) om A == B eller 0 (eller D) om inte. Parametrarna C och D är valfria."
 
-#: include/global_arrays.php:378 lib/const_measurands.php:226
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
 msgstr "f_uq - Alias of f_cmp - ÄR OJÄMLIK"
 
-#: include/global_arrays.php:379 lib/const_measurands.php:227
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Returnerar 1 (eller C) om A != B eller 0 (eller D) om inte. Parametrarna C och D är valfria."
 
-#: include/global_arrays.php:386 lib/const_measurands.php:233
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
 msgstr "f_gt - Alias för f_cmp - ÄR STÖRRE ÄN"
 
-#: include/global_arrays.php:387 lib/const_measurands.php:234
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Returnerar 1 (eller C) om A > B eller 0 (eller D) om inte. Parametrarna C och D är valfria."
 
-#: include/global_arrays.php:394 lib/const_measurands.php:240
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
 msgstr "f_lt - Alias för f_cmp - ÄR LÄGRE ÄN"
 
-#: include/global_arrays.php:395 lib/const_measurands.php:241
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Returnerar 1 (eller C) om A < B eller 0 (eller D) om inte. Parametrarna C och D är valfria."
 
-#: include/global_arrays.php:402 lib/const_measurands.php:247
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
 msgstr "f_ge - Alias för f_cmp - ÄR STÖRRE ELLER LIKA MED"
 
-#: include/global_arrays.php:403 lib/const_measurands.php:248
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Returnerar 1 (eller C) om A >= B eller 0 (eller D) om inte. Parametrarna C och D är valfria."
 
-#: include/global_arrays.php:410 lib/const_measurands.php:254
+#: include/global_arrays.php lib/const_measurands.php
 msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
 msgstr "f_le - Alias för f_cmp - ÄR LÄGRE ELLER LIKA MED"
 
-#: include/global_arrays.php:411 lib/const_measurands.php:255
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
 msgstr "Returnerar 1 (eller C) om A <= B eller 0 (eller D) om inte. Parametrarna C och D är valfria."
 
-#: include/global_arrays.php:420 lib/const_measurands.php:266
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Addition"
 msgstr "Addition"
 
-#: include/global_arrays.php:421 lib/const_measurands.php:267
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the sum of two or more summands"
 msgstr "Matematisk operation för att returnera summan av två eller flera summander"
 
-#: include/global_arrays.php:427 lib/const_measurands.php:273
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Subtraction"
 msgstr "Subtraktion"
 
-#: include/global_arrays.php:428 lib/const_measurands.php:274
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
 msgstr "Matematisk operation för att returnera differensen mellan minuend och subtrahend"
 
-#: include/global_arrays.php:434 lib/const_measurands.php:280
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Multiplication"
 msgstr "Multiplikation"
 
-#: include/global_arrays.php:435 lib/const_measurands.php:281
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
 msgstr "Matematisk operation för att returnera produkten av multiplikatorn och multiplikatorn"
 
-#: include/global_arrays.php:441 lib/const_measurands.php:287
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Division"
 msgstr "Division"
 
-#: include/global_arrays.php:442 lib/const_measurands.php:288
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the fraction of divident and divisor"
 msgstr "Matematisk operation för att returnera bråkdelen av divident och divisorn"
 
-#: include/global_arrays.php:448 lib/const_measurands.php:294
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Modulus"
 msgstr "Modulus"
 
-#: include/global_arrays.php:449 lib/const_measurands.php:295
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the remainder of a division of two integers"
 msgstr "Matematisk operation för att returnera resten av en division av två heltal"
 
-#: include/global_arrays.php:455 lib/const_measurands.php:301
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Exponentiation - PHP5.6 or above required"
 msgstr "Exponentiering - PHP5.6 eller högre krävs"
 
-#: include/global_arrays.php:456 lib/const_measurands.php:302
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
 msgstr "Matematisk operation för att returnera den upprepade multiplikationen (eller divisionen) av en bas med dess exponent."
 
-#: include/global_arrays.php:464
+#: include/global_arrays.php
 msgid "Decimal Mark"
 msgstr "Decimaltecken"
 
-#: include/global_arrays.php:465
+#: include/global_arrays.php
 msgid "Decimal Mark used to separate the integer part from the fractional part"
 msgstr "Decimaltecken som används för att separera heltalsdelen från bråkdelen"
 
-#: include/global_arrays.php:473
+#: include/global_arrays.php
 msgid "Round Bracket"
 msgstr "Parentes"
 
-#: include/global_arrays.php:474 lib/const_measurands.php:312
-#: lib/const_measurands.php:319
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Used to override normal precedence or to mark the first level of nesting"
 msgstr "Används för att åsidosätta normal prioritet eller för att markera den första kapslingsnivån"
 
-#: include/global_arrays.php:481
+#: include/global_arrays.php
 msgid "Square Bracket"
 msgstr "Hakparentes"
 
-#: include/global_arrays.php:482 lib/const_measurands.php:326
-#: lib/const_measurands.php:333
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Used to override normal precedence or to mark the second level of nesting"
 msgstr "Används för att åsidosätta normal prioritet eller för att markera den andra nivån av kapsling"
 
-#: include/global_arrays.php:489
+#: include/global_arrays.php
 msgid "Punctuation mark"
 msgstr "Skiljetecken"
 
-#: include/global_arrays.php:490
+#: include/global_arrays.php
 msgid "Used to separate arguments forwarded to a function"
 msgstr "Används för att separera argument som vidarebefordras till en funktion"
 
-#: include/global_arrays.php:499
+#: include/global_arrays.php
 msgid "The minimum value of data that is allowed to be collected."
 msgstr "Minsta värdet på data som får samlas in."
 
-#: include/global_arrays.php:500 include/global_arrays.php:508
+#: include/global_arrays.php
 msgid "WARNING! This variable can be set to zero or unlimited"
 msgstr "VARNING! Den här variabeln kan ställas in på noll eller obegränsat"
 
-#: include/global_arrays.php:507
+#: include/global_arrays.php
 msgid "The maximum value of data that is allowed to be collected."
 msgstr "Det maximala värdet av data som får samlas in."
 
-#: include/global_arrays.php:515 lib/const_measurands.php:343
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Contains the number of seconds between two measured values."
 msgstr "Innehåller antalet sekunder mellan två uppmätta värden."
 
-#: include/global_arrays.php:524 lib/const_measurands.php:350
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Functions w/o parameters"
 msgstr "Funktioner utan parametrar"
 
-#: include/global_arrays.php:525 lib/const_measurands.php:351
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Functions with parameters"
 msgstr "Funktioner med parametrar"
 
-#: include/global_arrays.php:526 lib/const_measurands.php:352
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Aliases"
 msgstr "Alias"
 
-#: include/global_arrays.php:527 lib/const_measurands.php:353
+#: include/global_arrays.php lib/const_measurands.php
 msgid "Operators"
 msgstr "Operatörer"
 
-#: include/global_arrays.php:528
+#: include/global_arrays.php
 msgid "Numbers"
 msgstr "Nummer"
 
-#: include/global_arrays.php:529
+#: include/global_arrays.php
 msgid "Others"
 msgstr "Andra"
 
-#: include/global_arrays.php:531 lib/const_measurands.php:356
-#: lib/funct_html.php:38
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
 msgid "Data Query Variables"
 msgstr "Variabler för datafråga"
 
-#: include/global_arrays.php:532 lib/const_measurands.php:357
-#: lib/funct_html.php:41
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
 msgid "Interim Results"
 msgstr "Delårsresultat"
 
-#: include/global_arrays.php:536
+#: include/global_arrays.php
 msgid "Unlimited"
 msgstr "Obegränsad"
 
-#: include/global_arrays.php:537
+#: include/global_arrays.php
 msgid "500 Data Items"
 msgstr "500 uppgifter"
 
-#: include/global_arrays.php:538
+#: include/global_arrays.php
 msgid "1,000 Data Items"
 msgstr "1 000 dataobjekt"
 
-#: include/global_arrays.php:539
+#: include/global_arrays.php
 msgid "2,000 Data Items"
 msgstr "2 000 uppgifter"
 
-#: include/global_arrays.php:540
+#: include/global_arrays.php
 msgid "5,000 Data Source Items"
 msgstr "5.000 datakälla objekt"
 
-#: include/global_arrays.php:541
+#: include/global_arrays.php
 msgid "7,500 Data Source Items"
 msgstr "7 500 objekt i datakällan"
 
-#: include/global_arrays.php:542
+#: include/global_arrays.php
 msgid "10,000 Data Source Items"
 msgstr "10 000 datakälla objekt"
 
-#: include/global_arrays.php:543
+#: include/global_arrays.php
 msgid "15,000 Data Source Items"
 msgstr "15 000 datakälla objekt"
 
-#: include/global_arrays.php:544 include/global_arrays.php:545
+#: include/global_arrays.php
 msgid "25,000 Data Source Items"
 msgstr "25 000 datakällans artiklar"
 
-#: include/global_arrays.php:549
+#: include/global_arrays.php
 msgid "1 Minute"
 msgstr "1 Minut"
 
-#: include/global_arrays.php:550 include/global_arrays.php:551
-#: include/global_arrays.php:552 include/global_arrays.php:553
-#: include/global_arrays.php:554
+#: include/global_arrays.php
 #, php-format
 msgid "%d Minutes"
 msgstr "%d minuter"
 
-#: include/global_forms.php:51
+#: include/global_forms.php
 msgid "The unique name given to this Report Template."
 msgstr "Det unika namn som tilldelats den här rapportmallen."
 
-#: include/global_forms.php:55 templates.php:297 templates.php:2046
-#: view.php:1178
+#: include/global_forms.php templates.php view.php
 msgid "Description"
 msgstr "Beskrivning"
 
-#: include/global_forms.php:60
+#: include/global_forms.php
 msgid "A longer description of this Report Template."
 msgstr "En längre beskrivning av den här rapportmallen."
 
-#: include/global_forms.php:64 templates.php:294 templates.php:709
+#: include/global_forms.php templates.php
 msgid "Version"
 msgstr "Version"
 
-#: include/global_forms.php:67
+#: include/global_forms.php
 msgid "A version number for this template"
 msgstr "Ett versionsnummer för den här mallen"
 
-#: include/global_forms.php:72 templates.php:295 templates.php:699
+#: include/global_forms.php templates.php
 msgid "Author"
 msgstr "Författare"
 
-#: include/global_forms.php:75
+#: include/global_forms.php
 msgid "The author of this template"
 msgstr "Författaren till den här mallen"
 
-#: include/global_forms.php:81
+#: include/global_forms.php
 msgid "Publish"
 msgstr "Publicera"
 
-#: include/global_forms.php:82
+#: include/global_forms.php
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
 msgstr "Ska den här rapportmallen publiceras så att användarna kan komma åt den? För att testa nya mallar eller ändringar bör du avmarkera den här rutan."
 
-#: include/global_forms.php:86 templates.php:719
+#: include/global_forms.php templates.php
 msgid "Locked"
 msgstr "Låst"
 
-#: include/global_forms.php:88
+#: include/global_forms.php
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
 msgstr "Statusen \"låst\" undviker alla typer av ändringar i din rapportmall samt tilldelade mätstorheter och variabeldefinitioner"
 
-#: include/global_forms.php:92
+#: include/global_forms.php
 msgid "Additional Pre-filter"
 msgstr "Ytterligare förfilter"
 
-#: include/global_forms.php:95
+#: include/global_forms.php
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "Valfritt: Syntaxen för att filtrera den tillgängliga listan med dataobjekt efter deras beskrivning. Använd SQL-jokertecken som % and/eller _. Inga reguljära uttryck!"
 
-#: include/global_forms.php:100
+#: include/global_forms.php
 msgid "Export Path"
 msgstr "Exportera sökväg"
 
-#: include/global_forms.php:101
+#: include/global_forms.php
 msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
 msgstr "Valfritt: Sökvägen till en mapp där exporterna sparas.  Om den inte finns försöker ReportIt automatiskt att skapa den under den första schemalagda beräkningen, annars kommer den att försöka skapa en ny undermapp i huvudexportmappen med hjälp av mall-id."
 
-#: include/global_forms.php:108 include/global_forms.php:113
-#: include/global_forms.php:120 templates.php:296 templates.php:705
+#: include/global_forms.php templates.php
 msgid "Data Template"
 msgstr "Mall för data"
 
-#: include/global_forms.php:116 include/global_forms.php:123
+#: include/global_forms.php
 msgid "The name of the data template this Report Template depends on."
 msgstr "Namnet på den datamall som den här rapportmallen beror på."
 
-#: include/global_forms.php:134
+#: include/global_forms.php
 msgid "Report Template"
 msgstr "Mall för rapport"
 
-#: include/global_forms.php:135
+#: include/global_forms.php
 msgid "Choose one of your Report Templates to export to XML."
 msgstr "Välj en av dina rapportmallar som du vill exportera till XML."
 
-#: include/global_forms.php:144
+#: include/global_forms.php
 msgid "[Optional] Description"
 msgstr "[Valfritt] Beskrivning"
 
-#: include/global_forms.php:145
+#: include/global_forms.php
 msgid "Describe the characteristics of your report template"
 msgstr "Beskriv vad som kännetecknar rapportmallen"
 
-#: include/global_forms.php:154
+#: include/global_forms.php
 msgid "[Optional] Author"
 msgstr "[Valfritt] Författare"
 
-#: include/global_forms.php:155 include/global_forms.php:163
-#: include/global_forms.php:171
+#: include/global_forms.php
 msgid "Add your name or nick here."
 msgstr "Lägg till ditt namn eller smeknamn här."
 
-#: include/global_forms.php:162
+#: include/global_forms.php
 msgid "[Optional] Version"
 msgstr "[Valfritt] Version"
 
-#: include/global_forms.php:170
+#: include/global_forms.php
 msgid "[Optional] Contact"
 msgstr "[Valfritt] Kontakt"
 
-#: lib/const_graphs.php:62
+#: lib/const_graphs.php
 msgid "Bar (vertical)"
 msgstr "Stapel (vertikal)"
 
-#: lib/const_graphs.php:68
+#: lib/const_graphs.php
 msgid "Bar (horizontal)"
 msgstr "Stapel (horisontell)"
 
-#: lib/const_graphs.php:74
+#: lib/const_graphs.php
 msgid "Line"
 msgstr "Linje"
 
-#: lib/const_graphs.php:80
+#: lib/const_graphs.php
 msgid "Area"
 msgstr "Område"
 
-#: lib/const_graphs.php:87
+#: lib/const_graphs.php
 msgid "Pie chart 3D"
 msgstr "Cirkeldiagram 3D"
 
-#: lib/const_graphs.php:91 lib/const_view.php:79
+#: lib/const_graphs.php lib/const_view.php
 msgid "Spider"
 msgstr "Spindel"
 
-#: lib/const_measurands.php:97
+#: lib/const_measurands.php
 msgid "f_mode - Mode"
 msgstr "f_mode - Läge"
 
-#: lib/const_measurands.php:98
+#: lib/const_measurands.php
 msgid "Returns the value that appears most often per DS"
 msgstr "Returnerar det värde som visas oftast per DS"
 
-#: lib/const_measurands.php:311
+#: lib/const_measurands.php
 msgid "Left (Opening) parenthesis"
 msgstr "Vänster (inledande) parentes"
 
-#: lib/const_measurands.php:318
+#: lib/const_measurands.php
 msgid "Right (Closing) parenthesis"
 msgstr "Höger (Avslutande) parentes"
 
-#: lib/const_measurands.php:325
+#: lib/const_measurands.php
 msgid "Left (Opening) Square Bracket"
 msgstr "Vänster (öppnande) hakparentes"
 
-#: lib/const_measurands.php:332
+#: lib/const_measurands.php
 msgid "Right (Closing) Square Bracket"
 msgstr "Höger (stängande) hakparentes"
 
-#: lib/const_measurands.php:341
+#: lib/const_measurands.php
 msgid "Contains the maximum bandwidth if 'ifspeed' is available."
 msgstr "Innehåller den maximala bandbredden om \"ifspeed\" är tillgängligt."
 
-#: lib/const_measurands.php:342
+#: lib/const_measurands.php
 msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
 msgstr "Innehåller det maximala värdet som har definierats för det specifika datakällobjektet under \\\"Datakällor\\\"."
 
-#: lib/const_measurands.php:344
+#: lib/const_measurands.php
 msgid "Contains the number of NAN's during the reporting period."
 msgstr "Innehåller antalet NAN under rapporteringsperioden."
 
-#: lib/const_measurands.php:354
+#: lib/const_measurands.php
 msgid "Parentheses"
 msgstr "Parenteser"
 
-#: lib/const_reports.php:29
+#: lib/const_reports.php
 #, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
 msgstr "Inaktiverad"
 
-#: lib/const_reports.php:31 setup.php:591
+#: lib/const_reports.php setup.php
 msgid "Enable"
 msgstr "Aktivera"
 
-#: lib/const_reports.php:32
+#: lib/const_reports.php
 msgid "Run Now"
 msgstr "Kör nu"
 
-#: lib/const_reports.php:33
+#: lib/const_reports.php
 msgid "Take Ownership"
 msgstr ""
 
-#: lib/const_reports.php:37
+#: lib/const_reports.php
 msgid "CRASHED"
 msgstr "KRASCHADE"
 
-#: lib/const_reports.php:38
+#: lib/const_reports.php
 msgid "FAILED"
 msgstr "Misslyckad"
 
-#: lib/const_reports.php:39
+#: lib/const_reports.php
 msgid "Idle"
 msgstr "Sysslolös"
 
-#: lib/const_reports.php:40
+#: lib/const_reports.php
 msgid "Running"
 msgstr "Kör"
 
-#: lib/const_reports.php:50
+#: lib/const_reports.php
 msgid "- No template available -"
 msgstr "- Ingen mall tillgänglig -"
 
-#: lib/const_reports.php:62 lib/const_rrdlist.php:55 lib/funct_runtime.php:242
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
 msgstr "Måndag"
 
-#: lib/const_reports.php:63 lib/const_rrdlist.php:56 lib/funct_runtime.php:246
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Tuesday"
 msgstr "Tisdag"
 
-#: lib/const_reports.php:64 lib/const_rrdlist.php:57 lib/funct_runtime.php:250
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Wednesday"
 msgstr "Onsdag"
 
-#: lib/const_reports.php:65 lib/const_rrdlist.php:58 lib/funct_runtime.php:254
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Thursday"
 msgstr "Torsdag"
 
-#: lib/const_reports.php:66 lib/const_rrdlist.php:59 lib/funct_runtime.php:258
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Friday"
 msgstr "Fredag"
 
-#: lib/const_reports.php:67 lib/const_rrdlist.php:60 lib/funct_runtime.php:262
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Saturday"
 msgstr "Lördag"
 
-#: lib/const_reports.php:68 lib/const_rrdlist.php:61 lib/funct_runtime.php:266
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Sunday"
 msgstr "Söndag"
 
-#: lib/const_reports.php:125
+#: lib/const_reports.php
 msgid "Data Source Presets"
 msgstr "Förinställningar för datakälla"
 
-#: lib/const_reports.php:126 reportit.php:1225
+#: lib/const_reports.php reportit.php
 msgid "Email"
 msgstr "eMail"
 
-#: lib/const_reports.php:127 reportit.php:452 reportit.php:1499
+#: lib/const_reports.php reportit.php
 msgid "Data Sources"
 msgstr "Datakällor"
 
-#: lib/const_reports.php:160 lib/const_view.php:42
+#: lib/const_reports.php lib/const_view.php
 msgid "Text CSV (.csv)"
 msgstr "CSV-fil för text (.csv)"
 
-#: lib/const_reports.php:161 lib/const_view.php:44
+#: lib/const_reports.php lib/const_view.php
 msgid "MS Excel 2003 XML (.xml)"
 msgstr "MS Excel 2003 XML (.xml)"
 
-#: lib/const_reports.php:162 lib/const_view.php:43
+#: lib/const_reports.php lib/const_view.php
 msgid "Raw XML (.xml)"
 msgstr "Rå XML (.xml)"
 
-#: lib/const_reports.php:163
+#: lib/const_reports.php
 msgid "JSON Data (.json)"
 msgstr ""
 
-#: lib/const_reports.php:167
+#: lib/const_reports.php
 msgid "YAML Data (.yaml)"
 msgstr ""
 
-#: lib/const_reports.php:196
+#: lib/const_reports.php
 msgid "Subject"
 msgstr "Ämne"
 
-#: lib/const_reports.php:197
+#: lib/const_reports.php
 msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
 msgstr "Ange ämnet för ditt e-postmeddelande.<br> Följande variabler kommer att stödjas (utan citattecken): '|title|' och '|period|'"
 
-#: lib/const_reports.php:201
+#: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
 msgstr "Schemalagd rapport - |titel| - |period|"
 
-#: lib/const_reports.php:205
+#: lib/const_reports.php
 msgid "Body (optional)"
 msgstr "Brödtext (valfritt)"
 
-#: lib/const_reports.php:206
+#: lib/const_reports.php
 msgid "Enter a message which will be displayed in the body of your email"
 msgstr "Ange ett meddelande som kommer att visas i brödtexten i ditt e-postmeddelande"
 
-#: lib/const_reports.php:210
+#: lib/const_reports.php
 msgid "This is a scheduled report generated from Cacti."
 msgstr "Detta är en schemalagd rapport genererad från Cacti."
 
-#: lib/const_reports.php:214
+#: lib/const_reports.php
 msgid "Attachment"
 msgstr "Bilaga"
 
-#: lib/const_reports.php:216
+#: lib/const_reports.php
 msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
 msgstr "Om du bara vill få ett e-postmeddelande om att en ny rapport är tillgänglig väljer du \"Ingen\".<br> I annat fall väljer du det format som rapporten ska bifogas som."
 
-#: lib/const_reports.php:222
+#: lib/const_reports.php
 msgid "Email Recipients"
 msgstr "Mottagare av e-post"
 
-#: lib/const_reports.php:226
+#: lib/const_reports.php
 msgid "Notification List Recipients"
 msgstr "Mottagare av meddelandelista"
 
-#: lib/const_reports.php:227
+#: lib/const_reports.php
 msgid "To add a Recipients based upon an valid Notification List."
 msgstr "För att lägga till en mottagare baserat på en giltig meddelandelista."
 
-#: lib/const_reports.php:235
+#: lib/const_reports.php
 msgid "To Email Address(es)"
 msgstr ""
 
-#: lib/const_reports.php:241
+#: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
 msgstr ""
 
-#: lib/const_reports.php:246
+#: lib/const_reports.php
 msgid "BCC Address(es)"
 msgstr ""
 
-#: lib/const_reports.php:252
+#: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
 msgstr ""
 
-#: lib/const_reports.php:257
+#: lib/const_reports.php
 msgid "New Email Recipients"
 msgstr "Nya e-postmottagare"
 
-#: lib/const_reports.php:258
+#: lib/const_reports.php
 msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
 msgstr "Om du vill lägga till en ny mottagare anger du en giltig e-postadress (obligatoriskt) och ett namn (valfritt).<br> För en snabbare konfiguration kan du använda en lista med adresser/namn där namnen/adresserna är separerade med någon av följande rader: ';' eller ','"
 
-#: lib/const_reports.php:283
+#: lib/const_reports.php
 msgid "Optional Sub-heading"
 msgstr "Valfri underrubrik"
 
-#: lib/const_reports.php:284 reportit.php:1756
+#: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 msgstr "Definiera en ytterligare underrubrik som ska visas under gränssnittsbeskrivningen.<br> Följande variabler kommer att stödjas (utan citattecken): '|t1|' \"|t2|\" '|tmz|' \"|d1|\" \"|d2|\""
 
-#: lib/const_reports.php:295 reportit.php:1400 reportit.php:1767
+#: lib/const_reports.php reportit.php
 msgid "Time Zone"
 msgstr "Tidszon"
 
-#: lib/const_reports.php:296
+#: lib/const_reports.php
 msgid "Select the time zone your following shifttime informations will be based on."
 msgstr "Välj den tidszon som din följande skifttidsinformation kommer att baseras på."
 
-#: lib/const_reports.php:306
+#: lib/const_reports.php
 msgid "Optional Data Source Pre-Filters"
 msgstr "Förfilter för valfri datakälla"
 
-#: lib/const_reports.php:310
+#: lib/const_reports.php
 msgid "Site Filter"
 msgstr "Filter för webbplats"
 
-#: lib/const_reports.php:311
+#: lib/const_reports.php
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
 msgstr "Använd endast denna Site för att matcha datakällor.<br>Välj \"None\" (standard) för att inaktivera denna filterinställning."
 
-#: lib/const_reports.php:318
+#: lib/const_reports.php
 msgid "Device Template Filter"
 msgstr "Filter för enhetsmall"
 
-#: lib/const_reports.php:319
+#: lib/const_reports.php
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
 msgstr "Använd endast denna Device Templates Data Sources.<br>Välj \"None\" (standard) för att avaktivera denna filterinställning."
 
-#: lib/const_reports.php:326
+#: lib/const_reports.php
 msgid "Data Source Name Filter"
 msgstr "Filter för namn på datakälla"
 
-#: lib/const_reports.php:327
+#: lib/const_reports.php
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
 msgstr "Använd datakällor vars namn matchar detta filter.<br> Använd SQL-jokertecken som % and/eller _. Inga reguljära uttryck!"
 
-#: lib/const_reports.php:334
+#: lib/const_reports.php
 msgid "Auto Generated Data Items"
 msgstr "Automatiskt genererade dataobjekt"
 
-#: lib/const_reports.php:335
+#: lib/const_reports.php
 msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
 msgstr "Aktivera/inaktivera automatisk generering av alla dataobjekt baserat på givna filter. Detta kommer att anropas innan rapporten körs.  Föråldrade RRD:er kommer att tas bort och alla RRD:er som matchar filterinställningarna kommer att läggas till."
 
-#: lib/const_reports.php:341 reportit.php:1787
+#: lib/const_reports.php reportit.php
 msgid "Working Time"
 msgstr "Arbetstid"
 
-#: lib/const_reports.php:353 lib/const_reports.php:373 reportit.php:1791
-#: reportit.php:1829
+#: lib/const_reports.php reportit.php
 msgid "From"
 msgstr "Från"
 
-#: lib/const_reports.php:354 reportit.php:1792
+#: lib/const_reports.php reportit.php
 msgid "The startpoint of duration you want to analyse"
 msgstr "Startpunkten för varaktigheten som du vill analysera"
 
-#: lib/const_reports.php:361 lib/const_reports.php:381 reportit.php:1799
-#: reportit.php:1836
+#: lib/const_reports.php reportit.php
 msgid "To"
 msgstr "Till"
 
-#: lib/const_reports.php:362 reportit.php:1800
+#: lib/const_reports.php reportit.php
 msgid "The end of analysing time."
 msgstr "Slutet på analystiden."
 
-#: lib/const_reports.php:369 reportit.php:1825
+#: lib/const_reports.php reportit.php
 msgid "Working Days"
 msgstr "Arbetsdagar"
 
-#: lib/const_reports.php:374 reportit.php:1830
+#: lib/const_reports.php reportit.php
 msgid "Define the band of days where shift STARTS!"
 msgstr "Definiera bandet av dagar där skiftet STARTAR!"
 
-#: lib/const_reports.php:383 reportit.php:1837
+#: lib/const_reports.php reportit.php
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
 msgstr "Exempel: För ett nattskift från mån (22:30) till lör (06:30) definierar du måndag till fredag"
 
-#: lib/const_reports.php:429
+#: lib/const_reports.php
 msgid "The name given to this report"
 msgstr "Namnet på den här rapporten"
 
-#: lib/const_reports.php:435 lib/funct_export.php:107 lib/funct_export.php:679
-#: view.php:332
+#: lib/const_reports.php lib/funct_export.php view.php
 msgid "Template"
 msgstr "Mall"
 
-#: lib/const_reports.php:436
+#: lib/const_reports.php
 msgid "The template your configuration depends on"
 msgstr "Mallen som din konfiguration är beroende av"
 
-#: lib/const_reports.php:443 lib/funct_export.php:106 lib/funct_export.php:678
-#: view.php:327 view.php:857
+#: lib/const_reports.php lib/funct_export.php view.php
 msgid "Owner"
 msgstr "Ägare"
 
-#: lib/const_reports.php:444
+#: lib/const_reports.php
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "Ändra ägare till den här rapporten. Endast användare med behörigheten \"visa\" eller högre kan väljas."
 
-#: lib/const_reports.php:450 reportit.php:447 view.php:861
+#: lib/const_reports.php reportit.php view.php
 msgid "Enabled"
 msgstr "Aktiverad"
 
-#: lib/const_reports.php:451
+#: lib/const_reports.php
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
 msgstr "Aktivera/inaktivera schemalagd rapportering. Glidande tidsram ska vara aktiverad."
 
-#: lib/const_reports.php:457 reportit.php:442
+#: lib/const_reports.php reportit.php
 msgid "Public"
 msgstr "Offentlig"
 
-#: lib/const_reports.php:458
+#: lib/const_reports.php
 msgid "If enabled everyone can see your report under tab 'reports'"
 msgstr "Om det är aktiverat kan alla se din rapport under fliken \"rapporter\""
 
-#: lib/const_reports.php:464
+#: lib/const_reports.php
 msgid "Enable Use of Graph Permissions"
 msgstr "Aktivera användning av diagrambehörigheter"
 
-#: lib/const_reports.php:465
+#: lib/const_reports.php
 msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
 msgstr "Om det är aktiverat (standard) filtreras listan över tillgängliga dataobjekt automatiskt efter ägarens diagrambehörighet: \"per enhet\"."
 
-#: lib/const_reports.php:471
+#: lib/const_reports.php
 msgid "Auto Generated Email"
 msgstr "Automatiskt genererad e-post"
 
-#: lib/const_reports.php:472
+#: lib/const_reports.php
 msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
 msgstr "Om den är aktiverad kommer fliken \"E-post\" att aktiveras och alla mottagare som definieras under det avsnittet kommer automatiskt att få ett e-postmeddelande som innehåller denna schemalagda rapport."
 
-#: lib/const_reports.php:478
+#: lib/const_reports.php
 msgid "Reporting Period"
 msgstr "Rapporteringsperioden"
 
-#: lib/const_reports.php:482 view.php:858
+#: lib/const_reports.php view.php
 msgid "Sliding Time Frame"
 msgstr "Glidande tidsram"
 
-#: lib/const_reports.php:483
+#: lib/const_reports.php
 msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
 msgstr "Om det här alternativet är markerat konfigureras rapporteringsperioden automatiskt i förhållande till den tidpunkt då beräkningen startar."
 
-#: lib/const_reports.php:489
+#: lib/const_reports.php
 msgid "Time Frames"
 msgstr "Tidsramar"
 
-#: lib/const_reports.php:490
+#: lib/const_reports.php
 msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
 msgstr "Den tidsram som du vill analysera i förhållande till den tidpunkt då beräkningen startar.<br>Med detta menas kalenderdagar, kalendermånader och kalenderår."
 
-#: lib/const_reports.php:496
+#: lib/const_reports.php
 msgid "Up To The Day of Calculation"
 msgstr "Fram till beräkningsdagen"
 
-#: lib/const_reports.php:497
+#: lib/const_reports.php
 msgid "Extend the sliding time frame up to the day the calculation runs."
 msgstr "Förläng den glidande tidsramen upp till den dag då beräkningen körs."
 
-#: lib/const_reports.php:503
+#: lib/const_reports.php
 msgid "Fixed Time Frame - Start Date (From)"
 msgstr "Fast tidsram – startdatum (från)"
 
-#: lib/const_reports.php:504
+#: lib/const_reports.php
 msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "Om du vill definiera startdatumet använder du följande format: <b>åååå-mm-dd</b>"
 
-#: lib/const_reports.php:510
+#: lib/const_reports.php
 msgid "Fixed Time Frame - End Date (To)"
 msgstr "Fast tidsram - Slutdatum (till)"
 
-#: lib/const_reports.php:511
+#: lib/const_reports.php
 msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "Använd följande format för att definiera slutdatumet: <b>åååå-mm-dd</b>"
 
-#: lib/const_rrdlist.php:28
+#: lib/const_rrdlist.php
 msgid "Add to Report"
 msgstr "Lägg till i rapport"
 
-#: lib/const_rrdlist.php:29
+#: lib/const_rrdlist.php
 msgid "Remove from Report"
 msgstr "Ta bort från rapport"
 
-#: lib/const_rrdlist.php:30
+#: lib/const_rrdlist.php
 msgid "Copy Settings to All"
 msgstr "Kopiera inställningar till alla"
 
-#: lib/const_rrdlist.php:34 setup.php:233 setup.php:275 setup.php:305
+#: lib/const_rrdlist.php setup.php
 msgid "Add"
 msgstr "Lägg till"
 
-#: lib/const_view.php:74
+#: lib/const_view.php
 msgid "Bar chart: vertical"
 msgstr "Stapeldiagram: vertikalt"
 
-#: lib/const_view.php:75
+#: lib/const_view.php
 msgid "Bar chart: horizontal"
 msgstr "Stapeldiagram: horisontellt"
 
-#: lib/const_view.php:76
+#: lib/const_view.php
 msgid "Line chart"
 msgstr "Linjediagram"
 
-#: lib/const_view.php:77
+#: lib/const_view.php
 msgid "Area chart"
 msgstr "Områdesdiagram"
 
-#: lib/const_view.php:78
+#: lib/const_view.php
 msgid "Pie chart: 3D"
 msgstr "Cirkeldiagram: 3D"
 
-#: lib/const_view.php:83 lib/const_view.php:84 lib/const_view.php:85
-#: lib/const_view.php:86
+#: lib/const_view.php
 #, php-format
 msgid "%s Hi"
 msgstr "%s Hej"
 
-#: lib/const_view.php:87 lib/const_view.php:88 lib/const_view.php:89
-#: lib/const_view.php:90
+#: lib/const_view.php
 #, php-format
 msgid "%s Lo"
 msgstr "%s Lo"
 
-#: lib/const_view.php:94
+#: lib/const_view.php
 msgid "Any"
 msgstr "Vilken som helst"
 
-#: lib/const_view.php:103 view.php:689 view.php:708
+#: lib/const_view.php view.php
 msgid "All"
 msgstr ""
 
-#: lib/const_view.php:104
+#: lib/const_view.php
 msgid "Sum"
 msgstr "Summa"
 
-#: lib/const_view.php:107
+#: lib/const_view.php
 msgid "Average"
 msgstr "Medel"
 
-#: lib/funct_export.php:105 lib/funct_export.php:677
+#: lib/funct_export.php
 msgid "Report title"
 msgstr "Rapporttitel"
 
-#: lib/funct_export.php:108 lib/funct_export.php:680
+#: lib/funct_export.php
 msgid "Start"
 msgstr "Start"
 
-#: lib/funct_export.php:109 lib/funct_export.php:681
+#: lib/funct_export.php
 msgid "End"
 msgstr "Slut"
 
-#: lib/funct_export.php:110 lib/funct_export.php:682 view.php:860
+#: lib/funct_export.php view.php
 msgid "Last Run"
 msgstr "Senaste körning"
 
-#: lib/funct_html.php:68
+#: lib/funct_html.php
 #, php-format
 msgid "Description: %s"
 msgstr "Beskrivning: %s"
 
-#: lib/funct_html.php:69
+#: lib/funct_html.php
 #, php-format
 msgid "Syntax:      %s"
 msgstr "Syntax: %s"
 
-#: lib/funct_html.php:70
+#: lib/funct_html.php
 #, php-format
 msgid "Parameters:  %s"
 msgstr "Parametrar: %s"
 
-#: lib/funct_html.php:71
+#: lib/funct_html.php
 #, php-format
 msgid "Examples:    %s"
 msgstr "Exempel: %s"
 
-#: lib/funct_html.php:206
+#: lib/funct_html.php
 #, php-format
 msgid "Enable [%s]"
 msgstr "Aktivera [%s]"
 
-#: lib/funct_html.php:207
+#: lib/funct_html.php
 #, php-format
 msgid "Activate data source item '%s' for the calculation process."
 msgstr "Aktivera datakällans artikel \"%s\" för beräkningsprocessen."
 
-#: lib/funct_html.php:216
+#: lib/funct_html.php
 msgid "Data Source Alias"
 msgstr "Alias för datakälla"
 
-#: lib/funct_html.php:217
+#: lib/funct_html.php
 #, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
 msgstr "Valfritt: Du kan definiera ett alias som ska visas i stället för namnet på den interna datakällan \"%s\" i rapporterna."
 
-#: lib/funct_html.php:236
+#: lib/funct_html.php
 msgid "Separate Group Title [overall]"
 msgstr "Separat grupptitel [totalt]"
 
-#: lib/funct_html.php:237
+#: lib/funct_html.php
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
 msgstr "Valfritt: Du kan definiera ett gruppnamn som ska visas som titel för alla separata mätstorheter i rapporterna."
 
-#: lib/funct_shared.php:48
+#: lib/funct_shared.php
 msgid "Unknown Owner"
 msgstr "Okänd ägare"
 
-#: lib/funct_validate.php:432 lib/funct_validate.php:436
+#: lib/funct_validate.php
 msgid "The file is to big."
 msgstr "Filen är för stor."
 
-#: lib/funct_validate.php:440
+#: lib/funct_validate.php
 msgid "Incomplete file transfer."
 msgstr "Ofullständig filöverföring."
 
-#: lib/funct_validate.php:444 lib/funct_validate.php:475
+#: lib/funct_validate.php
 msgid "No file uploaded."
 msgstr "Ingen fil har laddats upp."
 
-#: lib/funct_validate.php:448
+#: lib/funct_validate.php
 msgid "Temporary folder missing."
 msgstr "Temporär mapp saknas."
 
-#: lib/funct_validate.php:452
+#: lib/funct_validate.php
 msgid "Failed to write file to disk"
 msgstr "Misslyckades skriva filen till disken"
 
-#: lib/funct_validate.php:456
+#: lib/funct_validate.php
 msgid "File upload stopped by extension"
 msgstr "Filuppladdningen stoppades av ett tillägg"
 
-#: lib/funct_validate.php:468
+#: lib/funct_validate.php
 msgid "Invalid file extension."
 msgstr "Ogiltigt filtillägg."
 
-#: lib/funct_validate.php:488
+#: lib/funct_validate.php
 msgid "Unable to parse template file."
 msgstr "Det går inte att parsa mallfilen."
 
-#: lib/funct_validate.php:502 lib/funct_validate.php:503
+#: lib/funct_validate.php
 #, php-format
 msgid "Checksum error with Template %s in XML file"
 msgstr "Fel vid kontrollsumma med mallen %s i XML-filen"
 
-#: reportit.php:116
+#: reportit.php
 msgid "New Report"
 msgstr "Ny rapport"
 
-#: reportit.php:119
+#: reportit.php
 #, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
 msgstr "Det finns inga olåsta och aktiverade rapportmallar tillgängliga (%s låsta eller inaktiverade)."
 
-#: reportit.php:123 reportit.php:2005 reportit.php:2017 reportit.php:2121
-#: reportit.php:2123 templates.php:227 templates.php:229 templates.php:366
-#: templates.php:367 templates.php:1565 templates.php:1691 templates.php:1693
-#: templates.php:1788 templates.php:1790
+#: reportit.php templates.php
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: reportit.php:123 reportit.php:2017 reportit.php:2124 templates.php:229
-#: templates.php:1574 templates.php:1576 templates.php:1693 templates.php:1790
+#: reportit.php templates.php
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: reportit.php:123
+#: reportit.php
 msgid "Create a new report"
 msgstr "Skapa en ny rapport"
 
-#: reportit.php:131
+#: reportit.php
 msgid "Choose a template this report should depend on."
 msgstr "Välj en mall som den här rapporten ska vara beroende av."
 
-#: reportit.php:167
+#: reportit.php
 msgid "Report Filters"
 msgstr "Filter för rapporter"
 
-#: reportit.php:175 reportit.php:1416 templates.php:485 view.php:243
-#: view.php:753
+#: reportit.php templates.php view.php
 msgid "Search"
 msgstr "Sök"
 
-#: reportit.php:181 reportit.php:461 setup.php:221 setup.php:539
-#: templates.php:733 view.php:258 view.php:352 view.php:918
+#: reportit.php setup.php templates.php view.php
 msgid "Reports"
 msgstr "Rapporter"
 
-#: reportit.php:201 reportit.php:1450 templates.php:511 view.php:744
+#: reportit.php templates.php view.php
 msgctxt "Button: use filter settings"
 msgid "Go"
 msgstr "Start"
 
-#: reportit.php:202 reportit.php:1451 templates.php:512 view.php:745
+#: reportit.php templates.php view.php
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "Rensa"
 
-#: reportit.php:416
+#: reportit.php
 #, php-format
 msgid "Period %s From - To"
 msgstr "Period %s från - till"
 
-#: reportit.php:419
+#: reportit.php
 #, fuzzy
 #| msgid "Scheduled"
 msgid "Schedule"
 msgstr "Schemalagd"
 
-#: reportit.php:423
+#: reportit.php
 msgid "State"
 msgstr "Län"
 
-#: reportit.php:427
+#: reportit.php
 #, php-format
 msgid "Next Start %s"
 msgstr ""
 
-#: reportit.php:432 view.php:341
+#: reportit.php view.php
 #, fuzzy, php-format
 #| msgid "Last Run %s"
 msgid "Last Started %s"
 msgstr "Senaste körningen %s"
 
-#: reportit.php:437
+#: reportit.php
 #, fuzzy
 #| msgid "Last Run"
 msgid "Last Runtime"
 msgstr "Senaste körning"
 
-#: reportit.php:493 templates.php:1941
+#: reportit.php templates.php
 msgid "N/A"
 msgstr "N/A"
 
-#: reportit.php:506
+#: reportit.php
 msgid "Add sources"
 msgstr "Lägg till källor"
 
-#: reportit.php:506
+#: reportit.php
 msgid "Edit sources"
 msgstr "Redigera källor"
 
-#: reportit.php:509
+#: reportit.php
 #, php-format
 msgid "Select %s"
 msgstr "Välj %s"
 
-#: reportit.php:511
+#: reportit.php
 msgid "Report has been locked"
 msgstr "Rapporten har låsts"
 
-#: reportit.php:517
+#: reportit.php
 msgid "No reports"
 msgstr "Inga rapporter"
 
-#: reportit.php:644
+#: reportit.php
 msgid "Not Authorized"
 msgstr "Inte behörig"
 
-#: reportit.php:1199
+#: reportit.php
 #, php-format
 msgid "Report Configuration (%s) %s"
 msgstr "Rapportkonfiguration (%s) %s"
 
-#: reportit.php:1226
+#: reportit.php
 msgid "Action"
 msgstr "Åtgärd"
 
-#: reportit.php:1241
+#: reportit.php
 msgid "No recipients found"
 msgstr "Inga mottagare hittades"
 
-#: reportit.php:1375
+#: reportit.php
 msgid "Data Source Name"
 msgstr "Datakällrubrik"
 
-#: reportit.php:1385
+#: reportit.php
 msgid "Associated"
 msgstr "Associerad"
 
-#: reportit.php:1389
+#: reportit.php
 msgid "Subhead"
 msgstr "Underrubrik"
 
-#: reportit.php:1394
+#: reportit.php
 msgid "Shifttime (From - To)"
 msgstr "Skifttid (Från - Till)"
 
-#: reportit.php:1397
+#: reportit.php
 msgid "Weekdays (From - To)"
 msgstr "Vardagar (Från - Till)"
 
-#: reportit.php:1422
+#: reportit.php
 msgid "RRDs"
 msgstr "RRD:er"
 
-#: reportit.php:1443
+#: reportit.php
 msgid "Show All"
 msgstr "Visa alla"
 
-#: reportit.php:1518
+#: reportit.php
 msgid "Does not exist anymore"
 msgstr "Finns inte längre"
 
-#: reportit.php:1528
+#: reportit.php
 msgid "Included in Report"
 msgstr "Ingår i rapporten"
 
-#: reportit.php:1530
+#: reportit.php
 msgid "Not Included in Report"
 msgstr "Ingår inte i rapporten"
 
-#: reportit.php:1553
+#: reportit.php
 msgid "Select"
 msgstr "Välj"
 
-#: reportit.php:1558
+#: reportit.php
 msgid "No data items found"
 msgstr "Inga dataobjekt hittades"
 
-#: reportit.php:1630 reportit.php:1635
+#: reportit.php
 msgid "Email address of a recipient (or comma separated list)"
 msgstr "E-postadress till en mottagare (eller kommaseparerad lista)"
 
-#: reportit.php:1631 reportit.php:1636
+#: reportit.php
 msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[VALFRITT] Namnet på en mottagare (eller en kommaavgränsad lista med namn)"
 
-#: reportit.php:1737
+#: reportit.php
 #, php-format
 msgid "Data Source [edit: %s]"
 msgstr "Datakälla [redigera: %s]"
 
-#: reportit.php:1755
+#: reportit.php
 msgid "Subhead (optional)"
 msgstr "Underhuvud (valfritt)"
 
-#: reportit.php:1768
+#: reportit.php
 msgid "Select the time zone your following shifttime information will be based on."
 msgstr "Välj den tidszon som din följande skifttidsinformation kommer att baseras på."
 
-#: reportit.php:1985
+#: reportit.php
 msgid "Click 'Continue' to Run the following Report:"
 msgstr "Klicka på \"Fortsätt\" för att köra följande rapport:"
 
-#: reportit.php:1987
+#: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
 msgstr "Klicka på \"Fortsätt\" för att ta bort följande rapporter:"
 
-#: reportit.php:1989
+#: reportit.php
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
 msgstr "Klicka på \"Fortsätt\" för att duplicera följande rapportkonfigurationer.  Du kan också ändra titelformatet under den här åtgärden."
 
-#: reportit.php:1990
+#: reportit.php
 msgid "Title Format:"
 msgstr "Titelformat:"
 
-#: reportit.php:1991
+#: reportit.php
 msgid "<report_title> (1)"
 msgstr "<report_title> Nej (1)"
 
-#: reportit.php:1993
+#: reportit.php
 #, fuzzy
 #| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
 msgstr "Klicka på \"Fortsätt\" för att ta bort följande rapporter:"
 
-#: reportit.php:1995
+#: reportit.php
 #, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
 msgstr "Klicka på \"Fortsätt\" för att köra följande rapport:"
 
-#: reportit.php:1997
+#: reportit.php
 #, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
 msgstr "Klicka på \"Fortsätt\" för att köra följande rapport:"
 
-#: reportit.php:2004
+#: reportit.php
 msgid "You must select at least one unlocked, not running, report."
 msgstr "Du måste välja minst en olåst rapport som inte körs."
 
-#: reportit.php:2058
+#: reportit.php
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
 msgstr "Klicka på \"Fortsätt\" för att ta bort följande datakällor från rapporten."
 
-#: reportit.php:2061 reportit.php:2078
+#: reportit.php
 msgid "List of selected Data Sources below."
 msgstr "Lista över utvalda datakällor nedan."
 
-#: reportit.php:2066 reportit.php:2083 view.php:1118
+#: reportit.php view.php
 #, php-format
 msgid "Data Source: %s"
 msgstr "Datakälla: %s"
 
-#: reportit.php:2075
+#: reportit.php
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
 msgstr "Klicka på \"Fortsätt\" för att lägga till följande datakällor i rapporten."
 
-#: reportit.php:2105
+#: reportit.php
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
 msgstr "Klicka på \"Fortsätt\" för att kopiera inställningarna till de andra datakällorna."
 
-#: reportit.php:2107
+#: reportit.php
 msgid "Selected Data Source as Reference:"
 msgstr "Vald datakälla som referens:"
 
-#: reportit.php:2110
+#: reportit.php
 msgid "Time Zone:"
 msgstr "Tidszon:"
 
-#: reportit.php:2111
+#: reportit.php
 msgid "Weekdays:"
 msgstr "Veckodagar:"
 
-#: reportit.php:2112
+#: reportit.php
 msgid "Shifttime:"
 msgstr "Skifttid:"
 
-#: reportit.php:2119
+#: reportit.php
 msgid "You must select at least one Report."
 msgstr "Du måste välja minst en rapport."
 
-#: setup.php:64
+#: setup.php
 msgid "ReportIt - Report Viewing"
 msgstr "ReportIt - Visning av rapporter"
 
-#: setup.php:65
+#: setup.php
 msgid "ReportIt - Create Reports"
 msgstr "ReportIt - Skapa rapporter"
 
-#: setup.php:66
+#: setup.php
 msgid "ReportIt - Manage Reports"
 msgstr "ReportIt - Hantera rapporter"
 
-#: setup.php:227 setup.php:239 setup.php:257 setup.php:263 setup.php:281
-#: setup.php:293 setup.php:299 setup.php:353 setup.php:359 setup.php:377
-#: setup.php:383
+#: setup.php
 msgid "(Edit)"
 msgstr "(Redigera)"
 
-#: setup.php:245 setup.php:269 setup.php:341 setup.php:365 setup.php:389
+#: setup.php
 msgid "Actions"
 msgstr "Åtgärder"
 
-#: setup.php:251
+#: setup.php
 msgid "Data Items"
 msgstr "Uppgifter"
 
-#: setup.php:287 templates.php:477
+#: setup.php templates.php
 msgid "Report Templates"
 msgstr "Rapportera mallar"
 
-#: setup.php:311 setup.php:317 templates.php:270 templates.php:366
+#: setup.php templates.php
 msgid "Import"
 msgstr "Importera"
 
-#: setup.php:395
+#: setup.php
 msgid "Report Calculation"
 msgstr "Beräkning av rapport"
 
-#: setup.php:401 view.php:253
+#: setup.php view.php
 msgid "Public Reports"
 msgstr "Offentliga rapporter"
 
-#: setup.php:407 setup.php:419
+#: setup.php
 msgid "Show Report"
 msgstr "Visa rapport"
 
-#: setup.php:413
+#: setup.php
 msgid "Export Report"
 msgstr "Exportrapport"
 
-#: setup.php:425
+#: setup.php
 msgid "Public Report Charts"
 msgstr "Diagram över offentliga rapporter"
 
-#: setup.php:431
+#: setup.php
 msgid "Bar Chart"
 msgstr "Stapeldiagram"
 
-#: setup.php:437
+#: setup.php
 msgid "Pie Chart"
 msgstr "Cirkeldiagram"
 
-#: setup.php:474
+#: setup.php
 msgid "Normal User"
 msgstr "Normal användare"
 
-#: setup.php:475
+#: setup.php
 msgid "General Administration"
 msgstr "Allmän administration u Stöd till transaktioner Jürgen MOEHRKE"
 
-#: setup.php:476
+#: setup.php
 msgid "System Administration"
 msgstr "Systemadministratör"
 
-#: setup.php:481
+#: setup.php
 msgid "Management"
 msgstr "Hantering"
 
-#: setup.php:481
+#: setup.php
 #, fuzzy
 #| msgid "ReportIt - Create Reports"
 msgid "ReportIt Reports"
 msgstr "ReportIt - Skapa rapporter"
 
-#: setup.php:482 setup.php:702
+#: setup.php
 msgid "ReportIt"
 msgstr "ReportIt (Rapportera)"
 
-#: setup.php:482 templates.php:491 templates.php:740
+#: setup.php templates.php
 msgid "Templates"
 msgstr "Mallar"
 
-#: setup.php:486
+#: setup.php
 msgid "No data source item selected"
 msgstr "Inget objekt för datakällan har valts"
 
-#: setup.php:490
+#: setup.php
 msgid "Unselected data source items are still in use"
 msgstr "Omarkerade datakällobjekt används fortfarande"
 
-#: setup.php:494
+#: setup.php
 msgid "Unable to unlock this template without defined measurands"
 msgstr "Det går inte att låsa upp den här mallen utan definierade mätstorheter"
 
-#: setup.php:529
+#: setup.php
 msgid "global"
 msgstr "global"
 
-#: setup.php:529
+#: setup.php
 msgid "local"
 msgstr "lokal"
 
-#: setup.php:534
+#: setup.php
 msgid "Power User (Report Owner)"
 msgstr "Privilegierad användare (rapportägare)"
 
-#: setup.php:535
+#: setup.php
 msgid "Super User (Report Admin)"
 msgstr "Superanvändare (rapportadministratör)"
 
-#: setup.php:548
+#: setup.php
 msgid "Maximum Execution Time (in seconds)"
 msgstr "Maximal exekveringstid (i sekunder)"
 
-#: setup.php:549
+#: setup.php
 msgid "Optional: Maximum execution time of one calculation."
 msgstr "Valfritt: Maximal körningstid för en beräkning."
 
-#: setup.php:555
+#: setup.php
 msgid "Maximum Record Count Change"
 msgstr "Ändring av maximalt antal poster"
 
-#: setup.php:556
+#: setup.php
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
 msgstr "Valfritt (Auto-Generate RRD List): Ändra inte RRD-listan för någon rapport om Record Count Change är större än detta nummer Detta för att undvika oönskade och katastrofala ändringar på RRD-listor"
 
-#: setup.php:562
+#: setup.php
 msgid "Time Zones"
 msgstr "Tidszoner"
 
-#: setup.php:563
+#: setup.php
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
 msgstr "Aktivera/avaktivera användningen av tidszoner för Data Items konfiguration och rapportberäkning.  I det förstnämnda fallet måste servertiden ställas in på GMT/UTC!"
 
-#: setup.php:568
+#: setup.php
 msgid "Show Local Time Zone"
 msgstr "Visa lokal tidszon"
 
-#: setup.php:569
+#: setup.php
 msgid "Enable/Disable to display server's timezone on the headlines."
 msgstr "Aktivera/Desaktivera visning av serverns tidszon på rubrikerna."
 
-#: setup.php:574
+#: setup.php
 msgid "Allow Scheduling by Operators"
 msgstr "Tillåt schemaläggning av operatörer"
 
-#: setup.php:575
+#: setup.php
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
 msgstr "Aktivera/avaktivera operatörens möjlighet att schemalägga rapporter.  När Disabled är aktiverat kan endast administratörer ändra schemaläggningen."
 
-#: setup.php:580
+#: setup.php
 msgid "SI-Prefixes"
 msgstr "SI-prefix"
 
-#: setup.php:581
+#: setup.php
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 msgstr "Aktivera/inaktivera användningen av korrekta SI-refix för binära multiplar enligt villkoren i <a href='http://www.ieee.org'>IEEE 1541</a> och <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
-#: setup.php:586
+#: setup.php
 msgid "Auto E-Mailing"
 msgstr "Automatisk e-postutskick"
 
-#: setup.php:592
+#: setup.php
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
 msgstr "Om det här alternativet är aktiverat kan schemalagda rapporter skickas automatiskt via e-post till en lista med mottagare.<br> Den här funktionen kräver en konfigurerad version av \"Inställningstillägg\"."
 
-#: setup.php:607
+#: setup.php
 msgid "Separate Report View Filter"
 msgstr "Separat rapportvyfilter"
 
-#: setup.php:608
+#: setup.php
 msgid "Enable/disable the use of an individual filter per report."
 msgstr "Aktivera/inaktivera användningen av ett enskilt filter per rapport."
 
-#: setup.php:613
+#: setup.php
 msgid "Rows Per Page"
 msgstr "Rader per sida"
 
-#: setup.php:614
+#: setup.php
 msgid "The number of rows to display on a single page."
 msgstr "Antalet rader som ska visas på en enda sida."
 
-#: setup.php:620
+#: setup.php
 msgid "Report Export Settings"
 msgstr "Inställningar för rapport-export"
 
-#: setup.php:625
+#: setup.php
 msgid "CSV Column Separator"
 msgstr "CSV-kolumnavgränsare"
 
-#: setup.php:626
+#: setup.php
 msgid "The column separator to be used for CSV exports."
 msgstr "Kolumnavgränsaren som ska användas för CSV-exporter."
 
-#: setup.php:632
+#: setup.php
 msgid "CSV Decimal Separator"
 msgstr "CSV-decimalavgränsare"
 
-#: setup.php:633
+#: setup.php
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
 msgstr "Symbolen som anger slutet på heltalsdelen och början på bråkdelen."
 
-#: setup.php:646
+#: setup.php
 #, fuzzy
 #| msgid "Report View Settings"
 msgid "Report General Settings"
 msgstr "Inställningar för rapportvy"
 
-#: templates.php:219
+#: templates.php
 msgid "New Report Template"
 msgstr "Ny rapportmall"
 
-#: templates.php:224
+#: templates.php
 msgid "There are no Data Templates in use."
 msgstr "Det finns inga datamallar som används."
 
-#: templates.php:229
+#: templates.php
 msgid "Create a new Report Template"
 msgstr "Skapa en ny rapportmall"
 
-#: templates.php:232
+#: templates.php
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
 msgstr "Välj en datamall som den här rapportmallen ska vara beroende av.  Oanvända datamallar är dolda."
 
-#: templates.php:259 templates.php:366
+#: templates.php
 msgid "Import Report Template"
 msgstr "Importera rapportmall"
 
-#: templates.php:263
+#: templates.php
 msgid "Select the XML file that contains your Report Template."
 msgstr "Välj den XML-fil som innehåller rapportmallen."
 
-#: templates.php:270
+#: templates.php
 msgid "Import Report Templates"
 msgstr "Importera rapportmallar"
 
-#: templates.php:293
+#: templates.php
 msgid "Compatible"
 msgstr "Kompatibel"
 
-#: templates.php:302
+#: templates.php
 msgid "Summary"
 msgstr "Sammanfattning"
 
-#: templates.php:318
+#: templates.php
 #, fuzzy
 #| msgid "None"
 msgid "No"
 msgstr "inget"
 
-#: templates.php:318
+#: templates.php
 msgid "Yes"
 msgstr ""
 
-#: templates.php:353
+#: templates.php
 msgid "No Compatible Templates Found"
 msgstr "Inga kompatibla mallar hittades"
 
-#: templates.php:513
+#: templates.php
 msgctxt "Button: import button"
 msgid "Import"
 msgstr "Importera"
 
-#: templates.php:690
+#: templates.php
 msgid "The name of this Report Template."
 msgstr "Namnet på den här rapportmallen."
 
-#: templates.php:696
+#: templates.php
 msgid "The internal identifier of this Report Template."
 msgstr "Den interna identifieraren för den här rapportmallen."
 
-#: templates.php:702
+#: templates.php
 msgid "The Author of this Report Template."
 msgstr "Författaren till den här rapportmallen."
 
-#: templates.php:712
+#: templates.php
 msgid "The version of this Report Template."
 msgstr "Versionen av den här rapportmallen."
 
-#: templates.php:715
+#: templates.php
 msgid "Published"
 msgstr "Publicerad"
 
-#: templates.php:736
+#: templates.php
 msgid "The total number of reports using this report template."
 msgstr "Det totala antalet rapporter som använder den här rapportmallen."
 
-#: templates.php:770
+#: templates.php
 msgid "No matching data sources"
 msgstr "Inga matchande datakällor"
 
-#: templates.php:772
+#: templates.php
 msgid "Data template not available"
 msgstr "Datamallen är inte tillgänglig"
 
-#: templates.php:783
+#: templates.php
 msgid "Add measurands"
 msgstr "Lägg till mätstorheter"
 
-#: templates.php:783
+#: templates.php
 msgid "Edit measurands"
 msgstr "Redigera mätstorheter"
 
-#: templates.php:789
+#: templates.php
 msgid "Add variables"
 msgstr "Lägga till variabler"
 
-#: templates.php:789
+#: templates.php
 msgid "Edit variables"
 msgstr "Redigera variabler"
 
-#: templates.php:797
+#: templates.php
 msgid "No templates"
 msgstr "Inga mallar"
 
-#: templates.php:990
+#: templates.php
 msgid "Maximum has to be greater than minimum."
 msgstr "Maximum måste vara större än minimum."
 
-#: templates.php:994
+#: templates.php
 msgid "Default value is out of values range."
 msgstr "Standardvärdet ligger utanför värdeintervallet."
 
-#: templates.php:1066
+#: templates.php
 msgid "Duplicate abbreviation"
 msgstr "Duplicerad förkortning"
 
-#: templates.php:1120
+#: templates.php
 msgid "Interim results are used by other measurands."
 msgstr "Interimsresultat används av andra mätstorheter."
 
-#: templates.php:1213
+#: templates.php
 #, php-format
 msgid "Template [ %s - %s ]"
 msgstr "Mall [ %s - %s ]"
 
-#: templates.php:1217
+#: templates.php
 msgid "Template [new]"
 msgstr "Mall [ny]"
 
-#: templates.php:1331
+#: templates.php
 msgid "<template_title>"
 msgstr "<template_title>"
 
-#: templates.php:1494
+#: templates.php
 msgid "Click 'Continue' to Delete the following Report Templates"
 msgstr "Klicka på \"Fortsätt\" för att ta bort följande rapportmallar"
 
-#: templates.php:1497
+#: templates.php
 msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
 msgstr "VARNING: Varje rapport som tillhör dessa mallar kommer också att raderas!"
 
-#: templates.php:1500
+#: templates.php
 #, php-format
 msgid "Template: %s"
 msgstr "Mall: %s"
 
-#: templates.php:1506
+#: templates.php
 #, php-format
 msgid "Report: %s"
 msgstr "Rapportera: %s"
 
-#: templates.php:1513
+#: templates.php
 msgid "Report: <i>None</i>"
 msgstr "Rapportera: <i>Inga</i>"
 
-#: templates.php:1524
+#: templates.php
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
 msgstr "Klicka på \"Fortsätt\" för att duplicera följande rapportmallar. Om du vill kan du ändra titeln på dessa dubbletter."
 
-#: templates.php:1527
+#: templates.php
 msgid "List of selected report templates:"
 msgstr "Lista över valda rapportmallar:"
 
-#: templates.php:1540
+#: templates.php
 msgid "Title:"
 msgstr "Titel:"
 
-#: templates.php:1542
+#: templates.php
 msgid "<template_title> (1)"
 msgstr "<template_title> Nej (1)"
 
-#: templates.php:1551
+#: templates.php
 msgid "Click 'Continue' to Export the following Report Templates"
 msgstr "Klicka på \"Fortsätt\" för att exportera följande rapportmallar"
 
-#: templates.php:1570
+#: templates.php
 msgid "You must select at least one Report Template."
 msgstr "Du måste välja minst en rapportmall."
 
-#: templates.php:1574
+#: templates.php
 msgid "Delete Report Templates"
 msgstr "Ta bort rapportmallar"
 
-#: templates.php:1576
+#: templates.php
 msgid "Duplicate Report Templates"
 msgstr "Duplicera rapportmallar"
 
-#: templates.php:1578
+#: templates.php
 msgid "Export Report Templates"
 msgstr "Exportera rapportmallar"
 
-#: templates.php:1647
+#: templates.php
 msgid "Click 'Continue to Delete the following variables."
 msgstr "Klicka på \"Fortsätt för att ta bort följande variabler."
 
-#: templates.php:1671
+#: templates.php
 msgid "List of selected variables:"
 msgstr "Lista över valda variabler:"
 
-#: templates.php:1675
+#: templates.php
 #, php-format
 msgid "Variable: %s"
 msgstr "Variabel: %s"
 
-#: templates.php:1686
+#: templates.php
 msgid "There are one or more variables in use."
 msgstr "Det finns en eller flera variabler som används."
 
-#: templates.php:1688
+#: templates.php
 msgid "You must select at least one variable."
 msgstr "Du måste välja minst en variabel."
 
-#: templates.php:1693
+#: templates.php
 msgid "Delete Template Variables"
 msgstr "Ta bort mallvariabler"
 
-#: templates.php:1766
+#: templates.php
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
 msgstr "Klicka på \"Fortsätt\" för att ta bort följande mätvärden.  Observera: Om det inte finns några andra mätvärden kvar efter denna process låses rapportmallen automatiskt."
 
-#: templates.php:1769
+#: templates.php
 msgid "List of selected measurands:"
 msgstr "Lista över utvalda mätstorheter:"
 
-#: templates.php:1773
+#: templates.php
 #, php-format
 msgid "Metric: %s"
 msgstr "Metrisk: %s"
 
-#: templates.php:1784
+#: templates.php
 msgid "You must select at least one measurand."
 msgstr "Du måste välja minst en mätstorhet."
 
-#: templates.php:1790
+#: templates.php
 msgid "Delete Template Metrics"
 msgstr "Ta bort mätvärden för mall"
 
-#: templates.php:1898
+#: templates.php
 #, php-format
 msgid "Variables [ Template: %s - %s ]"
 msgstr "Variabler [ Mall: %s - %s ]"
 
-#: templates.php:1948
+#: templates.php
 msgid "No Variables Found"
 msgstr "Inga variabler hittades"
 
-#: templates.php:2003
+#: templates.php
 #, php-format
 msgid "Variable Configuration [ edit: %s ]"
 msgstr "Variabelkonfiguration [ redigera: %s ]"
 
-#: templates.php:2005
+#: templates.php
 msgid "Variable Configuration [new]"
 msgstr "Variabel konfiguration [ny]"
 
-#: templates.php:2031
+#: templates.php
 msgid "Internal name"
 msgstr "Internt namn"
 
-#: templates.php:2032
+#: templates.php
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
 msgstr "En unik identifierare som skapas av ReportIt själv. Använd det här ID:t i definitionen av dina beräkningsformler för att inkludera det värde som rapportanvändaren har definierat individuellt för det."
 
-#: templates.php:2039
+#: templates.php
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
 msgstr "Ett namn som \"Tröskel\" till exempel, som ska användas som rubrik i rapportkonfigurationen."
 
-#: templates.php:2042
+#: templates.php
 msgid "Provide a name for this Variable"
 msgstr "Ange ett namn för den här variabeln"
 
-#: templates.php:2047
+#: templates.php
 #, fuzzy
 #| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
 msgstr "En kort, kärnfull beskrivning som förklarar innebörden av denna variabel."
 
-#: templates.php:2052
+#: templates.php
 msgid "Provide a meaningful description"
 msgstr "Ge en meningsfull beskrivning"
 
-#: templates.php:2056
+#: templates.php
 msgid "Maximum Value"
 msgstr "Maximalt värde"
 
-#: templates.php:2057
+#: templates.php
 msgid "Defines the upper limit of this variable."
 msgstr "Definierar den övre gränsen för den här variabeln."
 
-#: templates.php:2063
+#: templates.php
 msgid "Minimum Value"
 msgstr "Minsta värde"
 
-#: templates.php:2064
+#: templates.php
 msgid "Defines the lower limit of this variable."
 msgstr "Definierar den nedre gränsen för den här variabeln."
 
-#: templates.php:2070
+#: templates.php
 msgid "Default Value"
 msgstr "Standardvärde"
 
-#: templates.php:2071
+#: templates.php
 msgid "Sets the default value."
 msgstr "Ställer in standardvärdet."
 
-#: templates.php:2077 templates.php:2252 view.php:249
+#: templates.php view.php
 msgid "Type"
 msgstr "Typ"
 
-#: templates.php:2078
+#: templates.php
 msgid "The method the report owner should use to define this variable."
 msgstr "Den metod som rapportägaren ska använda för att definiera den här variabeln."
 
-#: templates.php:2085
+#: templates.php
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
 msgstr "Definierar avståndet mellan två värden om metoden \"DropDown\" har valts. Se till att detta värde inte är för lågt, eftersom det indirekt definierar antalet alternativ som rullgardinsfältet kommer att ha. Till exempel kommer följande parametrar: MAX:100, MIN:0, STEP:0.01 att resultera i en urvalsruta med 10.001 alternativ. Detta kan orsaka dramatiska prestandaproblem på grund av en hög CPU-belastning på klientsidan. Försök att hålla det under 1000."
 
-#: templates.php:2178
+#: templates.php
 #, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
 msgstr "Metrisk konfiguration [ redigera: %s - %s ]"
 
-#: templates.php:2180
+#: templates.php
 msgid "Metric Configuration [new]"
 msgstr "Metrisk konfiguration [ny]"
 
-#: templates.php:2203
+#: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
 msgstr "Förklaringen som ges till denna mätstorhet. Detta kommer att visas som en förklaring inom exporter samt som ett verktygstips i presentationen av själva rapporten."
 
-#: templates.php:2210
+#: templates.php
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
 msgstr "Definiera en unik förkortning för detta mått med max 8 bokstäver/siffror."
 
-#: templates.php:2217
+#: templates.php
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "Den enhet som ges till detta mått. t.ex. \"bitar/s\""
 
-#: templates.php:2223
+#: templates.php
 msgid "Consolidation function"
 msgstr "Funktion för konsolidering"
 
-#: templates.php:2224
+#: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
 msgstr "Namnet på konsolideringsfunktionen för att definiera vilka CDP:er som ska läsas ut."
 
-#: templates.php:2232
+#: templates.php
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
 msgstr "Välj \"aktivera\" om denna mätstorhet ska bli en del av den slutliga rapportens utdata. Lämna det oflaggat om dessa mätstorheter endast kommer att användas som en hjälpberäkning."
 
-#: templates.php:2240
+#: templates.php
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
 msgstr "Välj \"aktivera\" om denna mätstorhet bara kommer att ha ett resultat totalt i stället för ett för varje datakällobjekt. Det är resultatet<br>kommer att visas separat. Använd detta alternativ i kombination med \"Visible\" = \"off\" om du letar efter en mätstorhet som endast behåller ett interimsresultat som ska återanvändas inom beräkningen av andra mätstorheter utan att vara synlig för slutanvändare."
 
-#: templates.php:2247
+#: templates.php
 msgid "Formatting"
 msgstr "Formaterar"
 
-#: templates.php:2255
+#: templates.php
 msgid "Defines as what type the data should be treated as."
 msgstr "Definierar vilken typ av data som ska behandlas."
 
-#: templates.php:2259
+#: templates.php
 msgid "Precision"
 msgstr "Precision"
 
-#: templates.php:2260
+#: templates.php
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
 msgstr "Definierar hur många decimaler som ska visas för flyttal."
 
-#: templates.php:2266
+#: templates.php
 msgid "Prefixes"
 msgstr "Prefix"
 
-#: templates.php:2267
+#: templates.php
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
 msgstr "Välj vilken typ av prefix som ska användas för att formatera resultatet. Med användning av decimalprefix kommer '1024' att formateras till '1,024k' medan alternativet för binära prefix returnerar '1ki'. Välj \"av\" för att visa rådata, här \"1024\"."
 
-#: templates.php:2273
+#: templates.php
 msgid "Formula"
 msgstr "Formel"
 
-#: templates.php:2279
+#: templates.php
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
 msgstr "Den matematiska definitionen av detta mätstorhet. Tillåtna är alla kombinationer av operatorer och operander som anges nedan enligt matematikens regler. Använd runda och fyrkantiga parenteser för att beteckna komplexa termer och ordningen på operationerna."
 
-#: templates.php:2284
+#: templates.php
 msgid "Operators & Operands"
 msgstr "Operatorer och operander"
 
-#: templates.php:2285
+#: templates.php
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
 msgstr "Klicka på en av de listade operatorerna eller operanden för att lägga till dem i din kalukaljonformel. Verktygstipset visar dig ytterligare information som beskrivning, returvärde, argument och användning."
 
-#: templates.php:2390
+#: templates.php
 #, php-format
 msgid "Metrics [ Template: %s - %s ]"
 msgstr "Mätetal [ Mall: %s - %s ]"
 
-#: templates.php:2429
+#: templates.php
 msgid "No Metrics Found"
 msgstr "Inga mätvärden hittades"
 
-#: view.php:234
+#: view.php
 msgid "Reports Filter"
 msgstr "Rapporter Filtrera"
 
-#: view.php:254
+#: view.php
 msgid "My Reports"
 msgstr "Mina rapporter"
 
-#: view.php:278
+#: view.php
 msgid "Go"
 msgstr "Utför"
 
-#: view.php:279
+#: view.php
 msgid "Clear"
 msgstr "Rensa"
 
-#: view.php:337
+#: view.php
 msgid "Period (From - To)"
 msgstr "Period (Från - Till)"
 
-#: view.php:346
+#: view.php
 #, fuzzy
 #| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
 msgstr "Körtid [s]"
 
-#: view.php:378
+#: view.php
 msgid "No Reports Found"
 msgstr "Inga rapporter hittades"
 
-#: view.php:685
+#: view.php
 msgid "Metric"
 msgstr "Metriska"
 
-#: view.php:704
+#: view.php
 msgid "Data Source"
 msgstr "Datakälla"
 
-#: view.php:724
+#: view.php
 msgid "Show Top 10 Graphs"
 msgstr "Visa de 10 bästa graferna"
 
-#: view.php:725
+#: view.php
 msgid "Show Subheads"
 msgstr "Visa underrubriker"
 
-#: view.php:726
+#: view.php
 msgid "Show Summary"
 msgstr "Visa sammanfattning"
 
-#: view.php:758
+#: view.php
 msgid "Additional"
 msgstr "Ytterligare"
 
-#: view.php:772
+#: view.php
 msgid "Items"
 msgstr "Artiklar"
 
-#: view.php:788
+#: view.php
 msgid "Archive"
 msgstr "Arkiv"
 
-#: view.php:791
+#: view.php
 msgid "Current"
 msgstr "Nuvarande"
 
-#: view.php:854
+#: view.php
 msgid "Title"
 msgstr "Titel"
 
-#: view.php:855
+#: view.php
 msgid "Runtime"
 msgstr "Speltid"
 
-#: view.php:863
+#: view.php
 msgid "Period"
 msgstr "Period"
 
-#: view.php:864
+#: view.php
 msgid "Auto Generated RRD list"
 msgstr "Automatiskt genererad RRD-lista"
 
-#: view.php:926
+#: view.php
 msgid "Data Description"
 msgstr "Beskrivning av data"
 
-#: view.php:967
+#: view.php
 msgid "-- NO SUBHEADING --"
 msgstr "-- INGEN UNDERRUBRIK --"
 
-#: view.php:1024
+#: view.php
 msgid "No Data Items"
 msgstr "Inga dataposter"
 
-#: view.php:1153
+#: view.php
 #, php-format
 msgid "Metric: %s (%s)"
 msgstr "Metrisk: %s (%s)"
 
-#: view.php:1174
+#: view.php
 msgid "Pos."
 msgstr "Plats."
 
-#: view.php:1182
+#: view.php
 #, php-format
 msgid "Results [%s]"
 msgstr "Resultat [%s]"
