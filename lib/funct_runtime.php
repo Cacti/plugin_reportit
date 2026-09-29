@@ -871,13 +871,13 @@ function reportit_prepare_store_report_results(int $report_id, int $queue_id = 0
 
 	$body_text = $body;
 
-	reports_log_and_notify($queue_id, (int) $start_time, 'html', 'reportit', $report_id, $subject, $data, $body, $body_html, $body_text, $attachments, $headers);
+	$result = reports_log_and_notify($queue_id, (int) $start_time, 'html', 'reportit', $report_id, $subject, $data, $body, $body_html, $body_text, $attachments, $headers);
 
 	if ($filename != '') {
 		unlink($filename);
 	}
 
-	return null;
+	return $result;
 }
 
 /**

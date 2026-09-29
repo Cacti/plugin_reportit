@@ -1097,7 +1097,7 @@ function report_edit(): void {
 		$header_label = '[edit: ' . $report_data['name'] . ']';
 
 		// update rrdlist_data
-		if (is_array($rrdlist_data)) {
+		if (cacti_sizeof($rrdlist_data)) {
 			$rrdlist_data['timezone']   = array_search($rrdlist_data['timezone'],$timezone, true);
 			$rrdlist_data['start_time'] = array_search($rrdlist_data['start_time'],$shifttime, true);
 			$rrdlist_data['end_time']   = array_search($rrdlist_data['end_time'],$shifttime2, true);

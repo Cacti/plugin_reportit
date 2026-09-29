@@ -81,9 +81,9 @@ switch (get_request_var('action')) {
  *
  * @return void
  *
- * @global array $export_formats Reserved/declared for parity with
- *                               other functions in this file; not used
- *                               directly here.
+ * @global array $export_formats Allowlist of valid export formats, used
+ *                               to constrain the dynamic export dispatch
+ *                               to known functions only.
  */
 function export(): void {
 	global $export_formats;
@@ -121,9 +121,17 @@ function export(): void {
 		$data = [];
 	}
 
-	// call export function
-	$export_function = 'export_to_' . get_request_var('drp_action');
-	$output	         = function_exists($export_function) ? $export_function($data) : '';
+	// call export function; restrict dispatch to the known export formats
+	$format  = get_request_var('drp_action');
+	$output  = '';
+
+	if (isset($export_formats[$format])) {
+		$export_function = 'export_to_' . $format;
+
+		if (function_exists($export_function)) {
+			$output = $export_function($data);
+		}
+	}
 
 	$content_type = strtolower(get_request_var('drp_action'));
 
