@@ -1,0 +1,16 @@
+{
+    "name": "cacti/plugin_reportit",
+    "description": "Reporting tool for Cacti",
+    "homepage": "https://github.com/Cacti/plugin_reportit",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "The Cacti Group",
+            "email": "reportit@outlook.com",
+            "homepage": "https://www.cacti.net"
+        }
+    ],
+    "require": {
+        "php": ">=8.2"
+    }
+}
