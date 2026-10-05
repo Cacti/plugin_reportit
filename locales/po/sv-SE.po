@@ -4,24 +4,12 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
-"PO-Revision-Date: 2026-09-12 08:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-05 09:13+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Radera"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Duplicate"
@@ -199,7 +187,7 @@ msgstr "Aktuell månad"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Month"
-msgstr "Föregående månad"
+msgstr "Senaste månaden"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Months"
@@ -264,7 +252,7 @@ msgstr "Inmatningsfält"
 #: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
 #: lib/const_view.php
 msgid "None"
-msgstr "inget"
+msgstr "Ingen"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Binary"
@@ -324,7 +312,7 @@ msgstr "Returnerar medelvärdet för alla uppmätta värden per DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "none"
-msgstr "inget"
+msgstr "Ingen"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_max - Maximum Value"
@@ -999,7 +987,7 @@ msgstr "Förinställningar för datakälla"
 
 #: lib/const_reports.php reportit.php
 msgid "Email"
-msgstr "eMail"
+msgstr "E-post"
 
 #: lib/const_reports.php reportit.php
 msgid "Data Sources"
@@ -1499,7 +1487,7 @@ msgstr "Schemalagd"
 
 #: reportit.php
 msgid "State"
-msgstr "Län"
+msgstr "Status"
 
 #: reportit.php
 #, php-format
@@ -1520,7 +1508,7 @@ msgstr "Senaste körning"
 
 #: reportit.php templates.php
 msgid "N/A"
-msgstr "N/A"
+msgstr "Ej tillämpligt"
 
 #: reportit.php
 msgid "Add sources"
@@ -1965,14 +1953,12 @@ msgid "Summary"
 msgstr "Sammanfattning"
 
 #: templates.php
-#, fuzzy
-#| msgid "None"
 msgid "No"
-msgstr "inget"
+msgstr "Nej"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2344,7 +2330,7 @@ msgstr "Mina rapporter"
 
 #: view.php
 msgid "Go"
-msgstr "Utför"
+msgstr "Start"
 
 #: view.php
 msgid "Clear"
@@ -2398,7 +2384,7 @@ msgstr "Arkiv"
 
 #: view.php
 msgid "Current"
-msgstr "Nuvarande"
+msgstr "Aktuell"
 
 #: view.php
 msgid "Title"
@@ -2406,7 +2392,7 @@ msgstr "Titel"
 
 #: view.php
 msgid "Runtime"
-msgstr "Speltid"
+msgstr "Körtid"
 
 #: view.php
 msgid "Period"
