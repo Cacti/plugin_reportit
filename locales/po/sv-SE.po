@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-05 09:13+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-06 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -916,10 +916,8 @@ msgid "Parentheses"
 msgstr "Parenteser"
 
 #: lib/const_reports.php
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "Inaktiverad"
+msgstr "Inaktivera"
 
 #: lib/const_reports.php setup.php
 msgid "Enable"
@@ -931,7 +929,7 @@ msgstr "Kör nu"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "Ta över"
 
 #: lib/const_reports.php
 msgid "CRASHED"
@@ -1007,11 +1005,11 @@ msgstr "Rå XML (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "JSON-data (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "YAML-data (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1059,19 +1057,19 @@ msgstr "För att lägga till en mottagare baserat på en giltig meddelandelista.
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "Mottagaradress(er) för e-post"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Separera flera adresser med kommatecken (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "Bcc-adress(er)"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Dold kopia. Separera flera adresser med kommatecken (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
@@ -1313,7 +1311,7 @@ msgstr "Vilken som helst"
 
 #: lib/const_view.php view.php
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 #: lib/const_view.php
 msgid "Sum"
@@ -1480,10 +1478,8 @@ msgid "Period %s From - To"
 msgstr "Period %s från - till"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Scheduled"
 msgid "Schedule"
-msgstr "Schemalagd"
+msgstr "Schema"
 
 #: reportit.php
 msgid "State"
@@ -1492,19 +1488,16 @@ msgstr "Status"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "Nästa start %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
-#| msgid "Last Run %s"
+#, php-format
 msgid "Last Started %s"
-msgstr "Senaste körningen %s"
+msgstr "Senast startad %s"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Last Run"
 msgid "Last Runtime"
-msgstr "Senaste körning"
+msgstr "Senaste körtid"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1638,22 +1631,16 @@ msgid "<report_title> (1)"
 msgstr "<report_title> Nej (1)"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "Klicka på \"Fortsätt\" för att ta bort följande rapporter:"
+msgstr "Klicka på ”Fortsätt” för att inaktivera följande rapport:"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "Klicka på \"Fortsätt\" för att köra följande rapport:"
+msgstr "Klicka på ”Fortsätt” för att aktivera följande rapport:"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "Klicka på \"Fortsätt\" för att köra följande rapport:"
+msgstr "Klicka på ”Fortsätt” för att ta över följande rapport:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
@@ -1777,10 +1764,8 @@ msgid "Management"
 msgstr "Hantering"
 
 #: setup.php
-#, fuzzy
-#| msgid "ReportIt - Create Reports"
 msgid "ReportIt Reports"
-msgstr "ReportIt - Skapa rapporter"
+msgstr "ReportIt-rapporter"
 
 #: setup.php
 msgid "ReportIt"
@@ -1911,10 +1896,8 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "Symbolen som anger slutet på heltalsdelen och början på bråkdelen."
 
 #: setup.php
-#, fuzzy
-#| msgid "Report View Settings"
 msgid "Report General Settings"
-msgstr "Inställningar för rapportvy"
+msgstr "Allmänna rapportinställningar"
 
 #: templates.php
 msgid "New Report Template"
@@ -2189,10 +2172,8 @@ msgid "Provide a name for this Variable"
 msgstr "Ange ett namn för den här variabeln"
 
 #: templates.php
-#, fuzzy
-#| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "En kort, kärnfull beskrivning som förklarar innebörden av denna variabel."
+msgstr "En beskrivning som förklarar innebörden av den här variabeln."
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2341,10 +2322,8 @@ msgid "Period (From - To)"
 msgstr "Period (Från - Till)"
 
 #: view.php
-#, fuzzy
-#| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "Körtid [s]"
+msgstr "Senaste körtid [s]"
 
 #: view.php
 msgid "No Reports Found"
