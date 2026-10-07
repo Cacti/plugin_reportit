@@ -62,9 +62,13 @@ extensions are required
 
 ## Cacti compatibility
 
-If you are running a version of Cacti below 1.2.31, please add the function
-below to the `applySkin()` function in `include/layout.js` to enable the Cancel
-buttons on forms to work:
+The Cancel buttons on ReportIt's forms rely on Cacti core binding the
+`cactiReturnTo` class in `include/layout.js`. The 1.2.x line (1.2.31 and later)
+ships this binding, but not every release does — notably the current
+1.3.0/`develop` line, whose refactored `include/layout.js` no longer binds the
+`.cactiReturnTo` class. If your Cacti release's `include/layout.js` has no
+`.cactiReturnTo` click handler, add the binding below to its `applySkin()`
+function so the Cancel buttons work:
 
 ```js
 $(document).off('click.cactiReturnTo', '.cactiReturnTo')

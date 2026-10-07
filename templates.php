@@ -2349,9 +2349,13 @@ function measurand_edit(): void {
 	}
 
 	$(function(){
-		$(document).on('click', '.reportitAddCalc', function() {
-			add_to_calc($(this).data('calc-name'));
-		});
+		/* delegated + namespaced-off-before-on: this ready block re-runs on every
+		 * AJAX page load (applySkin), and document persists across those loads, so
+		 * without the off() the handler would stack and append the token repeatedly */
+		$(document).off('click.reportitAddCalc', '.reportitAddCalc')
+			.on('click.reportitAddCalc', '.reportitAddCalc', function() {
+				add_to_calc($(this).data('calc-name'));
+			});
 
 		$('#data_type').change(function() {
 			change_data_type();
