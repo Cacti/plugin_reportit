@@ -224,9 +224,9 @@ function template_wizard(string $action): void {
 						<span class='textError'>" . __('There are no Data Templates in use.', 'reportit') . '</span>
 					</td>
 				</tr>';
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php\")'>";
+				$save_html = "<input class='cactiReturnTo' data-url='templates.php' type='button' value='" . __esc('Cancel', 'reportit') . "'>";
 			} else {
-				$save_html = '<input type="button" value="' . __esc('Cancel', 'reportit') . '" onClick="cactiReturnTo(\'templates.php\')">&nbsp;<input type="submit" value="' . __esc('Continue', 'reportit') . '" title="' . __esc('Create a new Report Template', 'reportit') . '">';
+				$save_html = '<input type="button" class="cactiReturnTo" data-url="templates.php" value="' . __esc('Cancel', 'reportit') . '">&nbsp;<input type="submit" value="' . __esc('Continue', 'reportit') . '" title="' . __esc('Create a new Report Template', 'reportit') . '">';
 				print "<tr class='textArea'>
 					<td>
 						<p>" . __('Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden.', 'reportit') . '</p><p>';
@@ -363,8 +363,8 @@ function template_wizard(string $action): void {
 				}
 
 				$save_html = ($compatible)
-					? "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Template', 'reportit') . "'>"
-					: "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+					? "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'reportit') . "'>&nbsp;<input type='submit' value='" . __esc('Import', 'reportit') . "' title='" . __esc('Import Report Template', 'reportit') . "'>"
+					: "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'reportit') . "'>";
 
 				print "<tr>
 					<td class='saveRow' colspan='6'>
@@ -491,7 +491,7 @@ function template_filter(): void {
 							<?php print __('Templates', 'reportit'); ?>
 						</td>
 						<td>
-							<select id='rows' onChange='applyFilter()'>
+							<select id='rows'>
 								<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default', 'reportit'); ?></option>
 								<?php
 								if (cacti_sizeof($item_rows)) {
@@ -529,6 +529,10 @@ function template_filter(): void {
 			}
 
 			$(function() {
+				$('#rows').change(function() {
+					applyFilter();
+				});
+
 				$('#refresh').click(function() {
 					applyFilter();
 				});
@@ -1569,7 +1573,7 @@ function form_actions(): void {
 		}
 
 		$save_focus = ' class="ui-button ui-corner-all ui-widget ui-state-active"';
-		$save_html  = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+		$save_html  = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'reportit') . "'>";
 
 		if (empty($ds_list)) {
 			print "<tr>
@@ -1697,9 +1701,9 @@ function form_actions(): void {
 					print "<tr><td class='odd'><span class='textError'>" . __('You must select at least one variable.', 'reportit') . '</span></td></tr>';
 				}
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php?tab=variables&id=" . get_request_var('id') . "\")'>";
+				$save_html = "<input type='button' class='cactiReturnTo' data-url='templates.php?tab=variables&id=" . get_request_var('id') . "' value='" . __esc('Cancel', 'reportit') . "'>";
 			} else {
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"templates.php?tab=variables&id=" . get_request_var('id') . "\")'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Variables', 'reportit') . "'>";
+				$save_html = "<input type='button' class='cactiReturnTo' data-url='templates.php?tab=variables&id=" . get_request_var('id') . "' value='" . __esc('Cancel', 'reportit') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Variables', 'reportit') . "'>";
 			}
 		}
 
@@ -1796,9 +1800,9 @@ function form_actions(): void {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'reportit') . "'>";
 			} else {
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Metrics', 'reportit') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'reportit') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Delete Template Metrics', 'reportit') . "'>";
 			}
 		}
 
@@ -2345,6 +2349,10 @@ function measurand_edit(): void {
 	}
 
 	$(function(){
+		$(document).on('click', '.reportitAddCalc', function() {
+			add_to_calc($(this).data('calc-name'));
+		});
+
 		$('#data_type').change(function() {
 			change_data_type();
 		});

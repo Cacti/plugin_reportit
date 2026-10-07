@@ -160,6 +160,9 @@ foreach ($clover->xpath('//file') as $file) {
  * Empty by default; add entries per repository as the need arises.
  */
 $unmeasured_allowlist = [
+	'reportit.php',  // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'templates.php', // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
+	'view.php',      // web UI entry point (chdir + require auth.php); not loadable in the isolated unit process
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));

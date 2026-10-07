@@ -73,7 +73,7 @@ function html_calc_syntax($measurand_id, $template_id): string {
 					. __('Examples:    %s', $properties['examples'], 'reportit') . '</div>';
 			}
 
-			$output .= '<a id="' . $name . '" class="linkOverDark1 reportItHover" data-title="' . base64_encode($title) . '" onClick=add_to_calc("' . $name . '") style="cursor:pointer;">' . $name . '&nbsp;&nbsp;</a>';
+			$output .= '<a id="' . $name . '" class="linkOverDark1 reportItHover reportitAddCalc" data-title="' . base64_encode($title) . '" data-calc-name="' . $name . '" style="cursor:pointer;">' . $name . '&nbsp;&nbsp;</a>';
 		}
 
 		$output .= '</div>';
