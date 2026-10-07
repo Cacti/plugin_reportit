@@ -23,9 +23,9 @@
 */
 
 /*
- * Verify plugin source files do not use PHP 8.4-only syntax.
+ * Verify plugin source files do not use PHP 8.4+/8.5-only syntax.
  * This plugin's floor version is PHP 8.3, matching the shared CI test
- * matrix (php: ['8.3', '8.4']) - this repo tracks Cacti's `develop` branch
+ * matrix (php: ['8.3', '8.4', '8.5']) - this repo tracks Cacti's `develop` branch
  * rather than `1.2.x`, which requires PHP 8.3+.
  */
 

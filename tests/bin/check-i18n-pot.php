@@ -65,13 +65,13 @@ $i18n_keywords = [
 	'__date'    => [1],
 ];
 
-/* Repository-relative path of the template the plugin must keep in sync. */
+// Repository-relative path of the template the plugin must keep in sync.
 $pot_path = 'locales/po/cacti.pot';
 
 $base_ref = isset($argv[1]) ? trim($argv[1]) : '';
 
 if ($base_ref === '') {
-	$env = getenv('GITHUB_BASE_REF');
+	$env      = getenv('GITHUB_BASE_REF');
 	$base_ref = ($env !== false) ? trim($env) : '';
 }
 
@@ -85,12 +85,12 @@ if ($base_ref === '') {
  * Make sure the base commit is present. With fetch-depth: 0 it already is, but
  * a branch-name ref may still need fetching on a shallow checkout.
  */
-$probe = [];
+$probe        = [];
 $probe_status = 0;
 exec('git rev-parse --verify --quiet ' . escapeshellarg($base_ref . '^{commit}'), $probe, $probe_status);
 
 if ($probe_status !== 0) {
-	$ignore = [];
+	$ignore        = [];
 	$ignore_status = 0;
 	exec('git fetch --quiet --no-tags --depth=200 origin ' . escapeshellarg($base_ref), $ignore, $ignore_status);
 }
@@ -202,7 +202,7 @@ function template_files($ref) {
 	exec('git ls-tree -r --name-only ' . escapeshellarg($ref), $output, $status);
 
 	if ($status !== 0) {
-		fwrite(STDERR, "git ls-tree failed for " . $ref . "\n");
+		fwrite(STDERR, 'git ls-tree failed for ' . $ref . "\n");
 
 		exit(2);
 	}
