@@ -14,6 +14,13 @@
 
 beforeAll(function () {
 	require_once __DIR__ . '/../../setup.php';
+
+	// setup.php only defines REPORTIT_BASE_PATH at runtime inside
+	// reportit_define_constants() (realm/DB work); define the same value here.
+	if (!defined('REPORTIT_BASE_PATH')) {
+		define('REPORTIT_BASE_PATH', dirname(__DIR__, 2));
+	}
+
 	require_once REPORTIT_BASE_PATH . '/lib/funct_shared.php';
 	require_once REPORTIT_BASE_PATH . '/lib/funct_html.php';
 
