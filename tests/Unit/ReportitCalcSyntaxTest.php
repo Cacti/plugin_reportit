@@ -25,7 +25,8 @@ beforeAll(function () {
 	require_once REPORTIT_BASE_PATH . '/lib/funct_html.php';
 
 	if (!function_exists('debug')) {
-		function debug($data, $label = '') {}
+		function debug($data, $label = '') {
+		}
 	}
 });
 
