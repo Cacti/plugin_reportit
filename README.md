@@ -60,6 +60,24 @@ extensions are required
 
 * Fast report generation: PHP extension 'php_rrdtool'
 
+## Cacti compatibility
+
+The Cancel buttons on ReportIt's forms rely on Cacti core binding the
+`cactiReturnTo` class in `include/layout.js`. The 1.2.x line (1.2.31 and later)
+ships this binding, but not every release does — notably the current
+1.3.0/`develop` line, whose refactored `include/layout.js` no longer binds the
+`.cactiReturnTo` class. If your Cacti release's `include/layout.js` has no
+`.cactiReturnTo` click handler, add the binding below to its `applySkin()`
+function so the Cancel buttons work:
+
+```js
+$(document).off('click.cactiReturnTo', '.cactiReturnTo')
+    .on('click.cactiReturnTo', '.cactiReturnTo', function(event) {
+        event.preventDefault();
+        cactiReturnTo($(this).attr('data-url'));
+    });
+```
+
 ## Installation
 
 The Installation of ReportIt is similar to other plugins:

@@ -120,7 +120,7 @@ function report_wizard(): void {
 		header('Location: reportit.php');
 		exit;
 	} else {
-		$save_html = "<input type='button' value='" . __esc('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Create a new report', 'reportit') . "'>";
+		$save_html = "<input class='cactiReturnTo' data-url='reportit.php' type='button' value='" . __esc('Cancel', 'reportit') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'reportit') . "' title='" . __esc('Create a new report', 'reportit') . "'>";
 
 		foreach ($templates_list as $tmp) {
 			$templates[$tmp['id']] = $tmp['name'];
@@ -181,7 +181,7 @@ function report_filter(): void {
 							<?php print __('Reports', 'reportit'); ?>
 						</td>
 						<td>
-							<select id='rows' onChange='applyFilter()'>
+							<select id='rows'>
 								<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default', 'reportit'); ?></option>
 								<?php
 								if (cacti_sizeof($item_rows)) {
@@ -221,6 +221,10 @@ function report_filter(): void {
 			}
 
 			$(function() {
+				$('#rows').change(function() {
+					applyFilter();
+				});
+
 				$('#refresh').click(function() {
 					applyFilter();
 				});
@@ -1445,7 +1449,7 @@ function report_edit(): void {
 								<?php print __('RRDs', 'reportit'); ?>
 							</td>
 							<td>
-								<select id='rows' onChange='applyFilter()'>
+								<select id='rows'>
 									<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default', 'reportit'); ?></option>
 									<?php
 									if (cacti_sizeof($item_rows)) {
@@ -1495,6 +1499,10 @@ function report_edit(): void {
 				}
 
 				$(function() {
+					$('#rows').change(function() {
+						applyFilter();
+					});
+
 					$('#refresh').click(function() {
 						applyFilter();
 					});
@@ -2033,7 +2041,7 @@ function form_actions(): void {
 
 		if ($reports === false || empty($reports)) {
 			print "<tr><td class='textArea'><span class='textError'>" . __('You must select at least one unlocked, not running, report.', 'reportit') . "</span>$reports_sql</td></tr>";
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>";
+			$save_html = "<input class='cactiReturnTo' data-url='reportit.php' type='button' value='" . __('Cancel', 'reportit') . "'>";
 		} else {
 			print "<tr><td class='textArea'>$section</td></tr><tr><td>";
 			print '<div class="itemlist"><ul>';
@@ -2045,7 +2053,7 @@ function form_actions(): void {
 
 			print '</ul></div>';
 			print '</td></tr>';
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>&nbsp;<input type='submit' value='" . __('Continue', 'reportit') . "'>";
+			$save_html = "<input class='cactiReturnTo' data-url='reportit.php' type='button' value='" . __('Cancel', 'reportit') . "'>&nbsp;<input type='submit' value='" . __('Continue', 'reportit') . "'>";
 		}
 
 		print "<tr>
@@ -2149,9 +2157,9 @@ function form_actions(): void {
 		if (empty($ds_list)) {
 			print "<tr><td class='odd''><span class='textError'>" . __('You must select at least one Report.', 'reportit') . '</span></td></tr>';
 
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>";
+			$save_html = "<input class='cactiReturnTo' data-url='reportit.php' type='button' value='" . __('Cancel', 'reportit') . "'>";
 		} else {
-			$save_html = "<input type='button' value='" . __('Cancel', 'reportit') . "' onClick='cactiReturnTo(\"reportit.php\")'>&nbsp;
+			$save_html = "<input class='cactiReturnTo' data-url='reportit.php' type='button' value='" . __('Cancel', 'reportit') . "'>&nbsp;
 				<input type='submit' value='" . __('Continue', 'reportit') . "'>";
 		}
 

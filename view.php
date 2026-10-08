@@ -275,7 +275,7 @@ function standard(): void {
 							<?php print __('Reports', 'reportit'); ?>
 						</td>
 						<td>
-							<select id='rows' onChange='applyFilter()'>
+							<select id='rows'>
 								<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default', 'reportit'); ?></option>
 								<?php
 								if (cacti_sizeof($item_rows)) {
