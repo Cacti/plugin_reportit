@@ -1,6 +1,7 @@
 # ChangeLog
 
 --- develop ---
+* security: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 * security: Move the plugin's remaining inline event handlers to CSP-safe bindings so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive: the confirmation-page Cancel buttons use the `cactiReturnTo` class, the filter rows selects are bound via change() in their ready blocks, and the template calc-syntax links use a delegated `reportitAddCalc` handler
 * dev: Measure CI coverage with xdebug instead of pcov so the plugin's own sources are instrumented (pcov auto-scopes to the Composer root and skipped cacti/plugins/, leaving the patch-coverage gate with nothing to measure)
