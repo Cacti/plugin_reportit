@@ -38,7 +38,6 @@ env:
   # reportit's INFO declares compat = 1.3.0 and support for Cacti 1.2.x has been
   # dropped (see CHANGELOG.md), so CI tracks the develop branch instead.
   CACTI: develop
-  CACTI_REF: ce6ab6e0b3c43b37d00bcfcf50bf61d46131f86e # develop fixture
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
@@ -79,7 +78,7 @@ jobs:
       with:
         persist-credentials: false
         repository: Cacti/cacti
-        ref: ${{ env.CACTI_REF }}
+        ref: ${{ env.CACTI }}
         path: cacti
 
     - name: Checkout reportit Plugin
