@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-20 14:29+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-22 06:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -692,7 +692,7 @@ msgstr "Operatörer"
 
 #: include/global_arrays.php
 msgid "Numbers"
-msgstr "Nummer"
+msgstr "Tal"
 
 #: include/global_arrays.php
 msgid "Others"
@@ -700,7 +700,7 @@ msgstr "Andra"
 
 #: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
 msgid "Data Query Variables"
-msgstr "Variabler för datafråga"
+msgstr "Variabler för dataförfrågan"
 
 #: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
 msgid "Interim Results"
@@ -712,15 +712,15 @@ msgstr "Obegränsad"
 
 #: include/global_arrays.php
 msgid "500 Data Items"
-msgstr "500 uppgifter"
+msgstr "500 dataposter"
 
 #: include/global_arrays.php
 msgid "1,000 Data Items"
-msgstr "1 000 dataobjekt"
+msgstr "1 000 dataposter"
 
 #: include/global_arrays.php
 msgid "2,000 Data Items"
-msgstr "2 000 uppgifter"
+msgstr "2 000 dataposter"
 
 #: include/global_arrays.php
 msgid "5,000 Data Source Items"
@@ -728,23 +728,23 @@ msgstr "5 000 datakällobjekt"
 
 #: include/global_arrays.php
 msgid "7,500 Data Source Items"
-msgstr "7 500 objekt i datakällan"
+msgstr "7 500 datakällobjekt"
 
 #: include/global_arrays.php
 msgid "10,000 Data Source Items"
-msgstr "10 000 datakälla objekt"
+msgstr "10 000 datakällobjekt"
 
 #: include/global_arrays.php
 msgid "15,000 Data Source Items"
-msgstr "15 000 datakälla objekt"
+msgstr "15 000 datakällobjekt"
 
 #: include/global_arrays.php
 msgid "25,000 Data Source Items"
-msgstr "25 000 datakällans artiklar"
+msgstr "25 000 datakällobjekt"
 
 #: include/global_arrays.php
 msgid "1 Minute"
-msgstr "1 Minut"
+msgstr "1 minut"
 
 #: include/global_arrays.php
 #, php-format
@@ -793,7 +793,7 @@ msgstr "Låst"
 
 #: include/global_forms.php
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
-msgstr "Statusen \"låst\" undviker alla typer av ändringar i din rapportmall samt tilldelade mätstorheter och variabeldefinitioner"
+msgstr "Statusen ”låst” förhindrar alla typer av ändringar i din rapportmall samt tilldelade mätstorheter och variabeldefinitioner"
 
 #: include/global_forms.php
 msgid "Additional Pre-filter"
@@ -801,11 +801,11 @@ msgstr "Ytterligare förfilter"
 
 #: include/global_forms.php
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Valfritt: Syntaxen för att filtrera den tillgängliga listan med dataobjekt efter deras beskrivning. Använd SQL-jokertecken som % and/eller _. Inga reguljära uttryck!"
+msgstr "Valfritt: Syntaxen för att filtrera den tillgängliga listan med dataposter efter deras beskrivning. Använd SQL-jokertecken som % och/eller _. Inga reguljära uttryck!"
 
 #: include/global_forms.php
 msgid "Export Path"
-msgstr "Exportera sökväg"
+msgstr "Exportsökväg"
 
 #: include/global_forms.php
 msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
@@ -813,7 +813,7 @@ msgstr "Valfritt: Sökvägen till en mapp där exporterna sparas.  Om den inte f
 
 #: include/global_forms.php templates.php
 msgid "Data Template"
-msgstr "Mall för data"
+msgstr "Datamall"
 
 #: include/global_forms.php
 msgid "The name of the data template this Report Template depends on."
@@ -821,7 +821,7 @@ msgstr "Namnet på den datamall som den här rapportmallen beror på."
 
 #: include/global_forms.php
 msgid "Report Template"
-msgstr "Mall för rapport"
+msgstr "Rapportmall"
 
 #: include/global_forms.php
 msgid "Choose one of your Report Templates to export to XML."
@@ -1757,7 +1757,7 @@ msgstr "Allmän administration"
 
 #: setup.php
 msgid "System Administration"
-msgstr "Systemadministratör"
+msgstr "Systemadministration"
 
 #: setup.php
 msgid "Management"
@@ -1817,7 +1817,7 @@ msgstr "Ändring av maximalt antal poster"
 
 #: setup.php
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
-msgstr "Valfritt (Auto-Generate RRD List): Ändra inte RRD-listan för någon rapport om Record Count Change är större än detta nummer Detta för att undvika oönskade och katastrofala ändringar på RRD-listor"
+msgstr "Valfritt (generera RRD-listan automatiskt): Ändra inte RRD-listan för någon rapport om ändringen av antalet poster är större än detta antal, för att undvika oönskade och katastrofala ändringar i RRD-listor"
 
 #: setup.php
 msgid "Time Zones"
@@ -1825,7 +1825,7 @@ msgstr "Tidszoner"
 
 #: setup.php
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "Aktivera/avaktivera användningen av tidszoner för Data Items konfiguration och rapportberäkning.  I det förstnämnda fallet måste servertiden ställas in på GMT/UTC!"
+msgstr "Aktivera/inaktivera användningen av tidszoner för datapostens konfiguration och rapportberäkning.  I det första fallet måste servertiden ställas in på GMT/UTC!"
 
 #: setup.php
 msgid "Show Local Time Zone"
@@ -1833,7 +1833,7 @@ msgstr "Visa lokal tidszon"
 
 #: setup.php
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "Aktivera/Desaktivera visning av serverns tidszon på rubrikerna."
+msgstr "Aktivera/inaktivera visning av serverns tidszon i rubrikerna."
 
 #: setup.php
 msgid "Allow Scheduling by Operators"
@@ -1841,7 +1841,7 @@ msgstr "Tillåt schemaläggning av operatörer"
 
 #: setup.php
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "Aktivera/avaktivera operatörens möjlighet att schemalägga rapporter.  När Disabled är aktiverat kan endast administratörer ändra schemaläggningen."
+msgstr "Aktivera/inaktivera operatörernas möjlighet att schemalägga rapporter. När funktionen är inaktiverad kan endast administratörer ändra schemaläggningen."
 
 #: setup.php
 msgid "SI-Prefixes"
@@ -1853,7 +1853,7 @@ msgstr "Aktivera/inaktivera användningen av korrekta SI-prefix för binära mul
 
 #: setup.php
 msgid "Auto E-Mailing"
-msgstr "Automatisk e-postutskick"
+msgstr "Automatiska e-postutskick"
 
 #: setup.php
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
@@ -1861,7 +1861,7 @@ msgstr "Om det här alternativet är aktiverat kan schemalagda rapporter skickas
 
 #: setup.php
 msgid "Separate Report View Filter"
-msgstr "Separat rapportvyfilter"
+msgstr "Separat filter för rapportvyn"
 
 #: setup.php
 msgid "Enable/disable the use of an individual filter per report."
@@ -1877,7 +1877,7 @@ msgstr "Antalet rader som ska visas på en enda sida."
 
 #: setup.php
 msgid "Report Export Settings"
-msgstr "Inställningar för rapport-export"
+msgstr "Inställningar för rapportexport"
 
 #: setup.php
 msgid "CSV Column Separator"
