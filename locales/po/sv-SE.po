@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-22 06:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-26 10:43+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -57,7 +57,7 @@ msgstr "Kliva"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input Type"
-msgstr "Typ"
+msgstr "Inmatningstyp"
 
 #: include/global_arrays.php templates.php
 msgid "Options"
@@ -114,11 +114,11 @@ msgstr "Associerade datamallar"
 #: include/global_arrays.php include/global_forms.php lib/const_reports.php
 #: reportit.php setup.php templates.php
 msgid "General"
-msgstr "Allmän"
+msgstr "Allmänt"
 
 #: include/global_arrays.php
 msgid "Data Templates"
-msgstr "Dataskärmar"
+msgstr "Datamallar"
 
 #: include/global_arrays.php
 msgid "Groups"
@@ -215,7 +215,7 @@ msgstr "Aktuellt år"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Year"
-msgstr "Föregående år"
+msgstr "Senaste året"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Years"
@@ -941,11 +941,11 @@ msgstr "Misslyckad"
 
 #: lib/const_reports.php
 msgid "Idle"
-msgstr "Sysslolös"
+msgstr "Vilande"
 
 #: lib/const_reports.php
 msgid "Running"
-msgstr "Kör"
+msgstr "Pågår"
 
 #: lib/const_reports.php
 msgid "- No template available -"
@@ -1057,7 +1057,7 @@ msgstr "För att lägga till en mottagare baserat på en giltig meddelandelista.
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr "Mottagaradress(er) för e-post"
+msgstr "Mottagaradresser för e-post"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
@@ -1065,7 +1065,7 @@ msgstr "Separera flera adresser med kommatecken (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr "Bcc-adress(er)"
+msgstr "Adresser för dold kopia"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
@@ -1406,7 +1406,7 @@ msgstr "Temporär mapp saknas."
 
 #: lib/funct_validate.php
 msgid "Failed to write file to disk"
-msgstr "Misslyckades skriva filen till disken"
+msgstr "Kunde inte skriva filen till disken"
 
 #: lib/funct_validate.php
 msgid "File upload stopped by extension"
@@ -1483,7 +1483,7 @@ msgstr "Schema"
 
 #: reportit.php
 msgid "State"
-msgstr "Status"
+msgstr "Tillstånd"
 
 #: reportit.php
 #, php-format
@@ -1543,7 +1543,7 @@ msgstr "Inga mottagare hittades"
 
 #: reportit.php
 msgid "Data Source Name"
-msgstr "Datakällrubrik"
+msgstr "Datakällans namn"
 
 #: reportit.php
 msgid "Associated"
@@ -2355,11 +2355,11 @@ msgstr "Ytterligare"
 
 #: view.php
 msgid "Items"
-msgstr "Artiklar"
+msgstr "Objekt"
 
 #: view.php
 msgid "Archive"
-msgstr "Arkiv"
+msgstr "Arkivera"
 
 #: view.php
 msgid "Current"
