@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-26 10:45+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-26 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -105,7 +105,7 @@ msgstr "Element"
 
 #: include/global_arrays.php setup.php templates.php
 msgid "Metrics"
-msgstr "Mätvärde"
+msgstr "Mätstorheter"
 
 #: include/global_arrays.php
 msgid "Associated Data Templates"
@@ -2118,7 +2118,7 @@ msgstr "Ta bort mallvariabler"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "Klicka på \"Fortsätt\" för att ta bort följande mätvärden.  Observera: Om det inte finns några andra mätvärden kvar efter denna process låses rapportmallen automatiskt."
+msgstr "Klicka på ”Fortsätt” för att ta bort följande mätstorheter. Observera: Om inga mätstorheter finns kvar efteråt låses rapportmallen automatiskt."
 
 #: templates.php
 msgid "List of selected measurands:"
@@ -2127,7 +2127,7 @@ msgstr "Lista över utvalda mätstorheter:"
 #: templates.php
 #, php-format
 msgid "Metric: %s"
-msgstr "Metrisk: %s"
+msgstr "Mätstorhet: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
@@ -2135,7 +2135,7 @@ msgstr "Du måste välja minst en mätstorhet."
 
 #: templates.php
 msgid "Delete Template Metrics"
-msgstr "Ta bort mätvärden för mall"
+msgstr "Ta bort mallens mätstorheter"
 
 #: templates.php
 #, php-format
@@ -2218,11 +2218,11 @@ msgstr "Definierar avståndet mellan två värden om metoden \"DropDown\" har va
 #: templates.php
 #, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "Metrisk konfiguration [ redigera: %s - %s ]"
+msgstr "Mätstorhetskonfiguration [ redigera: %s - %s ]"
 
 #: templates.php
 msgid "Metric Configuration [new]"
-msgstr "Metrisk konfiguration [ny]"
+msgstr "Mätstorhetskonfiguration [ny]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2295,11 +2295,11 @@ msgstr "Klicka på en av de listade operatorerna eller operanderna för att läg
 #: templates.php
 #, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "Mätetal [ Mall: %s - %s ]"
+msgstr "Mätstorheter [ mall: %s - %s ]"
 
 #: templates.php
 msgid "No Metrics Found"
-msgstr "Inga mätvärden hittades"
+msgstr "Inga mätstorheter hittades"
 
 #: view.php
 msgid "Reports Filter"
@@ -2331,7 +2331,7 @@ msgstr "Inga rapporter hittades"
 
 #: view.php
 msgid "Metric"
-msgstr "Metriska"
+msgstr "Mätstorhet"
 
 #: view.php
 msgid "Data Source"
@@ -2396,7 +2396,7 @@ msgstr "Inga dataposter"
 #: view.php
 #, php-format
 msgid "Metric: %s (%s)"
-msgstr "Metrisk: %s (%s)"
+msgstr "Mätstorhet: %s (%s)"
 
 #: view.php
 msgid "Pos."
