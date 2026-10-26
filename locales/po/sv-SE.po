@@ -4,12 +4,12 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-26 10:43+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-26 10:45+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Duplicate"
@@ -53,7 +53,7 @@ msgstr "Standard"
 
 #: include/global_arrays.php templates.php
 msgid "Stepping"
-msgstr "Kliva"
+msgstr "Steglängd"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input Type"
@@ -81,7 +81,7 @@ msgstr "Enhet"
 
 #: include/global_arrays.php templates.php
 msgid "Consolidation Function"
-msgstr "Funktion för konsolidering"
+msgstr "Konsolideringsfunktion"
 
 #: include/global_arrays.php templates.php
 msgid "Visible"
@@ -2238,7 +2238,7 @@ msgstr "Den enhet som ges till detta mått. t.ex. \"bitar/s\""
 
 #: templates.php
 msgid "Consolidation function"
-msgstr "Funktion för konsolidering"
+msgstr "Konsolideringsfunktion"
 
 #: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
@@ -2250,7 +2250,7 @@ msgstr "Välj \"aktivera\" om denna mätstorhet ska bli en del av den slutliga r
 
 #: templates.php
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
-msgstr "Välj \"aktivera\" om denna mätstorhet bara kommer att ha ett resultat totalt i stället för ett för varje datakällobjekt. Det är resultatet<br>kommer att visas separat. Använd detta alternativ i kombination med \"Visible\" = \"off\" om du letar efter en mätstorhet som endast behåller ett interimsresultat som ska återanvändas inom beräkningen av andra mätstorheter utan att vara synlig för slutanvändare."
+msgstr "Välj ”aktivera” om mätstorheten ska ha ett enda resultat totalt i stället för ett per datakällobjekt. Resultatet<br>visas separat. Kombinera med ”Synlig” = ”av” om mätstorheten endast ska lagra ett mellanresultat som återanvänds vid beräkning av andra mätstorheter och inte visas för slutanvändare."
 
 #: templates.php
 msgid "Formatting"
@@ -2258,7 +2258,7 @@ msgstr "Formaterar"
 
 #: templates.php
 msgid "Defines as what type the data should be treated as."
-msgstr "Definierar vilken typ av data som ska behandlas."
+msgstr "Anger vilken datatyp värdena ska behandlas som."
 
 #: templates.php
 msgid "Precision"
@@ -2282,7 +2282,7 @@ msgstr "Formel"
 
 #: templates.php
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
-msgstr "Den matematiska definitionen av detta mätstorhet. Tillåtna är alla kombinationer av operatorer och operander som anges nedan enligt matematikens regler. Använd runda och fyrkantiga parenteser för att beteckna komplexa termer och ordningen på operationerna."
+msgstr "Den matematiska definitionen av mätstorheten. Alla kombinationer av operatorer och operander nedan är tillåtna enligt matematikens regler. Använd runda och fyrkantiga parenteser för att ange sammansatta uttryck och operationsordning."
 
 #: templates.php
 msgid "Operators & Operands"
@@ -2290,7 +2290,7 @@ msgstr "Operatorer och operander"
 
 #: templates.php
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
-msgstr "Klicka på en av de listade operatorerna eller operanden för att lägga till dem i din kalukaljonformel. Verktygstipset visar dig ytterligare information som beskrivning, returvärde, argument och användning."
+msgstr "Klicka på en av de listade operatorerna eller operanderna för att lägga till den i beräkningsformeln. Verktygstipset visar ytterligare information, till exempel beskrivning, returvärde, argument och användning."
 
 #: templates.php
 #, php-format
@@ -2303,7 +2303,7 @@ msgstr "Inga mätvärden hittades"
 
 #: view.php
 msgid "Reports Filter"
-msgstr "Rapporter Filtrera"
+msgstr "Rapportfilter"
 
 #: view.php
 msgid "My Reports"
