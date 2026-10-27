@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-26 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-27 14:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -39,12 +39,12 @@ msgstr "Internt namn"
 #: include/global_arrays.php lib/const_variables.php lib/const_view.php
 #: templates.php
 msgid "Maximum"
-msgstr "Maximal"
+msgstr "Maxvärde"
 
 #: include/global_arrays.php lib/const_variables.php lib/const_view.php
 #: templates.php
 msgid "Minimum"
-msgstr "Minsta"
+msgstr "Minvärde"
 
 #: include/global_arrays.php lib/const_variables.php reportit.php templates.php
 #: view.php
@@ -109,7 +109,7 @@ msgstr "Mätstorheter"
 
 #: include/global_arrays.php
 msgid "Associated Data Templates"
-msgstr "Associerade datamallar"
+msgstr "Kopplade datamallar"
 
 #: include/global_arrays.php include/global_forms.php lib/const_reports.php
 #: reportit.php setup.php templates.php
@@ -135,7 +135,7 @@ msgstr "Idag"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 1 Day"
-msgstr "Sista 1 dagen"
+msgstr "Senaste dagen"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Days"
@@ -163,11 +163,11 @@ msgstr "Senaste 7 dagarna"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Week (Sun - Sat)"
-msgstr "Förra veckan (sön - lör)"
+msgstr "Förra veckan (sön–lör)"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Week (Mon - Sun)"
-msgstr "Förra veckan (mån - sön)"
+msgstr "Förra veckan (mån–sön)"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 14 Days"
@@ -239,11 +239,11 @@ msgstr "Kvartalsvis"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Yearly"
-msgstr "Årlig"
+msgstr "Årligen"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Dropdown"
-msgstr "Rullgardin"
+msgstr "Rullgardinslista"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input field"
@@ -268,7 +268,7 @@ msgstr "Heltal"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Integer (unsigned)"
-msgstr "Heltal (osignerat)"
+msgstr "Heltal (utan tecken)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Hexadecimal (lower-case)"
@@ -280,7 +280,7 @@ msgstr "Hexadecimal (versaler)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Octal"
-msgstr "Oktalt"
+msgstr "Oktal"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Scientific Notation"
@@ -296,7 +296,7 @@ msgstr "av"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Binary SI-Prefixes (Base 1024)"
-msgstr "Binära SI-prefix (Bas 1024)"
+msgstr "Binära SI-prefix (bas 1024)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Decimal SI-Prefixes (Base 1000)"
@@ -352,7 +352,7 @@ msgstr "f_grd - Lutning"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the gradient of a straight line by using linear regression per DS"
-msgstr "Returnerar gradienten för en rak linje med hjälp av linjär regression per DS"
+msgstr "Returnerar lutningen för en rät linje beräknad med linjär regression per DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_last - Last Value"
@@ -388,7 +388,7 @@ msgstr "Returnerar det värde som skiljer den övre halvan från den nedre halva
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_range - Range"
-msgstr "f_range - Räckvidd"
+msgstr "f_range - Variationsbredd"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the difference between the largest and the smallest value per DS"
@@ -396,11 +396,11 @@ msgstr "Returnerar differensen mellan det största och det minsta värdet per DS
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_iqr - Interquartile Range"
-msgstr "f_iqr - Intervall mellan kvartiler"
+msgstr "f_iqr - Kvartilavstånd"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the distance of the middle50&#037; around the median per DS"
-msgstr "Returnerar avståndet för de mellersta 50 % runt medianen per DS"
+msgstr "Returnerar avståndet mellan kvartilerna som omfattar de mittersta 50&#037; av värdena per DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sd - Standard Deviation"
@@ -408,7 +408,7 @@ msgstr "f_sd - Standardavvikelse"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the square root per data source variance"
-msgstr "Returnerar kvadratroten per varians för datakällan"
+msgstr "Returnerar kvadratroten ur variansen för varje datakälla"
 
 #: include/global_arrays.php
 msgid "f_var - Variance"
@@ -424,11 +424,11 @@ msgstr "f_xth - X:e percentilen"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the xth percentitle."
-msgstr "Returnerar den x:e percentitlen."
+msgstr "Returnerar den x:e percentilen."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
-msgstr "$var: tröskelvärde i procent. Räckvidd: [0&lt; $var ≤100]"
+msgstr "$var: tröskelvärde i procent. Intervall: [0&lt; $var &le;100]"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_dot - Duration Over Threshold"
@@ -452,27 +452,27 @@ msgstr "Returnerar summan av värdena över ett definierat tröskelvärde."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_floor - Round Fractions Down"
-msgstr "f_floor - Avrunda bråk nedåt"
+msgstr "f_floor - Avrunda nedåt"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the next lowest integer value by rounding down value if necessary."
-msgstr "Returnerar det näst lägsta heltalsvärdet genom att avrunda värdet nedåt om det behövs."
+msgstr "Returnerar det största heltal som är mindre än eller lika med värdet."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float"
-msgstr "$var: flyta"
+msgstr "$var: flyttal"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_ceil - Round Fractions Up"
-msgstr "f_ceil - Avrunda bråk uppåt"
+msgstr "f_ceil - Avrunda uppåt"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the next highest integer value by rounding up value if necessary."
-msgstr "Returnerar det näst högsta heltalsvärdet genom att avrunda värdet uppåt om det behövs."
+msgstr "Returnerar det minsta heltal som är större än eller lika med värdet."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_round - Round A Float"
-msgstr "f_round - Runda Ett Flöte"
+msgstr "f_round - Avrunda ett flyttal"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
@@ -492,7 +492,7 @@ msgstr "Returnerar det högsta värdet i en given lista med parametrar"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$var 1, $var 2, $var 3 ...: värden som ska jämföras"
+msgstr "$var1, $var2, $var3 ...: värden som ska jämföras"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -532,7 +532,7 @@ msgstr "f_rnd - Alias för f_round"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_eq - Alias of f_cmp - IS EQUAL"
-msgstr "f_eq - Alias för f_cmp - ÄR LIKA"
+msgstr "f_eq - Alias för f_cmp - ÄR LIKA MED"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
@@ -540,7 +540,7 @@ msgstr "Returnerar 1 (eller C) om A == B eller 0 (eller D) om inte. Parametrarna
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
-msgstr "f_uq - Alias of f_cmp - ÄR OJÄMLIK"
+msgstr "f_uq - Alias för f_cmp - ÄR INTE LIKA MED"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
@@ -600,7 +600,7 @@ msgstr "Multiplikation"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
-msgstr "Matematisk operation för att returnera produkten av multiplikatorn och multiplikatorn"
+msgstr "Matematisk operation som returnerar produkten av två faktorer"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Division"
@@ -608,7 +608,7 @@ msgstr "Division"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the fraction of divident and divisor"
-msgstr "Matematisk operation för att returnera bråkdelen av divident och divisorn"
+msgstr "Matematisk operation som returnerar kvoten av täljaren och nämnaren"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Modulus"
@@ -640,7 +640,7 @@ msgstr "Parentes"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Used to override normal precedence or to mark the first level of nesting"
-msgstr "Används för att åsidosätta normal prioritet eller för att markera den första kapslingsnivån"
+msgstr "Används för att åsidosätta normal prioritetsordning eller markera den första kapslingsnivån"
 
 #: include/global_arrays.php
 msgid "Square Bracket"
@@ -648,7 +648,7 @@ msgstr "Hakparentes"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Used to override normal precedence or to mark the second level of nesting"
-msgstr "Används för att åsidosätta normal prioritet eller för att markera den andra nivån av kapsling"
+msgstr "Används för att åsidosätta normal prioritetsordning eller markera den andra kapslingsnivån"
 
 #: include/global_arrays.php
 msgid "Punctuation mark"
@@ -700,11 +700,11 @@ msgstr "Andra"
 
 #: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
 msgid "Data Query Variables"
-msgstr "Variabler för dataförfrågan"
+msgstr "Datafrågevariabler"
 
 #: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
 msgid "Interim Results"
-msgstr "Delårsresultat"
+msgstr "Mellanresultat"
 
 #: include/global_arrays.php
 msgid "Unlimited"
@@ -809,7 +809,7 @@ msgstr "Exportsökväg"
 
 #: include/global_forms.php
 msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
-msgstr "Valfritt: Sökvägen till en mapp där exporterna sparas.  Om den inte finns försöker ReportIt automatiskt att skapa den under den första schemalagda beräkningen, annars kommer den att försöka skapa en ny undermapp i huvudexportmappen med hjälp av mall-id."
+msgstr "Valfritt: Sökvägen till mappen där exporter ska sparas. Om mappen saknas försöker ReportIt skapa den vid den första schemalagda beräkningen. Annars försöker programmet skapa en undermapp i huvudexportmappen med mallens ID."
 
 #: include/global_forms.php templates.php
 msgid "Data Template"
@@ -817,7 +817,7 @@ msgstr "Datamall"
 
 #: include/global_forms.php
 msgid "The name of the data template this Report Template depends on."
-msgstr "Namnet på den datamall som den här rapportmallen beror på."
+msgstr "Namnet på datamallen som den här rapportmallen är beroende av."
 
 #: include/global_forms.php
 msgid "Report Template"
@@ -865,7 +865,7 @@ msgstr "Linje"
 
 #: lib/const_graphs.php
 msgid "Area"
-msgstr "Område"
+msgstr "Yta"
 
 #: lib/const_graphs.php
 msgid "Pie chart 3D"
@@ -873,15 +873,15 @@ msgstr "Cirkeldiagram 3D"
 
 #: lib/const_graphs.php lib/const_view.php
 msgid "Spider"
-msgstr "Spindel"
+msgstr "Spindeldiagram"
 
 #: lib/const_measurands.php
 msgid "f_mode - Mode"
-msgstr "f_mode - Läge"
+msgstr "f_mode - Typvärde"
 
 #: lib/const_measurands.php
 msgid "Returns the value that appears most often per DS"
-msgstr "Returnerar det värde som visas oftast per DS"
+msgstr "Returnerar det värde som förekommer oftast per DS"
 
 #: lib/const_measurands.php
 msgid "Left (Opening) parenthesis"
@@ -889,7 +889,7 @@ msgstr "Vänster (inledande) parentes"
 
 #: lib/const_measurands.php
 msgid "Right (Closing) parenthesis"
-msgstr "Höger (Avslutande) parentes"
+msgstr "Höger (avslutande) parentes"
 
 #: lib/const_measurands.php
 msgid "Left (Opening) Square Bracket"
@@ -937,7 +937,7 @@ msgstr "KRASCHADE"
 
 #: lib/const_reports.php
 msgid "FAILED"
-msgstr "Misslyckad"
+msgstr "MISSLYCKADES"
 
 #: lib/const_reports.php
 msgid "Idle"
@@ -993,7 +993,7 @@ msgstr "Datakällor"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "Text CSV (.csv)"
-msgstr "CSV-fil för text (.csv)"
+msgstr "CSV-text (.csv)"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "MS Excel 2003 XML (.xml)"
@@ -1021,7 +1021,7 @@ msgstr "Ange ämnet för ditt e-postmeddelande.<br> Följande variabler kommer a
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "Schemalagd rapport - |titel| - |period|"
+msgstr "Schemalagd rapport - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1049,11 +1049,11 @@ msgstr "Mottagare av e-post"
 
 #: lib/const_reports.php
 msgid "Notification List Recipients"
-msgstr "Mottagare av meddelandelista"
+msgstr "Mottagare från aviseringslistor"
 
 #: lib/const_reports.php
 msgid "To add a Recipients based upon an valid Notification List."
-msgstr "För att lägga till en mottagare baserat på en giltig meddelandelista."
+msgstr "Lägg till mottagare från en giltig aviseringslista."
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
@@ -1077,7 +1077,7 @@ msgstr "Nya e-postmottagare"
 
 #: lib/const_reports.php
 msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
-msgstr "Om du vill lägga till en ny mottagare anger du en giltig e-postadress (obligatoriskt) och ett namn (valfritt).<br> För en snabbare konfiguration kan du använda en lista med adresser/namn där namnen/adresserna är separerade med någon av följande rader: ';' eller ','"
+msgstr "Ange en giltig e-postadress (obligatoriskt) och ett namn (valfritt) för att lägga till en mottagare.<br> För snabbare inmatning kan du använda en lista med adresser och namn, separerade med semikolon ';' eller kommatecken ','."
 
 #: lib/const_reports.php
 msgid "Optional Sub-heading"
@@ -1093,19 +1093,19 @@ msgstr "Tidszon"
 
 #: lib/const_reports.php
 msgid "Select the time zone your following shifttime informations will be based on."
-msgstr "Välj den tidszon som din följande skifttidsinformation kommer att baseras på."
+msgstr "Välj tidszonen som skifttiderna nedan ska utgå från."
 
 #: lib/const_reports.php
 msgid "Optional Data Source Pre-Filters"
-msgstr "Förfilter för valfri datakälla"
+msgstr "Valfria förfilter för datakällor"
 
 #: lib/const_reports.php
 msgid "Site Filter"
-msgstr "Filter för webbplats"
+msgstr "Platsfilter"
 
 #: lib/const_reports.php
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Använd endast denna Site för att matcha datakällor.<br>Välj \"None\" (standard) för att inaktivera denna filterinställning."
+msgstr "Använd endast datakällor som tillhör den här platsen.<br>Välj ”Ingen” (standard) för att inaktivera filtret."
 
 #: lib/const_reports.php
 msgid "Device Template Filter"
@@ -1113,15 +1113,15 @@ msgstr "Filter för enhetsmall"
 
 #: lib/const_reports.php
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Använd endast denna Device Templates Data Sources.<br>Välj \"None\" (standard) för att avaktivera denna filterinställning."
+msgstr "Använd endast datakällor som tillhör den här enhetsmallen.<br>Välj ”Ingen” (standard) för att inaktivera filtret."
 
 #: lib/const_reports.php
 msgid "Data Source Name Filter"
-msgstr "Filter för namn på datakälla"
+msgstr "Filter för datakällans namn"
 
 #: lib/const_reports.php
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Använd datakällor vars namn matchar detta filter.<br> Använd SQL-jokertecken som % and/eller _. Inga reguljära uttryck!"
+msgstr "Använd datakällor vars namn matchar filtret.<br> Använd SQL-jokertecken som % och/eller _. Reguljära uttryck stöds inte!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
@@ -1129,7 +1129,7 @@ msgstr "Automatiskt genererade dataobjekt"
 
 #: lib/const_reports.php
 msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
-msgstr "Aktivera/inaktivera automatisk generering av alla dataobjekt baserat på givna filter. Detta kommer att anropas innan rapporten körs.  Föråldrade RRD:er kommer att tas bort och alla RRD:er som matchar filterinställningarna kommer att läggas till."
+msgstr "Aktivera eller inaktivera automatisk skapning av dataobjekt utifrån filtren. Det sker innan rapporten körs. Föråldrade RRD:er tas bort och alla RRD:er som matchar filtren läggs till."
 
 #: lib/const_reports.php reportit.php
 msgid "Working Time"
@@ -1141,7 +1141,7 @@ msgstr "Från"
 
 #: lib/const_reports.php reportit.php
 msgid "The startpoint of duration you want to analyse"
-msgstr "Startpunkten för varaktigheten som du vill analysera"
+msgstr "Starttid för perioden som ska analyseras"
 
 #: lib/const_reports.php reportit.php
 msgid "To"
@@ -1149,7 +1149,7 @@ msgstr "Till"
 
 #: lib/const_reports.php reportit.php
 msgid "The end of analysing time."
-msgstr "Slutet på analystiden."
+msgstr "Sluttid för perioden som ska analyseras."
 
 #: lib/const_reports.php reportit.php
 msgid "Working Days"
@@ -1157,7 +1157,7 @@ msgstr "Arbetsdagar"
 
 #: lib/const_reports.php reportit.php
 msgid "Define the band of days where shift STARTS!"
-msgstr "Definiera bandet av dagar där skiftet STARTAR!"
+msgstr "Ange de dagar då skiftet börjar!"
 
 #: lib/const_reports.php reportit.php
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
@@ -1173,7 +1173,7 @@ msgstr "Mall"
 
 #: lib/const_reports.php
 msgid "The template your configuration depends on"
-msgstr "Mallen som din konfiguration är beroende av"
+msgstr "Mallen som konfigurationen är beroende av"
 
 #: lib/const_reports.php lib/funct_export.php view.php
 msgid "Owner"
@@ -1201,11 +1201,11 @@ msgstr "Om det är aktiverat kan alla se din rapport under fliken \"rapporter\""
 
 #: lib/const_reports.php
 msgid "Enable Use of Graph Permissions"
-msgstr "Aktivera användning av diagrambehörigheter"
+msgstr "Aktivera grafbehörigheter"
 
 #: lib/const_reports.php
 msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
-msgstr "Om det är aktiverat (standard) filtreras listan över tillgängliga dataobjekt automatiskt efter ägarens diagrambehörighet: \"per enhet\"."
+msgstr "Om alternativet är aktiverat (standard) filtreras tillgängliga dataobjekt automatiskt efter ägarens grafbehörigheter ”per enhet”."
 
 #: lib/const_reports.php
 msgid "Auto Generated Email"
@@ -1217,7 +1217,7 @@ msgstr "Om den är aktiverad kommer fliken \"E-post\" att aktiveras och alla mot
 
 #: lib/const_reports.php
 msgid "Reporting Period"
-msgstr "Rapporteringsperioden"
+msgstr "Rapporteringsperiod"
 
 #: lib/const_reports.php view.php
 msgid "Sliding Time Frame"
@@ -1298,12 +1298,12 @@ msgstr "Cirkeldiagram: 3D"
 #: lib/const_view.php
 #, php-format
 msgid "%s Hi"
-msgstr "%s Hej"
+msgstr "%s hög"
 
 #: lib/const_view.php
 #, php-format
 msgid "%s Lo"
-msgstr "%s Lo"
+msgstr "%s låg"
 
 #: lib/const_view.php
 msgid "Any"
@@ -1365,7 +1365,7 @@ msgstr "Aktivera [%s]"
 #: lib/funct_html.php
 #, php-format
 msgid "Activate data source item '%s' for the calculation process."
-msgstr "Aktivera datakällans artikel \"%s\" för beräkningsprocessen."
+msgstr "Aktivera datakällobjektet ”%s” för beräkningen."
 
 #: lib/funct_html.php
 msgid "Data Source Alias"
@@ -1374,7 +1374,7 @@ msgstr "Alias för datakälla"
 #: lib/funct_html.php
 #, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
-msgstr "Valfritt: Du kan definiera ett alias som ska visas i stället för namnet på den interna datakällan \"%s\" i rapporterna."
+msgstr "Valfritt: Ange ett alias som ska visas i rapporterna i stället för det interna datakällnamnet ”%s”."
 
 #: lib/funct_html.php
 msgid "Separate Group Title [overall]"
@@ -1410,7 +1410,7 @@ msgstr "Kunde inte skriva filen till disken"
 
 #: lib/funct_validate.php
 msgid "File upload stopped by extension"
-msgstr "Filuppladdningen stoppades av ett tillägg"
+msgstr "Filuppladdningen stoppades av en PHP-tilläggsmodul"
 
 #: lib/funct_validate.php
 msgid "Invalid file extension."
@@ -1418,12 +1418,12 @@ msgstr "Ogiltigt filtillägg."
 
 #: lib/funct_validate.php
 msgid "Unable to parse template file."
-msgstr "Det går inte att parsa mallfilen."
+msgstr "Det går inte att tolka mallfilen."
 
 #: lib/funct_validate.php
 #, php-format
 msgid "Checksum error with Template %s in XML file"
-msgstr "Fel vid kontrollsumma med mallen %s i XML-filen"
+msgstr "Kontrollsummefel för mallen %s i XML-filen"
 
 #: reportit.php
 msgid "New Report"
@@ -1448,11 +1448,11 @@ msgstr "Skapa en ny rapport"
 
 #: reportit.php
 msgid "Choose a template this report should depend on."
-msgstr "Välj en mall som den här rapporten ska vara beroende av."
+msgstr "Välj mallen som rapporten ska använda."
 
 #: reportit.php
 msgid "Report Filters"
-msgstr "Filter för rapporter"
+msgstr "Rapportfilter"
 
 #: reportit.php templates.php view.php
 msgid "Search"
@@ -1483,7 +1483,7 @@ msgstr "Schema"
 
 #: reportit.php
 msgid "State"
-msgstr "Tillstånd"
+msgstr "Delstat/region"
 
 #: reportit.php
 #, php-format
@@ -1555,11 +1555,11 @@ msgstr "Underrubrik"
 
 #: reportit.php
 msgid "Shifttime (From - To)"
-msgstr "Skifttid (Från - Till)"
+msgstr "Skifttid (från–till)"
 
 #: reportit.php
 msgid "Weekdays (From - To)"
-msgstr "Vardagar (Från - Till)"
+msgstr "Veckodagar (från–till)"
 
 #: reportit.php
 msgid "RRDs"
@@ -1604,11 +1604,11 @@ msgstr "Datakälla [redigera: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
-msgstr "Underhuvud (valfritt)"
+msgstr "Underrubrik (valfritt)"
 
 #: reportit.php
 msgid "Select the time zone your following shifttime information will be based on."
-msgstr "Välj den tidszon som din följande skifttidsinformation kommer att baseras på."
+msgstr "Välj tidszonen som skifttiderna nedan ska utgå från."
 
 #: reportit.php
 msgid "Click 'Continue' to Run the following Report:"
@@ -1620,7 +1620,7 @@ msgstr "Klicka på \"Fortsätt\" för att ta bort följande rapporter:"
 
 #: reportit.php
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
-msgstr "Klicka på \"Fortsätt\" för att duplicera följande rapportkonfigurationer.  Du kan också ändra titelformatet under den här åtgärden."
+msgstr "Klicka på ”Fortsätt” för att duplicera följande rapportkonfigurationer. Du kan också ändra titelformatet."
 
 #: reportit.php
 msgid "Title Format:"
@@ -1628,7 +1628,7 @@ msgstr "Titelformat:"
 
 #: reportit.php
 msgid "<report_title> (1)"
-msgstr "<report_title> Nej (1)"
+msgstr "<report_title> (1)"
 
 #: reportit.php
 msgid "Click 'Continue' to Disable the following Report:"
@@ -1709,11 +1709,11 @@ msgstr "Åtgärder"
 
 #: setup.php
 msgid "Data Items"
-msgstr "Uppgifter"
+msgstr "Dataobjekt"
 
 #: setup.php templates.php
 msgid "Report Templates"
-msgstr "Rapportera mallar"
+msgstr "Rapportmallar"
 
 #: setup.php templates.php
 msgid "Import"
@@ -1733,7 +1733,7 @@ msgstr "Visa rapport"
 
 #: setup.php
 msgid "Export Report"
-msgstr "Exportrapport"
+msgstr "Exportera rapport"
 
 #: setup.php
 msgid "Public Report Charts"
@@ -1769,7 +1769,7 @@ msgstr "ReportIt-rapporter"
 
 #: setup.php
 msgid "ReportIt"
-msgstr "ReportIt (Rapportera)"
+msgstr "ReportIt"
 
 #: setup.php templates.php
 msgid "Templates"
@@ -1777,7 +1777,7 @@ msgstr "Mallar"
 
 #: setup.php
 msgid "No data source item selected"
-msgstr "Inget objekt för datakällan har valts"
+msgstr "Inget datakällobjekt har valts"
 
 #: setup.php
 msgid "Unselected data source items are still in use"
@@ -1873,7 +1873,7 @@ msgstr "Rader per sida"
 
 #: setup.php
 msgid "The number of rows to display on a single page."
-msgstr "Antalet rader som ska visas på en enda sida."
+msgstr "Antalet rader som ska visas per sida."
 
 #: setup.php
 msgid "Report Export Settings"
@@ -1881,7 +1881,7 @@ msgstr "Inställningar för rapportexport"
 
 #: setup.php
 msgid "CSV Column Separator"
-msgstr "CSV-kolumnavgränsare"
+msgstr "Kolumnavgränsare i CSV"
 
 #: setup.php
 msgid "The column separator to be used for CSV exports."
@@ -1889,7 +1889,7 @@ msgstr "Kolumnavgränsaren som ska användas för CSV-exporter."
 
 #: setup.php
 msgid "CSV Decimal Separator"
-msgstr "CSV-decimalavgränsare"
+msgstr "Decimaltecken i CSV"
 
 #: setup.php
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
@@ -1994,7 +1994,7 @@ msgstr "Redigera mätstorheter"
 
 #: templates.php
 msgid "Add variables"
-msgstr "Lägga till variabler"
+msgstr "Lägg till variabler"
 
 #: templates.php
 msgid "Edit variables"
@@ -2018,7 +2018,7 @@ msgstr "Duplicerad förkortning"
 
 #: templates.php
 msgid "Interim results are used by other measurands."
-msgstr "Interimsresultat används av andra mätstorheter."
+msgstr "Mellanresultat används av andra mätstorheter."
 
 #: templates.php
 #, php-format
@@ -2049,11 +2049,11 @@ msgstr "Mall: %s"
 #: templates.php
 #, php-format
 msgid "Report: %s"
-msgstr "Rapportera: %s"
+msgstr "Rapport: %s"
 
 #: templates.php
 msgid "Report: <i>None</i>"
-msgstr "Rapportera: <i>Inga</i>"
+msgstr "Rapport: <i>Ingen</i>"
 
 #: templates.php
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
@@ -2069,7 +2069,7 @@ msgstr "Titel:"
 
 #: templates.php
 msgid "<template_title> (1)"
-msgstr "<template_title> Nej (1)"
+msgstr "<template_title> (1)"
 
 #: templates.php
 msgid "Click 'Continue' to Export the following Report Templates"
@@ -2093,7 +2093,7 @@ msgstr "Exportera rapportmallar"
 
 #: templates.php
 msgid "Click 'Continue to Delete the following variables."
-msgstr "Klicka på \"Fortsätt för att ta bort följande variabler."
+msgstr "Klicka på ”Fortsätt” för att ta bort följande variabler."
 
 #: templates.php
 msgid "List of selected variables:"
@@ -2153,7 +2153,7 @@ msgstr "Variabelkonfiguration [ redigera: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
-msgstr "Variabel konfiguration [ny]"
+msgstr "Variabelkonfiguration [ny]"
 
 #: templates.php
 msgid "Internal name"
@@ -2165,7 +2165,7 @@ msgstr "En unik identifierare som skapas av ReportIt själv. Använd det här ID
 
 #: templates.php
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
-msgstr "Ett namn som \"Tröskel\" till exempel, som ska användas som rubrik i rapportkonfigurationen."
+msgstr "Ett namn, till exempel ”Tröskel”, som ska användas som rubrik i rapportkonfigurationen."
 
 #: templates.php
 msgid "Provide a name for this Variable"
@@ -2177,7 +2177,7 @@ msgstr "En beskrivning som förklarar innebörden av den här variabeln."
 
 #: templates.php
 msgid "Provide a meaningful description"
-msgstr "Ge en meningsfull beskrivning"
+msgstr "Ange en beskrivande text"
 
 #: templates.php
 msgid "Maximum Value"
@@ -2209,11 +2209,11 @@ msgstr "Typ"
 
 #: templates.php
 msgid "The method the report owner should use to define this variable."
-msgstr "Den metod som rapportägaren ska använda för att definiera den här variabeln."
+msgstr "Metoden som rapportägaren ska använda för att ange variabeln."
 
 #: templates.php
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
-msgstr "Definierar avståndet mellan två värden om metoden \"DropDown\" har valts. Se till att detta värde inte är för lågt, eftersom det indirekt definierar antalet alternativ som rullgardinsfältet kommer att ha. Till exempel kommer följande parametrar: MAX:100, MIN:0, STEP:0.01 att resultera i en urvalsruta med 10.001 alternativ. Detta kan orsaka dramatiska prestandaproblem på grund av en hög CPU-belastning på klientsidan. Försök att hålla det under 1000."
+msgstr "Anger avståndet mellan värden när metoden ”rullgardinslista” har valts. Ett för lågt värde ger många alternativ i listan. Exempelvis ger MAX:100, MIN:0 och STEP:0.01 en lista med 10 001 alternativ. Det kan orsaka stora prestandaproblem på grund av hög processorbelastning på klienten. Försök att hålla antalet under 1 000."
 
 #: templates.php
 #, php-format
@@ -2226,15 +2226,15 @@ msgstr "Mätstorhetskonfiguration [ny]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
-msgstr "Förklaringen som ges till denna mätstorhet. Detta kommer att visas som en förklaring inom exporter samt som ett verktygstips i presentationen av själva rapporten."
+msgstr "Beskrivningen av mätstorheten. Den visas i teckenförklaringen vid export och som ett verktygstips i rapportvyn."
 
 #: templates.php
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
-msgstr "Definiera en unik förkortning för detta mått med max 8 bokstäver/siffror."
+msgstr "Ange en unik förkortning för mätstorheten med högst åtta bokstäver eller siffror."
 
 #: templates.php
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
-msgstr "Den enhet som ges till detta mått. t.ex. \"bitar/s\""
+msgstr "Enheten för mätstorheten, till exempel ”bitar/s”."
 
 #: templates.php
 msgid "Consolidation function"
@@ -2242,11 +2242,11 @@ msgstr "Konsolideringsfunktion"
 
 #: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
-msgstr "Namnet på konsolideringsfunktionen för att definiera vilka CDP:er som ska läsas ut."
+msgstr "Namnet på konsolideringsfunktionen som anger vilka CDP:er som ska läsas."
 
 #: templates.php
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
-msgstr "Välj \"aktivera\" om denna mätstorhet ska bli en del av den slutliga rapportens utdata. Lämna det oflaggat om dessa mätstorheter endast kommer att användas som en hjälpberäkning."
+msgstr "Välj ”aktivera” om mätstorheten ska ingå i den färdiga rapporten. Lämna den avmarkerad om mätstorheten endast används för en hjälpberäkning."
 
 #: templates.php
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
@@ -2254,7 +2254,7 @@ msgstr "Välj ”aktivera” om mätstorheten ska ha ett enda resultat totalt i 
 
 #: templates.php
 msgid "Formatting"
-msgstr "Formaterar"
+msgstr "Formatering"
 
 #: templates.php
 msgid "Defines as what type the data should be treated as."
@@ -2274,7 +2274,7 @@ msgstr "Prefix"
 
 #: templates.php
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
-msgstr "Välj vilken typ av prefix som ska användas för att formatera resultatet. Med användning av decimalprefix kommer '1024' att formateras till '1,024k' medan alternativet för binära prefix returnerar '1ki'. Välj \"av\" för att visa rådata, här \"1024\"."
+msgstr "Välj vilken typ av prefix som ska användas för att formatera resultatet. Med decimalprefix formateras ”1024” som ”1.024k”, medan binära prefix ger ”1ki”. Välj ”av” för att visa rådata, här ”1024”."
 
 #: templates.php
 msgid "Formula"
@@ -2282,7 +2282,7 @@ msgstr "Formel"
 
 #: templates.php
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
-msgstr "Den matematiska definitionen av mätstorheten. Alla kombinationer av operatorer och operander nedan är tillåtna enligt matematikens regler. Använd runda och fyrkantiga parenteser för att ange sammansatta uttryck och operationsordning."
+msgstr "Mätstorhetens matematiska definition. Alla kombinationer av operatorerna och operanderna nedan är tillåtna enligt matematikens regler. Använd parenteser och hakparenteser för sammansatta uttryck och beräkningsordning."
 
 #: templates.php
 msgid "Operators & Operands"
