@@ -59,8 +59,11 @@ jobs:
           # PHP 8.6 runs as a non-blocking (experimental) leg because its
           # packages can lag on the runners and in Ondřej Surý's PPA. 8.5 is
           # already covered as a blocking leg above.
+          # Pinned to Ubuntu 24.04 (Noble): ubuntu-latest is now Ubuntu 26.04
+          # (Resolute), which Ondrej Sury's PPA does not yet serve, so the 8.6
+          # PPA toolchain install 404s. Noble carries the latest packaged 8.6 RC.
           - php: '8.6'
-            os: ubuntu-latest
+            os: ubuntu-24.04
             experimental: true
 
     services:
