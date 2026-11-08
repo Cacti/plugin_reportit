@@ -2,6 +2,7 @@
 
 --- develop ---
 
+* dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification
 * security: Move the plugin's remaining inline event handlers to CSP-safe bindings so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive: the confirmation-page Cancel buttons use the `cactiReturnTo` class, the filter rows selects are bound via change() in their ready blocks, and the template calc-syntax links use a delegated `reportitAddCalc` handler
 * dev: Measure CI coverage with xdebug instead of pcov so the plugin's own sources are instrumented (pcov auto-scopes to the Composer root and skipped cacti/plugins/, leaving the patch-coverage gate with nothing to measure)
 * dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
