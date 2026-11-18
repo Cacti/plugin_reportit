@@ -75,6 +75,9 @@ Before you install "ReportIt", check the following requirements:
 
 * **This 3.0 source branch: Cacti 1.3.0 or later**, as declared in `INFO`.
 * **Published 1.1.4: Cacti 1.2.27 or later**, as declared in its release tag.
+* **This source branch: PHP 8.3 or later**, as required by
+  [composer.json](composer.json). Cacti's own extension and database
+  requirements also apply.
 
 The following 0.x migration notes describe legacy versions, not a verified
 direct upgrade path to the 3.0 development branch. Back up the database and
@@ -82,10 +85,10 @@ existing reports before planning a migration.
 
 To upgrade the legacy release, ReportIt 0.4.0 or higher is required.
 
-A prior version (0.1, 0.2, 0.3.0, 0.3.1, 0.3.2 or 0.4.0a) has to be completely
-uninstalled (mysql tables as well)!
-
-Therefore you can use uninstall.php.
+Versions before 0.4.0 used a different migration procedure. The old
+`uninstall.php` helper is not included in this branch. Preserve a database and
+report archive backup, and use the source release's migration instructions
+instead of treating an uninstall as a current upgrade step.
 
 Optional: To use the full set of ReportIt's functionalities additional
 extensions are required
