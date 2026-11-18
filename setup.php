@@ -56,7 +56,7 @@ function plugin_reportit_install(): void {
 	api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
 	api_plugin_register_hook('reportit', 'clog_regex_array',      'reportit_clog_regex_array',     'setup.php');
 
-	api_plugin_register_realm('reportit', 'view.php,charts.php', 'ReportIt - Report Viewing', 1);
+	api_plugin_register_realm('reportit', 'view.php', 'ReportIt - Report Viewing', 1);
 	api_plugin_register_realm('reportit', 'reportit.php,view.php', 'ReportIt - Create Reports', 1);
 	api_plugin_register_realm('reportit', 'templates.php', 'ReportIt - Manage Reports', 1);
 
@@ -225,31 +225,31 @@ function reportit_upgrade_requirements(): bool {
  * @return array The $nav array with this plugin's entries added.
  */
 function reportit_draw_navigation_text($nav): array {
-	$nav['reportsit.php:'] = [
+	$nav['reportit.php:'] = [
 		'title'   => __('Reports', 'reportit'),
 		'mapping' => 'index.php:',
-		'url'     => 'reportsit.php',
+		'url'     => 'reportit.php',
 		'level'   => '1'];
 
-	$nav['reportsit.php:save'] = [
+	$nav['reportit.php:save'] = [
 		'title'   => __('(Edit)', 'reportit'),
 		'mapping' => 'index.php:',
 		'url'     => 'templates.php',
 		'level'   => '2'];
 
-	$nav['reportsit.php:report_add'] = [
+	$nav['reportit.php:report_add'] = [
 		'title'   => __('Add', 'reportit'),
 		'mapping' => 'index.php:',
 		'url'     => 'templates.php',
 		'level'   => '2'];
 
-	$nav['reportsit.php:report_edit'] = [
+	$nav['reportit.php:report_edit'] = [
 		'title'   => __('(Edit)', 'reportit'),
 		'mapping' => 'index.php:',
 		'url'     => 'templates.php',
 		'level'   => '2'];
 
-	$nav['reportsit.php:actions'] = [
+	$nav['reportit.php:actions'] = [
 		'title'   => __('Actions', 'reportit'),
 		'mapping' => 'index.php:',
 		'url'     => 'templates.php',
@@ -257,37 +257,37 @@ function reportit_draw_navigation_text($nav): array {
 
 	$nav['rrdlist.php:'] = [
 		'title'   => __('Data Items', 'reportit'),
-		'mapping' => 'index.php:,reportsit.php:',
+		'mapping' => 'index.php:,reportit.php:',
 		'url'     => 'templates.php',
 		'level'   => '2'];
 
 	$nav['rrdlist.php:save'] = [
 		'title'   => __('(Edit)', 'reportit'),
-		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportit.php:,rrdlist.php:',
 		'url'     => '',
 		'level'   => '3'];
 
 	$nav['rrdlist.php:rrdlist_edit'] = [
 		'title'   => __('(Edit)', 'reportit'),
-		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportit.php:,rrdlist.php:',
 		'url'     => '',
 		'level'   => '3'];
 
 	$nav['rrdlist.php:actions'] = [
 		'title'   => __('Actions', 'reportit'),
-		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportit.php:,rrdlist.php:',
 		'url'     => '',
 		'level'   => '3'];
 
 	$nav['items.php:'] = [
 		'title'   => __('Add', 'reportit'),
-		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportit.php:,rrdlist.php:',
 		'url'     => 'templates.php',
 		'level'   => '3'];
 
 	$nav['items.php:save'] = [
 		'title'   => __('(Edit)', 'reportit'),
-		'mapping' => 'index.php:,reportsit.php:,rrdlist.php:',
+		'mapping' => 'index.php:,reportit.php:,rrdlist.php:',
 		'url'     => '',
 		'level'   => '4'];
 
@@ -401,7 +401,7 @@ function reportit_draw_navigation_text($nav): array {
 
 	$nav['run.php:calculation'] = [
 		'title'   => __('Report Calculation', 'reportit'),
-		'mapping' => 'index.php:,reportsit.php:',
+		'mapping' => 'index.php:,reportit.php:',
 		'url'     => '',
 		'level'   => '2'];
 
@@ -426,24 +426,6 @@ function reportit_draw_navigation_text($nav): array {
 	$nav['view.php:show_graphs'] = [
 		'title'   => __('Show Report', 'reportit'),
 		'mapping' => 'index.php:,view.php:',
-		'url'     => '',
-		'level'   => '2'];
-
-	$nav['charts.php:'] = [
-		'title'   => __('Public Report Charts', 'reportit'),
-		'mapping' => 'index.php:',
-		'url'     => 'graph.php',
-		'level'   => '1'];
-
-	$nav['charts.php:bar'] = [
-		'title'   => __('Bar Chart', 'reportit'),
-		'mapping' => 'index.php:,graph.php:',
-		'url'     => '',
-		'level'   => '2'];
-
-	$nav['charts.php:pie'] = [
-		'title'   => __('Pie Chart', 'reportit'),
-		'mapping' => 'index.php:,graph.php:',
 		'url'     => '',
 		'level'   => '2'];
 
@@ -479,8 +461,8 @@ function reportit_config_arrays(): void {
 	reportit_define_constants();
 
 	if (function_exists('auth_augment_roles')) {
-		auth_augment_roles(__('Normal User'), ['view.php,charts.php']);
-		auth_augment_roles(__('General Administration'), ['reportsit.php']);
+		auth_augment_roles(__('Normal User'), ['view.php']);
+		auth_augment_roles(__('General Administration'), ['reportit.php']);
 		auth_augment_roles(__('System Administration'), ['templates.php', 'measurands.php', 'variables.php']);
 	}
 

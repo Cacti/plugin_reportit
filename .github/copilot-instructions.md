@@ -134,7 +134,7 @@ api_plugin_register_hook('reportit', 'config_settings',       'reportit_config_s
 api_plugin_register_hook('reportit', 'poller_bottom',         'reportit_poller_bottom',        'setup.php');
 api_plugin_register_hook('reportit', 'clog_regex_array',      'reportit_clog_regex_array',     'setup.php');
 
-api_plugin_register_realm('reportit', 'view.php,charts.php', 'ReportIt - Report Viewing', 1);
+api_plugin_register_realm('reportit', 'view.php', 'ReportIt - Report Viewing', 1);
 api_plugin_register_realm('reportit', 'reportit.php,view.php', 'ReportIt - Create Reports', 1);
 api_plugin_register_realm('reportit', 'templates.php', 'ReportIt - Manage Reports', 1);
 ```
