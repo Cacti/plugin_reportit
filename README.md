@@ -1,5 +1,28 @@
 # ReportIt
 
+ReportIt creates tabular reports from RRD data using configurable templates,
+measurands and reporting periods. The 3.0 development branch uses Cacti’s report
+queue for scheduled execution and notification delivery, including notification
+lists, direct email recipients and BCC.
+
+## Versions and compatibility
+
+This README describes the `develop` source branch.
+
+| Code | Plugin version | Minimum Cacti declared in `INFO` |
+| --- | --- | --- |
+| [Source branch](INFO) | 3.0 | 1.3.0 |
+| [Published v1.1.4](https://github.com/Cacti/plugin_reportit/releases/tag/v1.1.4) | 1.1.4 | 1.2.27 |
+
+Use the published release’s assets and tagged documentation when installing that
+package. Branch code can include later changes, even when its version number
+matches the release. Cacti’s own PHP and database requirements also apply.
+
+Install this plugin in **`<cacti-root>/plugins/reportit`**, using the directory
+name `reportit` rather than `plugin_reportit`.
+
+See [CHANGELOG.md](CHANGELOG.md) for the version history.
+
 ## Developers
 
 * Andreas Braun (aka browniebraun)
@@ -8,12 +31,16 @@
 
 * Larry Adams (aka TheWitness)
 
-## Purpose
-
-This plugin creates tabular reports from RRDfile data which will be archived and
-optionally Emailed to a user or users.
-
 ## Features
+
+Templates, data items, work schedules, time zones, SI-prefix formatting and
+scheduled reporting are provided by this branch. The list below also records
+legacy 1.x capabilities. Version 3.0 removes the earlier automatic archive/export
+workflow in favor of Cacti’s report log; existing legacy archive/export helpers
+do not establish that the old workflow is supported in 3.0. See the changelog
+and the tagged README for the published 1.1.4 package.
+
+### Legacy feature list
 
 * Definition of individual report templates by using measurands and variables in
   a mathematical way
@@ -46,9 +73,14 @@ optionally Emailed to a user or users.
 
 Before you install "ReportIt", check the following requirements:
 
-* Cacti 1.2.27 or higher.
+* **This 3.0 source branch: Cacti 1.3.0 or later**, as declared in `INFO`.
+* **Published 1.1.4: Cacti 1.2.27 or later**, as declared in its release tag.
 
-To upgrade "ReportIt" release 0.4.0 or higher is required.
+The following 0.x migration notes describe legacy versions, not a verified
+direct upgrade path to the 3.0 development branch. Back up the database and
+existing reports before planning a migration.
+
+To upgrade the legacy release, ReportIt 0.4.0 or higher is required.
 
 A prior version (0.1, 0.2, 0.3.0, 0.3.1, 0.3.2 or 0.4.0a) has to be completely
 uninstalled (mysql tables as well)!
@@ -93,6 +125,11 @@ The Installation of ReportIt is similar to other plugins:
 * Update ReportIt's settings under "Configuration/Settings/Reports".
 
 ## Upgrade
+
+**Legacy 1.x procedure:** the following instructions refer to the older
+archive/export layout. For 3.0, review the development changelog and Cacti’s
+report-log workflow before migration. Preserve existing archive/export data.
+
 
 To upgrade an existing version of ReportIt please ensure that its release number
 is v0.4.0 or above. It's strongly recommended to make a backup of your cacti
