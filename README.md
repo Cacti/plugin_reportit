@@ -55,15 +55,14 @@ and the tagged README for the published 1.1.4 package.
 
 * Provides rounding with binary or decimal SI-Prefixes
 
-* Export to CSV, SML and XML
+* Export to CSV, SML, XML and JSON, and to YAML when the PHP 'yaml' extension
+  is loaded
 
 * Different ways of connecting RRDtool
 
 * Working in localtime supports change to DST and vice versa
 
 * Automatic dispatch of scheduled reports via email
-
-* Generation of top 10 charts
 
 * Report history * Report per email
 
@@ -90,10 +89,8 @@ Versions before 0.4.0 used a different migration procedure. The old
 report archive backup, and use the source release's migration instructions
 instead of treating an uninstall as a current upgrade step.
 
-Optional: To use the full set of ReportIt's functionalities additional
-extensions are required
-
-* Fast report generation: PHP extension 'php_rrdtool'
+Optional: The YAML export format is offered only when the PHP 'yaml' extension
+is loaded.
 
 ## Cacti compatibility
 
@@ -154,10 +151,18 @@ Console > Configuration > Settings > Reports.
 
 ## How to use
 
-Console > Templates > Reports - create report template, enable publish, disable locked
-Console > Management > Reports - create report from your template. Don't forget use "Add data items"
+Console > Templates > ReportIt - create report template, enable publish, disable locked
+Console > Management > ReportIt Reports - create report from your template. Don't forget use "Add data items"
 Use ReportIT tab
 Manual is in file MANUAL.PDF
+
+## Permissions
+
+The plugin registers three realms that can be assigned to users or groups:
+
+* ReportIt - Report Viewing
+* ReportIt - Create Reports
+* ReportIt - Manage Reports
 
 ## Authors
 
