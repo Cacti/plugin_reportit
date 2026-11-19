@@ -100,11 +100,11 @@ switch (get_request_var('action')) {
 		template_wizard('export');
 
 		break;
-	case 'template_import_wizard' :
+	case 'template_import_wizard':
 		template_wizard('import');
 
 		break;
-	case 'template_upload_wizard' :
+	case 'template_upload_wizard':
 		template_wizard('upload');
 
 		break;
