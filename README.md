@@ -11,7 +11,7 @@ This README describes the `develop` source branch.
 
 | Code | Plugin version | Minimum Cacti declared in `INFO` |
 | --- | --- | --- |
-| [Source branch](INFO) | 3.0 | 1.3.0 |
+| [Source branch](https://github.com/Cacti/plugin_reportit/blob/develop/INFO) | 3.0 | 1.3.0 |
 | [Published v1.1.4](https://github.com/Cacti/plugin_reportit/releases/tag/v1.1.4) | 1.1.4 | 1.2.27 |
 
 Use the published release’s assets and tagged documentation when installing that
@@ -21,7 +21,7 @@ matches the release. Cacti’s own PHP and database requirements also apply.
 Install this plugin in **`<cacti-root>/plugins/reportit`**, using the directory
 name `reportit` rather than `plugin_reportit`.
 
-See [CHANGELOG.md](CHANGELOG.md) for the version history.
+See [CHANGELOG.md](https://github.com/Cacti/plugin_reportit/blob/develop/CHANGELOG.md) for the version history.
 
 ## Developers
 
@@ -75,7 +75,7 @@ Before you install "ReportIt", check the following requirements:
 * **This 3.0 source branch: Cacti 1.3.0 or later**, as declared in `INFO`.
 * **Published 1.1.4: Cacti 1.2.27 or later**, as declared in its release tag.
 * **This source branch: PHP 8.3 or later**, as required by
-  [composer.json](composer.json). Cacti's own extension and database
+  [composer.json](https://github.com/Cacti/plugin_reportit/blob/develop/composer.json). Cacti's own extension and database
   requirements also apply.
 
 The following 0.x migration notes describe legacy versions, not a verified
