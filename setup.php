@@ -229,27 +229,31 @@ function reportit_draw_navigation_text($nav): array {
 		return compact('title', 'mapping', 'url', 'level');
 	};
 
+	$edit_title     = __('(Edit)', 'reportit');
+	$report_mapping = 'index.php:,reportit.php:';
+	$rrd_mapping    = $report_mapping . ',rrdlist.php:';
+
 	$nav['reportit.php:'] = $report_entry(__('Reports', 'reportit'), 'index.php:', 'reportit.php', '1');
 
-	$nav['reportit.php:save'] = $report_entry(__('(Edit)', 'reportit'), 'index.php:', 'templates.php', '2');
+	$nav['reportit.php:save'] = $report_entry($edit_title, 'index.php:', 'templates.php', '2');
 
 	$nav['reportit.php:report_add'] = $report_entry(__('Add', 'reportit'), 'index.php:', 'templates.php', '2');
 
-	$nav['reportit.php:report_edit'] = $report_entry(__('(Edit)', 'reportit'), 'index.php:', 'templates.php', '2');
+	$nav['reportit.php:report_edit'] = $report_entry($edit_title, 'index.php:', 'templates.php', '2');
 
 	$nav['reportit.php:actions'] = $report_entry(__('Actions', 'reportit'), 'index.php:', 'templates.php', '2');
 
-	$nav['rrdlist.php:'] = $report_entry(__('Data Items', 'reportit'), 'index.php:,reportit.php:', 'templates.php', '2');
+	$nav['rrdlist.php:'] = $report_entry(__('Data Items', 'reportit'), $report_mapping, 'templates.php', '2');
 
-	$nav['rrdlist.php:save'] = $report_entry(__('(Edit)', 'reportit'), 'index.php:,reportit.php:,rrdlist.php:', '', '3');
+	$nav['rrdlist.php:save'] = $report_entry($edit_title, $rrd_mapping, '', '3');
 
-	$nav['rrdlist.php:rrdlist_edit'] = $report_entry(__('(Edit)', 'reportit'), 'index.php:,reportit.php:,rrdlist.php:', '', '3');
+	$nav['rrdlist.php:rrdlist_edit'] = $report_entry($edit_title, $rrd_mapping, '', '3');
 
-	$nav['rrdlist.php:actions'] = $report_entry(__('Actions', 'reportit'), 'index.php:,reportit.php:,rrdlist.php:', '', '3');
+	$nav['rrdlist.php:actions'] = $report_entry(__('Actions', 'reportit'), $rrd_mapping, '', '3');
 
-	$nav['items.php:'] = $report_entry(__('Add', 'reportit'), 'index.php:,reportit.php:,rrdlist.php:', 'templates.php', '3');
+	$nav['items.php:'] = $report_entry(__('Add', 'reportit'), $rrd_mapping, 'templates.php', '3');
 
-	$nav['items.php:save'] = $report_entry(__('(Edit)', 'reportit'), 'index.php:,reportit.php:,rrdlist.php:', '', '4');
+	$nav['items.php:save'] = $report_entry($edit_title, $rrd_mapping, '', '4');
 
 	$nav['templates.php:'] = [
 		'title'   => __('Report Templates', 'reportit'),
@@ -359,7 +363,7 @@ function reportit_draw_navigation_text($nav): array {
 		'url'     => '',
 		'level'   => '3'];
 
-	$nav['run.php:calculation'] = $report_entry(__('Report Calculation', 'reportit'), 'index.php:,reportit.php:', '', '2');
+	$nav['run.php:calculation'] = $report_entry(__('Report Calculation', 'reportit'), $report_mapping, '', '2');
 
 	$nav['view.php:'] = [
 		'title'   => __('Public Reports', 'reportit'),
