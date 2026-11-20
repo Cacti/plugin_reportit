@@ -1787,18 +1787,6 @@ msgid "Export Report"
 msgstr "Rapport exporteren"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "Grafieken van openbare rapporten"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "Staafdiagram"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "Cirkeldiagram"
-
-#: setup.php
 msgid "Normal User"
 msgstr "Particulier"
 
@@ -2481,6 +2469,15 @@ msgstr "Pos."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Resultaten [%s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "Grafieken van openbare rapporten"
+
+#~ msgid "Bar Chart"
+#~ msgstr "Staafdiagram"
+
+#~ msgid "Pie Chart"
+#~ msgstr "Cirkeldiagram"
 
 #~ msgid "Administration"
 #~ msgstr "Administratie"
