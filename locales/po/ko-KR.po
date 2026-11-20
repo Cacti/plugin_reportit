@@ -1785,18 +1785,6 @@ msgid "Export Report"
 msgstr "보고서 내보내기"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "공개 보고서 차트"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "막대 차트"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "원형차트"
-
-#: setup.php
 msgid "Normal User"
 msgstr "일반 사용자"
 
@@ -2478,6 +2466,15 @@ msgstr "Pos."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "결과 [ %s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "공개 보고서 차트"
+
+#~ msgid "Bar Chart"
+#~ msgstr "막대 차트"
+
+#~ msgid "Pie Chart"
+#~ msgstr "원형차트"
 
 #~ msgid "Administration"
 #~ msgstr "관리"
