@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-24 02:18+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-10-24 02:18+0000\n"
+"Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
+"Language-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\n"
+"Language: ka-GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1737,18 +1749,6 @@ msgid "Export Report"
 msgstr "ანგარიშის გატანა"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "საჯარო ანგარიშის დიაგრამები"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "ჰისტოგრამა"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "სექტორული გრაფიკი"
-
-#: setup.php
 msgid "Normal User"
 msgstr "ნორმალური მომხმარებელი"
 
@@ -2413,6 +2413,15 @@ msgstr "პოზ."
 #, php-format
 msgid "Results [%s]"
 msgstr "შედეგები [%s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "საჯარო ანგარიშის დიაგრამები"
+
+#~ msgid "Bar Chart"
+#~ msgstr "ჰისტოგრამა"
+
+#~ msgid "Pie Chart"
+#~ msgstr "სექტორული გრაფიკი"
 
 #~ msgid "Administration"
 #~ msgstr "ადმინისტრაცია"
