@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-10-06 09:18+0000\nLast-Translator: YU HAO HUANG <mix@b51.tw>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-10-06 09:18+0000\n"
+"Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
+"Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hant/>\n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1842,18 +1854,6 @@ msgid "Export Report"
 msgstr "匯出報表"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "公共報告圖表"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "長條圖"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "圓餅圖"
-
-#: setup.php
 #, fuzzy
 msgid "Normal User"
 msgstr "普通用戶"
@@ -2552,6 +2552,15 @@ msgstr "號碼"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "結果[％s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "公共報告圖表"
+
+#~ msgid "Bar Chart"
+#~ msgstr "長條圖"
+
+#~ msgid "Pie Chart"
+#~ msgstr "圓餅圖"
 
 #~ msgid "Administration"
 #~ msgstr "管理員"
