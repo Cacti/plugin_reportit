@@ -1787,18 +1787,6 @@ msgid "Export Report"
 msgstr "דוח ייצוא"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "תרשימי דוחות ציבוריים"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "תרשים עמודות"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "דיאגרמת עוגה"
-
-#: setup.php
 msgid "Normal User"
 msgstr "משתמש רגיל"
 
@@ -2477,6 +2465,15 @@ msgstr "ממוצע."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "תוצאות [ %s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "תרשימי דוחות ציבוריים"
+
+#~ msgid "Bar Chart"
+#~ msgstr "תרשים עמודות"
+
+#~ msgid "Pie Chart"
+#~ msgstr "דיאגרמת עוגה"
 
 #~ msgid "Administration"
 #~ msgstr "ניהול"
