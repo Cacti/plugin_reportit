@@ -1786,18 +1786,6 @@ msgid "Export Report"
 msgstr "レポートのエクスポート"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "公開レポートチャート"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "棒グラフ"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "円グラフ"
-
-#: setup.php
 msgid "Normal User"
 msgstr "一般ユーザー"
 
@@ -2477,6 +2465,15 @@ msgstr "位置。"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "結果[％s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "公開レポートチャート"
+
+#~ msgid "Bar Chart"
+#~ msgstr "棒グラフ"
+
+#~ msgid "Pie Chart"
+#~ msgstr "円グラフ"
 
 #~ msgid "Administration"
 #~ msgstr "行政"
