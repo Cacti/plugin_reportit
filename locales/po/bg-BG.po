@@ -1783,18 +1783,6 @@ msgid "Export Report"
 msgstr "Отчет за експортиране"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "Графики за публични отчети"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "Лента диаграма"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "Диаграма"
-
-#: setup.php
 msgid "Normal User"
 msgstr "Обикновен потребител"
 
@@ -2474,6 +2462,15 @@ msgstr "Поз."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Резултати [ %s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "Графики за публични отчети"
+
+#~ msgid "Bar Chart"
+#~ msgstr "Лента диаграма"
+
+#~ msgid "Pie Chart"
+#~ msgstr "Диаграма"
 
 #~ msgid "Administration"
 #~ msgstr "Администрация"
