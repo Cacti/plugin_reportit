@@ -1780,18 +1780,6 @@ msgid "Export Report"
 msgstr "تقرير التصدير"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "مخططات التقارير العامة"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "مخطط شريطي"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "مخطط دائري"
-
-#: setup.php
 msgid "Normal User"
 msgstr "المستخدم العادي"
 
@@ -2470,6 +2458,15 @@ msgstr "الترتيب."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "النتائج [٪ s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "مخططات التقارير العامة"
+
+#~ msgid "Bar Chart"
+#~ msgstr "مخطط شريطي"
+
+#~ msgid "Pie Chart"
+#~ msgstr "مخطط دائري"
 
 #~ msgid "Administration"
 #~ msgstr "الادارة"
