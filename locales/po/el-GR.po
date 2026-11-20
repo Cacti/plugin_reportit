@@ -1783,18 +1783,6 @@ msgid "Export Report"
 msgstr "Έκθεση εξαγωγής"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "Δημόσια Γραφήματα Αναφορών"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "Ραβδόγραμμα"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "Διάγραμμα πίτας"
-
-#: setup.php
 msgid "Normal User"
 msgstr "Απλός Χρήστης"
 
@@ -2474,6 +2462,15 @@ msgstr "Pos."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Αποτελέσματα [ %s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "Δημόσια Γραφήματα Αναφορών"
+
+#~ msgid "Bar Chart"
+#~ msgstr "Ραβδόγραμμα"
+
+#~ msgid "Pie Chart"
+#~ msgstr "Διάγραμμα πίτας"
 
 #~ msgid "Administration"
 #~ msgstr "Διαχείριση"
