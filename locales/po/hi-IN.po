@@ -1788,18 +1788,6 @@ msgid "Export Report"
 msgstr "निर्यात रिपोर्ट"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "सार्वजनिक रिपोर्ट चार्ट"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "दंड ग्राफ़"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "पाइ चार्ट"
-
-#: setup.php
 msgid "Normal User"
 msgstr "सामान्य उपयोगकर्ता"
 
@@ -2481,6 +2469,15 @@ msgstr "स्थिति।"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "परिणाम [ %s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "सार्वजनिक रिपोर्ट चार्ट"
+
+#~ msgid "Bar Chart"
+#~ msgstr "दंड ग्राफ़"
+
+#~ msgid "Pie Chart"
+#~ msgstr "पाइ चार्ट"
 
 #, fuzzy
 #~ msgid "Administration"
