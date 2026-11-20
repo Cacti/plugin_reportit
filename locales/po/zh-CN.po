@@ -1785,18 +1785,6 @@ msgid "Export Report"
 msgstr "导出报告"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "公共报告图表"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "条形图"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "饼图"
-
-#: setup.php
 msgid "Normal User"
 msgstr "普通用户"
 
@@ -2476,6 +2464,15 @@ msgstr "Pos."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "结果[％s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "公共报告图表"
+
+#~ msgid "Bar Chart"
+#~ msgstr "条形图"
+
+#~ msgid "Pie Chart"
+#~ msgstr "饼图"
 
 #~ msgid "Administration"
 #~ msgstr "管理"
