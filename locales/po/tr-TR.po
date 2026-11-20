@@ -1788,18 +1788,6 @@ msgid "Export Report"
 msgstr "Raporu Dışa Aktar"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "Herkese Açık Rapor Grafikleri"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "Grafik çubuğu"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "Pasta Grafiği"
-
-#: setup.php
 msgid "Normal User"
 msgstr "Normal Kullanıcı"
 
@@ -2480,6 +2468,15 @@ msgstr "Sıra"
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Sonuçlar [ %s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "Herkese Açık Rapor Grafikleri"
+
+#~ msgid "Bar Chart"
+#~ msgstr "Grafik çubuğu"
+
+#~ msgid "Pie Chart"
+#~ msgstr "Pasta Grafiği"
 
 #~ msgid "Administration"
 #~ msgstr "Yönetim"
