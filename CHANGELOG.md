@@ -5,6 +5,7 @@ installation guidance and source-checked behavior.
 
 --- develop ---
 
+* bug: Fix the `reportsit.php` typo in the navigation entries and the General Administration role (so it now grants the Create Reports realm), and remove the realm and navigation entries for the nonexistent `charts.php`
 * dev: Correct template-wizard switch-label spacing to pass the PHP formatting check
 * dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification
 * security: Move the plugin's remaining inline event handlers to CSP-safe bindings so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive: the confirmation-page Cancel buttons use the `cactiReturnTo` class, the filter rows selects are bound via change() in their ready blocks, and the template calc-syntax links use a delegated `reportitAddCalc` handler

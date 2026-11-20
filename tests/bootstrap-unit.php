@@ -205,6 +205,12 @@ if (!function_exists('cacti_log')) {
 	}
 }
 
+if (!function_exists('cacti_version_compare')) {
+	function cacti_version_compare(string $version1, string $version2, string $operator = '>'): bool {
+		return version_compare($version1, $version2, $operator);
+	}
+}
+
 if (!function_exists('cacti_sizeof')) {
 	function cacti_sizeof($array) {
 		return is_array($array) ? count($array) : 0;

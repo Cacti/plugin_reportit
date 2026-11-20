@@ -1747,18 +1747,6 @@ msgid "Export Report"
 msgstr ""
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr ""
-
-#: setup.php
-msgid "Bar Chart"
-msgstr ""
-
-#: setup.php
-msgid "Pie Chart"
-msgstr ""
-
-#: setup.php
 msgid "Normal User"
 msgstr ""
 

@@ -88,3 +88,13 @@ it('updates plugin_config when the version drifts and the stored status does not
 		'0',
 	]);
 });
+
+it('migrates the legacy report viewer realm to the existing view page', function () {
+	require_once __DIR__ . '/../../system/install.php';
+	require_once __DIR__ . '/../../system/upgrade.php';
+
+	reportit_system_upgrade('1.1.1');
+
+	$queries = array_column($GLOBALS['__test_db_calls'], 'sql');
+	expect($queries)->toContain('UPDATE plugin_realms SET file="view.php" WHERE plugin="reportit" AND file LIKE "view.php%"');
+});

@@ -329,7 +329,7 @@ function reportit_system_upgrade(string $old_version): void {
 
 		db_execute('UPDATE plugin_realms SET file="reports.php,view.php" WHERE plugin="reportit" AND file LIKE "%reports.php%"');
 		db_execute('UPDATE plugin_realms SET file="templates.php" WHERE plugin="reportit" AND file LIKE "%templates.php%"');
-		db_execute('UPDATE plugin_realms SET file="view.php,charts.php" WHERE plugin="reportit" AND file LIKE "view.php%"');
+		db_execute('UPDATE plugin_realms SET file="view.php" WHERE plugin="reportit" AND file LIKE "view.php%"');
 	}
 
 	// cacti 1.3.0 compatibility

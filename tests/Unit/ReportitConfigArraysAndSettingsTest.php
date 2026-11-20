@@ -83,3 +83,11 @@ it('merges into existing settings arrays without clobbering them', function () {
 	expect($settings_user['reportit'])->toHaveKey('other_user_setting');
 	expect($settings_user['reportit'])->toHaveKey('reportit_max_rows');
 });
+
+it('links report breadcrumbs to the report page and omits retired charts', function () {
+	$nav = reportit_draw_navigation_text([]);
+
+	expect($nav['reportit.php:']['url'])->toBe('reportit.php');
+	expect($nav['rrdlist.php:']['mapping'])->toBe('index.php:,reportit.php:');
+	expect($nav)->not->toHaveKey('charts.php:');
+});

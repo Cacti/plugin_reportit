@@ -28,6 +28,7 @@
     <source>
         <include>
             <file>setup.php</file>
+            <file>system/upgrade.php</file>
             <file>lib/funct_calculate.php</file>
             <file>lib/funct_export.php</file>
             <file>lib/funct_html.php</file>
