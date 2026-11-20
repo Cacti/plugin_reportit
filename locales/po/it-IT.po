@@ -1783,18 +1783,6 @@ msgid "Export Report"
 msgstr "Esportare Rapporto"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "Grafici dei rapporti pubblici"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "Grafico a barre"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "Grafico a Torta"
-
-#: setup.php
 msgid "Normal User"
 msgstr "Utente Normale"
 
@@ -2476,6 +2464,15 @@ msgstr "Pos."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Risultati [%s]."
+
+#~ msgid "Public Report Charts"
+#~ msgstr "Grafici dei rapporti pubblici"
+
+#~ msgid "Bar Chart"
+#~ msgstr "Grafico a barre"
+
+#~ msgid "Pie Chart"
+#~ msgstr "Grafico a Torta"
 
 #~ msgid "Administration"
 #~ msgstr "Amministrazione"
