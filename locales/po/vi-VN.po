@@ -1783,18 +1783,6 @@ msgid "Export Report"
 msgstr "Xuất báo cáo"
 
 #: setup.php
-msgid "Public Report Charts"
-msgstr "Biểu đồ báo cáo công khai"
-
-#: setup.php
-msgid "Bar Chart"
-msgstr "Biểu đồ thanh"
-
-#: setup.php
-msgid "Pie Chart"
-msgstr "Biểu đồ tròn"
-
-#: setup.php
 msgid "Normal User"
 msgstr "Người dùng bình thường"
 
@@ -2475,6 +2463,15 @@ msgstr "Pos."
 #, fuzzy, php-format
 msgid "Results [%s]"
 msgstr "Kết quả [ %s]"
+
+#~ msgid "Public Report Charts"
+#~ msgstr "Biểu đồ báo cáo công khai"
+
+#~ msgid "Bar Chart"
+#~ msgstr "Biểu đồ thanh"
+
+#~ msgid "Pie Chart"
+#~ msgstr "Biểu đồ tròn"
 
 #~ msgid "Administration"
 #~ msgstr "Quản trị"
