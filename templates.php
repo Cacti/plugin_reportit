@@ -716,7 +716,7 @@ function templates(): void {
 			'tip'     => __('The version of this Report Template.', 'reportit')
 		],
 		'enabled' => [
-			'display' => __('Published', 'reporit'),
+			'display' => __('Published', 'reportit'),
 			'align'   => 'right'
 		],
 		'nosort2' => [

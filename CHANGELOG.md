@@ -5,6 +5,7 @@ installation guidance and source-checked behavior.
 
 --- develop ---
 
+* issue#162: Fix misspelled `'reporit'` gettext text domain in `templates.php`, fix English description typos in `lib/const_reports.php`, and refresh `locales/po/cacti.pot`
 * bug: Fix the `reportsit.php` typo in the navigation entries and the General Administration role (so it now grants the Create Reports realm), and remove the realm and navigation entries for the nonexistent `charts.php`
 * dev: Correct template-wizard switch-label spacing to pass the PHP formatting check
 * dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification
