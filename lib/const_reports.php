@@ -236,24 +236,24 @@ $form_array_email = [
 		'value'         => '|arg1:notify_list|',
 	],
 	'email' => [
-		'friendly_name' => __('To Email Address(es)'),
+		'friendly_name' => __('To Email Address(es)', 'reportit'),
 		'method'        => 'textarea',
 		'textarea_rows' => '5',
 		'textarea_cols' => '60',
 		'class'         => 'textAreaNotes',
 		'default'       => '',
-		'description'   => __('Please separate multiple addresses by comma (,)'),
+		'description'   => __('Please separate multiple addresses by comma (,)', 'reportit'),
 		'max_length'    => 255,
 		'value'         => '|arg1:email|'
 	],
 	'bcc' => [
-		'friendly_name' => __('BCC Address(es)'),
+		'friendly_name' => __('BCC Address(es)', 'reportit'),
 		'method'        => 'textarea',
 		'textarea_rows' => '5',
 		'textarea_cols' => '60',
 		'class'         => 'textAreaNotes',
 		'default'       => '',
-		'description'   => __('Blind carbon copy. Please separate multiple addresses by comma (,)'),
+		'description'   => __('Blind carbon copy. Please separate multiple addresses by comma (,)', 'reportit'),
 		'max_length'    => 255,
 		'value'         => '|arg1:bcc|'
 	],

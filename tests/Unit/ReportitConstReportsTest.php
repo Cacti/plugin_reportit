@@ -6,8 +6,8 @@
 */
 
 /*
- * Unit coverage for lib/const_reports.php field descriptions and regression
- * check for the reportit gettext domain in templates.php.
+ * Unit coverage for lib/const_reports.php field descriptions. Text domain usage
+ * is covered for the whole plugin by I18nTextDomainTest.php.
  */
 
 it('loads report form definitions with corrected description wording', function () {
@@ -37,11 +37,4 @@ it('loads report form definitions with corrected description wording', function 
 	expect($form_array_presets['autorrdlist']['description'])
 		->toContain('filters. This will be called')
 		->not->toContain('filters.This');
-});
-
-it('uses the reportit gettext domain in templates.php', function () {
-	$source = file_get_contents(__DIR__ . '/../../templates.php');
-
-	expect($source)->toContain("__('Published', 'reportit')");
-	expect($source)->not->toContain("'reporit'");
 });

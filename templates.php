@@ -2060,7 +2060,7 @@ function variable_edit(): void {
 			'value'         => (isset($variable_data['abbreviation']) ? $variable_data['abbreviation'] : '-Available after first saving-')
 		],
 		'name' => [
-			'friendly_name' => __('Name'),
+			'friendly_name' => __('Name', 'reportit'),
 			'description'   => __('A name like "Threshold" for example which should be used as a headline within the report config.', 'reportit'),
 			'method'        => 'textbox',
 			'max_length'    => '100',
