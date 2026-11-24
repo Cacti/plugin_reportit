@@ -1,0 +1,2408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Malagasy\n"
+"Language: mg-MG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Fafao"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Dika mitovy"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Hidio"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Vohay"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Aondrana"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Anarana"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Anarana anatiny"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Fara-tampony"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Farafahakeliny"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "Voafaritra mialoha"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Elanelan'ny dingana"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Karazana fampidirana"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Safidy"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "ID"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Fanafohezana"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Vondrona"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Singa"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Asa fanambarana"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "Hita maso"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Saraho"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "Raikipohy kajy"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "ID ankapobeny"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Singa"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Metrika"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Môdelin'angona mifandray"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Ankapobeny"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Lasitra loharanon-drakitra"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Vondrona"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Miovaova"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Androany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "1 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "2 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "3 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "4 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "5 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "6 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "7 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Herinandro lasa (Alah - Asab)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Herinandro lasa (Alat - Alah)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "14 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "21 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "28 andro farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Volana ankehitriny"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Volana farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "2 volana farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "3 volana farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "4 volana farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "5 volana farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "6 volana farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Taona ankehitriny"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "Taona farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "2 taona farany"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Isan'andro"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Isan-kerinandro"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Isam-bolana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Isan-telo volana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Isan-taona"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Lisitra midina"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Saha fampidirana"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Tsy misy"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Binera"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "Isa mitsingevana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Isa feno"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Isa feno (tsy misy marika)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Hexadesimaly (sora-madinika)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Hexadesimaly (sora-baventy)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Oktaly"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Fanoratana Siantifika"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Tsy niova"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "maty"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Tovona SI Binera (Fototra 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Tovona SI desimaly (Fototra 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Salan'isa aritmetika"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Mamerina ny sanda salanisa amin'ny sanda rehetra voarefy isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "tsy misy"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Sanda ambony indrindra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Mamerina ny sanda voarefy avo indrindra isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Sanda ambany indrindra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Mamerina ny sanda voarefy ambany indrindra isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Fitambarana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Mamerina ny fitambaran'ny sanda rehetra voarefy isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Isan'ny sanda (Tsy NaN)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Mamerina ny isan'ny sanda voarefy manankery isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Gradianta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Mamerina ny fihilanana amin'ny tsipika mahitsy amin'ny alalan'ny regresiona tsipika isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Sanda farany"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Mamerina ny sanda voarefy manankery farany isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Sanda voalohany"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Mamerina ny sanda voarefy manankery voalohany isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - Isan'ny NaN"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Mamerina ny isan'ny NaN voatahiry isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - Mediana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Mamerina ny sanda manasaraka ny tapany ambony amin'ny tapany ambany isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Elanelana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Mamerina ny elanelana eo amin'ny sanda lehibe indrindra sy ny kely indrindra isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Elanelana interkartila"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Mamerina ny halaviran'ny 50&#037; afovoany manodidina ny mediano isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - Fiviliana fenitra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Mamerina ny faka efamira amin'ny fahasamihafan'ny loharanon'angona"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - Variansa"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Mamerina ny variansa isaky ny DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - Persantily faha-X"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Mamerina ny persentila faha-x."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: fetra amin'ny isan-jato. Elanelana: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Faharetana mihoatra ny fetra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Mamerina ny faharetana mihoatra ny fetra voafaritra amin'ny isan-jato."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: fetra (tanteraka)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Fitambarana mihoatra ny fetra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Mamerina ny fitambaran'ny sanda mihoatra ny fetra voafaritra."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Manaboribory ampaha midina"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Mamerina ny isa feno ambany manaraka amin'ny fanodinana midina raha ilaina."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: isa misy faingo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Manaboribory ampaha miakatra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Mamerina ny isa feno ambony manaraka amin'ny fanodinana miakatra raha ilaina."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Manaboribory isa misy faingo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Mamerina ny isa feno voahodina amin'ny isa misy faingo nomena."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: isa misy faingo na sanda lahatsoratra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Mitady ny sanda ambony indrindra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Mamerina ny sanda avo indrindra amin'ny lisitry ny masontsivana nomena"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: sanda hampitahaina"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Mitady ny sanda ambany indrindra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Mamerina ny sanda ambany indrindra amin'ny lisitry ny masontsivana nomena"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Asa misy fepetra - Lojika RAHA-DIA-RAHA TSY IZANY"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Mamerina B raha marina A na C raha diso A"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Mitady raha tsy isa ny sanda iray"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Mamerina 1 (na B) raha A === NaN na 0 (na C) raha tsy izany. Tsy voatery omena ny masontsivana B sy C."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Fampitahana sarotra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - Solon'anaran'ny f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - Solon'anaran'ny f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - Solon'anaran'ny f_cmp - MITOVY"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Mamerina 1 (na C) raha A == B na 0 (na D) raha tsy izany. Tsy voatery omena ny masontsivana C sy D."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - Solon'anaran'ny f_cmp - TSY MITOVY"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Mamerina 1 (na C) raha A != B na 0 (na D) raha tsy izany. Tsy voatery omena ny masontsivana C sy D."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - Solon'anaran'ny f_cmp - LEHIBE KOKOA NOHO"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Mamerina 1 (na C) raha A > B na 0 (na D) raha tsy izany. Tsy voatery omena ny masontsivana C sy D."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - Solon'anaran'ny f_cmp - KELY KOKOA NOHO"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Mamerina 1 (na C) raha A < B na 0 (na D) raha tsy izany. Tsy voatery omena ny masontsivana C sy D."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - Solon'anaran'ny f_cmp - LEHIBE KOKOA NA MITOVY"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Mamerina 1 (na C) raha A >= B na 0 (na D) raha tsy izany. Tsy voatery omena ny masontsivana C sy D."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - Solon'anaran'ny f_cmp - KELY KOKOA NA MITOVY"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Mamerina 1 (na C) raha A <= B na 0 (na D) raha tsy izany. Tsy voatery omena ny masontsivana C sy D."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Fanampiny"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Asa matematika mamerina ny fitambaran'ny isa atambatra roa na mihoatra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Fanalana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Asa matematika mamerina ny elanelan'ny isa ahena sy ny isa manala"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Fampitomboana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Asa matematika mamerina ny vokatra avy amin'ny mpampitombo sy ny isa ampitomboina"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Fizarana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Asa matematika mamerina ny fizaran'ny isa zaraina sy ny mpizara"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "Modulus"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Asa matematika mamerina ny sisa amin'ny fizarana isa feno roa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Fananganana ho hery - ilaina ny PHP5.6 na ambony kokoa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Asa matematika mamerina ny fampitomboana (na fizarana) miverimberina ny fototra amin'ny tondrony."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Mari-desimaly"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Mari-desimaly ampiasaina hanasarahana ny ampahany feno amin'ny ampahany desimaly"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Fonon-teny boribory"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "Ampiasaina hanovana ny laharam-pahamehana mahazatra na hanamarihana ny ambaratonga voalohany amin'ny fampidirana anaty"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Fonosana efamira"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "Ampiasaina hanovana ny laharam-pahamehana mahazatra na hanamarihana ny ambaratonga faharoa amin'ny fampidirana anaty"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Mari-piatoana"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "Ampiasaina hanavahana ireo mari-pamantarana alefa amin'ny asa iray"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Ny sanda farany ambany amin'ny angona azo angonina."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "FAMPITANDREMANA! Azo apetraka ho aotra na tsy misy fetra ity miovaova ity"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Ny sanda farany ambony amin'ny angona azo angonina."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Ahitana ny isan'ny segondra eo anelanelan'ny sanda roa voarefy."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Fiasa tsy misy parametra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Fiasa misy parametra"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Solon'anarana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Mpikajy"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Isa"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Hafa"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Mari-panovan'ny fangatahana angona"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Vokatra vonjimaika"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Tsy voafetra"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "Singan'angona 500"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "Singan'angona 1,000"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "Singan'angona 2,000"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "Singa loharanon-drakitra 5 000"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "Singan'ny Loharanon'angona 7,500"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "Singa loharanon-drakitra 10 000"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "Singa loharanon-drakitra 15 000"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "Singa loharanon-drakitra 25 000"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "1 Minitra"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minitra"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Ny anarana tokana nomena ity Modely Tatitra ity."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Famaritana"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Famaritana lava kokoa momba ity Modely Tatitra ity."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Kinova"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Laharana dikan-teny ho an'ity modely ity"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Mpanoratra"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Ny mpamorona ity Modely ity"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Avoaka"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Tokony havoaka ho hitan'ny mpampiasa ve ity modely tatitra ity? Ho an'ny fitiliana modely vaovao na fanovana dia tokony hesorinao ny marika amin'ity boaty ity."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "Voahidy"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Ny sata \"voahidy\" dia misoroka izay mety ho fanovana amin'ny modely tatitrao sy ireo refy voatendry ary famaritana ny miovaova"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Sivana mialoha fanampiny"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Safidy: Ny rafitra hanivanana ny lisitry ny singa angona misy araka ny famariparitan'izy ireo. Ampiasao ny marika fanoloana SQL toy ny % sy/na _. Tsy misy fanehoana ara-dalàna!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Lalan'ny fanondranana"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Safidy: Ny lalana mankany amin'ny fampirimana hitahirizana ny fanondranana.  Raha tsy misy izany dia manandrana mamorona azy ho azy ny ReportIt mandritra ny kajy voalahatra voalohany, raha tsy izany dia hanandrana hamorona zana-pampirimana vaovao ao anatin'ny fampirimana fanondranana fototra amin'ny alalan'ny id-n'ny Modely."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "Lasitra Angona"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Ny anaran'ny modely angona iankinan'ity Modely Tatitra ity."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Modelin'ny tatitra"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Safidio ny iray amin'ireo Modely tatitrao haondrana ho XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Tsy ankaterena] Famaritana"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Farito ny toetran'ny modely tatitrao"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Tsy ankaterena] Mpanoratra"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Ampidiro eto ny anaranao na ny solon'anaranao."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Tsy ankaterena] Dikan-teny"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Tsy ankaterena] Fifandraisana"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Bara (mitsangana)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Bara (mitsivalana)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Tsipika"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Velarana"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "Kisary boribory 3D"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Hala"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - Maody"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Mamerina ny sanda miseho matetika indrindra isaky ny DS"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Fononteny boribory havia (fanokafana)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Fonon-teny havanana (fanidiana)"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Fononteny mahitsy havia (fanokafana)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Fonon-teny efamira havanana (fanidiana)"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Ahitana ny sakan-tserasera ambony indrindra raha misy ny 'ifspeed'."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Ahitana ny sanda ambony indrindra izay nofaritana ho an'ny singa loharanon'angona manokana ao amin'ny \\\"Loharanon'angona\\\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Ahitana ny isan'ny NAN mandritra ny vanim-potoana tatitra."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Fononteny"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Ajanony"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Alefa"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Alefaso izao"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "Raiso ho tompony"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "NIANJERA"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "TSY NAHOMBY"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Tsy miasa"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "Mandeha"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Tsy misy modely azo ampiasaina -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "Alatsinainy"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "Talata"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "Alarobia"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "Alakamisy"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "Zoma"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "Asabotsy"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "Alahady"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Fandrindrana efa voaomana ho an'ny Loharanon'angona"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "Mailaka"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Loharanon'angona"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Lahatsoratra CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "XML manta (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "Angona JSON (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "Angona YAML (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Lohahevitra"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Ampidiro ny lohahevitry ny mailakao.<br> Ireto variable manaraka ireto no ekena (tsy misy marika fanononana): '|title|' sy '|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Tatitra voalahatra - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Votoatiny (tsy voatery)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Ampidiro hafatra izay haseho ao amin'ny vatan'ny mailakao"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Ity dia tatitra voalahatra noforonina avy amin'ny Cacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Rakitra ampiarahina"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Raha handray mailaka fampandrenesana fotsiny hoe misy tatitra vaovao dia fidio ny 'Tsy misy'.<br> Raha tsy izany dia fidio ny endrika hampiarahana ny tatitra."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "Mpandray mailaka"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Mpandray ao amin'ny lisitra fampandrenesana"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Mba hanampy Mpandray mifototra amin'ny Lisitry ny Fampandrenesana manan-kery."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "Adiresy Mailaka Handefasana"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Saraho amin'ny faingo (,) ny adiresy maromaro azafady"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "Adiresy BCC"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Dika miafina (BCC). Saraho amin'ny faingo (,) ny adiresy maromaro azafady"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Mpandray Mailaka vaovao"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Mba hanampy mpandray vaovao, ampidiro ny adiresy mailaka manan-kery (tsy maintsy atao) sy ny anarana (azo atao).<br> Ho an'ny fanamboarana haingana kokoa, mampiasà lisitr'adiresy/anarana izay sarahina amin'ny iray amin'ireto mpampisaraka ireto: ';' na ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Lohateny kely safidy"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Farito ny lohatenikely fanampiny tokony haseho eo ambanin'ny famaritana ny interface.<br> Ireto fari-miova ireto dia ho tohanana (tsy misy faingo mihantona): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Faritra ora"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Misafidiana ny faritr'ora hifotoran'ireo fampahalalana momba ny fotoana fiasana manaraka."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Sivana mialoha safidy ho an'ny Loharanon'angona"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Sivana toerana"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Ampiasao ihany ny Loharanon'angona mifanaraka amin'ity Toerana ity.<br>Safidio ny 'Tsy misy' (fenitra) hanafoanana ity fandrindrana sivana ity."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Sivan'ny modelin'ny fitaovana"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Ampiasao ihany ny Loharanon'angona an'ity Modely Fitaovana ity.<br>Safidio ny 'Tsy misy' (fenitra) hanafoanana ity fandrindrana sivana ity."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Sivana anaran'ny Loharanon'angona"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Ampiasao ny Loharanon'angona izay mifanaraka amin'ity sivana ity ny anarany.<br> Ampiasao ny marika SQL tahaka ny % sy/na _. Tsy azo atao ny fanehoana ara-dalàna!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Singa angona noforonina ho azy"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Ataovy mavitrika/tsy mavitrika ny famoronana ho azy ireo singan'angona rehetra mifototra amin'ny sivana nomena. Antsoina mialoha ny fanatanterahana ny tatitra izany.  Hofafana ireo RRD lany andro ary hampiana ireo RRD rehetra mifanaraka amin'ny fandrindrana sivana."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Ora fiasana"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "Manomboka ny"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Ny teboka fanombohan'ny faharetana tianao hadihadiana"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "Hatramin'ny"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Ny fiafaran'ny fotoana famakafakana."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Andro fiasana"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Farito ny elanelan'ny andro izay ANOMBOHAN'NY fiodinana asa!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Ohatra: Ho an'ny asa alina manomboka Alats(22:30) ka hatramin'ny Sab(06:30), farito ho Alatsinainy hatramin'ny Zoma"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Ny anarana nomena ity tatitra ity"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Modely"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Ny modely iankinan'ny fikirakirana nataonao"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Tompony"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Ovao ny tompon'ity tatitra ity. Ny mpampiasa manana alalana \"view\" na ambony kokoa ihany no azo fidina."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "Mavitrika"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Ataovy mavitrika/tsy mavitrika ny tatitra voalahatra. Tokony hatao mavitrika ny fe-potoana mikisaka."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Ho an'ny besinimaro"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Raha mavitrika, dia afaka mahita ny tatitrao ao ambanin'ny tabilao 'tatitra' ny olon-drehetra"
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Alefaso ny fampiasana ny fahazoan-dalana Kisary"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Raha mavitrika (mahazatra), dia hosivanina ho azy ny lisitry ny angona misy araka ny alalan'ny Kisary ananan'ny tompony: 'araka ny fitaovana'."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "Mailaka noforonina ho azy"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Raha mavitrika, dia havelona ny tabilao 'Mailaka' ary hahazo mailaka ho azy mirakitra ity tatitra voalahatra ity ny mpandray rehetra voatondro ao amin'io fizarana io."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Fe-potoana fanaovana tatitra"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Fe-potoana mikorisa"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Raha voamarika dia harindra ho azy ny vanim-potoanan'ny tatitra mifandraika amin'ny fotoana hanombohan'ny kajy."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Elanelam-potoana"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Ny fe-potoana tianao hadihadiana mifandraika amin'ny fotoana hanombohan'ny kajy.<br>Midika izany hoe andro ara-kalandrie, volana ara-kalandrie ary taona ara-kalandrie."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "Hatramin'ny andro nanaovana ny kajy"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Hanitatra ny elanelam-potoana mikisaka hatramin'ny andro anaovana ny kajy."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Fe-potoana Raikitra - Daty Fanombohana (Nanomboka)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Mba hamaritana ny daty fanombohana, ampiasao ity endrika manaraka ity: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Fe-potoana Raikitra - Daty Famaranana (Hatramin'ny)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Mba hamaritana ny daty fiafarana, ampiasao ity endrika manaraka ity: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Ampidiro amin'ny Tatitra"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Esory ao amin'ny tatitra"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "Adikao any amin'ny rehetra ny fandrindrana"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Manampy"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Kisary bara: mitsangana"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Kisary bara: mitsivalana"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Kisary tsipika"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Kisary velarana"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Kisary boribory: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s Ambony"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s Ambany"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Na inona na inona"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Rehetra"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Fitambarany"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Salan'isa"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Lohatenin'ny tatitra"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Atombohy"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Fiafarana"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Fandehanana farany"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Famaritana: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Sintaksa:      %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Masontsivana:  %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Ohatra:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Ataovy mavitrika [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Ampandehano ny singa loharanon'angona '%s' ho an'ny dingana fikajiana."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Solon'anaran'ny Loharanon'angona"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Safidy: Azonao atao ny mamaritra anarana solony izay tokony haseho fa tsy ny anaran'ny Loharanon'angona anatiny '%s' ao amin'ny tatitra."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Saraho ny lohatenin'ny vondrona [ankapobeny]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Safidy: Azonao atao ny mamaritra anaran'ny vondrona izay tokony haseho ho lohateny ho an'ny fandrefesana misaraka rehetra ao amin'ny tatitra."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Tompony tsy fantatra"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Lehibe loatra ny rakitra."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Tsy feno ny famindrana rakitra."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Tsy misy rakitra nampakarina."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Tsy hita ny lahatahiry vonjimaika."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "Tsy nahomby ny fanoratana ny rakitra tao amin'ny kapila"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Nosakanan'ny tovana ny fampakarana rakitra"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Tsy manan-kery ny tovan'ny rakitra."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "Tsy afaka manadihady ny rakitra Modely."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Hadisoana checksum amin'ny Modely %s ao amin'ny rakitra XML"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Tatitra vaovao"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Tsy misy modely tatitra tsy voahidy sy mavitrika azo ampiasaina (%s voahidy na tsy mavitrika)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Foano"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Tohizo"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Mamorona tatitra vaovao"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Safidio ny modely tokony hiankinan'ity tatitra ity."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Sivana tatitra"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Fikarohana"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Tatitra"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Alefa"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Diovy"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Fe-potoana %s Manomboka - Hatramin'ny"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Fandaharam-potoana"
+
+#: reportit.php
+msgid "State"
+msgstr "Faritany"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Fanombohana manaraka %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "Natomboka farany %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Faharetan'ny fampandehanana farany"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "Tsy misy"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Manampy loharano"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Ovao ny loharano"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Safidio ny %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "Nohidiana ny tatitra"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Tsy misy tatitra"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Tsy nahazo alalana"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Fandrindrana tatitra (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Hetsika"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Tsy nisy mpandray hita"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "Anaran'ny Loharanon'angona"
+
+#: reportit.php
+msgid "Associated"
+msgstr "Mifandray"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Zana-dohateny"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Ora fiasana (Manomboka - Hatramin'ny)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Andro fiasana (Manomboka - Hatramin'ny)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "RRDs"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Asehoy avokoa"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Tsy misy intsony"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "Tafiditra ao amin'ny Tatitra"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Tsy tafiditra ao amin'ny tatitra"
+
+#: reportit.php
+msgid "Select"
+msgstr "Safidio"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Tsy nisy singan'angona hita"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Adiresy mailaka an'ny mpandray (na lisitra sarahan'ny faingo)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[TSY ANKATERENA] Anaran'ny mpandray (na lisitr'anarana sarahina faingo)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Loharanon'angona [ovao: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Zana-dohateny (tsy voatery)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Misafidiana ny faritr'ora hifotoran'ny fampahalalana momba ny fotoana fiasana manaraka."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Tsindrio ny 'Tohizo' mba hampandeha ity Tatitra manaraka ity:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto Tatitra manaraka ireto:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Tsindrio ny 'Tohizo' mba handika roa ireto fikirakirana Tatitra manaraka ireto. Azonao ovaina ihany koa ny endriky ny lohateny mandritra ity asa ity."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "Endriky ny lohateny:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Tsindrio ny 'Tohizo' mba hanaovana ho Tsy mavitrika ity Tatitra manaraka ity:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Tsindrio ny 'Tohizo' mba hampavitrika ity Tatitra manaraka ity:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Tsindrio ny 'Tohizo' mba handray ny fananana ity Tatitra manaraka ity:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "Tsy maintsy misafidy tatitra iray farafahakeliny izay tsy voahidy ary tsy mandeha."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Tsindrio ny 'Tohizo' mba hanala ireto Loharanon'angona manaraka ireto ao amin'ny Tatitra."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Lisitry ny Loharanon'angona voafidy eto ambany."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Loharanon'angona: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Tsindrio ny 'Tohizo' mba hanampiana ireto Loharanon'angona manaraka ireto amin'ny Tatitra."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Tsindrio ny 'Tohizo' mba handikana ny Fandrindrana ho any amin'ireo Loharanon'angona hafa."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Loharanon'angona voafidy ho fanondroana:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Faritra ora:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Andro fiasana:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Ora fiasana:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "Tsy maintsy misafidy Tatitra iray farafahakeliny ianao."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - Fijerena tatitra"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - Hamorona tatitra"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - Hitantana tatitra"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Fanovana)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Hetsika"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Singan'angona"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Modelin'ny tatitra"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Manafatra"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Kajy tatitra"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Tatitra ho an'ny besinimaro"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Asehoy ny tatitra"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Aondrana ny tatitra"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Mpampiasa tsotra"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Fitantanana ankapobeny"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Fitantanana ny rafitra"
+
+#: setup.php
+msgid "Management"
+msgstr "Fitantanana"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "Tatitra ReportIt"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Modely"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Tsy misy singa loharanon'angona voafidy"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Mbola ampiasaina ireo singa Loharanon'angona tsy voafantina"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "Tsy afaka mamoha ity Modely ity raha tsy misy mari-drefy voafaritra"
+
+#: setup.php
+msgid "global"
+msgstr "ankapobeny"
+
+#: setup.php
+msgid "local"
+msgstr "eo an-toerana"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Mpampiasa manam-pahefana (Tompon'ny tatitra)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Mpampiasa ambony (Mpitantana tatitra)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Fotoana fanatanterahana farany ambony (amin'ny segondra)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Safidy: Fotoana farafahabetsany fanatanterahana kajy iray."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Fiovan'ny isan'ny firaketana farany ambony"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Safidy (Famoronana mandeha ho azy ny lisitry ny RRD): Aza ovaina ny lisitry ny RRD amin'ny tatitra rehetra raha lehibe noho io isa io ny fiovan'ny isan'ny firaketana. Izany dia mba hisorohana ny fiovana tsy irina sy manimba amin'ny lisitry ny RRD"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Faritra ora"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Ataovy mavitrika/Tsy mavitrika ny fampiasana faritra ora ho an'ny fandrindrana ny Singan'angona sy ny kajy tatitra.  Amin'ny tranga voalohany dia tsy maintsy apetraka amin'ny GMT/UTC ny oran'ny mpizara!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Asehoy ny faritry ny ora eo an-toerana"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Ataovy mavitrika/Tsy mavitrika ny fampisehoana ny faritra oran'ny mpizara eo amin'ny lohateny."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "Avelao ny mpandraharaha handamina fandaharam-potoana"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Ataovy mavitrika/Tsy mavitrika ny fahafahan'ny Mpandraharaha mandamina Tatitra.  Rehefa tsy mavitrika dia ny Mpitantana ihany no afaka manova ny fandaharam-potoana."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "Tovona SI"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Ataovy mavitrika/Tsy mavitrika ny fampiasana ny tovona SI marina ho an'ny maroana binera araka ny fepetran'ny <a href='http://www.ieee.org'>IEEE 1541</a> sy ny <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Fandefasana mailaka ho azy"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Raha mavitrika, dia azo alefa ho azy amin'ny mailaka any amin'ny lisitry ny mpandray ny tatitra voalahatra.<br> Mitaky dikan-teny voarindra amin'ny 'Settings Plugin' ity fiasa ity."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Sivana fijerena tatitra mitokana"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Ataovy mavitrika/tsy mavitrika ny fampiasana sivana manokana isaky ny tatitra."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Andalana isaky ny Pejy"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Ny isan'ny andalana haseho amin'ny pejy tokana."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Fandrindrana fanondranana tatitra"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "Mpanasaraka tsanganana CSV"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Ny mpanasaraka tsanganana ampiasaina amin'ny fanondranana CSV."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "Mpanasaraka desimaly CSV"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Ny marika manondro ny fiafaran'ny ampahany feno sy ny fiandohan'ny ampahany ambiny."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Fandrindrana ankapobeny ho an'ny tatitra"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Modely tatitra vaovao"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Tsy misy Modely Angona ampiasaina."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Mamorona Modely tatitra vaovao"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Safidio ny Modely angona izay tokony hiankinan'ity Modely tatitra ity. Afenina ireo Modely angona tsy ampiasaina."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Manafatra Modely Tatitra"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Misafidiana ny rakitra XML misy ny Modely Tatitrao."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Manafatra Modely Tatitra"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Mifanaraka"
+
+#: templates.php
+msgid "Summary"
+msgstr "Famintinana"
+
+#: templates.php
+msgid "No"
+msgstr "Tsia"
+
+#: templates.php
+msgid "Yes"
+msgstr "Eny"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Tsy nisy Modely mifanaraka hita"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Manafatra"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Ny anaran'ity Modely Tatitra ity."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Ny famantarana anatiny an'ity Modely Tatitra ity."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Ny mpanoratra ity Modely tatitra ity."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Ny kinovan'ity Modely Tatitra ity."
+
+#: templates.php
+msgid "Published"
+msgstr "Navoaka"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Ny fitambaran'ny isan'ny tatitra mampiasa ity modely tatitra ity."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Tsy misy loharanon'angona mifanaraka"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Tsy misy ny modely angona"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Manampy singa refesina"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Ovao ny refy fandrefesana"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Manampy miovaova"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Ovao ny miovaova"
+
+#: templates.php
+msgid "No templates"
+msgstr "Tsy misy modely"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Tsy maintsy lehibe noho ny farany ambany ny farany ambony."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Ny sandany mahazatra dia ivelan'ny elanelan'ny sanda."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Fanafohezana miverina indroa"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Ampiasain'ny refy hafa ny vokatra vonjimaika."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Modely [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Modely [vaovao]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto Modely Tatitra manaraka ireto"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "FAMPITANDREMANA: Ny Tatitra rehetra izay an'ireto Modely ireto dia ho voafafa ihany koa!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Modely: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Tatitra: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Tatitra: <i>Tsy misy</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Tsindrio ny 'Tohizo' mba handika roa ireto modely tatitra manaraka ireto. Azonao ovaina raha tianao ny lohatenin'ireo dika mitovy ireo."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Lisitry ny Modely tatitra voafidy:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Lohateny:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Tsindrio ny 'Tohizo' mba hanondrana ireto Modely tatitra manaraka ireto"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "Tsy maintsy misafidy Modely Tatitra iray farafahakeliny ianao."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Fafao ny Modely tatitra"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Dika mitovy ny Modelin'ny tatitra"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Aondrana ny Modelin'ny tatitra"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto fari-javatra manaraka ireto."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Lisitry ny miovaova voafidy:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Miovaova: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Misy miovaova (variable) iray na maromaro ampiasaina."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "Tsy maintsy misafidy miovaova iray farafahakeliny ianao."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Fafao ny Fari-miova Modely"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto Metrika manaraka ireto.  Fanamarihana: Raha tsy misy Metrika hafa tavela aorian'izao dingana izao dia hohidiana ho azy ny Modely Tatitra."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Lisitry ny refy voafidy:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Metrika: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "Tsy maintsy misafidy refesina iray farafahakeliny ianao."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Fafao ny Metrika Modely"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Miovaova [ Modely: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Tsy misy variabla hita"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Fikirakirana miovaova [ ovao: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Fikirakirana miovaova [vaovao]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Anarana anatiny"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Famantarana manokana izay hoforonin'ny ReportIt ihany. Ampiasao ity ID ity ao amin'ny famaritana ny raikipohy fikajiana mba hampidirana io sanda nofaritan'ny mpampiasa ny tatitra manokana io."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Anarana toy ny \"Fetra\" ohatra izay tokony hampiasaina ho lohateny lehibe ao amin'ny fandrindrana ny tatitra."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Omeo anarana ity variable ity"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Famaritana manazava ny hevitr'ity miovaova (variable) ity."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Omeo famaritana mazava tsara"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Sandany farany ambony"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Mamaritra ny fetra ambony amin'ity fari-miova ity."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Sanda farafahakeliny"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Mamaritra ny fetra ambany amin'ity fari-miova ity."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Sandany mahazatra"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Mametraka ny sanda lasitra."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Karazana"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Ny fomba tokony hampiasain'ny tompon'ny tatitra mba hamaritana ity miovaova ity."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Mamaritra ny elanelana misy eo amin'ny sanda roa raha ny fomba \"DropDown\" no voafidy. Ataovy izay tsy hametrahana ity sanda ity ho ambany loatra, satria mamaritra ankolaka ny isan'ny safidy ho ao amin'ny saha midina izy. Ohatra, ireto masontsivana ireto: MAX:100, MIN:0, STEP:0.01 dia hiteraka boaty fisafidianana misy safidy 10.001. Mety hiteraka olana goavana amin'ny fampandehanana izany noho ny enta-mavesatra CPU avo lenta eo amin'ny mpikajy mpanjifa. Andramo tazonina ho latsaky ny 1000 izany."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Fandrindrana metrika [ ovao: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Fandrindrana metrika [vaovao]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Ny fanazavana nomena ho an'ity refy ity. Aseho ho fanazavana marika ao anatin'ny fanondranana ary ho torohevitra mipoitra ao amin'ny famelabelarana ny tatitra."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Farito ny fanafohezana tokana ho an'ity zavatra refesina ity izay manana litera/isa 8 raha be indrindra."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Ny singa nomena ity refy ity. ohatra: 'Bits/s'"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Asa fanakambanana"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Ny anaran'ny fiasa fanamafisana mba hamaritana hoe iza amin'ireo CDP no tokony hovakiana."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Safidio ny 'mavitrika' raha tokony ho tafiditra ao amin'ny vokatry ny tatitra farany ity sanda refesina ity. Avelao tsy voamarika raha ampiasaina ho kajy fanampiny ihany ity sanda refesina ity."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Safidio ny 'mavitrika' raha tsy manana afa-tsy vokatra iray manontolo ity sanda refesina ity fa tsy iray isaky ny singa Loharanon'angona. Ny vokany<br>dia haseho mitokana. Ampiasao miaraka amin'ny \"Visible\" = \"off\" ity safidy ity raha mitady sanda refesina mitahiry vokatra vonjimaika ihany ianao izay tokony hampiasaina indray ao amin'ny kajin'ny sanda refesina hafa nefa tsy hita amin'ny mpampiasa farany."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Fandrafetana endrika"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Mamaritra hoe karazana inona no tokony handraisana ny angona."
+
+#: templates.php
+msgid "Precision"
+msgstr "Fahamarinana"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Mamaritra hoe firy ny isa desimaly tokony haseho ho an'ny isa misy faingo."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Tovona"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Safidio ny karazana tovona ampiasaina handrafetana ny valiny. Amin'ny fampiasana tovona desimaly dia harafitra ho '1.024k' ny '1024', fa ny safidy tovona binera kosa dia mamerina '1ki'. Safidio ny 'off' mba hampisehoana ny angona tsy voarafitra, eto dia '1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Raikipohy"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Ny famaritana matematika an'ity refy ity. Azo ekena avokoa ny fitambaran'ny mpandraharaha sy ny zavatra karakaraina voatanisa eto ambany araka ny fitsipiky ny matematika. Mampiasà fonon-teny boribory sy efajoro mba hanondroana teny sarotra sy ny filaharan'ny kajy."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Mpikajy sy voakajy"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Tsindrio ny iray amin'ireo mpandraharaha na sanda voatanisa mba hanampiana azy amin'ny raikipohy kajinao. Ny torohevitra miseho dia haneho anao fampahalalana fanampiny toy ny famaritana, ny sanda averina, ny singa ampidirina ary ny fampiasana."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Metrika [ Modely: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Tsy misy refy hita"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Sivana tatitra"
+
+#: view.php
+msgid "My Reports"
+msgstr "Ny tatitro"
+
+#: view.php
+msgid "Go"
+msgstr "Alefa"
+
+#: view.php
+msgid "Clear"
+msgstr "Fafao"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Fe-potoana (Manomboka - Hatramin'ny)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Faharetan'ny fiasana farany [s]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "Tsy nisy tatitra hita"
+
+#: view.php
+msgid "Metric"
+msgstr "Metrika"
+
+#: view.php
+msgid "Data Source"
+msgstr "Loharanon'angona"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Asehoy ireo kisary 10 voalohany"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Asehoy ny zana-lohateny"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Asehoy ny famintinana"
+
+#: view.php
+msgid "Additional"
+msgstr "Fanampiny"
+
+#: view.php
+msgid "Items"
+msgstr "Singa"
+
+#: view.php
+msgid "Archive"
+msgstr "Arisiva"
+
+#: view.php
+msgid "Current"
+msgstr "Ankehitriny"
+
+#: view.php
+msgid "Title"
+msgstr "Lohateny"
+
+#: view.php
+msgid "Runtime"
+msgstr "Fotoana fampandehanana"
+
+#: view.php
+msgid "Period"
+msgstr "Fe-potoana"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Lisitra RRD noforonina ho azy"
+
+#: view.php
+msgid "Data Description"
+msgstr "Famaritana ny angona"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- TSY MISY ZANA-DOHATENY --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Tsy misy singan'angona"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Metrika: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Toer."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Valiny [%s]"
+

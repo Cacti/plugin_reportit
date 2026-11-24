@@ -1,0 +1,2408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Yoruba\n"
+"Language: yo-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Pa rẹ́"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Ẹ̀dà"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Tì í pa"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Ṣí ìtìpa"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Kó Jáde"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Orúkọ"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Orúkọ Abẹ́nú"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Ó Pọ̀ Jùlọ"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Tó Kéré Jù"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "Àìyípadà"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Ìṣe ní Ìgbésẹ̀"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Irú Ìtẹ̀wọlé"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Àwọn Àṣàyàn"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "ID"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Ìkékúrú"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Ẹgbẹ́"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Ẹyọ"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Iṣẹ́ Ìṣọ̀kan"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "Hàn"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Yà sọ́tọ̀"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "Ìlànà Ìṣirò"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "ID Gbogbogbòò"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Àwọn Èròjà"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Àwọn Òṣùwọ̀n"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Àwọn Àdàkọ Dátà Tí Ó Sopọ̀"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Gbogbogbò"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Àwọn Àdàkọ Dátà"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Àwọn Ẹgbẹ́"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Àwọn Oníyípadà"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Òní"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "Ọjọ́ 1 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "Ọjọ́ 2 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "Ọjọ́ 3 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "Ọjọ́ 4 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "Ọjọ́ 5 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "Ọjọ́ 6 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "Ọjọ́ 7 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Ọ̀sẹ̀ Tí Ó Kọjá (Àìkú - Àbámẹ́ta)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Ọ̀sẹ̀ Tó Kọjá (Ajé - Àìkú)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "Ọjọ́ 14 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "Ọjọ́ 21 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "Ọjọ́ 28 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Oṣù Lọ́wọ́lọ́wọ́"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Oṣù Tó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "Oṣù 2 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "Oṣù 3 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "Oṣù 4 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "Oṣù 5 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "Oṣù 6 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Ọdún Lọ́wọ́lọ́wọ́"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "Ọdún Tó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "Ọdún 2 Tí Ó Kọjá"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Ojoojúmọ́"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Ọ̀sọ̀ọ̀sẹ̀"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Oṣooṣù"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Lẹ́ẹ̀kan ní Oṣù Mẹ́ta"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Ọdọọdún"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Àtòjọ àṣàyàn"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Ààyè ìtẹ̀wọlé"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Kò Sí"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Báínárì"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "Nọ́ńbà aláàmì-fófó"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Odidi Nọ́ńbà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Odidi Nọ́ńbà (àìlámì)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Hẹ́ksádẹ́símà (lẹ́tà kékeré)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Hẹ́ksádẹ́símà (lẹ́tà ńlá)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Ọ́ktàlì"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Àkọsílẹ̀ Sáyẹ́ǹsì"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Àìyípadà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "pípa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Àwọn Àfòmọ́ SI Báínárì (Ìpìlẹ̀ 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Àwọn Àfòmọ́-ìbẹ̀rẹ̀ SI Dẹ́símà (Ìpìlẹ̀ 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Àròpọ̀ Pínpín Ìṣirò"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Ń dá iye ìpíndọ́gba gbogbo àwọn iye tí a wọ̀n padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "kò sí"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Iye Tó Pọ̀ Jùlọ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Ń dá iye tó ga jù lọ tí a wọ̀n padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Iye Tó Kéré Jùlọ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Ń dá iye tó kéré jù lọ tí a wọ̀n padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Àròpọ̀"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Ń dá àròpọ̀ gbogbo àwọn iye tí a wọ̀n padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Iye Àwọn Iye (Kì í ṣe NaN)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Ń dá iye àwọn iye tó wúlò tí a wọ̀n padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Ìtẹ̀sí"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Ń dá ìtẹ̀sí ìlà tààrà padà nípa lílo ìṣirò ìtẹ̀sí oníìlà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Iye Ìkẹyìn"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Ń dá iye ìkẹyìn tí ó wúlò tí a wọ̀n padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Iye Àkọ́kọ́"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Ń dá iye àkọ́kọ́ tí ó wúlò tí a wọ̀n padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - Iye Àwọn NaN"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Ń dá iye àwọn NaN tí a tọ́jú padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - Àárín"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Ń dá iye tó pín ìdajì òkè kúrò lára ìdajì ìsàlẹ̀ padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Ààlà Iye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Ń dá ìyàtọ̀ láàárín iye tó tóbi jù lọ àti iye tó kéré jù lọ padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Àlààárín Ìdá Mẹ́rin"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Ń dá ìjìnnà 50&#037; àárín yíká ìlà àárín padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - Ìyàtọ̀ Ìwọ̀n"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Ń dá gbòǹgbò onígun mẹ́rin fún ìyàtọ̀ orísun dátà kọ̀ọ̀kan padà"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - Ìyàtọ̀"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Ń dá ìyàtọ̀ padà fún DS kọ̀ọ̀kan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - Ìdá Ọgọ́rùn-ún Xth"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Ń dá ìpín ọgọ́rùn-ún kẹ-x padà."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: àlà ní ìdá ọgọ́rùn-ún. Ààlà: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Àkókò Lórí Àlà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Ń dá àkókò tó kọjá àlà tí a ṣàlàyé padà ní ìpín ọgọ́rùn-ún."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: àlà (pàtó)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Àròpọ̀ Lórí Àlà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Ń dá àròpọ̀ àwọn iye tó kọjá àlà tí a ṣàlàyé padà."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Pa Ìdá Sílẹ̀"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Ń dá odidi nọ́ńbà tó kéré jù tẹ̀lé e padà nípa yíyí iye náà sílẹ̀ tí ó bá pọndandan."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: nọ́mbà onídẹ́símà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Pa Ìdá Sókè"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Ń dá odidi nọ́ńbà tó ga jù tẹ̀lé e padà nípa yíyí iye náà sókè tí ó bá pọndandan."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Yí Nọ́ńbà Eléèpo Pọ̀"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Ń dá odidi nọ́ńbà tí a yí padà láti inú nọ́ńbà oní-fílóòtù èyíkéyìí padà."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: iye nọ́mbà onídẹ́símà tàbí okùn ọ̀rọ̀"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Wá Iye Tó Ga Jùlọ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Ń dá iye tó ga jù lọ nínú àtòjọ àwọn pàrámítà tí a fúnni padà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: àwọn iye tí a fẹ́ fi wé ara wọn"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Wá Iye Tó Kéré Jùlọ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Ń dá iye tó kéré jù lọ nínú àtòjọ àwọn pàrámítà tí a fúnni padà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Iṣẹ́ Aláṣẹ̀dá - Ìlànà IF-THEN-ELSE"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Ń dá B padà tí A bá jẹ́ òótọ́ tàbí C tí A bá jẹ́ irọ́"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Wá bóyá iye kan kì í ṣe nọ́ńbà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Ń dá 1 (tàbí B) padà tí A === NaN bá jẹ́ bẹ́ẹ̀ tàbí 0 (tàbí C) tí kò bá rí bẹ́ẹ̀. Àwọn pàrámítà B àti C jẹ́ àṣàyàn."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Ìfiwéra Dídíjú"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - Orúkọ mìíràn fún f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - Orúkọ mìíràn fún f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - Orúkọ mìíràn fún f_cmp - DỌ́GBA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ń dá 1 (tàbí C) padà tí A == B bá jẹ́ bẹ́ẹ̀ tàbí 0 (tàbí D) tí kò bá rí bẹ́ẹ̀. Àwọn pàrámítà C àti D jẹ́ àṣàyàn."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - Orúkọ mìíràn fún f_cmp - KÒ DỌ́GBA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ń dá 1 (tàbí C) padà tí A != B bá jẹ́ bẹ́ẹ̀ tàbí 0 (tàbí D) tí kò bá rí bẹ́ẹ̀. Àwọn pàrámítà C àti D jẹ́ àṣàyàn."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - Orúkọ mìíràn fún f_cmp - PỌ̀ JÙ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ń dá 1 (tàbí C) padà tí A > B bá jẹ́ bẹ́ẹ̀ tàbí 0 (tàbí D) tí kò bá rí bẹ́ẹ̀. Àwọn pàrámítà C àti D jẹ́ àṣàyàn."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - Orúkọ mìíràn fún f_cmp - KÉRÉ JÙ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ń dá 1 (tàbí C) padà tí A < B bá jẹ́ bẹ́ẹ̀ tàbí 0 (tàbí D) tí kò bá rí bẹ́ẹ̀. Àwọn pàrámítà C àti D jẹ́ àṣàyàn."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - Orúkọ mìíràn fún f_cmp - PỌ̀ JÙ TÀBÍ DỌ́GBA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ń dá 1 (tàbí C) padà tí A >= B bá jẹ́ bẹ́ẹ̀ tàbí 0 (tàbí D) tí kò bá rí bẹ́ẹ̀. Àwọn pàrámítà C àti D jẹ́ àṣàyàn."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - Orúkọ mìíràn fún f_cmp - KÉRÉ JÙ TÀBÍ DỌ́GBA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ń dá 1 (tàbí C) padà tí A <= B bá jẹ́ bẹ́ẹ̀ tàbí 0 (tàbí D) tí kò bá rí bẹ́ẹ̀. Àwọn pàrámítà C àti D jẹ́ àṣàyàn."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Àfikún"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Iṣẹ́ Ìṣirò láti dá àròpọ̀ nọ́mbà méjì tàbí jù bẹ́ẹ̀ lọ padà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Ìyọkúrò"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Iṣẹ́ Ìṣirò láti dá ìyàtọ̀ láàárín nọ́mbà tí a ń yọ kúrò nínú rẹ̀ àti nọ́mbà tí a ń yọ kúrò padà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Ìsọdipúpọ̀"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Iṣẹ́ Ìṣirò láti dá èsì ìsọdipúpọ̀ láàárín olùsọdipúpọ̀ àti nọ́mbà tí a ń sọ di púpọ̀ padà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Ìpín"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Iṣẹ́ Ìṣirò láti dá ìpín láàárín nọ́mbà tí a ń pín àti olùpín padà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "Mọ́dúlọ́sì"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Iṣẹ́ Ìṣirò láti dá ìyókù ìpín àwọn odidi nọ́mbà méjì padà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Ìlọ́po Agbára - A nílò PHP5.6 tàbí jù bẹ́ẹ̀ lọ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Iṣẹ́ Ìṣirò láti dá ìsọdipúpọ̀ (tàbí ìpín) léraléra ti ìpìlẹ̀ pẹ̀lú àmì agbára rẹ̀ padà."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Àmì Dẹ́símà"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Àmì Dẹ́símà tí a lò láti ya apá odidi sọ́tọ̀ kúrò lára apá ìpín"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Àkámọ́ Róbótó"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "A lò ó láti borí ìtẹ̀léra déédéé tàbí láti sàmì sí ìpele àkọ́kọ́ ti ìfiwọnú"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Àkámọ́ Onígun"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "A lò ó láti borí ìtẹ̀léra déédéé tàbí láti sàmì sí ìpele kejì ti ìfiwọnú"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Àmì ìdánudúró"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "A lò ó láti ya àwọn àríyànjiyàn tí a fi ránṣẹ́ sí iṣẹ́ kan sọ́tọ̀"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Iye dátà tí ó kéré jùlọ tí a gbà láyè láti kó jọ."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "ÌKÌLỌ̀! A lè ṣètò onírúurú yìí sí òdo tàbí àìlópin"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Iye dátà tí ó pọ̀ jùlọ tí a gbà láyè láti kó jọ."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Ní iye àwọn ìṣẹ́jú-àáyá láàárín àwọn ìwọ̀n méjì tí a wọ̀n nínú."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Àwọn iṣẹ́ láìsí àwọn pàrámítà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Àwọn iṣẹ́ pẹ̀lú àwọn pàrámítà"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Àwọn Orúkọ Àpèlé"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Àwọn Olùṣiṣẹ́"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Àwọn Nọ́ńbà"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Àwọn Mìíràn"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Àwọn Àyípadà Ìbéèrè Dátà"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Àwọn Èsì Àkókò Díẹ̀"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Aláìlópin"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "Ohun Dátà 500"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "Ohun Dátà 1,000"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "Ohun Dátà 2,000"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "Ohun Orísun Dátà 5,000"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "Ohun Orísun Dátà 7,500"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "Ohun Orísun Dátà 10,000"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "Ohun Orísun Dátà 15,000"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "Ohun Orísun Dátà 25,000"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "Ìṣẹ́jú 1"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Ìṣẹ́jú %d"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Orúkọ àrà ọ̀tọ̀ tí a fún Àdàkọ Ìròyìn yìí."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Àpèjúwe"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Àpèjúwe gígùn jùlọ ti Àdàkọ Ìròyìn yìí."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Ẹ̀yà"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Nọ́mbà ẹ̀yà fún àdàkọ yìí"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Òǹkọ̀wé"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Olùkọ̀wé àdàkọ yìí"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Tẹ̀ jáde"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Ṣé kí a tẹ àdàkọ ìròyìn yìí jáde kí àwọn olùlò lè rí i lò? Fún ìdánwò àwọn àdàkọ tuntun tàbí àwọn àtúnṣe, o yẹ kí o yọ àmì kúrò nínú àpótí yìí."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "Tì pa"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Ipò \"ti tìpa\" yẹra fún irú àtúnṣe èyíkéyìí sí Àdàkọ ìròyìn rẹ àti àwọn ìwọ̀n tí a yàn àti àwọn ìtumọ̀ oníyípadà"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Àlẹ̀mọ́ Ìṣáájú Àfikún"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Àṣàyàn: Ìtò-ọ̀rọ̀ láti fi ṣe àlẹ̀mọ́ àtòkọ àwọn ohun dátà tí ó wà nípa àpèjúwe wọn. Lo àwọn àmì-àrà SQL bíi % àti/tàbí _. Kò sí Gbólóhùn Déédéé!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Ọ̀nà Ìkójáde"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Àṣàyàn: Ọ̀nà sí fódà kan fún fífi àwọn ìkójáde pamọ́.  Bí kò bá sí, ReportIt máa ń gbìyànjú fúnra rẹ̀ láti dá a sílẹ̀ nígbà ìṣirò àkọ́kọ́ tí a ṣètò, bí bẹ́ẹ̀ kọ́ yóò gbìyànjú láti dá fódà kékeré tuntun sílẹ̀ nínú fódà ìkójáde pàtàkì nípa lílo ID àdàkọ."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "Àdàkọ Dátà"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Orúkọ àdàkọ dátà tí Àdàkọ Ìjábọ̀ yìí gbára lé."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Àdàkọ Ìròyìn"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Yan ọ̀kan nínú Àwọn Àdàkọ Ìròyìn rẹ láti kó jáde sí XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Àṣàyàn] Àpèjúwe"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Ṣàpèjúwe àwọn ànímọ́ àdàkọ ìròyìn rẹ"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Àṣàyàn] Olùkọ̀wé"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Fi orúkọ tàbí ìnagijẹ rẹ kún ibí yìí."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Àṣàyàn] Ẹ̀yà"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Àṣàyàn] Olùbásọ̀rọ̀"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Ọ̀pá (ní ìdúró)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Ọ̀pá (ní ìdùbúlẹ̀)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Ìlà"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Agbègbè"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "Àtẹ páì 3D"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Aláǹtakùn"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - Èyí Tó Wọ́pọ̀ Jùlọ"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Ń dá iye tó máa ń fara hàn jù lọ padà fún DS kọ̀ọ̀kan"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Àkámọ́ Òsì (Ìṣí)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Àkámọ́ Ọ̀tún (Ìparí)"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Àkámọ́ Onígun Mẹ́rin Òsì (Ìṣí)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Àmì Àkámọ́ Onígun Ọ̀tún (Ìparí)"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Ní ìwọ̀n bàǹdùwídì tó ga jùlọ nínú tí 'ifspeed' bá wà."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Ní ìwọ̀n tó ga jùlọ tí a ti túmọ̀ fún ohun orísun dátà pàtó lábẹ́ \\\"Àwọn Orísun Dátà\\\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Ní iye àwọn NAN nínú lásìkò ìròyìn."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Àwọn Àmì Àkámọ́"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Dá Dúró"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Mú Ṣiṣẹ́"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Mú ṣiṣẹ́ Báyìí"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "Gba Ìní"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "TI WÓ"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "KÙNÀ"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Ní ìsinmi"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "Ń ṣiṣẹ́"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Kò sí àdàkọ kankan -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "Ọjọ́ Ajé"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "Ọjọ́ Ìṣẹ́gun"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "Ọjọ́rú"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "Ọjọ́bọ"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "Ọjọ́ Ẹtì"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "Ọjọ́ Àbámẹ́ta"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "Ọjọ́ Àìkú"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Àwọn Ètò Àtẹ̀lẹ̀ Orísun Dátà"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "Ímeèlì"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Àwọn Orísun Dátà"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Ọ̀rọ̀ CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "XML Àìṣètò (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "Dátà JSON (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "Dátà YAML (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Kókó-ọ̀rọ̀"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Tẹ kókó-ọ̀rọ̀ ímeèlì rẹ.<br> Àwọn oníyípadà wọ̀nyí ni a ó ṣètìlẹ́yìn fún (láìsí àmì-ọ̀rọ̀): '|title|' àti '|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Ìròyìn tí a ṣètò - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Àkóónú (àṣàyàn)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Tẹ ìránṣẹ́ kan tí a ó fihàn nínú ara ímeèlì rẹ"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Èyí jẹ́ ìjábọ̀ tí a ṣètò àkókò rẹ̀ tí a ṣẹ̀dá láti Cacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Àsomọ́"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Láti gba ímeèlì nìkan gẹ́gẹ́ bí ìfitónilétí pé ìjábọ̀ tuntun ti wà ní àrọ́wọ́tó, yan 'Kò sí'.<br> Bíbẹ́ẹ̀ kọ́, yan irú fáìlì tí a ó fi so ìjábọ̀ náà mọ́."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "Àwọn Olùgbà Ímeèlì"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Àwọn Olùgbà Àkójọ Ìfitọ́nilétí"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Láti fi Olùgbà kún un ní ìbámu pẹ̀lú Àkójọ Ìfitónilétí tó wúlò."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "Sí (Àwọn) Àdírẹ́sì Ímẹ́lì"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Jọ̀wọ́ ya ọ̀pọ̀ àdírẹ́sì sọ́tọ̀ pẹ̀lú àmì ìdádúró díẹ̀ (,)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "(Àwọn) Àdírẹ́sì BCC"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Àdàkọ kọ̀kọ̀. Jọ̀wọ́ ya ọ̀pọ̀ àdírẹ́sì sọ́tọ̀ pẹ̀lú àmì ìdádúró díẹ̀ (,)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Àwọn Olùgbà Ímeèlì Tuntun"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Láti fi olùgbà tuntun kún un, tẹ àdírẹ́sì ímeèlì tó wúlò (pàtàkì) àti orúkọ (àṣàyàn).<br> Fún ìṣètò kíákíá, lo àkójọ àwọn àdírẹ́sì/orúkọ níbi tí a ti ya àwọn orúkọ/àdírẹ́sì sọ́tọ̀ pẹ̀lú ọ̀kan nínú àwọn àmì ìpínyà wọ̀nyí: ';' tàbí ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Àkọlé Kekere Àṣàyàn"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Ṣàlàyé àkọlé-kékeré àfikún tí ó yẹ kí ó hàn lábẹ́ àpèjúwe ìfọwọ́sowọ́pọ̀.<br> Àwọn onírúurú wọ̀nyí ni a ó ṣe àtìlẹ́yìn fún (láìsí àmì ìsọ): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Agbègbè Àkókò"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Yan agbègbè àkókò tí àwọn àlàyé àkókò ìṣípòpadà rẹ tó tẹ̀lé yóò dá lé."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Àwọn Àlẹ̀mọ́ Ìṣáájú Orísun Dátà Àṣàyàn"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Àlẹ̀mọ́ Ibùdó"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Lo Àwọn Orísun Dátà tó bá Ibùdó yìí mu nìkan.<br>Yan 'Kò sí' (àìyípadà) láti pa ètò àlẹ̀mọ́ yìí."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Àlẹ̀mọ́ Àdàkọ Ẹ̀rọ"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Lo Àwọn Orísun Dátà Àdàkọ Ẹ̀rọ yìí nìkan.<br>Yan 'Kò sí' (àìyípadà) láti pa ètò àlẹ̀mọ́ yìí."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Àlẹ̀mọ́ Orúkọ Orísun Dátà"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Lo Àwọn Orísun Dátà tí àwọn orúkọ wọn bá àlẹ̀mọ́ yìí mu.<br> Lo àwọn àmì àrọ́pò SQL bíi % àti/tàbí _. Kò sí Àwọn Ìtumọ̀ Déédéé!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Àwọn Ohun Dátà Tí A Ṣẹ̀dá Aládàáṣe"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Mú ṣiṣẹ́/dá dúró ìṣẹ̀dá aládàáṣe gbogbo àwọn ohun dátà tí ó dá lórí àwọn àlẹ̀mọ́ tí a fúnni. A ó pe èyí ṣáájú ṣíṣe ìròyìn.  Àwọn RRD tí ó ti gbó ni a ó pa rẹ́, a ó sì fi gbogbo àwọn RRD tí ó bá àwọn ètò àlẹ̀mọ́ mu kún un."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Àkókò Iṣẹ́"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "Láti"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Ibùdó ìbẹ̀rẹ̀ àkókò tí o fẹ́ ṣàyẹ̀wò"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "Sí"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Ìparí àkókò ìtúpalẹ̀."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Àwọn Ọjọ́ Iṣẹ́"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Ṣàlàyé àkójọ àwọn ọjọ́ tí iṣẹ́-àṣìpàrọ̀ ti BẸ̀RẸ̀!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Àpẹẹrẹ: Fún iṣẹ́ òru láti Ajé(22:30) títí di Àbámẹ́ta(06:30) ṣàlàyé Ọjọ́ Ajé sí Ọjọ́ Ẹtì"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Orúkọ tí a fún ìjábọ̀ yìí"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Àdàkọ"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Àdàkọ tí ìṣètò rẹ sinmi lé"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Olùní"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Yí oní ìròyìn yìí padà. Àwọn olùlò tí wọ́n ní àṣẹ \"view\" tàbí jù bẹ́ẹ̀ lọ nìkan ni a lè yàn."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "Ṣiṣẹ́"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Mú ṣiṣẹ́/dá dúró ìròyìn tí a ṣètò àkókò rẹ̀. Àkókò tí ń yí yẹ kí ó wà ní ṣíṣiṣẹ́."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Gbogbogbòò"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Tí ó bá wà ní Ṣiṣẹ́, gbogbo ènìyàn lè rí ìròyìn rẹ lábẹ́ àbùlà 'àwọn ìròyìn'"
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Mú Lílo Àwọn Àṣẹ Gíráfù ṣiṣẹ́"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Tí ó bá wà ní Ṣiṣẹ́ (àṣàyàn àtìbẹ̀rẹ̀), àkójọ àwọn ohun dátà tí ó wà yóò jẹ́ yíyàn lọ́nà àdánidá nípasẹ̀ àṣẹ Gíráfù olùní: 'nípa Ẹ̀rọ'."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "Ímeèlì Tí A Ṣẹ̀dá Aládàáṣe"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Tí ó bá wà ní Ṣiṣẹ́, àbùlà 'Ímeèlì' yóò ṣiṣẹ́, gbogbo àwọn olùgbà tí a ṣàlàyé lábẹ́ abala yẹn yóò sì gba Ímeèlì tí ó ní ìròyìn tí a ṣètò yìí lọ́nà àdánidá."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Àsìkò Ìròyìn"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Àkókò Tó Ń Yípo"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Bí a bá fọwọ́ sí i, àkókò ìròyìn yóò jẹ́ ṣíṣètò fúnra rẹ̀ ní ìbámu pẹ̀lú àkókò tí ìṣirò bá bẹ̀rẹ̀."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Àwọn Ààlà Àkókò"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Àkókò tí o fẹ́ ṣàyẹ̀wò ní ìbámu pẹ̀lú àkókò tí ìṣirò náà bẹ̀rẹ̀.<br>Èyí túmọ̀ sí àwọn ọjọ́ kàlẹ́ńdà, àwọn oṣù kàlẹ́ńdà àti àwọn ọdún kàlẹ́ńdà."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "Títí Di Ọjọ́ Ìṣirò"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Fa ààlà àkókò tí ń yí gùn títí di ọjọ́ tí ìṣirò bá ṣiṣẹ́."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Àkókò Tí A Yàn - Ọjọ́ Ìbẹ̀rẹ̀ (Láti)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Láti sọ ọjọ́ ìbẹ̀rẹ̀, lo ìṣètò tó tẹ̀lé yìí: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Àkókò Tí A Yàn - Ọjọ́ Ìparí (Títí di)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Láti sọ ọjọ́ ìparí, lo ìṣètò tó tẹ̀lé yìí: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Fi kún Ìròyìn"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Yọ kúrò láti Ìròyìn"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "Ṣe àdàkọ Àwọn Ètò sí Gbogbo rẹ̀"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Fi kún un"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Àtẹ ọ̀pá: ní ìdúró"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Àtẹ ọ̀pá: ní ìdùbúlẹ̀"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Àtẹ ìlà"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Àtẹ agbègbè"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Àtẹ páì: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s Gíga"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s Rẹlẹ̀"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Èyíkéyìí"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Gbogbo"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Àpapọ̀"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Ìpíndọ́gba"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Àkọlé ìròyìn"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Bẹ̀rẹ̀"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Òpin"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Ìṣiṣẹ́ Tó Kẹ́yìn"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Àpèjúwe: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Ìtò-ọ̀rọ̀:      %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Àwọn Pàrámítà:  %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Àwọn Àpẹẹrẹ:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Mú [%s] ṣiṣẹ́"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Mú nǹkan orísun dátà '%s' ṣiṣẹ́ fún ìlànà ìṣirò."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Orúkọ Àpèlé Orísun Dátà"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Àṣàyàn: O lè ṣàlàyé orúkọ àpèlé kan tí a ó fi hàn dípò orúkọ orísun dátà inú '%s' nínú àwọn ìjábọ̀."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Àkọlé Ẹgbẹ́ Ọ̀tọ̀ [àpapọ̀]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Àṣàyàn: O lè ṣàlàyé orúkọ ẹgbẹ́ kan tí a ó fi hàn gẹ́gẹ́ bí àkọlé fún gbogbo ohun tí a ń wọ̀n lọ́tọ̀ọ̀tọ̀ nínú àwọn ìjábọ̀."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Olùní Àìmọ̀"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Fáìlì náà tóbi jù."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Ìfiránṣẹ́ fáìlì kò pé."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Kò sí fáìlì tí a gbé sókè."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Àpò ìpamọ́ ìgbà díẹ̀ sọnù."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "Kíkọ fáìlì sí orí díìsìkì kùnà"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Àfikún dá ìgbésókè fáìlì dúró"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Àfikún fáìlì kò tọ́."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "Kò le tú fáìlì àdàkọ."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Àṣìṣe checksum pẹ̀lú Àdàkọ %s nínú fáìlì XML"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Ìjábọ̀ Tuntun"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Kò sí àwọn àdàkọ ìjábọ̀ tí kò sí ní títìpa tí ó sì ń ṣiṣẹ́ lọ́wọ́lọ́wọ́ (%s wà ní títìpa tàbí àìṣiṣẹ́)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Fagilé"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Tẹ̀síwájú"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Ṣẹ̀dá ìròyìn tuntun"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Yan Àdàkọ kan tí ìròyìn yìí yẹ kí ó gbára lé."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Àwọn Àlẹ̀mọ́ Ìròyìn"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Ṣàwárí"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Àwọn Ìròyìn"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Lọ"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Mú kúrò"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Àkókò %s Láti - Sí"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Ìṣètò Àkókò"
+
+#: reportit.php
+msgid "State"
+msgstr "Ìpínlẹ̀"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Ìbẹ̀rẹ̀ Tókàn %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "Ìbẹ̀rẹ̀ Tó Kẹ́yìn %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Àkókò Ìṣiṣẹ́ Tó Kẹ́yìn"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "Kò Sí"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Fi àwọn orísun kún un"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Ṣàtúnṣe àwọn orísun"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Yan %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "A ti ti ìròyìn pa"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Kò sí àwọn ìjábọ̀"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Kò Ní Àṣẹ"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Ìṣètò Ìròyìn (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Ìṣe"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Kò sí àwọn olùgbà kankan tí a rí"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "Orúkọ Orísun Dátà"
+
+#: reportit.php
+msgid "Associated"
+msgstr "Tí A So Pọ̀"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Àkọlé Kékeré"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Àkókò Iṣẹ́ (Láti - Títí dé)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Àwọn Ọjọ́ Ọ̀sẹ̀ (Láti - Títí)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "Àwọn RRD"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Fi Gbogbo rẹ̀ hàn"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Kò sí mọ́"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "Wà nínú Ìròyìn"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Kò Sí Nínú Ìjábọ̀"
+
+#: reportit.php
+msgid "Select"
+msgstr "Yan"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Kò sí ohun dátà kankan tí a rí"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Àdírẹ́sì ímeèlì olùgbà kan (tàbí àkójọ tí a fi àmì ìdádúró díẹ̀ pín)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[ÀṢÀYÀN] Orúkọ olùgbà kan (tàbí àtòjọ àwọn orúkọ tí a fi kọ́mà pín sí)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Orísun Dátà [ṣàtúnṣe: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Àkọlé Kékeré (àṣàyàn)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Yan agbègbè àkókò tí àlàyé àkókò ìṣípòpadà rẹ tó tẹ̀lé yóò dá lé."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Tẹ 'Tẹ̀síwájú' láti ṣiṣẹ́ Ìròyìn wọ̀nyí:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa Àwọn Ìròyìn wọ̀nyí rẹ́:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Tẹ 'Tẹ̀síwájú' láti ṣe àdàkọ àwọn ìṣètò Ìròyìn wọ̀nyí.  O tún lè yí ọ̀nà àkọlé padà ní àkókò iṣẹ́ yìí."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "Ìṣètò Àkọlé:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Tẹ 'Tẹ̀síwájú' láti Mú Ìròyìn wọ̀nyí di àìṣiṣẹ́:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Tẹ 'Tẹ̀síwájú' láti Mú Ìròyìn wọ̀nyí ṣiṣẹ́:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Tẹ 'Tẹ̀síwájú' láti gba ìkáwọ́ Ìròyìn wọ̀nyí:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "O gbọ́dọ̀ yan ó kéré jù ìròyìn kan tí kò sí ní títìpa, tí kò sì ń ṣiṣẹ́."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Tẹ 'Tẹ̀síwájú' láti yọ Àwọn Orísun Dátà wọ̀nyí kúrò nínú Ìròyìn náà."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Àtòjọ àwọn Orísun Dátà tí a yàn nísàlẹ̀."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Orísun Dátà: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Fi Àwọn Orísun Dátà wọ̀nyí kún Ìròyìn."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Da Àwọn Ètò kọ sí Àwọn Orísun Dátà mìíràn."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Orísun Dátà Tí A Yan Gẹ́gẹ́ Bí Ìtọ́kasí:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Agbègbè Àkókò:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Àwọn Ọjọ́ Ọ̀sẹ̀:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Àkókò Iṣẹ́:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "O gbọ́dọ̀ yan ó kéré jù Ìròyìn kan."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - Wíwo Ìròyìn"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - Dá Àwọn Ìròyìn Sílẹ̀"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - Ṣàkóso Àwọn Ìròyìn"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Ṣàtúnṣe)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Àwọn Ìgbésẹ̀"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Àwọn Ohun Dátà"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Àwọn Àdàkọ Ìròyìn"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Kó Wọlé"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Ìṣirò Ìròyìn"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Àwọn Ìròyìn Gbogbogbòò"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Ṣàfihàn Ìròyìn"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Kó Ìjábọ̀ Jáde"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Olùlò Déédéé"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Ìṣàkóso Gbogbogbòò"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Ìṣàkóso Ètò"
+
+#: setup.php
+msgid "Management"
+msgstr "Ìṣàkóso"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "Àwọn Ìròyìn ReportIt"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Àwọn Àdàkọ"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Kò sí ohun orísun dátà kankan tí a yàn"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Àwọn ohun orísun dátà tí a kò yàn ṣì wà ní lílò"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "Kò le ṣí àdàkọ yìí láìsí àwọn ohun ìdiwọ̀n tí a ṣàlàyé"
+
+#: setup.php
+msgid "global"
+msgstr "gbogbogbòò"
+
+#: setup.php
+msgid "local"
+msgstr "abẹ́lé"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Olùlò Alágbára (Oní Ìròyìn)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Olùlò Àgbà (Alákòóso Ìròyìn)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Àkókò Ìṣiṣẹ́ Tó Pọ̀ Jù Lọ (ní ìṣẹ́jú-àáyá)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Àṣàyàn: Àkókò ìṣiṣẹ́ pípọ̀ jùlọ fún ìṣirò kan."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Ìyípadà Iye Àkọsílẹ̀ Tó Pọ̀ Jù Lọ"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Àṣàyàn (Ìdásílẹ̀ Àtòkọ RRD Fúnra Rẹ̀): Má ṣe yí Àtòkọ RRD ti èyíkéyìí Ìjábọ̀ padà bí Ìyípadà Iye Àkọsílẹ̀ bá ju Nọ́ńbà yìí lọ Èyí wà láti yẹra fún àwọn ìyípadà àìfẹ́ àti eléwu lórí Àwọn Àtòkọ RRD"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Àwọn Agbègbè Àkókò"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Mú/Dá lílo àwọn agbègbè àkókò dúró fún ìṣètò Ohun Dátà àti ìṣirò ìròyìn.  Nínú ọ̀ràn àkọ́kọ́, a gbọ́dọ̀ ṣètò àkókò olùpèsè sí GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Ṣàfihàn Agbègbè Àkókò Ìbílẹ̀"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Mú ṣiṣẹ́/Dá dúró láti fi agbègbè àkókò olùpèsè hàn lórí àwọn àkọlé."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "Gba Ìṣètò Àkókò Láàyè Látọwọ́ Àwọn Olùṣiṣẹ́"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Mú/Dá agbára Olùṣiṣẹ́ dúró láti Ṣètò Àwọn Ìròyìn.  Nígbà tí ó bá wà ní Àìṣiṣẹ́, àwọn Alábòójútó nìkan ni ó lè yí ìṣètò àkókò padà."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "Àwọn Àfòmọ́-ìbẹ̀rẹ̀ SI"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Mú/Dá lílo àwọn ìṣáájú SI tó tọ́ fún ìlọ́po méjì dúró lábẹ́ àwọn òfin <a href='http://www.ieee.org'>IEEE 1541</a> àti <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Fífiránṣẹ́ Ímeèlì Aládàáṣe"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Tí ó bá wà ní Ṣiṣẹ́, a lè fi àwọn ìròyìn tí a ṣètò ránṣẹ́ sí àkójọ àwọn olùgbà nípasẹ̀ Ímeèlì lọ́nà àdánidá.<br> Ẹ̀yà ara yìí nílò ẹ̀dà tí a ṣètò ti 'Àfikún Àwọn Ètò'."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Àlẹ̀mọ́ Wíwo Ìjábọ̀ Ọ̀tọ̀"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Mú ṣiṣẹ́/dá dúró lílo àlẹ̀mọ́ kọ̀ọ̀kan fún ìròyìn kọ̀ọ̀kan."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Àwọn Ìlà Fún Ojú-ewé Kọ̀ọ̀kan"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Iye àwọn ìlà láti fi hàn lórí ojú-ìwé kan ṣoṣo."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Àwọn Ètò Ìkójáde Ìròyìn"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "Olùyàsọ́tọ̀ Òpó CSV"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Olùyàsọ́tọ̀ òpó láti lò fún àwọn ìgbéjáde CSV."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "Olùyàsọ́tọ̀ Dẹ́símà CSV"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Àmì tí ó ń tọ́ka sí òpin apá odidi àti ìbẹ̀rẹ̀ apá ìdá."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Àwọn Ètò Gbogbogbò Ìròyìn"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Àdàkọ Ìròyìn Tuntun"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Kò sí Àwọn Àdàkọ Dátà tí a ń lò."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Ṣẹ̀dá Àdàkọ Ìròyìn tuntun"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Yan Àdàkọ Dátà kan tí Àdàkọ Ìròyìn yìí yẹ kí ó gbára lé. Àwọn Àdàkọ Dátà tí a kò lò wà ní ìpamọ́."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Kó Àdàkọ Ìròyìn Wọlé"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Yan fáìlì XML tí ó ní Àdàkọ Ìjábọ̀ rẹ."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Kó Àwọn Àdàkọ Ìròyìn Wọlé"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Bára mu"
+
+#: templates.php
+msgid "Summary"
+msgstr "Àkótán"
+
+#: templates.php
+msgid "No"
+msgstr "Rárá"
+
+#: templates.php
+msgid "Yes"
+msgstr "Bẹ́ẹ̀ Ni"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Kò Sí Àwọn Àdàkọ Tí Ó Bára Mu Tí A Rí"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Kó Wọlé"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Orúkọ Àdàkọ Ìjábọ̀ yìí."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Ìdámọ̀ inú ilé ti Àdàkọ Ìjábọ̀ yìí."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Olùkọ̀wé Àdàkọ Ìjábọ̀ yìí."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Ẹ̀yà ti Àdàkọ Ìjábọ̀ yìí."
+
+#: templates.php
+msgid "Published"
+msgstr "Ti Tẹ̀jáde"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Àpapọ̀ iye àwọn ìròyìn tí ń lo Àdàkọ ìròyìn yìí."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Kò sí àwọn orísun dátà tí ó bá a mu"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Àdàkọ dátà kò sí"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Fi àwọn ohun ìwọ̀n kún un"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Ṣàtúnṣe àwọn ohun ìdiwọ̀n"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Fi àwọn onírúurú iyípadà kún un"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Ṣàtúnṣe àwọn oníyípadà"
+
+#: templates.php
+msgid "No templates"
+msgstr "Kò sí àwọn àdàkọ"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Èyí tó pọ̀ jù lọ gbọ́dọ̀ ju èyí tó kéré jù lọ lọ."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Iye àìyípadà ti kọjá ààlà àwọn iye."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Ìkékúrú ẹ̀dà"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Àwọn ohun ìwọ̀n míràn ń lo àwọn èsì àkókò díẹ̀."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Àdàkọ [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Àdàkọ [tuntun]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa Àwọn Àdàkọ Ìròyìn wọ̀nyí rẹ́"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "ÌKÌLỌ̀: Gbogbo Ìròyìn tó jẹ́ ti Àwọn Àdàkọ wọ̀nyí yóò tún jẹ́ pípa rẹ́!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Àdàkọ: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Ìròyìn: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Ìròyìn: <i>Kò sí</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Tẹ 'Tẹ̀síwájú' láti ṣe àdàkọ àwọn àdàkọ ìròyìn wọ̀nyí. O lè yí àkọlé àwọn àdàkọ wọ̀nyí padà bí o bá fẹ́."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Àtòjọ àwọn àdàkọ ìròyìn tí a yàn:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Àkọlé:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Tẹ 'Tẹ̀síwájú' láti kó àwọn Àdàkọ Ìròyìn wọ̀nyí jáde"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "O gbọ́dọ̀ yan ó kéré jù Àdàkọ Ìròyìn kan."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Pa Àwọn Àdàkọ Ìròyìn Rẹ́"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Ṣe ẹ̀dà Àwọn Àdàkọ Ìròyìn"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Kó Àwọn Àdàkọ Ìjábọ̀ Jáde"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Tẹ 'Tẹ̀síwájú láti Pa àwọn oníyípadà wọ̀nyí rẹ́."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Àtòjọ àwọn onírúurú àmì tí a yàn:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Oníyípadà: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Oníyípadà kan tàbí jù bẹ́ẹ̀ lọ wà tí a ń lò."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "O gbọ́dọ̀ yan ó kéré jù onírúurú (variable) kan."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Pa Àwọn Onírúurú Àdàkọ Rẹ́"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa Àwọn Ìwọ̀n wọ̀nyí rẹ́. Àkíyèsí: Tí kò bá sí àwọn Ìwọ̀n mìíràn tó kù lẹ́yìn ìlànà yìí, a ó ti Àdàkọ Ìròyìn pa fúnra rẹ̀."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Àtòjọ àwọn nǹkan tí a wọ̀n tí a yàn:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Òṣùwọ̀n: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "O gbọ́dọ̀ yan ó kéré jù ohun ìwọ̀n (measurand) kan."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Pa Àwọn Ìwọ̀n Àdàkọ Rẹ́"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Àwọn Oníyípadà [ Àdàkọ: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Kò sí Àwọn Àyípadà kankan tí a rí"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Ìṣètò Oníyípadà [ ṣàtúnṣe: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Ìṣètò Oníyípadà [tuntun]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Orúkọ abẹ́nú"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Ìdámọ̀ àrà ọ̀tọ̀ tí ReportIt fúnra rẹ̀ yóò ṣẹ̀dá. Lo ID yìí nínú ìtumọ̀ àwọn ìlànà ìṣirò rẹ láti fi iye tí olùlò ìròyìn ti ṣàlàyé lọ́nà kọ̀ọ̀kan fún un kún un."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Orúkọ bíi \"Àlà\" fún àpẹẹrẹ tí ó yẹ kí a lò gẹ́gẹ́ bí àkọlé nínú ìṣètò ìròyìn."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Pèsè orúkọ fún Oníyípadà yìí"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Àpèjúwe tí ó ṣàlàyé ìtumọ̀ onírúurú àyípadà yìí."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Pèsè àpèjúwe tí ó ní ìtumọ̀"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Ìwọ̀n Tó Pọ̀ Jù Lọ"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Ń ṣàlàyé ààlà òkè ti onírúurú yìí."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Ìwọ̀n Tó Kéré Jù"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Ń ṣàlàyé ààlà ìsàlẹ̀ ti onírúurú yìí."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Iye Àìyípadà"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Ṣètò iye àìyípadà."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Irú"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Ọ̀nà tí olówó ìjábọ̀ yẹ kí ó lò láti ṣàlàyé oníyípadà yìí."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Ń ṣàlàyé àlàfo láàárín iye méjì tí a bá ti yan ọ̀nà \"DropDown\". Jọ̀wọ́ rí i dájú pé iye yìí kò kéré jù, nítorí pé ó ń pinnu lọ́nà tààrà iye àwọn àṣàyàn tí pápá ìsọ̀kalẹ̀ yóò ní. Fún àpẹẹrẹ, àwọn àmúlò wọ̀nyí: MAX:100, MIN:0, STEP:0.01  yóò yọrí sí àpótí àṣàyàn ti àwọn àṣàyàn 10.001. Èyí lè fa àwọn ìṣòro iṣẹ́ tí ó lágbára nítorí ẹrù CPU gíga ní apá àwọn oníbàárà. Gbìyànjú láti jẹ́ kí ó wà lábẹ́ 1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Ìṣètò Òṣùwọ̀n [ ṣàtúnṣe: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Ìṣètò Òṣùwọ̀n [tuntun]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Àlàyé tí a fún ohun ìwọ̀n yìí. Èyí yóò hàn gẹ́gẹ́ bí àkọsílẹ̀ àpèjúwe nínú àwọn ìkójáde àti gẹ́gẹ́ bí àmọ̀ràn ojú-ìwé nínú ìfihàn ìjábọ̀ fúnra rẹ̀."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Ṣàlàyé ìkékúrú ọ̀tọ̀ fún ohun-ìwọ̀n yìí pẹ̀lú lẹ́tà/nọ́ńbà tí kò ju 8 lọ."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Ẹyọ tí a fún ìwọ̀n yìí. àpẹẹrẹ 'Bits/s'"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Iṣẹ́ ìṣọ̀kan"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Orúkọ iṣẹ́ ìṣọ̀kan láti ṣàlàyé àwọn CDP tí ó yẹ kí a kà jáde."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Yan 'enable' tí ohun ìwọ̀n yìí bá yẹ kí ó di apá kan àbájáde ìròyìn ìkẹyìn. Fi sílẹ̀ láìsí àmì tí a bá fẹ́ lo àwọn ohun ìwọ̀n yìí gẹ́gẹ́ bí ìṣirò ìrànlọ́wọ́ nìkan."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Yan 'enable' tí ohun ìwọ̀n yìí bá máa ní àbájáde kan ṣoṣo lápapọ̀ dípò ọ̀kan fún gbogbo Ohun Orísun Dátà. Àbájáde rẹ̀<br>yóò jẹ́ fífi hàn lọ́tọ̀. Lo àṣàyàn yìí pẹ̀lú \"Visible\" = \"off\" tí o bá ń wá ohun ìwọ̀n tí ń pa àbájáde àkókò díẹ̀ mọ́ nìkan tí a yẹ kí a tún lò nínú ìṣirò àwọn ohun ìwọ̀n mìíràn láìjẹ́ pé ó hàn sí àwọn olùlò ìkẹyìn."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Ìṣètò Ìrísí"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Ń ṣàlàyé irú tí ó yẹ kí a ka dátà sí."
+
+#: templates.php
+msgid "Precision"
+msgstr "Ìṣedéédé"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Ń ṣàlàyé iye àwọn nọ́ńbà dẹ́símà tí ó yẹ kí ó hàn fún àwọn nọ́ńbà floating-point."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Àwọn Àfòmọ́ Ìbẹ̀rẹ̀"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Yan irú àṣáájú-ọ̀rọ̀ tí a ń lò láti ṣètò ìyọrísí. Pẹ̀lú lílo àwọn àṣáájú-ọ̀rọ̀ oní-ìdámẹ́wàá, '1024' yóò di '1.024k' nígbà tí àṣàyàn àṣáájú-ọ̀rọ̀ báínárì yóò dá '1ki' padà. Yan 'off' láti fi dátà àìtúnṣe hàn, níbí yìí '1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Ìlànà Ìṣirò"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Ìtumọ̀ ìṣirò ti ohun ìwọ̀n yìí. Gbogbo àkópọ̀ àwọn olùṣiṣẹ́ àti àwọn nọ́ńbà ìṣirò tí a tò sí ìsàlẹ̀ yìí ni a gbà láyè ní ìbámu pẹ̀lú àwọn òfin ìṣirò. Lo àkámọ́ roboto àti onígun mẹ́rin láti fi àwọn kókó dídíjú àti ìtòlẹ́sẹẹsẹ iṣẹ́ hàn."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Àwọn Àmì-iṣẹ́ àti Àwọn Ohun-iṣẹ́"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Tẹ ọ̀kan lára àwọn olùṣiṣẹ́ tàbí ohun ìṣirò tí a tò sílẹ̀ láti fi wọ́n kún ìlànà ìṣirò rẹ. Àlàyé ìṣàfihàn yóò fi àlàyé àfikún hàn ọ́ bíi àpèjúwe, iye ìpadà, àwọn àríyànjiyàn àti ìlò."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Àwọn Òṣùwọ̀n [ Àdàkọ: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Kò sí Àwọn Ìwọ̀n kankan tí a rí"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Àlẹ̀mọ́ Àwọn Ìròyìn"
+
+#: view.php
+msgid "My Reports"
+msgstr "Àwọn Ìjábọ̀ Mi"
+
+#: view.php
+msgid "Go"
+msgstr "Lọ"
+
+#: view.php
+msgid "Clear"
+msgstr "Nu Kúrò"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Àkókò (Láti - Sí)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Àkókò Ìṣiṣẹ́ Tó Kẹ́yìn [s]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "A Kò Rí Ìròyìn Kankan"
+
+#: view.php
+msgid "Metric"
+msgstr "Òṣùwọ̀n"
+
+#: view.php
+msgid "Data Source"
+msgstr "Orísun Dátà"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Ṣàfihàn Àwọn Gíráàfù 10 Tó Ga Jùlọ"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Ṣàfihàn Àwọn Àkọlé Kékeré"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Ṣàfihàn Àkópọ̀"
+
+#: view.php
+msgid "Additional"
+msgstr "Àfikún mìíràn"
+
+#: view.php
+msgid "Items"
+msgstr "Àwọn Ohun"
+
+#: view.php
+msgid "Archive"
+msgstr "Àká Ìpamọ́"
+
+#: view.php
+msgid "Current"
+msgstr "Lọ́wọ́lọ́wọ́"
+
+#: view.php
+msgid "Title"
+msgstr "Àkọlé"
+
+#: view.php
+msgid "Runtime"
+msgstr "Àkókò ìṣiṣẹ́"
+
+#: view.php
+msgid "Period"
+msgstr "Àkókò"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Àkójọ RRD Tí A Ṣẹ̀dá Aládàáṣe"
+
+#: view.php
+msgid "Data Description"
+msgstr "Àpèjúwe Dátà"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- KÒ SÍ ÀKỌ́LÉ KÉKERÉ --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Kò sí Àwọn Ohun Dátà"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Òṣùwọ̀n: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Ipò."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Àwọn Èsì [%s]"
+

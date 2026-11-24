@@ -1,0 +1,2408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Hausa\n"
+"Language: ha-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Share"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Maimaituwa"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Kulle"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Buɗe"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Fitarwa"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Suna"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Sunan Ciki"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Mafi Girma"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Mafi ƙanƙanta"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "Na Asali"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Mataki-mataki"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Nau'in Shigarwa"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Zaɓuɓɓuka"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "Lambar ID"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Gajartawa"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Ƙungiya"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Ma'auni"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Aikin Haɗa Bayanai"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "A bayyane"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Raba"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "Tsarin Lissafi"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "ID na Gabaɗaya"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Abubuwa"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Ma'aunai"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Samfuran Bayanai Masu Alaƙa"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Gabaɗaya"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Samfuran Bayanai"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Ƙungiyoyi"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Masu Canji"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Yau"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "Kwana 1 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "Kwanaki 2 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "Kwanaki 3 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "Kwanaki 4 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "Kwanaki 5 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "Kwanaki 6 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "Kwanaki 7 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Makon da ya gabata (Lah - Asb)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Makon Da Ya Wuce (Litinin - Lahadi)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "Kwanaki 14 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "Kwanaki 21 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "Kwanaki 28 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Watan Yanzu"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Watan da Ya Wuce"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "Watanni 2 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "Watanni 3 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "Watanni 4 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "Watanni 5 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "Watanni 6 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Shekarar Yanzu"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "Shekarar da Ta Wuce"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "Shekaru 2 Na Ƙarshe"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Kullum"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Mako-mako"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Wata-wata"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Kowane Kwata"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Kowace shekara"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Jerin Zaɓi"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Filin shigarwa"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Babu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Bainari"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "Lamba mai ɗigo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Cikakkiyar lamba"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Cikakkiyar lamba (marar alama)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Hexadecimal (ƙananan baƙaƙe)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Hexadecimal (manya-manyan baƙaƙe)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Tsarin Octal"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Rubutun Kimiyya"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Ba a Canza Ba"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "kashe"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Kalmomin Gaban SI na Bainari (Tushe 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Ƙarin Farko na SI na Goma (Tushe 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Matsakaicin Lissafi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Yana mayar da matsakaicin ƙimar dukkan ƙimomin da aka auna a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "babu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Mafi Girman Ƙima"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Yana mayar da ƙimar da aka auna mafi girma a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Mafi Ƙanƙantar Ƙima"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Yana mayar da ƙimar da aka auna mafi ƙanƙanta a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Jimla"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Yana mayar da jimillar dukkan ƙimomin da aka auna a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Yawan Ƙimomi (Ba NaN ba)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Yana mayar da adadin ƙimomin da aka auna masu inganci a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Gangara"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Yana mayar da gangarar layi madaidaici ta hanyar amfani da koma-baya na layi a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Ƙimar Ƙarshe"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Yana mayar da ƙimar da aka auna ta ƙarshe mai inganci a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Ƙimar Farko"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Yana mayar da ƙimar da aka auna ta farko mai inganci a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - Yawan NaNs"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Yana mayar da adadin NaN da aka adana a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - Matsakaici"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Yana mayar da ƙimar da ke raba rabin sama da rabin ƙasa a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Kewayo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Yana mayar da bambancin da ke tsakanin mafi girma da mafi ƙanƙantar ƙima a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Kewayon Tsakanin Kwata"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Yana mayar da tazarar tsakiyar 50&#037; kewaye da matsakaicin tsakiya a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - Karkacewar Ma'auni"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Yana mayar da tushen murabba'i na bambancin kowane tushen bayanai"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - Bambanci"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Yana mayar da bambancin ƙima a kowane DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - Kashi na X"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Yana mayar da kashi na x cikin ɗari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: iyaka a cikin kashi. Zango: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Tsawon Lokaci Akan Iyaka"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Yana mayar da tsawon lokaci da ya wuce iyaka da aka ayyana a cikin kashi cikin ɗari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: iyaka (cikakke)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Jimla Akan Iyaka"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Yana mayar da jimillar ƙimomin da suka wuce iyaka da aka ayyana."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Zagaye Ragowar Lambobi Ƙasa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Yana mayar da lamba cikakkiya mafi ƙanƙanta ta gaba ta hanyar rage ƙima zuwa ƙasa idan ya zama dole."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: lamba mai maki (float)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Zagaye Ragowar Lambobi Sama"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Yana mayar da lamba cikakkiya mafi girma ta gaba ta hanyar cike ƙima zuwa sama idan ya zama dole."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Zagaye Lambar Desimal"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Yana mayar da lamba cikakkiya da aka cike ta kowace lamba mai ɗigo da aka bayar."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: lamba mai maki ko ƙimar rubutu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Nemi Mafi Girman Ƙima"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Yana mayar da ƙima mafi girma daga jerin sigogin da aka bayar"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: ƙimomin da za a kwatanta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Nemi Mafi Ƙanƙantar Ƙima"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Yana mayar da ƙima mafi ƙanƙanta daga jerin sigogin da aka bayar"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Aikin Sharaɗi - Dabarar IDAN-TO-IN BA HAKA BA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Yana mayar da B idan A gaskiya ne ko C idan A ƙarya ne"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Nemi ko ƙima ba lamba ba ce"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Yana mayar da 1 (ko B) idan A === NaN ko 0 (ko C) idan ba haka ba. Sigogin B da C na zaɓi ne."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Kwatanta Mai Sarkakiya"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - Sunan wani na f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - Sunan wani na f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - Sunan wani na f_cmp - YANA DAIDAI"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Yana mayar da 1 (ko C) idan A == B ko 0 (ko D) idan ba haka ba. Sigogin C da D na zaɓi ne."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - Sunan wani na f_cmp - BA YA DAIDAI"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Yana mayar da 1 (ko C) idan A != B ko 0 (ko D) idan ba haka ba. Sigogin C da D na zaɓi ne."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - Sunan wani na f_cmp - YA FI"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Yana mayar da 1 (ko C) idan A > B ko 0 (ko D) idan ba haka ba. Sigogin C da D na zaɓi ne."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - Sunan wani na f_cmp - YA KASA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Yana mayar da 1 (ko C) idan A < B ko 0 (ko D) idan ba haka ba. Sigogin C da D na zaɓi ne."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - Sunan wani na f_cmp - YA FI KO YANA DAIDAI"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Yana mayar da 1 (ko C) idan A >= B ko 0 (ko D) idan ba haka ba. Sigogin C da D na zaɓi ne."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - Sunan wani na f_cmp - YA KASA KO YANA DAIDAI"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Yana mayar da 1 (ko C) idan A <= B ko 0 (ko D) idan ba haka ba. Sigogin C da D na zaɓi ne."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Ƙari"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Aikin Lissafi don dawo da jimillar lambobin da ake tarawa guda biyu ko fiye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Ragewa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Aikin Lissafi don dawo da bambancin adadin da ake ragewa da mai ragewa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Ninkawa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Aikin Lissafi don dawo da sakamakon ninkawar mai ninkawa da abin da ake ninkawa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Sashe"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Aikin Lissafi don dawo da rabon adadin da ake rabawa da mai rabawa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "Modulus"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Aikin Lissafi don dawo da ragowar rabon lambobi guda biyu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Ƙara ƙarfi (Exponentiation) - Ana buƙatar PHP5.6 ko sama da haka"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Aikin Lissafi don dawo da ninkawa (ko rabo) akai-akai na tushen lamba ta hanyar ƙarfinta."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Alamar Goma"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Alamar Goma da ake amfani da ita wajen raba cikakken lamba da ɓangaren kashi"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Baka mai Zagaye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "Ana amfani da shi don soke fifikon yau da kullun ko don yi wa matakin farko na sakawa alama"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Bakan Murabba'i"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "Ana amfani da shi don soke fifikon yau da kullun ko don yi wa mataki na biyu na sakawa alama"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Alamar rubutu"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "Ana amfani da shi don raba hujjojin da aka aika zuwa aiki"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Mafi ƙarancin ƙimar bayanai da aka yarda a tattara."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "GARGAƊI! Ana iya saita wannan ma'auni zuwa sifili ko mara iyaka"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Mafi yawan ƙimar bayanai da aka yarda a tattara."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Ya ƙunshi adadin daƙiƙoƙi tsakanin ƙimomi biyu da aka auna."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Ayyuka ba tare da sigogi ba"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Ayyuka masu sigogi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Laƙubba"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Alamomin Aiki"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Lambobi"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Wasu"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Masu Canjin Tambayar Bayanai"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Sakamakon Wucin Gadi"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Marar Iyaka"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "Abubuwan Bayanai 500"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "Abubuwan Bayanai 1,000"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "Abubuwan Bayanai 2,000"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "Abubuwan Tushen Bayanai 5,000"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "Abubuwan Tushen Bayanai 7,500"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "Abubuwan Tushen Bayanai 10,000"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "Abubuwan Tushen Bayanai 15,000"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "Abubuwan Tushen Bayanai 25,000"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "Minti 1"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Mintuna %d"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Suna na musamman da aka ba wannan Samfurin Rahoto."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Bayani"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Dogon bayani game da wannan Samfurin Rahoto."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Siga"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Lambar sigar wannan samfuri"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Marubuci"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Mawallafin wannan samfuri"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Wallafa"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Shin za a buga wannan samfurin rahoto domin masu amfani su samu damar shiga? Don gwajin sababbin samfura ko gyare-gyare ya kamata ku cire alamar wannan akwatin."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "A Kulle"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Matsayin \"an kulle\" yana hana kowane irin gyara ga samfurin rahotonku da kuma ma'aunan da aka sanya da ma'anonin masu canzawa"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Ƙarin Tacewar Farko"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Na zaɓi: Tsarin rubutu don tace jerin abubuwan bayanai da ke akwai ta hanyar bayaninsu. Yi amfani da wildcards na SQL kamar % da/ko _. Babu regular expressions!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Hanyar Fayil na Fitarwa"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Na zaɓi: Hanyar zuwa babban fayil don ajiye fitar da bayanai.  Idan babu shi, ReportIt zai yi ƙoƙarin ƙirƙirar sa ta atomatik yayin lissafi na farko da aka tsara, in ba haka ba zai yi ƙoƙarin ƙirƙirar sabon ƙaramin babban fayil a cikin babban fayil ɗin fitar da bayanai ta amfani da lambar samfurin."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "Samfurin Bayanai"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Sunan samfurin bayanai da wannan Samfurin Rahoto ya dogara da shi."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Samfurin Rahoto"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Zaɓi ɗaya daga cikin Samfuran Rahotonninka don fitarwa zuwa XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Na zaɓi] Bayani"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Bayyana halayen samfurin rahotonka"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Na zaɓi] Marubuci"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Ƙara sunanka ko laƙabinka a nan."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Na zaɓi] Siga"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Na zaɓi] Tuntuɓa"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Sanda (a tsaye)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Sanda (a kwance)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Layi"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Yanki"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "Zanen da'ira 3D"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Gizo-gizo"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - Mafi Yawan Bayyana"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Yana mayar da ƙimar da ke bayyana sau da yawa a kowane DS"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Baka na Hagu (Buɗewa)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Baka na Dama (Mai rufewa)"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Baka mai murabba'i na Hagu (Buɗewa)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Baka mai murabba'i na Dama (Mai rufewa)"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Ya ƙunshi matsakaicin faɗin hanyar bayanai idan 'ifspeed' yana nan."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Ya ƙunshi mafi girman ƙimar da aka ƙayyade don takamaiman abin tushen bayanai ƙarƙashin \\\"Tusoshin Bayanai\\\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Ya ƙunshi adadin NAN a lokacin rahoton."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Alamomin baka"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Kashe"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Kunna"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Gudanar Yanzu"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "Karɓi Mallaka"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "YA RUSHE"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "YA KASA"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Ba ya Aiki"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "Ana Gudanarwa"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Babu samfuri da yake akwai -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "Litinin"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "Talata"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "Laraba"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "Alhamis"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "Juma'a"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "Asabar"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "Lahadi"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Saitunan Farko na Tushen Bayanai"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "Imel"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Tusoshin Bayanai"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Rubutun CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "Ɗanyen XML (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "Bayanin JSON (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "Bayanan YAML (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Taken Saƙo"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Shigar da jigon imel ɗinka.<br> Za a goyi bayan waɗannan masu canjin (ba tare da alamar zance ba): '|title|' da '|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Rahoton da aka tsara - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Abun ciki (na zaɓi)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Shigar da saƙon da za a nuna a cikin jikin imel ɗinka"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Wannan rahoto ne da aka tsara wanda aka ƙirƙira daga Cacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Abin da aka haɗa"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Don karɓar imel kawai a matsayin sanarwa cewa sabon rahoto yana nan, zaɓi 'Babu'.<br> In ba haka ba, zaɓi tsarin da za a maƙala rahoton da shi."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "Masu Karɓar Imel"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Masu Karɓar Jerin Sanarwa"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Don ƙara Masu Karɓa bisa ingantaccen Jerin Sanarwa."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "Zuwa Adireshin/Adiresoshin Imel"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Da fatan za a raba adiresoshi da yawa da waƙafi (,)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "Adireshin/Adiresoshin BCC"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Kwafin sirri na imel (BCC). Da fatan za a raba adiresoshi da yawa da waƙafi (,)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Sabbin Masu Karɓar Imel"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Don ƙara sabon mai karɓa shigar da ingantaccen adireshin imel (dole ne) da suna (na zaɓi).<br> Don saita shi da sauri yi amfani da jerin adiresoshi/sunaye inda aka raba sunayen/adireshoshin da ɗaya daga cikin waɗannan alamun rabawa: ';' ko ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Ƙaramin Taken Zaɓi"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Bayyana ƙarin ƙaramin kanun labari da ya kamata a nuna ƙarƙashin bayanin mahaɗa.<br> Za a tallafa wa masu canji masu zuwa (ba tare da alamar zance ba): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Yankin Lokaci"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Zaɓi yankin lokacin da bayanan lokutan aikinka na gaba za su dogara a kai."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Tacewar Farko ta Tushen Bayanai ta Zaɓi"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Tacewar Wuri"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Yi amfani da Tusoshin Bayanai da suka dace da wannan Wurin kaɗai.<br>Zaɓi 'Babu' (tsoho) don kashe wannan saitin tacewa."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Tacewar Samfurin Na'ura"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Yi amfani da Tusoshin Bayanai na wannan Samfuran Na'ura kaɗai.<br>Zaɓi 'Babu' (tsoho) don kashe wannan saitin tacewa."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Tacewar Sunan Tushen Bayanai"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Yi amfani da Tusoshin Bayanai waɗanda sunayensu suka dace da wannan tacewar.<br> Yi amfani da alamun SQL kamar % da/ko _. Babu Regular Expressions!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Abubuwan Bayanai da Aka Ƙirƙira da Kansu"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Kunna/kashe ƙirƙira ta atomatik na duk abubuwan bayanai bisa tacewar da aka bayar. Za a kira wannan kafin aiwatar da rahoto. Za a share tsofaffin RRDs kuma za a ƙara duk RRDs da suka dace da saitunan tacewa."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Lokacin Aiki"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "Daga"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Wurin farawar tsawon lokacin da kuke son bincika"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "Zuwa"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Ƙarshen lokacin nazari."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Ranaku na Aiki"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Bayyana rukunin kwanakin da sauyin aiki ke FARAWA!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Misali: Domin aikin dare daga Litinin(22:30) har zuwa Asabar(06:30), ayyana Litinin zuwa Jumma'a"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Sunan da aka ba wannan rahoto"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Samfuri"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Samfurin da saitinku ya dogara da shi"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Mai shi"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Sauya mai wannan rahoton. Masu amfani da ke da izinin \"view\" ko sama da haka kaɗai za a iya zaɓa."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "An kunna"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Kunna/kashe rahoto mai tsararren lokaci. Ya kamata a kunna tsarin lokaci mai zamewa."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Na Jama'a"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Idan an kunna, kowa zai iya ganin rahotonka a ƙarƙashin shafin 'Rahotanni'"
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Kunna Amfani da Izinin Jadawali"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Idan an kunna (tsoho), za a tace jerin abubuwan bayanai da ke akwai ta atomatik bisa izinin jadawali na mai shi: 'bisa na'ura'."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "Imel da Aka Ƙirƙira da Kansa"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Idan an kunna, za a kunna shafin 'Imel' kuma duk masu karɓa da aka ayyana a ƙarƙashin wannan sashe za su karɓi imel ta atomatik mai ɗauke da wannan rahoto da aka tsara."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Lokacin Rahoto"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Zangon Lokaci Mai Motsi"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Idan an zaɓa, za a saita lokacin bayar da rahoto kai tsaye dangane da lokacin da lissafin ya fara."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Tsawon Lokuta"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Tsawon lokacin da kuke son bincika dangane da lokacin da lissafin ya fara.<br>Wannan yana nufin kwanakin kalanda, watannin kalanda da shekarun kalanda."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "Har zuwa Ranar Lissafi"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Faɗaɗa tsarin lokaci mai motsi har zuwa ranar da aka gudanar da lissafin."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Kayyadadden Lokaci - Ranar Farawa (Daga)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Don ayyana ranar farawa yi amfani da wannan tsarin: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Kayyadadden Lokaci - Ranar Ƙarewa (Zuwa)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Don ayyana ranar ƙarewa yi amfani da wannan tsarin: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Ƙara zuwa Rahoto"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Cire daga Rahoto"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "Kwafi Saituna zuwa Duka"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Ƙara"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Jadawalin sanda: a tsaye"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Jadawalin sanda: a kwance"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Jadawalin layi"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Jadawalin yanki"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Zanen da'ira: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s Sama"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s Ƙasa"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Kowane"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Duka"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Jimilla"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Matsakaici"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Taken rahoto"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Fara"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Ƙare"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Gudanarwa ta Ƙarshe"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Bayani: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Tsari:      %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Sigogi:  %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Misalai:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Kunna [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Kunna abin tushen bayanai '%s' don tsarin lissafi."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Sunan Laƙabi na Tushen Bayanai"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Na zaɓi: Za ka iya ayyana sunan laƙabi da ya kamata a nuna maimakon sunan tushen bayanai na ciki '%s' a cikin rahotanni."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Taken Rukunin Daban [gaba ɗaya]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Na zaɓi: Za ka iya ayyana sunan ƙungiya da ya kamata a nuna a matsayin take ga duk abubuwan aunawa daban-daban a cikin rahotanni."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Mai shi da Ba a Sani Ba"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Fayil ɗin ya yi girma da yawa."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Canja wurin fayil bai cika ba."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Ba a ɗora wani fayil ba."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Babban fayil na wucin gadi ya ɓace."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "An kasa rubuta fayil zuwa diski"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Wani ƙarin tsari ya dakatar da ɗora fayil"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Ƙarin sunan fayil bai dace ba."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "An kasa fassara fayil ɗin samfuri."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Kuskuren checksum tare da Samfuri %s a cikin fayil ɗin XML"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Sabon Rahoto"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Babu samfuran rahoto da aka buɗe kuma aka kunna (%s a kulle ko an kashe)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Soke"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Ci gaba"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Ƙirƙiri sabon rahoto"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Zaɓi samfurin da wannan rahoton zai dogara a kai."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Tacewar Rahoto"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Bincika"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Rahotanni"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Je"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Share"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Lokaci %s Daga - Zuwa"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Jadawali"
+
+#: reportit.php
+msgid "State"
+msgstr "Jiha"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Farawa ta Gaba %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "An Fara Na Ƙarshe %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Lokacin Aiki na Ƙarshe"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "Babu"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Ƙara tusoshi"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Gyara tusoshi"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Zaɓi %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "An kulle rahoton"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Babu rahotanni"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Ba A Ba Da Iko Ba"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Tsarin Rahoto (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Aiki"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Ba a sami masu karɓa ba"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "Sunan Tushen Bayanai"
+
+#: reportit.php
+msgid "Associated"
+msgstr "Mai Alaƙa"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Ƙaramin Take"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Lokacin Aiki (Daga - Zuwa)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Ranekun Aiki (Daga - Zuwa)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "RRDs"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Nuna Duka"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Ba ya wanzuwa kuma"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "An haɗa a cikin Rahoto"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Ba A Haɗa A Rahoto Ba"
+
+#: reportit.php
+msgid "Select"
+msgstr "Zaɓi"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Ba a sami abubuwan bayanai ba"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Adireshin imel na mai karɓa (ko jerin da aka raba da waƙafi)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[NA ZAƁI] Sunan mai karɓa (ko jerin sunaye da aka raba da waƙafi)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Tushen Bayanai [gyara: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Ƙaramin Take (na zaɓi)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Zaɓi yankin lokacin da bayanan lokacin aikinka na gaba za su dogara a kai."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Danna 'Ci gaba' don Gudanar da Rahoto mai zuwa:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Danna 'Ci gaba' don Share waɗannan Rahotanni na gaba:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Danna 'Ci gaba' don kwafin saitunan Rahoto masu zuwa. Haka kuma za ka iya canza tsarin take yayin wannan aiki."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "Tsarin Take:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Danna 'Ci gaba' don Kashe Rahoto na gaba:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Danna 'Ci gaba' don Kunna Rahoto na gaba:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Danna 'Ci gaba' don Karɓar Mallakar Rahoto mai zuwa:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "Dole ne ka zaɓi aƙalla rahoto guda ɗaya wanda ba a kulle ba, kuma ba ya gudana."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Danna 'Ci gaba' don Cire Tusoshin Bayanai masu zuwa daga Rahoton."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Jerin Tusoshin Bayanai da aka zaɓa a ƙasa."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Tushen Bayanai: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Danna 'Ci gaba' don Ƙara waɗannan Tusoshin Bayanai na gaba zuwa Rahoton."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Danna 'Ci gaba' don Kwafa Saituna zuwa sauran Tusoshin Bayanai."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Tushen Bayanai Da Aka Zaɓa a Matsayin Madogara:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Yankin Lokaci:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Ranekun Aiki:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Lokacin aiki:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "Dole ne ka zaɓi aƙalla Rahoto guda ɗaya."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - Kallon Rahoto"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - Ƙirƙiri Rahotanni"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - Sarrafa Rahotanni"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Gyara)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Ayyuka"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Abubuwan Bayanai"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Samfuran Rahoto"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Shigowa"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Lissafin Rahoto"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Rahotannin Jama'a"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Nuna Rahoto"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Fitar da Rahoto"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Mai Amfani na Yau da Kullum"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Gudanarwa ta Gabaɗaya"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Gudanar da Tsari"
+
+#: setup.php
+msgid "Management"
+msgstr "Gudanarwa"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "Rahotannin ReportIt"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Samfura"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Ba a zaɓi wani abin tushen bayanai ba"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Abubuwan tushen bayanai da ba a zaɓa ba har yanzu ana amfani da su"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "An kasa buɗe wannan samfurin ba tare da ayyanannun ma'aunai ba"
+
+#: setup.php
+msgid "global"
+msgstr "na gabaɗaya"
+
+#: setup.php
+msgid "local"
+msgstr "na gida"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Babban Mai Amfani (Mai Rahoto)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Babban Mai Amfani (Mai Gudanar da Rahoto)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Mafi Tsawon Lokacin Gudanarwa (a daƙiƙa)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Na zaɓi: Mafi girman lokacin aiwatar da lissafi guda ɗaya."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Mafi Girman Canjin Adadin Bayanai"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Na zaɓi (Ƙirƙirar Jerin RRD ta atomatik): Kar a sauya Jerin RRD na kowane Rahoto idan Sauyin Adadin Rubutu ya fi wannan Lamba. Wannan don guje wa sauye-sauye marasa kyau da masu haɗari a kan Jerin RRD ne"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Yankunan Lokaci"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Kunna/Kashe amfani da yankunan lokaci don saita Abin Bayanai da lissafin rahoto. A yanayin farko dole ne a saita lokacin uwar garke zuwa GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Nuna Yankin Lokaci na Gida"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Kunna/Kashe don nuna yankin lokacin uwar garke a kanun labarai."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "Ba wa Masu Gudanarwa Izin Tsara Lokaci"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Kunna/Kashe ikon Mai Aiki na Tsara Rahotanni. Lokacin da An kashe, Masu Gudanarwa ne kaɗai za su iya sauya tsara lokaci."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "Gaban-kalmomin SI"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Kunna/Kashe amfani da madaidaitan gabobi na SI don ninkuwa na binary a ƙarƙashin sharuɗɗan <a href='http://www.ieee.org'>IEEE 1541</a> da <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Aika Imel da Kansa"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Idan an kunna, za a iya aika rahotannin da aka tsara ta imel ta atomatik zuwa jerin masu karɓa.<br> Wannan fasalin yana buƙatar sigar 'Settings Plugin' da aka saita."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Tacewar Kallon Rahoto Daban"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Kunna/kashe amfani da tacewa ta musamman ga kowane rahoto."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Layuka a Kowace Shafi"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Adadin layuka da za a nuna a shafi guda."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Saitunan Fitar da Rahoto"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "Mai Raba Rukunin CSV"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Mai raba ginshiƙai da za a yi amfani da shi don fitar da CSV."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "Mai Raba Adadin Goma na CSV"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Alamar da ke nuna ƙarshen ɓangaren lamba guda da farkon ɓangaren juzu'i."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Saitunan Gabaɗaya na Rahoto"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Sabon Samfurin Rahoto"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Babu Samfuran Bayanai da ake amfani da su."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Ƙirƙiri sabon Samfurin Rahoto"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Zaɓi Samfurin Bayanai da wannan Samfurin Rahoto zai dogara a kai. An ɓoye Samfuran Bayanai da ba a amfani da su."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Shigo da Samfurin Rahoto"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Zaɓi fayil ɗin XML da ke ƙunshe da Samfurin Rahotonka."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Shigo da Samfuran Rahoto"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Mai Dacewa"
+
+#: templates.php
+msgid "Summary"
+msgstr "Taƙaitacce"
+
+#: templates.php
+msgid "No"
+msgstr "A'a"
+
+#: templates.php
+msgid "Yes"
+msgstr "Eh"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Ba a Sami Samfura Masu Dacewa ba"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Shigowa"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Sunan wannan Samfurin Rahoto."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Lambar tantancewa ta cikin gida ta wannan Samfurin Rahoto."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Mawallafin wannan Samfurin Rahoto."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Sigar wannan Samfurin Rahoto."
+
+#: templates.php
+msgid "Published"
+msgstr "An Wallafa"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Jimillar adadin rahotannin da ke amfani da wannan samfurin rahoton."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Babu tusoshin bayanai masu dacewa"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Samfurin bayanai ba ya nan"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Ƙara abubuwan da za a auna"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Gyara abubuwan aunawa"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Ƙara masu canji"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Gyara mabambanta"
+
+#: templates.php
+msgid "No templates"
+msgstr "Babu samfura"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Mafi girma dole ne ya fi mafi ƙanƙanta."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Ƙimar asali ta fita waje da kewayon ƙimomi."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Taƙaitaccen suna ya maimaita"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Sauran abubuwan aunawa suna amfani da sakamakon wucin gadi."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Samfuri [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Samfuri [sabo]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Danna 'Ci gaba' don Share waɗannan Samfuran Rahoto na gaba"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "GARGAƊI: Kowane Rahoto da ke cikin waɗannan Samfura shi ma za a share shi!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Samfuri: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Rahoto: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Rahoto: <i>Babu</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Danna 'Ci gaba' don kwafin samfuran rahoto masu zuwa. Za ka iya zaɓar canza taken waɗannan kwafin."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Jerin samfuran rahoto da aka zaɓa:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Take:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Danna 'Ci gaba' don Fitar da Samfuran Rahoto masu zuwa"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "Dole ne ka zaɓi aƙalla Samfurin Rahoto guda ɗaya."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Share Samfuran Rahoto"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Kwafin Samfuran Rahoto"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Fitar da Samfuran Rahoto"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Danna 'Ci gaba don Share waɗannan masu canji na gaba."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Jerin masu canji da aka zaɓa:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Mai Canji: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Akwai masu canji guda ɗaya ko fiye da ake amfani da su."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "Dole ne ka zaɓi aƙalla mai canji guda ɗaya."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Share Masu Canjin Samfuri"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Danna 'Ci gaba' don Share waɗannan Ma'aunai na gaba.  Sanarwa: Idan babu sauran Ma'aunai da suka rage bayan wannan aikin, za a kulle Samfurin Rahoto kai tsaye."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Jerin abubuwan aunawa da aka zaɓa:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Ma'auni: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "Dole ne ka zaɓi aƙalla abin aunawa guda ɗaya."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Share Ma'aunan Samfuri"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Masu Canji [ Samfuri: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Ba a Samu Masu Canji ba"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Saitin Mai Canji [ gyara: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Saitin Mai Canji [sabo]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Sunan ciki"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Lambar shaida ta musamman wadda ReportIt da kansa zai ƙirƙira. Yi amfani da wannan ID a cikin ma'anar dabaru na lissafin ku don haɗa ƙimar da mai amfani da rahoton ya ayyana da kansa a kanta."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Suna kamar \"Iyaka\" misali wanda ya kamata a yi amfani da shi a matsayin kanun labari a cikin saitin rahoto."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Bayar da suna ga wannan Ma'auni"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Bayani da ke fayyace ma'anar wannan ma'auni (variable)."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Bayar da bayani mai ma'ana"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Mafi Girman Ƙima"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Yana bayyana babban iyakar wannan mai canjin."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Mafi Ƙarancin Daraja"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Yana bayyana ƙaramin iyakar wannan mai canjin."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Ƙimar Asali"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Yana saita ƙimar asali."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Nau'i"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Hanyar da ya kamata mai rahoton ya yi amfani da ita don ayyana wannan mai canji."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Yana bayyana tazara tsakanin ƙimomi biyu idan an zaɓi hanyar \"DropDown\". Da fatan a tabbatar ba a saita wannan ƙimar ƙasa da yawa ba, domin tana bayyana adadin zaɓuɓɓukan da filin zaɓin zai samu a fakaice. Misali waɗannan sigogin: MAX:100, MIN:0, STEP:0.01  za su haifar da akwatin zaɓi mai zaɓuɓɓuka 10.001. Wannan na iya haifar da matsananciyar matsalar aiki saboda yawan nauyin CPU a ɓangaren masu amfani. A yi ƙoƙari a kiyaye shi ƙasa da 1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Saitin Ma'auni [ gyara: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Saitin Ma'auni [sabo]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Bayanin da aka bayar don wannan abin aunawa. Za a nuna wannan a matsayin ma'anar alama a cikin fitar da bayanai da kuma a matsayin bayanin nuni a cikin gabatar da rahoton da kansa."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Bayyana gajeren suna na musamman don wannan abin aunawa mai iyakar haruffa/lambobi 8."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Rukunin awo da aka ba wannan ma'aunin. misali 'Bits/s'"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Aikin haɗawa wuri guda"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Sunan aikin haɗawa don ayyana waɗanne CDPs ya kamata a karanta."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Zaɓi 'enable' idan wannan abin aunawa zai zama wani ɓangare na sakamakon rahoton ƙarshe. Bar shi ba tare da alama ba idan za a yi amfani da wannan abin aunawa ne kawai a matsayin lissafin taimako."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Zaɓi 'enable' idan wannan abin aunawa zai sami sakamako ɗaya ne kawai gaba ɗaya maimakon ɗaya ga kowane Abin Tushen Bayanai. Za a nuna sakamakonsa<br>daban. Yi amfani da wannan zaɓin tare da \"Visible\" = \"off\" idan kana neman abin aunawa da ke riƙe da sakamakon wucin gadi kawai wanda za a sake amfani da shi wajen lissafin sauran abubuwan aunawa ba tare da ya bayyana ga masu amfani na ƙarshe ba."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Tsara salo"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Yana bayyana wane nau'i ya kamata a ɗauki bayanan a matsayinsa."
+
+#: templates.php
+msgid "Precision"
+msgstr "Daidaito"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Yana bayyana adadin lambobin goma da za a nuna don lambobin da ke da ɗigo."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Ƙarin gaba"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Zaɓi nau'in harafin gaba da za a yi amfani da shi wajen tsara sakamakon. Idan aka yi amfani da harafin gaba na goma-goma za a tsara '1024' zuwa '1.024k' yayin da zaɓin harafin gaba na biyu-biyu ke mayar da '1ki'. Zaɓi 'off' don nuna ainihin bayanan kai tsaye, a nan '1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Tsarin Lissafi"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Ma'anar lissafi ta wannan abin aunawa. An yarda da duk haɗin alamomin lissafi da lambobin aiki da aka jera a ƙasa bisa ƙa'idodin lissafi. Yi amfani da baka mai zagaye da mai kusurwa don nuna kalmomi masu sarƙaƙiya da tsarin ayyuka."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Alamomin Aiki da Abubuwan Aiki"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Danna ɗaya daga cikin masu aiki ko abubuwan lissafi da aka jera don haɗa su zuwa tsarin lissafinka. Akwatin bayani zai nuna maka ƙarin bayani kamar kwatance, ƙimar dawowa, hujjoji da amfani."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Ma'aunai [ Samfuri: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Ba a Samu Ma'aunai ba"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Tacewar Rahotanni"
+
+#: view.php
+msgid "My Reports"
+msgstr "Rahotanni Na"
+
+#: view.php
+msgid "Go"
+msgstr "Tafi"
+
+#: view.php
+msgid "Clear"
+msgstr "Share"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Lokaci (Daga - Zuwa)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Lokacin Aiki Na Ƙarshe [s]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "Ba a Sami Rahotanni Ba"
+
+#: view.php
+msgid "Metric"
+msgstr "Ma'auni"
+
+#: view.php
+msgid "Data Source"
+msgstr "Tushen Bayanai"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Nuna Jadawalai 10 na Farko"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Nuna Ƙananan Kanun Labarai"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Nuna Taƙaitawa"
+
+#: view.php
+msgid "Additional"
+msgstr "Ƙarin"
+
+#: view.php
+msgid "Items"
+msgstr "Abubuwa"
+
+#: view.php
+msgid "Archive"
+msgstr "Taskace"
+
+#: view.php
+msgid "Current"
+msgstr "Na Yanzu"
+
+#: view.php
+msgid "Title"
+msgstr "Take"
+
+#: view.php
+msgid "Runtime"
+msgstr "Lokacin gudanarwa"
+
+#: view.php
+msgid "Period"
+msgstr "Lokaci"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Jerin RRD da Aka Ƙirƙira da Kansa"
+
+#: view.php
+msgid "Data Description"
+msgstr "Kwatancin Bayanai"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- BABU ƘARAMIN KANU --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Babu Abubuwan Bayanai"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Ma'auni: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Mats."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Sakamako [%s]"
+
