@@ -45,9 +45,8 @@ msgid "Name"
 msgstr "İsim"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
-#, fuzzy
 msgid "Internal Name"
-msgstr "Dahili İsim"
+msgstr "Dahili Ad"
 
 #: include/global_arrays.php lib/const_variables.php lib/const_view.php
 #: templates.php
@@ -505,7 +504,7 @@ msgstr "Belirli bir parametre listesinin en yüksek değerini döndürür"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$var 1, $var 2, $var 3 ...: karşılaştırılacak değerler"
+msgstr "$var1, $var2, $var3 ...: karşılaştırılacak değerler"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -929,10 +928,9 @@ msgid "Parentheses"
 msgstr "Parantez"
 
 #: lib/const_reports.php
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Devre dışı"
+msgstr "Devre Dışı"
 
 #: lib/const_reports.php setup.php
 msgid "Enable"
@@ -944,7 +942,7 @@ msgstr "Şimdi Çalıştır"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "Sahipliğini almak"
 
 #: lib/const_reports.php
 msgid "CRASHED"
@@ -963,9 +961,8 @@ msgid "Running"
 msgstr "Çalışıyor"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "- No template available -"
-msgstr "- müsait değil -"
+msgstr "- Kullanılabilir şablon yok -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
@@ -996,9 +993,8 @@ msgid "Sunday"
 msgstr "Pazar"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "Veri Öğesi Ön Ayarları"
+msgstr "Veri Kaynağı Ön Ayarları"
 
 #: lib/const_reports.php reportit.php
 msgid "Email"
@@ -1022,11 +1018,11 @@ msgstr "Ham XML (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "JSON Verisi (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "YAML Verisi (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1034,11 +1030,11 @@ msgstr "Konu"
 
 #: lib/const_reports.php
 msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
-msgstr "E-postanızın konusunu girin.<br> Aşağıdaki değişkenler desteklenecektir (tırnak işaretleri olmadan): '|başlık|' ve '|dönem|'"
+msgstr "E-postanızın konusunu girin.<br> Aşağıdaki değişkenler desteklenir (tırnak işaretleri olmadan): '|title|' ve '|period|'"
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "Planlanmış rapor - |başlık| - |dönem|"
+msgstr "Zamanlanmış rapor - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1050,7 +1046,7 @@ msgstr "E-postanızın gövdesinde görüntülenecek bir mesaj girin"
 
 #: lib/const_reports.php
 msgid "This is a scheduled report generated from Cacti."
-msgstr "Bu, Cactus'tan oluşturulan planlanmış bir rapordur."
+msgstr "Bu, Cacti tarafından oluşturulan zamanlanmış bir rapordur."
 
 #: lib/const_reports.php
 msgid "Attachment"
@@ -1074,19 +1070,19 @@ msgstr "Geçerli bir Bildirim Listesini temel alan bir Alıcı eklemek için."
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "E-posta Adreslerine"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Lütfen birden fazla adresi virgülle ayırın (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "BCC Adresi"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Kör karbon kopyası. Lütfen birden fazla adresi virgülle ayırın (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
@@ -1097,9 +1093,8 @@ msgid "To add a new recipient enter a valid email address (required) and a name 
 msgstr "Yeni bir alıcı eklemek için geçerli bir e-posta adresi (gerekli) ve bir ad (isteğe bağlı) girin.<br> Daha hızlı bir kurulum için, adların/adreslerin aşağıdaki ayırıcılardan biriyle ayrıldığı bir adres/ad listesi kullanın: ';' veya ','"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[İsteğe bağlı] Sürüm"
+msgstr "İsteğe Bağlı Alt Başlık"
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
@@ -1114,39 +1109,32 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "Aşağıdaki vardiya bilgileri için hangi saat dilimini temel alacağınızı seçin."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "Ek Ön Filtre"
+msgstr "İsteğe Bağlı Veri Kaynağı Ön Filtreleri"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Site Filter"
-msgstr "Rapor filtreleri"
+msgstr "Site Filtresi"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Yalnızca bu ana bilgisayar şablonunun ana bilgisayarlarına ait olan bu veri öğelerini kullanın.<br>Bu filtre ayarını devre dışı bırakmak için 'Yok'u (varsayılan) seçin."
+msgstr "Yalnızca bu Sitelerle eşleşen Veri Kaynaklarını kullanın.<br>Bu filtre ayarını devre dışı bırakmak için 'Yok' (varsayılan) seçeneğini seçin."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "Şablon Değişkenlerini Sil"
+msgstr "Cihaz Şablonu Filtresi"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Yalnızca bu ana bilgisayar şablonunun ana bilgisayarlarına ait olan bu veri öğelerini kullanın.<br>Bu filtre ayarını devre dışı bırakmak için 'Yok'u (varsayılan) seçin."
+msgstr "Yalnızca bu Cihaz Şablonunun Veri Kaynaklarını kullanın.<br>Bu filtre ayarını devre dışı bırakmak için 'Yok' (varsayılan) seçeneğini seçin."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "Veri Kaynağı Diğer Adı"
+msgstr "Veri Kaynağı Adı Filtresi"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Veri öğeleri açıklamalarında ek filtrelemeye izin verir.<br> nd/veya _ gibi % aSQL joker karakterleri kullanın. Düzenli İfade yok!"
+msgstr "Adları bu filtreyle eşleşen Veri Kaynaklarını kullanın.<br> % ve/veya _ gibi SQL joker karakterlerini kullanın. Düzenli ifade (regex) kullanmayın!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
@@ -1285,18 +1273,16 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "Bitiş tarihini tanımlamak için şu biçimi kullanın: <b>yyyy-aa-gg</b>"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Add to Report"
-msgstr "Rapor Göster"
+msgstr "Rapora ekle"
 
 #: lib/const_rrdlist.php
 msgid "Remove from Report"
 msgstr "Rapordan Kaldır"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Copy Settings to All"
-msgstr "Ayarları tümüne kopyala"
+msgstr "Ayarları Tümüne Kopyala"
 
 #: lib/const_rrdlist.php setup.php
 msgid "Add"
@@ -1338,7 +1324,7 @@ msgstr "Herhangi"
 
 #: lib/const_view.php view.php
 msgid "All"
-msgstr ""
+msgstr "Tümü"
 
 #: lib/const_view.php
 msgid "Sum"
@@ -1349,9 +1335,8 @@ msgid "Average"
 msgstr "Ortalama"
 
 #: lib/funct_export.php
-#, fuzzy
 msgid "Report title"
-msgstr "Rapor Başlığı"
+msgstr "Rapor başlığı"
 
 #: lib/funct_export.php
 msgid "Start"
@@ -1417,7 +1402,6 @@ msgid "Unknown Owner"
 msgstr "Bilinmeyen Sahibi"
 
 #: lib/funct_validate.php
-#, fuzzy
 msgid "The file is to big."
 msgstr "Dosya çok büyük."
 
@@ -1507,10 +1491,9 @@ msgid "Period %s From - To"
 msgstr "Dönem %s - Bitiş"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Scheduled"
 msgid "Schedule"
-msgstr "Tarifeli"
+msgstr "Program"
 
 #: reportit.php
 msgid "State"
@@ -1519,19 +1502,18 @@ msgstr "Şehir"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "Sonraki Başlangıç %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 #| msgid "Last Run %s"
 msgid "Last Started %s"
-msgstr "Son Çalıştırma %s"
+msgstr "Son Başlatılma %s"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Last Run"
 msgid "Last Runtime"
-msgstr "Önceki Çalışma"
+msgstr "Son Çalışma Zamanı"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1555,14 +1537,12 @@ msgid "Report has been locked"
 msgstr "Rapor kilitlendi"
 
 #: reportit.php
-#, fuzzy
 msgid "No reports"
-msgstr "Raporlar"
+msgstr "Rapor yok"
 
 #: reportit.php
-#, fuzzy
 msgid "Not Authorized"
-msgstr "Yetkili"
+msgstr "Yetkisiz"
 
 #: reportit.php
 #, php-format
@@ -1578,9 +1558,8 @@ msgid "No recipients found"
 msgstr "Alıcı bulunamadı"
 
 #: reportit.php
-#, fuzzy
 msgid "Data Source Name"
-msgstr "Veri Kaynağı"
+msgstr "Veri Kaynağı Adı"
 
 #: reportit.php
 msgid "Associated"
@@ -1611,9 +1590,8 @@ msgid "Does not exist anymore"
 msgstr "Artık yok"
 
 #: reportit.php
-#, fuzzy
 msgid "Included in Report"
-msgstr "Raporu Çalıştır"
+msgstr "Rapora Dahil Edildi"
 
 #: reportit.php
 msgid "Not Included in Report"
@@ -1636,9 +1614,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[İSTEĞE BAĞLI] Alıcının adı (veya virgülle ayrılmış ad listesi)"
 
 #: reportit.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "Veri Öğesi [değiştir | kaynağı değiştir: %s]"
+msgstr "Veri Kaynağı [düzenle: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1669,56 +1647,48 @@ msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "Aşağıdaki Raporları Silmek için 'Devam'ı tıklayın:"
+msgstr "Aşağıdaki Raporu devre dışı bırakmak için 'Devam Et'e tıklayın:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "Aşağıdaki Raporu Çalıştırmak için 'Devam'ı tıklayın:"
+msgstr "Aşağıdaki Raporu etkinleştirmek için 'Devam Et'e tıklayın:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "Aşağıdaki Raporu Çalıştırmak için 'Devam'ı tıklayın:"
+msgstr "Aşağıdaki Raporun sahipliğini almak için 'Devam Et'e tıklayın:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
 msgstr "En az bir kilidi açılmış, çalışmıyor raporu seçmeniz gerekir."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "Aşağıdaki Veri Öğelerini Kaldırmak için 'Devam'ı tıklayın."
+msgstr "Aşağıdaki Veri Kaynaklarını Rapordan kaldırmak için 'Devam Et'e tıklayın."
 
 #: reportit.php
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "Seçilen veri öğelerinin listesi:"
+msgstr "Seçilen Veri Kaynaklarının listesi aşağıdadır."
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "Veri kaynağı:"
+msgstr "Veri Kaynağı: %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "Aşağıdaki Raporu Çalıştırmak için 'Devam'ı tıklayın:"
+msgstr "Aşağıdaki Veri Kaynaklarını Rapora Eklemek için 'Devam'a tıklayın."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "Ayarları diğer Veri Öğelerine Kopyalamak için 'Devam'ı tıklayın"
+msgstr "Ayarları diğer Veri Kaynaklarına Kopyalamak için 'Devam'a tıklayın."
 
 #: reportit.php
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "Referans olarak seçilen veri öğesi:"
+msgstr "Referans Olarak Seçilen Veri Kaynağı:"
 
 #: reportit.php
 msgid "Time Zone:"
@@ -1737,19 +1707,16 @@ msgid "You must select at least one Report."
 msgstr "En az bir Rapor seçmelisiniz."
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "Raporları Görüntüle"
+msgstr "ReportIt - Rapor Görüntüleme"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "Rapor Oluştur"
+msgstr "ReportIt - Rapor Oluştur"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "ReportIt Genel Ayarlar"
+msgstr "ReportIt - Raporları Yönet"
 
 #: setup.php
 msgid "(Edit)"
@@ -1804,9 +1771,8 @@ msgid "Management"
 msgstr "Kullanıcı Yonetimi"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt Reports"
-msgstr "Rapor Oluştur"
+msgstr "ReportIt Raporları"
 
 #: setup.php
 msgid "ReportIt"
@@ -1865,37 +1831,32 @@ msgid "Time Zones"
 msgstr "Zaman Dilimleri"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "Veri öğesinin yapılandırması ve rapor hesaplaması için saat dilimlerinin kullanımını etkinleştirin/devre dışı bırakın.  İlk durumda, sunucu saatinin GMT/UTC'ye ayarlanması gerekiyor!"
+msgstr "Veri Öğesi yapılandırması ve rapor hesaplaması için saat dilimlerinin kullanımını etkinleştirin/devre dışı bırakın. İlk durumda sunucu saati GMT/UTC olarak ayarlanmalıdır!"
 
 #: setup.php
 msgid "Show Local Time Zone"
 msgstr "Yerel Saat Dilimini Göster"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "Başlıklarda sunucunun saat dilimini görüntülemek için etkinleştirin/devre dışı bırakın."
+msgstr "Başlıklarda sunucunun saat dilimini görüntülemeyi etkinleştirin/devre dışı bırakın."
 
 #: setup.php
-#, fuzzy
 msgid "Allow Scheduling by Operators"
-msgstr "Operatörler tarafından planlamaya izin ver"
+msgstr "Operatörler Tarafından Zamanlamaya İzin Ver"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "Operatörün rapor planlama yeteneğini etkinleştirin/devre dışı bırakın.  Devre dışı bırakıldığında, zamanlamayı yalnızca yöneticiler değiştirebilir."
+msgstr "Operatörün Rapor Zamanlama yeteneğini etkinleştirin/devre dışı bırakın. Devre dışı bırakıldığında, zamanlamayı yalnızca Yöneticiler değiştirebilir."
 
 #: setup.php
 msgid "SI-Prefixes"
 msgstr "SI Önekleri"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> ve <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> koşulları altında ikili katlar için doğru SI Öneklerinin kullanımını etkinleştirin/devre dışı bırakın."
+msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> ve <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> koşulları kapsamında ikili katlar için doğru SI öneklerinin kullanımını etkinleştirin/devre dışı bırakın."
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1922,9 +1883,8 @@ msgid "The number of rows to display on a single page."
 msgstr "Tek bir sayfada görüntülenecek satır sayısı."
 
 #: setup.php
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "ReportIt Dışa Aktarma Ayarları"
+msgstr "Rapor Dışa Aktarma Ayarları"
 
 #: setup.php
 msgid "CSV Column Separator"
@@ -1943,9 +1903,8 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "Tamsayı kısmının sonunu ve kesirli kısmın başlangıcını gösteren sembol."
 
 #: setup.php
-#, fuzzy
 msgid "Report General Settings"
-msgstr "ReportIt Genel Ayarlar"
+msgstr "Rapor Genel Ayarları"
 
 #: templates.php
 msgid "New Report Template"
@@ -1984,14 +1943,13 @@ msgid "Summary"
 msgstr "Özet"
 
 #: templates.php
-#, fuzzy
 #| msgid "None"
 msgid "No"
-msgstr "Yok"
+msgstr "Hayır"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2051,9 +2009,8 @@ msgid "Edit variables"
 msgstr "Değişkenleri düzenleme"
 
 #: templates.php
-#, fuzzy
 msgid "No templates"
-msgstr "Şablonlar"
+msgstr "Şablon yok"
 
 #: templates.php
 msgid "Maximum has to be greater than minimum."
@@ -2072,19 +2029,17 @@ msgid "Interim results are used by other measurands."
 msgstr "Ara sonuçlar diğer ölçümler tarafından kullanılır."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "Şablon: %s"
+msgstr "Şablon [ %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Template [new]"
-msgstr "Şablon"
+msgstr "Şablon [yeni]"
 
 #: templates.php
-#, fuzzy
 msgid "<template_title>"
-msgstr "Şablon Başlığı"
+msgstr "<template_title>"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Report Templates"
@@ -2170,27 +2125,25 @@ msgid "Delete Template Variables"
 msgstr "Şablon Değişkenlerini Sil"
 
 #: templates.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "Aşağıdaki Ölçümleri Silmek için 'Devam'ı tıklayın.  Uyarı: Bu işlemden sonra başka Ölçüm kalmadıysa, Rapor Şablonu otomatik olarak kilitlenecektir."
+msgstr "Aşağıdaki Ölçümleri silmek için 'Devam Et'e tıklayın.  Uyarı: Bu işlemden sonra başka Ölçüm kalmazsa Rapor Şablonu otomatik olarak kilitlenecektir."
 
 #: templates.php
 msgid "List of selected measurands:"
 msgstr "Seçilen ölçümlerin listesi:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
-msgstr "Ölçü: %s"
+msgstr "Ölçüm: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
 msgstr "En az bir ölçüm seçmelisiniz."
 
 #: templates.php
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "Şablon Ölçümlerini Sil"
+msgstr "Şablon Metriklerini Sil"
 
 #: templates.php
 #, php-format
@@ -2202,9 +2155,9 @@ msgid "No Variables Found"
 msgstr "Değişken Bulunamadı"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "Değişken Konfigürasyonu [değiştir | kaynağı değiştir: %s]"
+msgstr "Değişken Yapılandırması [ düzenle: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2227,10 +2180,9 @@ msgid "Provide a name for this Variable"
 msgstr "Bu Değişken için bir ad sağlayın"
 
 #: templates.php
-#, fuzzy
 #| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "Bu değişkenin anlamını açıklayan kısa, özlü bir açıklama."
+msgstr "Bu değişkenin amacını açıklayan bir açıklama."
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2273,12 +2225,11 @@ msgid "Defines the distance between two values if method \"DropDown\" has been c
 msgstr "\"DropDown\" yöntemi seçilmişse iki değer arasındaki mesafeyi tanımlar. Lütfen bu değerin çok düşük ayarlanmadığından emin olun, çünkü açılır alanın sahip olacağı seçeneklerin sayısını dolaylı olarak tanımlar. Örneğin, aşağıdaki parametreler: MAX:100, MIN:0, STEP:0.01, 10.001 seçenekli bir seçim kutusuyla sonuçlanır. Bu, istemci tarafındaki yüksek CPU yükü nedeniyle önemli performans sorunlarına neden olabilir. 1000'in altında tutmaya çalışın."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "Ölçüm Yapılandırması [değiştir | kaynağı değiştir: %s]"
+msgstr "Ölçüt Yapılandırması [ düzenle: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Metric Configuration [new]"
 msgstr "Ölçüm Yapılandırması [yeni]"
 
@@ -2351,14 +2302,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "Kalibrasyon formülünüze eklemek için listelenen operatörlerden veya işlenenlerden birine tıklayın. Araç ipucu size açıklama, dönüş değeri, bağımsız değişkenler ve kullanım gibi ek bilgileri gösterecektir."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "Şablon: %s"
+msgstr "Ölçütler [ Şablon: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "Rapor Bulunamadı"
+msgstr "Metrik Bulunamadı"
 
 #: view.php
 msgid "Reports Filter"
@@ -2381,10 +2331,9 @@ msgid "Period (From - To)"
 msgstr "Dönem (Başlangıç - Bitiş)"
 
 #: view.php
-#, fuzzy
 #| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "Çalışma zamanı [s]"
+msgstr "Son Çalışma Süresi [s]"
 
 #: view.php
 msgid "No Reports Found"
@@ -2399,9 +2348,8 @@ msgid "Data Source"
 msgstr "Veri Kaynağı"
 
 #: view.php
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "TOP10 Grafiklerini Göster"
+msgstr "İlk 10 Grafiği Göster"
 
 #: view.php
 msgid "Show Subheads"
@@ -2456,18 +2404,26 @@ msgid "No Data Items"
 msgstr "Veri Öğesi Yok"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "Ölçü: %s"
+msgstr "Ölçüt: %s (%s)"
 
 #: view.php
 msgid "Pos."
 msgstr "Sıra"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
-msgstr "Sonuçlar [ %s]"
+msgstr "Sonuçlar [%s]"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Yeni bir alıcı eklemek için geçerli bir e-posta adresi (zorunlu) ve bir ad (isteğe bağlı) girin.<br> Daha hızlı kurulum için adların/adreslerin ';' veya ',' ayırıcılarından biriyle ayrıldığı bir adres/ad listesi kullanın"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Verilen filtrelere göre tüm veri öğelerinin otomatik oluşturulmasını etkinleştir/devre dışı bırak. Bu işlem rapor yürütülmeden önce çağrılır. Kullanılmayan RRD'ler silinir ve filtre ayarlarıyla eşleşen tüm RRD'ler eklenir."
 
 #~ msgid "Public Report Charts"
 #~ msgstr "Herkese Açık Rapor Grafikleri"

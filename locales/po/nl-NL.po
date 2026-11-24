@@ -45,7 +45,6 @@ msgid "Name"
 msgstr "Naam"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
-#, fuzzy
 msgid "Internal Name"
 msgstr "Interne naam"
 
@@ -93,7 +92,6 @@ msgid "Unit"
 msgstr "Eenheid"
 
 #: include/global_arrays.php templates.php
-#, fuzzy
 msgid "Consolidation Function"
 msgstr "Kies een of meerdere consolidatie functie(s)"
 
@@ -260,9 +258,8 @@ msgid "Dropdown"
 msgstr "Dropdown"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
-#, fuzzy
 msgid "Input field"
-msgstr "Invoer veld"
+msgstr "Invoerveld"
 
 #: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
 #: lib/const_view.php
@@ -507,7 +504,7 @@ msgstr "Retourneert de hoogste waarde van een bepaalde lijst met parameters"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$var 1, $var 2, $var 3 ...: te vergelijken waarden"
+msgstr "$var1, $var2, $var3 ...: te vergelijken waarden"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -603,7 +600,7 @@ msgstr "Wiskundige bewerking om de som van twee of meer sommen terug te geven"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Subtraction"
-msgstr "Afmelden"
+msgstr "Aftrekking"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
@@ -931,10 +928,9 @@ msgid "Parentheses"
 msgstr "Haakjes"
 
 #: lib/const_reports.php
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Uitgeschakeld"
+msgstr "Uitschakelen"
 
 #: lib/const_reports.php setup.php
 msgid "Enable"
@@ -946,7 +942,7 @@ msgstr "Nu uitvoeren"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "Word eigenaar"
 
 #: lib/const_reports.php
 msgid "CRASHED"
@@ -965,9 +961,8 @@ msgid "Running"
 msgstr "Actief"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "- No template available -"
-msgstr "Beschikbare apparaten"
+msgstr "- Geen sjabloon beschikbaar -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
@@ -998,9 +993,8 @@ msgid "Sunday"
 msgstr "Zondag"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "Voorinstellingen voor gegevensitems"
+msgstr "Voorinstellingen voor gegevensbronnen"
 
 #: lib/const_reports.php reportit.php
 msgid "Email"
@@ -1024,11 +1018,11 @@ msgstr "Ruwe XML (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "JSON-gegevens (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "YAML-gegevens (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1040,7 +1034,7 @@ msgstr "Voer het onderwerp van uw e-mail in.<br> De volgende variabelen worden o
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "Gepland rapport - |title| - |periode|"
+msgstr "Gepland rapport - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1052,7 +1046,7 @@ msgstr "Voer een bericht in dat in de hoofdtekst van uw e-mail wordt weergegeven
 
 #: lib/const_reports.php
 msgid "This is a scheduled report generated from Cacti."
-msgstr "Dit is een gepland rapport gegenereerd door Cactussen."
+msgstr "Dit is een gepland rapport dat is gegenereerd vanuit Cacti."
 
 #: lib/const_reports.php
 msgid "Attachment"
@@ -1076,19 +1070,19 @@ msgstr "Om een ontvanger toe te voegen op basis van een geldige meldingslijst."
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "E-mailadres(sen) ontvanger(s)"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Vul alstublieft meerdere adressen in gescheiden met een komma (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "BCC adres(sen)"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Blind Carbon Copy. Voer meerdere adressen in gescheiden met een komma (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
@@ -1099,9 +1093,8 @@ msgid "To add a new recipient enter a valid email address (required) and a name 
 msgstr "Als u een nieuwe ontvanger wilt toevoegen, voert u een geldig e-mailadres (verplicht) en een naam (optioneel) in.<br> Gebruik voor een snellere installatie een lijst met adressen/namen waarbij de namen/adressen zijn gescheiden met een van de volgende desemieten: ';' of ','"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[Optioneel] Versie"
+msgstr "Optionele subkop"
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
@@ -1116,39 +1109,32 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "Selecteer de tijdzone waarop uw volgende diensttijdinformatie wordt gebaseerd."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "Extra voorfilter"
+msgstr "Optionele voorfilters voor gegevensbronnen"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Site Filter"
-msgstr "Filters voor rapporten"
+msgstr "Sitefilter"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Gebruik alleen die gegevensitems die behoren tot hosts van deze hostsjabloon.<br>Selecteer 'Geen' (standaard) om deze filterinstelling uit te schakelen."
+msgstr "Gebruik alleen de Gegevensbronnen die bij deze locatie horen.<br>Selecteer 'Geen' (standaard) om deze filterinstelling uit te schakelen."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "Sjabloonvariabelen verwijderen"
+msgstr "Apparaatsjabloonfilter"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Gebruik alleen die gegevensitems die behoren tot hosts van deze hostsjabloon.<br>Selecteer 'Geen' (standaard) om deze filterinstelling uit te schakelen."
+msgstr "Gebruik alleen de Gegevensbronnen van dit apparaatsjabloon.<br>Selecteer 'Geen' (standaard) om deze filterinstelling uit te schakelen."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "Alias van de gegevensbron"
+msgstr "Gegevensbronnaam-filter"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Hiermee kunt u extra filteren op de beschrijvingen van gegevensitems.<br> Gebruik SQL-jokertekens zoals % and/of _. Geen reguliere expressies!"
+msgstr "Gebruik Gegevensbronnen waarvan de namen overeenkomen met dit filter.<br> Gebruik SQL-jokertekens zoals % en/of _. Geen reguliere expressies!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
@@ -1160,7 +1146,7 @@ msgstr "Activeer/deactiveer automatische creatie van alle gegevensitems op basis
 
 #: lib/const_reports.php reportit.php
 msgid "Working Time"
-msgstr "Opvangplan"
+msgstr "Werktijd"
 
 #: lib/const_reports.php reportit.php
 msgid "From"
@@ -1295,9 +1281,8 @@ msgid "Remove from Report"
 msgstr "Verwijderen uit rapport"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Copy Settings to All"
-msgstr "Kopieer instellingen naar iedereen"
+msgstr "Instellingen naar alles kopiëren"
 
 #: lib/const_rrdlist.php setup.php
 msgid "Add"
@@ -1339,7 +1324,7 @@ msgstr "Alle"
 
 #: lib/const_view.php view.php
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: lib/const_view.php
 msgid "Sum"
@@ -1417,7 +1402,6 @@ msgid "Unknown Owner"
 msgstr "Onbekende eigenaar"
 
 #: lib/funct_validate.php
-#, fuzzy
 msgid "The file is to big."
 msgstr "Het bestand is te groot."
 
@@ -1499,7 +1483,7 @@ msgstr "Ga"
 #: reportit.php templates.php view.php
 msgctxt "Button: reset filter settings"
 msgid "Clear"
-msgstr "Herstel"
+msgstr "Wissen"
 
 #: reportit.php
 #, php-format
@@ -1507,10 +1491,9 @@ msgid "Period %s From - To"
 msgstr "Periode %s van - tot"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Scheduled"
 msgid "Schedule"
-msgstr "Ingepland"
+msgstr "Schema"
 
 #: reportit.php
 msgid "State"
@@ -1519,19 +1502,18 @@ msgstr "Staat"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "Volgende start %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 #| msgid "Last Run %s"
 msgid "Last Started %s"
-msgstr "Laatste run %s"
+msgstr "Laatst gestart %s"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Last Run"
 msgid "Last Runtime"
-msgstr "Laatste run"
+msgstr "Laatste keer actief"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1555,9 +1537,8 @@ msgid "Report has been locked"
 msgstr "Rapport is vergrendeld"
 
 #: reportit.php
-#, fuzzy
 msgid "No reports"
-msgstr "Rapportages"
+msgstr "Geen rapporten"
 
 #: reportit.php
 msgid "Not Authorized"
@@ -1581,9 +1562,8 @@ msgid "Data Source Name"
 msgstr "Data bron naam"
 
 #: reportit.php
-#, fuzzy
 msgid "Associated"
-msgstr "Gekoppelde data templates"
+msgstr "Gekoppeld"
 
 #: reportit.php
 msgid "Subhead"
@@ -1610,9 +1590,8 @@ msgid "Does not exist anymore"
 msgstr "Bestaat niet meer"
 
 #: reportit.php
-#, fuzzy
 msgid "Included in Report"
-msgstr "Loopverslag"
+msgstr "Opgenomen in rapport"
 
 #: reportit.php
 msgid "Not Included in Report"
@@ -1635,9 +1614,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[OPTIONEEL] Naam van een geadresseerde (of door komma's gescheiden lijst met namen)"
 
 #: reportit.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "Gegevensitem [bewerken: %s]"
+msgstr "Gegevensbron [bewerken: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1668,56 +1647,48 @@ msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "Klik op 'Doorgaan' om de volgende meldingen te verwijderen:"
+msgstr "Klik op 'Doorgaan' om het volgende rapport uit te schakelen:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "Klik op 'Doorgaan' om het volgende rapport uit te voeren:"
+msgstr "Klik op 'Doorgaan' om het volgende rapport in te schakelen:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "Klik op 'Doorgaan' om het volgende rapport uit te voeren:"
+msgstr "Klik op 'Doorgaan' om het eigendom van het volgende rapport over te nemen:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
 msgstr "U moet ten minste één ontgrendeld, niet-actief rapport selecteren."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "Klik op 'Doorgaan' om de volgende gegevensitems te verwijderen."
+msgstr "Klik op 'Doorgaan' om de volgende gegevensbronnen uit het rapport te verwijderen."
 
 #: reportit.php
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "Lijst met geselecteerde gegevensitems:"
+msgstr "Lijst met geselecteerde gegevensbronnen hieronder."
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "De volgende data bron(nen) zijn/is in gebruik bij deze grafiek(en)."
+msgstr "Gegevensbron: %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "Klik op 'Doorgaan' om het volgende rapport uit te voeren:"
+msgstr "Klik op 'Doorgaan' om de volgende gegevensbronnen aan het rapport toe te voegen."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "Klik op 'Doorgaan' om de instellingen naar de andere gegevensitems te kopiëren"
+msgstr "Klik op 'Doorgaan' om de instellingen naar de andere gegevensbronnen te kopiëren."
 
 #: reportit.php
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "Geselecteerd gegevensitem als referentie:"
+msgstr "Geselecteerde gegevensbron als referentie:"
 
 #: reportit.php
 msgid "Time Zone:"
@@ -1736,19 +1707,16 @@ msgid "You must select at least one Report."
 msgstr "U moet ten minste één rapport selecteren."
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "Rapporten weergeven"
+msgstr "ReportIt - Rapporten bekijken"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "Rapporten maken"
+msgstr "ReportIt - Rapporten aanmaken"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "Algemene instellingen van ReportIt"
+msgstr "ReportIt - Rapporten beheren"
 
 #: setup.php
 msgid "(Edit)"
@@ -1803,9 +1771,8 @@ msgid "Management"
 msgstr "Onderhoud"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt Reports"
-msgstr "Rapporten maken"
+msgstr "ReportIt-rapporten"
 
 #: setup.php
 msgid "ReportIt"
@@ -1864,37 +1831,32 @@ msgid "Time Zones"
 msgstr "Tijdzones"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "Het gebruik van tijdzones voor de configuratie van gegevensitems en rapportberekening in-/uitschakelen.  In het eerste geval moet de servertijd worden ingesteld op GMT/UTC!"
+msgstr "Het gebruik van tijdzones voor de configuratie van gegevensitems en rapportberekening in-/uitschakelen. In het eerste geval moet de servertijd worden ingesteld op GMT/UTC!"
 
 #: setup.php
 msgid "Show Local Time Zone"
 msgstr "Lokale tijdzone weergeven"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "In-/uitschakelen om de tijdzone van de server op de koppen weer te geven."
+msgstr "In-/uitschakelen om de tijdzone van de server in de kopteksten weer te geven."
 
 #: setup.php
-#, fuzzy
 msgid "Allow Scheduling by Operators"
 msgstr "Planning door operators toestaan"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "De mogelijkheid van de operator om rapporten te plannen in-/uitschakelen.  Als deze optie is uitgeschakeld, kunnen alleen beheerders de planning wijzigen."
+msgstr "De mogelijkheid voor operators om rapporten te plannen in-/uitschakelen. Wanneer uitgeschakeld, mogen alleen beheerders de planning wijzigen."
 
 #: setup.php
 msgid "SI-Prefixes"
 msgstr "SI-voorvoegsels"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "Het gebruik van de juiste SI-voorvoegsels voor binaire veelvouden in-/uitschakelen onder de voorwaarden van <a href='http://www.ieee.org'>IEEE 1541</a> en <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Het gebruik van correcte SI-voorvoegsels voor binaire veelvouden volgens <a href='http://www.ieee.org'>IEEE 1541</a> en <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> in-/uitschakelen."
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1921,9 +1883,8 @@ msgid "The number of rows to display on a single page."
 msgstr "Het aantal rijen dat op één pagina moet worden weergegeven."
 
 #: setup.php
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "Exportinstellingen voor ReportIt"
+msgstr "Exportinstellingen voor rapporten"
 
 #: setup.php
 msgid "CSV Column Separator"
@@ -1942,9 +1903,8 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "Het symbool dat het einde van het gehele deel en het begin van het breukdeel aangeeft."
 
 #: setup.php
-#, fuzzy
 msgid "Report General Settings"
-msgstr "Algemene instellingen van ReportIt"
+msgstr "Algemene rapportinstellingen"
 
 #: templates.php
 msgid "New Report Template"
@@ -1975,23 +1935,21 @@ msgid "Import Report Templates"
 msgstr "Rapportsjablonen importeren"
 
 #: templates.php
-#, fuzzy
 msgid "Compatible"
-msgstr "Niet compatible"
+msgstr "Compatibel"
 
 #: templates.php
 msgid "Summary"
 msgstr "Samenvatting"
 
 #: templates.php
-#, fuzzy
 #| msgid "None"
 msgid "No"
-msgstr "Geen"
+msgstr "Nee"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2051,9 +2009,8 @@ msgid "Edit variables"
 msgstr "Variabelen bewerken"
 
 #: templates.php
-#, fuzzy
 msgid "No templates"
-msgstr "Geen templates"
+msgstr "Geen sjablonen"
 
 #: templates.php
 msgid "Maximum has to be greater than minimum."
@@ -2072,19 +2029,17 @@ msgid "Interim results are used by other measurands."
 msgstr "Tussentijdse resultaten worden gebruikt door andere metingen."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "Template: %s"
+msgstr "Sjabloon [ %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Template [new]"
-msgstr "Kleurtemplate [nieuw]"
+msgstr "Sjabloon [nieuw]"
 
 #: templates.php
-#, fuzzy
 msgid "<template_title>"
-msgstr "template_title"
+msgstr "<template_title>"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Report Templates"
@@ -2100,9 +2055,9 @@ msgid "Template: %s"
 msgstr "Template: %s"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Report: %s"
-msgstr "Klik op 'Volgende' om de volgende rapportage(s) te verwijderen."
+msgstr "Rapport: %s"
 
 #: templates.php
 msgid "Report: <i>None</i>"
@@ -2153,9 +2108,9 @@ msgid "List of selected variables:"
 msgstr "Lijst met geselecteerde variabelen:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable: %s"
-msgstr "Variabele : %s"
+msgstr "Variabele: %s"
 
 #: templates.php
 msgid "There are one or more variables in use."
@@ -2170,27 +2125,25 @@ msgid "Delete Template Variables"
 msgstr "Sjabloonvariabelen verwijderen"
 
 #: templates.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "Klik op 'Doorgaan' om de volgende metingen te verwijderen.  Let op: Als er na dit proces geen andere metingen meer over zijn, wordt het rapportsjabloon automatisch vergrendeld."
+msgstr "Klik op 'Doorgaan' om de volgende metrieken te verwijderen. Let op: als er na dit proces geen andere metrieken meer over zijn, wordt de rapportsjabloon automatisch vergrendeld."
 
 #: templates.php
 msgid "List of selected measurands:"
 msgstr "Lijst van geselecteerde metingen:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
-msgstr "Meting: %s"
+msgstr "Metriek: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
 msgstr "U moet ten minste één maat selecteren."
 
 #: templates.php
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "Sjabloon meten verwijderen"
+msgstr "Sjabloonmetrieken verwijderen"
 
 #: templates.php
 #, php-format
@@ -2202,9 +2155,9 @@ msgid "No Variables Found"
 msgstr "Geen variabelen gevonden"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "Variabele configuratie [bewerken: %s]"
+msgstr "Variabeleconfiguratie [ bewerken: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2227,10 +2180,9 @@ msgid "Provide a name for this Variable"
 msgstr "Geef een naam op voor deze variabele"
 
 #: templates.php
-#, fuzzy
 #| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "Een korte, kernachtige beschrijving die de betekenis van deze variabele uitlegt."
+msgstr "Een beschrijving die de betekenis van deze variabele uitlegt."
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2254,7 +2206,7 @@ msgstr "Definieert de ondergrens van deze variabele."
 
 #: templates.php
 msgid "Default Value"
-msgstr "﻿Standaardwaarde"
+msgstr "Standaardwaarde"
 
 #: templates.php
 msgid "Sets the default value."
@@ -2273,14 +2225,13 @@ msgid "Defines the distance between two values if method \"DropDown\" has been c
 msgstr "Definieert de afstand tussen twee waarden als de methode \"DropDown\" is gekozen. Zorg ervoor dat deze waarde niet te laag wordt ingesteld, omdat het indirect het aantal opties definieert dat het vervolgkeuzeveld zal hebben. Bijvoorbeeld, de volgende parameters: MAX:100, MIN:0, STEP:0.01 resulteren in een selectievak met 10.001 opties. Dit kan dramatische prestatieproblemen veroorzaken als gevolg van een hoge CPU-belasting aan de kant van de client. Probeer het onder de 1000 te houden."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "Meetconfiguratie [bewerken: %s]"
+msgstr "Metriekconfiguratie [ bewerken: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Metric Configuration [new]"
-msgstr "Measurand Configuratie [nieuw]"
+msgstr "Metriekconfiguratie [nieuw]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2295,9 +2246,8 @@ msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "De eenheid die aan deze meting wordt gegeven. bijv. 'Bits/s'"
 
 #: templates.php
-#, fuzzy
 msgid "Consolidation function"
-msgstr "Kies een of meerdere consolidatie functie(s)"
+msgstr "Consolidatiefunctie"
 
 #: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
@@ -2352,14 +2302,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "Klik op een van de vermelde operatoren of operand om ze toe te voegen aan uw calucalionformule. De tooltip toont u aanvullende informatie zoals beschrijving, retourwaarde, argumenten en gebruik."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "Template: %s"
+msgstr "Metrieken [ Sjabloon: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "Geen rapportages gevonden"
+msgstr "Geen metrieken gevonden"
 
 #: view.php
 msgid "Reports Filter"
@@ -2375,17 +2324,16 @@ msgstr "Ga"
 
 #: view.php
 msgid "Clear"
-msgstr "Herstel"
+msgstr "Wissen"
 
 #: view.php
 msgid "Period (From - To)"
 msgstr "Periode (van - tot)"
 
 #: view.php
-#, fuzzy
 #| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "Looptijd [s]"
+msgstr "Laatste looptijd [s]"
 
 #: view.php
 msgid "No Reports Found"
@@ -2400,9 +2348,8 @@ msgid "Data Source"
 msgstr "Data bron"
 
 #: view.php
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "Toon TOP10 grafieken"
+msgstr "Top 10-grafieken weergeven"
 
 #: view.php
 msgid "Show Subheads"
@@ -2457,18 +2404,26 @@ msgid "No Data Items"
 msgstr "Geen gegevensitems"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "Meting: %s"
+msgstr "Metriek: %s (%s)"
 
 #: view.php
 msgid "Pos."
 msgstr "Pos."
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
 msgstr "Resultaten [%s]"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Voer om een nieuwe ontvanger toe te voegen een geldig e-mailadres (verplicht) en een naam (optioneel) in.<br> Voor een snellere configuratie gebruikt u een lijst met adressen/namen waarbij de namen/adressen worden gescheiden door een van de volgende scheidingstekens: ';' of ','"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Automatisch aanmaken van alle gegevensitems op basis van opgegeven filters in-/uitschakelen. Dit wordt uitgevoerd vóór het genereren van het rapport. Verouderde RRD's worden verwijderd en alle RRD's die aan de filterinstellingen voldoen worden toegevoegd."
 
 #~ msgid "Public Report Charts"
 #~ msgstr "Grafieken van openbare rapporten"

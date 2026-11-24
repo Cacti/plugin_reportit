@@ -245,9 +245,8 @@ msgid "Monthly"
 msgstr "Месечно"
 
 #: include/global_arrays.php lib/const_reports.php
-#, fuzzy
 msgid "Quarterly"
-msgstr "На три месеца"
+msgstr "Тримесечно"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Yearly"
@@ -332,7 +331,7 @@ msgstr "f_max - Максимална стойност"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the highest measured value per DS"
-msgstr "Връща първата измерена стойност"
+msgstr "Връща най-високата измерена стойност за всеки DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_min - Minimum Value"
@@ -340,7 +339,7 @@ msgstr "f_min - Минимална стойност"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the lowest measured value per DS"
-msgstr "Връща последната измерена стойност"
+msgstr "Връща най-ниската измерена стойност за всеки DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sum - Sum"
@@ -348,7 +347,7 @@ msgstr "f_sum - Сума"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of all measured values per DS"
-msgstr "Връща последната измерена стойност"
+msgstr "Връща сумата от всички измерени стойности за всеки DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_num - Number of Values (Not NaN)"
@@ -420,7 +419,7 @@ msgstr "f_sd - Стандартно отклонение"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the square root per data source variance"
-msgstr "Връща последната измерена стойност"
+msgstr "Връща корен квадратен от дисперсията за всеки източник на данни"
 
 #: include/global_arrays.php
 msgid "f_var - Variance"
@@ -428,7 +427,7 @@ msgstr "f_var - Дисперсия"
 
 #: include/global_arrays.php
 msgid "Returns the variance per DS"
-msgstr "Връща float като цяло число"
+msgstr "Връща дисперсията за всеки DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_xth - Xth Percentile"
@@ -436,11 +435,11 @@ msgstr "f_xth - X-ти процент"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the xth percentitle."
-msgstr "Връща последната измерена стойност"
+msgstr "Връща x-тия персентил."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
-msgstr "$ var: праг в проценти. Обхват: [0 & lt; $ var ≤100]"
+msgstr "$var: праг в проценти. Диапазон: [0&lt; $var &le;100]"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_dot - Duration Over Threshold"
@@ -452,7 +451,7 @@ msgstr "Връща продължителността над определен 
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold (absolute)"
-msgstr "$ var: праг (абсолютен)"
+msgstr "$var: праг (абсолютен)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sot - Sum Over Threshold"
@@ -460,7 +459,7 @@ msgstr "f_sot - Сума над прага"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of values over a defined threshold."
-msgstr "Връща броя на стойностите"
+msgstr "Връща сумата на стойностите над зададен праг."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_floor - Round Fractions Down"
@@ -472,7 +471,7 @@ msgstr "Връща следващата най-ниска целочислена
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float"
-msgstr "$ var: float"
+msgstr "$var: число с плаваща запетая"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_ceil - Round Fractions Up"
@@ -488,11 +487,11 @@ msgstr "f_round - Round A Float"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
-msgstr "Връща най-ниската стойност на даден списък от параметри"
+msgstr "Връща закръглената целочислена стойност на всяко дадено число с плаваща запетая."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float or string value"
-msgstr "$ var: стойност с плувка или низ"
+msgstr "$var: число с плаваща запетая или низ"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Highest Value"
@@ -504,7 +503,7 @@ msgstr "Връща най-високата стойност на даден сп
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$ var1, $ var2, $ var3 ...: стойности за сравнение"
+msgstr "$var1, $var2, $var3 ...: стойности за сравнение"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -688,7 +687,7 @@ msgstr "Съдържа броя на секундите между две изм
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Functions w/o parameters"
-msgstr "Функции с параметри"
+msgstr "Функции без параметри"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Functions with parameters"
@@ -744,7 +743,7 @@ msgstr "Източник на данни"
 
 #: include/global_arrays.php
 msgid "10,000 Data Source Items"
-msgstr "Източник на данни"
+msgstr "10 000 елемента на източник на данни"
 
 #: include/global_arrays.php
 msgid "15,000 Data Source Items"
@@ -781,7 +780,7 @@ msgstr "Версия"
 
 #: include/global_forms.php
 msgid "A version number for this template"
-msgstr "Налични шаблони за отчети"
+msgstr "Номер на версията за този шаблон"
 
 #: include/global_forms.php templates.php
 msgid "Author"
@@ -801,7 +800,7 @@ msgstr "Трябва ли този шаблон на отчет да бъде п
 
 #: include/global_forms.php templates.php
 msgid "Locked"
-msgstr "قفش شده"
+msgstr "Заключен"
 
 #: include/global_forms.php
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
@@ -893,7 +892,7 @@ msgstr "f_mode - Режим"
 
 #: lib/const_measurands.php
 msgid "Returns the value that appears most often per DS"
-msgstr "Връща най-ниската стойност на даден списък от параметри"
+msgstr "Връща стойността, която се среща най-често за всеки DS"
 
 #: lib/const_measurands.php
 msgid "Left (Opening) parenthesis"
@@ -928,10 +927,9 @@ msgid "Parentheses"
 msgstr "Скоби"
 
 #: lib/const_reports.php
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "Изключен"
+msgstr "Изключи"
 
 #: lib/const_reports.php setup.php
 msgid "Enable"
@@ -943,11 +941,11 @@ msgstr "Изпълни сега"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "Вземете собственост"
 
 #: lib/const_reports.php
 msgid "CRASHED"
-msgstr "СРЪБЕН"
+msgstr "АВАРИРАЛ"
 
 #: lib/const_reports.php
 msgid "FAILED"
@@ -959,12 +957,11 @@ msgstr "Празен ход"
 
 #: lib/const_reports.php
 msgid "Running"
-msgstr "실행 중"
+msgstr "Изпълнява се"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "- No template available -"
-msgstr "- Не е наличен -"
+msgstr "- Няма наличен шаблон -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
@@ -995,9 +992,8 @@ msgid "Sunday"
 msgstr "Неделя"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "Предварителни настройки на елемента от данни"
+msgstr "Предварителни настройки на източника на данни"
 
 #: lib/const_reports.php reportit.php
 msgid "Email"
@@ -1021,11 +1017,11 @@ msgstr "Необработен XML (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "JSON данни (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "YAML данни (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1033,11 +1029,11 @@ msgstr "Тема"
 
 #: lib/const_reports.php
 msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
-msgstr "Въведете темата на имейла си. <br> Поддържат се следните променливи (без кавички): '| title |' и \"| период |\""
+msgstr "Въведете темата на вашия имейл.<br> Поддържат се следните променливи (без кавички): '|title|' и '|period|'"
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "Планиран доклад - | заглавие | - период"
+msgstr "Планиран отчет - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1073,19 +1069,19 @@ msgstr "За да добавите получатели въз основа на
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "Към имейл адреса (ите)"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Моля, отделете няколко адреса чрез запетая (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "Адрес (и) на BCC"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Скрито копие. Моля, отделете няколко адреса чрез запетая (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
@@ -1096,13 +1092,12 @@ msgid "To add a new recipient enter a valid email address (required) and a name 
 msgstr "За да добавите нов получател, въведете валиден имейл адрес (задължително) и име (по избор). <br> За по-бърза настройка използвайте списък с адреси / имена, където имената / адресите се разделят с един от следните делемитери: ';' или ','"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[По избор] Версия"
+msgstr "Незадължително подзаглавие"
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
-msgstr "Дефинирайте допълнителен подзаглавие, което трябва да се показва под описанието на интерфейса. <br> Поддържат се следните променливи (без кавички): '| t1 |' '| T2 | \" '| TMZ | \" '| D1 | \" '| D2 | \""
+msgstr "Дефинирайте допълнително подзаглавие, което да се показва под описанието на интерфейса.<br> Поддържат се следните променливи (без кавички): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 
 #: lib/const_reports.php reportit.php
 msgid "Time Zone"
@@ -1113,39 +1108,32 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "Изберете часовата зона, на която ще се базират следващите ви времена на смяна."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "Допълнителен предфилтър"
+msgstr "Допълнителни предварителни филтри за източник на данни"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Site Filter"
-msgstr "Филтри за отчети"
+msgstr "Филтър по обект"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Използвайте само тези елементи от данни, които принадлежат на хостовете на този хост шаблон. <br> Изберете „Няма“ (по подразбиране), за да деактивирате тази настройка на филтъра."
+msgstr "Използвайте само източниците на данни, съответстващи на този обект.<br>Изберете 'Няма' (по подразбиране), за да деактивирате тази настройка на филтъра."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "Изтриване на шаблони за отчети"
+msgstr "Филтър по шаблон на устройство"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Използвайте само тези елементи от данни, които принадлежат на хостовете на този хост шаблон. <br> Изберете „Няма“ (по подразбиране), за да деактивирате тази настройка на филтъра."
+msgstr "Използвайте само източниците на данни от този шаблон на устройство.<br>Изберете 'Няма' (по подразбиране), за да деактивирате тази настройка на филтъра."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "Източник на данни"
+msgstr "Филтър по име на източник на данни"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Позволява допълнително филтриране на описанията на елементите от данни. <br> Използвайте заместващи символи SQL като% и / или _. Няма редовни изрази!"
+msgstr "Използвайте източници на данни, чиито имена отговарят на този филтър.<br> Използвайте SQL заместващи символи като % и/или _. Без регулярни изрази!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
@@ -1284,18 +1272,16 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "За да определите крайната дата, използвайте следния формат: <b>yyyy-mm-dd</b>"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Add to Report"
-msgstr "Показване на отчета"
+msgstr "Добавяне в Отчет"
 
 #: lib/const_rrdlist.php
 msgid "Remove from Report"
 msgstr "Премахване от доклада"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Copy Settings to All"
-msgstr "Копирайте настройките на всички"
+msgstr "Копиране на настройките към всички"
 
 #: lib/const_rrdlist.php setup.php
 msgid "Add"
@@ -1337,7 +1323,7 @@ msgstr "Всички"
 
 #: lib/const_view.php view.php
 msgid "All"
-msgstr ""
+msgstr "Всички"
 
 #: lib/const_view.php
 msgid "Sum"
@@ -1504,10 +1490,9 @@ msgid "Period %s From - To"
 msgstr "Период %s от - до"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Scheduled"
 msgid "Schedule"
-msgstr "Планирана"
+msgstr "Планиране"
 
 #: reportit.php
 msgid "State"
@@ -1516,19 +1501,18 @@ msgstr "Област"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "Следващ старт %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 #| msgid "Last Run %s"
 msgid "Last Started %s"
-msgstr "Последно пускане %s"
+msgstr "Последно стартиран %s"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Last Run"
 msgid "Last Runtime"
-msgstr "Последно изпълнение"
+msgstr "Последно време"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1553,7 +1537,7 @@ msgstr "Шаблонът е временно заключен"
 
 #: reportit.php
 msgid "No reports"
-msgstr "Преки доклади"
+msgstr "Няма отчети"
 
 #: reportit.php
 msgid "Not Authorized"
@@ -1573,7 +1557,6 @@ msgid "No recipients found"
 msgstr "Няма намерени получатели"
 
 #: reportit.php
-#, fuzzy
 msgid "Data Source Name"
 msgstr "Вътрешно име на източника на данни"
 
@@ -1606,9 +1589,8 @@ msgid "Does not exist anymore"
 msgstr "Вече не съществува"
 
 #: reportit.php
-#, fuzzy
 msgid "Included in Report"
-msgstr "Изпълнение на отчета"
+msgstr "Включено в отчета"
 
 #: reportit.php
 msgid "Not Included in Report"
@@ -1631,9 +1613,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[ОПЦИОНАЛНО] - Име на получателя (или списък с имена) -"
 
 #: reportit.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "Обект на данни [редактиране: %s]"
+msgstr "Източник на данни [редактиране: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1645,7 +1627,7 @@ msgstr "Изберете часовата зона, на която ще се б
 
 #: reportit.php
 msgid "Click 'Continue' to Run the following Report:"
-msgstr "Кликнете върху „Напред“, за да изтриете следните отчети."
+msgstr "Кликнете върху „Продължи“, за да изпълните следния отчет:"
 
 #: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
@@ -1664,56 +1646,48 @@ msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "Кликнете върху „Напред“, за да изтриете следните отчети."
+msgstr "Щракнете върху „Продължи“, за да деактивирате следния отчет:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "Кликнете върху „Напред“, за да изтриете следните отчети."
+msgstr "Щракнете върху „Продължи“, за да активирате следния отчет:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "Кликнете върху „Напред“, за да изтриете следните отчети."
+msgstr "Щракнете върху „Продължи“, за да поемете собствеността върху следния отчет:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
 msgstr "Трябва да изберете поне един отчет."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "Кликнете върху „Напред“, за да премахнете следните елементи от данни."
+msgstr "Щракнете върху „Продължи“, за да премахнете следните източници на данни от отчета."
 
 #: reportit.php
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "Списък на избраните елементи от данни:"
+msgstr "Списък с избраните източници на данни по-долу."
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "Източник на данни"
+msgstr "Източник на данни: %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "Кликнете върху „Напред“, за да изтриете следните отчети."
+msgstr "Щракнете върху „Продължи“, за да добавите следните източници на данни към отчета."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "Кликнете върху „Напред“, за да копирате настройките в другите елементи за данни"
+msgstr "Щракнете върху „Продължи“, за да копирате настройките в другите източници на данни."
 
 #: reportit.php
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "Избрани данни като справка:"
+msgstr "Избран източник на данни за справка:"
 
 #: reportit.php
 msgid "Time Zone:"
@@ -1732,19 +1706,16 @@ msgid "You must select at least one Report."
 msgstr "Трябва да изберете поне един Отчет."
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "Преглед на доклади"
+msgstr "ReportIt - Преглед на отчети"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "Създайте отчети"
+msgstr "ReportIt - Създаване на отчети"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "ReportIT Общи настройки"
+msgstr "ReportIt - Управление на отчети"
 
 #: setup.php
 msgid "(Edit)"
@@ -1799,9 +1770,8 @@ msgid "Management"
 msgstr "управление"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt Reports"
-msgstr "Създайте отчети"
+msgstr "Отчети на ReportIt"
 
 #: setup.php
 msgid "ReportIt"
@@ -1860,37 +1830,32 @@ msgid "Time Zones"
 msgstr "Времеви зони"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "Активиране / деактивиране на използването на часови зони за конфигуриране на елемента от данни и изчисление на отчета. В първия случай сървърното време трябва да бъде настроено на GMT / UTC!"
+msgstr "Активиране/деактивиране на използването на часови зони за конфигурирането на елемента от данни и изчисляването на отчета. В първия случай сървърното време трябва да бъде настроено на GMT/UTC!"
 
 #: setup.php
 msgid "Show Local Time Zone"
 msgstr "Показване на местната часова зона"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "Активиране / деактивиране за показване на часовата зона на сървъра в заглавията."
+msgstr "Активиране/деактивиране на показването на часовата зона на сървъра в заглавията."
 
 #: setup.php
-#, fuzzy
 msgid "Allow Scheduling by Operators"
 msgstr "Разрешаване на планиране от оператори"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "Активирайте / деактивирайте способността на оператора да планира отчети. Когато е деактивирано, само администраторите могат да променят планирането."
+msgstr "Активиране/деактивиране на възможността на оператора да планира отчети. Когато е деактивирано, само администраторите могат да променят планирането."
 
 #: setup.php
 msgid "SI-Prefixes"
 msgstr "SI-представки"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "Активиране / деактивиране на използването на правилни SI-префикси за двоични множители при условията на <a href='http://www.ieee.org'>IEEE 1541</a> и <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> ."
+msgstr "Активиране/деактивиране на използването на правилни SI-префикси за двоични кратни съгласно <a href='http://www.ieee.org'>IEEE 1541</a> и <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1917,9 +1882,8 @@ msgid "The number of rows to display on a single page."
 msgstr "Броят на редовете, които да се показват на една страница."
 
 #: setup.php
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "Настройки за експортиране на ReportIT"
+msgstr "Настройки за експортиране на отчет"
 
 #: setup.php
 msgid "CSV Column Separator"
@@ -1938,9 +1902,8 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "Символът показва края на целочислената част и началото на дробната част."
 
 #: setup.php
-#, fuzzy
 msgid "Report General Settings"
-msgstr "ReportIT Общи настройки"
+msgstr "Общи настройки на отчет"
 
 #: templates.php
 msgid "New Report Template"
@@ -1948,7 +1911,7 @@ msgstr "Шаблони за отчети"
 
 #: templates.php
 msgid "There are no Data Templates in use."
-msgstr "Няма налични шаблони за отчети."
+msgstr "Няма използвани шаблони за данни."
 
 #: templates.php
 msgid "Create a new Report Template"
@@ -1960,7 +1923,7 @@ msgstr "Изберете шаблон за данни, от който тряб�
 
 #: templates.php
 msgid "Import Report Template"
-msgstr "Експортиране на шаблонния отчет"
+msgstr "Импортиране на шаблон за отчет"
 
 #: templates.php
 msgid "Select the XML file that contains your Report Template."
@@ -1968,7 +1931,7 @@ msgstr "Трябва да изберете поне един шаблон за �
 
 #: templates.php
 msgid "Import Report Templates"
-msgstr "Експортиране на шаблонния отчет"
+msgstr "Импортиране на шаблони за отчети"
 
 #: templates.php
 msgid "Compatible"
@@ -1979,14 +1942,13 @@ msgid "Summary"
 msgstr "Резюме"
 
 #: templates.php
-#, fuzzy
 #| msgid "None"
 msgid "No"
-msgstr "Няма"
+msgstr "Не"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2007,11 +1969,11 @@ msgstr "Уникалното име, дадено на този шаблон н�
 
 #: templates.php
 msgid "The Author of this Report Template."
-msgstr "Експортиране на шаблонния отчет"
+msgstr "Авторът на този шаблон за отчет."
 
 #: templates.php
 msgid "The version of this Report Template."
-msgstr "Уникалното име, дадено на този шаблон на отчета."
+msgstr "Версията на този шаблон за отчети."
 
 #: templates.php
 msgid "Published"
@@ -2019,7 +1981,7 @@ msgstr "Публикувана"
 
 #: templates.php
 msgid "The total number of reports using this report template."
-msgstr "Уникалното име, дадено на този шаблон на отчета."
+msgstr "Общият брой отчети, използващи този шаблон за отчети."
 
 #: templates.php
 msgid "No matching data sources"
@@ -2047,7 +2009,7 @@ msgstr "Променливи"
 
 #: templates.php
 msgid "No templates"
-msgstr "Шаблони"
+msgstr "Няма шаблони"
 
 #: templates.php
 msgid "Maximum has to be greater than minimum."
@@ -2066,14 +2028,13 @@ msgid "Interim results are used by other measurands."
 msgstr "Междинните резултати се използват от други измервания."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "Шаблон: %s"
+msgstr "Шаблон [ %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Template [new]"
-msgstr "Шаблон"
+msgstr "Шаблон [нов]"
 
 #: templates.php
 msgid "<template_title>"
@@ -2099,7 +2060,7 @@ msgstr "| _Report: %s"
 
 #: templates.php
 msgid "Report: <i>None</i>"
-msgstr "| _Доклад: <i>няма</i> <br>"
+msgstr "Отчет: <i>Няма</i>"
 
 #: templates.php
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
@@ -2119,7 +2080,7 @@ msgstr "<template_title> (1)"
 
 #: templates.php
 msgid "Click 'Continue' to Export the following Report Templates"
-msgstr "Кликнете върху „Напред“, за да изтриете следните шаблони за отчети"
+msgstr "Кликнете върху „Продължи“, за да експортирате следните шаблони за отчети"
 
 #: templates.php
 msgid "You must select at least one Report Template."
@@ -2139,20 +2100,20 @@ msgstr "Експортиране на шаблонния отчет"
 
 #: templates.php
 msgid "Click 'Continue to Delete the following variables."
-msgstr "Кликнете върху „Напред“, за да изтриете следните отчети."
+msgstr "Кликнете върху „Продължи“, за да изтриете следните променливи."
 
 #: templates.php
 msgid "List of selected variables:"
 msgstr "Списък на избраните отчети:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable: %s"
-msgstr "Променлива : %s"
+msgstr "Променлива: %s"
 
 #: templates.php
 msgid "There are one or more variables in use."
-msgstr "Няма налични шаблони за отчети."
+msgstr "Има една или повече използвани променливи."
 
 #: templates.php
 msgid "You must select at least one variable."
@@ -2160,30 +2121,28 @@ msgstr "Трябва да изберете поне един отчет."
 
 #: templates.php
 msgid "Delete Template Variables"
-msgstr "Изтриване на шаблони за отчети"
+msgstr "Изтриване на променливи на шаблона"
 
 #: templates.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "Щракнете върху „Напред“, за да изтриете следните измервания. Забележка: Ако след този процес не останат други измервания, шаблонът на отчета ще се заключи автоматично."
+msgstr "Щракнете върху „Продължи“, за да изтриете следните метрики. Забележка: Ако след този процес не останат други метрики, шаблонът на отчета ще бъде заключен автоматично."
 
 #: templates.php
 msgid "List of selected measurands:"
 msgstr "Списък на избраните отчети:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
-msgstr "Размер: %s"
+msgstr "Метрика: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
 msgstr "Трябва да изберете поне един Отчет."
 
 #: templates.php
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "Изтриване на шаблони за отчети"
+msgstr "Изтриване на метрики на шаблон"
 
 #: templates.php
 #, php-format
@@ -2192,12 +2151,12 @@ msgstr "Променливи [ Шаблон: %s - %s ]"
 
 #: templates.php
 msgid "No Variables Found"
-msgstr "Променливи"
+msgstr "Няма намерени променливи"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "Конфигурация на променлива [редактиране: %s]"
+msgstr "Конфигурация на променлива [ редактиране: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2220,10 +2179,9 @@ msgid "Provide a name for this Variable"
 msgstr "Посочете име за тази променлива"
 
 #: templates.php
-#, fuzzy
 #| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "Кратко, подробно описание, което обяснява значението на тази променлива."
+msgstr "Описание, което обяснява предназначението на тази променлива."
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2251,7 +2209,7 @@ msgstr "Стойност по подразбиране"
 
 #: templates.php
 msgid "Sets the default value."
-msgstr "Връща най-ниската стойност"
+msgstr "Задава стойността по подразбиране."
 
 #: templates.php view.php
 msgid "Type"
@@ -2266,14 +2224,13 @@ msgid "Defines the distance between two values if method \"DropDown\" has been c
 msgstr "Определя разстоянието между две стойности, ако е избран метод \"DropDown\". Моля, уверете се, че тази стойност не е зададена твърде ниско, защото тя индиректно определя броя на опциите, които ще има падащото поле. Например следните параметри: MAX: 100, MIN: 0, STEP: 0.01 ще доведат до избор на поле от 10.001 опции. Това може да причини драматични проблеми с производителността поради голямо натоварване на процесора от страна на клиентите. Опитайте се да го запазите под 1000."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "Конфигурация на променлива [редактиране: %s]"
+msgstr "Конфигурация на метрика [ редактиране: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Metric Configuration [new]"
-msgstr "Конфигурация на променлива [нова]"
+msgstr "Конфигурация на метрика [нова]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2285,7 +2242,7 @@ msgstr "Определете уникално съкращение за тази
 
 #: templates.php
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
-msgstr "Името, дадено на този доклад"
+msgstr "Мерната единица, зададена за тази измервана величина, напр. 'Bits/s'"
 
 #: templates.php
 msgid "Consolidation function"
@@ -2344,14 +2301,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "Щракнете върху един от изброените оператори или операнд, за да ги добавите към вашата формула calucalion. Подсказката ще ви покаже допълнителна информация като описание, върната стойност, аргументи и употреба."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "Шаблон: %s"
+msgstr "Метрики [ Шаблон: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "Няма намерени отчети"
+msgstr "Не са намерени метрики"
 
 #: view.php
 msgid "Reports Filter"
@@ -2371,13 +2327,12 @@ msgstr "Изчисти"
 
 #: view.php
 msgid "Period (From - To)"
-msgstr "Период %s от - до"
+msgstr "Период (От - До)"
 
 #: view.php
-#, fuzzy
 #| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "Времетраене"
+msgstr "Последно време за изпълнение [s]"
 
 #: view.php
 msgid "No Reports Found"
@@ -2392,9 +2347,8 @@ msgid "Data Source"
 msgstr "Източник на данни"
 
 #: view.php
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "Показване на таблицата с графиките"
+msgstr "Показване на топ 10 графики"
 
 #: view.php
 msgid "Show Subheads"
@@ -2446,22 +2400,29 @@ msgstr "- БЕЗ ПОДЗНАЧЕНИЯ -"
 
 #: view.php
 msgid "No Data Items"
-msgstr "Елементи на данни"
+msgstr "Няма елементи на данни"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "Размер: %s"
+msgstr "Метрика: %s (%s)"
 
 #: view.php
-#, fuzzy
 msgid "Pos."
 msgstr "Поз."
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
-msgstr "Резултати [ %s]"
+msgstr "Резултати [%s]"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "За да добавите нов получател, въведете валиден имейл адрес (задължително) и име (по избор).<br> За по-бърза настройка използвайте списък с адреси/имена, където имената/адресите са разделени с един от следните разделители: ';' или ','"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Активиране/деактивиране на автоматичното създаване на всички елементи с данни въз основа на зададените филтри. Това ще се извиква преди изпълнението на отчета. Остарелите RRD файлове ще бъдат изтрити, а всички RRD файлове, отговарящи на настройките на филтъра, ще бъдат добавени."
 
 #~ msgid "Public Report Charts"
 #~ msgstr "Графики за публични отчети"

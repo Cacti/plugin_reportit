@@ -2407,6 +2407,14 @@ msgstr "Plats."
 msgid "Results [%s]"
 msgstr "Resultat [%s]"
 
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "För att lägga till en ny mottagare, ange en giltig e-postadress (obligatoriskt) och ett namn (valfritt).<br> För snabbare konfiguration kan du använda en lista med adresser/namn där namnen/adresserna separeras med någon av följande avgränsare: ';' eller ','"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Aktivera/inaktivera automatiskt skapande av alla dataobjekt baserat på angivna filter. Detta körs före rapportexekvering. Obsoleta RRD-filer tas bort och alla RRD-filer som matchar filterinställningarna läggs till."
+
 #~ msgid "Public Report Charts"
 #~ msgstr "Diagram över offentliga rapporter"
 

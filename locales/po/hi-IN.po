@@ -92,7 +92,7 @@ msgstr "मात्रक"
 
 #: include/global_arrays.php templates.php
 msgid "Consolidation Function"
-msgstr "समेकन समारोह"
+msgstr "समेकन फ़ंक्शन"
 
 #: include/global_arrays.php templates.php
 msgid "Visible"
@@ -303,7 +303,7 @@ msgstr "अपरिवर्तित"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "off"
-msgstr "离"
+msgstr "बंद"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Binary SI-Prefixes (Base 1024)"
@@ -322,7 +322,6 @@ msgid "Returns the average value of all measured values per DS"
 msgstr "सभी मापित मानों का औसत मान प्रति DS देता है"
 
 #: include/global_arrays.php lib/const_measurands.php
-#, fuzzy
 msgid "none"
 msgstr "कुछ भी नहीं"
 
@@ -504,7 +503,7 @@ msgstr "पैरामीटर्स की दी गई सूची का 
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$var 1, $var 2, $var 3 ...: तुलना किए जाने वाले मान"
+msgstr "$var1, $var2, $var3 ...: तुलना किए जाने वाले मान"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -564,7 +563,7 @@ msgstr "f_gt - f_cmp का उपनाम - इससे बड़ा है"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
-msgstr "यदि A, B > या 0 (या D) देता है, यदि नहीं, तो 1 (या C) देता है। पैरामीटर C और D वैकल्पिक हैं."
+msgstr "यदि A > B है तो 1 (या C) लौटाता है, अन्यथा 0 (या D) लौटाता है। पैरामीटर C और D वैकल्पिक हैं।"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
@@ -572,7 +571,7 @@ msgstr "f_lt - f_cmp का उपनाम - इससे कम है"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
-msgstr "यदि A, B < या 0 (या D) देता है, यदि नहीं, तो 1 (या C) देता है। पैरामीटर C और D वैकल्पिक हैं."
+msgstr "यदि A < B हो तो 1 (या C), और न होने पर 0 (या D) लौटाता है। पैरामीटर C और D वैकल्पिक हैं।"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
@@ -580,7 +579,7 @@ msgstr "f_ge - f_cmp का उपनाम - बड़ा या बराब�
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr "यदि A, >= B या 0 (या D) देता है, यदि नहीं, तो 1 (या C) देता है। पैरामीटर C और D वैकल्पिक हैं."
+msgstr "यदि A >= B है तो 1 (या C) लौटाता है, अन्यथा 0 (या D) लौटाता है। पैरामीटर C और D वैकल्पिक हैं।"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
@@ -588,7 +587,7 @@ msgstr "f_le - f_cmp का उपनाम - कम या बराबर ह�
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr "यदि A, <= B या 0 (या D) देता है, यदि नहीं, तो 1 (या C) देता है। पैरामीटर C और D वैकल्पिक हैं."
+msgstr "यदि A <= B हो तो 1 (या C), और न होने पर 0 (या D) लौटाता है। पैरामीटर C और D वैकल्पिक हैं।"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Addition"
@@ -688,7 +687,7 @@ msgstr "इसमें दो मापे गए मानों के बी
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Functions w/o parameters"
-msgstr "कार्य w/o पैरामीटर"
+msgstr "बिना पैरामीटर वाले फ़ंक्शन"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Functions with parameters"
@@ -720,7 +719,7 @@ msgstr "अंतरिम परिणाम"
 
 #: include/global_arrays.php
 msgid "Unlimited"
-msgstr "अनसंभ"
+msgstr "असीमित"
 
 #: include/global_arrays.php
 msgid "500 Data Items"
@@ -777,7 +776,7 @@ msgstr "इस रिपोर्ट टेम्पलेट का एक ल�
 
 #: include/global_forms.php templates.php
 msgid "Version"
-msgstr "सरूप"
+msgstr "संस्करण"
 
 #: include/global_forms.php
 msgid "A version number for this template"
@@ -841,7 +840,7 @@ msgstr "XML में निर्यात करने के लिए अप
 
 #: include/global_forms.php
 msgid "[Optional] Description"
-msgstr "[वैकल्पिक] या क़िस्‍म"
+msgstr "[वैकल्पिक] विवरण"
 
 #: include/global_forms.php
 msgid "Describe the characteristics of your report template"
@@ -857,7 +856,7 @@ msgstr "यहां अपना नाम या निक जोड़ें�
 
 #: include/global_forms.php
 msgid "[Optional] Version"
-msgstr "[वैकल्पिक] विवरण"
+msgstr "[वैकल्पिक] संस्करण"
 
 #: include/global_forms.php
 msgid "[Optional] Contact"
@@ -928,10 +927,9 @@ msgid "Parentheses"
 msgstr "कोष्ठक"
 
 #: lib/const_reports.php
-#, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
-msgstr "अक्षम"
+msgstr "अक्षम करें"
 
 #: lib/const_reports.php setup.php
 msgid "Enable"
@@ -939,20 +937,19 @@ msgstr "सक्षम करें"
 
 #: lib/const_reports.php
 msgid "Run Now"
-msgstr "अभी भागो"
+msgstr "अभी चलाएं"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "स्वामित्व लेने"
 
 #: lib/const_reports.php
 msgid "CRASHED"
 msgstr "दुर्घटनाग्रस्त हो गया"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "FAILED"
-msgstr "असफल"
+msgstr "विफल"
 
 #: lib/const_reports.php
 msgid "Idle"
@@ -963,9 +960,8 @@ msgid "Running"
 msgstr "चल रहा है"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "- No template available -"
-msgstr "- उपलब्ध नहीं है -"
+msgstr "- कोई टेम्पलेट उपलब्ध नहीं है -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
@@ -996,18 +992,16 @@ msgid "Sunday"
 msgstr "रविवार"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "डेटा आइटम प्रीसेट"
+msgstr "डेटा स्रोत प्रीसेट"
 
 #: lib/const_reports.php reportit.php
 msgid "Email"
 msgstr "ईमेल"
 
 #: lib/const_reports.php reportit.php
-#, fuzzy
 msgid "Data Sources"
-msgstr "डाटा स्रोत"
+msgstr "डाटा के स्रोत"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "Text CSV (.csv)"
@@ -1023,11 +1017,11 @@ msgstr "रॉ एक्सएमएल (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "JSON डेटा (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "YAML डेटा (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1039,7 +1033,7 @@ msgstr "अपने ईमेल का विषय दर्ज करें�
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "अनुसूचित रिपोर्ट - | - |अवधि|"
+msgstr "शेड्यूल्ड रिपोर्ट - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1075,19 +1069,19 @@ msgstr "किसी मान्य सूचना सूची के आध�
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "ईमेल पता"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "कृपया अल्पविराम द्वारा कई पते अलग करें (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "BCC पता (तों)"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "ब्लाइंड कार्बन कॉपी। कृपया अल्पविराम द्वारा कई पते अलग करें (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
@@ -1098,9 +1092,8 @@ msgid "To add a new recipient enter a valid email address (required) and a name 
 msgstr "नया प्राप्तकर्ता जोड़ने के लिए, एक मान्य ईमेल पता (आवश्यक) और एक नाम (वैकल्पिक) दर्ज करें.<br> तेज़ सेटअप के लिए उन पते/नामों की सूची का उपयोग करें जहाँ नाम/पते निम्नलिखित में से किसी एक के साथ अलग किए गए हैं: ';' या ','"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[वैकल्पिक] विवरण"
+msgstr "वैकल्पिक उप-शीर्षक"
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
@@ -1115,39 +1108,32 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "उस समय क्षेत्र का चयन करें जिस पर आपकी निम्न शिफ़्टटाइम सूचनाएँ आधारित होंगी."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "अतिरिक्त प्री-फिल्टर"
+msgstr "वैकल्पिक डेटा स्रोत प्री-फ़िल्टर"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Site Filter"
-msgstr "रिपोर्ट फ़िल्टर"
+msgstr "साइट फ़िल्टर"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "केवल उन डेटा आइटम्स का उपयोग करें, जो इस होस्ट टेम्पलेट के होस्ट से संबंधित हैं.<br>इस फ़िल्टर सेटिंग को निष्क्रिय करने के लिए 'कोई नहीं' (डिफ़ॉल्ट) चुनें।"
+msgstr "केवल इस साइट से मेल खाने वाले डेटा स्रोतों का उपयोग करें।<br>इस फ़िल्टर सेटिंग को निष्क्रिय करने के लिए 'कोई नहीं' (डिफ़ॉल्ट) चुनें।"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "टेम्पलेट चर हटाएं"
+msgstr "डिवाइस टेम्पलेट फ़िल्टर"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "केवल उन डेटा आइटम्स का उपयोग करें, जो इस होस्ट टेम्पलेट के होस्ट से संबंधित हैं.<br>इस फ़िल्टर सेटिंग को निष्क्रिय करने के लिए 'कोई नहीं' (डिफ़ॉल्ट) चुनें।"
+msgstr "केवल इस डिवाइस टेम्पलेट के डेटा स्रोतों का उपयोग करें।<br>इस फ़िल्टर सेटिंग को निष्क्रिय करने के लिए 'कोई नहीं' (डिफ़ॉल्ट) चुनें।"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "डेटा स्रोत उपनाम"
+msgstr "डेटा स्रोत नाम फ़िल्टर"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "डेटा आइटम विवरण पर अतिरिक्त फ़िल्टरिंग की अनुमति देता है.<br> nd/or _ जैसे % aSQL वाइल्डकार्ड का उपयोग करें। कोई नियमित अभिव्यक्ति नहीं!"
+msgstr "उन डेटा स्रोतों का उपयोग करें जिनके नाम इस फ़िल्टर से मेल खाते हैं।<br> % और/या _ जैसे SQL वाइल्डकार्ड का उपयोग करें। कोई रेगुलर एक्सप्रेशन नहीं!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
@@ -1286,18 +1272,16 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "समाप्ति दिनांक निर्धारित करने के लिए निम्न प्रारूप का उपयोग करें: <b>yyyy-mm-dd</b>"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Add to Report"
-msgstr "रिपोर्ट दिखाएं"
+msgstr "रिपोर्ट में जोड़ें"
 
 #: lib/const_rrdlist.php
 msgid "Remove from Report"
 msgstr "रिपोर्ट से निकालें"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Copy Settings to All"
-msgstr "सभी के लिए कॉपी सेटिंग्स"
+msgstr "सेटिंग्स सभी पर कॉपी करें"
 
 #: lib/const_rrdlist.php setup.php
 msgid "Add"
@@ -1326,7 +1310,7 @@ msgstr "पाई चार्ट: 3D"
 #: lib/const_view.php
 #, php-format
 msgid "%s Hi"
-msgstr "%s नमस्ते"
+msgstr "%s उच्च"
 
 #: lib/const_view.php
 #, php-format
@@ -1335,15 +1319,15 @@ msgstr "%s लो"
 
 #: lib/const_view.php
 msgid "Any"
-msgstr "कोई भी@ label"
+msgstr "कोई भी"
 
 #: lib/const_view.php view.php
 msgid "All"
-msgstr ""
+msgstr "सभी"
 
 #: lib/const_view.php
 msgid "Sum"
-msgstr "सवाल"
+msgstr "योग"
 
 #: lib/const_view.php
 msgid "Average"
@@ -1358,9 +1342,8 @@ msgid "Start"
 msgstr "शुरू करें"
 
 #: lib/funct_export.php
-#, fuzzy
 msgid "End"
-msgstr "अंतिम दिनांक"
+msgstr "समाप्ति"
 
 #: lib/funct_export.php view.php
 msgid "Last Run"
@@ -1407,7 +1390,7 @@ msgstr "वैकल्पिक: आप रिपोर्ट में आं�
 
 #: lib/funct_html.php
 msgid "Separate Group Title [overall]"
-msgstr "Separate Group Title [समग्र] (अलग समूह शीर्षक [समग्र])"
+msgstr "अलग समूह शीर्षक [समग्र]"
 
 #: lib/funct_html.php
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
@@ -1499,7 +1482,7 @@ msgstr "जाएं"
 #: reportit.php templates.php view.php
 msgctxt "Button: reset filter settings"
 msgid "Clear"
-msgstr "明确"
+msgstr "साफ़ करें"
 
 #: reportit.php
 #, php-format
@@ -1507,10 +1490,9 @@ msgid "Period %s From - To"
 msgstr "अवधि %s से - से"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Scheduled"
 msgid "Schedule"
-msgstr "परिगणित"
+msgstr "शैड्‌यूल"
 
 #: reportit.php
 msgid "State"
@@ -1519,19 +1501,18 @@ msgstr "राज्य"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "अगला प्रारंभ %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 #| msgid "Last Run %s"
 msgid "Last Started %s"
-msgstr "अंतिम रन %s"
+msgstr "अंतिम प्रारंभ %s"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Last Run"
 msgid "Last Runtime"
-msgstr "अंतिम रन"
+msgstr "अंतिम रनटाइम"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1555,9 +1536,8 @@ msgid "Report has been locked"
 msgstr "रिपोर्ट लॉक कर दी गई है"
 
 #: reportit.php
-#, fuzzy
 msgid "No reports"
-msgstr "रिपोर्ट्स"
+msgstr "कोई रिपोर्ट नहीं"
 
 #: reportit.php
 msgid "Not Authorized"
@@ -1577,9 +1557,8 @@ msgid "No recipients found"
 msgstr "कोई प्राप्तकर्ता नहीं मिला"
 
 #: reportit.php
-#, fuzzy
 msgid "Data Source Name"
-msgstr "डाटा स्रोत"
+msgstr "डेटा स्रोत का नाम"
 
 #: reportit.php
 msgid "Associated"
@@ -1610,9 +1589,8 @@ msgid "Does not exist anymore"
 msgstr "अब मौजूद नहीं है"
 
 #: reportit.php
-#, fuzzy
 msgid "Included in Report"
-msgstr "रिपोर्ट चलाएं"
+msgstr "रिपोर्ट में शामिल"
 
 #: reportit.php
 msgid "Not Included in Report"
@@ -1635,9 +1613,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[वैकल्पिक] प्राप्तकर्ता का नाम (या अल्पविराम से अलग नामों की सूची)"
 
 #: reportit.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "डेटा आइटम[संपादित करें: %s]"
+msgstr "डेटा स्रोत [संपादित करें: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1668,56 +1646,48 @@ msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "निम्नलिखित रिपोर्ट को हटाने के लिए 'जारी रखें' पर क्लिक करें:"
+msgstr "निम्नलिखित रिपोर्ट को अक्षम करने के लिए 'जारी रखें' पर क्लिक करें:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "निम्न रिपोर्ट चलाने के लिए 'जारी रखें' पर क्लिक करें:"
+msgstr "निम्नलिखित रिपोर्ट को सक्षम करने के लिए 'जारी रखें' पर क्लिक करें:"
 
 #: reportit.php
-#, fuzzy
 #| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "निम्न रिपोर्ट चलाने के लिए 'जारी रखें' पर क्लिक करें:"
+msgstr "निम्नलिखित रिपोर्ट का स्वामित्व लेने के लिए 'जारी रखें' पर क्लिक करें:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
 msgstr "आपको कम से कम एक अनलॉक, नहीं चल रहा है, रिपोर्ट का चयन करना होगा।"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "निम्नलिखित डेटा आइटम निकालने के लिए 'जारी रखें' पर क्लिक करें।"
+msgstr "रिपोर्ट से निम्नलिखित डेटा स्रोतों को निकालने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: reportit.php
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "चयनित डेटा आइटम्स की सूची:"
+msgstr "चयनित डेटा स्रोतों की सूची नीचे दी गई है।"
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "डेटा स्रोत:"
+msgstr "डेटा स्रोत: %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "निम्न रिपोर्ट चलाने के लिए 'जारी रखें' पर क्लिक करें:"
+msgstr "निम्नलिखित डेटा स्रोतों को रिपोर्ट में जोड़ने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "सेटिंग्स को अन्य डेटा आइटम में कॉपी करने के लिए 'जारी रखें' पर क्लिक करें"
+msgstr "अन्य डेटा स्रोतों में सेटिंग्स कॉपी करने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: reportit.php
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "संदर्भ के रूप में चयनित डेटा आइटम:"
+msgstr "संदर्भ के रूप में चयनित डेटा स्रोत:"
 
 #: reportit.php
 msgid "Time Zone:"
@@ -1736,22 +1706,18 @@ msgid "You must select at least one Report."
 msgstr "आपको कम से कम एक रिपोर्ट का चयन करना होगा."
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "रिपोर्ट देखें"
+msgstr "ReportIt - रिपोर्ट देखना"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "रिपोर्ट बनाएं"
+msgstr "ReportIt - रिपोर्ट बनाएं"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "ReportIt सामान्य सेटिंग्स"
+msgstr "ReportIt - रिपोर्ट्स प्रबंधित करें"
 
 #: setup.php
-#, fuzzy
 msgid "(Edit)"
 msgstr "संपादित करें"
 
@@ -1804,9 +1770,8 @@ msgid "Management"
 msgstr "प्रबंधन"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt Reports"
-msgstr "रिपोर्ट बनाएं"
+msgstr "ReportIt रिपोर्ट्स"
 
 #: setup.php
 msgid "ReportIt"
@@ -1833,7 +1798,6 @@ msgid "global"
 msgstr "व्‍यापक"
 
 #: setup.php
-#, fuzzy
 msgid "local"
 msgstr "स्थानीय"
 
@@ -1866,37 +1830,32 @@ msgid "Time Zones"
 msgstr "समय क्षेत्र"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "डेटा आइटम के कॉन्फ़िगरेशन और रिपोर्ट गणना के लिए समय क्षेत्रों के उपयोग को सक्षम/अक्षम करें।  पूर्व मामले में सर्वर समय GMT/UTC तक सेट किया जाना है!"
+msgstr "डेटा आइटम के कॉन्फ़िगरेशन और रिपोर्ट गणना के लिए समय क्षेत्रों (टाइम ज़ोन) के उपयोग को सक्षम/अक्षम करें। पहले वाले मामले में सर्वर का समय GMT/UTC पर सेट होना चाहिए!"
 
 #: setup.php
 msgid "Show Local Time Zone"
 msgstr "स्थानीय समय क्षेत्र दिखाएँ"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "सुर्खियों पर सर्वर के टाइमज़ोन को प्रदर्शित करने के लिए सक्षम /"
+msgstr "हेडलाइंस पर सर्वर का समय क्षेत्र प्रदर्शित करने के लिए सक्षम/अक्षम करें।"
 
 #: setup.php
-#, fuzzy
 msgid "Allow Scheduling by Operators"
-msgstr "ऑपरेटर्स द्वारा शेड्यूलिंग की अनुमति दें"
+msgstr "ऑपरेटरों द्वारा शेड्यूलिंग की अनुमति दें"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "रिपोर्ट शेड्यूल करने के लिए ऑपरेटर की क्षमता को सक्षम/अक्षम करें।  अक्षम होने पर, केवल व्यवस्थापक शेड्यूलिंग बदल सकते हैं।"
+msgstr "रिपोर्ट शेड्यूल करने की ऑपरेटर की क्षमता को सक्षम/अक्षम करें। अक्षम होने पर, केवल व्यवस्थापक ही शेड्यूलिंग बदल सकते हैं।"
 
 #: setup.php
 msgid "SI-Prefixes"
 msgstr "SI-उपसर्ग"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> और <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> की शर्तों के तहत बाइनरी गुणकों के लिए सही SI-उपसर्गों के उपयोग को सक्षम/अक्षम करें।"
+msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> और <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> के नियमों के तहत बाइनरी गुणकों के लिए सही SI-उपसर्गों के उपयोग को सक्षम/अक्षम करें।"
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1923,9 +1882,8 @@ msgid "The number of rows to display on a single page."
 msgstr "किसी एकल पृष्ठ पर प्रदर्शित करने के लिए पंक्तियों की संख्या."
 
 #: setup.php
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "ReportIt निर्यात सेटिंग्स"
+msgstr "रिपोर्ट निर्यात सेटिंग्स"
 
 #: setup.php
 msgid "CSV Column Separator"
@@ -1944,9 +1902,8 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "पूर्णांक भाग के अंत और भिन्नात्मक भाग की शुरुआत को इंगित करने वाला प्रतीक।"
 
 #: setup.php
-#, fuzzy
 msgid "Report General Settings"
-msgstr "ReportIt सामान्य सेटिंग्स"
+msgstr "रिपोर्ट सामान्य सेटिंग्स"
 
 #: templates.php
 msgid "New Report Template"
@@ -1985,14 +1942,13 @@ msgid "Summary"
 msgstr "सारांश"
 
 #: templates.php
-#, fuzzy
 #| msgid "None"
 msgid "No"
-msgstr "कोई नहीं"
+msgstr "नहीं"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "हाँ"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2052,9 +2008,8 @@ msgid "Edit variables"
 msgstr "चर संपादित करें"
 
 #: templates.php
-#, fuzzy
 msgid "No templates"
-msgstr "टेम्पलेट्स"
+msgstr "कोई टेम्पलेट नहीं"
 
 #: templates.php
 msgid "Maximum has to be greater than minimum."
@@ -2073,14 +2028,13 @@ msgid "Interim results are used by other measurands."
 msgstr "अंतरिम परिणाम अन्य मापकों द्वारा उपयोग किए जाते हैं।"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "साँचा: %s"
+msgstr "टेम्पलेट [ %1$s - %2$s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Template [new]"
-msgstr "खाका"
+msgstr "टेम्पलेट [नया]"
 
 #: templates.php
 msgid "<template_title>"
@@ -2153,9 +2107,9 @@ msgid "List of selected variables:"
 msgstr "चयनित चर की सूची:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable: %s"
-msgstr "चर : %s"
+msgstr "वेरिएबल: %s"
 
 #: templates.php
 msgid "There are one or more variables in use."
@@ -2170,27 +2124,25 @@ msgid "Delete Template Variables"
 msgstr "टेम्पलेट चर हटाएं"
 
 #: templates.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "निम्नलिखित मापकों को हटाने के लिए 'जारी रखें' पर क्लिक करें।  सूचना: यदि इस प्रक्रिया के बाद कोई अन्य मापक नहीं बचा है, तो रिपोर्ट टेम्पलेट स्वचालित रूप से लॉक हो जाएगा।"
+msgstr "निम्नलिखित मेट्रिक्स को हटाने के लिए 'जारी रखें' पर क्लिक करें। सूचना: यदि इस प्रक्रिया के बाद कोई अन्य मेट्रिक शेष नहीं रहता है, तो रिपोर्ट टेम्पलेट स्वचालित रूप से लॉक हो जाएगा।"
 
 #: templates.php
 msgid "List of selected measurands:"
 msgstr "चयनित मापकों की सूची:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
-msgstr "माप: %s"
+msgstr "मेट्रिक: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
 msgstr "आपको कम से कम एक मापक का चयन करना होगा।"
 
 #: templates.php
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "टेम्पलेट मापक हटाएं"
+msgstr "टेम्पलेट मेट्रिक्स हटाएं"
 
 #: templates.php
 #, php-format
@@ -2202,9 +2154,9 @@ msgid "No Variables Found"
 msgstr "कोई चर नहीं मिला"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "परिवर्तनीय विन्यास[संपादित करें: %s]"
+msgstr "वेरिएबल कॉन्फ़िगरेशन [ संपादित करें: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2227,10 +2179,9 @@ msgid "Provide a name for this Variable"
 msgstr "इस चर के लिए एक नाम प्रदान करें"
 
 #: templates.php
-#, fuzzy
 #| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "एक संक्षिप्त, सारगर्भित विवरण जो इस चर की भावना की व्याख्या करता है।"
+msgstr "एक विवरण जो इस वेरिएबल का अर्थ स्पष्ट करता है।"
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2273,14 +2224,13 @@ msgid "Defines the distance between two values if method \"DropDown\" has been c
 msgstr "दो मानों के बीच की दूरी को परिभाषित करता है यदि विधि \"ड्रॉपडाउन\" चुना गया है। कृपया सुनिश्चित करें कि यह मान बहुत कम सेट नहीं है, क्योंकि यह अप्रत्यक्ष रूप से ड्रॉपडाउन फ़ील्ड के विकल्पों की संख्या को परिभाषित करता है। उदाहरण के लिए निम्नलिखित पैरामीटर: MAX:100, MIN:0, STEP:0.01 का परिणाम 10.001 विकल्पों के चयन बॉक्स में होगा। यह क्लाइंट पक्ष में एक उच्च CPU लोड के कारण नाटकीय प्रदर्शन समस्याएँ पैदा कर सकते हैं। इसे 1000 से कम रखने की कोशिश करें।"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "मापक विन्यास [संपादित करें: %s]"
+msgstr "मेट्रिक कॉन्फ़िगरेशन [ संपादित करें: %1$s - %2$s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Metric Configuration [new]"
-msgstr "Measurand विन्यास [नया]"
+msgstr "मेट्रिक कॉन्फ़िगरेशन [नया]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2351,14 +2301,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "सूचीबद्ध ऑपरेटरों में से किसी एक पर क्लिक करें या उन्हें अपने कैलुकैलियन फॉर्मूला में जोड़ने के लिए ऑपरेंड करें। टूलटिप आपको विवरण, वापसी मूल्य, तर्क और उपयोग जैसी अतिरिक्त जानकारी दिखाएगा।"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "साँचा: %s"
+msgstr "मेट्रिक्स [ टेम्पलेट: %1$s - %2$s ]"
 
 #: templates.php
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "कोई रिपोर्ट नहीं मिली"
+msgstr "कोई मेट्रिक्स नहीं मिले"
 
 #: view.php
 msgid "Reports Filter"
@@ -2374,17 +2323,16 @@ msgstr "जाएं"
 
 #: view.php
 msgid "Clear"
-msgstr "明确"
+msgstr "साफ़ करें"
 
 #: view.php
 msgid "Period (From - To)"
 msgstr "अवधि (से - से)"
 
 #: view.php
-#, fuzzy
 #| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "रनटाइम [रों]"
+msgstr "अंतिम रनटाइम [s]"
 
 #: view.php
 msgid "No Reports Found"
@@ -2399,9 +2347,8 @@ msgid "Data Source"
 msgstr "डाटा स्रोत"
 
 #: view.php
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "TOP10 ग्राफ़ दिखाएँ"
+msgstr "शीर्ष 10 ग्राफ़ दिखाएँ"
 
 #: view.php
 msgid "Show Subheads"
@@ -2421,7 +2368,7 @@ msgstr "वस्तुएं"
 
 #: view.php
 msgid "Archive"
-msgstr "विकिपीडिया:अवरोधित सदस्य"
+msgstr "आर्काइव"
 
 #: view.php
 msgid "Current"
@@ -2456,19 +2403,26 @@ msgid "No Data Items"
 msgstr "कोई डेटा आइटम नहीं"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "माप: %s"
+msgstr "मेट्रिक: %1$s (%2$s)"
 
 #: view.php
-#, fuzzy
 msgid "Pos."
-msgstr "स्थिति।"
+msgstr "स्थिति"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
-msgstr "परिणाम [ %s]"
+msgstr "परिणाम [%s]"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "नया प्राप्तकर्ता जोड़ने के लिए एक मान्य ईमेल पता (आवश्यक) और एक नाम (वैकल्पिक) दर्ज करें।<br> तेज़ सेटअप के लिए पतों/नामों की एक सूची का उपयोग करें जहाँ नाम/पते निम्नलिखित विभाजकों में से किसी एक से अलग किए गए हों: ';' या ','"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "दिए गए फ़िल्टर के आधार पर सभी डेटा आइटम का स्वचालित निर्माण सक्षम/अक्षम करें। इसे रिपोर्ट निष्पादन से पहले कॉल किया जाएगा। अप्रचलित RRD हटा दिए जाएंगे और फ़िल्टर सेटिंग्स से मेल खाने वाले सभी RRD जोड़ दिए जाएंगे।"
 
 #~ msgid "Public Report Charts"
 #~ msgstr "सार्वजनिक रिपोर्ट चार्ट"
