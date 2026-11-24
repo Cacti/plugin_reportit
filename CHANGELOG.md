@@ -5,6 +5,7 @@ installation guidance and source-checked behavior.
 
 --- develop ---
 
+* issue#162: Fix misspelled `'reporit'` gettext text domain in `templates.php`, pass the `'reportit'` text domain to the email recipient labels in `lib/const_reports.php` and the `'Name'` column in `templates.php` that had no domain, add a test that every translation helper call passes the plugin text domain, fix English description typos in `lib/const_reports.php`, refresh `locales/po/cacti.pot`, and remove orphan `locales/LC_MESSAGES/ka.mo`
 * bug: Fix the `reportsit.php` typo in the navigation entries and the General Administration role (so it now grants the Create Reports realm), and remove the realm and navigation entries for the nonexistent `charts.php`
 * dev: Correct template-wizard switch-label spacing to pass the PHP formatting check
 * dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification

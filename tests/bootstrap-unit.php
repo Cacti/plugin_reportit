@@ -159,6 +159,28 @@ if (!function_exists('db_column_exists')) {
 	}
 }
 
+if (!function_exists('db_table_exists')) {
+	function db_table_exists($table) {
+		return false;
+	}
+}
+
+if (!defined('REPORTIT_USER_ADMIN')) {
+	define('REPORTIT_USER_ADMIN', 1);
+}
+
+if (!function_exists('user_auth_realm')) {
+	function user_auth_realm($realm, $user_id = 0) {
+		return false;
+	}
+}
+
+if (!function_exists('my_id')) {
+	function my_id() {
+		return 1;
+	}
+}
+
 if (!function_exists('api_plugin_db_add_column')) {
 	function api_plugin_db_add_column($plugin, $table, $data) {
 		return true;

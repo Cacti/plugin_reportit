@@ -236,30 +236,30 @@ $form_array_email = [
 		'value'         => '|arg1:notify_list|',
 	],
 	'email' => [
-		'friendly_name' => __('To Email Address(es)'),
+		'friendly_name' => __('To Email Address(es)', 'reportit'),
 		'method'        => 'textarea',
 		'textarea_rows' => '5',
 		'textarea_cols' => '60',
 		'class'         => 'textAreaNotes',
 		'default'       => '',
-		'description'   => __('Please separate multiple addresses by comma (,)'),
+		'description'   => __('Please separate multiple addresses by comma (,)', 'reportit'),
 		'max_length'    => 255,
 		'value'         => '|arg1:email|'
 	],
 	'bcc' => [
-		'friendly_name' => __('BCC Address(es)'),
+		'friendly_name' => __('BCC Address(es)', 'reportit'),
 		'method'        => 'textarea',
 		'textarea_rows' => '5',
 		'textarea_cols' => '60',
 		'class'         => 'textAreaNotes',
 		'default'       => '',
-		'description'   => __('Blind carbon copy. Please separate multiple addresses by comma (,)'),
+		'description'   => __('Blind carbon copy. Please separate multiple addresses by comma (,)', 'reportit'),
 		'max_length'    => 255,
 		'value'         => '|arg1:bcc|'
 	],
 	'email_recipient' => [
 		'friendly_name' => __('New Email Recipients', 'reportit'),
-		'description'   => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: \';\' or \',\'', 'reportit'),
+		'description'   => __('To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: \';\' or \',\'', 'reportit'),
 		'method'        => 'custom',
 		'default'       => 'false',
 		'value'         => "<div style='line-height: 1.5em;'>
@@ -336,7 +336,7 @@ $form_array_presets_2 = [
 	],
 	'autorrdlist' => [
 		'friendly_name' => __('Auto Generated Data Items', 'reportit'),
-		'description'   => __('Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added.', 'reportit'),
+		'description'   => __('Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added.', 'reportit'),
 		'method'        => 'checkbox',
 		'value'         => '|arg1:autorrdlist|',
 		'default'       => '',
