@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/reportit/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/reportit/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -813,7 +813,7 @@ msgstr "オプション: エクスポートを保存するためのフォルダ�
 
 #: include/global_forms.php templates.php
 msgid "Data Template"
-msgstr "このデータテンプレートに名前を与えてください。"
+msgstr "このデータテンプレートに名前を与えてください"
 
 #: include/global_forms.php
 msgid "The name of the data template this Report Template depends on."
@@ -1410,7 +1410,7 @@ msgstr "ディスクへのファイルの書き込みに失敗しました"
 
 #: lib/funct_validate.php
 msgid "File upload stopped by extension"
-msgstr "拡張機能によってファイルのアップロードが停止されました"
+msgstr "拡張モジュールによりファイルのアップロードが停止されました"
 
 #: lib/funct_validate.php
 msgid "Invalid file extension."
