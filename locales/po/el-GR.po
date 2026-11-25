@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
-"PO-Revision-Date: 2024-09-25 20:02-0400\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: el_GR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/reportit/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -331,7 +320,7 @@ msgstr "f_max - Μέγιστη τιμή"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the highest measured value per DS"
-msgstr "Επιστρέφει την πρώτη τιμή μέτρησης"
+msgstr "Επιστρέφει την υψηλότερη μετρούμενη τιμή ανά DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_min - Minimum Value"
@@ -339,7 +328,7 @@ msgstr "f_min - Ελάχιστη τιμή"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the lowest measured value per DS"
-msgstr "Επιστρέφει την τελευταία τιμή που μετρήθηκε"
+msgstr "Επιστρέφει τη χαμηλότερη μετρούμενη τιμή ανά DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sum - Sum"
@@ -347,7 +336,7 @@ msgstr "f_sum - Άθροισμα"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of all measured values per DS"
-msgstr "Επιστρέφει την τελευταία τιμή που μετρήθηκε"
+msgstr "Επιστρέφει το άθροισμα όλων των μετρούμενων τιμών ανά DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_num - Number of Values (Not NaN)"
@@ -419,7 +408,7 @@ msgstr "f_sd - Τυπική απόκλιση"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the square root per data source variance"
-msgstr "Επιστρέφει την τελευταία τιμή που μετρήθηκε"
+msgstr "Επιστρέφει την τετραγωνική ρίζα ανά διακύμανση πηγής δεδομένων"
 
 #: include/global_arrays.php
 msgid "f_var - Variance"
@@ -427,7 +416,7 @@ msgstr "f_var - Διακύμανση"
 
 #: include/global_arrays.php
 msgid "Returns the variance per DS"
-msgstr "Εμφανίζει το float ως ακέραιο"
+msgstr "Επιστρέφει τη διακύμανση ανά DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_xth - Xth Percentile"
@@ -435,11 +424,11 @@ msgstr "f_xth - Xth εκατοστημόριο"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the xth percentitle."
-msgstr "Επιστρέφει την τελευταία τιμή που μετρήθηκε"
+msgstr "Επιστρέφει το x-οστό εκατοστημόριο."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
-msgstr "$ var: κατώφλι σε ποσοστό. Εύρος: [0 & lt; $ var ≤100]"
+msgstr "$var: όριο σε ποσοστό. Εύρος: [0&lt; $var &le;100]"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_dot - Duration Over Threshold"
@@ -451,7 +440,7 @@ msgstr "Επιστρέφει τη διάρκεια πάνω από ένα καθ
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold (absolute)"
-msgstr "$ var: όριο (απόλυτο)"
+msgstr "$var: όριο (απόλυτο)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sot - Sum Over Threshold"
@@ -459,7 +448,7 @@ msgstr "f_sot - Άθροισμα κατωφλίου"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of values over a defined threshold."
-msgstr "Επιστρέφει τον αριθμό των τιμών"
+msgstr "Επιστρέφει το άθροισμα των τιμών πάνω από ένα καθορισμένο κατώφλι."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_floor - Round Fractions Down"
@@ -471,7 +460,7 @@ msgstr "Επιστρέφει την επόμενη χαμηλότερη ακέρ
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float"
-msgstr "$ var: float"
+msgstr "$var: float"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_ceil - Round Fractions Up"
@@ -487,11 +476,11 @@ msgstr "f_round - Round A Float"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
-msgstr "Επιστρέφει τη χαμηλότερη τιμή μιας δεδομένης λίστας παραμέτρων"
+msgstr "Επιστρέφει τη στρογγυλοποιημένη ακέραια τιμή οποιουδήποτε δεδομένου αριθμού κινητής υποδιαστολής."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float or string value"
-msgstr "$ var: τιμή float ή string"
+msgstr "$var: τιμή float ή string"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Highest Value"
@@ -503,7 +492,7 @@ msgstr "Επιστρέφει την υψηλότερη τιμή μιας δεδ�
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$ var1, $ var2, $ var3 ...: τιμές προς σύγκριση"
+msgstr "$var1, $var2, $var3 ...: τιμές προς σύγκριση"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -551,7 +540,7 @@ msgstr "Επιστρέφει 1 (ή C) εάν A == B ή 0 (ή D) εάν όχι. �
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
-msgstr "f_uq - Ψευδώνυμο του f_cmp - ΕΙΝΑΙ ΑΝΕΞΑΡΤΗΤΟ"
+msgstr "f_uq - Ψευδώνυμο του f_cmp - ΕΙΝΑΙ ΑΝΙΣΟ"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
@@ -639,11 +628,11 @@ msgstr "Μαθηματική λειτουργία για την επιστροφ
 
 #: include/global_arrays.php
 msgid "Decimal Mark"
-msgstr "CSV Decimal Separator"
+msgstr "Δεκαδικό διαχωριστικό"
 
 #: include/global_arrays.php
 msgid "Decimal Mark used to separate the integer part from the fractional part"
-msgstr "Το σύμβολο που δείχνει το τέλος του ακέραιου τμήματος και την αρχή του κλασματικού τμήματος."
+msgstr "Το σύμβολο που δείχνει το τέλος του ακέραιου τμήματος και την αρχή του κλασματικού τμήματος"
 
 #: include/global_arrays.php
 msgid "Round Bracket"
@@ -687,7 +676,7 @@ msgstr "Περιέχει τον αριθμό δευτερολέπτων μετα
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Functions w/o parameters"
-msgstr "Λειτουργίες με παραμέτρους"
+msgstr "Συναρτήσεις χωρίς παραμέτρους"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Functions with parameters"
@@ -772,7 +761,7 @@ msgstr "Περιγραφή"
 
 #: include/global_forms.php
 msgid "A longer description of this Report Template."
-msgstr "Το μοναδικό όνομα που δίνεται σε αυτό το πρότυπο αναφοράς."
+msgstr "Μια εκτενέστερη περιγραφή αυτού του προτύπου αναφοράς."
 
 #: include/global_forms.php templates.php
 msgid "Version"
@@ -840,7 +829,7 @@ msgstr "Επιλέξτε ένα από τα Πρότυπα αναφοράς γι
 
 #: include/global_forms.php
 msgid "[Optional] Description"
-msgstr "Περιγραφή δεδομένων"
+msgstr "[Προαιρετικό] Περιγραφή"
 
 #: include/global_forms.php
 msgid "Describe the characteristics of your report template"
@@ -892,7 +881,7 @@ msgstr "f_mode - Λειτουργία"
 
 #: lib/const_measurands.php
 msgid "Returns the value that appears most often per DS"
-msgstr "Επιστρέφει τη χαμηλότερη τιμή μιας δεδομένης λίστας παραμέτρων"
+msgstr "Επιστρέφει την τιμή που εμφανίζεται συχνότερα ανά DS"
 
 #: lib/const_measurands.php
 msgid "Left (Opening) parenthesis"
@@ -927,10 +916,8 @@ msgid "Parentheses"
 msgstr "Παρενθέσεις"
 
 #: lib/const_reports.php
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "Απενεργοποιημένο"
+msgstr "Απενεργοποίηση"
 
 #: lib/const_reports.php setup.php
 msgid "Enable"
@@ -942,11 +929,11 @@ msgstr "Εκτέλεση τώρα"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "Ανάληψη ιδιοκτησίας"
 
 #: lib/const_reports.php
 msgid "CRASHED"
-msgstr "ΣΥΝΕΠΕΙΑ"
+msgstr "ΚΑΤΕΡΡΕΥΣΕ"
 
 #: lib/const_reports.php
 msgid "FAILED"
@@ -954,16 +941,15 @@ msgstr "Απέτυχε"
 
 #: lib/const_reports.php
 msgid "Idle"
-msgstr "Στροφές βραδυπορίας"
+msgstr "Σε αδράνεια"
 
 #: lib/const_reports.php
 msgid "Running"
 msgstr "Τρέχουσες"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "- No template available -"
-msgstr "- μη διαθέσιμος -"
+msgstr "- Δεν υπάρχει διαθέσιμο πρότυπο -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
@@ -994,18 +980,16 @@ msgid "Sunday"
 msgstr "Κυριακή"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "Προεπιλογές στοιχείου δεδομένων"
+msgstr "Προεπιλογές πηγής δεδομένων"
 
 #: lib/const_reports.php reportit.php
 msgid "Email"
 msgstr "Email"
 
 #: lib/const_reports.php reportit.php
-#, fuzzy
 msgid "Data Sources"
-msgstr "Ανεπεξέργαστη πηγή"
+msgstr "Data Sources"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "Text CSV (.csv)"
@@ -1021,11 +1005,11 @@ msgstr "Πρωτότυπη XML (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "Δεδομένα JSON (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "Δεδομένα YAML (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1033,11 +1017,11 @@ msgstr "Θέμα"
 
 #: lib/const_reports.php
 msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
-msgstr "Πληκτρολογήστε το θέμα του μηνύματος ηλεκτρονικού ταχυδρομείου σας. <br> Θα υποστηρίζονται οι ακόλουθες μεταβλητές (χωρίς εισαγωγικά): '| title | και '| περίοδο' |"
+msgstr "Εισαγάγετε το θέμα του email σας.<br> Θα υποστηρίζονται οι ακόλουθες μεταβλητές (χωρίς εισαγωγικά): '|title|' και '|period|'"
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "Προγραμματισμένη αναφορά - | τίτλος | - περίοδος"
+msgstr "Προγραμματισμένη αναφορά - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1073,36 +1057,35 @@ msgstr "Για να προσθέσετε έναν παραλήπτη βάσει 
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Διαχωρίστε πολλαπλές διευθύνσεις με κόμμα (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "Διεύθυνση(-εις)"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Τυφλό ανθρακικό αντίγραφο. Διαχωρίστε πολλαπλές διευθύνσεις με κόμμα (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
 msgstr "Νέοι παραλήπτες ηλεκτρονικού ταχυδρομείου"
 
 #: lib/const_reports.php
-msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
-msgstr "Για να προσθέσετε νέο παραλήπτη, εισαγάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου (απαιτείται) και ένα όνομα (προαιρετικό). <br> Για ταχύτερη ρύθμιση χρησιμοποιήστε μια λίστα διευθύνσεων / ονομάτων όπου τα ονόματα / οι διευθύνσεις χωρίζονται με έναν από τους ακόλουθους delemiters: ';' ή ','"
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Για να προσθέσετε έναν νέο παραλήπτη εισαγάγετε μια έγκυρη διεύθυνση email (απαιτείται) και ένα όνομα (προαιρετικό).<br> Για ταχύτερη ρύθμιση χρησιμοποιήστε μια λίστα διευθύνσεων/ονομάτων όπου τα ονόματα/διευθύνσεις διαχωρίζονται με έναν από τους παρακάτω διαχωριστές: ';' ή ','"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[Προαιρετικό] Έκδοση"
+msgstr "Προαιρετικός υπότιτλος"
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
-msgstr "Καθορίστε ένα επιπλέον υποκεφάλαιο που θα πρέπει να εμφανίζεται κάτω από την περιγραφή διεπαφής. <br> Οι ακόλουθες μεταβλητές θα υποστηρίζονται (χωρίς εισαγωγικά): '| t1 |' '| t2 |' '| tmz |' '| d1 |' '| d2 |'"
+msgstr "Καθορίστε έναν επιπλέον υπότιτλο που θα εμφανίζεται κάτω από την περιγραφή της διεπαφής.<br> Θα υποστηρίζονται οι ακόλουθες μεταβλητές (χωρίς εισαγωγικά): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 
 #: lib/const_reports.php reportit.php
 msgid "Time Zone"
@@ -1113,47 +1096,40 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "Επιλέξτε τη ζώνη ώρας που θα βασίζονται στις επόμενες πληροφορίες σχετικά με το χρόνο μετάβασης."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "Πρόσθετο προφίλτρο"
+msgstr "Προαιρετικά προ-φίλτρα πηγής δεδομένων"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Site Filter"
-msgstr "Αναφορά φίλτρων"
+msgstr "Φίλτρο τοποθεσίας"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Χρησιμοποιήστε αυτά τα στοιχεία δεδομένων μόνο, τα οποία ανήκουν σε κεντρικούς υπολογιστές αυτού του προτύπου κεντρικού υπολογιστή. <br> Επιλέξτε \"Καμία\" (προεπιλογή) για να απενεργοποιήσετε αυτήν τη ρύθμιση φίλτρου."
+msgstr "Χρήση μόνο των πηγών δεδομένων που αντιστοιχούν σε αυτή την τοποθεσία.<br>Επιλέξτε 'Κανένα' (προεπιλογή) για να απενεργοποιήσετε αυτή τη ρύθμιση φίλτρου."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "Διαγραφή προτύπων αναφοράς"
+msgstr "Φίλτρο προτύπου συσκευής"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Χρησιμοποιήστε αυτά τα στοιχεία δεδομένων μόνο, τα οποία ανήκουν σε κεντρικούς υπολογιστές αυτού του προτύπου κεντρικού υπολογιστή. <br> Επιλέξτε \"Καμία\" (προεπιλογή) για να απενεργοποιήσετε αυτήν τη ρύθμιση φίλτρου."
+msgstr "Χρήση μόνο των πηγών δεδομένων αυτού του προτύπου συσκευής.<br>Επιλέξτε 'Κανένα' (προεπιλογή) για να απενεργοποιήσετε αυτή τη ρύθμιση φίλτρου."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "Πηγή δεδομένων"
+msgstr "Φίλτρο ονόματος πηγής δεδομένων"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Επιτρέπει πρόσθετο φιλτράρισμα στις περιγραφές στοιχείων δεδομένων. <br> Χρησιμοποιήστε μπαλαντέρ SQL όπως% και / ή _. Καμία τακτική έκφραση!"
+msgstr "Χρήση πηγών δεδομένων των οποίων τα ονόματα ταιριάζουν με αυτό το φίλτρο.<br> Χρησιμοποιήστε μπαλαντέρ SQL όπως % και/ή _. Όχι κανονικές εκφράσεις!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
 msgstr "Στοιχεία δεδομένων αυτόματης δημιουργίας"
 
 #: lib/const_reports.php
-msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
-msgstr "Ενεργοποίηση / απενεργοποίηση της αυτόματης δημιουργίας όλων των στοιχείων δεδομένων βάσει συγκεκριμένων φίλτρων. Αυτό θα καλείται πριν από την εκτέλεση της αναφοράς. Οι παρωχημένες RRDs θα διαγραφούν και θα προστεθούν όλες οι RRD που ταιριάζουν με τις ρυθμίσεις του φίλτρου."
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Ενεργοποίηση/απενεργοποίηση αυτόματης δημιουργίας όλων των στοιχείων δεδομένων βάσει των δεδομένων φίλτρων. Αυτό θα καλείται πριν από την εκτέλεση της αναφοράς. Τα παρωχημένα αρχεία RRD θα διαγράφονται και θα προστίθενται όλα τα RRD που ταιριάζουν στις ρυθμίσεις φίλτρου."
 
 #: lib/const_reports.php reportit.php
 msgid "Working Time"
@@ -1284,18 +1260,16 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "Για να ορίσετε την ημερομηνία λήξης, χρησιμοποιήστε την ακόλουθη μορφή: <b>rrrr-mm-dd</b>"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Add to Report"
-msgstr "Εμφάνιση αναφοράς"
+msgstr "Προσθήκη στην αναφορά"
 
 #: lib/const_rrdlist.php
 msgid "Remove from Report"
 msgstr "Κατάργηση από την αναφορά"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Copy Settings to All"
-msgstr "Αντιγράψτε τις ρυθμίσεις σε όλους"
+msgstr "Αντιγραφή ρυθμίσεων σε όλα"
 
 #: lib/const_rrdlist.php setup.php
 msgid "Add"
@@ -1307,7 +1281,7 @@ msgstr "Γραμμή ράβδων: κάθετος"
 
 #: lib/const_view.php
 msgid "Bar chart: horizontal"
-msgstr "Δισκογραφία: οριζόντια"
+msgstr "Ραβδόγραμμα: οριζόντιο"
 
 #: lib/const_view.php
 msgid "Line chart"
@@ -1337,7 +1311,7 @@ msgstr "Οποιοδήποτε"
 
 #: lib/const_view.php view.php
 msgid "All"
-msgstr ""
+msgstr "Όλα"
 
 #: lib/const_view.php
 msgid "Sum"
@@ -1436,11 +1410,11 @@ msgstr "Αποτυχία εγγραφής αρχείου στο δίσκο"
 
 #: lib/funct_validate.php
 msgid "File upload stopped by extension"
-msgstr "Η μεταφόρτωση αρχείων σταμάτησε κατά επέκταση"
+msgstr "Η μεταφόρτωση αρχείου σταμάτησε κατά επέκταση"
 
 #: lib/funct_validate.php
 msgid "Invalid file extension."
-msgstr "Μη έγκυρη επέκταση αρχείου: %s"
+msgstr "Μη έγκυρη επέκταση αρχείου."
 
 #: lib/funct_validate.php
 msgid "Unable to parse template file."
@@ -1453,7 +1427,7 @@ msgstr "Σφάλμα Checksum με Πρότυπο %s σε αρχείο XML"
 
 #: reportit.php
 msgid "New Report"
-msgstr "Νέα αναφορά"
+msgstr "Νέα έκθεση"
 
 #: reportit.php
 #, php-format
@@ -1504,10 +1478,8 @@ msgid "Period %s From - To"
 msgstr "Περίοδος %s από - έως"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Scheduled"
 msgid "Schedule"
-msgstr "Προγραμματισμένο"
+msgstr "Πρόγραμμα"
 
 #: reportit.php
 msgid "State"
@@ -1516,19 +1488,16 @@ msgstr "Νομός"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "Επόμενη έναρξη %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
-#| msgid "Last Run %s"
+#, php-format
 msgid "Last Started %s"
-msgstr "Τελευταία εκτέλεση %s"
+msgstr "Τελευταία έναρξη %s"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Last Run"
 msgid "Last Runtime"
-msgstr "Τελευταία εκτέλεση"
+msgstr "Τελευταίος χρόνος εκτέλεσης"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1553,7 +1522,7 @@ msgstr "Το πρότυπο έχει κλειδωθεί προσωρινά"
 
 #: reportit.php
 msgid "No reports"
-msgstr "Αναφορές"
+msgstr "Δεν υπάρχουν αναφορές"
 
 #: reportit.php
 msgid "Not Authorized"
@@ -1573,9 +1542,8 @@ msgid "No recipients found"
 msgstr "Δεν βρέθηκαν παραλήπτες"
 
 #: reportit.php
-#, fuzzy
 msgid "Data Source Name"
-msgstr "Ανεπεξέργαστη πηγή"
+msgstr "Πηγή δεδομένων"
 
 #: reportit.php
 msgid "Associated"
@@ -1606,9 +1574,8 @@ msgid "Does not exist anymore"
 msgstr "Δεν υπάρχει πια"
 
 #: reportit.php
-#, fuzzy
 msgid "Included in Report"
-msgstr "Εκτέλεση αναφοράς"
+msgstr "Περιλαμβάνεται στην αναφορά"
 
 #: reportit.php
 msgid "Not Included in Report"
@@ -1631,9 +1598,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[ΠΡΟΑΙΡΕΤΙΚΟ] - Όνομα παραλήπτη (ή λίστα με ονόματα) -"
 
 #: reportit.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "Αντικείμενο δεδομένων [επεξεργασία: %s]"
+msgstr "Πηγή δεδομένων [επεξεργασία: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1645,7 +1612,7 @@ msgstr "Επιλέξτε τη ζώνη ώρας που θα βασίζονται
 
 #: reportit.php
 msgid "Click 'Continue' to Run the following Report:"
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες αναφορές."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να εκτελέσετε την ακόλουθη αναφορά:"
 
 #: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
@@ -1664,60 +1631,49 @@ msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες αναφορές."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να απενεργοποιήσετε την ακόλουθη αναφορά:"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες αναφορές."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να ενεργοποιήσετε την ακόλουθη αναφορά:"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες αναφορές."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να αναλάβετε την κυριότητα της ακόλουθης αναφοράς:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία αναφορά."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να καταργήσετε τα παρακάτω στοιχεία δεδομένων."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να αφαιρέσετε τις ακόλουθες πηγές δεδομένων από την αναφορά."
 
 #: reportit.php
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "Λίστα επιλεγμένων στοιχείων δεδομένων:"
+msgstr "Λίστα των επιλεγμένων Πηγών δεδομένων παρακάτω."
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "Πηγή δεδομένων:"
+msgstr "Πηγή δεδομένων: %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες αναφορές."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να προσθέσετε τις ακόλουθες πηγές δεδομένων στην αναφορά."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "Κάντε κλικ στην επιλογή 'Συνέχεια' για να αντιγράψετε τις ρυθμίσεις στα άλλα στοιχεία δεδομένων"
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να αντιγράψετε τις ρυθμίσεις στις άλλες πηγές δεδομένων."
 
 #: reportit.php
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "Επιλεγμένο στοιχείο δεδομένων ως αναφορά:"
+msgstr "Επιλεγμένη πηγή δεδομένων ως αναφορά:"
 
 #: reportit.php
 msgid "Time Zone:"
-msgstr "Ζώνη ώρας"
+msgstr "Ζώνη ώρας:"
 
 #: reportit.php
 msgid "Weekdays:"
@@ -1732,19 +1688,16 @@ msgid "You must select at least one Report."
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία αναφορά."
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "Προβολή Αναφορών"
+msgstr "ReportIt - Προβολή αναφορών"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "Δημιουργία αναφορών"
+msgstr "ReportIt - Δημιουργία αναφορών"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "ReportIT Γενικές ρυθμίσεις"
+msgstr "ReportIt - Διαχείριση αναφορών"
 
 #: setup.php
 msgid "(Edit)"
@@ -1788,7 +1741,7 @@ msgstr "Απλός Χρήστης"
 
 #: setup.php
 msgid "General Administration"
-msgstr "Διαχείριση"
+msgstr "Γενική διαχείριση"
 
 #: setup.php
 msgid "System Administration"
@@ -1799,9 +1752,8 @@ msgid "Management"
 msgstr "Διοίκηση"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt Reports"
-msgstr "Δημιουργία αναφορών"
+msgstr "Αναφορές ReportIt"
 
 #: setup.php
 msgid "ReportIt"
@@ -1860,37 +1812,32 @@ msgid "Time Zones"
 msgstr "Ζώνες ώρας"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "Ενεργοποίηση / απενεργοποίηση της χρήσης ζωνών ώρας για τη διαμόρφωση των παραμέτρων του στοιχείου δεδομένων και τον υπολογισμό της αναφοράς. Στην πρώτη περίπτωση ο χρόνος του διακομιστή πρέπει να ρυθμιστεί σε GMT / UTC!"
+msgstr "Ενεργοποίηση/Απενεργοποίηση της χρήσης ζωνών ώρας για τη ρύθμιση του στοιχείου δεδομένων και τον υπολογισμό αναφορών. Στην πρώτη περίπτωση η ώρα του διακομιστή πρέπει να ρυθμιστεί σε GMT/UTC!"
 
 #: setup.php
 msgid "Show Local Time Zone"
 msgstr "Εμφάνιση της τοπικής ζώνης ώρας"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "Ενεργοποίηση / απενεργοποίηση για την εμφάνιση της ζώνης ώρας του διακομιστή στις επικεφαλίδες."
+msgstr "Ενεργοποίηση/Απενεργοποίηση εμφάνισης της ζώνης ώρας του διακομιστή στις επικεφαλίδες."
 
 #: setup.php
-#, fuzzy
 msgid "Allow Scheduling by Operators"
-msgstr "Να επιτρέπεται ο προγραμματισμός από τους χειριστές"
+msgstr "Να επιτρέπεται ο προγραμματισμός από χειριστές"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "Ενεργοποίηση / απενεργοποίηση της δυνατότητας του χειριστή να προγραμματίζει αναφορές. Όταν απενεργοποιείται, μόνο οι διαχειριστές μπορούν να αλλάξουν τον προγραμματισμό."
+msgstr "Ενεργοποίηση/Απενεργοποίηση της δυνατότητας του χειριστή να προγραμματίζει αναφορές. Όταν είναι Απενεργοποιημένο, μόνο οι διαχειριστές μπορούν να αλλάξουν τον προγραμματισμό."
 
 #: setup.php
 msgid "SI-Prefixes"
 msgstr "SI-Προθέματα"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "Ενεργοποίηση / απενεργοποίηση της χρήσης σωστών προθεμάτων SI για δυαδικά πολλαπλάσια, σύμφωνα με τους όρους των <a href='http://www.ieee.org'>IEEE 1541</a> και <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> ."
+msgstr "Ενεργοποίηση/Απενεργοποίηση της χρήσης σωστών προθεμάτων SI για δυαδικά πολλαπλάσια σύμφωνα με τους όρους των <a href='http://www.ieee.org'>IEEE 1541</a> και <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1917,9 +1864,8 @@ msgid "The number of rows to display on a single page."
 msgstr "Ο αριθμός των γραμμών που εμφανίζονται σε μία σελίδα."
 
 #: setup.php
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "Ρυθμίσεις εξαγωγής του ReportIT"
+msgstr "Ρυθμίσεις εξαγωγής αναφορών"
 
 #: setup.php
 msgid "CSV Column Separator"
@@ -1938,9 +1884,8 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "Το σύμβολο που δείχνει το τέλος του ακέραιου τμήματος και την αρχή του κλασματικού τμήματος."
 
 #: setup.php
-#, fuzzy
 msgid "Report General Settings"
-msgstr "ReportIT Γενικές ρυθμίσεις"
+msgstr "Γενικές ρυθμίσεις αναφορών"
 
 #: templates.php
 msgid "New Report Template"
@@ -1948,7 +1893,7 @@ msgstr "Αναφορά προτύπων"
 
 #: templates.php
 msgid "There are no Data Templates in use."
-msgstr "Δεν υπάρχουν πρότυπα αναφοράς."
+msgstr "Δεν υπάρχουν πρότυπα δεδομένων σε χρήση."
 
 #: templates.php
 msgid "Create a new Report Template"
@@ -1964,7 +1909,7 @@ msgstr "Εξέταση αναφοράς προτύπου"
 
 #: templates.php
 msgid "Select the XML file that contains your Report Template."
-msgstr "Πρέπει να επιλέξετε τουλάχιστον ένα πρότυπο αναφοράς."
+msgstr "Επιλέξτε το αρχείο XML που περιέχει το πρότυπο αναφοράς σας."
 
 #: templates.php
 msgid "Import Report Templates"
@@ -1979,14 +1924,12 @@ msgid "Summary"
 msgstr "Περίληψη"
 
 #: templates.php
-#, fuzzy
-#| msgid "None"
 msgid "No"
-msgstr "Κανένα"
+msgstr "Όχι"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "Ναι"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2007,11 +1950,11 @@ msgstr "Το μοναδικό όνομα που δίνεται σε αυτό τ�
 
 #: templates.php
 msgid "The Author of this Report Template."
-msgstr "Εξέταση αναφοράς προτύπου"
+msgstr "Ο συντάκτης αυτού του προτύπου αναφοράς."
 
 #: templates.php
 msgid "The version of this Report Template."
-msgstr "Το μοναδικό όνομα που δίνεται σε αυτό το πρότυπο αναφοράς."
+msgstr "Η έκδοση αυτού του προτύπου αναφοράς."
 
 #: templates.php
 msgid "Published"
@@ -2019,7 +1962,7 @@ msgstr "Δημοσιευμένη"
 
 #: templates.php
 msgid "The total number of reports using this report template."
-msgstr "Το μοναδικό όνομα που δίνεται σε αυτό το πρότυπο αναφοράς."
+msgstr "Ο συνολικός αριθμός αναφορών που χρησιμοποιούν αυτό το πρότυπο αναφοράς."
 
 #: templates.php
 msgid "No matching data sources"
@@ -2066,18 +2009,17 @@ msgid "Interim results are used by other measurands."
 msgstr "Τα ενδιάμεσα αποτελέσματα χρησιμοποιούνται από άλλες μετρήσεις."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "Πρότυπο: %s"
+msgstr "Πρότυπο [ %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Template [new]"
-msgstr "Πρότυπο"
+msgstr "Πρότυπο [νέο]"
 
 #: templates.php
 msgid "<template_title>"
-msgstr "Τίτλος πρότυπου"
+msgstr "<template_title>"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Report Templates"
@@ -2099,7 +2041,7 @@ msgstr "Αναφορά: %s"
 
 #: templates.php
 msgid "Report: <i>None</i>"
-msgstr "| _Report: <i>κανένα</i> <br>"
+msgstr "Αναφορά: <i>Καμία</i>"
 
 #: templates.php
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
@@ -2119,7 +2061,7 @@ msgstr "<template_title> (1)"
 
 #: templates.php
 msgid "Click 'Continue' to Export the following Report Templates"
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τα παρακάτω πρότυπα αναφοράς"
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να εξαγάγετε τα ακόλουθα πρότυπα αναφορών"
 
 #: templates.php
 msgid "You must select at least one Report Template."
@@ -2146,44 +2088,42 @@ msgid "List of selected variables:"
 msgstr "Λίστα επιλεγμένων αναφορών:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable: %s"
-msgstr "Μεταβλητή : %s"
+msgstr "Μεταβλητή: %s"
 
 #: templates.php
 msgid "There are one or more variables in use."
-msgstr "Δεν υπάρχουν πρότυπα αναφοράς."
+msgstr "Υπάρχουν μία ή περισσότερες μεταβλητές σε χρήση."
 
 #: templates.php
 msgid "You must select at least one variable."
-msgstr "Πρέπει να επιλέξετε τουλάχιστον μία αναφορά."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον μία μεταβλητή."
 
 #: templates.php
 msgid "Delete Template Variables"
 msgstr "Διαγραφή προτύπων αναφοράς"
 
 #: templates.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "Κάντε κλικ στο «Συνέχεια» για να διαγράψετε τα ακόλουθα μετρήματα. Σημείωση: Εάν δεν απομένουν άλλες μετρήσεις μετά από αυτήν τη διαδικασία, το Πρότυπο αναφοράς θα κλειδωθεί αυτόματα."
+msgstr "Κάντε κλικ στο 'Συνέχεια' για να διαγράψετε τις ακόλουθες μετρικές. Σημείωση: Εάν δεν απομείνουν άλλες μετρικές μετά από αυτήν τη διαδικασία, το πρότυπο αναφοράς θα κλειδωθεί αυτόματα."
 
 #: templates.php
 msgid "List of selected measurands:"
 msgstr "Λίστα επιλεγμένων αναφορών:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
 msgstr "Μέτρηση: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
-msgstr "Πρέπει να επιλέξετε τουλάχιστον μία αναφορά."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον ένα μετρούμενο μέγεθος."
 
 #: templates.php
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "Διαγραφή προτύπων αναφοράς"
+msgstr "Διαγραφή μετρήσεων προτύπου"
 
 #: templates.php
 #, php-format
@@ -2192,12 +2132,12 @@ msgstr "Μεταβλητές [ Πρότυπο: %s - %s ]"
 
 #: templates.php
 msgid "No Variables Found"
-msgstr "Μεταβλητές"
+msgstr "Δεν βρέθηκαν μεταβλητές"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "Μεταβλητή διαμόρφωση [επεξεργασία: %s]"
+msgstr "Διαμόρφωση μεταβλητής [ επεξεργασία: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2220,10 +2160,8 @@ msgid "Provide a name for this Variable"
 msgstr "Δώστε ένα όνομα για αυτήν τη μεταβλητή"
 
 #: templates.php
-#, fuzzy
-#| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "Μια σύντομη, λιτή περιγραφή που εξηγεί την έννοια αυτής της μεταβλητής."
+msgstr "Μια περιγραφή που εξηγεί τη σημασία αυτής της μεταβλητής."
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2251,7 +2189,7 @@ msgstr "Προεπιλεγμένη τιμή"
 
 #: templates.php
 msgid "Sets the default value."
-msgstr "Επιστρέφει τη χαμηλότερη τιμή"
+msgstr "Ορίζει την προεπιλεγμένη τιμή."
 
 #: templates.php view.php
 msgid "Type"
@@ -2266,14 +2204,13 @@ msgid "Defines the distance between two values if method \"DropDown\" has been c
 msgstr "Καθορίζει την απόσταση μεταξύ δύο τιμών εάν έχει επιλεγεί η μέθοδος \"DropDown\". Βεβαιωθείτε ότι αυτή η τιμή δεν έχει οριστεί πολύ χαμηλή, επειδή καθορίζει έμμεσα τον αριθμό των επιλογών που θα έχει το αναπτυσσόμενο πεδίο. Για παράδειγμα, οι ακόλουθες παράμετροι: MAX: 100, MIN: 0, STEP: 0,01 θα οδηγήσουν σε ένα πλαίσιο επιλογής 10.001 επιλογών. Αυτό μπορεί να προκαλέσει δραματικά προβλήματα απόδοσης λόγω του υψηλού φορτίου CPU από την πλευρά των πελατών. Προσπαθήστε να το κρατήσετε κάτω από 1000."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "Μεταβλητή διαμόρφωση [επεξεργασία: %s]"
+msgstr "Διαμόρφωση μετρικής [ επεξεργασία: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Metric Configuration [new]"
-msgstr "Μεταβλητή διαμόρφωση [new]"
+msgstr "Διαμόρφωση μέτρησης [νέο]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2285,7 +2222,7 @@ msgstr "Ορίστε μια μοναδική συντομογραφία για �
 
 #: templates.php
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
-msgstr "Το όνομα που δίνεται σε αυτήν την αναφορά"
+msgstr "Η μονάδα μέτρησης που δίνεται σε αυτό το μετρούμενο μέγεθος, π.χ. 'Bits/s'"
 
 #: templates.php
 msgid "Consolidation function"
@@ -2344,14 +2281,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "Κάντε κλικ σε έναν από τους αναφερόμενους τελεστές ή τελεστή για να τους προσαρτήσετε στον τύπο σας. Η συμβουλή εργαλείου θα σας δείξει επιπλέον πληροφορίες όπως περιγραφή, τιμή επιστροφής, επιχειρήματα και χρήση."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "Πρότυπο: %s"
+msgstr "Μετρικές [ Πρότυπο: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "Δεν βρέθηκαν αναφορές"
+msgstr "Δεν βρέθηκαν μετρήσεις"
 
 #: view.php
 msgid "Reports Filter"
@@ -2371,13 +2307,11 @@ msgstr "Καθαρισμός"
 
 #: view.php
 msgid "Period (From - To)"
-msgstr "Περίοδος %s από - έως"
+msgstr "Περίοδος (Από - Έως)"
 
 #: view.php
-#, fuzzy
-#| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "Χρόνος εκτέλεσης"
+msgstr "Τελευταίος χρόνος εκτέλεσης [s]"
 
 #: view.php
 msgid "No Reports Found"
@@ -2392,9 +2326,8 @@ msgid "Data Source"
 msgstr "Ανεπεξέργαστη πηγή"
 
 #: view.php
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "Εμφάνιση διαγράμματος γραφήματος"
+msgstr "Εμφάνιση κορυφαίων 10 γραφημάτων"
 
 #: view.php
 msgid "Show Subheads"
@@ -2426,7 +2359,7 @@ msgstr "Τίτλος"
 
 #: view.php
 msgid "Runtime"
-msgstr "Χρόνου εκτέλεσης"
+msgstr "Χρόνος εκτέλεσης"
 
 #: view.php
 msgid "Period"
@@ -2442,26 +2375,25 @@ msgstr "Περιγραφή δεδομένων"
 
 #: view.php
 msgid "-- NO SUBHEADING --"
-msgstr "- ΟΧΙ ΥΠΟΒΟΛΗ -"
+msgstr "-- ΧΩΡΙΣ ΥΠΟΚΕΦΑΛΙΔΑ --"
 
 #: view.php
 msgid "No Data Items"
-msgstr "Στοιχεία δεδομένων"
+msgstr "Δεν υπάρχουν στοιχεία δεδομένων"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "Μέτρηση: %s"
+msgstr "Μετρική: %s (%s)"
 
 #: view.php
-#, fuzzy
 msgid "Pos."
-msgstr "Pos."
+msgstr "Θέσ."
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
-msgstr "Αποτελέσματα [ %s]"
+msgstr "Αποτελέσματα [%s]"
 
 #~ msgid "Public Report Charts"
 #~ msgstr "Δημόσια Γραφήματα Αναφορών"
