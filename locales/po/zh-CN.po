@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Simplified Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hans/>\nLanguage: zh-CN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Simplified Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hans/>\nLanguage: zh-CN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -288,7 +288,7 @@ msgstr "科学计数法"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Unchanged"
-msgstr "未更改"
+msgstr "[不变]"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "off"
@@ -660,7 +660,7 @@ msgstr "用于分隔转发给函数的参数"
 
 #: include/global_arrays.php
 msgid "The minimum value of data that is allowed to be collected."
-msgstr "允许收集的数据的最小值."
+msgstr "允许收集的数据的最小值。"
 
 #: include/global_arrays.php
 msgid "WARNING! This variable can be set to zero or unlimited"
@@ -668,7 +668,7 @@ msgstr "警告！此变量可以设置为 0 或 unlimited"
 
 #: include/global_arrays.php
 msgid "The maximum value of data that is allowed to be collected."
-msgstr "允许收集的数据的最大值."
+msgstr "允许收集的数据的最大值。"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Contains the number of seconds between two measured values."
@@ -732,7 +732,7 @@ msgstr "7,500 个数据源项"
 
 #: include/global_arrays.php
 msgid "10,000 Data Source Items"
-msgstr "10,000 个数据源项目"
+msgstr "10,000 个数据源项"
 
 #: include/global_arrays.php
 msgid "15,000 Data Source Items"
@@ -1398,7 +1398,7 @@ msgstr "文件传输不完整。"
 
 #: lib/funct_validate.php
 msgid "No file uploaded."
-msgstr "无上传文件."
+msgstr "未上传文件。"
 
 #: lib/funct_validate.php
 msgid "Temporary folder missing."
