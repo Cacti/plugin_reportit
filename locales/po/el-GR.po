@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/reportit/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/reportit/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -941,7 +941,7 @@ msgstr "Απέτυχε"
 
 #: lib/const_reports.php
 msgid "Idle"
-msgstr "Σε αδράνεια"
+msgstr "Αδρανής"
 
 #: lib/const_reports.php
 msgid "Running"
@@ -1547,7 +1547,7 @@ msgstr "Πηγή δεδομένων"
 
 #: reportit.php
 msgid "Associated"
-msgstr "Συσχετισμός"
+msgstr "Συσχετισμένα"
 
 #: reportit.php
 msgid "Subhead"
@@ -1616,7 +1616,7 @@ msgstr "Κάντε κλικ στο 'Συνέχεια' για να εκτελέσ
 
 #: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες αναφορές."
+msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις ακόλουθες αναφορές:"
 
 #: reportit.php
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
@@ -1805,7 +1805,7 @@ msgstr "Μέγιστη αλλαγή καταμέτρησης εγγραφών"
 
 #: setup.php
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
-msgstr "Προαιρετικά (λίστα αυτόματης δημιουργίας RRD): Μην αλλάζετε λίστα RRD οποιουδήποτε Αναφοράς εάν η Αλλαγή εγγραφών εγγραφών είναι μεγαλύτερη από αυτόν τον αριθμό Αυτό είναι για να αποφευχθούν ανεπιθύμητες και καταστρεπτικές αλλαγές στις λίστες RRD"
+msgstr "Προαιρετικά (λίστα αυτόματης δημιουργίας RRD): Μην αλλάζετε λίστα RRD οποιασδήποτε Αναφοράς εάν η Αλλαγή πλήθους εγγραφών είναι μεγαλύτερη από αυτόν τον αριθμό Αυτό είναι για να αποφευχθούν ανεπιθύμητες και καταστρεπτικές αλλαγές στις λίστες RRD"
 
 #: setup.php
 msgid "Time Zones"
