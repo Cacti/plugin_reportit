@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Korean <https://translate.cacti.net/projects/cacti/reportit/ko/>\nLanguage: ko-KR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Korean <https://translate.cacti.net/projects/cacti/reportit/ko/>\nLanguage: ko-KR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1061,7 +1061,7 @@ msgstr "이메일 주소 (들)"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr "여러 주소를 쉼표 (,)로 구분하십시오."
+msgstr "여러 주소를 쉼표 (,)로 구분하십시오"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
@@ -1069,7 +1069,7 @@ msgstr "숨은 참조 주소"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr "맹목적인 카본 복사. 여러 주소를 쉼표 (,)로 구분하십시오."
+msgstr "맹목적인 카본 복사. 여러 주소를 쉼표 (,)로 구분하십시오"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
@@ -1077,7 +1077,7 @@ msgstr "새 이메일 수신자"
 
 #: lib/const_reports.php
 msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
-msgstr "새 수신자를 추가하려면 유효한 이메일 주소(필수)와 이름(선택 사항)을 입력하세요.<br> 더 빠르게 설정하려면 이름/주소를 다음 구분 기호(';' 또는 ',') 중 하나로 구분한 주소/이름 목록을 사용하세요."
+msgstr "새 수신자를 추가하려면 유효한 이메일 주소(필수)와 이름(선택 사항)을 입력하세요.<br> 더 빠르게 설정하려면 이름/주소를 다음 구분 기호(';' 또는 ',') 중 하나로 구분한 주소/이름 목록을 사용하세요"
 
 #: lib/const_reports.php
 msgid "Optional Sub-heading"
@@ -1249,7 +1249,7 @@ msgstr "고정 기간 - 시작 날짜(시작)"
 
 #: lib/const_reports.php
 msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
-msgstr "시작 날짜를 정의하려면 <b>yyyy-mm-dd</b> 형식을 사용합니다."
+msgstr "시작 날짜를 정의하려면 <b>yyyy-mm-dd</b> 형식을 사용합니다"
 
 #: lib/const_reports.php
 msgid "Fixed Time Frame - End Date (To)"
@@ -1257,7 +1257,7 @@ msgstr "고정 시간 프레임 - 종료 날짜(종료)"
 
 #: lib/const_reports.php
 msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
-msgstr "종료 날짜를 정의하려면 <b>yyyy-mm-dd</b> 형식을 사용합니다."
+msgstr "종료 날짜를 정의하려면 <b>yyyy-mm-dd</b> 형식을 사용합니다"
 
 #: lib/const_rrdlist.php
 msgid "Add to Report"
@@ -1624,7 +1624,7 @@ msgstr "'계속'을 클릭하여 다음 보고서 구성을 복제합니다.  �
 
 #: reportit.php
 msgid "Title Format:"
-msgstr "제목 형식"
+msgstr "제목 형식:"
 
 #: reportit.php
 msgid "<report_title> (1)"
