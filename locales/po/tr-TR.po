@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/reportit/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/reportit/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -73,7 +73,7 @@ msgstr "Kısaltma"
 
 #: include/global_arrays.php
 msgid "Group"
-msgstr "Grup"
+msgstr "Gruplar"
 
 #: include/global_arrays.php templates.php
 msgid "Unit"
@@ -288,7 +288,7 @@ msgstr "Bilimsel Gösterim"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Unchanged"
-msgstr "Değişemedi"
+msgstr "Değişmedi"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "off"
@@ -660,7 +660,7 @@ msgstr "Bir işleve iletilen bağımsız değişkenleri ayırmak için kullanıl
 
 #: include/global_arrays.php
 msgid "The minimum value of data that is allowed to be collected."
-msgstr "Toplanmasına izin verilen minimum veri değeri."
+msgstr "Toplanmasına izin verilen asgari veri değeri."
 
 #: include/global_arrays.php
 msgid "WARNING! This variable can be set to zero or unlimited"
