@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:36+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -81,7 +81,7 @@ msgstr "單位"
 
 #: include/global_arrays.php templates.php
 msgid "Consolidation Function"
-msgstr "合併函數"
+msgstr "合併功能"
 
 #: include/global_arrays.php templates.php
 msgid "Visible"
@@ -109,7 +109,7 @@ msgstr "評估"
 
 #: include/global_arrays.php
 msgid "Associated Data Templates"
-msgstr "關聯的資料範本"
+msgstr "關聯數據模板"
 
 #: include/global_arrays.php include/global_forms.php lib/const_reports.php
 #: reportit.php setup.php templates.php
@@ -118,7 +118,7 @@ msgstr "一般"
 
 #: include/global_arrays.php
 msgid "Data Templates"
-msgstr "資料範本"
+msgstr "數據模板"
 
 #: include/global_arrays.php
 msgid "Groups"
@@ -187,7 +187,7 @@ msgstr "這個月"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Month"
-msgstr "最近一個月"
+msgstr "上個月"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Months"
@@ -215,7 +215,7 @@ msgstr "今年"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Year"
-msgstr "最近一年"
+msgstr "去年"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Years"
@@ -247,7 +247,7 @@ msgstr "下拉"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input field"
-msgstr "輸入欄位"
+msgstr "輸入欄"
 
 #: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
 #: lib/const_view.php
@@ -288,7 +288,7 @@ msgstr "科學記數法"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Unchanged"
-msgstr "未變更"
+msgstr "[不變]"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "off"
@@ -660,7 +660,7 @@ msgstr "用於分隔轉發給函數的參數"
 
 #: include/global_arrays.php
 msgid "The minimum value of data that is allowed to be collected."
-msgstr "允許收集的資料最小值。"
+msgstr "允許收集的最小數據值。"
 
 #: include/global_arrays.php
 msgid "WARNING! This variable can be set to zero or unlimited"
@@ -668,7 +668,7 @@ msgstr "警告！此變數可設為零或無限制"
 
 #: include/global_arrays.php
 msgid "The maximum value of data that is allowed to be collected."
-msgstr "允許收集的資料最大值。"
+msgstr "允許收集的數據的最大值。"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Contains the number of seconds between two measured values."
@@ -708,7 +708,7 @@ msgstr "中期業績"
 
 #: include/global_arrays.php
 msgid "Unlimited"
-msgstr "無限制"
+msgstr "無限"
 
 #: include/global_arrays.php
 msgid "500 Data Items"
@@ -724,7 +724,7 @@ msgstr "2,000 個數據項"
 
 #: include/global_arrays.php
 msgid "5,000 Data Source Items"
-msgstr "5,000 個資料來源項目"
+msgstr "5,000個數據源項目"
 
 #: include/global_arrays.php
 msgid "7,500 Data Source Items"
@@ -732,15 +732,15 @@ msgstr "7,500 個數據源項"
 
 #: include/global_arrays.php
 msgid "10,000 Data Source Items"
-msgstr "10,000 個資料來源項目"
+msgstr "10,000個數據源項"
 
 #: include/global_arrays.php
 msgid "15,000 Data Source Items"
-msgstr "15,000 個資料來源項目"
+msgstr "15,000個數據源項目"
 
 #: include/global_arrays.php
 msgid "25,000 Data Source Items"
-msgstr "25,000 個資料來源項目"
+msgstr "25,000個數據源項目"
 
 #: include/global_arrays.php
 msgid "1 Minute"
@@ -781,7 +781,7 @@ msgstr "此範本的作者"
 
 #: include/global_forms.php
 msgid "Publish"
-msgstr "發布"
+msgstr "發佈"
 
 #: include/global_forms.php
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
@@ -789,7 +789,7 @@ msgstr "是否應發佈此報表範本供用戶訪問？為了測試新範本或
 
 #: include/global_forms.php templates.php
 msgid "Locked"
-msgstr "已鎖定"
+msgstr "已上鎖"
 
 #: include/global_forms.php
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
@@ -813,7 +813,7 @@ msgstr "可選取：用於儲存匯出的資料夾的路徑。 如果不存在�
 
 #: include/global_forms.php templates.php
 msgid "Data Template"
-msgstr "資料範本"
+msgstr "數據模板"
 
 #: include/global_forms.php
 msgid "The name of the data template this Report Template depends on."
@@ -929,7 +929,7 @@ msgstr "現在跑步"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr "取得擁有權"
+msgstr "取得所有權"
 
 #: lib/const_reports.php
 msgid "CRASHED"
@@ -945,7 +945,7 @@ msgstr "閒置"
 
 #: lib/const_reports.php
 msgid "Running"
-msgstr "執行中"
+msgstr "運行"
 
 #: lib/const_reports.php
 msgid "- No template available -"
@@ -989,7 +989,7 @@ msgstr "電子郵件"
 
 #: lib/const_reports.php reportit.php
 msgid "Data Sources"
-msgstr "資料來源"
+msgstr "數據源"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "Text CSV (.csv)"
@@ -1061,11 +1061,11 @@ msgstr "收件者電子郵件地址"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr "請以逗號 (,) 分隔多個位址"
+msgstr "請用逗號分隔多個地址（，）"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr "密件副本地址"
+msgstr "BCC地址"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
@@ -1169,7 +1169,7 @@ msgstr "此報表的名稱"
 
 #: lib/const_reports.php lib/funct_export.php view.php
 msgid "Template"
-msgstr "範本"
+msgstr "模板"
 
 #: lib/const_reports.php
 msgid "The template your configuration depends on"
@@ -1177,7 +1177,7 @@ msgstr "您的配置所依賴的範本"
 
 #: lib/const_reports.php lib/funct_export.php view.php
 msgid "Owner"
-msgstr "擁有者"
+msgstr "所有者"
 
 #: lib/const_reports.php
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
@@ -1185,7 +1185,7 @@ msgstr "更改此報告的所有者。只能選擇具有 「查看」 或以上�
 
 #: lib/const_reports.php reportit.php view.php
 msgid "Enabled"
-msgstr "已啟用"
+msgstr "啟用"
 
 #: lib/const_reports.php
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
@@ -1261,7 +1261,7 @@ msgstr "要定義結束日期，請使用以下格式： <b>yyyy-mm-dd</b>"
 
 #: lib/const_rrdlist.php
 msgid "Add to Report"
-msgstr "新增至報表"
+msgstr "添加到報告"
 
 #: lib/const_rrdlist.php
 msgid "Remove from Report"
@@ -1319,7 +1319,7 @@ msgstr "和"
 
 #: lib/const_view.php
 msgid "Average"
-msgstr "平均值"
+msgstr "平均"
 
 #: lib/funct_export.php
 msgid "Report title"
@@ -1398,7 +1398,7 @@ msgstr "檔傳輸不完整。"
 
 #: lib/funct_validate.php
 msgid "No file uploaded."
-msgstr "無上傳文件。"
+msgstr "未上傳檔案。"
 
 #: lib/funct_validate.php
 msgid "Temporary folder missing."
@@ -1427,7 +1427,7 @@ msgstr "XML 檔中範本%s的校驗和錯誤"
 
 #: reportit.php
 msgid "New Report"
-msgstr "新增報表"
+msgstr "新的報表"
 
 #: reportit.php
 #, php-format
@@ -1460,7 +1460,7 @@ msgstr "搜尋"
 
 #: reportit.php setup.php templates.php view.php
 msgid "Reports"
-msgstr "報表"
+msgstr "報告"
 
 #: reportit.php templates.php view.php
 msgctxt "Button: use filter settings"
@@ -1483,7 +1483,7 @@ msgstr "排程"
 
 #: reportit.php
 msgid "State"
-msgstr "狀態"
+msgstr "州"
 
 #: reportit.php
 #, php-format
@@ -1497,7 +1497,7 @@ msgstr "上次啟動 %s"
 
 #: reportit.php
 msgid "Last Runtime"
-msgstr "上次執行時間"
+msgstr "最後運行時間"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1543,7 +1543,7 @@ msgstr "未找到收件者"
 
 #: reportit.php
 msgid "Data Source Name"
-msgstr "資料來源名稱"
+msgstr "數據源名稱"
 
 #: reportit.php
 msgid "Associated"
@@ -1567,7 +1567,7 @@ msgstr "RRD 檔案"
 
 #: reportit.php
 msgid "Show All"
-msgstr "全部顯示"
+msgstr "顯示所有"
 
 #: reportit.php
 msgid "Does not exist anymore"
@@ -1737,7 +1737,7 @@ msgstr "匯出報表"
 
 #: setup.php
 msgid "Normal User"
-msgstr "一般使用者"
+msgstr "普通用戶"
 
 #: setup.php
 msgid "General Administration"
@@ -1761,7 +1761,7 @@ msgstr "報告它"
 
 #: setup.php templates.php
 msgid "Templates"
-msgstr "範本"
+msgstr "模板"
 
 #: setup.php
 msgid "No data source item selected"
@@ -1781,7 +1781,7 @@ msgstr "全域"
 
 #: setup.php
 msgid "local"
-msgstr "本機"
+msgstr "本地"
 
 #: setup.php
 msgid "Power User (Report Owner)"
@@ -1857,7 +1857,7 @@ msgstr "啟用/禁用每個報表使用單個過濾器。"
 
 #: setup.php
 msgid "Rows Per Page"
-msgstr "每頁列數"
+msgstr "每頁行數"
 
 #: setup.php
 msgid "The number of rows to display on a single page."
@@ -1958,7 +1958,7 @@ msgstr "此報告範本的版本。"
 
 #: templates.php
 msgid "Published"
-msgstr "已發布"
+msgstr "已發佈"
 
 #: templates.php
 msgid "The total number of reports using this report template."
@@ -2226,7 +2226,7 @@ msgstr "為此被測變數提供的單位。例如：'Bits/s'"
 
 #: templates.php
 msgid "Consolidation function"
-msgstr "合併函數"
+msgstr "合併功能"
 
 #: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
@@ -2315,7 +2315,7 @@ msgstr "上次執行時間 [s]"
 
 #: view.php
 msgid "No Reports Found"
-msgstr "找不到報表"
+msgstr "沒有找到報告"
 
 #: view.php
 msgid "Metric"
@@ -2347,11 +2347,11 @@ msgstr "項目"
 
 #: view.php
 msgid "Archive"
-msgstr "封存"
+msgstr "檔案"
 
 #: view.php
 msgid "Current"
-msgstr "目前"
+msgstr "當前"
 
 #: view.php
 msgid "Title"
