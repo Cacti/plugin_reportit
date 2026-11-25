@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
-"PO-Revision-Date: 2026-11-09 22:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/reportit/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1088,8 +1076,8 @@ msgid "New Email Recipients"
 msgstr "Nya e-postmottagare"
 
 #: lib/const_reports.php
-msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
-msgstr "Ange en giltig e-postadress (obligatoriskt) och ett namn (valfritt) för att lägga till en mottagare.<br> För snabbare inmatning kan du använda en lista med adresser och namn, separerade med semikolon ';' eller kommatecken ','."
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "För att lägga till en ny mottagare, ange en giltig e-postadress (obligatoriskt) och ett namn (valfritt).<br> För snabbare konfiguration kan du använda en lista med adresser/namn där namnen/adresserna separeras med någon av följande avgränsare: ';' eller ','"
 
 #: lib/const_reports.php
 msgid "Optional Sub-heading"
@@ -1140,8 +1128,8 @@ msgid "Auto Generated Data Items"
 msgstr "Automatiskt genererade dataobjekt"
 
 #: lib/const_reports.php
-msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
-msgstr "Aktivera eller inaktivera automatisk skapning av dataobjekt utifrån filtren. Det sker innan rapporten körs. Föråldrade RRD:er tas bort och alla RRD:er som matchar filtren läggs till."
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Aktivera/inaktivera automatiskt skapande av alla dataobjekt baserat på angivna filter. Detta körs före rapportexekvering. Obsoleta RRD-filer tas bort och alla RRD-filer som matchar filterinställningarna läggs till."
 
 #: lib/const_reports.php reportit.php
 msgid "Working Time"
