@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/reportit/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/reportit/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -660,7 +660,7 @@ msgstr "משמש להפרדת ארגומנטים שהועברו לפונקציה
 
 #: include/global_arrays.php
 msgid "The minimum value of data that is allowed to be collected."
-msgstr "הערך המינימלי של הנתונים המותרים לאיסוף."
+msgstr "הערך המזערי של נתונים שמותר לאסוף."
 
 #: include/global_arrays.php
 msgid "WARNING! This variable can be set to zero or unlimited"
@@ -668,7 +668,7 @@ msgstr "אזהרה! ניתן להגדיר משתנה זה לאפס או ללא �
 
 #: include/global_arrays.php
 msgid "The maximum value of data that is allowed to be collected."
-msgstr "הערך המרבי של הנתונים המותרים לאיסוף."
+msgstr "הערך המרבי של נתונים שמותר לאסוף."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Contains the number of seconds between two measured values."
@@ -1805,7 +1805,7 @@ msgstr "שינוי מרבי במספר הרשומות"
 
 #: setup.php
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
-msgstr "אופציונלי (יצירת רשימת RRD אוטומטית): אל תשנה רשימת RRD של דוח כלשהו אם השינוי בספירת רשומות גדול ממספר זה זאת זאת כדי למנוע שינויים לא רצויים והרסניים ברשימות RRD"
+msgstr "אופציונלי (יצירת רשימת RRD אוטומטית): אל תשנה רשימת RRD של דוח כלשהו אם השינוי בספירת רשומות גדול ממספר זה זאת כדי למנוע שינויים לא רצויים והרסניים ברשימות RRD"
 
 #: setup.php
 msgid "Time Zones"
