@@ -4,28 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
-"PO-Revision-Date: 2026-10-06 09:18+0000\n"
-"Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
-"Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hant/>\n"
-"Language: zh-TW\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/reportit/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
-#, fuzzy
 msgid "Delete"
 msgstr "刪除"
 
 #: include/global_arrays.php lib/const_reports.php
-#, fuzzy
 msgid "Duplicate"
 msgstr "複製"
 
@@ -43,7 +29,6 @@ msgstr "匯出"
 
 #: include/global_arrays.php include/global_forms.php lib/const_reports.php
 #: lib/const_variables.php reportit.php templates.php view.php
-#, fuzzy
 msgid "Name"
 msgstr "名稱"
 
@@ -59,7 +44,7 @@ msgstr "最大值"
 #: include/global_arrays.php lib/const_variables.php lib/const_view.php
 #: templates.php
 msgid "Minimum"
-msgstr "最低限度"
+msgstr "最小值"
 
 #: include/global_arrays.php lib/const_variables.php reportit.php templates.php
 #: view.php
@@ -71,7 +56,6 @@ msgid "Stepping"
 msgstr "步進"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
-#, fuzzy
 msgid "Input Type"
 msgstr "輸入類型"
 
@@ -80,7 +64,6 @@ msgid "Options"
 msgstr "選項"
 
 #: include/global_arrays.php reportit.php templates.php
-#, fuzzy
 msgid "ID"
 msgstr "ID"
 
@@ -97,9 +80,8 @@ msgid "Unit"
 msgstr "單位"
 
 #: include/global_arrays.php templates.php
-#, fuzzy
 msgid "Consolidation Function"
-msgstr "合併功能"
+msgstr "合併函數"
 
 #: include/global_arrays.php templates.php
 msgid "Visible"
@@ -107,7 +89,7 @@ msgstr "可見"
 
 #: include/global_arrays.php templates.php
 msgid "Separate"
-msgstr "分隔小數點的符號（通常或 .）"
+msgstr "分開"
 
 #: include/global_arrays.php templates.php
 msgid "Calculation Formula"
@@ -126,23 +108,19 @@ msgid "Metrics"
 msgstr "評估"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "Associated Data Templates"
-msgstr "關聯數據模板"
+msgstr "關聯的資料範本"
 
 #: include/global_arrays.php include/global_forms.php lib/const_reports.php
 #: reportit.php setup.php templates.php
-#, fuzzy
 msgid "General"
 msgstr "一般"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "Data Templates"
-msgstr "數據模板"
+msgstr "資料範本"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "Groups"
 msgstr "群組"
 
@@ -208,9 +186,8 @@ msgid "Current Month"
 msgstr "這個月"
 
 #: include/global_arrays.php lib/const_reports.php
-#, fuzzy
 msgid "Last Month"
-msgstr "上個月"
+msgstr "最近一個月"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Months"
@@ -237,26 +214,22 @@ msgid "Current Year"
 msgstr "今年"
 
 #: include/global_arrays.php lib/const_reports.php
-#, fuzzy
 msgid "Last Year"
-msgstr "去年"
+msgstr "最近一年"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Years"
 msgstr "最近 2 年"
 
 #: include/global_arrays.php lib/const_reports.php
-#, fuzzy
 msgid "Daily"
 msgstr "每日"
 
 #: include/global_arrays.php lib/const_reports.php
-#, fuzzy
 msgid "Weekly"
 msgstr "每週"
 
 #: include/global_arrays.php lib/const_reports.php
-#, fuzzy
 msgid "Monthly"
 msgstr "每月"
 
@@ -273,13 +246,11 @@ msgid "Dropdown"
 msgstr "下拉"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
-#, fuzzy
 msgid "Input field"
-msgstr "輸入欄"
+msgstr "輸入欄位"
 
 #: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
 #: lib/const_view.php
-#, fuzzy
 msgid "None"
 msgstr "無"
 
@@ -340,7 +311,6 @@ msgid "Returns the average value of all measured values per DS"
 msgstr "返回每個 DS 的所有測量值的平均值"
 
 #: include/global_arrays.php lib/const_measurands.php
-#, fuzzy
 msgid "none"
 msgstr "無"
 
@@ -522,7 +492,7 @@ msgstr "返回給定參數清單的最大值"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$var 1， $var 2， $var 3 ...： 要比較的值"
+msgstr "$var1, $var2, $var3 ...：要比較的值"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -542,7 +512,7 @@ msgstr "如果 A 為 true，則返回 B，如果 A 為 false，則返回 C"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_isNaN - Find whether a value is not a number"
-msgstr "f_isNaN - 尋找值是否為數位"
+msgstr "f_isNaN - 判斷值是否不是數字"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
@@ -626,7 +596,7 @@ msgstr "返回 minuend 和 subtrahend 之差的數學運算"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Multiplication"
-msgstr "分堂"
+msgstr "乘法"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
@@ -689,18 +659,16 @@ msgid "Used to separate arguments forwarded to a function"
 msgstr "用於分隔轉發給函數的參數"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "The minimum value of data that is allowed to be collected."
-msgstr "允許收集的最小數據值。"
+msgstr "允許收集的資料最小值。"
 
 #: include/global_arrays.php
 msgid "WARNING! This variable can be set to zero or unlimited"
-msgstr "警告！此變數可以設置為 0 或 unlimited"
+msgstr "警告！此變數可設為零或無限制"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "The maximum value of data that is allowed to be collected."
-msgstr "允許收集的數據的最大值。"
+msgstr "允許收集的資料最大值。"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Contains the number of seconds between two measured values."
@@ -739,9 +707,8 @@ msgid "Interim Results"
 msgstr "中期業績"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "Unlimited"
-msgstr "無限"
+msgstr "無限制"
 
 #: include/global_arrays.php
 msgid "500 Data Items"
@@ -756,36 +723,31 @@ msgid "2,000 Data Items"
 msgstr "2,000 個數據項"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "5,000 Data Source Items"
-msgstr "5,000個數據源項目"
+msgstr "5,000 個資料來源項目"
 
 #: include/global_arrays.php
 msgid "7,500 Data Source Items"
 msgstr "7,500 個數據源項"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "10,000 Data Source Items"
-msgstr "10,000個數據源項"
+msgstr "10,000 個資料來源項目"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "15,000 Data Source Items"
-msgstr "15,000個數據源項目"
+msgstr "15,000 個資料來源項目"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "25,000 Data Source Items"
-msgstr "25,000個數據源項目"
+msgstr "25,000 個資料來源項目"
 
 #: include/global_arrays.php
-#, fuzzy
 msgid "1 Minute"
 msgstr "1 分鐘"
 
 #: include/global_arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes"
 msgstr "%d 分鐘"
 
@@ -794,7 +756,6 @@ msgid "The unique name given to this Report Template."
 msgstr "為此報告範本指定的唯一名稱。"
 
 #: include/global_forms.php templates.php view.php
-#, fuzzy
 msgid "Description"
 msgstr "描述"
 
@@ -803,7 +764,6 @@ msgid "A longer description of this Report Template."
 msgstr "此報告範本的詳細說明。"
 
 #: include/global_forms.php templates.php
-#, fuzzy
 msgid "Version"
 msgstr "版本"
 
@@ -812,7 +772,6 @@ msgid "A version number for this template"
 msgstr "此範本的版本號"
 
 #: include/global_forms.php templates.php
-#, fuzzy
 msgid "Author"
 msgstr "作者"
 
@@ -821,18 +780,16 @@ msgid "The author of this template"
 msgstr "此範本的作者"
 
 #: include/global_forms.php
-#, fuzzy
 msgid "Publish"
-msgstr "發佈"
+msgstr "發布"
 
 #: include/global_forms.php
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
 msgstr "是否應發佈此報表範本供用戶訪問？為了測試新範本或修改，您應該取消選取此選項。"
 
 #: include/global_forms.php templates.php
-#, fuzzy
 msgid "Locked"
-msgstr "已上鎖"
+msgstr "已鎖定"
 
 #: include/global_forms.php
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
@@ -855,9 +812,8 @@ msgid "Optional: The path to an folder for saving the exports.  If it does not e
 msgstr "可選取：用於儲存匯出的資料夾的路徑。 如果不存在，ReportIt 會自動嘗試在第一次計劃計算期間創建它，否則它將嘗試使用範本 ID 在主導出資料夾中創建新的子資料夾。"
 
 #: include/global_forms.php templates.php
-#, fuzzy
 msgid "Data Template"
-msgstr "數據模板"
+msgstr "資料範本"
 
 #: include/global_forms.php
 msgid "The name of the data template this Report Template depends on."
@@ -905,11 +861,11 @@ msgstr "條形圖（水準）"
 
 #: lib/const_graphs.php
 msgid "Line"
-msgstr "線條"
+msgstr "折線圖"
 
 #: lib/const_graphs.php
 msgid "Area"
-msgstr "區域"
+msgstr "區域圖"
 
 #: lib/const_graphs.php
 msgid "Pie chart 3D"
@@ -960,12 +916,10 @@ msgid "Parentheses"
 msgstr "括弧"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Disable"
 msgstr "停用"
 
 #: lib/const_reports.php setup.php
-#, fuzzy
 msgid "Enable"
 msgstr "啟用"
 
@@ -975,81 +929,67 @@ msgstr "現在跑步"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "取得擁有權"
 
 #: lib/const_reports.php
 msgid "CRASHED"
 msgstr "墜毀"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "FAILED"
 msgstr "失敗"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Idle"
 msgstr "閒置"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Running"
-msgstr "運行"
+msgstr "執行中"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "- No template available -"
-msgstr "- 無法使用 -"
+msgstr "- 無可用範本 -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
-#, fuzzy
 msgid "Monday"
 msgstr "星期一"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
-#, fuzzy
 msgid "Tuesday"
 msgstr "星期二"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
-#, fuzzy
 msgid "Wednesday"
 msgstr "星期三"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
-#, fuzzy
 msgid "Thursday"
 msgstr "星期四"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
-#, fuzzy
 msgid "Friday"
 msgstr "星期五"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
-#, fuzzy
 msgid "Saturday"
 msgstr "星期六"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
-#, fuzzy
 msgid "Sunday"
 msgstr "星期日"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "數據項預設"
+msgstr "資料來源預設集"
 
 #: lib/const_reports.php reportit.php
-#, fuzzy
 msgid "Email"
 msgstr "電子郵件"
 
 #: lib/const_reports.php reportit.php
-#, fuzzy
 msgid "Data Sources"
-msgstr "數據源"
+msgstr "資料來源"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "Text CSV (.csv)"
@@ -1065,14 +1005,13 @@ msgstr "原始 XML （.xml）"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "JSON 資料 (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "YAML 資料 (.yaml)"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Subject"
 msgstr "主旨"
 
@@ -1082,7 +1021,7 @@ msgstr "輸入電子郵件的主題。<br> 將支援以下變數（不帶引號�
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "計劃報告 - |title|- |期間|"
+msgstr "排程報告 - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1118,32 +1057,31 @@ msgstr "根據有效的通知清單添加收件者。"
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "收件者電子郵件地址"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "請以逗號 (,) 分隔多個位址"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "密件副本地址"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "密件副本。請以逗號 (,) 分隔多個位址"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
 msgstr "新電子郵件收件者"
 
 #: lib/const_reports.php
-msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
-msgstr "要添加新收件者，請輸入有效的電子郵件位址 （必填） 和姓名 （可選）。<br> 為了更快地設置，請使用位址/名稱清單，其中名稱/位址用以下分隔符之一分隔：';' 或 '，'"
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "若要新增收件者，請輸入有效的電子郵件地址（必填）與名稱（選填）。<br> 若要加快設定速度，可使用地址／名稱清單，並以下列其中一種分隔符號分隔名稱／地址：「;」或「,」"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[可選]版本"
+msgstr "選用的副標題"
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
@@ -1158,54 +1096,46 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "選擇您的以下shifttime資訊將基於的時區。"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "附加預篩檢程式"
+msgstr "選用的資料來源預先篩選器"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Site Filter"
-msgstr "報告篩選"
+msgstr "站台篩選"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "僅使用屬於此主機範本主機的數據項。<br>選擇 『None』 （預設） 以停用此過濾器設置。"
+msgstr "僅使用符合此站台的資料來源。<br>選取「None」（預設）以停用此篩選設定。"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "刪除範本變數"
+msgstr "裝置範本篩選器"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "僅使用屬於此主機範本主機的數據項。<br>選擇 『None』 （預設） 以停用此過濾器設置。"
+msgstr "僅使用此裝置範本的資料來源。<br>選取「None」（預設）以停用此篩選設定。"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "數據源別名"
+msgstr "資料來源名稱篩選器"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "允許對數據項描述進行其他篩選。<br> 使用 SQL 通配符，如 % and/或 _。沒有正則表達式！"
+msgstr "使用名稱符合此篩選條件的資料來源。<br> 請使用 SQL 萬用字元，例如 % 及/或 _。不可使用正規表示式！"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
 msgstr "自動生成的數據項"
 
 #: lib/const_reports.php
-msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
-msgstr "啟用/禁用基於給定過濾器自動創建所有數據項。這將在報表執行之前調用。 過時的 RRD 將被刪除，並且將添加與過濾器設置匹配的所有 RRD。"
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "啟用/停用根據指定篩選條件自動建立所有資料項目。此功能將在執行報告前呼叫。過時的 RRD 將會被刪除，且所有符合篩選設定的 RRD 將會被新增。"
 
 #: lib/const_reports.php reportit.php
 msgid "Working Time"
 msgstr "工作時間"
 
 #: lib/const_reports.php reportit.php
-#, fuzzy
 msgid "From"
 msgstr "從"
 
@@ -1214,9 +1144,8 @@ msgid "The startpoint of duration you want to analyse"
 msgstr "要分析的持續時間的起點"
 
 #: lib/const_reports.php reportit.php
-#, fuzzy
 msgid "To"
-msgstr "到"
+msgstr "至"
 
 #: lib/const_reports.php reportit.php
 msgid "The end of analysing time."
@@ -1239,27 +1168,24 @@ msgid "The name given to this report"
 msgstr "此報表的名稱"
 
 #: lib/const_reports.php lib/funct_export.php view.php
-#, fuzzy
 msgid "Template"
-msgstr "模板"
+msgstr "範本"
 
 #: lib/const_reports.php
 msgid "The template your configuration depends on"
 msgstr "您的配置所依賴的範本"
 
 #: lib/const_reports.php lib/funct_export.php view.php
-#, fuzzy
 msgid "Owner"
-msgstr "所有者"
+msgstr "擁有者"
 
 #: lib/const_reports.php
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
 msgstr "更改此報告的所有者。只能選擇具有 「查看」 或以上許可權的使用者。"
 
 #: lib/const_reports.php reportit.php view.php
-#, fuzzy
 msgid "Enabled"
-msgstr "啟用"
+msgstr "已啟用"
 
 #: lib/const_reports.php
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
@@ -1271,7 +1197,7 @@ msgstr "公開"
 
 #: lib/const_reports.php
 msgid "If enabled everyone can see your report under tab 'reports'"
-msgstr "如果啟用，每個人都可以在“reports”（報告）選項卡下看到您的報告"
+msgstr "如果啟用，所有人都能在「reports」分頁下看到您的報表"
 
 #: lib/const_reports.php
 msgid "Enable Use of Graph Permissions"
@@ -1287,7 +1213,7 @@ msgstr "自動生成的電子郵件"
 
 #: lib/const_reports.php
 msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
-msgstr "如果啟用，選項卡「電子郵件」將被啟動，並且在該部分下定義的所有收件人都將自動收到一封包含此計劃報表的電子郵件。"
+msgstr "如果啟用，「Email」分頁將會啟用，且在該區段下定義的所有收件者都將自動收到包含此排程報表的電子郵件。"
 
 #: lib/const_reports.php
 msgid "Reporting Period"
@@ -1334,21 +1260,18 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "要定義結束日期，請使用以下格式： <b>yyyy-mm-dd</b>"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Add to Report"
-msgstr "添加到報告"
+msgstr "新增至報表"
 
 #: lib/const_rrdlist.php
 msgid "Remove from Report"
 msgstr "從報表中刪除"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Copy Settings to All"
-msgstr "將設置複製到所有"
+msgstr "將設定複製到全部"
 
 #: lib/const_rrdlist.php setup.php
-#, fuzzy
 msgid "Add"
 msgstr "新增"
 
@@ -1383,7 +1306,6 @@ msgid "%s Lo"
 msgstr "%s Lo"
 
 #: lib/const_view.php
-#, fuzzy
 msgid "Any"
 msgstr "任何"
 
@@ -1396,14 +1318,12 @@ msgid "Sum"
 msgstr "和"
 
 #: lib/const_view.php
-#, fuzzy
 msgid "Average"
-msgstr "平均"
+msgstr "平均值"
 
 #: lib/funct_export.php
-#, fuzzy
 msgid "Report title"
-msgstr "報告標題"
+msgstr "報表標題"
 
 #: lib/funct_export.php
 msgid "Start"
@@ -1414,9 +1334,8 @@ msgid "End"
 msgstr "結束"
 
 #: lib/funct_export.php view.php
-#, fuzzy
 msgid "Last Run"
-msgstr "最近執行"
+msgstr "上次執行"
 
 #: lib/funct_html.php
 #, php-format
@@ -1470,9 +1389,8 @@ msgid "Unknown Owner"
 msgstr "未知擁有者"
 
 #: lib/funct_validate.php
-#, fuzzy
 msgid "The file is to big."
-msgstr "檔案容量過大"
+msgstr "檔案過大。"
 
 #: lib/funct_validate.php
 msgid "Incomplete file transfer."
@@ -1480,7 +1398,7 @@ msgstr "檔傳輸不完整。"
 
 #: lib/funct_validate.php
 msgid "No file uploaded."
-msgstr "未上傳檔。"
+msgstr "無上傳文件。"
 
 #: lib/funct_validate.php
 msgid "Temporary folder missing."
@@ -1488,7 +1406,7 @@ msgstr "缺少臨時資料夾。"
 
 #: lib/funct_validate.php
 msgid "Failed to write file to disk"
-msgstr "檔案無法寫入。 "
+msgstr "檔案無法寫入"
 
 #: lib/funct_validate.php
 msgid "File upload stopped by extension"
@@ -1496,7 +1414,7 @@ msgstr "擴展文件中斷了上傳"
 
 #: lib/funct_validate.php
 msgid "Invalid file extension."
-msgstr "文件擴展名無效"
+msgstr "文件擴展名無效。"
 
 #: lib/funct_validate.php
 msgid "Unable to parse template file."
@@ -1508,9 +1426,8 @@ msgid "Checksum error with Template %s in XML file"
 msgstr "XML 檔中範本%s的校驗和錯誤"
 
 #: reportit.php
-#, fuzzy
 msgid "New Report"
-msgstr "新的報表"
+msgstr "新增報表"
 
 #: reportit.php
 #, php-format
@@ -1518,12 +1435,10 @@ msgid "There are no unlocked and enabled report templates available (%s locked o
 msgstr "沒有可用的解鎖和啟用的報表範本（%s鎖定或禁用）。"
 
 #: reportit.php templates.php
-#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
 #: reportit.php templates.php
-#, fuzzy
 msgid "Continue"
 msgstr "繼續"
 
@@ -1544,18 +1459,15 @@ msgid "Search"
 msgstr "搜尋"
 
 #: reportit.php setup.php templates.php view.php
-#, fuzzy
 msgid "Reports"
-msgstr "報告"
+msgstr "報表"
 
 #: reportit.php templates.php view.php
-#, fuzzy
 msgctxt "Button: use filter settings"
 msgid "Go"
-msgstr "送出"
+msgstr "執行"
 
 #: reportit.php templates.php view.php
-#, fuzzy
 msgctxt "Button: reset filter settings"
 msgid "Clear"
 msgstr "清除"
@@ -1566,31 +1478,26 @@ msgid "Period %s From - To"
 msgstr "期間 %s 從 - 到"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Scheduled"
 msgid "Schedule"
-msgstr "已排程"
+msgstr "排程"
 
 #: reportit.php
-#, fuzzy
 msgid "State"
-msgstr "州"
+msgstr "狀態"
 
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "下次開始 %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
-#| msgid "Last Run %s"
+#, php-format
 msgid "Last Started %s"
-msgstr "上次執行%s"
+msgstr "上次啟動 %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Last Runtime"
-msgstr "最近執行"
+msgstr "上次執行時間"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1614,14 +1521,12 @@ msgid "Report has been locked"
 msgstr "報告已被鎖定"
 
 #: reportit.php
-#, fuzzy
 msgid "No reports"
-msgstr "報告"
+msgstr "無報表"
 
 #: reportit.php
-#, fuzzy
 msgid "Not Authorized"
-msgstr "授權的"
+msgstr "未授權"
 
 #: reportit.php
 #, php-format
@@ -1629,7 +1534,6 @@ msgid "Report Configuration (%s) %s"
 msgstr "報表設定 （%s） %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Action"
 msgstr "動作"
 
@@ -1638,14 +1542,12 @@ msgid "No recipients found"
 msgstr "未找到收件者"
 
 #: reportit.php
-#, fuzzy
 msgid "Data Source Name"
-msgstr "數據源名稱"
+msgstr "資料來源名稱"
 
 #: reportit.php
-#, fuzzy
 msgid "Associated"
-msgstr "關聯數據模板"
+msgstr "已關聯"
 
 #: reportit.php
 msgid "Subhead"
@@ -1660,23 +1562,20 @@ msgid "Weekdays (From - To)"
 msgstr "工作日（從 - 到）"
 
 #: reportit.php
-#, fuzzy
 msgid "RRDs"
-msgstr "選擇RRD是存儲在本地還是由外部RRDtool代理服務器處理。"
+msgstr "RRD 檔案"
 
 #: reportit.php
-#, fuzzy
 msgid "Show All"
-msgstr "顯示所有"
+msgstr "全部顯示"
 
 #: reportit.php
 msgid "Does not exist anymore"
 msgstr "不再存在"
 
 #: reportit.php
-#, fuzzy
 msgid "Included in Report"
-msgstr "運行報告"
+msgstr "包含在報告中"
 
 #: reportit.php
 msgid "Not Included in Report"
@@ -1699,9 +1598,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[可選]收件者的姓名（或逗號分隔的姓名清單）"
 
 #: reportit.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "資料項目 [編輯： %s]"
+msgstr "資料來源 [編輯：%s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1732,56 +1631,45 @@ msgid "<report_title> (1)"
 msgstr "<report_title> （1）"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "按兩下「繼續」以刪除以下報告："
+msgstr "按一下「繼續」以停用下列報表："
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "按兩下 'Continue' 以執行以下報告："
+msgstr "按一下「繼續」以啟用下列報表："
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "按兩下 'Continue' 以執行以下報告："
+msgstr "按一下「繼續」以取得下列報表的所有權："
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
 msgstr "您必須至少選擇一個未鎖定、未運行的報表。"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "按兩下 'Continue' 以刪除以下資料項。"
+msgstr "按一下「繼續」以從報表中移除下列資料來源。"
 
 #: reportit.php
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "選取資料項目清單："
+msgstr "以下為已選取的資料來源清單。"
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "保持數據源不變。"
+msgstr "資料來源：%s"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "按兩下 'Continue' 以執行以下報告："
+msgstr "按一下「繼續」將下列資料來源新增至報表。"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "按兩下 'Continue' 將設置複製到其他資料項"
+msgstr "按一下「繼續」以將設定複製到其他資料來源。"
 
 #: reportit.php
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "作為參考的選定資料項："
+msgstr "作為參考的已選取資料來源："
 
 #: reportit.php
 msgid "Time Zone:"
@@ -1800,27 +1688,22 @@ msgid "You must select at least one Report."
 msgstr "您必須至少選擇一個 Report。"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "檢視報表"
+msgstr "ReportIt - 檢視報表"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "創建報告"
+msgstr "ReportIt - 建立報表"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "ReportIt 常規設置"
+msgstr "ReportIt - 管理報告"
 
 #: setup.php
-#, fuzzy
 msgid "(Edit)"
-msgstr "(編輯)"
+msgstr "（編輯）"
 
 #: setup.php
-#, fuzzy
 msgid "Actions"
 msgstr "動作"
 
@@ -1833,7 +1716,6 @@ msgid "Report Templates"
 msgstr "報告範本"
 
 #: setup.php templates.php
-#, fuzzy
 msgid "Import"
 msgstr "匯入"
 
@@ -1854,38 +1736,32 @@ msgid "Export Report"
 msgstr "匯出報表"
 
 #: setup.php
-#, fuzzy
 msgid "Normal User"
-msgstr "普通用戶"
+msgstr "一般使用者"
 
 #: setup.php
-#, fuzzy
 msgid "General Administration"
-msgstr "總務局"
+msgstr "一般管理"
 
 #: setup.php
-#, fuzzy
 msgid "System Administration"
 msgstr "系統管理"
 
 #: setup.php
-#, fuzzy
 msgid "Management"
 msgstr "管理"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt Reports"
-msgstr "創建報告"
+msgstr "ReportIt 報表"
 
 #: setup.php
 msgid "ReportIt"
 msgstr "報告它"
 
 #: setup.php templates.php
-#, fuzzy
 msgid "Templates"
-msgstr "模板"
+msgstr "範本"
 
 #: setup.php
 msgid "No data source item selected"
@@ -1904,9 +1780,8 @@ msgid "global"
 msgstr "全域"
 
 #: setup.php
-#, fuzzy
 msgid "local"
-msgstr "本地"
+msgstr "本機"
 
 #: setup.php
 msgid "Power User (Report Owner)"
@@ -1937,37 +1812,32 @@ msgid "Time Zones"
 msgstr "時區"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "啟用/禁用時區對數據項的配置和報表計算。 在前一種情況下，伺服器時間必須設置為 GMT/UTC！"
+msgstr "啟用/停用在資料項目設定與報表計算中使用時區。在前者的情況下，伺服器時間必須設定為 GMT/UTC！"
 
 #: setup.php
 msgid "Show Local Time Zone"
 msgstr "顯示本地時區"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "啟用/禁用以在標題上顯示伺服器的時區。"
+msgstr "啟用/停用在標題上顯示伺服器的時區。"
 
 #: setup.php
-#, fuzzy
 msgid "Allow Scheduling by Operators"
-msgstr "允許 Operator 調度"
+msgstr "允許操作員進行排程"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "啟用/禁用 Operator 計劃報告的功能。 禁用后，只有管理員才能更改計劃。"
+msgstr "啟用/停用操作員排程報告的權限。停用時，僅管理員可變更排程。"
 
 #: setup.php
 msgid "SI-Prefixes"
 msgstr "SI 前置綴"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "根據 <a href='http://www.ieee.org'>IEEE 1541</a> 和 <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> 的條款，啟用/禁用對二進位倍數使用正確的 SI 前置綴。"
+msgstr "啟用/停用依 <a href='http://www.ieee.org'>IEEE 1541</a> 及 <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> 規範對二進位倍數使用正確的 SI 詞頭。"
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1986,18 +1856,16 @@ msgid "Enable/disable the use of an individual filter per report."
 msgstr "啟用/禁用每個報表使用單個過濾器。"
 
 #: setup.php
-#, fuzzy
 msgid "Rows Per Page"
-msgstr "每頁行數"
+msgstr "每頁列數"
 
 #: setup.php
 msgid "The number of rows to display on a single page."
 msgstr "要在單個頁面上顯示的行數。"
 
 #: setup.php
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "ReportIt 導出設置"
+msgstr "報告匯出設定"
 
 #: setup.php
 msgid "CSV Column Separator"
@@ -2016,18 +1884,16 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "指示整數部分的結尾和小數部分的開頭的符號。"
 
 #: setup.php
-#, fuzzy
 msgid "Report General Settings"
-msgstr "ReportIt 常規設置"
+msgstr "報告一般設定"
 
 #: templates.php
 msgid "New Report Template"
 msgstr "新建報告範本"
 
 #: templates.php
-#, fuzzy
 msgid "There are no Data Templates in use."
-msgstr "正在使用的數據模板無法修改"
+msgstr "目前沒有使用中的資料範本。"
 
 #: templates.php
 msgid "Create a new Report Template"
@@ -2050,23 +1916,20 @@ msgid "Import Report Templates"
 msgstr "匯入報告範本"
 
 #: templates.php
-#, fuzzy
 msgid "Compatible"
-msgstr "不兼容"
+msgstr "相容"
 
 #: templates.php
-#, fuzzy
 msgid "Summary"
 msgstr "摘要"
 
 #: templates.php
-#, fuzzy
 msgid "No"
-msgstr "無"
+msgstr "否"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2094,9 +1957,8 @@ msgid "The version of this Report Template."
 msgstr "此報告範本的版本。"
 
 #: templates.php
-#, fuzzy
 msgid "Published"
-msgstr "已發佈"
+msgstr "已發布"
 
 #: templates.php
 msgid "The total number of reports using this report template."
@@ -2127,9 +1989,8 @@ msgid "Edit variables"
 msgstr "編輯變數"
 
 #: templates.php
-#, fuzzy
 msgid "No templates"
-msgstr "沒有模板"
+msgstr "無範本"
 
 #: templates.php
 msgid "Maximum has to be greater than minimum."
@@ -2148,19 +2009,17 @@ msgid "Interim results are used by other measurands."
 msgstr "其他被測變數使用中期結果。"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "設備模板："
+msgstr "範本 [ %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Template [new]"
-msgstr "彩色模板[新]"
+msgstr "範本 [新增]"
 
 #: templates.php
-#, fuzzy
 msgid "<template_title>"
-msgstr "模版標題"
+msgstr "<template_title>"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Report Templates"
@@ -2171,14 +2030,14 @@ msgid "WARNING: Every Report that belongs to these Templates will also be delete
 msgstr "警告：屬於這些範本的每個報告也將被刪除！"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template: %s"
-msgstr "調整所選圖表模板的大小"
+msgstr "範本：%s"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Report: %s"
-msgstr "報告項目[編輯報告：％s]"
+msgstr "報告：%s"
 
 #: templates.php
 msgid "Report: <i>None</i>"
@@ -2229,9 +2088,9 @@ msgid "List of selected variables:"
 msgstr "選取變數清單："
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable: %s"
-msgstr "變數 ： %s"
+msgstr "變數：%s"
 
 #: templates.php
 msgid "There are one or more variables in use."
@@ -2246,27 +2105,25 @@ msgid "Delete Template Variables"
 msgstr "刪除範本變數"
 
 #: templates.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "點擊 『Continue』 刪除以下被測變數。 注意： 如果此過程後沒有其他被測變數，報告範本將自動鎖定。"
+msgstr "按一下「繼續」以刪除下列指標。注意：如果此操作後沒有剩餘其他指標，報表範本將會自動鎖定。"
 
 #: templates.php
 msgid "List of selected measurands:"
 msgstr "選定的被測變數清單："
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
-msgstr "被測值：%s"
+msgstr "指標：%s"
 
 #: templates.php
 msgid "You must select at least one measurand."
 msgstr "必須至少選擇一個 measurand。"
 
 #: templates.php
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "刪除範本 Measurands"
+msgstr "刪除範本指標"
 
 #: templates.php
 #, php-format
@@ -2278,9 +2135,9 @@ msgid "No Variables Found"
 msgstr "未找到變數"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "變數設定 [編輯：%s]"
+msgstr "變數設定 [ 編輯：%s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2303,10 +2160,8 @@ msgid "Provide a name for this Variable"
 msgstr "為此變數提供名稱"
 
 #: templates.php
-#, fuzzy
-#| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "一個簡短而精闢的描述，解釋了這個變數的含義。"
+msgstr "說明此變數意義的描述。"
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2334,10 +2189,9 @@ msgstr "預設值"
 
 #: templates.php
 msgid "Sets the default value."
-msgstr "設置預設值。"
+msgstr "設定預設值。"
 
 #: templates.php view.php
-#, fuzzy
 msgid "Type"
 msgstr "類型"
 
@@ -2347,17 +2201,16 @@ msgstr "報表擁有者應該用來定義此變數的方法。"
 
 #: templates.php
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
-msgstr "如果選擇了方法 「DropDown」 則定義兩個值之間的距離。請確保此值不要設置得太低，因為它間接定義了下拉字段將具有的選項數量。例如，以下參數：MAX：100、MIN：0、STEP：0.01 將產生一個包含 10.001 個選項的選擇框。由於用戶端的CPU負載較高，這可能會導致嚴重的性能問題。盡量將其保持在 1000 以下。"
+msgstr "定義選擇「DropDown」方法時兩個數值之間的間隔。請確保不要將此值設定得太低，因為它會間接決定下拉式欄位擁有的選項數量。例如以下參數：MAX:100、MIN:0、STEP:0.01 將產生包含 10,001 個選項的選取方塊，這可能會因用戶端 CPU 負載過高而導致嚴重的效能問題。請盡量將選項數保持在 1000 以下。"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "被測配置 [編輯： %s]"
+msgstr "指標設定 [ 編輯：%s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Metric Configuration [new]"
-msgstr "被測配置 [新]"
+msgstr "指標設定 [新增]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2372,9 +2225,8 @@ msgid "The unit given to this measurand. e.g. 'Bits/s'"
 msgstr "為此被測變數提供的單位。例如：'Bits/s'"
 
 #: templates.php
-#, fuzzy
 msgid "Consolidation function"
-msgstr "合併功能"
+msgstr "合併函數"
 
 #: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
@@ -2410,7 +2262,7 @@ msgstr "前綴"
 
 #: templates.php
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
-msgstr "選擇用於設置結果格式的前置綴類型。使用十進位前綴時，“1024”將被格式化為“1.024k”，而二進位前綴選項將返回“1ki”。選擇 'off' 顯示原始數據，這裡是 '1024'。"
+msgstr "選擇用來格式化結果的前置詞類型。使用十進位前置詞時，「1024」會格式化為「1.024k」，而二進位前置詞選項則會傳回「1ki」。選擇「off」可顯示原始資料（此處為「1024」）。"
 
 #: templates.php
 msgid "Formula"
@@ -2429,14 +2281,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "按兩下列出的運算子或操作數之一，將它們附加到您的計算公式中。工具提示將向您顯示其他資訊，如描述、返回值、參數和用法。"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "調整所選圖表模板的大小"
+msgstr "指標 [ 範本：%s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "沒有找到報告"
+msgstr "找不到指標"
 
 #: view.php
 msgid "Reports Filter"
@@ -2459,29 +2310,24 @@ msgid "Period (From - To)"
 msgstr "期間 （從 - 到）"
 
 #: view.php
-#, fuzzy
-#| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "執行時間 [s]"
+msgstr "上次執行時間 [s]"
 
 #: view.php
-#, fuzzy
 msgid "No Reports Found"
-msgstr "沒有找到報告"
+msgstr "找不到報表"
 
 #: view.php
 msgid "Metric"
-msgstr "公里"
+msgstr "指標"
 
 #: view.php
-#, fuzzy
 msgid "Data Source"
 msgstr "資料來源"
 
 #: view.php
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "顯示 TOP10 圖表"
+msgstr "顯示前 10 大圖表"
 
 #: view.php
 msgid "Show Subheads"
@@ -2496,28 +2342,24 @@ msgid "Additional"
 msgstr "額外"
 
 #: view.php
-#, fuzzy
 msgid "Items"
 msgstr "項目"
 
 #: view.php
-#, fuzzy
 msgid "Archive"
-msgstr "檔案"
+msgstr "封存"
 
 #: view.php
-#, fuzzy
 msgid "Current"
-msgstr "當前"
+msgstr "目前"
 
 #: view.php
-#, fuzzy
 msgid "Title"
 msgstr "標題"
 
 #: view.php
 msgid "Runtime"
-msgstr "運行時間"
+msgstr "執行時間"
 
 #: view.php
 msgid "Period"
@@ -2540,18 +2382,18 @@ msgid "No Data Items"
 msgstr "無數據項"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "被測值：%s"
+msgstr "指標：%s (%s)"
 
 #: view.php
 msgid "Pos."
 msgstr "號碼"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
-msgstr "結果[％s]"
+msgstr "結果 [%s]"
 
 #~ msgid "Public Report Charts"
 #~ msgstr "公共報告圖表"
