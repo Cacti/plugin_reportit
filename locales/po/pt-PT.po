@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:07-0400\n"
-"PO-Revision-Date: 2024-09-25 20:05-0400\n"
-"Last-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/reportit/pt_PT/>\n"
-"Language: pt_PT\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.4.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Portugal) <https://translate.cacti.net/projects/cacti/reportit/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -33,7 +21,7 @@ msgstr "Bloquear"
 
 #: include/global_arrays.php
 msgid "Unlock"
-msgstr "Escola"
+msgstr "Desbloquear"
 
 #: include/global_arrays.php setup.php templates.php
 msgid "Export"
@@ -223,7 +211,7 @@ msgstr "Últimos 6 meses"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Current Year"
-msgstr "Faça o download de um PDF de relatórios de doações e receitas para todos os formulários do ano em curso."
+msgstr "Ano atual"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Year"
@@ -258,7 +246,6 @@ msgid "Dropdown"
 msgstr "Suspenso"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
-#, fuzzy
 msgid "Input field"
 msgstr "Campo de entrada"
 
@@ -413,7 +400,7 @@ msgstr "f_iqr - Intervalo Interquartílico"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the distance of the middle50&#037; around the median per DS"
-msgstr "Devolve a distância do meio50% em torno da mediana por DS"
+msgstr "Devolve a distância dos 50&#037; centrais em torno da mediana por DS"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sd - Standard Deviation"
@@ -505,7 +492,7 @@ msgstr "Devolve o valor mais elevado de uma determinada lista de parâmetros"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr "$var 1, $var 2, $var 3 ...: valores a comparar"
+msgstr "$var1, $var2, $var3 ...: valores a comparar"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
@@ -762,7 +749,7 @@ msgstr "1 Minuto"
 #: include/global_arrays.php
 #, php-format
 msgid "%d Minutes"
-msgstr "Minutos %d"
+msgstr "%d minutos"
 
 #: include/global_forms.php
 msgid "The unique name given to this Report Template."
@@ -798,7 +785,7 @@ msgstr "Publicar"
 
 #: include/global_forms.php
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
-msgstr "Este modelo de relatório deve ser publicado para acesso dos utilizadores? Para fins de teste de novos modelos ou modificações, você deve desmarcar esta caixa."
+msgstr "Este modelo de relatório deve ser publicado para acesso dos utilizadores? Para testar novos modelos ou modificações, deve desmarcar esta caixa."
 
 #: include/global_forms.php templates.php
 msgid "Locked"
@@ -822,7 +809,7 @@ msgstr "Caminho de exportação"
 
 #: include/global_forms.php
 msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
-msgstr "Opcional: O caminho para uma pasta para salvar as exportações.  Se não existir ReportIt tenta criá-lo automaticamente durante o primeiro cálculo agendado, caso contrário, ele tentará criar uma nova subpasta dentro da pasta de exportação principal usando a ID do modelo."
+msgstr "Opcional: O caminho para uma pasta onde guardar as exportações.  Se não existir, o ReportIt tentará criá-la automaticamente durante o primeiro cálculo agendado; caso contrário, tentará criar uma nova subpasta dentro da pasta de exportação principal utilizando o ID do modelo."
 
 #: include/global_forms.php templates.php
 msgid "Data Template"
@@ -929,10 +916,8 @@ msgid "Parentheses"
 msgstr "Parênteses"
 
 #: lib/const_reports.php
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "Desativado"
+msgstr "Desativar"
 
 #: lib/const_reports.php setup.php
 msgid "Enable"
@@ -944,7 +929,7 @@ msgstr "Executar Agora"
 
 #: lib/const_reports.php
 msgid "Take Ownership"
-msgstr ""
+msgstr "Tomar posse"
 
 #: lib/const_reports.php
 msgid "CRASHED"
@@ -963,9 +948,8 @@ msgid "Running"
 msgstr "Em execução"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "- No template available -"
-msgstr "- não disponível -"
+msgstr "- Nenhum modelo disponível -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
@@ -996,9 +980,8 @@ msgid "Sunday"
 msgstr "Domingo"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Presets"
-msgstr "Predefinições de item de dados"
+msgstr "Predefinições da fonte de dados"
 
 #: lib/const_reports.php reportit.php
 msgid "Email"
@@ -1022,11 +1005,11 @@ msgstr "XML bruto (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "Dados JSON (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "Dados YAML (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1038,7 +1021,7 @@ msgstr "Insira o assunto do seu e-mail.<br> Serão suportadas as seguintes vari�
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr "Relatório agendado - |title| - |período|"
+msgstr "Relatório agendado - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1074,32 +1057,31 @@ msgstr "Para adicionar um Destinatários com base em uma Lista de Notificação 
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr ""
+msgstr "Para o(s) endereço(s) de e-mail"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Por favor, separe vários endereços por vírgula (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
-msgstr ""
+msgstr "Endereço(s) do BCC"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "Cópia cega de carbono. Por favor, separe vários endereços por vírgula (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
 msgstr "Novos destinatários de e-mail"
 
 #: lib/const_reports.php
-msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
-msgstr "Para adicionar um novo destinatário, insira um endereço de e-mail válido (obrigatório) e um nome (opcional).<br> Para uma configuração mais rápida, use uma lista de endereços/nomes onde os nomes/endereços são separados com um dos seguintes delemiters: ';' ou ',\""
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Para adicionar um novo destinatário, introduza um endereço de e-mail válido (obrigatório) e um nome (opcional).<br> Para uma configuração mais rápida, utilize uma lista de endereços/nomes onde os nomes/endereços estão separados por um dos seguintes delimitadores: ';' ou ','"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Sub-heading"
-msgstr "[Opcional] Versão"
+msgstr "Subtítulo opcional"
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
@@ -1114,47 +1096,40 @@ msgid "Select the time zone your following shifttime informations will be based 
 msgstr "Selecione o fuso horário no qual suas seguintes informações de horário de turno serão baseadas."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Optional Data Source Pre-Filters"
-msgstr "Pré-filtro adicional"
+msgstr "Pré-filtros opcionais de fonte de dados"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Site Filter"
-msgstr "Filtros de Relatório"
+msgstr "Filtro de local"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Use apenas esses itens de dados, que pertencem a hosts desse modelo de host.<br>Selecione 'Nenhum' (padrão) para desativar essa configuração de filtro."
+msgstr "Utilizar apenas as Fontes de dados correspondentes a este Site.<br>Selecione 'Nenhum' (predefinição) para desativar esta definição de filtro."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Device Template Filter"
-msgstr "Excluir variáveis de modelo"
+msgstr "Filtro de modelo de dispositivo"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr "Use apenas esses itens de dados, que pertencem a hosts desse modelo de host.<br>Selecione 'Nenhum' (padrão) para desativar essa configuração de filtro."
+msgstr "Utilizar apenas as Fontes de dados deste Modelo de Dispositivo.<br>Selecione 'Nenhum' (predefinição) para desativar esta definição de filtro."
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Data Source Name Filter"
-msgstr "Alias da fonte de dados"
+msgstr "Filtro de nome da fonte de dados"
 
 #: lib/const_reports.php
-#, fuzzy
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Permite filtragem adicional nas descrições dos itens de dados.<br> Use curingas SQL como % and/ou _. Sem expressões regulares!"
+msgstr "Utilizar Fontes de dados cujos nomes correspondam a este filtro.<br> Utilize caracteres universais SQL como % e/ou _. Sem expressões regulares!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
 msgstr "Itens de dados gerados automaticamente"
 
 #: lib/const_reports.php
-msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
-msgstr "Ativar/desativar a criação automática de todos os itens de dados com base em determinados filtros. Isso será chamado antes da execução do relatório.  RRDs obsoletos serão excluídos e todos os RRDs correspondentes às configurações de filtro serão adicionados."
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Ativar/desativar a criação automática de todos os itens de dados com base nos filtros indicados. Isto será chamado antes da execução do relatório. Os RRDs obsoletos serão eliminados e todos os RRDs que correspondam às definições de filtro serão adicionados."
 
 #: lib/const_reports.php reportit.php
 msgid "Working Time"
@@ -1206,7 +1181,7 @@ msgstr "Proprietário"
 
 #: lib/const_reports.php
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
-msgstr "Altere o proprietário deste relatório. Somente usuários com a permissão \"visualizar\" ou superior podem ser escolhidos."
+msgstr "Altere o proprietário deste relatório. Apenas podem ser escolhidos utilizadores com a permissão \"ver\" ou superior."
 
 #: lib/const_reports.php reportit.php view.php
 msgid "Enabled"
@@ -1285,18 +1260,16 @@ msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
 msgstr "Para definir a data final, use o seguinte formato: <b>aaaa-mm-dd</b>"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Add to Report"
-msgstr "Mostrar relatório"
+msgstr "Adicionar ao Relatório"
 
 #: lib/const_rrdlist.php
 msgid "Remove from Report"
 msgstr "Remover do relatório"
 
 #: lib/const_rrdlist.php
-#, fuzzy
 msgid "Copy Settings to All"
-msgstr "Copiar configurações para todos"
+msgstr "Copiar definições para todos"
 
 #: lib/const_rrdlist.php setup.php
 msgid "Add"
@@ -1325,7 +1298,7 @@ msgstr "Gráfico de pizza: 3D"
 #: lib/const_view.php
 #, php-format
 msgid "%s Hi"
-msgstr "%s Oi"
+msgstr "%s Alto"
 
 #: lib/const_view.php
 #, php-format
@@ -1338,7 +1311,7 @@ msgstr "Qualquer"
 
 #: lib/const_view.php view.php
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 #: lib/const_view.php
 msgid "Sum"
@@ -1349,9 +1322,8 @@ msgid "Average"
 msgstr "Média"
 
 #: lib/funct_export.php
-#, fuzzy
 msgid "Report title"
-msgstr "Título do Relatório"
+msgstr "Título do relatório"
 
 #: lib/funct_export.php
 msgid "Start"
@@ -1363,7 +1335,7 @@ msgstr "Fim"
 
 #: lib/funct_export.php view.php
 msgid "Last Run"
-msgstr "Última Corrida"
+msgstr "Última execução"
 
 #: lib/funct_html.php
 #, php-format
@@ -1402,7 +1374,7 @@ msgstr "Alias da fonte de dados"
 #: lib/funct_html.php
 #, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
-msgstr "Opcional: Você pode definir um alias que deve ser exibido em vez do nome da fonte de dados interna '%s' nos relatórios."
+msgstr "Opcional: Pode definir um alias que deve ser apresentado nos relatórios em vez do nome interno da fonte de dados '%s'."
 
 #: lib/funct_html.php
 msgid "Separate Group Title [overall]"
@@ -1410,7 +1382,7 @@ msgstr "Título separado do grupo [geral]"
 
 #: lib/funct_html.php
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
-msgstr "Opcional: Você pode definir um nome de grupo que deve ser exibido como o título para todas as mensurandas separadas nos relatórios."
+msgstr "Opcional: Pode definir um nome de grupo que deve ser apresentado como título para todas as métricas separadas nos relatórios."
 
 #: lib/funct_shared.php
 msgid "Unknown Owner"
@@ -1418,40 +1390,40 @@ msgstr "Proprietário desconhecido"
 
 #: lib/funct_validate.php
 msgid "The file is to big."
-msgstr "O arquivo é grande."
+msgstr "O ficheiro é demasiado grande."
 
 #: lib/funct_validate.php
 msgid "Incomplete file transfer."
-msgstr "Transferência de ficheiros incompleta."
+msgstr "Transferência de ficheiro incompleta."
 
 #: lib/funct_validate.php
 msgid "No file uploaded."
-msgstr "Nenhum arquivo carregado."
+msgstr "Nenhum ficheiro carregado."
 
 #: lib/funct_validate.php
 msgid "Temporary folder missing."
-msgstr "Pasta temporária ausente."
+msgstr "Pasta temporária em falta."
 
 #: lib/funct_validate.php
 msgid "Failed to write file to disk"
-msgstr "Falha ao gravar arquivo no disco"
+msgstr "Falha ao escrever o ficheiro no disco"
 
 #: lib/funct_validate.php
 msgid "File upload stopped by extension"
-msgstr "Upload de arquivos interrompido pela extensão"
+msgstr "Carregamento do ficheiro interrompido pela extensão"
 
 #: lib/funct_validate.php
 msgid "Invalid file extension."
-msgstr "Extensão de arquivo inválido."
+msgstr "Extensão de ficheiro inválida."
 
 #: lib/funct_validate.php
 msgid "Unable to parse template file."
-msgstr "Não é possível analisar o arquivo de modelo."
+msgstr "Não foi possível analisar o ficheiro de modelo."
 
 #: lib/funct_validate.php
 #, php-format
 msgid "Checksum error with Template %s in XML file"
-msgstr "Erro de soma de verificação com %s de modelo no arquivo XML"
+msgstr "Erro de soma de verificação no modelo %s do ficheiro XML"
 
 #: reportit.php
 msgid "New Report"
@@ -1506,10 +1478,8 @@ msgid "Period %s From - To"
 msgstr "Período %s De - Até"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Scheduled"
 msgid "Schedule"
-msgstr "Agendado"
+msgstr "Agenda"
 
 #: reportit.php
 msgid "State"
@@ -1518,19 +1488,16 @@ msgstr "Estado"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "Próximo início %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
-#| msgid "Last Run %s"
+#, php-format
 msgid "Last Started %s"
-msgstr "Última Execução %s"
+msgstr "Último início: %s"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Last Run"
 msgid "Last Runtime"
-msgstr "Última Corrida"
+msgstr "Último tempo de execução"
 
 #: reportit.php templates.php
 msgid "N/A"
@@ -1554,9 +1521,8 @@ msgid "Report has been locked"
 msgstr "O relatório foi bloqueado"
 
 #: reportit.php
-#, fuzzy
 msgid "No reports"
-msgstr "Relatórios"
+msgstr "Sem relatórios"
 
 #: reportit.php
 msgid "Not Authorized"
@@ -1581,7 +1547,7 @@ msgstr "Nome da fonte de dados"
 
 #: reportit.php
 msgid "Associated"
-msgstr "Associados"
+msgstr "Associado"
 
 #: reportit.php
 msgid "Subhead"
@@ -1608,9 +1574,8 @@ msgid "Does not exist anymore"
 msgstr "Não existe mais"
 
 #: reportit.php
-#, fuzzy
 msgid "Included in Report"
-msgstr "Relatório de execução"
+msgstr "Incluído no relatório"
 
 #: reportit.php
 msgid "Not Included in Report"
@@ -1633,9 +1598,9 @@ msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
 msgstr "[OPCIONAL] Nome de um destinatário (ou lista de nomes separada por vírgula)"
 
 #: reportit.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source [edit: %s]"
-msgstr "Item de dados[editar | editar código-fonte: %s]"
+msgstr "Fonte de dados [editar: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1655,7 +1620,7 @@ msgstr "Clique em 'Continuar' para excluir os seguintes relatórios:"
 
 #: reportit.php
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
-msgstr "Clique em 'Continuar' para duplicar as seguintes configurações de relatório.  Você também pode alterar o formato do título durante esta operação."
+msgstr "Clique em 'Continuar' para duplicar as seguintes configurações de relatório.  Também pode alterar o formato do título durante esta operação."
 
 #: reportit.php
 msgid "Title Format:"
@@ -1666,56 +1631,45 @@ msgid "<report_title> (1)"
 msgstr "<report_title> (1)"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Delete the following Reports:"
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr "Clique em 'Continuar' para excluir os seguintes relatórios:"
+msgstr "Clique em 'Continuar' para desativar o seguinte relatório:"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr "Clique em 'Continuar' para executar o seguinte relatório:"
+msgstr "Clique em 'Continuar' para ativar o seguinte relatório:"
 
 #: reportit.php
-#, fuzzy
-#| msgid "Click 'Continue' to Run the following Report:"
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr "Clique em 'Continuar' para executar o seguinte relatório:"
+msgstr "Clique em 'Continuar' para assumir a propriedade do seguinte relatório:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
-msgstr "Você deve selecionar pelo menos um relatório desbloqueado, não em execução."
+msgstr "Deve selecionar pelo menos um relatório desbloqueado e que não esteja em execução."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr "Clique em 'Continuar' para remover os seguintes itens de dados."
+msgstr "Clique em 'Continuar' para remover as seguintes fontes de dados do relatório."
 
 #: reportit.php
-#, fuzzy
 msgid "List of selected Data Sources below."
-msgstr "Lista de itens de dados selecionados:"
+msgstr "Lista de fontes de dados selecionadas abaixo."
 
 #: reportit.php view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source: %s"
-msgstr "Fonte de dados:"
+msgstr "Fonte de dados: %s"
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr "Clique em 'Continuar' para executar o seguinte relatório:"
+msgstr "Clique em 'Continuar' para adicionar as seguintes fontes de dados ao relatório."
 
 #: reportit.php
-#, fuzzy
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr "Clique em 'Continuar' para copiar as configurações para os outros itens de dados"
+msgstr "Clique em 'Continuar' para copiar as definições para as outras fontes de dados."
 
 #: reportit.php
-#, fuzzy
 msgid "Selected Data Source as Reference:"
-msgstr "Item de dados selecionado como referência:"
+msgstr "Fonte de dados selecionada como referência:"
 
 #: reportit.php
 msgid "Time Zone:"
@@ -1731,22 +1685,19 @@ msgstr "Tempo de turno:"
 
 #: reportit.php
 msgid "You must select at least one Report."
-msgstr "Você deve selecionar pelo menos um Relatório."
+msgstr "Deve selecionar pelo menos um Relatório."
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Report Viewing"
-msgstr "Exibir Relatórios"
+msgstr "ReportIt - Visualização de relatórios"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Create Reports"
-msgstr "Criar relatórios"
+msgstr "ReportIt - Criar relatórios"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt - Manage Reports"
-msgstr "Configurações gerais do ReportIt"
+msgstr "ReportIt - Gerir relatórios"
 
 #: setup.php
 msgid "(Edit)"
@@ -1801,9 +1752,8 @@ msgid "Management"
 msgstr "Gestão"
 
 #: setup.php
-#, fuzzy
 msgid "ReportIt Reports"
-msgstr "Criar relatórios"
+msgstr "Relatórios ReportIt"
 
 #: setup.php
 msgid "ReportIt"
@@ -1835,7 +1785,7 @@ msgstr "local"
 
 #: setup.php
 msgid "Power User (Report Owner)"
-msgstr "Usuário avançado (proprietário do relatório)"
+msgstr "Utilizador avançado (proprietário do relatório)"
 
 #: setup.php
 msgid "Super User (Report Admin)"
@@ -1862,37 +1812,32 @@ msgid "Time Zones"
 msgstr "Fusos Horários"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "Habilitar/desabilitar o uso de fusos horários para configuração de itens de dados e cálculo de relatórios.  No primeiro caso, o tempo do servidor tem de ser configurado para GMT/UTC!"
+msgstr "Ativar/Desativar a utilização de fusos horários na configuração de itens de dados e no cálculo de relatórios. No primeiro caso, a hora do servidor tem de estar definida para GMT/UTC!"
 
 #: setup.php
 msgid "Show Local Time Zone"
 msgstr "Mostrar Fuso Horário Local"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr "Ativar/desativar para exibir o fuso horário do servidor nas manchetes."
+msgstr "Ativar/Desativar a apresentação do fuso horário do servidor nos cabeçalhos."
 
 #: setup.php
-#, fuzzy
 msgid "Allow Scheduling by Operators"
-msgstr "Permitir agendamento por Operadores"
+msgstr "Permitir agendamento por operadores"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr "Ativar/desativar a capacidade do Operador de agendar relatórios.  Quando desativado, apenas os administradores podem alterar o agendamento."
+msgstr "Ativar/Desativar a permissão do Operador para agendar relatórios. Quando desativado, apenas os Administradores podem alterar o agendamento."
 
 #: setup.php
 msgid "SI-Prefixes"
 msgstr "SI-Prefixos"
 
 #: setup.php
-#, fuzzy
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr "Habilitar/desabilitar o uso de SI-Prefixos corretos para múltiplos binários sob os termos de <a href='http://www.ieee.org'>IEEE 1541</a> e <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Ativar/Desativar a utilização de prefixos SI corretos para múltiplos binários nos termos das normas <a href='http://www.ieee.org'>IEEE 1541</a> e <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1919,9 +1864,8 @@ msgid "The number of rows to display on a single page."
 msgstr "O número de linhas a serem exibidas em uma única página."
 
 #: setup.php
-#, fuzzy
 msgid "Report Export Settings"
-msgstr "Configurações de exportação ReportIt"
+msgstr "Definições de exportação de relatórios"
 
 #: setup.php
 msgid "CSV Column Separator"
@@ -1940,9 +1884,8 @@ msgid "The symbol indicating the end of the integer part and the beginning of th
 msgstr "O símbolo que indica o fim da parte inteira e o início da parte fracionária."
 
 #: setup.php
-#, fuzzy
 msgid "Report General Settings"
-msgstr "Configurações gerais do ReportIt"
+msgstr "Definições gerais de relatórios"
 
 #: templates.php
 msgid "New Report Template"
@@ -1966,7 +1909,7 @@ msgstr "Importar modelo de relatório"
 
 #: templates.php
 msgid "Select the XML file that contains your Report Template."
-msgstr "Selecione o arquivo XML que contém seu Modelo de Relatório."
+msgstr "Selecione o ficheiro XML que contém o seu modelo de relatório."
 
 #: templates.php
 msgid "Import Report Templates"
@@ -1978,17 +1921,15 @@ msgstr "Compatível"
 
 #: templates.php
 msgid "Summary"
-msgstr "Sua biografia"
+msgstr "Resumo"
 
 #: templates.php
-#, fuzzy
-#| msgid "None"
 msgid "No"
-msgstr "Nenhum"
+msgstr "Não"
 
 #: templates.php
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: templates.php
 msgid "No Compatible Templates Found"
@@ -2048,9 +1989,8 @@ msgid "Edit variables"
 msgstr "Editar variáveis"
 
 #: templates.php
-#, fuzzy
 msgid "No templates"
-msgstr "Modelos"
+msgstr "Sem modelos"
 
 #: templates.php
 msgid "Maximum has to be greater than minimum."
@@ -2069,19 +2009,17 @@ msgid "Interim results are used by other measurands."
 msgstr "Os resultados provisórios são utilizados por outras mensurandas."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Template [ %s - %s ]"
-msgstr "Modelo: %s"
+msgstr "Modelo [ %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Template [new]"
-msgstr "Modelo"
+msgstr "Modelo [novo]"
 
 #: templates.php
-#, fuzzy
 msgid "<template_title>"
-msgstr "Título do modelo"
+msgstr "<template_title>"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Report Templates"
@@ -2107,7 +2045,7 @@ msgstr "Relatório: <i>Nenhum</i>"
 
 #: templates.php
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
-msgstr "Clique em 'Continuar' para duplicar os seguintes modelos de relatório. Opcionalmente, você pode alterar o título dessas duplicatas."
+msgstr "Clique em 'Continuar' para duplicar os seguintes modelos de relatório. Pode opcionalmente alterar o título desses duplicados."
 
 #: templates.php
 msgid "List of selected report templates:"
@@ -2127,7 +2065,7 @@ msgstr "Clique em 'Continuar' para exportar os seguintes modelos de relatório"
 
 #: templates.php
 msgid "You must select at least one Report Template."
-msgstr "Você deve selecionar pelo menos um Modelo de Relatório."
+msgstr "Deve selecionar pelo menos um Modelo de relatório."
 
 #: templates.php
 msgid "Delete Report Templates"
@@ -2150,9 +2088,9 @@ msgid "List of selected variables:"
 msgstr "Lista de variáveis selecionadas:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable: %s"
-msgstr "Variável : %s"
+msgstr "Variável: %s"
 
 #: templates.php
 msgid "There are one or more variables in use."
@@ -2160,34 +2098,32 @@ msgstr "Há uma ou mais variáveis em uso."
 
 #: templates.php
 msgid "You must select at least one variable."
-msgstr "Você deve selecionar pelo menos uma variável."
+msgstr "Deve selecionar pelo menos uma variável."
 
 #: templates.php
 msgid "Delete Template Variables"
 msgstr "Excluir variáveis de modelo"
 
 #: templates.php
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr "Clique em 'Continuar' para eliminar as seguintes medidas.  Aviso: Se não houver outras medidas após este processo, o Modelo de Relatório será bloqueado automaticamente."
+msgstr "Clique em 'Continuar' para eliminar as seguintes métricas. Aviso: Se não restarem outras métricas após este processo, o modelo de relatório será bloqueado automaticamente."
 
 #: templates.php
 msgid "List of selected measurands:"
 msgstr "Lista das medidas selecionadas:"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s"
-msgstr "Mensurando: %s"
+msgstr "Métrica: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
 msgstr "Deve selecionar pelo menos uma mensuranda."
 
 #: templates.php
-#, fuzzy
 msgid "Delete Template Metrics"
-msgstr "Excluir mensurandas de modelo"
+msgstr "Eliminar métricas do modelo"
 
 #: templates.php
 #, php-format
@@ -2199,9 +2135,9 @@ msgid "No Variables Found"
 msgstr "Nenhuma variável encontrada"
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr "Configuração de variáveis[editar | editar código-fonte: %s]"
+msgstr "Configuração de Variáveis [ editar: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2213,7 +2149,7 @@ msgstr "Nome interno"
 
 #: templates.php
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
-msgstr "Um identificador único que será criado pelo próprio ReportIt. Use esse ID na definição de suas fórmulas de cálculo para incluir esse valor que o usuário do relatório definiu individualmente para ele."
+msgstr "Um identificador único que será criado pelo próprio ReportIt. Utilize este ID na definição das suas fórmulas de cálculo para incluir o valor que o utilizador do relatório definiu individualmente para ele."
 
 #: templates.php
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
@@ -2224,10 +2160,8 @@ msgid "Provide a name for this Variable"
 msgstr "Forneça um nome para esta variável"
 
 #: templates.php
-#, fuzzy
-#| msgid "A short, pithy description that explains the sense of this variable."
 msgid "A description that explains the sense of this variable."
-msgstr "Uma descrição curta e incisiva que explica o sentido desta variável."
+msgstr "Uma descrição que explica o significado desta variável."
 
 #: templates.php
 msgid "Provide a meaningful description"
@@ -2270,14 +2204,13 @@ msgid "Defines the distance between two values if method \"DropDown\" has been c
 msgstr "Define a distância entre dois valores se o método \"DropDown\" tiver sido escolhido. Certifique-se de que esse valor não esteja definido como muito baixo, pois ele define indiretamente o número de opções que o campo suspenso terá. Por exemplo, os seguintes parâmetros: MAX:100, MIN:0, STEP:0.01 resultarão em uma caixa de seleção de 10.001 opções. Isso pode causar problemas dramáticos de desempenho devido a uma alta carga de CPU no lado dos clientes. Tente mantê-lo abaixo de 1000."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "Configuração da Measurand[editar | editar código-fonte: %s]"
+msgstr "Configuração da métrica [ editar: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "Metric Configuration [new]"
-msgstr "Configuração da Mensuranda [novo]"
+msgstr "Configuração de métrica [novo]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
@@ -2309,7 +2242,7 @@ msgstr "Escolha 'habilitar' se essa mensuranda tiver apenas um resultado no tota
 
 #: templates.php
 msgid "Formatting"
-msgstr "Limpar formatações"
+msgstr "Formatação"
 
 #: templates.php
 msgid "Defines as what type the data should be treated as."
@@ -2348,14 +2281,13 @@ msgid "Click on one of the listed operators or operand to append them to your ca
 msgstr "Clique em um dos operadores listados ou operando para anexá-los à sua fórmula de calucélio. A dica de ferramenta mostrará informações adicionais, como descrição, valor de retorno, argumentos e uso."
 
 #: templates.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "Modelo: %s"
+msgstr "Métricas [ Modelo: %s - %s ]"
 
 #: templates.php
-#, fuzzy
 msgid "No Metrics Found"
-msgstr "Nenhum relatório encontrado"
+msgstr "Nenhuma métrica encontrada"
 
 #: view.php
 msgid "Reports Filter"
@@ -2378,10 +2310,8 @@ msgid "Period (From - To)"
 msgstr "Período (De - Para)"
 
 #: view.php
-#, fuzzy
-#| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "Tempo de execução [s]"
+msgstr "Último tempo de execução [s]"
 
 #: view.php
 msgid "No Reports Found"
@@ -2396,9 +2326,8 @@ msgid "Data Source"
 msgstr "Fonte de Dados"
 
 #: view.php
-#, fuzzy
 msgid "Show Top 10 Graphs"
-msgstr "Mostrar gráficos TOP10"
+msgstr "Mostrar gráficos Top 10"
 
 #: view.php
 msgid "Show Subheads"
@@ -2418,7 +2347,7 @@ msgstr "Itens"
 
 #: view.php
 msgid "Archive"
-msgstr "Arquivo"
+msgstr "Arquivamento"
 
 #: view.php
 msgid "Current"
@@ -2453,16 +2382,16 @@ msgid "No Data Items"
 msgstr "Sem itens de dados"
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Metric: %s (%s)"
-msgstr "Mensurando: %s"
+msgstr "Métrica: %s (%s)"
 
 #: view.php
 msgid "Pos."
 msgstr "Pos."
 
 #: view.php
-#, fuzzy, php-format
+#, php-format
 msgid "Results [%s]"
 msgstr "Resultados [%s]"
 
