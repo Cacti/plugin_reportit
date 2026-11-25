@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/reportit/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/reportit/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -39,7 +39,7 @@ msgstr "اسم الداخلي"
 #: include/global_arrays.php lib/const_variables.php lib/const_view.php
 #: templates.php
 msgid "Maximum"
-msgstr "الحد أقصى"
+msgstr "الحد الأقصى"
 
 #: include/global_arrays.php lib/const_variables.php lib/const_view.php
 #: templates.php
@@ -73,7 +73,7 @@ msgstr "الاختصار"
 
 #: include/global_arrays.php
 msgid "Group"
-msgstr "مجموعة"
+msgstr "مجموعات"
 
 #: include/global_arrays.php templates.php
 msgid "Unit"
@@ -1398,7 +1398,7 @@ msgstr "نقل الملفات غير مكتمل."
 
 #: lib/funct_validate.php
 msgid "No file uploaded."
-msgstr "لم يتم تحميل الملف."
+msgstr "لم يتم رفع أي ملف."
 
 #: lib/funct_validate.php
 msgid "Temporary folder missing."
@@ -1616,7 +1616,7 @@ msgstr "انقر فوق 'متابعة' لتشغيل التقرير التالي:
 
 #: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
-msgstr "انقر فوق \"متابعة\" لحذف التقارير التالية."
+msgstr "انقر فوق \"متابعة\" لحذف التقارير التالية:"
 
 #: reportit.php
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
