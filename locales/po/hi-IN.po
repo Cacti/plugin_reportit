@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/reportit/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/reportit/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -652,7 +652,7 @@ msgstr "सामान्य पूर्वता को ओवरराइड
 
 #: include/global_arrays.php
 msgid "Punctuation mark"
-msgstr "विराम चिह्न चिह्न"
+msgstr "विराम चिह्न"
 
 #: include/global_arrays.php
 msgid "Used to separate arguments forwarded to a function"
@@ -1398,7 +1398,7 @@ msgstr "फ़ाइल ट्रांसफ़र अधूरा है।"
 
 #: lib/funct_validate.php
 msgid "No file uploaded."
-msgstr "कोई फ़ाइल चयनित नहीं"
+msgstr "कोई फ़ाइल अपलोड नहीं की गई।"
 
 #: lib/funct_validate.php
 msgid "Temporary folder missing."
@@ -1998,7 +1998,7 @@ msgstr "अधिकतम न्यूनतम से अधिक होन�
 
 #: templates.php
 msgid "Default value is out of values range."
-msgstr "डिफ़ॉल्ट मान मान श्रेणी से बाहर है."
+msgstr "डिफ़ॉल्ट मान मानों की श्रेणी से बाहर है।"
 
 #: templates.php
 msgid "Duplicate abbreviation"
