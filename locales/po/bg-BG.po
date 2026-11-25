@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/reportit/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/reportit/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -73,7 +73,7 @@ msgstr "Съкращение"
 
 #: include/global_arrays.php
 msgid "Group"
-msgstr "Група"
+msgstr "Групи"
 
 #: include/global_arrays.php templates.php
 msgid "Unit"
@@ -1616,7 +1616,7 @@ msgstr "Кликнете върху „Продължи“, за да изпъл
 
 #: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
-msgstr "Кликнете върху „Напред“, за да изтриете следните отчети."
+msgstr "Кликнете върху „Напред“, за да изтриете следните отчети:"
 
 #: reportit.php
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
@@ -2177,7 +2177,7 @@ msgstr "Определя горната граница на тази проме�
 
 #: templates.php
 msgid "Minimum Value"
-msgstr "Минималната стойност на данните, което е разрешено да бъде прието."
+msgstr "Минимална стойност"
 
 #: templates.php
 msgid "Defines the lower limit of this variable."
