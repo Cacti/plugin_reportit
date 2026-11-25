@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/reportit/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/reportit/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -73,7 +73,7 @@ msgstr "Afkorting"
 
 #: include/global_arrays.php
 msgid "Group"
-msgstr "Groep"
+msgstr "Groepen"
 
 #: include/global_arrays.php templates.php
 msgid "Unit"
@@ -81,7 +81,7 @@ msgstr "Eenheid"
 
 #: include/global_arrays.php templates.php
 msgid "Consolidation Function"
-msgstr "Kies een of meerdere consolidatie functie(s)"
+msgstr "Consolidatiefunctie"
 
 #: include/global_arrays.php templates.php
 msgid "Visible"
@@ -288,7 +288,7 @@ msgstr "Wetenschappelijke notatie"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Unchanged"
-msgstr "Ongewijzigd"
+msgstr "[ongewijzigd]"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "off"
@@ -2226,7 +2226,7 @@ msgstr "De eenheid die aan deze meting wordt gegeven. bijv. 'Bits/s'"
 
 #: templates.php
 msgid "Consolidation function"
-msgstr "Kies een of meerdere consolidatie functie(s)"
+msgstr "Consolidatiefunctie"
 
 #: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
