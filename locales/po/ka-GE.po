@@ -1088,7 +1088,7 @@ msgid "New Email Recipients"
 msgstr "ახალი ელფოსტის მიმღებები"
 
 #: lib/const_reports.php
-msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of adresses/names where the names/addresses are separated with one of the following delemiters: ';' or ','"
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
 msgstr ""
 
 #: lib/const_reports.php
@@ -1140,7 +1140,7 @@ msgid "Auto Generated Data Items"
 msgstr ""
 
 #: lib/const_reports.php
-msgid "Enable/disable automatic creation of all data items based on given filters.This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
 msgstr ""
 
 #: lib/const_reports.php reportit.php
