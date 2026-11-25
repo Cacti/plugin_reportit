@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 02:11+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Spanish <https://translate.cacti.net/projects/cacti/reportit/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Spanish <https://translate.cacti.net/projects/cacti/reportit/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -73,7 +73,7 @@ msgstr "Abreviatura"
 
 #: include/global_arrays.php
 msgid "Group"
-msgstr "Grupo"
+msgstr "Grupos"
 
 #: include/global_arrays.php templates.php
 msgid "Unit"
@@ -288,7 +288,7 @@ msgstr "Notación científica"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Unchanged"
-msgstr "Sin cambiar"
+msgstr "Sin cambios"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "off"
@@ -1398,7 +1398,7 @@ msgstr "Transferencia de archivos incompleta."
 
 #: lib/funct_validate.php
 msgid "No file uploaded."
-msgstr "No se ha cargado ningún archivo."
+msgstr "Ningún archivo seleccionado."
 
 #: lib/funct_validate.php
 msgid "Temporary folder missing."
