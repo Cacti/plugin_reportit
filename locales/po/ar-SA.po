@@ -801,7 +801,7 @@ msgstr "قبل تصفية إضافية"
 
 #: include/global_forms.php
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "اختياري: بناء الجملة لتصفية قائمة عناصر البيانات المتاحة <br> حسب وصفهم. استخدم أحرف البدل SQL مثل٪ و / أو _. لا تعبيرات منتظمة!"
+msgstr "اختياري: بناء الجملة لتصفية قائمة عناصر البيانات المتاحة حسب وصفهم. استخدم أحرف البدل SQL مثل٪ و / أو _. لا تعبيرات منتظمة!"
 
 #: include/global_forms.php
 msgid "Export Path"
@@ -1901,7 +1901,7 @@ msgstr "إنشاء قالب تقرير جديد"
 
 #: templates.php
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
-msgstr "اختر قالب بيانات يجب أن يعتمد عليه قالب التقرير هذا. <br> قوالب البيانات غير المستخدمة مخفية."
+msgstr "اختر قالب بيانات يجب أن يعتمد عليه قالب التقرير هذا. قوالب البيانات غير المستخدمة مخفية."
 
 #: templates.php
 msgid "Import Report Template"

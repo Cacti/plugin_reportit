@@ -801,7 +801,7 @@ msgstr "Допълнителен предфилтър"
 
 #: include/global_forms.php
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Незадължително: Синтаксисът за филтриране на наличния списък с елементи от данни <br> по тяхното описание. Използвайте заместващи символи SQL като% и / или _. Няма редовни изрази!"
+msgstr "Незадължително: Синтаксисът за филтриране на наличния списък с елементи от данни по тяхното описание. Използвайте заместващи символи SQL като% и / или _. Няма редовни изрази!"
 
 #: include/global_forms.php
 msgid "Export Path"
@@ -1901,7 +1901,7 @@ msgstr "Създайте нов шаблон за отчет"
 
 #: templates.php
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
-msgstr "Изберете шаблон за данни, от който трябва да зависи шаблонът на отчета. <br> Неизползваните шаблони за данни са скрити."
+msgstr "Изберете шаблон за данни, от който трябва да зависи шаблонът на отчета. Неизползваните шаблони за данни са скрити."
 
 #: templates.php
 msgid "Import Report Template"
