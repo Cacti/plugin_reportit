@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/reportit/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/reportit/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -472,7 +472,7 @@ msgstr "تُرجع أعلى قيمة عدد صحيح تالية عن طريق ت
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_round - Round A Float"
-msgstr "f_round - Round A Float"
+msgstr "f_round - تقريب عدد عشري"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
@@ -945,7 +945,7 @@ msgstr "عاطل"
 
 #: lib/const_reports.php
 msgid "Running"
-msgstr "مفتوح"
+msgstr "قيد التشغيل"
 
 #: lib/const_reports.php
 msgid "- No template available -"
@@ -1177,7 +1177,7 @@ msgstr "القالب التكوين الخاص بك يعتمد على"
 
 #: lib/const_reports.php lib/funct_export.php view.php
 msgid "Owner"
-msgstr "المشارك"
+msgstr "المالك"
 
 #: lib/const_reports.php
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
@@ -1765,7 +1765,7 @@ msgstr "القوالب"
 
 #: setup.php
 msgid "No data source item selected"
-msgstr "لا توجد عناصر بيانات"
+msgstr "لم يتم تحديد عنصر مصدر بيانات"
 
 #: setup.php
 msgid "Unselected data source items are still in use"
