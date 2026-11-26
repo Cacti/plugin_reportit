@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Spanish <https://translate.cacti.net/projects/cacti/reportit/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Spanish <https://translate.cacti.net/projects/cacti/reportit/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1335,7 +1335,7 @@ msgstr "Fin"
 
 #: lib/funct_export.php view.php
 msgid "Last Run"
-msgstr "Ultima ejecución"
+msgstr "Última ejecución"
 
 #: lib/funct_html.php
 #, php-format
@@ -1497,7 +1497,7 @@ msgstr "Último inicio %s"
 
 #: reportit.php
 msgid "Last Runtime"
-msgstr "Ultima ejecución"
+msgstr "Último tiempo de ejecución"
 
 #: reportit.php templates.php
 msgid "N/A"
