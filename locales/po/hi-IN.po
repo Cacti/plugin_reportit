@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/reportit/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/reportit/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -2011,7 +2011,7 @@ msgstr "अंतरिम परिणाम अन्य मापकों �
 #: templates.php
 #, php-format
 msgid "Template [ %s - %s ]"
-msgstr "टेम्पलेट [ %1$s - %2$s ]"
+msgstr "टेम्पलेट [ %s - %s ]"
 
 #: templates.php
 msgid "Template [new]"
@@ -2206,7 +2206,7 @@ msgstr "दो मानों के बीच की दूरी को प�
 #: templates.php
 #, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr "मेट्रिक कॉन्फ़िगरेशन [ संपादित करें: %1$s - %2$s ]"
+msgstr "मेट्रिक कॉन्फ़िगरेशन [ संपादित करें: %s - %s ]"
 
 #: templates.php
 msgid "Metric Configuration [new]"
@@ -2283,7 +2283,7 @@ msgstr "सूचीबद्ध ऑपरेटरों में से क�
 #: templates.php
 #, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr "मेट्रिक्स [ टेम्पलेट: %1$s - %2$s ]"
+msgstr "मेट्रिक्स [ टेम्पलेट: %s - %s ]"
 
 #: templates.php
 msgid "No Metrics Found"
@@ -2299,7 +2299,7 @@ msgstr "मेरी रिपोर्ट"
 
 #: view.php
 msgid "Go"
-msgstr "लागू करें"
+msgstr "जाएं"
 
 #: view.php
 msgid "Clear"
@@ -2384,7 +2384,7 @@ msgstr "कोई डेटा आइटम नहीं"
 #: view.php
 #, php-format
 msgid "Metric: %s (%s)"
-msgstr "मेट्रिक: %1$s (%2$s)"
+msgstr "मेट्रिक: %s (%s)"
 
 #: view.php
 msgid "Pos."
