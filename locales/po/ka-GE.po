@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/reportit/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -151,7 +151,7 @@ msgstr "ბოლო 4 დღეში"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 5 Days"
-msgstr ""
+msgstr "ბოლო 5 დღე"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 6 Days"
@@ -163,11 +163,11 @@ msgstr "ბოლო 7 დღეში"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Week (Sun - Sat)"
-msgstr ""
+msgstr "გასული კვირა (კვი - შაბ)"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last Week (Mon - Sun)"
-msgstr ""
+msgstr "გასული კვირა (ორშ - კვი)"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 14 Days"
@@ -179,7 +179,7 @@ msgstr "ბოლო 21 დღე"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 28 Days"
-msgstr ""
+msgstr "ბოლო 28 დღე"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Current Month"
@@ -191,7 +191,7 @@ msgstr "ბოლო თვე"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 2 Months"
-msgstr ""
+msgstr "ბოლო 2 თვე"
 
 #: include/global_arrays.php lib/const_reports.php
 msgid "Last 3 Months"
@@ -296,19 +296,19 @@ msgstr "გამრთ"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Binary SI-Prefixes (Base 1024)"
-msgstr ""
+msgstr "ორობითი SI-პრეფიქსები (ფუძე 1024)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Decimal SI-Prefixes (Base 1000)"
-msgstr ""
+msgstr "ათობითი SI-პრეფიქსები (ფუძე 1000)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_avg - Arithmetic Average"
-msgstr ""
+msgstr "f_avg - არითმეტიკული საშუალო"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the average value of all measured values per DS"
-msgstr ""
+msgstr "აბრუნებს ყველა გაზომილი მნიშვნელობის საშუალო სიდიდეს თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "none"
@@ -316,19 +316,19 @@ msgstr "არცერთი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_max - Maximum Value"
-msgstr ""
+msgstr "f_max - მაქსიმალური მნიშვნელობა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the highest measured value per DS"
-msgstr ""
+msgstr "აბრუნებს უმაღლეს გაზომილ მნიშვნელობას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_min - Minimum Value"
-msgstr ""
+msgstr "f_min - მინიმალური მნიშვნელობა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the lowest measured value per DS"
-msgstr ""
+msgstr "აბრუნებს უმდაბლეს გაზომილ მნიშვნელობას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sum - Sum"
@@ -336,47 +336,47 @@ msgstr "f_sum - ჯამი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of all measured values per DS"
-msgstr ""
+msgstr "აბრუნებს ყველა გაზომილი მნიშვნელობის ჯამს თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_num - Number of Values (Not NaN)"
-msgstr ""
+msgstr "f_num - მნიშვნელობების რაოდენობა (არა NaN)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the number of valid measured values per DS"
-msgstr ""
+msgstr "აბრუნებს ვალიდური გაზომილი მნიშვნელობების რაოდენობას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_grd - Gradient"
-msgstr ""
+msgstr "f_grd - გრადიენტი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the gradient of a straight line by using linear regression per DS"
-msgstr ""
+msgstr "აბრუნებს წრფის გრადიენტს წრფივი რეგრესიის გამოყენებით თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_last - Last Value"
-msgstr ""
+msgstr "f_last - ბოლო მნიშვნელობა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the last valid measured value per DS"
-msgstr ""
+msgstr "აბრუნებს ბოლო ვალიდურ გაზომილ მნიშვნელობას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_1st - First Value"
-msgstr ""
+msgstr "f_1st - პირველი მნიშვნელობა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the first valid measured value per DS"
-msgstr ""
+msgstr "აბრუნებს პირველ ვალიდურ გაზომილ მნიშვნელობას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_nan - Number of NaNs"
-msgstr ""
+msgstr "f_nan - NaN-ების რაოდენობა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the number of NaNs stored per DS"
-msgstr ""
+msgstr "აბრუნებს შენახული NaN-ების რაოდენობას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_median - Median"
@@ -384,7 +384,7 @@ msgstr "f_median - მედიანი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns that value that separates the higher half from the lower half per DS"
-msgstr ""
+msgstr "აბრუნებს იმ მნიშვნელობას, რომელიც ყოფს ზედა ნახევარს ქვედა ნახევრისგან თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_range - Range"
@@ -392,23 +392,23 @@ msgstr "f_range - შუალედი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the difference between the largest and the smallest value per DS"
-msgstr ""
+msgstr "აბრუნებს სხვაობას უდიდეს და უმცირეს მნიშვნელობებს შორის თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_iqr - Interquartile Range"
-msgstr ""
+msgstr "f_iqr - ინტერკვარტილური დიაპაზონი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the distance of the middle50&#037; around the median per DS"
-msgstr ""
+msgstr "აბრუნებს მედიანის გარშემო შუა 50&#037;-ის დაშორებას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sd - Standard Deviation"
-msgstr ""
+msgstr "f_sd - სტანდარტული გადახრა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the square root per data source variance"
-msgstr ""
+msgstr "აბრუნებს კვადრატულ ფესვს მონაცემთა წყაროს დისპერსიიდან"
 
 #: include/global_arrays.php
 msgid "f_var - Variance"
@@ -416,27 +416,27 @@ msgstr "f_var - დისპერსია"
 
 #: include/global_arrays.php
 msgid "Returns the variance per DS"
-msgstr ""
+msgstr "აბრუნებს დისპერსიას თითოეული DS-ისთვის"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_xth - Xth Percentile"
-msgstr ""
+msgstr "f_xth - X-ე პროცენტილი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the xth percentitle."
-msgstr ""
+msgstr "აბრუნებს x-ე პროცენტილს."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
-msgstr ""
+msgstr "$var: ზღვარი პროცენტებში. დიაპაზონი: [0&lt; $var &le;100]"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_dot - Duration Over Threshold"
-msgstr ""
+msgstr "f_dot - ზღვარს გადაჭარბების ხანგრძლივობა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the duration over a defined threshold in percent."
-msgstr ""
+msgstr "აბრუნებს განსაზღვრულ ზღვარზე გადაჭარბების ხანგრძლივობას პროცენტებში."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: threshold (absolute)"
@@ -444,19 +444,19 @@ msgstr "$var: ზღვარი (აბსოლუტური)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_sot - Sum Over Threshold"
-msgstr ""
+msgstr "f_sot - ზღვარს გადაჭარბების ჯამი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the sum of values over a defined threshold."
-msgstr ""
+msgstr "აბრუნებს განსაზღვრულ ზღვარზე მეტი მნიშვნელობების ჯამს."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_floor - Round Fractions Down"
-msgstr ""
+msgstr "f_floor - წილადების ქვემოთ დამრგვალება"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the next lowest integer value by rounding down value if necessary."
-msgstr ""
+msgstr "აბრუნებს უახლოეს მცირე მთელ მნიშვნელობას, საჭიროების შემთხვევაში ქვემოთ დამრგვალებით."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float"
@@ -464,119 +464,119 @@ msgstr "$var: მცურავმძიმიანი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_ceil - Round Fractions Up"
-msgstr ""
+msgstr "f_ceil - წილადების ზემოთ დამრგვალება"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the next highest integer value by rounding up value if necessary."
-msgstr ""
+msgstr "აბრუნებს უახლოეს დიდ მთელ მნიშვნელობას, საჭიროების შემთხვევაში ზემოთ დამრგვალებით."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_round - Round A Float"
-msgstr ""
+msgstr "f_round - ათწილადის დამრგვალება"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
-msgstr ""
+msgstr "აბრუნებს ნებისმიერი მოცემული ათწილადის დამრგვალებულ მთელ მნიშვნელობას."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var: float or string value"
-msgstr ""
+msgstr "$var: ათწილადი ან სტრიქონული მნიშვნელობა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Highest Value"
-msgstr ""
+msgstr "f_high - უმაღლესი მნიშვნელობის პოვნა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the highest value of a given list of parameters"
-msgstr ""
+msgstr "აბრუნებს უმაღლეს მნიშვნელობას პარამეტრების მოცემული სიიდან"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "$var1, $var2, $var3 ...: values to be compared"
-msgstr ""
+msgstr "$var1, $var2, $var3 ...: შესადარებელი მნიშვნელობები"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_high - Find Lowest Value"
-msgstr ""
+msgstr "f_high - უმდაბლესი მნიშვნელობის პოვნა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the lowest value of a given list of parameters"
-msgstr ""
+msgstr "აბრუნებს უმდაბლეს მნიშვნელობას პარამეტრების მოცემული სიიდან"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
-msgstr ""
+msgstr "f_if - პირობითი ოპერაცია - IF-THEN-ELSE ლოგიკა"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns B if A is true or C if A is false"
-msgstr ""
+msgstr "აბრუნებს B-ს, თუ A ჭეშმარიტია, ან C-ს, თუ A მცდარია"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_isNaN - Find whether a value is not a number"
-msgstr ""
+msgstr "f_isNaN - იმის დადგენა, არის თუ არა მნიშვნელობა არარიცხვი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
-msgstr ""
+msgstr "აბრუნებს 1-ს (ან B-ს), თუ A === NaN, ან 0-ს (ან C-ს) წინააღმდეგ შემთხვევაში. B და C პარამეტრები არასავალდებულოა."
 
 #: include/global_arrays.php
 msgid "f_cmp - Complex Comparison"
-msgstr ""
+msgstr "f_cmp - კომპლექსური შედარება"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_int - Alias of f_floor"
-msgstr ""
+msgstr "f_int - f_floor-ის ფსევდონიმი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_rnd - Alias of f_round"
-msgstr ""
+msgstr "f_rnd - f_round-ის ფსევდონიმი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_eq - Alias of f_cmp - IS EQUAL"
-msgstr ""
+msgstr "f_eq - f_cmp-ის ფსევდონიმი - ტოლია"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "აბრუნებს 1-ს (ან C-ს), თუ A == B, ან 0-ს (ან D-ს), თუ არა. პარამეტრები C და D არასავალდებულოა."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
-msgstr ""
+msgstr "f_uq - f_cmp-ის ფსევდონიმი - არ არის ტოლი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "აბრუნებს 1-ს (ან C-ს), თუ A != B, ან 0-ს (ან D-ს), თუ არა. პარამეტრები C და D არასავალდებულოა."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
-msgstr ""
+msgstr "f_gt - f_cmp-ის ფსევდონიმი - მეტია ვიდრე"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "აბრუნებს 1-ს (ან C-ს), თუ A > B, ან 0-ს (ან D-ს), თუ არა. პარამეტრები C და D არასავალდებულოა."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
-msgstr ""
+msgstr "f_lt - f_cmp-ის ფსევდონიმი - ნაკლებია ვიდრე"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "აბრუნებს 1-ს (ან C-ს), თუ A < B, ან 0-ს (ან D-ს), თუ არა. პარამეტრები C და D არასავალდებულოა."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
-msgstr ""
+msgstr "f_ge - f_cmp-ის ფსევდონიმი - მეტია ან ტოლია"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "აბრუნებს 1-ს (ან C-ს), თუ A >= B, ან 0-ს (ან D-ს), თუ არა. პარამეტრები C და D არასავალდებულოა."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
-msgstr ""
+msgstr "f_le - f_cmp-ის ფსევდონიმი - ნაკლებია ან ტოლია"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
-msgstr ""
+msgstr "აბრუნებს 1-ს (ან C-ს), თუ A <= B, ან 0-ს (ან D-ს), თუ არა. პარამეტრები C და D არასავალდებულოა."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Addition"
@@ -584,7 +584,7 @@ msgstr "დამატება"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the sum of two or more summands"
-msgstr ""
+msgstr "მათემატიკური ოპერაცია ორი ან მეტი შესაკრების ჯამის დასაბრუნებლად"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Subtraction"
@@ -592,7 +592,7 @@ msgstr "გამოკლება"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the difference of minuend and subtrahend"
-msgstr ""
+msgstr "მათემატიკური ოპერაცია საკლებსა და მაკლებს შორის სხვაობის დასაბრუნებლად"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Multiplication"
@@ -600,7 +600,7 @@ msgstr "გამრავლება"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the product of multiplier and multiplicant"
-msgstr ""
+msgstr "მათემატიკური ოპერაცია მამრავლისა და სამრავლის ნამრავლის დასაბრუნებლად"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Division"
@@ -608,7 +608,7 @@ msgstr "დივიზია"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the fraction of divident and divisor"
-msgstr ""
+msgstr "მათემატიკური ოპერაცია გასაყოფისა და გამყოფის განაყოფის დასაბრუნებლად"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Modulus"
@@ -616,15 +616,15 @@ msgstr "მოდული"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the remainder of a division of two integers"
-msgstr ""
+msgstr "მათემატიკური ოპერაცია ორი მთელი რიცხვის გაყოფის ნაშთის დასაბრუნებლად"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Exponentiation - PHP5.6 or above required"
-msgstr ""
+msgstr "ახარისხება - საჭიროა PHP5.6 ან უფრო ახალი ვერსია"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
-msgstr ""
+msgstr "მათემატიკური ოპერაცია ფუძის ხარისხის მაჩვენებელზე მრავალჯერადი გამრავლების (ან გაყოფის) შედეგის დასაბრუნებლად."
 
 #: include/global_arrays.php
 msgid "Decimal Mark"
@@ -632,7 +632,7 @@ msgstr "წილადის ნიშანი"
 
 #: include/global_arrays.php
 msgid "Decimal Mark used to separate the integer part from the fractional part"
-msgstr ""
+msgstr "ათობითი გამყოფი, რომელიც გამოიყენება მთელი ნაწილის წილადი ნაწილისგან გამოსაყოფად"
 
 #: include/global_arrays.php
 msgid "Round Bracket"
@@ -640,7 +640,7 @@ msgstr "მრგვალი ფრჩხილი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Used to override normal precedence or to mark the first level of nesting"
-msgstr ""
+msgstr "გამოიყენება ჩვეულებრივი პრიორიტეტის შესაცვლელად ან ჩადგმის პირველი დონის აღსანიშნავად"
 
 #: include/global_arrays.php
 msgid "Square Bracket"
@@ -648,7 +648,7 @@ msgstr "კვადრატული ფრჩხილი"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Used to override normal precedence or to mark the second level of nesting"
-msgstr ""
+msgstr "გამოიყენება ჩვეულებრივი პრიორიტეტის შესაცვლელად ან ჩადგმის მეორე დონის აღსანიშნავად"
 
 #: include/global_arrays.php
 msgid "Punctuation mark"
@@ -656,23 +656,23 @@ msgstr "პუნქტუაციის ნიშანი"
 
 #: include/global_arrays.php
 msgid "Used to separate arguments forwarded to a function"
-msgstr ""
+msgstr "გამოიყენება ფუნქციისთვის გადაცემული არგუმენტების გამოსაყოფად"
 
 #: include/global_arrays.php
 msgid "The minimum value of data that is allowed to be collected."
-msgstr ""
+msgstr "მონაცემების მინიმალური მნიშვნელობა, რომლის შეგროვებაც დაშვებულია."
 
 #: include/global_arrays.php
 msgid "WARNING! This variable can be set to zero or unlimited"
-msgstr ""
+msgstr "გაფრთხილება! ეს ცვლადი შეიძლება დაყენდეს ნულზე ან შეუზღუდავზე"
 
 #: include/global_arrays.php
 msgid "The maximum value of data that is allowed to be collected."
-msgstr ""
+msgstr "მონაცემების მაქსიმალური მნიშვნელობა, რომლის შეგროვებაც დაშვებულია."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Contains the number of seconds between two measured values."
-msgstr ""
+msgstr "შეიცავს წამების რაოდენობას ორ გაზომილ მნიშვნელობას შორის."
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Functions w/o parameters"
@@ -724,23 +724,23 @@ msgstr "2,000 მონაცემის ელემენტი"
 
 #: include/global_arrays.php
 msgid "5,000 Data Source Items"
-msgstr ""
+msgstr "მონაცემთა წყაროს 5,000 ელემენტი"
 
 #: include/global_arrays.php
 msgid "7,500 Data Source Items"
-msgstr ""
+msgstr "მონაცემთა წყაროს 7,500 ელემენტი"
 
 #: include/global_arrays.php
 msgid "10,000 Data Source Items"
-msgstr ""
+msgstr "მონაცემთა წყაროს 10,000 ელემენტი"
 
 #: include/global_arrays.php
 msgid "15,000 Data Source Items"
-msgstr ""
+msgstr "მონაცემთა წყაროს 15,000 ელემენტი"
 
 #: include/global_arrays.php
 msgid "25,000 Data Source Items"
-msgstr ""
+msgstr "მონაცემთა წყაროს 25,000 ელემენტი"
 
 #: include/global_arrays.php
 msgid "1 Minute"
@@ -753,7 +753,7 @@ msgstr "%d წუთი"
 
 #: include/global_forms.php
 msgid "The unique name given to this Report Template."
-msgstr ""
+msgstr "ამ ანგარიშის შაბლონისთვის მინიჭებული უნიკალური სახელი."
 
 #: include/global_forms.php templates.php view.php
 msgid "Description"
@@ -761,7 +761,7 @@ msgstr "აღწერა"
 
 #: include/global_forms.php
 msgid "A longer description of this Report Template."
-msgstr ""
+msgstr "ამ ანგარიშის შაბლონის უფრო ვრცელი აღწერა."
 
 #: include/global_forms.php templates.php
 msgid "Version"
@@ -769,7 +769,7 @@ msgstr "ვერსია"
 
 #: include/global_forms.php
 msgid "A version number for this template"
-msgstr ""
+msgstr "ამ შაბლონის ვერსიის ნომერი"
 
 #: include/global_forms.php templates.php
 msgid "Author"
@@ -777,7 +777,7 @@ msgstr "ავტორი"
 
 #: include/global_forms.php
 msgid "The author of this template"
-msgstr ""
+msgstr "ამ შაბლონის ავტორი"
 
 #: include/global_forms.php
 msgid "Publish"
@@ -785,7 +785,7 @@ msgstr "გამოქვეყნება"
 
 #: include/global_forms.php
 msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
-msgstr ""
+msgstr "გამოქვეყნდეს ეს ანგარიშის შაბლონი მომხმარებლებისთვის წვდომისთვის? ახალი შაბლონების ან ცვლილებების ტესტირების მიზნით, ეს ველი უნდა მოხსნათ."
 
 #: include/global_forms.php templates.php
 msgid "Locked"
@@ -793,7 +793,7 @@ msgstr "ჩაკეტილია"
 
 #: include/global_forms.php
 msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
-msgstr ""
+msgstr "სტატუსი \"დაბლოკილი\" თავიდან აგაცილებთ თქვენი ანგარიშის შაბლონის, ასევე მინიჭებული გასაზომი სიდიდეებისა და ცვლადების განსაზღვრებების ნებისმიერი სახის ცვლილებას"
 
 #: include/global_forms.php
 msgid "Additional Pre-filter"
@@ -801,7 +801,7 @@ msgstr "დამატებითი პრეფილტრი"
 
 #: include/global_forms.php
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr ""
+msgstr "არასავალდებულო: სინტაქსი მონაცემთა ხელმისაწვდომი ელემენტების სიის მათი აღწერის მიხედვით გასაფილტრად. გამოიყენეთ SQL ჩანაცვლების სიმბოლოები, როგორიცაა % და/ან _. რეგულარული გამოსახულებები არ გამოიყენოთ!"
 
 #: include/global_forms.php
 msgid "Export Path"
@@ -809,7 +809,7 @@ msgstr "გატანის ბილიკი"
 
 #: include/global_forms.php
 msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
-msgstr ""
+msgstr "არასავალდებულო: გზა საქაღალდისკენ ექსპორტების შესანახად. თუ ის არ არსებობს, ReportIt ავტომატურად შეეცდება მის შექმნას პირველი დაგეგმილი გამოთვლისას, წინააღმდეგ შემთხვევაში კი შეეცდება შექმნას ახალი ქვესაქაღალდე ექსპორტის მთავარ საქაღალდეში შაბლონის ID-ის გამოყენებით."
 
 #: include/global_forms.php templates.php
 msgid "Data Template"
@@ -817,7 +817,7 @@ msgstr "მონაცემების შაბლონი"
 
 #: include/global_forms.php
 msgid "The name of the data template this Report Template depends on."
-msgstr ""
+msgstr "მონაცემთა იმ შაბლონის სახელი, რომელზეც ეს ანგარიშის შაბლონი არის დამოკიდებული."
 
 #: include/global_forms.php
 msgid "Report Template"
@@ -825,7 +825,7 @@ msgstr "ანგარიშის შაბლონი"
 
 #: include/global_forms.php
 msgid "Choose one of your Report Templates to export to XML."
-msgstr ""
+msgstr "აირჩიეთ თქვენი ერთ-ერთი ანგარიშის შაბლონი XML-ში ექსპორტისთვის."
 
 #: include/global_forms.php
 msgid "[Optional] Description"
@@ -833,7 +833,7 @@ msgstr "[არასავალდებულო] აღწერა"
 
 #: include/global_forms.php
 msgid "Describe the characteristics of your report template"
-msgstr ""
+msgstr "აღწერეთ თქვენი ანგარიშის შაბლონის მახასიათებლები"
 
 #: include/global_forms.php
 msgid "[Optional] Author"
@@ -841,7 +841,7 @@ msgstr "[არასავალდებულო] ავტორი"
 
 #: include/global_forms.php
 msgid "Add your name or nick here."
-msgstr ""
+msgstr "დაამატეთ აქ თქვენი სახელი ან მეტსახელი."
 
 #: include/global_forms.php
 msgid "[Optional] Version"
@@ -869,7 +869,7 @@ msgstr "არე"
 
 #: lib/const_graphs.php
 msgid "Pie chart 3D"
-msgstr ""
+msgstr "3D წრიული დიაგრამა"
 
 #: lib/const_graphs.php lib/const_view.php
 msgid "Spider"
@@ -881,7 +881,7 @@ msgstr "f_mode - რეჟიმი"
 
 #: lib/const_measurands.php
 msgid "Returns the value that appears most often per DS"
-msgstr ""
+msgstr "აბრუნებს მნიშვნელობას, რომელიც ყველაზე ხშირად გვხვდება თითოეულ DS-ში"
 
 #: lib/const_measurands.php
 msgid "Left (Opening) parenthesis"
@@ -893,23 +893,23 @@ msgstr "მარვენა (დამხურავი) ფრჩხილ�
 
 #: lib/const_measurands.php
 msgid "Left (Opening) Square Bracket"
-msgstr ""
+msgstr "მარცხენა (გამხსნელი) კვადრატული ფრჩხილი"
 
 #: lib/const_measurands.php
 msgid "Right (Closing) Square Bracket"
-msgstr ""
+msgstr "მარჯვენა (დამხურავი) კვადრატული ფრჩხილი"
 
 #: lib/const_measurands.php
 msgid "Contains the maximum bandwidth if 'ifspeed' is available."
-msgstr ""
+msgstr "შეიცავს მაქსიმალურ გამტარუნარიანობას, თუ 'ifspeed' ხელმისაწვდომია."
 
 #: lib/const_measurands.php
 msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
-msgstr ""
+msgstr "შეიცავს მაქსიმალურ მნიშვნელობას, რომელიც განსაზღვრულია მონაცემთა წყაროს კონკრეტული ელემენტისთვის \\\"მონაცემთა წყაროები\\\"-ში."
 
 #: lib/const_measurands.php
 msgid "Contains the number of NAN's during the reporting period."
-msgstr ""
+msgstr "შეიცავს NAN მნიშვნელობების რაოდენობას საანგარიშო პერიოდის განმავლობაში."
 
 #: lib/const_measurands.php
 msgid "Parentheses"
@@ -949,7 +949,7 @@ msgstr "გაშვებულია"
 
 #: lib/const_reports.php
 msgid "- No template available -"
-msgstr ""
+msgstr "- შაბლონი მიუწვდომელია -"
 
 #: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
 msgid "Monday"
@@ -997,7 +997,7 @@ msgstr "ტექსტური CSV (.csv)"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "MS Excel 2003 XML (.xml)"
-msgstr ""
+msgstr "MS Excel 2003 XML (.xml)"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "Raw XML (.xml)"
@@ -1005,11 +1005,11 @@ msgstr "დაუმუშავებელი XML (.xml)"
 
 #: lib/const_reports.php
 msgid "JSON Data (.json)"
-msgstr ""
+msgstr "JSON მონაცემები (.json)"
 
 #: lib/const_reports.php
 msgid "YAML Data (.yaml)"
-msgstr ""
+msgstr "YAML მონაცემები (.yaml)"
 
 #: lib/const_reports.php
 msgid "Subject"
@@ -1017,11 +1017,11 @@ msgstr "თემა"
 
 #: lib/const_reports.php
 msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
-msgstr ""
+msgstr "შეიყვანეთ თქვენი ელფოსტის თემა.<br> მხარდაჭერილი იქნება შემდეგი ცვლადები (ბრჭყალების გარეშე): '|title|' და '|period|'"
 
 #: lib/const_reports.php
 msgid "Scheduled report - |title| - |period|"
-msgstr ""
+msgstr "დაგეგმილი ანგარიში - |title| - |period|"
 
 #: lib/const_reports.php
 msgid "Body (optional)"
@@ -1029,11 +1029,11 @@ msgstr "სხეული (არასავალდებულო)"
 
 #: lib/const_reports.php
 msgid "Enter a message which will be displayed in the body of your email"
-msgstr ""
+msgstr "შეიყვანეთ შეტყობინება, რომელიც გამოჩნდება თქვენი ელფოსტის ტექსტში"
 
 #: lib/const_reports.php
 msgid "This is a scheduled report generated from Cacti."
-msgstr ""
+msgstr "ეს არის Cacti-დან გენერირებული დაგეგმილი ანგარიში."
 
 #: lib/const_reports.php
 msgid "Attachment"
@@ -1041,7 +1041,7 @@ msgstr "მიმაგრებული ფაილი"
 
 #: lib/const_reports.php
 msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
-msgstr ""
+msgstr "იმისათვის, რომ მხოლოდ შეტყობინების სახით მიიღოთ ელფოსტა ახალი ანგარიშის ხელმისაწვდომობის შესახებ, აირჩიეთ 'არცერთი'.<br> წინააღმდეგ შემთხვევაში აირჩიეთ ფორმატი, რომლითაც ანგარიში უნდა დაერთოს."
 
 #: lib/const_reports.php
 msgid "Email Recipients"
@@ -1049,11 +1049,11 @@ msgstr "ელფოსტის მიმღებები"
 
 #: lib/const_reports.php
 msgid "Notification List Recipients"
-msgstr ""
+msgstr "შეტყობინებების სიის მიმღებები"
 
 #: lib/const_reports.php
 msgid "To add a Recipients based upon an valid Notification List."
-msgstr ""
+msgstr "მიმღებების დამატება მოქმედ შეტყობინებების სიაზე დაყრდნობით."
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
@@ -1061,7 +1061,7 @@ msgstr "ელფოსტის მისამართ(ებ)-ზე"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "გთხოვთ, გამოყოთ მრავალი მისამართი მძიმით (,)"
 
 #: lib/const_reports.php
 msgid "BCC Address(es)"
@@ -1069,7 +1069,7 @@ msgstr "BCC მისამართ(ებ)-ი"
 
 #: lib/const_reports.php
 msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
-msgstr ""
+msgstr "ფარული ასლი (BCC). გთხოვთ, გამოყოთ მრავალი მისამართი მძიმით (,)"
 
 #: lib/const_reports.php
 msgid "New Email Recipients"
@@ -1077,7 +1077,7 @@ msgstr "ახალი ელფოსტის მიმღებები"
 
 #: lib/const_reports.php
 msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
-msgstr ""
+msgstr "ახალი მიმღების დასამატებლად შეიყვანეთ სწორი ელფოსტის მისამართი (სავალდებულო) და სახელი (არასავალდებულო).<br> უფრო სწრაფი დაყენებისთვის გამოიყენეთ მისამართების/სახელების სია, სადაც სახელები/მისამართები გამოყოფილია ერთ-ერთი შემდეგი გამყოფით: ';' ან ','"
 
 #: lib/const_reports.php
 msgid "Optional Sub-heading"
@@ -1085,7 +1085,7 @@ msgstr "არასავალდებულო ქვეთავსარ�
 
 #: lib/const_reports.php reportit.php
 msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
-msgstr ""
+msgstr "განსაზღვრეთ დამატებითი ქვესათაური, რომელიც უნდა გამოჩნდეს ინტერფეისის აღწერის ქვეშ.<br> მხარდაჭერილი იქნება შემდეგი ცვლადები (ბრჭყალების გარეშე): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
 
 #: lib/const_reports.php reportit.php
 msgid "Time Zone"
@@ -1093,11 +1093,11 @@ msgstr "დროის სარტყელი"
 
 #: lib/const_reports.php
 msgid "Select the time zone your following shifttime informations will be based on."
-msgstr ""
+msgstr "აირჩიეთ დროის სარტყელი, რომელსაც დაეფუძნება თქვენი შემდეგი ცვლის დროის ინფორმაცია."
 
 #: lib/const_reports.php
 msgid "Optional Data Source Pre-Filters"
-msgstr ""
+msgstr "მონაცემთა წყაროს არასავალდებულო წინასწარი ფილტრები"
 
 #: lib/const_reports.php
 msgid "Site Filter"
@@ -1105,31 +1105,31 @@ msgstr "საიტის ფილტრი"
 
 #: lib/const_reports.php
 msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr ""
+msgstr "გამოიყენეთ მხოლოდ ამ საიტების შესაბამისი მონაცემთა წყაროები.<br>ამ ფილტრის პარამეტრის გამოსართავად აირჩიეთ 'არცერთი' (ნაგულისხმევი)."
 
 #: lib/const_reports.php
 msgid "Device Template Filter"
-msgstr ""
+msgstr "მოწყობილობის შაბლონის ფილტრი"
 
 #: lib/const_reports.php
 msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
-msgstr ""
+msgstr "გამოიყენეთ მხოლოდ ამ მოწყობილობის შაბლონების მონაცემთა წყაროები.<br>ამ ფილტრის პარამეტრის გამოსართავად აირჩიეთ 'არცერთი' (ნაგულისხმევი)."
 
 #: lib/const_reports.php
 msgid "Data Source Name Filter"
-msgstr ""
+msgstr "მონაცემთა წყაროს სახელის ფილტრი"
 
 #: lib/const_reports.php
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr ""
+msgstr "გამოიყენეთ მონაცემთა წყაროები, რომელთა სახელებიც ემთხვევა ამ ფილტრს.<br> გამოიყენეთ SQL ჩანაცვლების სიმბოლოები, როგორიცაა % და/ან _. რეგულარული გამოსახულებები არ გამოიყენოთ!"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
-msgstr ""
+msgstr "ავტომატურად გენერირებული მონაცემთა ელემენტები"
 
 #: lib/const_reports.php
 msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
-msgstr ""
+msgstr "მოცემული ფილტრების საფუძველზე ყველა მონაცემთა ელემენტის ავტომატური შექმნის ჩართვა/გათიშვა. იგი გამოიძახება ანგარიშის შესრულებამდე. მოძველებული RRD-ები წაიშლება და ფილტრის პარამეტრების შესაბამისი ყველა RRD დაემატება."
 
 #: lib/const_reports.php reportit.php
 msgid "Working Time"
@@ -1141,7 +1141,7 @@ msgstr "საწყისი"
 
 #: lib/const_reports.php reportit.php
 msgid "The startpoint of duration you want to analyse"
-msgstr ""
+msgstr "ხანგრძლივობის საწყისი წერტილი, რომლის გაანალიზებაც გსურთ"
 
 #: lib/const_reports.php reportit.php
 msgid "To"
@@ -1149,7 +1149,7 @@ msgstr "საბოლოო"
 
 #: lib/const_reports.php reportit.php
 msgid "The end of analysing time."
-msgstr ""
+msgstr "ანალიზის დროის დასასრული."
 
 #: lib/const_reports.php reportit.php
 msgid "Working Days"
@@ -1157,15 +1157,15 @@ msgstr "სამუშაო დღეები"
 
 #: lib/const_reports.php reportit.php
 msgid "Define the band of days where shift STARTS!"
-msgstr ""
+msgstr "განსაზღვრეთ დღეების ინტერვალი, როდესაც ცვლა იწყება!"
 
 #: lib/const_reports.php reportit.php
 msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
-msgstr ""
+msgstr "მაგალითი: ღამის ცვლისთვის ორშ(22:30)-დან შაბ(06:30)-მდე მიუთითეთ ორშაბათიდან პარასკევის ჩათვლით"
 
 #: lib/const_reports.php
 msgid "The name given to this report"
-msgstr ""
+msgstr "ამ ანგარიშისთვის მინიჭებული სახელი"
 
 #: lib/const_reports.php lib/funct_export.php view.php
 msgid "Template"
@@ -1173,7 +1173,7 @@ msgstr "შაბლონი"
 
 #: lib/const_reports.php
 msgid "The template your configuration depends on"
-msgstr ""
+msgstr "შაბლონი, რომელზეც თქვენი კონფიგურაცია არის დამოკიდებული"
 
 #: lib/const_reports.php lib/funct_export.php view.php
 msgid "Owner"
@@ -1181,7 +1181,7 @@ msgstr "მფლობელი"
 
 #: lib/const_reports.php
 msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
-msgstr ""
+msgstr "შეცვალეთ ამ ანგარიშის მფლობელი. შესაძლებელია მხოლოდ იმ მომხმარებლების არჩევა, რომლებსაც აქვთ \"ნახვის\" ან უფრო მაღალი ნებართვა."
 
 #: lib/const_reports.php reportit.php view.php
 msgid "Enabled"
@@ -1189,7 +1189,7 @@ msgstr "ჩართულია"
 
 #: lib/const_reports.php
 msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
-msgstr ""
+msgstr "დაგეგმილი ანგარიშგების ჩართვა/გამორთვა. მცოცავი დროის ინტერვალი ჩართული უნდა იყოს."
 
 #: lib/const_reports.php reportit.php
 msgid "Public"
@@ -1197,23 +1197,23 @@ msgstr "საჯარო"
 
 #: lib/const_reports.php
 msgid "If enabled everyone can see your report under tab 'reports'"
-msgstr ""
+msgstr "ჩართვის შემთხვევაში ყველას შეუძლია იხილოს თქვენი ანგარიში ჩანართში 'ანგარიშები'"
 
 #: lib/const_reports.php
 msgid "Enable Use of Graph Permissions"
-msgstr ""
+msgstr "გრაფიკის ნებართვების გამოყენების ჩართვა"
 
 #: lib/const_reports.php
 msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
-msgstr ""
+msgstr "ჩართვის შემთხვევაში (ნაგულისხმევი), ხელმისაწვდომი მონაცემთა ელემენტების სია ავტომატურად გაიფილტრება მფლობელის გრაფიკის ნებართვით: 'მოწყობილობის მიხედვით'."
 
 #: lib/const_reports.php
 msgid "Auto Generated Email"
-msgstr ""
+msgstr "ავტომატურად გენერირებული ელფოსტა"
 
 #: lib/const_reports.php
 msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
-msgstr ""
+msgstr "ჩართვის შემთხვევაში, გააქტიურდება ჩანართი 'ელფოსტა' და ამ განყოფილებაში განსაზღვრული ყველა მიმღები ავტომატურად მიიღებს ელფოსტას ამ დაგეგმილი ანგარიშით."
 
 #: lib/const_reports.php
 msgid "Reporting Period"
@@ -1225,7 +1225,7 @@ msgstr "სრიალა დროის ჩარჩოები"
 
 #: lib/const_reports.php
 msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
-msgstr ""
+msgstr "მონიშვნის შემთხვევაში, საანგარიშო პერიოდი ავტომატურად დაკონფიგურირდება გამოთვლის დაწყების დროის მომენტთან მიმართებაში."
 
 #: lib/const_reports.php
 msgid "Time Frames"
@@ -1233,31 +1233,31 @@ msgstr "დროის მონაკვეთები"
 
 #: lib/const_reports.php
 msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
-msgstr ""
+msgstr "დროის ინტერვალი, რომლის გაანალიზებაც გსურთ გამოთვლის დაწყების დროის მომენტთან მიმართებაში.<br>ეს გულისხმობს კალენდარულ დღეებს, კალენდარულ თვეებსა და კალენდარულ წლებს."
 
 #: lib/const_reports.php
 msgid "Up To The Day of Calculation"
-msgstr ""
+msgstr "გამოთვლის დღემდე"
 
 #: lib/const_reports.php
 msgid "Extend the sliding time frame up to the day the calculation runs."
-msgstr ""
+msgstr "გააფართოვეთ მცოცავი დროის ინტერვალი იმ დღემდე, როდესაც გამოთვლა ეშვება."
 
 #: lib/const_reports.php
 msgid "Fixed Time Frame - Start Date (From)"
-msgstr ""
+msgstr "ფიქსირებული დროის ინტერვალი - დაწყების თარიღი (დან)"
 
 #: lib/const_reports.php
 msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
-msgstr ""
+msgstr "დაწყების თარიღის განსაზღვრისთვის გამოიყენეთ შემდეგი ფორმატი: <b>yyyy-mm-dd</b>"
 
 #: lib/const_reports.php
 msgid "Fixed Time Frame - End Date (To)"
-msgstr ""
+msgstr "ფიქსირებული დროის ინტერვალი - დასრულების თარიღი (მდე)"
 
 #: lib/const_reports.php
 msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
-msgstr ""
+msgstr "დასრულების თარიღის განსასაზღვრად გამოიყენეთ შემდეგი ფორმატი: <b>yyyy-mm-dd</b>"
 
 #: lib/const_rrdlist.php
 msgid "Add to Report"
@@ -1269,7 +1269,7 @@ msgstr "წაშლა ანგარიშიდან"
 
 #: lib/const_rrdlist.php
 msgid "Copy Settings to All"
-msgstr ""
+msgstr "პარამეტრების ყველაზე კოპირება"
 
 #: lib/const_rrdlist.php setup.php
 msgid "Add"
@@ -1293,7 +1293,7 @@ msgstr "არეს დიაგრამა"
 
 #: lib/const_view.php
 msgid "Pie chart: 3D"
-msgstr ""
+msgstr "წრიული დიაგრამა: 3D"
 
 #: lib/const_view.php
 #, php-format
@@ -1365,7 +1365,7 @@ msgstr "ჩართვა [%s]"
 #: lib/funct_html.php
 #, php-format
 msgid "Activate data source item '%s' for the calculation process."
-msgstr ""
+msgstr "გააქტიურეთ მონაცემთა წყაროს ელემენტი '%s' გამოთვლის პროცესისთვის."
 
 #: lib/funct_html.php
 msgid "Data Source Alias"
@@ -1374,15 +1374,15 @@ msgstr "მონაცემთა წყაროს ფსევდონი�
 #: lib/funct_html.php
 #, php-format
 msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
-msgstr ""
+msgstr "არასავალდებულო: შეგიძლიათ განსაზღვროთ ფსევდონიმი, რომელიც ანგარიშებში მონაცემთა წყაროს შიდა სახელის ('%s') ნაცვლად გამოჩნდება."
 
 #: lib/funct_html.php
 msgid "Separate Group Title [overall]"
-msgstr ""
+msgstr "ცალკე ჯგუფის სათაური [საერთო]"
 
 #: lib/funct_html.php
 msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
-msgstr ""
+msgstr "არასავალდებულო: შეგიძლიათ განსაზღვროთ ჯგუფის სახელი, რომელიც ანგარიშებში ყველა ცალკეული გასაზომი სიდიდის სათაურად გამოჩნდება."
 
 #: lib/funct_shared.php
 msgid "Unknown Owner"
@@ -1390,7 +1390,7 @@ msgstr "უცნობი მფლობელი"
 
 #: lib/funct_validate.php
 msgid "The file is to big."
-msgstr ""
+msgstr "ფაილი ძალიან დიდია."
 
 #: lib/funct_validate.php
 msgid "Incomplete file transfer."
@@ -1406,11 +1406,11 @@ msgstr "დროებითი საქაღალდე აკლია."
 
 #: lib/funct_validate.php
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "ფაილის დისკზე ჩაწერა ვერ მოხერხდა"
 
 #: lib/funct_validate.php
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "ფაილის ატვირთვა შეჩერდა გაფართოების მიერ"
 
 #: lib/funct_validate.php
 msgid "Invalid file extension."
@@ -1418,12 +1418,12 @@ msgstr "არასწორი ფაილის გაფართოებ�
 
 #: lib/funct_validate.php
 msgid "Unable to parse template file."
-msgstr ""
+msgstr "შაბლონის ფაილის დამუშავება ვერ მოხერხდა."
 
 #: lib/funct_validate.php
 #, php-format
 msgid "Checksum error with Template %s in XML file"
-msgstr ""
+msgstr "საკონტროლო ჯამის შეცდომა შაბლონში %s XML ფაილში"
 
 #: reportit.php
 msgid "New Report"
@@ -1432,7 +1432,7 @@ msgstr "ახალი ანგარიში"
 #: reportit.php
 #, php-format
 msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
-msgstr ""
+msgstr "განბლოკილი და ჩართული ანგარიშის შაბლონები ხელმისაწვდომი არ არის (%s დაბლოკილი ან გამორთულია)."
 
 #: reportit.php templates.php
 msgid "Cancel"
@@ -1444,11 +1444,11 @@ msgstr "გაგრძელება"
 
 #: reportit.php
 msgid "Create a new report"
-msgstr ""
+msgstr "ახალი ანგარიშის შექმნა"
 
 #: reportit.php
 msgid "Choose a template this report should depend on."
-msgstr ""
+msgstr "აირჩიეთ შაბლონი, რომელსაც ეს ანგარიში უნდა დაეყრდნოს."
 
 #: reportit.php
 msgid "Report Filters"
@@ -1475,7 +1475,7 @@ msgstr "გასუფთავება"
 #: reportit.php
 #, php-format
 msgid "Period %s From - To"
-msgstr ""
+msgstr "პერიოდი %s: საიდან - სადამდე"
 
 #: reportit.php
 msgid "Schedule"
@@ -1488,13 +1488,12 @@ msgstr "მდგომარეობა"
 #: reportit.php
 #, php-format
 msgid "Next Start %s"
-msgstr ""
+msgstr "შემდეგი გაშვება %s"
 
 #: reportit.php view.php
-#, fuzzy, php-format
-#| msgid "Last Run %s"
+#, php-format
 msgid "Last Started %s"
-msgstr "ბოლო გაშვება %s"
+msgstr "ბოლოს გაშვებული %s"
 
 #: reportit.php
 msgid "Last Runtime"
@@ -1519,7 +1518,7 @@ msgstr "%s-ის არჩევა"
 
 #: reportit.php
 msgid "Report has been locked"
-msgstr ""
+msgstr "ანგარიში დაბლოკილია"
 
 #: reportit.php
 msgid "No reports"
@@ -1532,7 +1531,7 @@ msgstr "ავტორიზებული არაა"
 #: reportit.php
 #, php-format
 msgid "Report Configuration (%s) %s"
-msgstr ""
+msgstr "ანგარიშის კონფიგურაცია (%s) %s"
 
 #: reportit.php
 msgid "Action"
@@ -1540,7 +1539,7 @@ msgstr "ქმედება"
 
 #: reportit.php
 msgid "No recipients found"
-msgstr ""
+msgstr "მიმღებები ვერ მოიძებნა"
 
 #: reportit.php
 msgid "Data Source Name"
@@ -1556,11 +1555,11 @@ msgstr "ქვესათაური"
 
 #: reportit.php
 msgid "Shifttime (From - To)"
-msgstr ""
+msgstr "ცვლის დრო (საიდან - სადამდე)"
 
 #: reportit.php
 msgid "Weekdays (From - To)"
-msgstr ""
+msgstr "კვირის დღეები (საიდან - სადამდე)"
 
 #: reportit.php
 msgid "RRDs"
@@ -1572,7 +1571,7 @@ msgstr "ყველას ჩვენება"
 
 #: reportit.php
 msgid "Does not exist anymore"
-msgstr ""
+msgstr "აღარ არსებობს"
 
 #: reportit.php
 msgid "Included in Report"
@@ -1580,7 +1579,7 @@ msgstr "ჩასმულია ანგარიშში"
 
 #: reportit.php
 msgid "Not Included in Report"
-msgstr ""
+msgstr "ანგარიშში არ არის ჩართული"
 
 #: reportit.php
 msgid "Select"
@@ -1588,20 +1587,20 @@ msgstr "აირჩიეთ"
 
 #: reportit.php
 msgid "No data items found"
-msgstr ""
+msgstr "მონაცემთა ელემენტები ვერ მოიძებნა"
 
 #: reportit.php
 msgid "Email address of a recipient (or comma separated list)"
-msgstr ""
+msgstr "მიმღების ელფოსტის მისამართი (ან მძიმით გამოყოფილი სია)"
 
 #: reportit.php
 msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
-msgstr ""
+msgstr "[არასავალდებულო] მიმღების სახელი (ან მძიმით გამოყოფილი სახელების სია)"
 
 #: reportit.php
 #, php-format
 msgid "Data Source [edit: %s]"
-msgstr ""
+msgstr "მონაცემთა წყარო [რედაქტირება: %s]"
 
 #: reportit.php
 msgid "Subhead (optional)"
@@ -1609,19 +1608,19 @@ msgstr "ქვესათაური (არასავალდებულ�
 
 #: reportit.php
 msgid "Select the time zone your following shifttime information will be based on."
-msgstr ""
+msgstr "აირჩიეთ დროის სარტყელი, რომელსაც ქვემოთ მოცემული ცვლის დროის ინფორმაცია დაეყრდნობა."
 
 #: reportit.php
 msgid "Click 'Continue' to Run the following Report:"
-msgstr ""
+msgstr "შემდეგი ანგარიშის გასაშვებად დააწკაპუნეთ ღილაკზე 'გაგრძელება':"
 
 #: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
-msgstr ""
+msgstr "შემდეგი ანგარიშების წასაშლელად დააწკაპუნეთ ღილაკზე 'გაგრძელება':"
 
 #: reportit.php
 msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
-msgstr ""
+msgstr "შემდეგი ანგარიშის კონფიგურაციების დუბლირებისთვის დააწკაპუნეთ ღილაკზე 'გაგრძელება'. ამ ოპერაციის დროს სათაურის ფორმატის შეცვლაც შეგიძლიათ."
 
 #: reportit.php
 msgid "Title Format:"
@@ -1633,44 +1632,44 @@ msgstr "<report_title> (1)"
 
 #: reportit.php
 msgid "Click 'Continue' to Disable the following Report:"
-msgstr ""
+msgstr "დააჭირეთ „გაგრძელებას“ შემდეგი ანგარიშის გასათიშად:"
 
 #: reportit.php
 msgid "Click 'Continue' to Enable the following Report:"
-msgstr ""
+msgstr "დააჭირეთ „გაგრძელებას“ შემდეგი ანგარიშის ჩასართავად:"
 
 #: reportit.php
 msgid "Click 'Continue' to Take Ownership of the following Report:"
-msgstr ""
+msgstr "დააჭირეთ „გაგრძელებას“ შემდეგ ანგარიშზე მფლობელობის მისაღებად:"
 
 #: reportit.php
 msgid "You must select at least one unlocked, not running, report."
-msgstr ""
+msgstr "უნდა აირჩიოთ მინიმუმ ერთი განბლოკილი ანგარიში, რომელიც გაშვებული არ არის."
 
 #: reportit.php
 msgid "Click 'Continue' to Remove the following Data Sources from the Report."
-msgstr ""
+msgstr "ანგარიშიდან შემდეგი მონაცემთა წყაროების წასაშლელად დააწკაპუნეთ ღილაკზე 'გაგრძელება'."
 
 #: reportit.php
 msgid "List of selected Data Sources below."
-msgstr ""
+msgstr "არჩეული მონაცემთა წყაროების სია მოცემულია ქვემოთ."
 
 #: reportit.php view.php
 #, php-format
 msgid "Data Source: %s"
-msgstr ""
+msgstr "მონაცემთა წყარო: %s"
 
 #: reportit.php
 msgid "Click 'Continue' to Add the following Data Sources to the Report."
-msgstr ""
+msgstr "ანგარიშში შემდეგი მონაცემთა წყაროების დასამატებლად დააწკაპუნეთ ღილაკზე 'გაგრძელება'."
 
 #: reportit.php
 msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
-msgstr ""
+msgstr "სხვა მონაცემთა წყაროებზე პარამეტრების კოპირებისთვის დააწკაპუნეთ ღილაკზე 'გაგრძელება'."
 
 #: reportit.php
 msgid "Selected Data Source as Reference:"
-msgstr ""
+msgstr "საორიენტაციოდ არჩეული მონაცემთა წყარო:"
 
 #: reportit.php
 msgid "Time Zone:"
@@ -1686,19 +1685,19 @@ msgstr "ცვლის დრო:"
 
 #: reportit.php
 msgid "You must select at least one Report."
-msgstr ""
+msgstr "უნდა აირჩიოთ მინიმუმ ერთი ანგარიში."
 
 #: setup.php
 msgid "ReportIt - Report Viewing"
-msgstr ""
+msgstr "ReportIt - ანგარიშების ნახვა"
 
 #: setup.php
 msgid "ReportIt - Create Reports"
-msgstr ""
+msgstr "ReportIt - ანგარიშების შექმნა"
 
 #: setup.php
 msgid "ReportIt - Manage Reports"
-msgstr ""
+msgstr "ReportIt - ანგარიშების მართვა"
 
 #: setup.php
 msgid "(Edit)"
@@ -1753,10 +1752,8 @@ msgid "Management"
 msgstr "მართვა"
 
 #: setup.php
-#, fuzzy
-#| msgid "Export Report"
 msgid "ReportIt Reports"
-msgstr "ანგარიშის გატანა"
+msgstr "ReportIt ანგარიშები"
 
 #: setup.php
 msgid "ReportIt"
@@ -1768,15 +1765,15 @@ msgstr "ნიმუშები"
 
 #: setup.php
 msgid "No data source item selected"
-msgstr ""
+msgstr "მონაცემთა წყაროს ელემენტი არ არის არჩეული"
 
 #: setup.php
 msgid "Unselected data source items are still in use"
-msgstr ""
+msgstr "აურჩეველი მონაცემთა წყაროს ელემენტები კვლავ გამოიყენება"
 
 #: setup.php
 msgid "Unable to unlock this template without defined measurands"
-msgstr ""
+msgstr "ამ შაბლონის განბლოკვა შეუძლებელია განსაზღვრული გასაზომი სიდიდეების გარეშე"
 
 #: setup.php
 msgid "global"
@@ -1788,27 +1785,27 @@ msgstr "ლოკალური"
 
 #: setup.php
 msgid "Power User (Report Owner)"
-msgstr ""
+msgstr "გამოცდილი მომხმარებელი (ანგარიშის მფლობელი)"
 
 #: setup.php
 msgid "Super User (Report Admin)"
-msgstr ""
+msgstr "სუპერმომხმარებელი (ანგარიშების ადმინისტრატორი)"
 
 #: setup.php
 msgid "Maximum Execution Time (in seconds)"
-msgstr ""
+msgstr "შესრულების მაქსიმალური დრო (წამებში)"
 
 #: setup.php
 msgid "Optional: Maximum execution time of one calculation."
-msgstr ""
+msgstr "არასავალდებულო: ერთი გამოთვლის შესრულების მაქსიმალური დრო."
 
 #: setup.php
 msgid "Maximum Record Count Change"
-msgstr ""
+msgstr "ჩანაწერების რაოდენობის მაქსიმალური ცვლილება"
 
 #: setup.php
 msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
-msgstr ""
+msgstr "არასავალდებულო (RRD სიის ავტომატური გენერირება): არ შეცვალოთ არცერთი ანგარიშის RRD სია, თუ ჩანაწერების რაოდენობის ცვლილება ამ რიცხვზე მეტია. ეს თავიდან აგაცილებთ RRD სიებში არასასურველ და დამანგრეველ ცვლილებებს"
 
 #: setup.php
 msgid "Time Zones"
@@ -1816,23 +1813,23 @@ msgstr "დროის სარტყლები"
 
 #: setup.php
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr ""
+msgstr "მონაცემთა ელემენტის კონფიგურაციისა და ანგარიშის გამოთვლისთვის დროის სარტყლების გამოყენების ჩართვა/გამორთვა. პირველ შემთხვევაში სერვერის დრო დაყენებული უნდა იყოს GMT/UTC-ზე!"
 
 #: setup.php
 msgid "Show Local Time Zone"
-msgstr ""
+msgstr "ადგილობრივი დროის სარტყლის ჩვენება"
 
 #: setup.php
 msgid "Enable/Disable to display server's timezone on the headlines."
-msgstr ""
+msgstr "სათაურებში სერვერის დროის სარტყლის ჩვენების ჩართვა/გამორთვა."
 
 #: setup.php
 msgid "Allow Scheduling by Operators"
-msgstr ""
+msgstr "ოპერატორების მიერ დაგეგმვის დაშვება"
 
 #: setup.php
 msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
-msgstr ""
+msgstr "ოპერატორების მიერ ანგარიშების დაგეგმვის შესაძლებლობის ჩართვა/გამორთვა. გამორთვის შემთხვევაში განრიგის შეცვლა მხოლოდ ადმინისტრატორებს შეუძლიათ."
 
 #: setup.php
 msgid "SI-Prefixes"
@@ -1840,7 +1837,7 @@ msgstr "SI პრეფიქსები"
 
 #: setup.php
 msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
-msgstr ""
+msgstr "<a href='http://www.ieee.org'>IEEE 1541</a> და <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> სტანდარტების შესაბამისად ორობითი ჯერადებისთვის სწორი SI პრეფიქსების გამოყენების ჩართვა/გამორთვა."
 
 #: setup.php
 msgid "Auto E-Mailing"
@@ -1848,15 +1845,15 @@ msgstr "ავტომატური ელფოსტა"
 
 #: setup.php
 msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
-msgstr ""
+msgstr "ჩართვის შემთხვევაში დაგეგმილი ანგარიშები ავტომატურად გაეგზავნება ელფოსტით მიმღებთა სიას.<br> ეს ფუნქცია საჭიროებს 'Settings Plugin'-ის კონფიგურირებულ ვერსიას."
 
 #: setup.php
 msgid "Separate Report View Filter"
-msgstr ""
+msgstr "ანგარიშის ნახვის ცალკე ფილტრი"
 
 #: setup.php
 msgid "Enable/disable the use of an individual filter per report."
-msgstr ""
+msgstr "თითოეული ანგარიშისთვის ინდივიდუალური ფილტრის გამოყენების ჩართვა/გამორთვა."
 
 #: setup.php
 msgid "Rows Per Page"
@@ -1864,7 +1861,7 @@ msgstr "მწკრივი გვერდზე"
 
 #: setup.php
 msgid "The number of rows to display on a single page."
-msgstr ""
+msgstr "ერთ გვერდზე საჩვენებელი მწკრივების რაოდენობა."
 
 #: setup.php
 msgid "Report Export Settings"
@@ -1876,7 +1873,7 @@ msgstr "CSV სვეტის გამყოფი"
 
 #: setup.php
 msgid "The column separator to be used for CSV exports."
-msgstr ""
+msgstr "CSV ექსპორტისთვის გამოსაყენებელი სვეტების გამყოფი."
 
 #: setup.php
 msgid "CSV Decimal Separator"
@@ -1884,29 +1881,27 @@ msgstr "CSV წილადის ნიშანი"
 
 #: setup.php
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
-msgstr ""
+msgstr "სიმბოლო, რომელიც აღნიშნავს მთელი ნაწილის დასასრულსა და წილადი ნაწილის დასაწყისს."
 
 #: setup.php
-#, fuzzy
-#| msgid "Report View Settings"
 msgid "Report General Settings"
-msgstr "ანგარიშის ხედის მორგება"
+msgstr "ანგარიშის ზოგადი პარამეტრები"
 
 #: templates.php
 msgid "New Report Template"
-msgstr ""
+msgstr "ანგარიშის ახალი შაბლონი"
 
 #: templates.php
 msgid "There are no Data Templates in use."
-msgstr ""
+msgstr "გამოყენებული მონაცემთა შაბლონები არ არის."
 
 #: templates.php
 msgid "Create a new Report Template"
-msgstr ""
+msgstr "ანგარიშის ახალი შაბლონის შექმნა"
 
 #: templates.php
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
-msgstr ""
+msgstr "აირჩიეთ მონაცემთა შაბლონი, რომელსაც ანგარიშის ეს შაბლონი უნდა დაეყრდნოს. გამოუყენებელი მონაცემთა შაბლონები დამალულია."
 
 #: templates.php
 msgid "Import Report Template"
@@ -1914,7 +1909,7 @@ msgstr "ანგარიშის შაბლონის შემოტა�
 
 #: templates.php
 msgid "Select the XML file that contains your Report Template."
-msgstr ""
+msgstr "აირჩიეთ XML ფაილი, რომელიც შეიცავს თქვენს ანგარიშის შაბლონს."
 
 #: templates.php
 msgid "Import Report Templates"
@@ -1938,7 +1933,7 @@ msgstr "დიახ"
 
 #: templates.php
 msgid "No Compatible Templates Found"
-msgstr ""
+msgstr "თავსებადი შაბლონები ვერ მოიძებნა"
 
 #: templates.php
 msgctxt "Button: import button"
@@ -1947,19 +1942,19 @@ msgstr "შემოტანა"
 
 #: templates.php
 msgid "The name of this Report Template."
-msgstr ""
+msgstr "ამ ანგარიშის შაბლონის სახელი."
 
 #: templates.php
 msgid "The internal identifier of this Report Template."
-msgstr ""
+msgstr "ამ ანგარიშის შაბლონის შიდა იდენტიფიკატორი."
 
 #: templates.php
 msgid "The Author of this Report Template."
-msgstr ""
+msgstr "ამ ანგარიშის შაბლონის ავტორი."
 
 #: templates.php
 msgid "The version of this Report Template."
-msgstr ""
+msgstr "ამ ანგარიშის შაბლონის ვერსია."
 
 #: templates.php
 msgid "Published"
@@ -1967,15 +1962,15 @@ msgstr "გამოქვეყნებულია"
 
 #: templates.php
 msgid "The total number of reports using this report template."
-msgstr ""
+msgstr "ანგარიშების საერთო რაოდენობა, რომლებიც ამ ანგარიშის შაბლონს იყენებენ."
 
 #: templates.php
 msgid "No matching data sources"
-msgstr ""
+msgstr "შესაბამისი მონაცემთა წყაროები არ არის"
 
 #: templates.php
 msgid "Data template not available"
-msgstr ""
+msgstr "მონაცემთა შაბლონი ხელმიუწვდომელია"
 
 #: templates.php
 msgid "Add measurands"
@@ -1999,11 +1994,11 @@ msgstr "შაბლონების გარეშე"
 
 #: templates.php
 msgid "Maximum has to be greater than minimum."
-msgstr ""
+msgstr "მაქსიმუმი მინიმუმზე მეტი უნდა იყოს."
 
 #: templates.php
 msgid "Default value is out of values range."
-msgstr ""
+msgstr "ნაგულისხმევი მნიშვნელობა მნიშვნელობათა დიაპაზონს სცილდება."
 
 #: templates.php
 msgid "Duplicate abbreviation"
@@ -2011,12 +2006,12 @@ msgstr "გამეორებული აბრევიატურა"
 
 #: templates.php
 msgid "Interim results are used by other measurands."
-msgstr ""
+msgstr "შუალედური შედეგები სხვა გასაზომი სიდიდეების მიერ გამოიყენება."
 
 #: templates.php
 #, php-format
 msgid "Template [ %s - %s ]"
-msgstr ""
+msgstr "შაბლონი [ %s - %s ]"
 
 #: templates.php
 msgid "Template [new]"
@@ -2028,11 +2023,11 @@ msgstr "<შაბლონის_სახელი>"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Report Templates"
-msgstr ""
+msgstr "შემდეგი ანგარიშის შაბლონების წასაშლელად დააწკაპუნეთ ღილაკზე 'გაგრძელება'"
 
 #: templates.php
 msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
-msgstr ""
+msgstr "გაფრთხილება: ამ შაბლონების კუთვნილი ყველა ანგარიში ასევე წაიშლება!"
 
 #: templates.php
 #, php-format
@@ -2050,11 +2045,11 @@ msgstr "ანგარიში: <i>არაფერი</i>"
 
 #: templates.php
 msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
-msgstr ""
+msgstr "შემდეგი ანგარიშის შაბლონების დუბლირებისთვის დააწკაპუნეთ ღილაკზე 'გაგრძელება'. სურვილისამებრ შეგიძლიათ შეცვალოთ ამ დუბლიკატების სათაური."
 
 #: templates.php
 msgid "List of selected report templates:"
-msgstr ""
+msgstr "არჩეული ანგარიშის შაბლონების სია:"
 
 #: templates.php
 msgid "Title:"
@@ -2066,15 +2061,15 @@ msgstr "<template_title> (1)"
 
 #: templates.php
 msgid "Click 'Continue' to Export the following Report Templates"
-msgstr ""
+msgstr "შემდეგი ანგარიშის შაბლონების ექსპორტისთვის დააწკაპუნეთ ღილაკზე 'გაგრძელება'"
 
 #: templates.php
 msgid "You must select at least one Report Template."
-msgstr ""
+msgstr "უნდა აირჩიოთ მინიმუმ ერთი ანგარიშის შაბლონი."
 
 #: templates.php
 msgid "Delete Report Templates"
-msgstr ""
+msgstr "ანგარიშის შაბლონების წაშლა"
 
 #: templates.php
 msgid "Duplicate Report Templates"
@@ -2086,11 +2081,11 @@ msgstr "ანგარიშის შაბლონების გატა�
 
 #: templates.php
 msgid "Click 'Continue to Delete the following variables."
-msgstr ""
+msgstr "შემდეგი ცვლადების წასაშლელად დააწკაპუნეთ ღილაკზე 'გაგრძელება'."
 
 #: templates.php
 msgid "List of selected variables:"
-msgstr ""
+msgstr "არჩეული ცვლადების სია:"
 
 #: templates.php
 #, php-format
@@ -2099,11 +2094,11 @@ msgstr "ცვლადი: %s"
 
 #: templates.php
 msgid "There are one or more variables in use."
-msgstr ""
+msgstr "გამოიყენება ერთი ან მეტი ცვლადი."
 
 #: templates.php
 msgid "You must select at least one variable."
-msgstr ""
+msgstr "უნდა აირჩიოთ მინიმუმ ერთი ცვლადი."
 
 #: templates.php
 msgid "Delete Template Variables"
@@ -2111,11 +2106,11 @@ msgstr "შაბლონის ცვლადების წაშლა"
 
 #: templates.php
 msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
-msgstr ""
+msgstr "დააჭირეთ „გაგრძელებას“ შემდეგი მეტრიკების წასაშლელად. შენიშვნა: თუ ამ პროცესის შემდეგ სხვა მეტრიკები აღარ დარჩება, ანგარიშის შაბლონი ავტომატურად დაიბლოკება."
 
 #: templates.php
 msgid "List of selected measurands:"
-msgstr ""
+msgstr "არჩეული გაზომვადი სიდიდეების სია:"
 
 #: templates.php
 #, php-format
@@ -2124,7 +2119,7 @@ msgstr "მეტრიკა: %s"
 
 #: templates.php
 msgid "You must select at least one measurand."
-msgstr ""
+msgstr "უნდა აირჩიოთ მინიმუმ ერთი გაზომვადი სიდიდე."
 
 #: templates.php
 msgid "Delete Template Metrics"
@@ -2133,7 +2128,7 @@ msgstr "შაბლონის მეტრიკების წაშლა"
 #: templates.php
 #, php-format
 msgid "Variables [ Template: %s - %s ]"
-msgstr ""
+msgstr "ცვლადები [ შაბლონი: %s - %s ]"
 
 #: templates.php
 msgid "No Variables Found"
@@ -2142,7 +2137,7 @@ msgstr "ცვლადები აღმოჩენილი არაა"
 #: templates.php
 #, php-format
 msgid "Variable Configuration [ edit: %s ]"
-msgstr ""
+msgstr "ცვლადის კონფიგურაცია [ რედაქტირება: %s ]"
 
 #: templates.php
 msgid "Variable Configuration [new]"
@@ -2154,23 +2149,23 @@ msgstr "შიდა სახელი"
 
 #: templates.php
 msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
-msgstr ""
+msgstr "უნიკალური იდენტიფიკატორი, რომელსაც თავად ReportIt შექმნის. გამოიყენეთ ეს ID თქვენი გამოთვლის ფორმულების განსაზღვრისას, რათა ჩართოთ მნიშვნელობა, რომელიც ანგარიშის მომხმარებელმა ინდივიდუალურად განსაზღვრა მისთვის."
 
 #: templates.php
 msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
-msgstr ""
+msgstr "სახელი, მაგალითად \"Threshold\", რომელიც უნდა გამოყენებულ იქნას სათაურად ანგარიშის კონფიგურაციაში."
 
 #: templates.php
 msgid "Provide a name for this Variable"
-msgstr ""
+msgstr "მიუთითეთ ამ ცვლადის სახელი"
 
 #: templates.php
 msgid "A description that explains the sense of this variable."
-msgstr ""
+msgstr "აღწერა, რომელიც განმარტავს ამ ცვლადის აზრს."
 
 #: templates.php
 msgid "Provide a meaningful description"
-msgstr ""
+msgstr "მიუთითეთ აზრიანი აღწერა"
 
 #: templates.php
 msgid "Maximum Value"
@@ -2178,7 +2173,7 @@ msgstr "მაქსიმალური მნიშვნელობა"
 
 #: templates.php
 msgid "Defines the upper limit of this variable."
-msgstr ""
+msgstr "განსაზღვრავს ამ ცვლადის ზედა ზღვარს."
 
 #: templates.php
 msgid "Minimum Value"
@@ -2186,7 +2181,7 @@ msgstr "მინიმალური მნიშვნელობა"
 
 #: templates.php
 msgid "Defines the lower limit of this variable."
-msgstr ""
+msgstr "განსაზღვრავს ამ ცვლადის ქვედა ზღვარს."
 
 #: templates.php
 msgid "Default Value"
@@ -2194,7 +2189,7 @@ msgstr "ნაგულისხმევი მნიშვნელობა"
 
 #: templates.php
 msgid "Sets the default value."
-msgstr ""
+msgstr "აყენებს ნაგულისხმევ მნიშვნელობას."
 
 #: templates.php view.php
 msgid "Type"
@@ -2202,32 +2197,32 @@ msgstr "ტიპი"
 
 #: templates.php
 msgid "The method the report owner should use to define this variable."
-msgstr ""
+msgstr "მეთოდი, რომელიც ანგარიშის მფლობელმა უნდა გამოიყენოს ამ ცვლადის განსაზღვრისთვის."
 
 #: templates.php
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
-msgstr ""
+msgstr "განსაზღვრავს ორ მნიშვნელობას შორის ინტერვალს, თუ არჩეულია მეთოდი \"DropDown\". გთხოვთ, დარწმუნდეთ, რომ ეს მნიშვნელობა ძალიან დაბალი არ არის, რადგან იგი ირიბად განსაზღვრავს ჩამოსაშლელი ველის პარამეტრების რაოდენობას. მაგალითად, შემდეგი პარამეტრები: MAX:100, MIN:0, STEP:0.01 გამოიწვევს 10 001 ვარიანტის მქონე ასარჩევ ველს. ამან შეიძლება გამოიწვიოს წარმადობის მკვეთრი გაუარესება კლიენტის მხარეს CPU-ს მაღალი დატვირთვის გამო. შეეცადეთ, შეინარჩუნოთ 1000-ზე ნაკლები."
 
 #: templates.php
 #, php-format
 msgid "Metric Configuration [ edit: %s - %s ]"
-msgstr ""
+msgstr "მეტრიკის კონფიგურაცია [ რედაქტირება: %s - %s ]"
 
 #: templates.php
 msgid "Metric Configuration [new]"
-msgstr ""
+msgstr "მეტრიკის კონფიგურაცია [ახალი]"
 
 #: templates.php
 msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
-msgstr ""
+msgstr "ამ გაზომვადი სიდიდისთვის მიცემული განმარტება. იგი გამოჩნდება ლეგენდის სახით ექსპორტებში, ასევე მინიშნების სახით თავად ანგარიშის წარდგენისას."
 
 #: templates.php
 msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
-msgstr ""
+msgstr "განსაზღვრეთ უნიკალური აბრევიატურა ამ გაზომვადი სიდიდისთვის მაქს. 8 ასოთი/ციფრით."
 
 #: templates.php
 msgid "The unit given to this measurand. e.g. 'Bits/s'"
-msgstr ""
+msgstr "ამ გაზომვადი სიდიდისთვის მინიჭებული ერთეული, მაგ. 'Bits/s'"
 
 #: templates.php
 msgid "Consolidation function"
@@ -2235,15 +2230,15 @@ msgstr "კონსოლიდაციის ფუნქცია"
 
 #: templates.php
 msgid "The name of the consolidation function to define which CDPs should be read out."
-msgstr ""
+msgstr "კონსოლიდაციის ფუნქციის სახელი იმის განსაზღვრისთვის, თუ რომელი CDP-ები უნდა წაიკითხოს."
 
 #: templates.php
 msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
-msgstr ""
+msgstr "აირჩიეთ 'enable', თუ ეს გაზომვადი სიდიდე უნდა გახდეს საბოლოო ანგარიშის შედეგის ნაწილი. დატოვეთ მოუნიშნავი, თუ ეს გაზომვადი სიდიდე გამოყენებული იქნება მხოლოდ დამხმარე გამოთვლისთვის."
 
 #: templates.php
 msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
-msgstr ""
+msgstr "აირჩიეთ 'enable', თუ ამ გაზომვად სიდიდეს ჯამში მხოლოდ ერთი შედეგი ექნება ნაცვლად თითოეული მონაცემთა წყაროს ელემენტისთვის თითოსი. მისი შედეგი<br>გამოჩნდება ცალკე. გამოიყენეთ ეს პარამეტრი \"Visible\" = \"off\" კომბინაციასთან ერთად, თუ გჭირდებათ გაზომვადი სიდიდე, რომელიც ინახავს მხოლოდ შუალედურ შედეგს სხვა გაზომვადი სიდიდეების გამოთვლაში ხელახლა გამოსაყენებლად ისე, რომ საბოლოო მომხმარებლებისთვის უხილავი დარჩეს."
 
 #: templates.php
 msgid "Formatting"
@@ -2251,7 +2246,7 @@ msgstr "დაფორმატება"
 
 #: templates.php
 msgid "Defines as what type the data should be treated as."
-msgstr ""
+msgstr "განსაზღვრავს, რა ტიპად უნდა იქნას აღქმული მონაცემები."
 
 #: templates.php
 msgid "Precision"
@@ -2259,7 +2254,7 @@ msgstr "სიზუსტე"
 
 #: templates.php
 msgid "Defines how many decimal digits should be displayed for floating-point numbers."
-msgstr ""
+msgstr "განსაზღვრავს, რამდენი ათწილადი ციფრი უნდა გამოჩნდეს მცურავმძიმიანი რიცხვებისთვის."
 
 #: templates.php
 msgid "Prefixes"
@@ -2267,7 +2262,7 @@ msgstr "პრეფიქსები"
 
 #: templates.php
 msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
-msgstr ""
+msgstr "აირჩიეთ პრეფიქსის ტიპი, რომელიც გამოიყენება შედეგის ფორმატირებისთვის. ათობითი პრეფიქსების გამოყენებით '1024' დაფორმატდება როგორც '1.024k', ხოლო ორობითი პრეფიქსების პარამეტრი აბრუნებს '1ki'-ს. აირჩიეთ 'off' ნედლი მონაცემების, ამ შემთხვევაში '1024'-ის საჩვენებლად."
 
 #: templates.php
 msgid "Formula"
@@ -2275,7 +2270,7 @@ msgstr "ფორმულა"
 
 #: templates.php
 msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
-msgstr ""
+msgstr "ამ გაზომვადი სიდიდის მათემატიკური განსაზღვრება. დაშვებულია ქვემოთ ჩამოთვლილი ოპერატორებისა და ოპერანდების ყველა კომბინაცია მათემატიკის წესების დაცვით. გამოიყენეთ მრგვალი და კვადრატული ფრჩხილები რთული გამოსახულებებისა და ოპერაციების რიგის აღსანიშნავად."
 
 #: templates.php
 msgid "Operators & Operands"
@@ -2283,12 +2278,12 @@ msgstr "ოპერატორები და ოპერანდები"
 
 #: templates.php
 msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
-msgstr ""
+msgstr "დააწკაპუნეთ ჩამოთვლილთაგან ერთ-ერთ ოპერატორზე ან ოპერანდზე, რათა დაამატოთ იგი თქვენს გამოთვლის ფორმულაში. მინიშნება გაჩვენებთ დამატებით ინფორმაციას, როგორიცაა აღწერა, დასაბრუნებელი მნიშვნელობა, არგუმენტები და გამოყენება."
 
 #: templates.php
 #, php-format
 msgid "Metrics [ Template: %s - %s ]"
-msgstr ""
+msgstr "მეტრიკები [ შაბლონი: %s - %s ]"
 
 #: templates.php
 msgid "No Metrics Found"
@@ -2312,13 +2307,11 @@ msgstr "გასუფთავება"
 
 #: view.php
 msgid "Period (From - To)"
-msgstr ""
+msgstr "პერიოდი (დან - მდე)"
 
 #: view.php
-#, fuzzy
-#| msgid "Runtime [s]"
 msgid "Last Runtime [s]"
-msgstr "შესრულების დრო [წმ]"
+msgstr "ბოლო შესრულების დრო [წმ]"
 
 #: view.php
 msgid "No Reports Found"
@@ -2334,7 +2327,7 @@ msgstr "მონაცემების წყარო"
 
 #: view.php
 msgid "Show Top 10 Graphs"
-msgstr ""
+msgstr "ტოპ 10 გრაფიკის ჩვენება"
 
 #: view.php
 msgid "Show Subheads"
@@ -2374,7 +2367,7 @@ msgstr "პერიოდი"
 
 #: view.php
 msgid "Auto Generated RRD list"
-msgstr ""
+msgstr "ავტომატურად გენერირებული RRD სია"
 
 #: view.php
 msgid "Data Description"
@@ -2382,7 +2375,7 @@ msgstr "მონაცემების აღწერა"
 
 #: view.php
 msgid "-- NO SUBHEADING --"
-msgstr ""
+msgstr "-- ქვესათაურის გარეშე --"
 
 #: view.php
 msgid "No Data Items"
