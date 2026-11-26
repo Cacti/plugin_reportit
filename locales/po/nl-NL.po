@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/reportit/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/reportit/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -243,7 +243,7 @@ msgstr "Jaarlijks"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Dropdown"
-msgstr "Dropdown"
+msgstr "Keuzelijst"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input field"
@@ -688,7 +688,7 @@ msgstr "Aliassen"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Operators"
-msgstr "Operators"
+msgstr "Operatoren"
 
 #: include/global_arrays.php
 msgid "Numbers"
@@ -945,7 +945,7 @@ msgstr "Inactief"
 
 #: lib/const_reports.php
 msgid "Running"
-msgstr "Actief"
+msgstr "Wordt uitgevoerd"
 
 #: lib/const_reports.php
 msgid "- No template available -"
@@ -1307,7 +1307,7 @@ msgstr "%s Lo"
 
 #: lib/const_view.php
 msgid "Any"
-msgstr "Alle"
+msgstr "Elke"
 
 #: lib/const_view.php view.php
 msgid "All"
@@ -1440,7 +1440,7 @@ msgstr "Annuleer"
 
 #: reportit.php templates.php
 msgid "Continue"
-msgstr "Volgende"
+msgstr "Doorgaan"
 
 #: reportit.php
 msgid "Create a new report"
