@@ -1,0 +1,2408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-25 06:55+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Ukrainian\n"
+"Language: uk-UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Видалити"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Дублювати"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Заблокувати"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Розблокувати"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Експорт"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Ім'я"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Внутрішня назва"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Максимум"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Мінімум"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Крок"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Тип введення"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Параметри"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "ID"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Скорочення"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Група"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Одиниця"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Функція консолідації"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "Видимий"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Окремо"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "Формула розрахунку"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "Загальний ID"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Елементи"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Метрики"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Шаблони пов’язаних даних"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Загальні"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Шаблони даних"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Групи"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Змінні"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Сьогодні"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "Останній 1 день"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "Останні 2 дні"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "Останні 3 дні"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "Останні 4 дні"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "Останні 5 днів"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "Останні 6 днів"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "Останні 7 днів"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Минулий тиждень (Нд - Сб)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Минулий тиждень (Пн - Нд)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "Останні 14 днів"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "Останній 21 день"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "Останні 28 днів"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Поточний місяць"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Останній місяць"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "Останні 2 місяці"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "Останні 3 місяці"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "Останні 4 місяці"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "Останні 5 місяців"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "Останні 6 місяців"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Поточний рік"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "В минулому році"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "Останні 2 роки"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Щодня"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Щотижня"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Щомісяця"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Щоквартально"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Щороку"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Випадний список"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Поле введення"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Немає"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Двійковий"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "З рухомою комою"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Ціле число"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Ціле число (беззнакове)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Шістнадцятковий (нижній регістр)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Шістнадцятковий (верхній регістр)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Вісімкова"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Експоненційний запис"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Без змін"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "вимкнено"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Двійкові префікси СІ (основа 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Десяткові префікси SI (основа 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Середнє арифметичне"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Повертає середнє значення всіх виміряних величин для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "жоден"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Максимальне значення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Повертає найбільше виміряне значення для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Мінімальне значення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Повертає найменше виміряне значення для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Сума"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Повертає суму всіх виміряних значень для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Кількість значень (не NaN)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Повертає кількість коректних виміряних значень для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Градієнт"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Повертає нахил прямої за допомогою лінійної регресії для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Останнє значення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Повертає останнє коректне виміряне значення для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Перше значення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Повертає перше коректне виміряне значення для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - Кількість значень NaN"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Повертає кількість значень NaN, збережених для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - Медіана"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Повертає значення, що розділяє верхню та нижню половини вибірки для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Розмах"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Повертає різницю між найбільшим і найменшим значеннями для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Міжквартильний розмах"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Повертає ширину середніх 50&#037; навколо медіани для кожного джерела даних"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - Стандартне відхилення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Повертає квадратний корінь дисперсії для кожного джерела даних"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - Дисперсія"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Повертає дисперсію для кожного DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - X-й процентиль"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Повертає x-й процентиль."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: поріг у відсотках. Діапазон: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Тривалість перевищення порогу"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Повертає тривалість перевищення визначеного порогу у відсотках."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: поріг (абсолютне значення)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Сума понад поріг"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Повертає суму значень, що перевищують визначений поріг."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Округлення дробових чисел униз"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Повертає найближче менше ціле значення, округлюючи вниз за потреби."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: число з рухомою комою (float)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Округлення дробових чисел угору"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Повертає найближче більше ціле значення, округлюючи вгору за потреби."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Округлення числа з рухомою комою"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Повертає округлене ціле значення будь-якого заданого числа з рухомою комою."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: число з рухомою комою або рядкове значення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Пошук найбільшого значення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Повертає найбільше значення із заданого списку параметрів"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: значення для порівняння"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Пошук найменшого значення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Повертає найменше значення із заданого списку параметрів"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Умовна операція - логіка IF-THEN-ELSE"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Повертає B, якщо A має значення true, або C, якщо A має значення false"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Перевірка, чи не є значення числом"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Повертає 1 (або B), якщо A === NaN, або 0 (або C) в іншому разі. Параметри B та C є необов'язковими."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Складне порівняння"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - Псевдонім f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - Псевдонім для f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - Псевдонім f_cmp - ДОРІВНЮЄ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Повертає 1 (або C), якщо A == B, або 0 (або D) в іншому разі. Параметри C та D є необов'язковими."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - Псевдонім для f_cmp - НЕ ДОРІВНЮЄ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Повертає 1 (або C), якщо A != B, або 0 (або D) в іншому разі. Параметри C та D є необов'язковими."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - Псевдонім f_cmp - БІЛЬШЕ НІЖ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Повертає 1 (або C), якщо A > B, або 0 (або D) в іншому разі. Параметри C та D є необов'язковими."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - Псевдонім f_cmp - МЕНШЕ НІЖ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Повертає 1 (або C), якщо A < B, або 0 (або D) в іншому разі. Параметри C та D є необов'язковими."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - Псевдонім f_cmp - БІЛЬШЕ АБО ДОРІВНЮЄ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Повертає 1 (або C), якщо A >= B, або 0 (або D) в іншому разі. Параметри C та D є необов'язковими."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - Псевдонім f_cmp - МЕНШЕ АБО ДОРІВНЮЄ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Повертає 1 (або C), якщо A <= B, або 0 (або D) в іншому разі. Параметри C та D є необов'язковими."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Додавання"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Математична операція для обчислення суми двох або більше доданків"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Віднімання"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Математична операція для обчислення різниці зменшуваного та від'ємника"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Множення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Математична операція для обчислення добутку множника та множеного"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Ділення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Математична операція для обчислення частки діленого та дільника"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "Остача від ділення"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Математична операція для обчислення остачі від ділення двох цілих чисел"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Піднесення до степеня — потрібен PHP 5.6 або новіший"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Математична операція для піднесення основи до степеня (повторного множення або ділення за показником степеня)."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Десятковий розділювач"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Десятковий розділювач, що відокремлює цілу частину від дробової"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Кругла дужка"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "Використовується для перевизначення звичайного пріоритету або позначення першого рівня вкладеності"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Квадратна дужка"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "Використовується для перевизначення звичайного пріоритету або позначення другого рівня вкладеності"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Розділовий знак"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "Використовується для розділення аргументів, що передаються функції"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Мінімальне значення даних, які дозволено збирати."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "УВАГА! Для цієї змінної можна встановити значення нуль або необмежено"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Максимальний обсяг даних, які дозволено збирати."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Містить кількість секунд між двома виміряними значеннями."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Функції без параметрів"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Функції з параметрами"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Псевдоніми"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Оператори"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Числа"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Інші"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Змінні запиту даних"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Проміжні результати"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Без ліміту"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "500 елементів даних"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "1 000 елементів даних"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "2 000 елементів даних"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "5000 елементів джерела даних"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "7 500 елементів джерел даних"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "10 000 елементів джерела даних"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "15 000 елементів джерела даних"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "25 000 елементів джерела даних"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "1 хвилина"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d хвилин"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Унікальна назва, призначена цьому шаблону звіту."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Опис"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Докладніший опис цього шаблону звіту."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Версія"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Номер версії для цього шаблону"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Автор"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Автор цього шаблону"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Опублікувати"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Чи публікувати цей шаблон звіту для доступу користувачів? Для тестування нових шаблонів або змін слід зняти цей прапорець."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "Закрито"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Статус «заблоковано» (locked) запобігає будь-яким змінам вашого шаблону звіту, а також призначених вимірюваних величин і визначень змінних"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Додатковий попередній фільтр"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Необов'язково: синтаксис для фільтрації доступного списку елементів даних за їхнім описом. Використовуйте символи підстановки SQL, такі як % та/або _. Без регулярних виразів!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Шлях експорту"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Необов'язково: шлях до каталогу для збереження експортів. Якщо він не існує, ReportIt автоматично спробує створити його під час першого запланованого обчислення, інакше спробує створити новий підкаталог у головному каталозі експорту, використовуючи ідентифікатор шаблону."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "Шаблон даних"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Назва шаблону даних, від якого залежить цей шаблон звіту."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Шаблон звіту"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Виберіть один із ваших шаблонів звітів для експорту у формат XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Необов'язково] Опис"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Опишіть характеристики вашого шаблону звіту"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Необов'язково] Автор"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Додайте тут своє ім’я або псевдонім."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Необов'язково] Версія"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Необов'язково] Контакт"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Стовпчикова (вертикальна)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Стовпчикова (горизонтальна)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Рядок"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Область"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "Кругова діаграма 3D"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Пелюсткова діаграма"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - Мода"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Повертає значення, яке трапляється найчастіше для кожного джерела даних"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Ліва (відкривна) кругла дужка"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Права (закривальна) кругла дужка"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Ліва (відкривна) квадратна дужка"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Права (закривальна) квадратна дужка"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Містить максимальну пропускну здатність, якщо доступний параметр 'ifspeed'."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Містить максимальне значення, визначене для конкретного елемента джерела даних у розділі «Джерела даних»."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Містить кількість значень NAN за звітний період."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Круглі дужки"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Вимкнути"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Увімкнути"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Запустити зараз"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "Прийміть право власності"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "ЗБІЙ"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "ПОМИЛКА"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Очікування"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "Працює"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Немає доступного шаблону -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "Понеділок"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "Вівторок"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "Середа"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "Четвер"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "П'ятниця"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "Субота"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "Неділя"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Попередні налаштування джерела даних"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "Email"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Джерела даних"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Текст CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "Необроблений XML (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "Дані JSON (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "Дані YAML (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Тема"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Введіть тему вашого електронного листа.<br> Підтримуються такі змінні (без лапок): '|title|' і '|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Запланований звіт - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Текст (необов'язково)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Введіть повідомлення, яке відображатиметься в тілі вашого електронного листа"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Це запланований звіт, сформований у Cacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Вкладення"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Щоб отримувати лише електронний лист із повідомленням про доступність нового звіту, виберіть «Немає».<br> Інакше виберіть формат, у якому звіт буде вкладено."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "Отримувачі електронної пошти"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Отримувачі списку сповіщень"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Щоб додати отримувачів на основі дійсного списку сповіщень."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "На адресу(и) електронної пошти"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Будь ласка, розділіть кілька адрес комами (,)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "Адреса(и) BCC"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Сліпа копія. Будь ласка, розділіть кілька адрес комами (,)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Нові отримувачі електронної пошти"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Щоб додати нового отримувача, введіть дійсну адресу електронної пошти (обов'язково) та ім'я (необов'язково).<br> Для швидшого налаштування скористайтеся списком адрес/імен, де імена/адреси розділені одним із таких роздільників: ';' або ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Необов'язковий підзаголовок"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Визначте додатковий підзаголовок, що відображатиметься під описом інтерфейсу.<br> Підтримуються такі змінні (без лапок): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Часовий пояс"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Виберіть часовий пояс, на якому базуватимуться наведені нижче відомості про час зміни."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Необов'язкові попередні фільтри джерел даних"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Фільтр майданчиків"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Використовувати лише джерела даних, що відповідають цьому сайту.<br>Виберіть 'Немає' (типово), щоб вимкнути це налаштування фільтра."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Фільтр шаблонів пристроїв"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Використовувати лише джерела даних цього шаблону пристроїв.<br>Виберіть 'Немає' (типово), щоб вимкнути це налаштування фільтра."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Фільтр назв джерел даних"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Використовувати джерела даних, назви яких відповідають цьому фільтру.<br> Використовуйте символи підстановки SQL, такі як % та/або _. Без регулярних виразів!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Автоматично створені елементи даних"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Увімкнути/вимкнути автоматичне створення всіх елементів даних на основі заданих фільтрів. Це виконуватиметься перед формуванням звіту. Застарілі RRD буде видалено, а всі RRD, що відповідають налаштуванням фільтра, буде додано."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Робочий час"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "Від"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Початкова точка періоду, який потрібно проаналізувати"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "До"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Кінець періоду аналізу."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Робочі дні"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Визначте діапазон днів, у якому ПОЧИНАЄТЬСЯ зміна!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Приклад: для нічної зміни з пн (22:30) до сб (06:30) вкажіть з понеділка по п'ятницю"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Назва, надана цьому звіту"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Шаблон"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Шаблон, від якого залежить ваша конфігурація"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Власник"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Змінити власника цього звіту. Можна вибрати лише користувачів із правом «view» або вищим."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "Увімкнено"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Увімкнути/вимкнути формування звітів за розкладом. Має бути увімкнено ковзний часовий інтервал."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Публічний"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Якщо ввімкнено, кожен зможе бачити ваш звіт на вкладці «Звіти»"
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Увімкнути використання дозволів на графіки"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Якщо ввімкнено (за замовчуванням), список доступних елементів даних автоматично фільтруватиметься за дозволами власника на графіки: «за пристроєм»."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "Автоматично створений лист"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Якщо ввімкнено, вкладку «Email» буде активовано, і всі одержувачі, визначені в цьому розділі, автоматично отримуватимуть електронний лист із цим запланованим звітом."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Звітний період"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Ковзний часовий інтервал"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Якщо позначено, звітний період налаштовуватиметься автоматично відповідно до часу початку обчислення."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Часові інтервали"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Часовий інтервал, який потрібно проаналізувати відносно моменту початку обчислення.<br>Маються на увазі календарні дні, календарні місяці та календарні роки."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "До дня обчислення"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Продовжити ковзний часовий інтервал до дня запуску обчислення."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Фіксований проміжок часу - початкова дата (Від)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Щоб задати дату початку, використовуйте такий формат: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Фіксований проміжок часу - кінцева дата (До)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Щоб задати дату завершення, використовуйте такий формат: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Додати до звіту"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Видалити зі звіту"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "Копіювати налаштування для всіх"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Додати"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Стовпчикова діаграма: вертикальна"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Стовпчикова діаграма: горизонтальна"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Лінійний графік"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Діаграма з областями"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Кругова діаграма: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s макс."
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s нижн."
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Будь-який"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Всі"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Сума"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Середній"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Заголовок звіту"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Старт"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Кінець"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Останній біг"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Опис: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Синтаксис:      %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Параметри:  %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Приклади:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Увімкнути [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Активувати елемент джерела даних '%s' для процесу обчислення."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Псевдонім джерела даних"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Необов'язково: ви можете задати псевдонім, який відображатиметься у звітах замість внутрішньої назви джерела даних '%s'."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Окремий заголовок групи [overall]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Необов'язково: ви можете задати назву групи, яка відображатиметься у звітах як заголовок для всіх окремих вимірюваних величин."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Невідомий власник"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Файл занадто великий."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Неповна передача файлу."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Файл не завантажено."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Тимчасова папка відсутня."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "Не вдалося записати файл на диск"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Завантаження файлу зупинено розширенням"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Недійсне розширення файлу."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "Не вдалося розібрати файл шаблону."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Помилка контрольної суми шаблону %s у файлі XML"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Новий звіт"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Немає доступних розблокованих та увімкнених шаблонів звітів (заблоковано або вимкнено: %s)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Продовжити"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Створити новий звіт"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Виберіть шаблон, від якого має залежати цей звіт."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Фільтри звіту"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Пошук"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Звіти"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Перейти"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Очистити"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Період %s Від - До"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Графік"
+
+#: reportit.php
+msgid "State"
+msgstr "Область"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Наступний запуск %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "Востаннє запущено %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Останнє виконання"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "(відсутній)"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Додати джерела"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Редагувати джерела"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Вибрати %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "Звіт заблоковано"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Немає звітів"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Не авторизовано"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Конфігурація звіту (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Дія"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Отримувачів не знайдено"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "Назва джерела даних"
+
+#: reportit.php
+msgid "Associated"
+msgstr "Пов'язано"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Підзаголовок"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Час зміни (Від - До)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Дні тижня (Від — До)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "RRD-файли"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Показати все"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Більше не існує"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "Включено до звіту"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Не включено до звіту"
+
+#: reportit.php
+msgid "Select"
+msgstr "Вибрати"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Елементів даних не знайдено"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Адреса електронної пошти отримувача (або список через кому)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[НЕОБОВ'ЯЗКОВО] Ім'я отримувача (або список імен через кому)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Джерело даних [редагування: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Підзаголовок (необов'язково)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Виберіть часовий пояс, на якому базуватиметься наведена нижче інформація про час зміни."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Натисніть 'Продовжити', щоб запустити наведений нижче звіт:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Натисніть 'Продовжити', щоб видалити наведені нижче звіти:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Натисніть 'Продовжити', щоб дублювати наведені нижче конфігурації звітів. Під час цієї операції ви також можете змінити формат заголовка."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "Формат Заголовка:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Натисніть 'Продовжити', щоб вимкнути наведений нижче звіт:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Натисніть 'Продовжити', щоб увімкнути наведений нижче звіт:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Натисніть 'Продовжити', щоб отримати право власності на наведений нижче звіт:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "Необхідно вибрати принаймні один розблокований звіт, який не виконується."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Натисніть 'Продовжити', щоб видалити наведені нижче джерела даних зі звіту."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Список вибраних джерел даних нижче."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Джерело даних: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Натисніть 'Продовжити', щоб додати наведені нижче джерела даних до звіту."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Натисніть 'Продовжити', щоб скопіювати налаштування до інших джерел даних."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Вибране джерело даних як еталонне:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Часовий пояс:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Дні тижня:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Час зміни:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "Необхідно вибрати принаймні один звіт."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt — Перегляд звітів"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt — Створення звітів"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt — Керування звітами"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Редагувати)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Дії"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Елементи даних"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Шаблони звітів"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Імпорт"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Обчислення звіту"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Публічні звіти"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Показати звіт"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Експортувати звіт"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Звичайний користувач"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Загальне управління"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Системне адміністрування"
+
+#: setup.php
+msgid "Management"
+msgstr "Управління"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "Звіти ReportIt"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Шаблон"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Елемент джерела даних не вибрано"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Невибрані елементи джерела даних досі використовуються"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "Не вдалося розблокувати цей шаблон без визначених вимірюваних величин"
+
+#: setup.php
+msgid "global"
+msgstr "глобальний"
+
+#: setup.php
+msgid "local"
+msgstr "локальний"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Досвідчений користувач (власник звіту)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Суперкористувач (адміністратор звітів)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Максимальний час виконання (у секундах)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Необов'язково: максимальний час виконання одного обчислення."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Максимальна зміна кількості записів"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Необов'язково (Автоматичне формування списку RRD): не змінювати список RRD жодного звіту, якщо зміна кількості записів перевищує це число. Це запобігає небажаним і критичним змінам у списках RRD"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Часові пояси"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Увімкнути/вимкнути використання часових поясів для налаштування елементів даних і обчислення звітів. У першому випадку час сервера має бути встановлено на GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Показати локальний часовий пояс"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Увімкнути/вимкнути відображення часового поясу сервера в заголовках."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "Дозволити планування операторам"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Увімкнути/вимкнути можливість оператора планувати звіти. Якщо вимкнено, змінювати розклад можуть лише адміністратори."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "Префікси SI"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Увімкнути/вимкнути використання правильних префіксів СІ для двійкових кратних величин відповідно до стандартів <a href='http://www.ieee.org'>IEEE 1541</a> та <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Автоматичне надсилання ел. поштою"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Якщо ввімкнено, заплановані звіти можуть автоматично надсилатися електронною поштою на список одержувачів.<br> Ця функція вимагає налаштованого плагіна «Settings»."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Окремий фільтр перегляду звітів"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Увімкнути/вимкнути використання індивідуального фільтра для кожного звіту."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Рядків на сторінці"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Кількість рядків, що відображаються на одній сторінці."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Налаштування експорту звітів"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "Роздільник стовпців CSV"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Роздільник стовпців, який використовуватиметься для експорту у CSV."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "Десятковий роздільник CSV"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Символ, що позначає кінець цілої частини та початок дробової частини."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Загальні налаштування звіту"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Новий шаблон звіту"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Немає жодного шаблону даних, що використовується."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Створити новий шаблон звіту"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Виберіть шаблон даних, від якого має залежати цей шаблон звіту. Невикористовувані шаблони даних приховано."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Імпортувати шаблон звіту"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Виберіть XML-файл, що містить ваш шаблон звіту."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Імпортувати шаблони звітів"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Сумісність"
+
+#: templates.php
+msgid "Summary"
+msgstr "Резюме"
+
+#: templates.php
+msgid "No"
+msgstr "Ні"
+
+#: templates.php
+msgid "Yes"
+msgstr "Так"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Сумісних шаблонів не знайдено"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Імпортувати"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Назва цього шаблону звіту."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Внутрішній ідентифікатор цього шаблону звіту."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Автор цього шаблону звіту."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Версія цього шаблону звіту."
+
+#: templates.php
+msgid "Published"
+msgstr "Опубліковано"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Загальна кількість звітів, що використовують цей шаблон звіту."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Відповідних джерел даних не знайдено"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Шаблон даних недоступний"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Додати вимірювані величини"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Редагувати вимірювані величини"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Додати змінні"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Редагувати змінні"
+
+#: templates.php
+msgid "No templates"
+msgstr "Немає шаблонів"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Максимум має бути більшим за мінімум."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Типове значення виходить за межі допустимого діапазону."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Дубльована абревіатура"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Проміжні результати використовуються іншими вимірюваними величинами."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Шаблон [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Шаблон [новий]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Натисніть 'Продовжити', щоб видалити наведені нижче шаблони звітів"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "УВАГА: Усі звіти, що належать до цих шаблонів, також буде видалено!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Шаблон: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Звіт: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Звіт: <i>Немає</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Натисніть 'Продовжити', щоб дублювати наведені нижче шаблони звітів. За бажанням ви можете змінити назву цих дублікатів."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Список вибраних шаблонів звітів:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Назва:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Натисніть 'Продовжити', щоб експортувати наведені нижче шаблони звітів"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "Необхідно вибрати принаймні один шаблон звіту."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Видалити шаблони звітів"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Дублювати шаблони звітів"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Експортувати шаблони звітів"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Натисніть 'Продовжити', щоб видалити наведені нижче змінні."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Список вибраних змінних:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Змінна: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Використовується одна або кілька змінних."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "Необхідно вибрати принаймні одну змінну."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Видалити змінні шаблону"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Натисніть 'Продовжити', щоб видалити наведені нижче метрики. Примітка: якщо після цього процесу не залишиться інших метрик, шаблон звіту буде автоматично заблоковано."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Список вибраних показників:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Метрика: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "Необхідно вибрати принаймні одну вимірювану величину."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Видалити метрики шаблону"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Змінні [ Шаблон: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Змінних не знайдено"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Налаштування змінної [ редагування: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Налаштування змінної [нова]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Внутрішня назва"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Унікальний ідентифікатор, який ReportIt створює самостійно. Використовуйте цей ID у формулах обчислення, щоб підставити значення, індивідуально задане користувачем звіту."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Назва, наприклад «Поріг», яка використовуватиметься як заголовок у конфігурації звіту."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Укажіть назву цієї змінної"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Опис, що пояснює призначення цієї змінної."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Укажіть змістовний опис"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Максимальне значення"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Визначає верхню межу цієї змінної."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Мінімальне значення"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Визначає нижню межу цієї змінної."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Типове значення"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Встановлює значення за замовчуванням."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Тип"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Спосіб, яким власник звіту має визначати цю змінну."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Визначає крок між двома значеннями, якщо вибрано метод «DropDown» (випадний список). Переконайтеся, що це значення не є занадто малим, оскільки воно опосередковано визначає кількість пунктів у випадному списку. Наприклад, параметри MAX:100, MIN:0, STEP:0.01 створять список із 10 001 варіанта. Це може спричинити значні проблеми з продуктивністю через високе навантаження на ЦП на боці клієнта. Намагайтеся тримати кількість нижче 1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Налаштування метрики [ редагування: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Налаштування метрики [нова]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Пояснення для цієї вимірюваної величини. Воно відображатиметься як легенда під час експорту, а також як підказка при перегляді самого звіту."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Визначте унікальну абревіатуру для цієї вимірюваної величини (макс. 8 літер/цифр)."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Одиниця вимірювання, призначена цій вимірюваній величині, наприклад «Bits/s»"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Функція консолідації"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Назва функції консолідації, яка визначає, які CDP слід зчитувати."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Виберіть «увімкнути», якщо цей показник (measurand) має входити до підсумкового звіту. Залиште непозначеним, якщо він використовуватиметься лише як допоміжний розрахунок."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Виберіть «увімкнути», якщо цей показник матиме лише один загальний результат замість окремого результату для кожного елемента джерела даних. Його результат<br>буде показано окремо. Використовуйте цей параметр у поєднанні з \"Visible\" = \"off\" (Видимий = вимк.), якщо потрібен показник, що зберігає лише проміжний результат для повторного використання в розрахунках інших показників без відображення кінцевим користувачам."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Форматування"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Визначає, як тип даних слід інтерпретувати ці дані."
+
+#: templates.php
+msgid "Precision"
+msgstr "Точність"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Визначає, скільки десяткових знаків відображати для чисел із рухомою комою."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Префікси"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Виберіть тип префікса для форматування результату. У разі використання десяткових префіксів число '1024' буде відформатовано як '1.024k', тоді як двійкові префікси повернуть '1ki'. Виберіть 'off', щоб відображати необроблені дані, тут — '1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Формула"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Математичне визначення цієї вимірюваної величини. Дозволені будь-які комбінації наведених нижче операторів і операндів відповідно до математичних правил. Використовуйте круглі та квадратні дужки для позначення складних виразів і порядку дій."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Оператори й операнди"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Натисніть на один зі списку операторів або операндів, щоб додати його до формули обчислення. У спливаючій підказці буде показано додаткову інформацію, зокрема опис, значення, що повертається, аргументи та використання."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Метрики [ Шаблон: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Метрик не знайдено"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Фільтр звітів"
+
+#: view.php
+msgid "My Reports"
+msgstr "Мої звіти"
+
+#: view.php
+msgid "Go"
+msgstr "Перейти"
+
+#: view.php
+msgid "Clear"
+msgstr "Очистити"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Період (Від - До)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Останній час виконання [с]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "Звіти не знайдено"
+
+#: view.php
+msgid "Metric"
+msgstr "Метричний"
+
+#: view.php
+msgid "Data Source"
+msgstr "Джерело даних"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Показати топ-10 графіків"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Показати підзаголовки"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Показати зведення"
+
+#: view.php
+msgid "Additional"
+msgstr "Додатково"
+
+#: view.php
+msgid "Items"
+msgstr "Елементи"
+
+#: view.php
+msgid "Archive"
+msgstr "Архів"
+
+#: view.php
+msgid "Current"
+msgstr "Поточний"
+
+#: view.php
+msgid "Title"
+msgstr "Назва"
+
+#: view.php
+msgid "Runtime"
+msgstr "Час виконання"
+
+#: view.php
+msgid "Period"
+msgstr "Період"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Автоматично створений список RRD"
+
+#: view.php
+msgid "Data Description"
+msgstr "Опис даних"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- БЕЗ ПІДЗАГОЛОВКА --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Немає елементів даних"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Метрика: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Поз."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Результати [%s]"
+
