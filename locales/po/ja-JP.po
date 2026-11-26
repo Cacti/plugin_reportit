@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/reportit/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/reportit/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1121,7 +1121,7 @@ msgstr "データソース名フィルター"
 
 #: lib/const_reports.php
 msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "このフィルターに一致する名前のデータソースを使用します。<br> % や _ などのSQLワイルドカードを使用してください。正規表現は使用できません。"
+msgstr "このフィルターに一致する名前のデータソースを使用します。<br> % や _ などの SQL ワイルドカードを使用してください。正規表現は使用できません！"
 
 #: lib/const_reports.php
 msgid "Auto Generated Data Items"
@@ -1249,7 +1249,7 @@ msgstr "固定時間枠 - 開始日 (開始)"
 
 #: lib/const_reports.php
 msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
-msgstr "開始日を定義するには、<b>yyyy-mm-dd</b> の形式を使用します。"
+msgstr "開始日を定義するには次の形式を使用します: <b>yyyy-mm-dd</b>"
 
 #: lib/const_reports.php
 msgid "Fixed Time Frame - End Date (To)"
@@ -1257,7 +1257,7 @@ msgstr "固定時間枠 - 終了日 (終了)"
 
 #: lib/const_reports.php
 msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
-msgstr "終了日を定義するには、<b>yyyy-mm-dd</b> の形式を使用します。"
+msgstr "終了日を定義するには次の形式を使用します: <b>yyyy-mm-dd</b>"
 
 #: lib/const_rrdlist.php
 msgid "Add to Report"
@@ -1813,7 +1813,7 @@ msgstr "タイム ゾーン"
 
 #: setup.php
 msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
-msgstr "データ項目の設定とレポート計算におけるタイムゾーンの使用を有効/無効にします。前者の場合、サーバー時刻をGMT/UTCに設定する必要があります。"
+msgstr "データ項目の設定とレポート計算におけるタイムゾーンの使用を有効/無効にします。前者の場合、サーバー時刻を GMT/UTC に設定する必要があります！"
 
 #: setup.php
 msgid "Show Local Time Zone"
@@ -2027,7 +2027,7 @@ msgstr "[続行] をクリックして、次のレポート テンプレート�
 
 #: templates.php
 msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
-msgstr "警告:これらのテンプレートに属するすべてのレポートも削除されます。"
+msgstr "警告: これらのテンプレートに属するすべてのレポートも削除されます！"
 
 #: templates.php
 #, php-format
