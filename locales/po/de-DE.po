@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/reportit/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/reportit/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -243,7 +243,7 @@ msgstr "Jährlich"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Dropdown"
-msgstr "Dropdown"
+msgstr "Auswahlliste"
 
 #: include/global_arrays.php lib/const_variables.php templates.php
 msgid "Input field"
@@ -472,7 +472,7 @@ msgstr "Gibt den nächsthöheren ganzzahligen Wert zurück, indem bei Bedarf der
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_round - Round A Float"
-msgstr "f_round - Round A Float"
+msgstr "f_round - Gleitkommazahl runden"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
@@ -1483,7 +1483,7 @@ msgstr "Zeitplan"
 
 #: reportit.php
 msgid "State"
-msgstr "Bundesland"
+msgstr "Zustand"
 
 #: reportit.php
 #, php-format
@@ -1501,7 +1501,7 @@ msgstr "Letzter Durchlauf"
 
 #: reportit.php templates.php
 msgid "N/A"
-msgstr "Nicht verfügbar"
+msgstr "Nicht zutreffend"
 
 #: reportit.php
 msgid "Add sources"
@@ -1765,7 +1765,7 @@ msgstr "Schablonen"
 
 #: setup.php
 msgid "No data source item selected"
-msgstr "Keine Datenelemente"
+msgstr "Kein Datenquellenelement ausgewählt"
 
 #: setup.php
 msgid "Unselected data source items are still in use"
