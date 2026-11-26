@@ -1,0 +1,2406 @@
+# Croatian translation for Cacti.
+# Copyright (C) 2004-2026 The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-26 18:57+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Croatian <developers@cacti.net>\n"
+"Language: hr-HR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Izbriši"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Dupliciraj"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Zaključaj"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Otključaj"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Izvezi"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Naziv"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Interni naziv"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Maksimum"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Minimum"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "Zadano"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Korak"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Vrsta unosa"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Opcije"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "ID"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Kratica"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Grupa"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Jedinica"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Funkcija konsolidacije"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "Vidljivo"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Odvojeno"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "Formula izračuna"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "Generički ID"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Elementi"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Metrike"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Pridruženi predlošci podataka"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Općenito"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Predlošci podataka"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Grupe"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Varijable"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Danas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "Zadnji 1 dan"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "Zadnja 2 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "Zadnja 3 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "Zadnja 4 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "Zadnjih 5 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "Zadnjih 6 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "Zadnjih 7 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Prošli tjedan (ned - sub)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Prošli tjedan (pon - ned)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "Zadnjih 14 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "Zadnji 21 dan"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "Zadnjih 28 dana"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Tekući mjesec"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Posljednji mjesec"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "Zadnja 2 mjeseca"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "Zadnja 3 mjeseca"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "Zadnja 4 mjeseca"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "Zadnjih 5 mjeseci"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "Zadnjih 6 mjeseci"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Tekuća godina"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "Posljednja godina"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "Zadnje 2 godine"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Dnevno"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Tjedno"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Mjesečno"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Tromjesečno"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Godišnje"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Padajući izbornik"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Polje za unos"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Nijedan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Binarno"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "Pomični zarez"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Cijeli broj"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Cijeli broj (bez predznaka)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Heksadecimalno (mala slova)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Heksadecimalno (velika slova)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Oktalno"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Znanstveni zapis"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Nepromijenjeno"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "isključeno"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Binarni SI prefiksi (baza 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Decimalni SI prefiksi (baza 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Aritmetička sredina"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Vraća prosječnu vrijednost svih izmjerenih vrijednosti po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "ništa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Najveća vrijednost"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Vraća najveću izmjerenu vrijednost po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Najmanja vrijednost"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Vraća najmanju izmjerenu vrijednost po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Zbroj"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Vraća zbroj svih izmjerenih vrijednosti po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Broj vrijednosti (koje nisu NaN)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Vraća broj valjanih izmjerenih vrijednosti po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Gradijent"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Vraća gradijent pravca primjenom linearne regresije po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Posljednja vrijednost"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Vraća posljednju valjanu izmjerenu vrijednost po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Prva vrijednost"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Vraća prvu valjanu izmjerenu vrijednost po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - Broj NaN vrijednosti"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Vraća broj pohranjenih NaN vrijednosti po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - Medijan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Vraća vrijednost koja odvaja gornju polovicu od donje polovice po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Raspon"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Vraća razliku između najveće i najmanje vrijednosti po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Interkvartilni raspon"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Vraća raspon središnjih 50&#037; oko medijana po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - Standardna devijacija"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Vraća kvadratni korijen varijance po izvoru podataka"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - Varijanca"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Vraća varijancu po DS-u"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - X-ti percentil"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Vraća x-ti percentil."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: prag u postotcima. Raspon: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Trajanje iznad praga"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Vraća trajanje iznad definiranog praga u postotcima."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: prag (apsolutni)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Zbroj iznad praga"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Vraća zbroj vrijednosti iznad definiranog praga."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Zaokruži razlomke naniže"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Vraća sljedeću najnižu cjelobrojnu vrijednost zaokruživanjem vrijednosti naniže ako je potrebno."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: broj s pomičnim zarezom"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Zaokruži razlomke naviše"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Vraća sljedeću najvišu cjelobrojnu vrijednost zaokruživanjem vrijednosti naviše ako je potrebno."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Zaokruži broj s pomičnim zarezom"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Vraća zaokruženu cjelobrojnu vrijednost bilo kojeg zadanog broja s pomičnim zarezom."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: broj s pomičnim zarezom ili znakovni niz"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Pronađi najvišu vrijednost"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Vraća najvišu vrijednost iz zadanog popisa parametara"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: vrijednosti koje se uspoređuju"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Pronađi najnižu vrijednost"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Vraća najnižu vrijednost iz zadanog popisa parametara"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Uvjetna operacija - logika IF-THEN-ELSE"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Vraća B ako je A točno ili C ako je A netočno"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Utvrdi nije li vrijednost broj"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Vraća 1 (ili B) ako je A === NaN, odnosno 0 (ili C) ako nije. Parametri B i C su neobvezni."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Složena usporedba"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - Alias za f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - Alias za f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - Alias za f_cmp - JEDNAKO JE"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Vraća 1 (ili C) ako je A == B, odnosno 0 (ili D) ako nije. Parametri C i D su neobvezni."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - Alias za f_cmp - NIJE JEDNAKO"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Vraća 1 (ili C) ako je A != B, odnosno 0 (ili D) ako nije. Parametri C i D su neobvezni."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - Alias za f_cmp - VEĆE JE OD"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Vraća 1 (ili C) ako je A > B, odnosno 0 (ili D) ako nije. Parametri C i D su neobvezni."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - Alias za f_cmp - MANJE JE OD"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Vraća 1 (ili C) ako je A < B, odnosno 0 (ili D) ako nije. Parametri C i D su neobvezni."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - Alias za f_cmp - VEĆE JE ILI JEDNAKO"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Vraća 1 (ili C) ako je A >= B, odnosno 0 (ili D) ako nije. Parametri C i D su neobvezni."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - Alias za f_cmp - MANJE JE ILI JEDNAKO"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Vraća 1 (ili C) ako je A <= B, odnosno 0 (ili D) ako nije. Parametri C i D su neobvezni."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Zbrajanje"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Matematička operacija koja vraća zbroj dvaju ili više pribrojnika"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Oduzimanje"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Matematička operacija koja vraća razliku umanjenika i umanjitelja"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Množenje"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Matematička operacija koja vraća umnožak množitelja i množenika"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Dijeljenje"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Matematička operacija koja vraća količnik djeljenika i djelitelja"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "Modulo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Matematička operacija koja vraća ostatak pri dijeljenju dvaju cijelih brojeva"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Potenciranje - potreban je PHP5.6 ili noviji"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Matematička operacija koja vraća uzastopno množenje (ili dijeljenje) baze njezinim eksponentom."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Decimalni znak"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Decimalni znak koji se koristi za odvajanje cjelobrojnog dijela od decimalnog dijela"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Obla zagrada"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "Koristi se za nadjačavanje uobičajenog prioriteta ili označavanje prve razine ugniježđenosti"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Uglata zagrada"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "Koristi se za nadjačavanje uobičajene prednosti ili označavanje druge razine ugnježđivanja"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Interpunkcijski znak"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "Koristi se za odvajanje argumenata proslijeđenih funkciji"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Minimalna vrijednost podataka koju je dopušteno prikupljati."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "UPOZORENJE! Ova varijabla može biti postavljena na nulu ili neograničeno"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Maksimalna vrijednost podataka koju je dopušteno prikupljati."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Sadrži broj sekundi između dviju izmjerenih vrijednosti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Funkcije bez parametara"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Funkcije s parametrima"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Pseudonimi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Operatori"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Brojevi"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Ostalo"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Varijable upita podataka"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Međurezultati"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Neograničeno"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "500 podatkovnih stavki"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "1.000 podatkovnih stavki"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "2.000 podatkovnih stavki"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "5 000 stavki izvora podataka"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "7.500 stavki izvora podataka"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "10 000 stavki izvora podataka"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "15 000 stavki izvora podataka"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "25 000 stavki izvora podataka"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "1 minuta"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minuta"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Jedinstveni naziv dodijeljen ovom predlošku izvješća."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Opis"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Dulji opis ovog predloška izvješća."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Inačica"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Broj inačice za ovaj predložak"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Autor"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Autor ovog predloška"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Objavi"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Treba li ovaj predložak izvješća biti objavljen za pristup korisnicima? Za testiranje novih predložaka ili izmjena trebate odznačiti ovaj okvir."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "Zaključano"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Status \"zaključano\" sprječava bilo kakvu izmjenu vašeg predloška izvješća kao i dodijeljenih mjerenih veličina i definicija varijabli"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Dodatni predfiltar"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Neobavezno: sintaksa za filtriranje dostupnog popisa podatkovnih stavki prema njihovu opisu. Koristite SQL zamjenske znakove kao što su % i/ili _. Bez regularnih izraza!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Putanja izvoza"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Neobavezno: putanja do mape za spremanje izvoza. Ako ne postoji, ReportIt će je automatski pokušati stvoriti tijekom prvog zakazanog izračuna, inače će pokušati stvoriti novu podmapu unutar glavne mape za izvoz koristeći ID predloška."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "Predložak podataka"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Naziv podatkovnog predloška o kojem ovisi ovaj predložak izvješća."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Predložak izvješća"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Odaberite jedan od svojih predložaka izvješća za izvoz u XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Neobavezno] Opis"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Opišite značajke svojeg predloška izvješća"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Neobavezno] Autor"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Ovdje dodajte svoje ime ili nadimak."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Neobavezno] Inačica"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Neobavezno] Kontakt"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Stupčasti (okomiti)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Stupčasti (vodoravni)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Linijski"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Površinski"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "3D tortni grafikon"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Paukova mreža"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - Mod"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Vraća vrijednost koja se najčešće pojavljuje po DS-u"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Lijeva (otvorena) zagrada"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Desna (zatvorena) zagrada"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Lijeva (otvorena) uglata zagrada"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Desna (zatvorena) uglata zagrada"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Sadrži najveću propusnost ako je 'ifspeed' dostupan."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Sadrži najveću vrijednost koja je definirana za određenu stavku izvora podataka pod \\\"Izvori podataka\\\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Sadrži broj NAN vrijednosti tijekom izvještajnog razdoblja."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Zagrade"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Onemogući"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Omogući"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Pokreni odmah"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "Preuzmi vlasništvo"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "SRUŠENO"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "NEUSPJEŠNO"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Neaktivno"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "U tijeku"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Nema dostupnog predloška -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "Ponedjeljak"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "Utorak"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "Srijeda"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "Četvrtak"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "Petak"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "Subota"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "Nedjelja"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Unaprijed zadane postavke izvora podataka"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "E-pošta"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Izvori podataka"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Tekstualni CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "Neobrađeni XML (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "JSON podaci (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "YAML podaci (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Predmet"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Unesite predmet svoje e-pošte.<br> Podržane su sljedeće varijable (bez navodnika): '|title|' i '|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Zakazano izvješće - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Tijelo poruke (neobavezno)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Unesite poruku koja će biti prikazana u tijelu vaše e-pošte"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Ovo je zakazano izvješće generirano iz sustava Cacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Privitak"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Ako želite primati samo e-poštu kao obavijest da je novo izvješće dostupno, odaberite 'Ništa'.<br> U suprotnom odaberite oblik u kojem izvješće treba biti priloženo."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "Primatelji e-pošte"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Primatelji popisa obavijesti"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Za dodavanje primatelja na temelju valjanog popisa obavijesti."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "Adresa(e) e-pošte primatelja"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Više adresa odvojite zarezom (,)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "BCC adresa(e)"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Skrivena kopija. Više adresa odvojite zarezom (,)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Novi primatelji e-pošte"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Za dodavanje novog primatelja unesite valjanu adresu e-pošte (obavezno) i ime (neobavezno).<br> Za brže postavljanje upotrijebite popis adresa/imena gdje su imena/adrese odvojeni jednim od sljedećih razdjelnika: ';' ili ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Neobvezni podnaslov"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Definirajte dodatni podnaslov koji će biti prikazan ispod opisa sučelja.<br> Podržane su sljedeće varijable (bez navodnika): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Vremenska zona"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Odaberite vremensku zonu na kojoj će se temeljiti sljedeće informacije o vremenu smjene."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Neobvezni predfiltri izvora podataka"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Filtar lokacije"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Koristite samo izvore podataka koji odgovaraju ovoj lokaciji.<br>Odaberite 'Ništa' (zadano) za deaktivaciju ove postavke filtra."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Filtar predloška uređaja"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Koristite samo izvore podataka ovog predloška uređaja.<br>Odaberite 'Ništa' (zadano) za deaktivaciju ove postavke filtra."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Filtar naziva izvora podataka"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Koristite izvore podataka čiji nazivi odgovaraju ovom filtru.<br> Koristite SQL zamjenske znakove kao što su % i/ili _. Bez regularnih izraza!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Automatski generirane stavke podataka"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Omogućite/onemogućite automatsko stvaranje svih stavki podataka na temelju zadanih filtara. To će se pozvati prije izvršavanja izvješća. Zastarjele RRD datoteke bit će izbrisane, a sve RRD datoteke koje odgovaraju postavkama filtra bit će dodane."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Radno vrijeme"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "Od"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Početna točka trajanja koje želite analizirati"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "Do"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Kraj vremena za analizu."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Radni dani"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Definirajte raspon dana u kojima smjena POČINJE!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Primjer: za noćnu smjenu od pon(22:30) do sub(06:30) definirajte od ponedjeljka do petka"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Naziv dodijeljen ovom izvješću"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Predložak"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Predložak o kojem ovisi vaša konfiguracija"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Vlasnik"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Promijenite vlasnika ovog izvješća. Mogu se odabrati samo korisnici s dopuštenjem \"pregled\" ili višim."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "Omogućeno"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Omogućite/onemogućite zakazano izvješćivanje. Klizni vremenski okvir treba biti omogućen."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Javno"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Ako je omogućeno, svi mogu vidjeti vaše izvješće pod karticom 'izvješća'"
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Omogući korištenje dopuštenja grafikona"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Ako je omogućeno (zadano), popis dostupnih stavki podataka automatski će se filtrirati prema vlasnikovu dopuštenju grafikona: 'prema uređaju'."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "Automatski generirana e-pošta"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Ako je omogućeno, kartica 'E-pošta' bit će aktivirana i svi primatelji definirani u tom odjeljku automatski će primiti poruku e-pošte s ovim zakazanim izvješćem."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Razdoblje izvješćivanja"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Klizni vremenski okvir"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Ako je označeno, razdoblje izvješćivanja konfigurirat će se automatski u odnosu na trenutak početka izračuna."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Vremenski okviri"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Vremenski okvir koji želite analizirati u odnosu na trenutak početka izračuna.<br>To znači kalendarske dane, kalendarske mjesece i kalendarske godine."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "Do dana izračuna"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Proširi klizni vremenski okvir do dana pokretanja izračuna."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Fiksni vremenski okvir - Datum početka (Od)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Za definiranje datuma početka koristite sljedeći format: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Fiksni vremenski okvir - Datum završetka (Do)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Za definiranje datuma završetka koristite sljedeći format: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Dodaj u izvješće"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Ukloni iz izvješća"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "Kopiraj postavke na sve"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Dodaj"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Stupčasti grafikon: okomiti"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Stupčasti grafikon: vodoravni"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Linijski grafikon"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Površinski grafikon"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Tortni grafikon: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s Visoko"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s Nisko"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Bilo koji"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Sve"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Zbroj"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Prosjek"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Naslov izvješća"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Pokreni"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Završetak"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Posljednje pokretanje"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Opis: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Sintaksa:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Parametri:   %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Primjeri:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Omogući [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Aktivirajte stavku izvora podataka '%s' za postupak izračuna."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Pseudonim izvora podataka"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Neobvezno: možete definirati pseudonim koji će se u izvješćima prikazivati umjesto internog naziva izvora podataka '%s'."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Zasebni naslov grupe [ukupno]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Neobvezno: možete definirati naziv grupe koji će se prikazivati kao naslov za sve zasebne mjerene veličine unutar izvješća."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Nepoznati vlasnik"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Datoteka je prevelika."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Nepotpun prijenos datoteke."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Nijedna datoteka nije prenesena."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Nedostaje privremena mapa."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "Zapisivanje datoteke na disk nije uspjelo"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Prijenos datoteke zaustavilo je proširenje"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Nevažeći nastavak datoteke."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "Nije moguće raščlaniti datoteku predloška."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Pogreška kontrolnog zbroja s predloškom %s u XML datoteci"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Novo izvješće"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Nema dostupnih otključanih i omogućenih predložaka izvješća (%s zaključano ili onemogućeno)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Odustani"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Nastavi"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Stvori novo izvješće"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Odaberite predložak o kojem ovo izvješće treba ovisiti."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Filtri izvješća"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Pretraži"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Izvješća"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Primijeni"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Očisti"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Razdoblje %s Od - Do"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Raspored"
+
+#: reportit.php
+msgid "State"
+msgstr "Županija / savezna država"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Sljedeće pokretanje %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "Zadnje pokrenuto %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Trajanje zadnjeg izvođenja"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "N/P"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Dodaj izvore"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Uredi izvore"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Odaberi %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "Izvješće je zaključano"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Nema izvješća"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Nemate ovlasti"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Konfiguracija izvješća (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Radnja"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Nije pronađen nijedan primatelj"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "Naziv izvora podataka"
+
+#: reportit.php
+msgid "Associated"
+msgstr "Povezano"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Podnaslov"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Vrijeme smjene (Od - Do)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Dani u tjednu (Od - Do)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "RRD-ovi"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Prikaži sve"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Više ne postoji"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "Uključeno u izvješće"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Nije uključeno u izvješće"
+
+#: reportit.php
+msgid "Select"
+msgstr "Odaberi"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Nije pronađena nijedna podatkovna stavka"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Adresa e-pošte primatelja (ili popis odvojen zarezom)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[NEOBVEZNO] Ime primatelja (ili popis imena odvojen zarezom)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Izvor podataka [uredi: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Podnaslov (neobvezno)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Odaberite vremensku zonu na kojoj će se temeljiti sljedeći podaci o vremenu smjene."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Kliknite 'Nastavi' za pokretanje sljedećeg izvješća:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Kliknite 'Nastavi' za brisanje sljedećih izvješća:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Kliknite 'Nastavi' za dupliciranje sljedećih konfiguracija izvješća. Tijekom ove radnje možete promijeniti i format naslova."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "Format naslova:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Kliknite 'Nastavi' za onemogućavanje sljedećeg izvješća:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Kliknite 'Nastavi' za omogućavanje sljedećeg izvješća:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Kliknite 'Nastavi' za preuzimanje vlasništva nad sljedećim izvješćem:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "Morate odabrati barem jedno otključano izvješće koje se ne izvodi."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Kliknite 'Nastavi' za uklanjanje sljedećih izvora podataka iz izvješća."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Popis odabranih izvora podataka u nastavku."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Izvor podataka: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Kliknite 'Nastavi' za dodavanje sljedećih izvora podataka u izvješće."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Kliknite 'Nastavi' za kopiranje postavki na ostale izvore podataka."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Odabrani izvor podataka kao referenca:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Vremenska zona:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Dani u tjednu:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Vrijeme smjene:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "Morate odabrati barem jedno izvješće."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - Pregledavanje izvješća"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - Izrada izvješća"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - Upravljanje izvješćima"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Uredi)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Radnje"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Podatkovne stavke"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Predlošci izvješća"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Uvezi"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Izračun izvješća"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Javna izvješća"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Prikaži izvješće"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Izvezi izvješće"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Obični korisnik"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Opća administracija"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Administracija sustava"
+
+#: setup.php
+msgid "Management"
+msgstr "Upravljanje"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "ReportIt izvješća"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Predlošci"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Nije odabrana nijedna stavka izvora podataka"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Neodabrane stavke izvora podataka još su u upotrebi"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "Nije moguće otključati ovaj predložak bez definiranih mjerenih veličina"
+
+#: setup.php
+msgid "global"
+msgstr "globalno"
+
+#: setup.php
+msgid "local"
+msgstr "lokalno"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Napredni korisnik (vlasnik izvješća)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Superkorisnik (administrator izvješća)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Najdulje vrijeme izvođenja (u sekundama)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Neobvezno: Najdulje vrijeme izvođenja jednog izračuna."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Najveća promjena broja zapisa"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Neobvezno (automatsko generiranje popisa RRD-ova): Nemojte mijenjati popis RRD-ova nijednog izvješća ako je promjena broja zapisa veća od ovog broja. Time se izbjegavaju neželjene i katastrofalne promjene na popisima RRD-ova"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Vremenske zone"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Omogućite/onemogućite upotrebu vremenskih zona za konfiguraciju podatkovnih stavki i izračun izvješća. U tom slučaju vrijeme poslužitelja mora biti postavljeno na GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Prikaži lokalnu vremensku zonu"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Omogućite/onemogućite prikaz vremenske zone poslužitelja u zaglavljima."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "Dopusti operatorima zakazivanje"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Omogućite/onemogućite mogućnost da operatori zakazuju izvješća. Kada je onemogućeno, samo administratori mogu mijenjati zakazivanje."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "SI-prefiksi"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Omogućite/onemogućite upotrebu ispravnih SI-prefiksa za binarne višekratnike u skladu s normama <a href='http://www.ieee.org'>IEEE 1541</a> i <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Automatsko slanje e-poštom"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Ako je omogućeno, zakazana izvješća mogu se automatski slati e-poštom na popis primatelja.<br> Ova značajka zahtijeva konfiguriranu inačicu dodatka 'Settings Plugin'."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Odvojeni filtar prikaza izvješća"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Omogućite/onemogućite upotrebu zasebnog filtra po izvješću."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Redaka po stranici"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Broj redaka za prikaz na jednoj stranici."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Postavke izvoza izvješća"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "CSV razdjelnik stupaca"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Razdjelnik stupaca koji se koristi za CSV izvoz."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "CSV decimalni razdjelnik"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Znak koji označava kraj cjelobrojnog dijela i početak decimalnog dijela."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Opće postavke izvješća"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Novi predložak izvješća"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Nijedan predložak podataka nije u uporabi."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Stvori novi predložak izvješća"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Odaberite predložak podataka o kojem ovaj predložak izvješća treba ovisiti. Nekorišteni predlošci podataka su skriveni."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Uvezi predložak izvješća"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Odaberite XML datoteku koja sadrži vaš predložak izvješća."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Uvezi predloške izvješća"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Kompatibilno"
+
+#: templates.php
+msgid "Summary"
+msgstr "Sažetak"
+
+#: templates.php
+msgid "No"
+msgstr "Ne"
+
+#: templates.php
+msgid "Yes"
+msgstr "Da"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Nisu pronađeni kompatibilni predlošci"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Uvezi"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Naziv ovog predloška izvješća."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Interni identifikator ovog predloška izvješća."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Autor ovog predloška izvješća."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Inačica ovog predloška izvješća."
+
+#: templates.php
+msgid "Published"
+msgstr "Objavljeno"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Ukupan broj izvješća koja koriste ovaj predložak izvješća."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Nema odgovarajućih izvora podataka"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Predložak podataka nije dostupan"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Dodaj mjerene veličine"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Uredi mjerene veličine"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Dodaj varijable"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Uredi varijable"
+
+#: templates.php
+msgid "No templates"
+msgstr "Nema predložaka"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Maksimum mora biti veći od minimuma."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Zadana vrijednost je izvan raspona vrijednosti."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Duplicirana kratica"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Međurezultate koriste druge mjerene veličine."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Predložak [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Predložak [novi]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Kliknite 'Nastavi' za brisanje sljedećih predložaka izvješća"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "UPOZORENJE: Svako izvješće koje pripada ovim predlošcima također će biti izbrisano!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Predložak: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Izvješće: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Izvješće: <i>Nijedno</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Kliknite 'Nastavi' za dupliciranje sljedećih predložaka izvješća. Po želji možete promijeniti naziv tih duplikata."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Popis odabranih predložaka izvješća:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Naslov:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Kliknite 'Nastavi' za izvoz sljedećih predložaka izvješća"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "Morate odabrati barem jedan predložak izvješća."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Izbriši predloške izvješća"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Dupliciraj predloške izvješća"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Izvezi predloške izvješća"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Kliknite 'Nastavi' za brisanje sljedećih varijabli."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Popis odabranih varijabli:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Varijabla: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Jedna ili više varijabli su u uporabi."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "Morate odabrati barem jednu varijablu."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Izbriši varijable predloška"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Kliknite 'Nastavi' za brisanje sljedećih metrika. Napomena: Ako nakon ovog postupka ne preostane nijedna druga metrika, predložak izvješća bit će automatski zaključan."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Popis odabranih mjerenih veličina:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Metrika: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "Morate odabrati barem jednu mjerenu veličinu."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Izbriši metrike predloška"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Varijable [ Predložak: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Nisu pronađene varijable"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Konfiguracija varijable [ uredi: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Konfiguracija varijable [nova]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Interni naziv"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Jedinstveni identifikator koji će stvoriti sam ReportIt. Koristite ovaj ID unutar definicije svojih formula za izračun kako biste uključili vrijednost koju je korisnik izvješća pojedinačno definirao za njega."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Naziv kao što je primjerice \"Prag\" koji treba koristiti kao zaglavlje unutar konfiguracije izvješća."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Unesite naziv za ovu varijablu"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Opis koji objašnjava smisao ove varijable."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Unesite smislen opis"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Maksimalna vrijednost"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Definira gornju granicu ove varijable."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Minimalna vrijednost"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Definira donju granicu ove varijable."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Zadana vrijednost"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Postavlja zadanu vrijednost."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Vrsta"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Metoda koju vlasnik izvješća treba koristiti za definiranje ove varijable."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Definira razmak između dviju vrijednosti ako je odabrana metoda \"DropDown\". Provjerite da ova vrijednost nije postavljena prenisko jer neizravno definira broj opcija koje će padajuće polje imati. Na primjer, sljedeći parametri: MAX:100, MIN:0, STEP:0.01 rezultirat će okvirom za odabir s 10.001 opcijom. To može uzrokovati drastične probleme s performansama zbog visokog opterećenja CPU-a na strani klijenta. Pokušajte ga zadržati ispod 1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Konfiguracija metrike [ uredi: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Konfiguracija metrike [nova]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Objašnjenje za ovu mjerenu veličinu. Bit će prikazano kao legenda u izvozima, kao i kao opis alata u samom prikazu izvješća."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Odredite jedinstvenu kraticu za ovu mjerenu veličinu s najviše 8 slova/brojeva."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Mjerna jedinica za ovu mjerenu veličinu, npr. 'Bits/s'"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Funkcija konsolidacije"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Naziv funkcije konsolidacije koji definira koje CDP-ove treba očitati."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Odaberite 'omogući' ako ova mjerena veličina treba postati dio konačnog izlaza izvješća. Ostavite neoznačeno ako će se ova mjerena veličina koristiti samo kao pomoćni izračun."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Odaberite 'omogući' ako će ova mjerena veličina imati samo jedan ukupni rezultat umjesto jednog za svaku stavku izvora podataka. Njezin će rezultat<br>biti prikazan zasebno. Koristite ovu opciju u kombinaciji s \"Vidljivo\" = \"isključeno\" ako tražite mjerenu veličinu koja čuva samo međurezultat koji bi se trebao ponovno upotrijebiti u izračunu drugih mjerenih veličina bez prikaza krajnjim korisnicima."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Oblikovanje"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Određuje kao koju vrstu treba tretirati podatke."
+
+#: templates.php
+msgid "Precision"
+msgstr "Preciznost"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Određuje koliko decimalnih znamenki treba prikazati za brojeve s pomičnim zarezom."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Prefiksi"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Odaberite vrstu prefiksa koja se koristi za oblikovanje rezultata. Upotrebom decimalnih prefiksa '1024' će se oblikovati u '1.024k', dok opcija binarnih prefiksa vraća '1ki'. Odaberite 'isključeno' za prikaz neobrađenih podataka, ovdje '1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Formula"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Matematička definicija ove mjerene veličine. Dopuštene su sve kombinacije operatora i operanada navedenih u nastavku prema pravilima matematike. Koristite okrugle i uglate zagrade za označavanje složenih izraza i redoslijeda operacija."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Operatori i operandi"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Kliknite na jedan od navedenih operatora ili operanada kako biste ih dodali u svoju formulu izračuna. Opis alata prikazat će vam dodatne informacije kao što su opis, povratna vrijednost, argumenti i upotreba."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Metrike [ Predložak: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Nisu pronađene metrike"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Filtar izvješća"
+
+#: view.php
+msgid "My Reports"
+msgstr "Moja izvješća"
+
+#: view.php
+msgid "Go"
+msgstr "Idi"
+
+#: view.php
+msgid "Clear"
+msgstr "Očisti"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Razdoblje (Od - Do)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Posljednje vrijeme izvođenja [s]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "Nije pronađeno nijedno izvješće"
+
+#: view.php
+msgid "Metric"
+msgstr "Metrika"
+
+#: view.php
+msgid "Data Source"
+msgstr "Izvor podataka"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Prikaži prvih 10 grafikona"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Prikaži podnaslove"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Prikaži sažetak"
+
+#: view.php
+msgid "Additional"
+msgstr "Dodatno"
+
+#: view.php
+msgid "Items"
+msgstr "Stavke"
+
+#: view.php
+msgid "Archive"
+msgstr "Arhiviraj"
+
+#: view.php
+msgid "Current"
+msgstr "Trenutačno"
+
+#: view.php
+msgid "Title"
+msgstr "Naslov"
+
+#: view.php
+msgid "Runtime"
+msgstr "Vrijeme izvođenja"
+
+#: view.php
+msgid "Period"
+msgstr "Razdoblje"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Automatski generirani RRD popis"
+
+#: view.php
+msgid "Data Description"
+msgstr "Opis podataka"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- BEZ PODNASLOVA --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Nema podatkovnih stavki"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Metrika: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Poz."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Rezultati [%s]"
