@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/reportit/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/reportit/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1307,7 +1307,7 @@ msgstr "%s Lo"
 
 #: lib/const_view.php
 msgid "Any"
-msgstr "הכל"
+msgstr "כלשהו"
 
 #: lib/const_view.php view.php
 msgid "All"
@@ -1479,7 +1479,7 @@ msgstr "תקופה %s מ - ל"
 
 #: reportit.php
 msgid "Schedule"
-msgstr "תאריך משלוח"
+msgstr "לוח זמנים"
 
 #: reportit.php
 msgid "State"
@@ -1501,7 +1501,7 @@ msgstr "זמן ריצה אחרון"
 
 #: reportit.php templates.php
 msgid "N/A"
-msgstr "לא זמין"
+msgstr "לא רלוונטי"
 
 #: reportit.php
 msgid "Add sources"
@@ -1612,7 +1612,7 @@ msgstr "בחר את אזור הזמן שעליו יתבססו פרטי המשמ�
 
 #: reportit.php
 msgid "Click 'Continue' to Run the following Report:"
-msgstr "לחץ על 'המשך' כדי להפעיל את הדוח הבא:"
+msgstr "לחץ על 'המשך' כדי להריץ את הדוח הבא:"
 
 #: reportit.php
 msgid "Click 'Continue' to Delete the following Reports:"
