@@ -801,7 +801,7 @@ msgstr "Πρόσθετο προφίλτρο"
 
 #: include/global_forms.php
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Προαιρετικό: Η σύνταξη για τη φιλτράρισμα της διαθέσιμης λίστας στοιχείων δεδομένων <br> από την περιγραφή τους. Χρησιμοποιήστε μπαλαντέρ SQL όπως% και / ή _. Καμία τακτική έκφραση!"
+msgstr "Προαιρετικό: Η σύνταξη για τη φιλτράρισμα της διαθέσιμης λίστας στοιχείων δεδομένων από την περιγραφή τους. Χρησιμοποιήστε μπαλαντέρ SQL όπως% και / ή _. Καμία τακτική έκφραση!"
 
 #: include/global_forms.php
 msgid "Export Path"
@@ -1901,7 +1901,7 @@ msgstr "Δημιουργήστε ένα νέο πρότυπο αναφοράς"
 
 #: templates.php
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
-msgstr "Επιλέξτε ένα πρότυπο δεδομένων που πρέπει να εξαρτάται από αυτό το πρότυπο αναφοράς. <br> Τα αχρησιμοποίητα πρότυπα δεδομένων είναι κρυμμένα."
+msgstr "Επιλέξτε ένα πρότυπο δεδομένων που πρέπει να εξαρτάται από αυτό το πρότυπο αναφοράς. Τα αχρησιμοποίητα πρότυπα δεδομένων είναι κρυμμένα."
 
 #: templates.php
 msgid "Import Report Template"

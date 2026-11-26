@@ -1658,13 +1658,13 @@ function report_edit(): void {
 					$('#main').html(data);
 					applySkin();
 
-					$('#email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit'); ?>');
-					$('#email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit'); ?>');
+					$('#email_address').attr('placeholder', <?php print json_encode(__('Email address of a recipient (or comma separated list)', 'reportit')); ?>);
+					$('#email_recipient').attr('placeholder', <?php print json_encode(__('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit')); ?>);
 				});
 			});
 
-			$('#email_address').attr('placeholder','<?php print __('Email address of a recipient (or comma separated list)', 'reportit'); ?>');
-			$('#email_recipient').attr('placeholder','<?php print __('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit'); ?>');
+			$('#email_address').attr('placeholder', <?php print json_encode(__('Email address of a recipient (or comma separated list)', 'reportit')); ?>);
+			$('#email_recipient').attr('placeholder', <?php print json_encode(__('[OPTIONAL] Name of a recipient (or comma separated list of names)', 'reportit')); ?>);
 		});
 
 		function dyn_general_tab() {

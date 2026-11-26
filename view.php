@@ -1202,7 +1202,7 @@ function show_graph_view(array $data, array $ds_description, $rs_description, $o
 									'align'   => 'left'
 								],
 								[
-									'display' => __('Results [%s]', $unit, 'reportid'),
+									'display' => __('Results [%s]', $unit, 'reportit'),
 									'align'   => 'right'
 								]
 							];

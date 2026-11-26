@@ -308,7 +308,7 @@ msgstr "f_avg - Arithmetischer Durchschnitt"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the average value of all measured values per DS"
-msgstr "Liefert den Durchschnittswert.&#10;(Summe der Werte /Anzahl der Werte)"
+msgstr "Liefert den Durchschnittswert. (Summe der Werte /Anzahl der Werte)"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "none"
@@ -801,7 +801,7 @@ msgstr "Zusätzlicher Vorfilter"
 
 #: include/global_forms.php
 msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
-msgstr "Optional: Die Syntax, um die verfügbare Liste der Datenelemente<br> nach ihrer Beschreibung zu filtern. Verwenden Sie SQL-Wildcards wie % und/oder _. Keine regulären Ausdrücke!"
+msgstr "Optional: Die Syntax, um die verfügbare Liste der Datenelemente nach ihrer Beschreibung zu filtern. Verwenden Sie SQL-Wildcards wie % und/oder _. Keine regulären Ausdrücke!"
 
 #: include/global_forms.php
 msgid "Export Path"
@@ -1901,7 +1901,7 @@ msgstr "Erstellen einer neuen Berichtsvorlage"
 
 #: templates.php
 msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
-msgstr "Wählen Sie eine Datenvorlage aus, von der diese Berichtsvorlage abhängen soll.<br>Ungenutzte Datenvorlagen sind ausgeblendet."
+msgstr "Wählen Sie eine Datenvorlage aus, von der diese Berichtsvorlage abhängen soll. Ungenutzte Datenvorlagen sind ausgeblendet."
 
 #: templates.php
 msgid "Import Report Template"

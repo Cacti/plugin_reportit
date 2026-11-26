@@ -33,15 +33,15 @@ it('passes the reportit text domain to every translation helper call', function 
 	 */
 	$known = [
 		// option labels
-		'include/global_arrays.php' => 23,
+		'include/global_arrays.php' => 2,
 		// form label
 		'include/global_forms.php' => 1,
 		// list label
 		'reportit.php' => 1,
 		// role and realm labels
 		'setup.php' => 5,
-		// list labels, one passes the misspelled domain 'reportid'
-		'view.php' => 2,
+		// list label
+		'view.php' => 1,
 	];
 
 	$found = [];

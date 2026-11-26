@@ -1057,7 +1057,7 @@ msgstr "כדי להוסיף נמענים בהתבסס על רשימת הודעו
 
 #: lib/const_reports.php
 msgid "To Email Address(es)"
-msgstr "לכתובת דוא&quot;ל"
+msgstr "לכתובת דוא\"ל"
 
 #: lib/const_reports.php
 msgid "Please separate multiple addresses by comma (,)"
