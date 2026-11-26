@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/reportit/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/reportit/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -1501,7 +1501,7 @@ msgstr "Son Çalışma Zamanı"
 
 #: reportit.php templates.php
 msgid "N/A"
-msgstr "Yok"
+msgstr "Geçerli Değil"
 
 #: reportit.php
 msgid "Add sources"
@@ -1547,7 +1547,7 @@ msgstr "Veri Kaynağı Adı"
 
 #: reportit.php
 msgid "Associated"
-msgstr "Associated"
+msgstr "İlişkili"
 
 #: reportit.php
 msgid "Subhead"
@@ -1749,7 +1749,7 @@ msgstr "Sistem Yönetimi"
 
 #: setup.php
 msgid "Management"
-msgstr "Kullanıcı Yonetimi"
+msgstr "Yönetim"
 
 #: setup.php
 msgid "ReportIt Reports"
