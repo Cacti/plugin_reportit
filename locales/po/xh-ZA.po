@@ -1,0 +1,2408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Xhosa\n"
+"Language: xh-ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Cima"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Yenza ikopi"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Tshixa"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Vula"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Thumela ngaphandle"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Igama"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Igama langaphakathi"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Ubuninzi"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Ubuncinci"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "Okungagqibekanga"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Ukuhamba ngezigaba"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Uhlobo lweNgeniso"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Iinketho"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "ID"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Isifinyezo"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Iqela"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Iyunithi"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Umsebenzi woHlanganiso"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "Iyabonakala"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Yahlula"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "IFomula yoKubala"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "I-ID Eqhelekileyo"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Izinto"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Iimetrikhi"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Izifanekiso Zedatha Ezinxulumeneyo"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Jikelele"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Iithempleyithi zeDatha"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Amaqela"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Iziguquguquki"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Namhlanje"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "Usuku olu-1 olugqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "Iintsuku ezi-2 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "Iintsuku ezi-3 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "Iintsuku ezi-4 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "Iintsuku ezi-5 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "Iintsuku ezi-6 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "Iintsuku ezi-7 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Iveki Ephelileyo (Cawa - Mgqi)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Iveki ephelileyo (Mvu - Cawa)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "Iintsuku ezili-14 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "Iintsuku ezingama-21 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "Iintsuku ezingama-28 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Inyanga yaNgoku"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Inyanga eDlulileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "Iinyanga ezi-2 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "Iinyanga ezi-3 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "Iinyanga ezi-4 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "Iinyanga ezi-5 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "Iinyanga ezi-6 ezigqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Unyaka waNgoku"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "Unyaka oDlulileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "Iminyaka emi-2 egqithileyo"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Imihla ngemihla"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Ngeveki"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Ngenyanga"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Ngekota"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Ngonyaka"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Uluhlu olwehlayo"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Indawo yegalelo"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Akukho"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Ibhayinari"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "Inani le-floating point"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Inani elipheleleyo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Inani elipheleleyo (elingenasayini)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Iheksadesimali (oonobumba abancinci)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Iheksadesimali (oonobumba abakhulu)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Okthali"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Ubalo lwezeNzululwazi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Akutshintshwanga"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "cinyiwe"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Izimaphambili ze-SI zeBhayinari (Isiseko 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Izimaphambili ze-SI zedesimali (Isiseko se-1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Umyinge we-Arithmetic"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Ibuyisela ixabiso eliphakathi lawo onke amaxabiso alinganisiweyo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "akukho"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Elona Xabiso Liphezulu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Ibuyisela elona xabiso liphezulu lilinganisiweyo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Elona Xabiso Lisezantsi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Ibuyisela elona xabiso lisezantsi lilinganisiweyo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Isixa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Ibuyisela isixa sawo onke amaxabiso alinganisiweyo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Inani Lamaxabiso (Angengawo ama-NaN)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Ibuyisela inani lamaxabiso alinganisiweyo asebenzayo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Uthambeko"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Ibuyisela ithambeka lomgca othe tye ngokusebenzisa i-linear regression kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Ixabiso Lokugqibela"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Ibuyisela ixabiso lokugqibela elilinganisiweyo elisebenzayo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Ixabiso Lokuqala"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Ibuyisela ixabiso lokuqala elilinganisiweyo elisebenzayo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - Inani lee-NaN"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Ibuyisela inani lee-NaN ezigciniweyo kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - I-Median"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Ibuyisela elo xabiso lahlula isiqingatha esiphezulu kwisiqingatha esisezantsi kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Uluhlu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Ibuyisela umahluko phakathi kwexabiso elikhulu nelincinci kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Uluhlu lwe-Interquartile"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Ibuyisela umgama wama-50&#037; aphakathi ajikeleze i-median kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - I-Standard Deviation"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Ibuyisela i-square root yomahluko womthombo wedatha ngamnye"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - I-Variance"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Ibuyisela i-variance kwi-DS nganye"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - Ipesenti ye-Xth"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Ibuyisela i-percentile yesi-x."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: umda ngepesenti. Uluhlu: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Ixesha Elidlule kuMda"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Ibuyisela ixesha elidlulileyo phezu komda ochaziweyo ngepesenti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: umda (opheleleyo)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Isixa Esidlule kuMda"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Ibuyisela isixa samaxabiso aphezu komda ochaziweyo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Jikelezisa Amaqhezu Phantsi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Ibuyisela ixabiso elilandelayo elisezantsi lenani elipheleleyo ngokungqukuva ezantsi ixabiso ukuba kuyimfuneko."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: inani elinedesimali"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Jikelezisa Amaqhezu Phezulu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Ibuyisela ixabiso elilandelayo eliphezulu lenani elipheleleyo ngokungqukuva phezulu ixabiso ukuba kuyimfuneko."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Jikelezisa i-Float"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Ibuyisela ixabiso lenani elipheleleyo elingqukuviweyo lalo naliphi na inani elinedesimali elinikiweyo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: ixabiso lenani elinedesimali okanye umtya"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Fumana Elona Xabiso Liphezulu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Ibuyisela elona xabiso liphezulu kuluhlu lweeparamitha olunikiweyo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: amaxabiso aza kuthelekiswa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Fumana Elona Xabiso Lisezantsi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Ibuyisela elona xabiso lisezantsi kuluhlu lweeparamitha olunikiweyo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Umsebenzi Onemiqathango - Ingqiqo ye-IF-THEN-ELSE"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Ibuyisela u-B ukuba u-A uyinyani okanye u-C ukuba u-A ububuxoki"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Fumana ukuba ixabiso asilonani na"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Ibuyisela u-1 (okanye u-B) ukuba u-A === NaN okanye u-0 (okanye u-C) ukuba akunjalo. Iiparamitha B no-C azikho sinyanzelo."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Uthelekiso Oluntsonkothileyo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - Igama elinye le-f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - Igama elinye le-f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - Igama elinye le-f_cmp - IYALINGANA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ibuyisela u-1 (okanye u-C) ukuba u-A == B okanye u-0 (okanye u-D) ukuba akunjalo. Iiparamitha C no-D azikho sinyanzelo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - Igama elinye le-f_cmp - AYILINGANI"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ibuyisela u-1 (okanye u-C) ukuba u-A != B okanye u-0 (okanye u-D) ukuba akunjalo. Iiparamitha C no-D azikho sinyanzelo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - Igama elinye le-f_cmp - INKULU KUNA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ibuyisela u-1 (okanye u-C) ukuba u-A > B okanye u-0 (okanye u-D) ukuba akunjalo. Iiparamitha C no-D azikho sinyanzelo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - Igama elinye le-f_cmp - INCINCI KUNA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ibuyisela u-1 (okanye u-C) ukuba u-A < B okanye u-0 (okanye u-D) ukuba akunjalo. Iiparamitha C no-D azikho sinyanzelo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - Igama elinye le-f_cmp - INKULU OKANYE IYALINGANA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ibuyisela u-1 (okanye u-C) ukuba u-A >= B okanye u-0 (okanye u-D) ukuba akunjalo. Iiparamitha C no-D azikho sinyanzelo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - Igama elinye le-f_cmp - INCINCI OKANYE IYALINGANA"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Ibuyisela u-1 (okanye u-C) ukuba u-A <= B okanye u-0 (okanye u-D) ukuba akunjalo. Iiparamitha C no-D azikho sinyanzelo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Ukongeza"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Umsebenzi weMathematika wokubuyisela isixa samanani amabini okanye nangaphezulu adityaniswayo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Ukuthabatha"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Umsebenzi weMathematika wokubuyisela umahluko wenani elithatyathwayo nelithabathayo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Uphindaphindo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Umsebenzi weMathematika wokubuyisela imveliso yomphindaphindi nenani eliphindaphindwayo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Ulwahlulo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Umsebenzi weMathematika wokubuyisela iqhezu lenani elahlulwayo nelahlulayo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "I-Modulus"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Umsebenzi weMathematika wokubuyisela intsalela yokwahlulwa kwamanani amabini apheleleyo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Ukuphakamisa amandla - Kufuneka i-PHP5.6 okanye ngaphezulu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Umsebenzi weMathematika wokubuyisela uphindaphindo oluphindaphindiweyo (okanye ukwahlula) kwesiseko ngokwesikhulisi saso."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Uphawu lwedesimali"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Uphawu lwedesimali olusetyenziselwa ukwahlula inxalenye yenani elipheleleyo kwinxalenye yeqhezu"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Isibiyeli esiNgqukuva"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "Isetyenziselwa ukugqitha kulungelelwaniso oluqhelekileyo okanye ukuphawula inqanaba lokuqala lokufakwa ngaphakathi"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Isibiyeli sesikwere"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "Isetyenziselwa ukugqitha kulungelelwaniso oluqhelekileyo okanye ukuphawula inqanaba lesibini lokufakwa ngaphakathi"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Uphawu lobhalo"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "Isetyenziselwa ukwahlula iingxoxo ezithunyelwa kumsebenzi"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Ixabiso elisezantsi ledatha elivumelekileyo ukuba liqokelelwe."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "ISILUMKISO! Lo mguquguquki unokusethwa ku-zero okanye ungabi namda"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Ixabiso eliphezulu ledatha elivumelekileyo ukuba liqokelelwe."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Iqulethe inani lemizuzwana phakathi kwamaxabiso amabini alinganisiweyo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Imisebenzi engenazipharamitha"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Imisebenzi enezipharamitha"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Ii-Aliyasi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Iioparetha"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Amanani"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Ezinye"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Izinto eziGuquguqukayo zoMbuzo weDatha"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Iziphumo zexeshana"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Okungenamda"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "Izinto zeDatha eziyi-500"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "Izinto zeDatha eziyi-1,000"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "Izinto zeDatha eziyi-2,000"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "Izinto Zomthombo Wedatha eziyi-5,000"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "Izinto zoMthombo weDatha eziyi-7,500"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "Izinto Zomthombo Wedatha eziyi-10,000"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "Izinto Zomthombo Wedatha eziyi-15,000"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "Izinto Zomthombo Wedatha eziyi-25,000"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "Umzuzu o-1"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d Imizuzu"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Igama elahlukileyo elinikwe le Templeyiti yeNgxelo."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Inkcazo"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Inkcazelo ende yale Templeyiti yeNgxelo."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Uguqulelo"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Inombolo yohlobo lale templeyiti"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Umbhali"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Umbhali wale templeyiti"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Papasha"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Ngaba le templeyiti yengxelo kufuneka ipapashwe ukuze abasebenzisi bafikelele kuyo? Ngeenjongo zokuvavanya iitempleyiti ezintsha okanye izilungiso kufuneka uyikhuphe inketho kule bhokisi."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "Itshixiwe"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Ubume obungu-\"tshixiwe\" buthintela naluphi na uhlobo lotshintsho kwitempleyiti yakho yengxelo kunye nemilinganiselo eyabelweyo kunye neenkcazo zezinto eziguquguqukayo"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Isihluzi sangaphambili esongezelelweyo"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Ngokuzikhethela: Isintaksi yokuhluza uluhlu olukhoyo lwezinto zedatha ngenkcazo yazo. Sebenzisa ii-wildcard ze-SQL ezinjengo-% kunye/okanye u-_. Akukho zi-regular Expressions!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Umendo wokuThumela ngaphandle"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Ngokuzikhethela: Indlela eya kwifolda yokugcina iimveliso ezithunyelwa ngaphandle.  Ukuba ayikho i-ReportIt izama ngokuzenzekelayo ukuyenza ngexesha lokubala kokuqala okucwangcisiweyo, kungenjalo iya kuzama ukwenza ifolda encinci entsha ngaphakathi kwefolda engundoqo yokuthumela ngaphandle isebenzisa i-id ye-itempleyiti."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "IThempleyithi yeDatha"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Igama letempleyiti yedatha exhomekeke kuyo le Templeyiti yeNgxelo."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Itempleyiti yeNgxelo"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Khetha enye yeeTempleyiti zakho zeNgxelo ukuyithumela ngaphandle kwi-XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Ngokuzikhethela] Inkcazelo"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Chaza iimpawu zethempleyiti yakho yengxelo"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Ngokuzikhethela] Umbhali"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Yongeza igama lakho okanye isiteketiso apha."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Ngokuzikhethela] Inguqulelo"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Ngokuzikhethela] Uqhakamshelwano"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Ibha (eme nkqo)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Ibha (ethe tyaba)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Umgca"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Indawo"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "Itshati yephayi ye-3D"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Isigcawu"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - I-Mode"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Ibuyisela ixabiso elivela kaninzi kwi-DS nganye"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Isibiyeli saseKhohlo (sokuvula)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Isibiyeli saseKunene (Esivalayo)"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Isibiyeli seSkwere saseKhohlo (sokuvula)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Isibiyeli seSkwere saseKunene (Esivalayo)"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Iqulethe obona buninzi be-bandwidth ukuba i-'ifspeed' iyafumaneka."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Iqulethe elona xabiso liphezulu elichaziweyo kuloo nto yomthombo wedatha phantsi kwe-\"Imithombo yeDatha\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Iqulethe inani lee-NAN ngexesha lokunika ingxelo."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Izibiyeli"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Khubaza"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Yenza isebenze"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Qhuba Ngoku"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "Thatha Ubunini"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "INQAMLILE"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "KUSILELE"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Iphumle"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "Iyasebenza"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Akukho templeyiti ifumanekayo -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "UMvulo"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "ULwesibini"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "ULwesithathu"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "ULwesine"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "ULwesihlanu"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "UMgqibelo"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "ICawe"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Useto lwangaphambili loMthombo weDatha"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "I-imeyile"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Imithombo yeDatha"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Umbhalo we-CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "I-XML ekrwada (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "Idatha ye-JSON (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "IDatha ye-YAML (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Umxholo"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Faka isihloko se-imeyile yakho.<br> Ezi ziguquguquki zilandelayo ziya kuxhaswa (ngaphandle kweempawu zocaphulo): '|title|' kunye ne-'|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Ingxelo ecwangcisiweyo - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Umzimba (uyazikhethela)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Faka umyalezo oya kuboniswa kumzimba we-imeyile yakho"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Le yingxelo ecwangcisiweyo eveliswe kwiCacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Isihlomelo"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Ukuba ufuna ukufumana i-imeyile njengesaziso sokuba ingxelo entsha iyafumaneka kuphela khetha u-'Akukho'.<br> Kungenjalo khetha ifomathi ekufuneka ingxelo iqhotyoshelwe ngayo."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "Abamkeli be-imeyile"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Abamkeli Boluhlu Lwezaziso"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Ukongeza abamkeli ngokusekelwe kuLuhlu lweZaziso olusebenzayo."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "Kwi-Idilesi(Iidilesi) ze-Imeyile"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Nceda uhlule iidilesi ezininzi ngekoma (,)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "Idilesi(Iidilesi) ze-BCC"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Ikopi efihliweyo (BCC). Nceda uhlule iidilesi ezininzi ngekoma (,)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Abamkeli abaTsha be-imeyile"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Ukongeza umamkeli omtsha faka idilesi ye-imeyile esebenzayo (iyafuneka) kunye negama (ngokuzikhethela).<br> Ukwenza useto olukhawulezayo sebenzisa uluhlu lweedilesi/amagama apho amagama/iidilesi zahlulwe ngesinye sezi zihluli zilandelayo: ';' okanye ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Isihlokwana Esikhethwayo"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Chaza isihlokwana esongezelelweyo ekufuneka siboniswe phantsi kwenkcazelo yojongano.<br> Ezi ziguquguquki zilandelayo ziya kuxhaswa (ngaphandle kweempawu zocaphulo): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Ummandla weXesha"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Khetha ummandla wexesha apho ulwazi lwakho lwamaxesha eshifti olulandelayo luya kusekelwa khona."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Izihluzi Zangaphambili Zomthombo weDatha Ezizikhethelwayo"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Isihluzi seSiza"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Sebenzisa iMithombo yeDatha ehambelanayo yesi Siza kuphela.<br>Khetha u-'Akukho' (okumiselweyo) ukuyeka ukusebenza kwesi setingi sesihluzi."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Isihluzi seItempleyiti yeSixhobo"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Sebenzisa iMithombo yeDatha yeItempleyiti yesi Sixhobo kuphela.<br>Khetha u-'Akukho' (okumiselweyo) ukuyeka ukusebenza kwesi setingi sesihluzi."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Isihluzi seGama loMthombo weDatha"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Sebenzisa iMithombo yeDatha enamagama ahambelana nesi sihluzi.<br> Sebenzisa iimpawu zokufanisa ze-SQL ezifana no-% kunye/okanye _. Akukho zi-Regular Expression!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Izinto zeDatha eziYilwe ngokuZenzekelayo"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Vula/cima ukuyilwa ngokuzenzekelayo kwazo zonke izinto zedatha ngokusekelwe kwizihluzi ezinikiweyo. Oku kuya kubizwa phambi kokwenziwa kwengxelo.  Ii-RRD ezingasasebenziyo ziya kucinywa kwaye zonke ii-RRD ezihambelana neesetingi zesihluzi ziya kongezwa."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Ixesha lokuSebenza"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "Ukususela"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Indawo yokuqala yexesha ofuna ukulihlalutya"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "Ku"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Ukuphela kwexesha lokuhlalutya."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Iintsuku zokuSebenza"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Chaza uluhlu lweentsuku apho ixesha lomsebenzi LIQALA khona!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Umzekelo: Kwitshiphu yasebusuku ukusuka ngoMvu(22:30) ukuya kuMgq(06:30) chaza uMvulo ukuya kuLwesihlanu"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Igama elinikwe le ngxelo"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Itempleyiti"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Itempleyiti ulungiselelo lwakho oluxhomekeke kuyo"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Umnikazi"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Tshintsha umnini wale ngxelo. Ngabasebenzisi abanemvume \"view\" okanye ngaphezulu kuphela abanokukhethwa."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "Ivuliwe"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Vula/cima ukunika ingxelo okucwangcisiweyo. Ixabiso lexesha elihambayo kufuneka livulwe."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Kawonke-wonke"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Ukuba ivuliwe, wonke umntu unokuyibona ingxelo yakho phantsi kwethebhu ethi 'iingxelo'"
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Vula ukuSetyenziswa kweeMvume zeGrafu"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Ukuba ivuliwe (okungagqibekanga), uluhlu lwezinto zedatha ezikhoyo luya kuhluzwa ngokuzenzekelayo ngokwemvume yegrafu yomnini: 'ngesixhobo'."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "I-imeyile eYilwe ngokuZenzekelayo"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Ukuba ivuliwe, ithebhu ethi 'I-imeyile' iya kuvulwa kwaye bonke abamkeli abachazwe phantsi kwelo candelo baya kufumana ngokuzenzekelayo i-imeyile equlethe le ngxelo icwangcisiweyo."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Ixesha lokuXela"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Ixesha elityibilikayo"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Ukuba ikhethiwe, ixesha lokunika ingxelo liya kuqwalaselwa ngokuzenzekelayo ngokunxulumene nexesha eliqala ngalo ubalo."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Izithuba zeXesha"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Ixesha ofuna ukulihlalutya ngokunxulumene nexesha eliqala ngalo ukubalwa.<br>Oku kuthetha iintsuku zekhalenda, iinyanga zekhalenda kunye neminyaka yekhalenda."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "Ukuya Kuthi ga kuMhla woBalo"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Yandisa ixesha elihambayo ukuya kuthi ga ngosuku olusebenza ngalo ubalo."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Isithuba seXesha esiMiselweyo - uMhla wokuQala (Ukusuka)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Ukuchaza umhla wokuqala sebenzisa le fomathi ilandelayo: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Isithuba seXesha esiMiselweyo - uMhla wokuPhela (Ukuya)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Ukuchaza umhla wokuphela sebenzisa le fomathi ilandelayo: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Yongeza kwiNgxelo"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Susa kwiNgxelo"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "Kopa Iisetingi kuKonke"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Yongeza"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Itshati yebha: eme nkqo"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Itshati yebha: ethe tyaba"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Itshathi yomgca"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Itshathi yendawo"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Itshati yephayi: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s Phezulu"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s Phantsi"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Nayiphi na"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Konke"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Isixa"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Umndilili"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Isihloko sengxelo"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Qala"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Isiphelo"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Ukuqhutywa kokugqibela"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Inkcazelo: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Isintaksi:      %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Iiparamitha:  %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Imizekelo:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Vula [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Vula into yoMthombo weDatha '%s' kwinkqubo yokubala."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Igama elilolunye loMthombo weDatha"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Ngokuzikhethela: Unokuchaza igama elibizwa ngalo elimele liboniswe endaweni yegama lomthombo wedatha langaphakathi '%s' kwiingxelo."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Yahlula iSihloko seQela [iyonke]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Ngokuzikhethela: Unokuchaza igama leqela elimele liboniswe njengesihloko sazo zonke izinto ezilinganiswayo ezahlukeneyo kwiingxelo."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Umnini ongaziwayo"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Ifayile inkulu kakhulu."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Ukuthunyelwa kwefayile akugqitywanga."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Akukho fayile ilayishiweyo."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Ifolda yethutyana ayikho."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "Ayiphumelelanga ukubhala ifayile kwidiski"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Ukulayishwa kwefayile kumiswe sisandiso"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Isandiso sefayile esingasebenziyo."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "Ayikwazi ukuhlalutya ifayile yetempleyiti."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Imposiso ye-checksum ngeTempleyiti %s kwifayile ye-XML"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Ingxelo eNtsha"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Akukho zitempleyiti zengxelo ezivuliweyo nezingatshixwanga zikhoyo (%s ezitshixiweyo okanye ezicinyiweyo)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Rhoxisa"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Qhubeka"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Yenza ingxelo entsha"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Khetha itempleyiti ekufuneka le ngxelo ixhomekeke kuyo."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Izihluzi zeNgxelo"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Khangela"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Iingxelo"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Hamba"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Sula"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Ixesha %s Ukususela - Ukuya"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Ishedyuli"
+
+#: reportit.php
+msgid "State"
+msgstr "Iphondo"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Ukuqalisa okulandelayo %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "Iqaliswe ekugqibeleni %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Ixesha lokuSebenza lokuGqibela"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "Akusebenzi"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Yongeza imithombo"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Hlela imithombo"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Khetha %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "Ingxelo itshixiwe"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Akukho zingxelo"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Akugunyaziswanga"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Ubumbeko lweNgxelo (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Isenzo"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Akukho bamkeli bafunyenweyo"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "IGama loMthombo weDatha"
+
+#: reportit.php
+msgid "Associated"
+msgstr "Enxulumeneyo"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Isihloko esingaPhantsi"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Ixesha leshifti (Ukusuka - Ukuya)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Iintsuku zeVeki (Ukususela - Ukuya)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "Ii-RRD"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Bonisa Konke"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Ayisekho"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "Ibandakanyiwe kwiNgxelo"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Ayibandakanywanga kwiNgxelo"
+
+#: reportit.php
+msgid "Select"
+msgstr "Khetha"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Akukho zinto zedatha zifunyenweyo"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Idilesi ye-imeyile yomamkeli (okanye uluhlu olwahlulwe ngekhoma)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[NGOKUZIKHETHELA] Igama lomamkeli (okanye uluhlu lwamagama olwahlulwe ngekoma)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Umthombo weDatha [hlela: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Isihloko esingaPhantsi (ngokuzithandela)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Khetha ummandla wexesha apho ulwazi lwakho lwexesha leshifti olulandelayo luya kusekelwa khona."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Cofa u-'Qhubeka' ukuze uqhube le Ngxelo ilandelayo:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Cofa u-'Qhubeka' ukuze uCime ezi Ngxelo zilandelayo:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Cofa u-'Qhubeka' ukuze uphindaphinde ubumbeko lweNgxelo olulandelayo.  Usenokutshintsha ifomathi yesihloko ngexesha lalo msebenzi."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "IFomathi yeSihloko:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Cofa u-'Qhubeka' ukuze uCime le Ngxelo ilandelayo:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Cofa u-'Qhubeka' ukuze uVule le Ngxelo ilandelayo:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Cofa u-'Qhubeka' ukuze uthathe uBunini bale Ngxelo ilandelayo:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "Kufuneka ukhethe ubuncinane ingxelo enye engatshixwanga, engasebenziyo."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Cofa u-'Qhubeka' ukuze ususe le Mithombo yeDatha ilandelayo kwiNgxelo."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Uluhlu lweMithombo yeDatha ekhethiweyo ngezantsi."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Umthombo weDatha: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Cofa u-'Qhubeka' ukuze uYongeze le Mithombo yeDatha ilandelayo kwiNgxelo."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Cofa u-'Qhubeka' ukuze uKopishe Iisetingi kweminye Imithombo yeDatha."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Umthombo weDatha oKhethiweyo njengeSikhokelo:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Ummandla weXesha:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Iintsuku zeVeki:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Ixesha leshifti:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "Kufuneka ukhethe ubuncinane iNgxelo enye."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - Ukujongwa kweNgxelo"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - Yenza Iingxelo"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - Lawula Iingxelo"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Hlela)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Izenzo"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Izinto zeDatha"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Iitempleyiti zeNgxelo"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Ngenisa"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Ubalo lweNgxelo"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Iingxelo zikawonke-wonke"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Bonisa iNgxelo"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Thumela ngaphandle Ingxelo"
+
+#: setup.php
+msgid "Normal User"
+msgstr "UMsebenzisi oQhelekileyo"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Ulawulo Jikelele"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Ulawulo lweSixokelelwano"
+
+#: setup.php
+msgid "Management"
+msgstr "Ulawulo"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "Iingxelo ze-ReportIt"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Iitempleyiti"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Akukho nto yoMthombo weDatha ikhethiweyo"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Izinto zomthombo wedatha ezingakhethwanga zisasetyenziswa"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "Ayikwazi ukuvula le templeyiti ngaphandle kwezilinganiselo ezichaziweyo"
+
+#: setup.php
+msgid "global"
+msgstr "jikelele"
+
+#: setup.php
+msgid "local"
+msgstr "ekuhlaleni"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Umsebenzisi ongaPhambili (Umnini weNgxelo)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Umsebenzisi oPhambili (uMlawuli weeNgxelo)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Elona Xesha liPhezulu lokuSebenza (ngemizuzwana)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Ngokuzikhethela: Eyona nkqubo ende yexesha lokubala okukodwa."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Ubuninzi boTshintsho lweNani leeRekhodi"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Ngokuzikhethela (Ukuvelisa Ngokuzenzekelayo Uluhlu lwe-RRD): Musa ukutshintsha Uluhlu lwe-RRD lwayo nayiphi na iNgxelo ukuba uTshintsho lweNani leeRekhodi lukhulu kuneli Nani Oku kwenzelwa ukuthintela utshintsho olungafunekiyo noluyingozi kuLuhlu lwe-RRD"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Imimandla yeXesha"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Vula/Cima ukusetyenziswa kweengingqi zexesha kuqwalaselo lweZinto zeDatha kunye nokubalwa kwengxelo.  Kwimeko yokuqala ixesha leseva kufuneka lisetelwe kwi-GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Bonisa uMmandla weXesha leNdawo"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Vula/Cima ukubonisa ummandla wexesha weseva kwizihloko eziphambili."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "Vumela ukuCwangciswa ngabaQhubi"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Vula/Cima amandla oMsebenzisi oLawulayo okuCwangcisa Iingxelo.  Xa Icinyiwe, ngabaLawuli kuphela abanokutshintsha ucwangciso."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "Iisimaphambili ze-SI"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Vula/Cima ukusetyenziswa kweziqalo ze-SI ezichanekileyo zeemaltipuli zokaninzi phantsi kwemiqathango ye-<a href='http://www.ieee.org'>IEEE 1541</a> kunye ne-<a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Ukuthumela I-imeyile ngokuZenzekelayo"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Ukuba ivuliwe, iingxelo ezicwangcisiweyo zinokuthunyelwa nge-imeyile ngokuzenzekelayo kuluhlu lwabamkeli.<br> Eli phawu lifuna inguqulelo eqwalaselweyo ye-'Settings Plugin'."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Isihluzi seMboniselo yeNgxelo eYahlukileyo"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Vula/cima ukusetyenziswa kwesihluzi ngasinye ngokwengxelo."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Imiqolo ngePhepha ngalinye"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Inani lemiqolo eza kuboniswa kwiphepha elinye."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Iisetingi zokuThumela Ngaphandle iNgxelo"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "Umahluli weKholamu ye-CSV"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Umahluli wekholamu oza kusetyenziswa ekuthumeleni ngaphandle i-CSV."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "Umahluli weDesimali ye-CSV"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Uphawu olubonisa isiphelo senxalenye yenani elipheleleyo kunye nokuqala kwenxalenye yeqhezu."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Iisetingi eziQhelekileyo zeNgxelo"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Itempleyiti eNtsha yeNgxelo"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Akukho Zitempleyiti zeDatha zisetyenziswayo."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Yenza iTempleyiti yeNgxelo entsha"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Khetha Itempleyiti yeDatha le Templeyiti yeNgxelo ekufuneka ixhomekeke kuyo. Iitempleyiti zeDatha ezingasetyenziswayo zifihliwe."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Ngenisa Itempleyiti yeNgxelo"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Khetha ifayile ye-XML equlethe Itempleyiti yakho yeNgxelo."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Ngenisa Iitempleyiti zeNgxelo"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Iyahambelana"
+
+#: templates.php
+msgid "Summary"
+msgstr "Isishwankathelo"
+
+#: templates.php
+msgid "No"
+msgstr "Hayi"
+
+#: templates.php
+msgid "Yes"
+msgstr "Ewe"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Akukho zitempleyiti zihambelanayo zifunyenweyo"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Ngenisa"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Igama lale Templeyiti yeNgxelo."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Isazisi sangaphakathi sale Templeyiti yeNgxelo."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Umbhali wale Templeyiti yeNgxelo."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Uguqulelo lwale Itempleyiti yeNgxelo."
+
+#: templates.php
+msgid "Published"
+msgstr "Ipapashiwe"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Inani lilonke leengxelo ezisebenzisa le templeyiti yengxelo."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Akukho mithombo yedatha ihambelanayo"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Itempleyiti yedatha ayifumaneki"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Yongeza izinto ezilinganiswayo"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Hlela izinto ezilinganiswayo"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Yongeza iziguquguquki"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Hlela izinto eziguquguqukayo"
+
+#: templates.php
+msgid "No templates"
+msgstr "Akukho zitempleyiti"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Elona xabiso liphezulu kufuneka libe likhulu kunelona lisezantsi."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Ixabiso elingagqibekanga lingaphandle koluhlu lwamaxabiso."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Isifinyezo esiphindaphindiweyo"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Iziphumo zexeshana zisetyenziswa zezinye izinto ezilinganiswayo."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Itempleyiti [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Itempleyiti [entsha]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Cofa u-'Qhubeka' ukuze uCime ezi Itempleyiti zeNgxelo zilandelayo"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "ISILUMKISO: Yonke iNgxelo ekwezi Itempleyiti iya kucinywa nayo!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Itempleyiti: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Ingxelo: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Ingxelo: <i>Akukho nto</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Cofa u-'Qhubeka' ukuze uphindaphinde ezi itempleyiti zengxelo zilandelayo. Unokukhetha ukutshintsha isihloko sazo ezo ziphindaphindiweyo."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Uluhlu lweetempleyiti zengxelo ezikhethiweyo:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Isihloko:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Cofa u-'Qhubeka' ukuze uthumele ngaphandle ezi Itempleyiti zeNgxelo zilandelayo"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "Kufuneka ukhethe ubuncinane iTempleyiti yeNgxelo enye."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Cima iiTempleyiti zeNgxelo"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Phinda-phinda Iitempleyiti zeNgxelo"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Thumela ngaphandle Iitempleyiti zeNgxelo"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Cofa u-'Qhubeka ukuze uCime iziguquguquki ezilandelayo."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Uluhlu lwezinto eziguquguqukayo ezikhethiweyo:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Isiguquguquki: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Kukho isiguquguquki esinye okanye ngaphezulu ezisetyenziswayo."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "Kufuneka ukhethe ubuncinane isiguquguquki esinye."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Cima iziGuquguquki zeTempleyiti"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Cofa u-'Qhubeka' ukuze uCime ezi Metrikhi zilandelayo.  Qaphela: Ukuba akukho zimbi iiMetrikhi eziseleyo emva kwale nkqubo, iTempleyiti yeNgxelo iya kutshixwa ngokuzenzekelayo."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Uluhlu lwezinto ezilinganiswayo ezikhethiweyo:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Imetrikhi: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "Kufuneka ukhethe ubuncinane into elinganiswayo enye."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Cima iiMetriki zeTempleyiti"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Iziguquguquki [ Itempleyiti: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Akukho Ziguquguquki Zifunyenweyo"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Ulungiselelo lweSiguquguquki [ hlela: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Ulungiselelo lweSiguquguquki [entsha]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Igama langaphakathi"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Isazisi esisodwa esiya kuyilwa yi-ReportIt ngokwayo. Sebenzisa le ID kwinkcazo yeefomyula zakho zokubala ukufaka elo xabiso umsebenzisi wengxelo alichaze ngokwakhe kuyo."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Igama elinjengelithi \"Umda\" umzekelo elimele lisetyenziswe njengesihloko kuqwalaselo lwengxelo."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Nika igama lale variable"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Inkcazelo echaza intsingiselo yolu phawu oluguquguqukayo."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Nika inkcazelo enentsingiselo"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Elona Xabiso liPhezulu"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Ichaza umda ophezulu wesi siguquguquki."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Ixabiso eliNcinci"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Ichaza umda ongezantsi wesi siguquguquki."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Ixabiso elingagqibekanga"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Iseta ixabiso elisisekelo."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Uhlobo"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Indlela umnini wengxelo ekufuneka ayisebenzise ukuchaza esi siguquki."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Ichaza umgama phakathi kwamaxabiso amabini ukuba kukhethwe indlela ye-\"DropDown\". Nceda uqinisekise ukuba eli xabiso alimiselwanga phantsi kakhulu, kuba lichaza ngokungathanga ngqo inani leenketho eliya kuba nalo ibhokisi yokwehla. Umzekelo ezi parameter zilandelayo: MAX:100, MIN:0, STEP:0.01 ziya kubangela ibhokisi yokukhetha eneenketho ezingama-10.001. Oku kunokubangela iingxaki ezinkulu zokusebenza ngenxa yomthwalo ophezulu we-CPU kwicala lomxhasi. Zama ukuligcina lingaphantsi kwe-1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Uqwalaselo lweMetrikhi [ hlela: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Uqwalaselo lweMetrikhi [entsha]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Ingcaciso enikwe lo mlinganiselo. Oku kuya kuboniswa njengesalathisi kwiifayile ezithunyelwa ngaphandle kunye nencazelo evelayo kwinkcazo yengxelo ngokwayo."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Chaza isishunqulelo esisodwa salo mlinganiswa esinobuninzi boonobumba/amanani ayi-8."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Iyunithi enikwe lo mlinganiselo. umz. 'Bits/s'"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Umsebenzi wokudibanisa"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Igama lomsebenzi wokudibanisa ukuchaza ukuba zeziphi ii-CDPs ezifanele ukufundwa."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Khetha u-'enable' ukuba lo mlinganiswa ufanele ube yinxalenye yesiphumo sengxelo yokugqibela. Yishiye ingaphawulwanga ukuba lo mlinganiswa uya kusetyenziswa kuphela njengobalo olincedisayo."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Khetha u-'enable' ukuba lo mlinganiswa uya kuba nesiphumo esinye kuphela xa uwonke endaweni yesinye kwiNto yoMthombo weDatha nganye. Isiphumo sawo<br>siya kuboniswa ngokwahlukileyo. Sebenzisa le ndlela kunye no-\"Visible\" = \"off\" ukuba ukhangela umlinganiswa ogcina isiphumo sethutyana kuphela esifanele siphinde sisetyenziswe kubalo lweminye imilinganiswa ngaphandle kokubonakala kubasebenzisi bokugqibela."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Ukufomatha"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Ichaza ukuba idatha kufuneka iphathwe njengoluphi uhlobo."
+
+#: templates.php
+msgid "Precision"
+msgstr "Ukuchaneka"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Ichaza ukuba mangaphi amanani edesimali ekufuneka aboniswe kumanani e-floating-point."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Izimaphambili"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Khetha uhlobo lwesimaphambili esisetyenziswayo ukufomatha isiphumo. Ngokusetyenziswa kwezimaphambili zedesimali '1024' iya kufomathwa ibe ngu-'1.024k' ngelixa ukhetho lwezimaphambili zebhayinari lubuyisela u-'1ki'. Khetha u-'off' ukubonisa idatha ekrwada, apha ngu-'1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Ifomyula"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Inkcazo yemathematika yalo mlinganiselo. Zivumelekile zonke iindibaniselwano zabaqhubi kunye namanani asetyenziswayo adweliswe ngezantsi ngokulandela imithetho yemathematika. Sebenzisa izibiyeli ezirawundi nezisikwere ukubonisa amabinzana antsonkothileyo kunye nolandelelwano lwemisebenzi."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Iioparetha kunye nee-Operandi"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Cofa komnye wabaqhubi okanye ii-operand ezidwelisiweyo ukuze uzifake kwifomula yakho yokubala. Incam yesixhobo iya kukubonisa ulwazi olongezelelweyo olufana nenkcazelo, ixabiso elibuyisiweyo, ii-argument kunye nosetyenziso."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Iimetrikhi [ Itempleyiti: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Akukho Milinganiselo Ifunyenweyo"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Isihluzi seeNgxelo"
+
+#: view.php
+msgid "My Reports"
+msgstr "Iingxelo zam"
+
+#: view.php
+msgid "Go"
+msgstr "Hamba"
+
+#: view.php
+msgid "Clear"
+msgstr "Sula"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Ixesha (Ukususela - Ukuya)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Ixesha lokusebenza lokugqibela [s]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "Akukho Zingxelo Zifunyenweyo"
+
+#: view.php
+msgid "Metric"
+msgstr "Imetrikhi"
+
+#: view.php
+msgid "Data Source"
+msgstr "Umthombo weDatha"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Bonisa iigrafu ezi-10 eziphambili"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Bonisa iiNtlokwana"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Bonisa iSishwankathelo"
+
+#: view.php
+msgid "Additional"
+msgstr "Okongezelelweyo"
+
+#: view.php
+msgid "Items"
+msgstr "Izinto"
+
+#: view.php
+msgid "Archive"
+msgstr "Uvimba"
+
+#: view.php
+msgid "Current"
+msgstr "Eyangoku"
+
+#: view.php
+msgid "Title"
+msgstr "Isihloko"
+
+#: view.php
+msgid "Runtime"
+msgstr "Ixesha lokuqhuba"
+
+#: view.php
+msgid "Period"
+msgstr "Ixesha"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Uluhlu lwe-RRD oluYilwe ngokuZenzekelayo"
+
+#: view.php
+msgid "Data Description"
+msgstr "Inkcazelo yeDatha"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- AKUKHO SIHLOKWANA --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Akukho Zinto zeDatha"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Imetrikhi: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Ind."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Iziphumo [%s]"
+

@@ -1,0 +1,2408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Somali\n"
+"Language: so-SO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Tirtir"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Nuqul labaad"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Quful"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Fur"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Dhoofi"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Magac"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Magaca Gudaha"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Ugu Badnaan"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Ugu yar"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "Asal ah"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Tallaabo-qaadista"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Nooca Gelinta"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Ikhtiyaarro"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "Aqoonsiga"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Soo gaabin"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Koox"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Halbeeg"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Shaqada Isku-darka"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "Muuqda"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Kala saar"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "Qaacidada Xisaabinta"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "Aqoonsi Guud"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Curiyeyaasha"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Halbeegyada"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Qaababka Xogta ee La Xiriira"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Guud"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Qaababka Xogta"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Kooxaha"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Doorsoomayaasha"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Maanta"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "1-dii Maalin ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "2-dii Maalmood ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "3-dii Maalmood ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "4-tii Maalmood ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "5-tii Maalmood ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "6-dii Maalmood ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "7-dii Maalmood ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Toddobaadkii Hore (Axad - Sabti)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Toddobaadkii Hore (Isn - Axa)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "14-kii Maalmood ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "21-kii Maalmood ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "28-kii Maalmood ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Bisha Hadda"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Bishii Ugu Dambeysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "2-dii Bilood ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "3-dii Bilood ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "4-tii Bilood ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "5-tii Bilood ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "6-dii Bilood ee Ugu Dambaysay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Sannadka Hadda"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "Sannadkii Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "2-dii Sano ee Ugu Dambeeyay"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Maalinle"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Toddobaadle"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Bille"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Rubuc-sannadle"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Sannadle"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Liis hoos u dhaca"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Goobta gelinta"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Midna"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Laba-tirsi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "Tiro dhibic sabbeysa ah"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Tiro dhan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Tiro dhan (aan calaamad lahayn)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Lix-iyo-tobanle (xarfaha yaryar)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Lix-iyo-tobanle (xarfaha waaweyn)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Siddeedle"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Qoraalka Sayniska"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Aan isbeddelin"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "damsan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Horgalayaasha SI ee Laba-tirsiga (Saldhigga 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Horgalayaasha SI ee Tobanlaha (Saldhigga 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Celceliska Xisaabta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Waxay soo celisaa celceliska qiimaha dhammaan qiimayaasha la cabbiray DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "waxba"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Qiimaha Ugu Badan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Waxay soo celisaa qiimaha ugu sarreeya ee la cabbiray DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Qiimaha Ugu Yar"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Waxay soo celisaa qiimaha ugu hooseeya ee la cabbiray DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Wadarta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Waxay soo celisaa wadarta dhammaan qiimayaasha la cabbiray DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Tirada Qiimayaasha (Aan NaN Ahayn)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Waxay soo celisaa tirada qiimayaasha saxda ah ee la cabbiray DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Janjeerka"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Waxay soo celisaa jiirada xariiq toosan iyadoo la adeegsanayo dib-u-celinta toosan DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Qiimaha Ugu Dambeeya"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Waxay soo celisaa qiimaha ugu dambeeya ee saxda ah ee la cabbiray DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Qiimaha Koowaad"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Waxay soo celisaa qiimaha koowaad ee saxda ah ee la cabbiray DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - Tirada NaN-yada"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Waxay soo celisaa tirada NaN-yada ku kaydsan DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - Dhexdhexaadka"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Waxay soo celisaa qiimaha kala sooca qaybta sare iyo qaybta hoose DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Baaxadda"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Waxay soo celisaa farqiga u dhexeeya qiimaha ugu weyn iyo kan ugu yar DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Kala Duwanaanshaha Afarmeedyada Dhexe"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Waxay soo celisaa fogaanta 50&#037; ee dhexe ee ku wareegsan qiimaha dhexe DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - Weecitaanka Caadiga ah"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Waxay soo celisaa xididka labajibbaaran ee kala duwanaanshaha isha xogta kasta"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - Kala Duwanaanshaha"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Waxay soo celisaa kala duwanaanshaha DS kasta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - Boqolleyda X-aad"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Waxay soo celisaa boqolleyga x-aad."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: xadka boqolkiiba. Kala duwanaanshaha: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Muddada Xadka Dhaaftay"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Waxay soo celisaa muddada ka sarraysa xadka la cayimay iyadoo boqolkiiba ah."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: xadka (buuxa)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Wadarta Xadka Dhaaftay"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Waxay soo celisaa wadarta qiimayaasha ka sarreeya xadka la cayimay."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Jajabyada Hoos U Wareeji"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Waxay soo celisaa tirada buuxda ee xigta ee ugu hoosaysa iyadoo hoos loo wareejinayo qiimaha haddii loo baahdo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: tiro jajab ah"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Jajabyada Kor U Wareeji"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Waxay soo celisaa tirada buuxda ee xigta ee ugu sarraysa iyadoo kor loo wareejinayo qiimaha haddii loo baahdo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Wareeji Tiro Jajab Leh"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Waxay soo celisaa tirada buuxda ee la wareejiyay ee tiro kasta oo jajab tobanle ah."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: tiro jajab ah ama qiime xarfo ah"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Hel Qiimaha Ugu Sarreeya"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Waxay soo celisaa qiimaha ugu sarreeya ee liiska halbeegyada la bixiyay"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: qiimayaasha la isbarbardhigayo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Hel Qiimaha Ugu Hooseeya"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Waxay soo celisaa qiimaha ugu hooseeya ee liiska halbeegyada la bixiyay"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Hawlgal Shuruudaysan - Caqliga HADDII-MARKAA-HADDII KALE"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Waxay soo celisaa B haddii A run yahay, ama C haddii A been yahay"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Hubi haddii qiime uusan ahayn tiro"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Waxay soo celisaa 1 (ama B) haddii A === NaN, ama 0 (ama C) haddii kale. Halbeegyada B iyo C waa ikhtiyaari."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Isbarbardhigga Adag"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - Magac kale oo f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - Magac kale oo f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - Magac kale oo f_cmp - WAA LA MID"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Waxay soo celisaa 1 (ama C) haddii A == B, ama 0 (ama D) haddii kale. Halbeegyada C iyo D waa ikhtiyaari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - Magac kale oo f_cmp - AAN LA MID AHAYN"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Waxay soo celisaa 1 (ama C) haddii A != B, ama 0 (ama D) haddii kale. Halbeegyada C iyo D waa ikhtiyaari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - Magac kale oo f_cmp - KA WEYN"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Waxay soo celisaa 1 (ama C) haddii A > B, ama 0 (ama D) haddii kale. Halbeegyada C iyo D waa ikhtiyaari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - Magac kale oo f_cmp - KA YAR"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Waxay soo celisaa 1 (ama C) haddii A < B, ama 0 (ama D) haddii kale. Halbeegyada C iyo D waa ikhtiyaari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - Magac kale oo f_cmp - KA WEYN AMA LA MID"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Waxay soo celisaa 1 (ama C) haddii A >= B, ama 0 (ama D) haddii kale. Halbeegyada C iyo D waa ikhtiyaari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - Magac kale oo f_cmp - KA YAR AMA LA MID"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Waxay soo celisaa 1 (ama C) haddii A <= B, ama 0 (ama D) haddii kale. Halbeegyada C iyo D waa ikhtiyaari."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Kordhin"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Hawlgal Xisaabeed oo soo celiya wadarta laba ama in ka badan oo la isku daro"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Ka-jaris"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Hawlgal Xisaabeed oo soo celiya farqiga u dhexeeya tirada laga jaro iyo tirada la jaro"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Isku-dhufasho"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Hawlgal Xisaabeed oo soo celiya taranka isku-dhuftaha iyo kan lagu dhufto"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Qaybta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Hawlgal Xisaabeed oo soo celiya qaybta tirada la qaybiyo iyo qaybiyaha"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "Hadhaaga qaybinta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Hawlgal Xisaabeed oo soo celiya hadhaaga qaybinta laba tiro oo dhan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Jibbaaris - Waxaa loo baahan yahay PHP5.6 ama ka sarreeya"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Hawlgal Xisaabeed oo soo celiya isku-dhufashada (ama qaybinta) soo noqnoqota ee saldhigga iyo jibbaarkiisa."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Calaamadda Tobanlaha"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Calaamadda Tobanlaha ee loo adeegsado in lagu kala saaro qaybta tirada buuxda iyo qaybta jajabka"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Qaanso Wareegsan"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "Waxaa loo isticmaalaa in lagu dhaafo mudnaanta caadiga ah ama lagu calaamadeeyo heerka koowaad ee is-dul-saarka"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Qaanso Afargees ah"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "Waxaa loo isticmaalaa in lagu dhaafo mudnaanta caadiga ah ama lagu calaamadeeyo heerka labaad ee is-dul-saarka"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Calaamadda qoraalka"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "Waxaa loo isticmaalaa in lagu kala saaro doodaha loo gudbiyo hawl-qabadka"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Qiimaha ugu yar ee xogta ee la oggol yahay in la ururiyo."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "DIGNIIN! Doorsoomahan waxaa loo dejin karaa eber ama aan xad lahayn"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Qiimaha ugu badan ee xogta ee la oggol yahay in la ururiyo."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Waxaa ku jira tirada ilbiriqsiyada u dhexeeya laba qiime oo la cabbiray."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Hawlaha aan lahayn halbeegyo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Hawlaha leh halbeegyo"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Magacyo kale"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Hawlgaliyayaasha"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Tirooyinka"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Kuwa kale"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Doorsomayaasha Weydiinta Xogta"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Natiijooyinka Kumeelgaarka ah"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Aan Xad Lahayn"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "500 Qodob oo Xog ah"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "1,000 Qodob oo Xog ah"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "2,000 Qodob oo Xog ah"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "5,000 Shay oo Ilaha Xogta ah"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "7,500 Qodob oo Isha Xogta ah"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "10,000 Shay oo Ilaha Xogta ah"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "15,000 Shay oo Ilaha Xogta ah"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "25,000 Shay oo Ilaha Xogta ah"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "1 Daqiiqo"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d Daqiiqo"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Magaca gaarka ah ee la siiyay Qaab-dhismeedkan Warbixinta."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Sharaxaadda"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Sharaxaad dheer oo ku saabsan Qaab-dhismeedkan Warbixinta."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Nooca"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Lambarka nooca ee qaab-dhismeedkan"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Qoraaga"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Qoraaga qaab-dhismeedkan"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Daabac"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Ma in qaab-dhismeedkan warbixinta la daabaco si isticmaalayaashu u galaan? Ujeeddooyinka tijaabinta qaab-dhismeedyada cusub ama wax-ka-beddelka waa inaad ka saartaa calaamadda sanduuqan."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "Xiran"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Xaaladda \"qufulan\" waxay ka hortagtaa nooc kasta oo wax ka beddel ah oo lagu sameeyo qaab-dhismeedka warbixintaada iyo sidoo kale cabbirrada la qoondeeyay iyo qeexitaannada doorsoomaha"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Shaandheeyaha Hore ee Dheeraadka ah"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Ikhtiyaari: Qaab-dhismeedka naxwaha lagu shaandheeyo liiska diyaarka ah ee shayada xogta iyadoo loo eegayo sharraxaaddooda. Isticmaal calaamadaha SQL sida % iyo/ama _. Ma jiraan Weedho Joogto ah (Regular Expressions)!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Jidka Dhoofinta"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Ikhtiyaari: Dariiqa galka lagu keydinayo dhoofinta. Haddii uusan jirin ReportIt wuxuu si toos ah isugu dayaa inuu abuuro inta lagu jiro xisaabinta ugu horreysa ee loo qorsheeyay, haddii kale wuxuu isku dayi doonaa inuu abuuro gal-hoosaad cusub gudaha galka dhoofinta ee weyn isagoo adeegsanaya aqoonsiga qaab-dhismeedka."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "Qaabka Xogta"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Magaca qaab-dhismeedka xogta ee Qaab-dhismeedkan Warbixintu ku tiirsan yahay."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Qaab-dhismeedka Warbixinta"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Dooro mid ka mid ah Qaab-dhismeedyadaada Warbixinta si loogu dhoofiyo XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Ikhtiyaari] Sharaxaad"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Sharax sifooyinka qaab-dhismeedka warbixintaada"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Ikhtiyaari] Qoraaga"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Halkan ku dar magacaaga ama naanaystaada."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Ikhtiyaari] Nooca"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Ikhtiyaari] Xiriirka"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Tiir (taagan)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Tiir (jiif ah)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Xariiq"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Aag"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "Jaantuska goobada 3D"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Caaro"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - Qiimaha Ugu Soo Noqnoqoshada Badan"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Waxay soo celisaa qiimaha ugu badan ee soo noqnoqda DS kasta"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Qaanso Bidix (Furid)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Qaanso Midig (Xiritaan)"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Qaanso Labajibbaaran oo Bidix (Furid)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Qaanso Labajibbaaran oo Midig (Xiritaan)"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Waxaa ku jira bandwidth-ka ugu badan haddii 'ifspeed' la heli karo."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Waxaa ku jira qiimaha ugu sarreeya ee loo qeexay shayga isha xogta gaarka ah hoosta \\\"Ilaha Xogta\\\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Waxaa ku jira tirada NAN-yada inta lagu jiro muddada warbixinta."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Qawsyada"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Hawl-jooji"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Hawl-geli"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Hadda Socodsii"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "La Wareeg Lahaanshaha"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "BURBURAY"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "FASHILMAY"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Heegan"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "Socda"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Qaab-dhismeed lama heli karo -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "Isniin"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "Talaado"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "Arbaco"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "Khamiis"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "Jimco"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "Sabti"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "Axad"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Dejinta Hore ee Isha Xogta"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "Iimayl"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Ilaha Xogta"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Qoraal CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "XML Cayriin (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "Xogta JSON (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "Xogta YAML (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Mawduuc"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Geli mawduuca iimaylkaaga.<br> Doorsoomayaasha soo socda ayaa la taageeri doonaa (iyada oo aan lahayn calaamadaha xigashada): '|title|' iyo '|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Warbixin la jadwaleeyay - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Nuxurka (ikhtiyaari)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Geli fariin lagu soo bandhigi doono gudaha jirka iimaylkaaga"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Kani waa warbixin jadwalsan oo laga soo saaray Cacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Lifaaq"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Haddii aad rabto kaliya inaad hesho iimayl ogeysiis ah oo sheegaya in warbixin cusub diyaar tahay dooro 'Midna'.<br> Haddii kale dooro qaabka warbixinta lagu lifaaqi doono."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "Qaateyaasha Iimaylka"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Qaataayaasha Liiska Ogeysiiska"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Si loogu daro Qaabilayaal ku salaysan Liis Ogeysiis oo sax ah."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "Cinwaan(ada) Iimaylka Loo Dirayo"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Fadlan cinwaannada badan ku kala saar hakad (,)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "Cinwaan(ada) BCC"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Koobi kaarboon qarsoon. Fadlan cinwaannada badan ku kala saar hakad (,)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Qaatayaasha Iimaylka Cusub"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Si aad ugu darto qaabile cusub geli cinwaan iimayl oo sax ah (waa lagama maarmaan) iyo magac (ikhtiyaari ah).<br> Si aad si dhakhso ah ugu dejiso isticmaal liis cinwaanno/magacyo ah halkaas oo magacyada/cinwaannada lagu kala soocay mid ka mid ah calaamadahan soo socda: ';' ama ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Cinwaan-hoosaad Ikhtiyaari ah"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Qeex cinwaan-hoosaad dheeraad ah oo ka hoos muuqan doona sharraxaadda isku-xirka.<br> Doorsoomayaasha soo socda waa la taageerayaa (xigasho la'aan): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Aagga Waqtiga"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Dooro aagga saacadda ee macluumaadkaaga waqtiga shaqada (shifttime) ee soo socda ay ku salaysnaan doonaan."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Shaandheeyayaasha Hore ee Ikhtiyaariga ah ee Isha Xogta"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Shaandheeyaha Goobta"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Isticmaal Ilaha Xogta ee u dhigma Goobtan oo keliya.<br>Dooro 'None' (caadi ah) si aad u joojiso dejintan shaandheeyaha."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Shaandheeyaha Qaab-dhismeedka Qalabka"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Isticmaal Ilaha Xogta ee Qaab-dhismeedyada Qalabkan oo keliya.<br>Dooro 'None' (caadi ah) si aad u joojiso dejintan shaandheeyaha."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Shaandheeyaha Magaca Isha Xogta"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Isticmaal Ilaha Xogta ee magacyadoodu u dhigmaan shaandheeyahan.<br> Isticmaal calaamadaha gaarka ah ee SQL sida % iyo/ama _. Lama oggola Regular Expressions!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Walxaha Xogta ee Si Toos ah loo Abuuray"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Hawlgeli/jooji abuurista otomaatigga ah ee dhammaan walxaha xogta iyadoo lagu saleynayo shaandheeyayaasha la bixiyay. Tan waxaa la wacayaa ka hor fulinta warbixinta. RRD-yada duugoobay waa la tirtiri doonaa dhammaan RRD-yada u dhigma dejinta shaandheeyaha waa lagu dari doonaa."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Waqtiga Shaqada"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "Laga bilaabo"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Barta bilowga ee muddada aad rabto inaad falanqeyso"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "Ilaa"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Dhammaadka wakhtiga falanqaynta."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Maalmaha Shaqada"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Qeex kooxda maalmaha uu wareeggu BILAABMO!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Tusaale: Shaqada habeenkii ee ka bilaabata Isn(22:30) ilaa Sab(06:30) ku qeex Isniin ilaa Jimce"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Magaca la siiyay warbixintan"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Qaab-dhismeed"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Qaab-dhismeedka ay ku xiran tahay qaabayntaadu"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Milkiilaha"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Beddel milkiilaha warbixintan. Kaliya isticmaalayaasha leh ogolaanshaha \"view\" ama ka sareeya ayaa la dooran karaa."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "La hawlgeliyay"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Hawlgeli/jooji warbixinta jadwalsan. Qaabka waqtiga isbeddelaya waa inuu ahaadaa mid la hawlgeliyay."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Guud"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Haddii la hawlgeliyo, qof kastaa wuxuu ka arki karaa warbixintaada qaybta 'warbixinnada'."
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Hawlgeli Isticmaalka Ogolaanshaha Garaafka"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Haddii la hawlgeliyo (caadiga ah) liiska walxaha xogta ee la heli karo waxaa si toos ah u shaandhayn doona rukhsadda Garaafka ee mulkiilaha: 'Qalab ahaan'."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "Iimayl Si Toos ah loo Abuuray"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Haddii la hawlgeliyo, qaybta 'Iimayl' waa la hawlgelin doonaa dhammaan qaatayaasha lagu qeexay qaybtaasna waxay si toos ah u heli doonaan Iimayl ay ku jirto warbixintan qorshaysan."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Muddada Warbixinta"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Muddada Waqtiga ee Guurguurta"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Haddii la calaamadeeyo muddada warbixinta si toos ah ayaa loo habeyn doonaa iyadoo la eegayo waqtiga xisaabintu bilaabmayso."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Xilliyada Waqtiga"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Mudada waqtiga aad rabto inaad falanqeyso marka loo eego barta waqtiga uu xisaabintu bilaabmayo.<br>Tani waxay ka dhigan tahay maalmaha kalandarka, bilaha kalandarka iyo sannadaha kalandarka."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "Ilaa Maalinta Xisaabinta"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Kordhi muddada waqtiga ee siibata ilaa maalinta xisaabintu socoto."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Muddada Waqtiga Go'an - Taariikhda Bilowga (Laga Bilaabo)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Si aad u qeexdo taariikhda bilowga isticmaal qaabkan soo socda: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Muddada Waqtiga Go'an - Taariikhda Dhammaadka (Ilaa)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Si aad u qeexdo taariikhda dhammaadka isticmaal qaabkan soo socda: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Ku Dar Warbixinta"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Ka saar Warbixinta"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "U koobiyeey Dejinta Dhammaan"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Ku dar"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Jaantuska tiirarka: taagan"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Jaantuska tiirarka: jiif ah"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Shaxda xariiqda"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Shaxda aagga"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Jaantuska goobada: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s Sare"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s Hoose"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Mid kasta"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Dhammaan"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Wadarta"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Celcelis"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Cinwaanka warbixinta"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Bilow"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Dhammaad"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Fulintii Ugu Dambeysay"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Sharaxaad: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Qaab-qoraalka:      %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Halbeegyada:  %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Tusaalooyin:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Hawlgeli [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Hawl-geli shayga isha xogta '%s' habka xisaabinta."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Magaca kale ee Isha Xogta"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Ikhtiyaari: Waxaad qeexi kartaa magac kale oo lagu soo bandhigayo halkii laga isticmaali lahaa magaca gudaha ee isha xogta '%s' ee ku jira warbixinnada."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Kala saar Cinwaanka Kooxda [guud ahaan]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Ikhtiyaari: Waxaad qeexi kartaa magac kooxeed oo loo soo bandhigayo cinwaan ahaan dhammaan cabbirrada kala duwan ee ku jira warbixinnada."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Milkiile Aan La Aqoon"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Faylku aad buu u weyn yahay."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Wareejinta faylku ma dhammaystirna."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Wax fayl ah lama soo gelin."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Galka ku meel gaarka ah waa maqan yahay."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "Ku qorista faylka saxanka way fashilantay"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Soo gelinta faylka waxaa joojiyay kordhinta faylka"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Kordhinta faylku ma saxna."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "Suurtogal ma aha in la fasilo faylka qaab-dhismeedka."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Khalad checksum ah oo ku jira Qaab-dhismeedka %s ee faylka XML"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Warbixin Cusub"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Ma jiraan qaab-dhismeedyada warbixinta oo furan oo La hawlgeliyay oo la heli karo (%s waa xiran yihiin ama waa La joojiyay)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Jooji"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Sii wad"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Abuur warbixin cusub"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Dooro qaab-dhismeed warbixintani ay ku tiirsanaato."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Shaandheeyayaasha Warbixinta"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Raadi"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Warbixinnada"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Soco"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Nadiifi"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Muddada %s Laga bilaabo - Ilaa"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Jadwalka"
+
+#: reportit.php
+msgid "State"
+msgstr "Gobolka"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Bilowga Xiga %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "Markii Ugu Dambaysay ee La Bilaabay %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Muddadii Shaqeynta Ugu Dambeysay"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "Ma khuseyso"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Ku dar ilaha"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Wax ka beddel ilaha"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Dooro %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "Warbixinta waa la xiray"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Wax warbixinno ah ma jiraan"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Looma Ogola"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Habaynta Warbixinta (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Ficil"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Wax qaateyaal ah lama helin"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "Magaca Isha Xogta"
+
+#: reportit.php
+msgid "Associated"
+msgstr "La xiriira"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Cinwaan-hoosaad"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Waqtiga Shaqada (Laga bilaabo - Ilaa)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Maalmaha Shaqada (Laga bilaabo - Ilaa)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "RRDs"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Muuji Dhammaan"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Hadda ma jiro"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "Waxaa lagu daray Warbixinta"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Kuma Jiro Warbixinta"
+
+#: reportit.php
+msgid "Select"
+msgstr "Dooro"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Wax shay xog ah lama helin"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Ciwaanka iimaylka ee qaate (ama liis kooma lagu kala soocay)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[IKHTIYAARI] Magaca qaataha (ama liiska magacyada oo kooma ku kala saaran)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Isha Xogta [wax ka beddel: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Cinwaan-hoosaad (ikhtiyaari)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Dooro aagga saacadda ee macluumaadkaaga waqtiga shaqada (shifttime) ee soo socda uu ku salaysnaan doono."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Guji 'Sii wad' si aad u socodsiiso Warbixinta soo socota:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Guji 'Sii wad' si aad u Tirtirto Warbixinnada soo socda:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Guji 'Sii wad' si aad u nuquliso habaynta Warbixinta soo socota.  Waxaad sidoo kale beddeli kartaa qaabka ciwaanka inta hawshan lagu jiro."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "Qaabka Cinwaanka:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Guji 'Sii wad' si aad u Joojiso Warbixinta soo socota:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Guji 'Sii wad' si aad u Hawlgeliso Warbixinta soo socota:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Guji 'Sii wad' si aad ula wareegto Lahaanshaha Warbixinta soo socota:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "Waa inaad doorataa ugu yaraan hal warbixin oo furan, aan shaqaynayn."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Guji 'Sii wad' si aad uga saarto Ilaha Xogta ee soo socda Warbixinta."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Liiska Ilaha Xogta ee la doortay hoos ku yaal."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Isha Xogta: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Guji 'Sii wad' si aad ugu Darto Ilaha Xogta ee soo socda Warbixinta."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Guji 'Sii wad' si aad ugu Koobiyayso Dejinta Ilaha Xogta ee kale."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Isha Xogta ee la Doortay sida Tixraac:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Aagga Waqtiga:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Maalmaha shaqada:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Waqtiga shaqada:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "Waa inaad doorataa ugu yaraan hal Warbixin."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - Daawashada Warbixinta"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - Abuur Warbixino"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - Maaree Warbixinada"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Wax ka beddel)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Ficillada"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Walxaha Xogta"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Qaab-dhismeedyada Warbixinta"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Soo dhoofi"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Xisaabinta Warbixinta"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Warbixinnada Guud"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Muuji Warbixinta"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Dhoofi Warbixinta"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Isticmaale Caadi ah"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Maamulka Guud"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Maamulka Nidaamka"
+
+#: setup.php
+msgid "Management"
+msgstr "Maamul"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "Warbixinada ReportIt"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Qaab-dhismeedyada"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Wax shay oo isha xogta ah lama dooran"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Walxaha isha xogta ee aan la dooran weli waa la adeegsanayaa"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "Suurtogal ma aha in la furo qaab-dhismeedkan iyada oo aan lahayn cabbirro qeexan"
+
+#: setup.php
+msgid "global"
+msgstr "guud"
+
+#: setup.php
+msgid "local"
+msgstr "maxalli"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Isticmaale Sare (Milkiilaha Warbixinta)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Isticmaale Sare (Maamulaha Warbixinta)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Waqtiga Fulinta ee Ugu Badan (ilbiriqsiyo)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Ikhtiyaari: Waqtiga ugu badan ee fulinta hal xisaabin."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Isbeddelka Tirada Diiwaanka ee Ugu Badan"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Ikhtiyaari (Si Toos ah u Soo Saar Liiska RRD): Ha beddelin Liiska RRD ee Warbixin kasta haddii Isbeddelka Tirada Diiwaanka uu ka weyn yahay Tiradan. Tani waa si looga fogaado isbeddello aan la rabin oo dhibaato leh oo ku dhaca Liisaska RRD"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Aagagga Waqtiga"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Hawlgeli/Jooji adeegsiga aagagga waqtiga ee qaabeynta Shayga Xogta iyo xisaabinta warbixinta. Xaaladda hore waqtiga adeegaha waa in lagu dejiyaa GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Muuji Aagga Waqtiga Maxalliga ah"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Hawlgeli/Jooji in cinwaannada lagu soo bandhigo aagga waqtiga ee adeegaha."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "U oggolow Jadwalaynta Hawlwadeennada"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Hawlgeli/Jooji awoodda Hawlwadeenka uu ku Jadwaleeyo Warbixinnada. Markii La joojiyay, Maamulayaasha oo keliya ayaa beddeli kara jadwalka."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "Horgalayaasha SI"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Hawlgeli/Jooji adeegsiga Horgalayaasha-SI ee saxda ah ee labanlaabka binary iyadoo la raacayo shuruudaha <a href='http://www.ieee.org'>IEEE 1541</a> iyo <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Dirista Iimaylka ee Tooska ah"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Haddii la hawlgeliyo, warbixinnada qorshaysan waxaa si toos ah loogu diri karaa Iimayl liiska qaataha.<br> Astaantani waxay u baahan tahay nooc habaysan oo ka mid ah 'Settings Plugin'."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Kala saar Shaandheeyaha Muuqaalka Warbixinta"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Hawlgeli/jooji adeegsiga shaandheeye gaar ah warbixin kasta."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Safafka Bog Kasta"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Tirada safafka lagu soo bandhigayo hal bog."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Dejinta Dhoofinta Warbixinta"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "Kala-saaraha Tiirarka CSV"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Kala-saaraha tiirarka ee loo isticmaalayo dhoofinta CSV."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "Kala-saaraha Tobanlaha CSV"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Astaanta muujinaysa dhammaadka qaybta tirada buuxda iyo bilowga qaybta jajabka."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Dejinta Guud ee Warbixinta"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Qaab-dhismeedka Warbixinta Cusub"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Ma jiraan Qaab-dhismeedyada Xogta oo la isticmaalayo."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Abuur Qaab-dhismeed Warbixin cusub"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Dooro Qaab-dhismeed Xog oo Qaab-dhismeedka Warbixintani ay tahay inuu ku tiirsanaado.  Qaab-dhismeedyada Xogta ee aan la isticmaalin waa la qariyay."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Soo deji Qaab-dhismeedka Warbixinta"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Dooro faylka XML ee ay ku jirto Qaab-dhismeedka Warbixintaadu."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Soo deji Qaab-dhismeedyada Warbixinta"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Is-waafaqsan"
+
+#: templates.php
+msgid "Summary"
+msgstr "Kooban"
+
+#: templates.php
+msgid "No"
+msgstr "Maya"
+
+#: templates.php
+msgid "Yes"
+msgstr "Haa"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Ma Jiraan Qaab-dhismeedyada Ku Habboon ee La Helay"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Soo dhoofi"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Magaca Qaab-dhismeedkan Warbixinta."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Aqoonsiga gudaha ee Qaab-dhismeedkan Warbixinta."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Qoraaga Qaab-dhismeedkan Warbixinta."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Nooca Qaab-dhismeedkan Warbixinta."
+
+#: templates.php
+msgid "Published"
+msgstr "La daabacay"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Wadarta tirada warbixinnada isticmaalaya qaab-dhismeedkan warbixinta."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Ma jiraan ilaha xogta oo u dhigma"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Qaab-dhismeedka xogta lama heli karo"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Ku dar cabbirrada"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Wax ka beddel cabbirrada"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Ku dar doorsoomayaal"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Wax ka beddel doorsoomayaasha"
+
+#: templates.php
+msgid "No templates"
+msgstr "Ma jiraan qaab-dhismeedyada"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Kan ugu badan waa inuu ka weynaado kan ugu yar."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Qiimaha caadiga ah wuxuu ka baxsan yahay xadka qiimayaasha."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Soo-gaabin nuqul ah"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Natiijooyinka kumeelgaarka ah waxaa isticmaala cabbirro kale."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Qaab-dhismeed [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Qaab-dhismeed [cusub]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Guji 'Sii wad' si aad u Tirtirto Qaab-dhismeedyada Warbixinta ee soo socda"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "DIGNIIN: Warbixin kasta oo ka tirsan Qaab-dhismeedyadan sidoo kale waa la tirtiri doonaa!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Qaab-dhismeed: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Warbixin: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Warbixin: <i>Midna</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Guji 'Sii wad' si aad u nuquliso qaab-dhismeedyada warbixinta soo socda. Waxaad si ikhtiyaari ah u beddeli kartaa ciwaanka nuqulladaas."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Liiska Qaab-dhismeedyada warbixinta ee la doortay:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Cinwaanka:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Guji 'Sii wad' si aad u dhoofiso Qaab-dhismeedyada Warbixinta ee soo socda"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "Waa inaad doorataa ugu yaraan hal Qaab-dhismeed Warbixin."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Tirtir Qaab-dhismeedyada Warbixinta"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Nuqul ka samee Qaab-dhismeedyada Warbixinta"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Dhoofi Qaab-dhismeedyada Warbixinta"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Guji 'Sii wad si aad u Tirtirto doorsoomayaasha soo socda."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Liiska doorsoomayaasha la doortay:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Doorsoome: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Waxaa jira hal ama ka badan oo doorsoomayaal ah oo la isticmaalayo."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "Waa inaad doorataa ugu yaraan hal doorsoome."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Tirtir Doorsoomayaasha Qaab-dhismeedka"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Guji 'Sii wad' si aad u Tirtirto Cabirrada soo socda.  Ogeysiis: Haddii aysan jirin Cabirro kale oo hadha hawshan ka dib, Qaab-dhismeedka Warbixinta si toos ah ayaa loo xiri doonaa."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Liiska cabbirrada la doortay:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Halbeeg: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "Waa inaad doorataa ugu yaraan hal cabbirane."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Tirtir Halbeegyada Qaab-dhismeedka"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Doorsoomayaasha [ Qaab-dhismeed: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Doorsoomayaal Lama Helin"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Dejinta Doorsoomaha [ wax ka beddel: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Dejinta Doorsoomaha [cusub]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Magaca gudaha"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Aqoonsi gaar ah oo ay abuuri doonto ReportIt lafteedu. U isticmaal ID-gan qeexida qaacidooyinka xisaabintaada si aad ugu darto qiimahaas uu isticmaalaha warbixintu si gaar ah ugu qeexay."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Magac sida \"Xadka\" tusaale ahaan kaas oo loo isticmaalo cinwaan ahaan gudaha dejinta warbixinta."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Sii magac Doorsoomahan"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Sharaxaad qeexaysa macnaha doorsoomahan."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Sii sharaxaad macno leh"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Qiimaha Ugu Badan"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Waxay qeexaysaa xadka sare ee doorsoomahan."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Qiimaha Ugu Yar"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Waxay qeexaysaa xadka hoose ee doorsoomahan."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Qiimaha Caadiga ah"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Wuxuu dejiyaa qiimaha caadiga ah."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Nooca"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Habka uu milkiilaha warbixintu u isticmaalo si uu u qeexo doorsoomahan."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Waxay qeexaysaa masaafada u dhexeysa laba qiime haddii habka \"DropDown\" la doortay. Fadlan hubi in qiimahan aan loo dejin mid aad u hooseeya, sababtoo ah wuxuu si dadban u qeexayaa tirada xulashooyinka uu yeelan doono liiska hoos u dhaca. Tusaale ahaan cabbirrada soo socda: MAX:100, MIN:0, STEP:0.01 waxay keeni doonaan sanduuq xulasho oo leh 10.001 xulasho. Tani waxay keeni kartaa dhibaatooyin waaweyn oo xagga waxqabadka ah sababtoo ah culayska sare ee CPU ee dhinaca macmiilka. Isku day inaad ka dhigto wax ka yar 1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Habaynta Halbeegga [ wax ka beddel: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Habaynta Halbeegga [cusub]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Sharaxaadda la siiyay cabbirkan. Tan waxaa loo muujin doonaa sidii tilmaan-bixin ku dhex jirta dhoofinta iyo sidoo kale tilmaan dul-joog ah oo ku jirta soo-bandhigidda warbixinta lafteeda."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Qeex soo-gaabin gaar ah oo loogu talagalay cabbirkan iyadoo ugu badnaan leh 8 xaraf/tiro."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Halbeegga la siiyay cabbirkan. tusaale ahaan 'Bits/s'"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Shaqada mideynta"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Magaca shaqada isku-darka si loo qeexo CDP-yada ay tahay in la akhriyo."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Dooro 'enable' haddii cabbirradani ay tahay inuu qayb ka noqdo natiijada warbixinta u dambeysa. Ka daa calaamadda haddii cabbirradan loo isticmaali doono oo keliya xisaabin kaaliye ah."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Dooro 'enable' haddii cabbirradani uu yeelan doono hal natiijo oo keliya wadarta guud halkii uu ka yeelan lahaa mid Shay Isha Xogta kasta. Natiijadiisu<br>waxaa loo muujin doonaa si gaar ah. Isticmaal ikhtiyaarkan iyadoo lala kaashanayo \"Visible\" = \"off\" haddii aad raadinayso cabbir haya natiijo ku-meel-gaar ah oo keliya oo dib loogu isticmaali karo xisaabinta cabbirrada kale iyada oo aan u muuqan isticmaalayaasha u dambeeya."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Qaabeynta"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Waxay qeexaysaa nooca loola dhaqmayo xogta."
+
+#: templates.php
+msgid "Precision"
+msgstr "Saxnaanta"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Waxay qeexaysaa inta tirooyinka tobanlaha ah ee la soo bandhigayo ee loogu talagalay tirooyinka jajab-sabbeeya."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Horgalayaasha"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Dooro nooca horgalaha loo adeegsanayo qaabaynta natiijada. Marka la isticmaalo horgalayaasha tobanlaha '1024' waxaa loo qaabayn doonaa '1.024k' halka ikhtiyaarka horgalayaasha laba-jibbaaranku uu soo celiyo '1ki'. Dooro 'off' si aad u muujiso xogta cayriin, halkan '1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Qaaciddo"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Qeexitaanka xisaabeed ee cabbirkan. Waxaa la oggol yahay dhammaan isku-darka hawlwadeennada iyo tirooyinka lagu xisaabiyo ee hoos ku taxan iyadoo la raacayo xeerarka xisaabta. Isticmaal qaansooyinka wareegsan iyo kuwa afar-geesoodka ah si aad u muujiso ereyada adag iyo nidaamka hawlgallada."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Hawlgaliyayaasha & La-hawlgaliyayaasha"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Guji mid ka mid ah hawlwadeennada ama qiyamka liisaska ku jira si aad ugu darto qaaciddadaada xisaabinta. Tilmaamta waxay ku tusi doontaa macluumaad dheeraad ah sida sharaxaadda, qiimaha soo noqda, doodaha iyo isticmaalka."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Halbeegyada [ Qaab-dhismeed: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Halbeegyo Lama Helin"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Shaandheeyaha Warbixinada"
+
+#: view.php
+msgid "My Reports"
+msgstr "Warbixinnadayda"
+
+#: view.php
+msgid "Go"
+msgstr "Soco"
+
+#: view.php
+msgid "Clear"
+msgstr "Nadiifi"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Muddada (Laga bilaabo - Ilaa)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Waqtiga Shaqada Ugu Dambeeyay [s]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "Wax Warbixin ah lama helin"
+
+#: view.php
+msgid "Metric"
+msgstr "Halbeeg"
+
+#: view.php
+msgid "Data Source"
+msgstr "Isha Xogta"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Muuji 10-ka Jaantusyada Ugu Sarreeya"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Muuji Cinwaan-hoosaadyada"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Muuji Soo-koobidda"
+
+#: view.php
+msgid "Additional"
+msgstr "Dheeraad ah"
+
+#: view.php
+msgid "Items"
+msgstr "Walxaha"
+
+#: view.php
+msgid "Archive"
+msgstr "Kaydi"
+
+#: view.php
+msgid "Current"
+msgstr "Hadda"
+
+#: view.php
+msgid "Title"
+msgstr "Cinwaanka"
+
+#: view.php
+msgid "Runtime"
+msgstr "Wakhtiga shaqada"
+
+#: view.php
+msgid "Period"
+msgstr "Muddada"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Liiska RRD ee Si Toos ah loo Abuuray"
+
+#: view.php
+msgid "Data Description"
+msgstr "Sharaxaadda Xogta"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- MA JIRO CINWAAN-HOOSAAD --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Ma Jiraan Shayyo Xog ah"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Halbeeg: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Boos."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Natiijooyinka [%s]"
+

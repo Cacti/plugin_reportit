@@ -1,0 +1,2408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Arabic (Morocco)\n"
+"Language: ar-MA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "حذف"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "تكرار"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "ﻞﻔﻗ"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "فتح"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "تصدير"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "الاسم"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "اسم الداخلي"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "الحد الأقصى"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "الحد الأدنى"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "الافتراضي"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "يخطو"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "نوع المدخلات"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "خيارات"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "الهویة الشخصیة"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "الاختصار"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "مجموعة"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "الوحدة"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "وظيفة توحيد"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "مرئي"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "منفصل"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "صيغة الحساب"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "معرف عام"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "عناصر"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "المقاييس"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "قوالب البيانات المرتبطة"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "عام"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "قوالب البيانات"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "مجموعات"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "المتغيرات"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "اليوم"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "آخر يوم واحد"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "آخر يومين"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "آخر 3 أيام"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "آخر 4 أيام"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "آخر 5 أيام"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "آخر 6 أيام"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "آخر 7 أيام"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "الأسبوع الماضي (الأحد - السبت)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "الأسبوع الماضي (الاثنين - الأحد)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "آخر 14 يوم"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "آخر 21 يوم"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "آخر 28 يوم"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "الشهر الحالي"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "الشهر الماضي"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "آخر شهرين"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "آخر 3 أشهر"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "آخر 4 أشهر"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "آخر 5 أشهر"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "آخر 6 أشهر"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "السنة الحالية"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "العام الماضي"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "آخر 2 سنوات"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "يومي"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "أسبوعي"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "شهري"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "ربع سنوي"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "سنوي"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "قائمة منسدلة"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "حقل إدخال"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "لا شيء"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "PHP Binary Path"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "النقطة العائمة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "عدد صحيح"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "عدد صحيح (غير موقّع)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "سداسي عشري (صغيرة)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "سداسي عشري (الحالة العليا)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "أوكتال"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "الترميز العلمي"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "دون تغيير"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "لا يعمـل"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "بادئات SI الثنائية (القاعدة 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "بادئات SI العشرية (Base 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - المتوسط الحسابي"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "إرجاع القيمة المتوسطة. (مجموع القيم / عدد القيم)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "لا شيء"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - القيمة القصوى"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "إرجاع القيمة المقاسة الأولى"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - القيمة الدنيا"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "إرجاع آخر قيمة تم قياسها"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - سوم"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "إرجاع آخر قيمة تم قياسها"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - عدد القيم (ليس NaN)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "إرجاع عدد القيم"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - التدرج"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "لإرجاع التدرج لخط مستقيم باستخدام الانحدار الخطي"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - القيمة الأخيرة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "إرجاع آخر قيمة تم قياسها"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - القيمة الأولى"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "إرجاع القيمة المقاسة الأولى"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - عدد NaN"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "إرجاع عدد القيم"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - متوسط"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "لعرض تلك القيمة التي تفصل النصف الأعلى عن النصف السفلي لكل DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - المدى"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "لعرض الفرق بين القيمة الأكبر والأصغر لكل DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - المدى الرباعي"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "ترجع مسافة الوسط 50٪ حول الوسيط لكل DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - الانحراف المعياري"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "إرجاع آخر قيمة تم قياسها"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - التباين"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "إرجاع تعويم عدد صحيح"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - النسبة المئوية العاشرة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "إرجاع آخر قيمة تم قياسها"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "var $: العتبة بالنسبة المئوية. النطاق: [0 & lt؛ $ var ≤100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - المدة أعلى من الحد"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "إرجاع المدة التي تتجاوز حدًا محددًا بالنسبة المئوية."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$ var: عتبة (مطلقة)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - مجموع فوق الحد"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "إرجاع عدد القيم"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - الكسور المستديرة للأسفل"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "تُرجع أدنى قيمة عدد صحيح تالية عن طريق تقريب القيمة إلى الأدنى إذا لزم الأمر."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$ var: تعويم"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - الكسور المستديرة لأعلى"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "تُرجع أعلى قيمة عدد صحيح تالية عن طريق تقريب القيمة لأعلى إذا لزم الأمر."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Round A Float"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "إرجاع أقل قيمة لقائمة معاملات محددة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$ var: قيمة تعويم أو سلسلة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - البحث عن أعلى قيمة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "إرجاع أعلى قيمة لقائمة معاملات محددة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$ var1، $ var2، $ var3 ...: القيم المراد مقارنتها"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - البحث عن أقل قيمة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "إرجاع أقل قيمة لقائمة معاملات محددة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - عملية شرطية - منطق IF-THEN-ELSE"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "تُرجع B إذا كانت A صحيحة أو C إذا كانت A خطأ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - اكتشف ما إذا كانت القيمة ليست رقمًا"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "تُرجع 1 (أو B) إذا كانت A === NaN أو 0 (أو C) إذا لم تكن كذلك. المعلمات B و C اختيارية."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - مقارنة معقدة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - الاسم المستعار لـ f_floor"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - الاسم المستعار لـ f_round"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - الاسم المستعار لـ f_cmp - يساوي"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "تُرجع 1 (أو C) إذا كانت A == B أو 0 (أو D) إذا لم تكن كذلك. المعلمات C و D اختيارية."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - الاسم المستعار f_cmp - غير متساوٍ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "تُرجع 1 (أو C) إذا كانت A! = B أو 0 (أو D) إذا لم يكن كذلك. المعلمات C و D اختيارية."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - الاسم المستعار لـ f_cmp - أكبر من"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "تُرجع 1 (أو C) إذا كانت A> B أو 0 (أو D) إذا لم تكن كذلك. المعلمات C و D اختيارية."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - الاسم المستعار f_cmp - أقل من"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "تُرجع 1 (أو C) إذا كانت A <B أو 0 (أو D) إذا لم تكن كذلك. المعلمات C و D اختيارية."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - الاسم المستعار f_cmp - أكبر أو مساوٍ"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "تُرجع 1 (أو C) إذا كانت A> = B أو 0 (أو D) إذا لم يكن كذلك. المعلمات C و D اختيارية."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - الاسم المستعار f_cmp - أقل أو يساوي"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "تُرجع 1 (أو C) إذا كانت A <= B أو 0 (أو D) إذا لم تكن كذلك. المعلمات C و D اختيارية."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "إضافة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "عملية حسابية لإرجاع مجموع مجموعين أو أكثر"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "طرح"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "عملية حسابية لإرجاع الفرق بين minuend و subtrahend"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "عمليه الضرب"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "عملية حسابية لإرجاع ناتج المضاعف والمضاعف"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "الشعبة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "عملية حسابية لإرجاع جزء المقسوم والمقسوم عليه"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "معام"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "عملية رياضية لإرجاع ما تبقى من قسمة عددين صحيحين"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "الأُس - مطلوب PHP5.6 أو أعلى"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "عملية حسابية لإرجاع الضرب المتكرر (أو القسمة) لقاعدة على الأس."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "CSV الفاصل العشري"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "الرمز الذي يشير إلى نهاية الجزء الصحيح وبداية الجزء الكسري."
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "قوس دائري"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "يُستخدم لتجاوز الأسبقية العادية أو لتحديد المستوى الأول من التداخل"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "قوس مربع"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "تُستخدم لتجاوز الأسبقية العادية أو لتمييز المستوى الثاني من التداخل"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "علامة الترقيم"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "يُستخدم لفصل الوسائط المُعاد توجيهها إلى دالة"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "القيمة الدنيا للبيانات المسموح بجمعها."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "تحذير! يمكن ضبط هذا المتغير على صفر أو غير محدود"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "القيمة القصوى للبيانات المسموح بجمعها."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "يحتوي على عدد الثواني بين القيمتين المقاسة."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "وظائف مع المعلمات"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "وظائف مع المعلمات"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "اسماء مستعارة"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "العاملين"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "الأعداد"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "الآخرين"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "متغيرات استعلام البيانات"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "النتائج المؤقتة"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "غير محدود"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "عناصر البيانات"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "عناصر البيانات"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "عناصر البيانات"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "5000 عنصر مصدر البيانات"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "مصدر البيانات"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "10،000 عنصر مصدر بيانات"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "15،000 عنصر مصدر بيانات"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "25،000 عناصر مصدر البيانات"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "1 دقيقة"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d دقيقة (دقائق)"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "الاسم الفريد المعطى لقالب التقرير هذا."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "الوصف"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "الاسم الفريد المعطى لقالب التقرير هذا."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "الإصدار"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "قوالب التقارير المتاحة"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "المؤلف"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "مؤلف هذا النموذج"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "نشر"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "هل ينبغي نشر نموذج التقرير هذا ليتمكن المستخدمون من الوصول إليه؟ لأغراض اختبار القوالب الجديدة أو التعديلات ، يجب إلغاء تحديد هذا المربع."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "مغلق"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "الحالة \"مقفل\" تتجنب أي نوع من التعديل على نموذج التقرير الخاص بك بالإضافة إلى القياسات المخصصة وتعريفات المتغيرات"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "قبل تصفية إضافية"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "اختياري: الصيغة لفلترة القائمة المتاحة لعناصر البيانات حسب وصفها. استخدم أحرف البدل في SQL مثل % و/أو _. بدون تعبيرات نمطية!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "مسار التصدير"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "اختياري: المسار إلى مجلد لحفظ الصادرات. إذا لم يكن موجودًا ، يحاول ReportIT تلقائيًا إنشاؤه أثناء عملية الحساب المجدولة الأولى ، وإلا فإنه سيحاول إنشاء مجلد فرعي جديد داخل مجلد التصدير الرئيسي باستخدام معرف القالب."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "قالب البيانات"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "اسم قالب البيانات هذا قالب التقرير يعتمد على."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "قوالب التقارير"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "اختر أحد قوالب التقارير الخاصة بك للتصدير إلى XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "بيانات الوصف"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "صف خصائص قالب التقرير الخاص بك"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[اختياري] المؤلف"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "أضف اسمك أو نكك هنا."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[اختياري] الإصدار"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[اختياري] الاتصال"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "شريط (عمودي)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "شريط (أفقي)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "البحث الخط"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "المساحة"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "مخطط دائري ثلاثي الأبعاد"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "ﺕﻮﺒﻜﻨﻌﻟﺍ"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - الوضع"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "إرجاع أقل قيمة لقائمة معاملات محددة"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "قوس أيسر (فتح)"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "الأقواس اليمنى (إغلاق)"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "اليسار (الافتتاح) قوس مربع"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "القوس الأيمن (الإغلاق) المربع"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "يحتوي على الحد الأقصى لعرض النطاق الترددي في حالة توفر \"ifspeed\"."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "يحتوي على الحد الأقصى للقيمة التي تم تحديدها لعنصر مصدر البيانات المحدد ضمن \\ \"مصادر البيانات \\\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "يحتوي على عدد NAN خلال فترة التقرير."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "أقواس"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "تعطيل"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "تفعيل"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "شغل الآن"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "ألحصول على الملكية"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "تحطم"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "فشل"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "عاطل"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "مفتوح"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- لا يتوفر قالب -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "الاثنين"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "الثلاثاء"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "الخميس"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "الجمعة"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "السبت"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "الأحد"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "الإعدادات المسبقة لمصدر البيانات"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "مصادر البيانات"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "نص CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "XML الخام (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "بيانات JSON (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "بيانات YAML (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "الموضوع"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "أدخل موضوع بريدك الإلكتروني.<br> المتغيرات التالية مدعومة (بدون علامات اقتباس): '|title|' و'|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "تقرير مجدول - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "الجسم (اختياري)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "أدخل رسالة التي سيتم عرضها في نص البريد الإلكتروني الخاص بك"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "هذا هو تقرير المقرر إنشاؤها من الصبار."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "المرفق"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "فقط لتلقي بريد إلكتروني كإشعار بوجود تقرير جديد متاح ، اختر \"بلا\". <br> وإلا حدد التنسيق الذي يجب إرفاق التقرير به."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "مستلمو البريد الإلكتروني"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "مستلمو قائمة الإشعارات"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "لإضافة مستلمين استنادا إلى قائمة إشعارات صالحة."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "عنوان البريد الإلكتروني (عناوين)"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "الرجاء فصل عناوين متعددة بواسطة الفاصلة (،)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "عنوان (عناوين) BCC"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "نسخة كربونية صماء. الرجاء فصل عناوين متعددة بواسطة الفاصلة (،)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "مستلمو البريد الإلكتروني الجديد"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "لإضافة مستلم جديد، أدخل عنوان بريد إلكتروني صالحاً (مطلوب) واسماً (اختياري).<br> لإعداد أسرع، استخدم قائمة من العناوين/الأسماء بحيث تكون مفصولة بأحد الفواصل التالية: ';' أو ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "عنوان فرعي اختياري"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "حدّد عنوانًا فرعيًا إضافيًا يجب عرضه أسفل وصف الواجهة.<br> سيتم دعم المتغيرات التالية (بدون علامات اقتباس): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "منطقة زمنية"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "حدد المنطقة الزمنية التي ستستند إليها معلومات وقت التحول التالية."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "فلاتر مسبقة اختيارية لمصدر البيانات"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "فلتر الموقع"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "استخدم مصادر البيانات المطابقة لهذا الموقع فقط.<br>حدد 'لا شيء' (افتراضي) لتعطيل إعداد الفلتر هذا."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "فلتر قالب الجهاز"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "استخدم مصادر البيانات الخاصة بقالب الجهاز هذا فقط.<br>حدد 'لا شيء' (افتراضي) لتعطيل إعداد الفلتر هذا."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "فلتر اسم مصدر البيانات"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "استخدم مصادر البيانات التي تطابق أسماؤها هذا الفلتر.<br> استخدم أحرف البدل الخاصة بـ SQL مثل % و/أو _. بدون تعبيرات نمطية!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "عناصر البيانات المولدة تلقائيًا"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "تفعيل/تعطيل الإنشاء التلقائي لجميع عناصر البيانات استنادًا إلى الفلاتر المحددة. سيتم استدعاء هذا قبل تنفيذ التقرير. سيتم حذف ملفات RRD المتقادمة وإضافة جميع ملفات RRD المطابقة لإعدادات الفلتر."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "وقت العمل"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "من"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "نقطة البداية للمدة التي تريد تحليلها"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "إلى"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "نهاية تحليل الوقت."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "أيام العمل"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "تحديد الفرقة من الأيام حيث تحول التحول!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "على سبيل المثال: بالنسبة إلى رحلة ليلية من Mo (22:30) حتى السبت (06:30) ، حدد الاثنين إلى الجمعة"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "الاسم المعطى لهذا التقرير"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "قالب"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "القالب التكوين الخاص بك يعتمد على"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "المشارك"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "تغيير صاحب هذا التقرير. لا يمكن تحديد سوى المستخدمين الذين يتمتعون بحد أدنى من حقوق الإبلاغ (\"العرض\" أو أعلى)."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "مفعل"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "تمكين / تعطيل التقارير المجدولة. يجب تمكين إطار زمني انزلاقي."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "عامة"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "في حالة التمكين ، يمكن للجميع رؤية تقريرك ضمن علامة التبويب \"تقارير\""
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "تمكين استخدام أذونات الرسم البياني"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "في حالة التمكين (افتراضيًا) ، سيتم تصفية قائمة عناصر البيانات المتاحة تلقائيًا عن طريق إذن الرسم البياني للمالك: \"حسب الجهاز\"."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "البريد الإلكتروني التلقائي"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "إذا تم تنشيط علامة التبويب \"البريد الإلكتروني\" ، فسيتم تلقائيًا تلقي جميع المستلمين المعرّفين ضمن هذا القسم رسالة بريد إلكتروني تحتوي على هذا التقرير المجدول."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "فترة الإبلاغ"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "انزلاق الإطار الزمني"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "إذا تم تحديده ، فسيتم تكوين فترة إعداد التقارير تلقائيًا فيما يتعلق بنقطة الوقت التي يبدأ فيها الحساب."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "إطارات الوقت"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "الإطار الزمني الذي تريد تحليله فيما يتعلق بنقطة الوقت التي يبدأ فيها الحساب. <br> هذا يعني الأيام التقويمية والأشهر التقويمية والسنوات التقويمية."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "حتى يوم الحساب"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "قم بتمديد الإطار الزمني المنزلق حتى اليوم الذي يتم فيه تشغيل الحساب."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "الإطار الزمني الثابت - تاريخ البدء (من)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "لتحديد تاريخ البدء ، استخدم التنسيق التالي: <b>yyyy-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "إطار زمني ثابت - تاريخ الانتهاء (إلى)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "لتحديد تاريخ الانتهاء ، استخدم التنسيق التالي: <b>yyyy-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "أضف إلى التقرير"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "إزالة من التقرير"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "نسخ الإعدادات إلى الكل"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "إضافة"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "مخطط شريطي: عمودي"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "مخطط الشريط: أفقي"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "خط الرسم البياني"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "مخطط المنطقة"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "مخطط دائري: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s مرحبا"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s لو"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "الجميع"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "الكل"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "مجموع"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "جيد"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "عنوان التقرير"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "بدء"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "النهاية"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "التشغيل الماضي"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "الوصف: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "بناء الجملة: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "المعلمات: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "أمثلة: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "تمكين [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "قم بتنشيط عنصر مصدر البيانات '%s' لعملية الحساب."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "مصدر البيانات"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "اختياري: يمكنك تحديد اسم مستعار يجب عرضه بدلاً من اسم مصدر البيانات الداخلي \"%s\" في التقارير."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "عنوان مجموعة منفصل [بشكل عام]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "اختياري: يمكنك تحديد اسم المجموعة الذي يجب عرضه كعنوان لجميع الإجراءات المنفصلة داخل التقارير."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "مالك غير معروف"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "الملف كبير."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "لم يكتمل نقل الملف."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "لم يتم رفع أي ملف."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "المجلد المؤقت مفقود."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "فشل في كتابة الملف إلى القرص"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "توقف رفع الملف بسبب الامتداد"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "امتداد الملف غير صالح."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "غير قادر على تحليل ملف القالب."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "خطأ في المجموع الاختباري مع النموذج %s في ملف XML"
+
+#: reportit.php
+msgid "New Report"
+msgstr "تقرير جديد"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "لا تتوفر قوالب تقارير غير مؤمنة وممكنة (%s مقفلة أو معطلة)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "إستمرار"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "إنشاء تقرير جديد"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "اختر قالبًا يجب أن يعتمد عليه هذا التقرير."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "تقرير المرشحات"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "بحث"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "التقارير"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "أذهب"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "واضح"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "الفترة %s من - إلى"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "الجدول"
+
+#: reportit.php
+msgid "State"
+msgstr "الحالة"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "البدء التالي %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "آخر بدء %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "آخر وقت التشغيل"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "N/A"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "أضف المصادر"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "مصدر البيانات"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "تحديد %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "تم قفل القالب مؤقتًا"
+
+#: reportit.php
+msgid "No reports"
+msgstr "التقارير"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "مصرح به"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "تكوين التقرير (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "الإجراء"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "لم يتم العثور على مستلمين"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "اسم مصدر البيانات"
+
+#: reportit.php
+msgid "Associated"
+msgstr "مرتبط"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "عنوان فرعي"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "وقت الإغلاق (من - إلى)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "أيام الأسبوع (من - إلى)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "اختر ما إذا كان سيتم تخزين RRDs محليًا أو يتم التعامل معه من خلال خادم وكيل RRDtool خارجي."
+
+#: reportit.php
+msgid "Show All"
+msgstr "عرض الكل"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "غير موجود بعد الآن"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "مضمّن في التقرير"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "غير مدرج في التقرير"
+
+#: reportit.php
+msgid "Select"
+msgstr "اختيار"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "لم يتم العثور على عناصر البيانات"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "- عنوان البريد الإلكتروني للمستلم (أو قائمة الأسماء) -"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[اختياري] - اسم المستلم (أو قائمة الأسماء) -"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "مصدر البيانات [تحرير: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "العنوان الفرعي (اختياري)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "حدد المنطقة الزمنية التي ستستند إليها معلومات وقت التحول التالية."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "انقر فوق \"متابعة\" لحذف التقارير التالية."
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "انقر فوق \"متابعة\" لحذف التقارير التالية."
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "انقر فوق \"متابعة\" لتكرار تكوينات التقرير التالية. يمكنك أيضًا تغيير تنسيق العنوان أثناء هذه العملية."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "شكل العنوان:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "انقر على 'إستمرار' لتعطيل التقرير التالي:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "انقر على 'إستمرار' لتفعيل التقرير التالي:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "انقر على 'إستمرار' للاستحواذ على ملكية التقرير التالي:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "يجب عليك تحديد تقرير واحد على الأقل."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "انقر على 'إستمرار' لإزالة مصادر البيانات التالية من التقرير."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "قائمة بمصادر البيانات المحددة أدناه."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "مصدر البيانات: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "انقر على 'إستمرار' لإضافة مصادر البيانات التالية إلى التقرير."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "انقر على 'إستمرار' لنسخ الإعدادات إلى مصادر البيانات الأخرى."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "مصدر البيانات المحدد كمرجع:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "منطقة زمنية"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "أيام الأسبوع:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "وقت التناوب:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "يجب عليك تحديد تقرير واحد على الأقل."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - عرض التقارير"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - إنشاء التقارير"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - إدارة التقارير"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(تعديل)"
+
+#: setup.php
+msgid "Actions"
+msgstr "أفعال"
+
+#: setup.php
+msgid "Data Items"
+msgstr "عناصر البيانات"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "قوالب التقارير"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "استيراد"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "تقرير الحساب"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "تقارير عامة"
+
+#: setup.php
+msgid "Show Report"
+msgstr "عرض تقرير"
+
+#: setup.php
+msgid "Export Report"
+msgstr "تقرير التصدير"
+
+#: setup.php
+msgid "Normal User"
+msgstr "المستخدم العادي"
+
+#: setup.php
+msgid "General Administration"
+msgstr "الإدارة العامة"
+
+#: setup.php
+msgid "System Administration"
+msgstr "إدارة النظام"
+
+#: setup.php
+msgid "Management"
+msgstr "الإدارة"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "تقارير ReportIt"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "القوالب"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "لا توجد عناصر بيانات"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "عناصر مصدر البيانات غير المحددة لا تزال قيد الاستخدام"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "تعذر فتح هذا القالب بدون إجراءات محددة"
+
+#: setup.php
+msgid "global"
+msgstr "عالمي"
+
+#: setup.php
+msgid "local"
+msgstr "محلي"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "مستخدم قوي (صاحب التقرير)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "مستخدم سوبر (تقرير المسؤول)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "الحد الأقصى لوقت التنفيذ (بالثواني)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "اختياري: الحد الأقصى لوقت التنفيذ لحساب واحد."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "تغيير الحد الأقصى لعدد السجلات"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "اختياري (إنشاء قائمة RRD تلقائيًا): لا تقم بتغيير قائمة RRD لأي تقرير إذا كان تغيير عدد السجلات أكبر من هذا الرقم وهذا لتجنب التغييرات غير المرغوب فيها والكارثية على قوائم RRD"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "المناطق الزمنية"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "تفعيل/تعطيل استخدام المناطق الزمنية لتهيئة عنصر البيانات وحساب التقرير. في الحالة الأولى يجب ضبط وقت الخادم على GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "إظهار المنطقة الزمنية المحلية"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "تفعيل/تعطيل لعرض المنطقة الزمنية للخادم في العناوين الرئيسية."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "السماح بالجدولة من قبل المشغلين"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "تفعيل/تعطيل قدرة المشغل على جدولة التقارير. عندما يكون معطل، يجوز للمسؤولين فقط تغيير الجدولة."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "SI-البادئات"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "تفعيل/تعطيل استخدام بادئات النظام الدولي الصحيحة (SI-Prefixes) للمضاعفات الثنائية وفقًا لشروط <a href='http://www.ieee.org'>IEEE 1541</a> و<a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "البريد الإلكتروني التلقائي"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "في حالة تمكينها ، يمكن إرسال التقارير المجدولة تلقائيًا إلى قائمة المستلمين. <br> تتطلب هذه الميزة إصدارًا مكونًا من \"إعدادات المكون الإضافي\"."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "تقرير منفصل عرض مرشح"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "تمكين / تعطيل استخدام مرشح فردي لكل تقرير."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "صفوف لكل صفحة"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "عدد الصفوف التي سيتم عرضها على صفحة واحدة."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "إعدادات تصدير التقرير"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "CSV فاصل العمود"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "فاصل العمود المراد استخدامه لتصدير CSV."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "CSV الفاصل العشري"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "الرمز الذي يشير إلى نهاية الجزء الصحيح وبداية الجزء الكسري."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "الإعدادات العامة للتقرير"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "قوالب التقارير"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "لا يمكن تعديل قوالب البيانات المستخدمة"
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "إنشاء قالب تقرير جديد"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "اختر قالب بيانات ليعتمد عليه قالب التقرير هذا.  يتم إخفاء قوالب البيانات غير المستخدمة."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "قالب تقرير التصدير"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "يجب عليك تحديد قالب تقرير واحد على الأقل."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "قالب تقرير التصدير"
+
+#: templates.php
+msgid "Compatible"
+msgstr "متوافق"
+
+#: templates.php
+msgid "Summary"
+msgstr "ملخص"
+
+#: templates.php
+msgid "No"
+msgstr "لا"
+
+#: templates.php
+msgid "Yes"
+msgstr "نعم"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "لم يتم العثور على قوالب متوافقة"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "استيراد"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "الاسم الفريد المعطى لقالب التقرير هذا."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "الاسم الفريد المعطى لقالب التقرير هذا."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "قالب تقرير التصدير"
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "الاسم الفريد المعطى لقالب التقرير هذا."
+
+#: templates.php
+msgid "Published"
+msgstr "منشور"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "الاسم الفريد المعطى لقالب التقرير هذا."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "لا توجد مصادر بيانات مطابقة"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "قالب البيانات غير متوفر"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "المقاسة"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "المقاسة"
+
+#: templates.php
+msgid "Add variables"
+msgstr "المتغيرات"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "المتغيرات"
+
+#: templates.php
+msgid "No templates"
+msgstr "القوالب"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "يجب أن يكون الحد الأقصى أكبر من الحد الأدنى."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "القيمة الافتراضية خارج نطاق القيم."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "اختصار مكرر"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "يتم استخدام النتائج المؤقتة بواسطة مقاييس أخرى."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "قالب [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "قالب [جديد]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "عنوان القالب"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "انقر فوق \"متابعة\" لحذف قوالب التقارير التالية"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "سيتم حذف كل تقرير ينتمي إلى هذه القوالب أيضًا!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "قالب: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "التقرير: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "التقرير: <i>لا يوجد</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "انقر فوق \"متابعة\" لتكرار قوالب التقارير التالية. يمكنك اختياريا تغيير عنوان قوالب التقارير الجديدة."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "قائمة القوالب المختارة:"
+
+#: templates.php
+msgid "Title:"
+msgstr "العنوان:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "انقر فوق \"متابعة\" لحذف قوالب التقارير التالية"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "يجب عليك تحديد قالب تقرير واحد على الأقل."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "حذف قوالب التقرير"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "قوالب تقرير مكررة"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "قالب تقرير التصدير"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "انقر فوق \"متابعة\" لحذف التقارير التالية."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "قائمة التقارير المختارة:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "المتغير: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "لا توجد قوالب تقرير متاحة."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "يجب عليك تحديد تقرير واحد على الأقل."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "حذف قوالب التقرير"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "انقر على 'إستمرار' لحذف المقاييس التالية. ملاحظة: إذا لم يتبقَ أي مقاييس أخرى بعد هذه العملية، فسيتم قفل قالب التقرير تلقائياً."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "قائمة التقارير المختارة:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "المقياس: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "يجب عليك تحديد تقرير واحد على الأقل."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "حذف مقاييس القالب"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "المتغيرات [ قالب: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "المتغيرات"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "تهيئة المتغير [ تحرير: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "التكوين المتغير [جديد]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "اسم الداخلي"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "معرّف فريد سيتم إنشاؤه بواسطة ReportIt نفسها. استخدم هذا المعرف ضمن تعريف معادلات الحساب الخاصة بك لتضمين تلك القيمة التي حددها مستخدم التقرير بشكل فردي لها."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "اسم مثل \"Threshold\" على سبيل المثال والذي يجب استخدامه كعنوان في تكوين التقرير."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "أدخل اسما لهذا المتغير"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "وصف يوضح معنى هذا المتغير."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "قدم وصفا ذا مغزى"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "القيمة القصوى للبيانات المسموح بجمعها."
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "يحدد الحد الأعلى لهذا المتغير."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "القيمة الدنيا للبيانات المسموح بجمعها."
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "يحدد الحد الأدنى لهذا المتغير."
+
+#: templates.php
+msgid "Default Value"
+msgstr "الافتراضي"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "إرجاع أقل قيمة"
+
+#: templates.php view.php
+msgid "Type"
+msgstr "النوع"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "الطريقة التي يجب أن يستخدمها مالك التقرير لتعريف هذا المتغير."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "تحدد المسافة بين قيمتين في حالة اختيار طريقة \"القائمة المنسدلة\". يُرجى التأكد من عدم تعيين هذه القيمة على قيمة منخفضة جدًا ، لأنها تحدد بشكل غير مباشر عدد الخيارات التي سيشتمل عليها حقل القائمة المنسدلة. على سبيل المثال ، ستؤدي المعلمات التالية: MAX: 100 ، MIN: 0 ، STEP: 0.01 إلى مربع اختيار من 10.001 خيارات. يمكن أن يتسبب هذا في مشكلات كبيرة في الأداء بسبب الحمل الكبير لوحدة المعالجة المركزية من جانب العملاء. حاول أن تجعله أقل من 1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "تهيئة المقياس [ تحرير: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "تهيئة المقياس [جديد]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "التفسير المقدم لهذا القياس. سيظهر هذا على أنه وسيلة إيضاح في عمليات التصدير بالإضافة إلى تلميح أداة في عرض التقرير نفسه."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "حدد اختصارًا فريدًا لهذا القياس بحد أقصى. 8 أحرف / أرقام."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "الاسم المعطى لهذا التقرير"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "وظيفة توحيد"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "اسم وظيفة الدمج لتحديد CDPs التي يجب قراءتها."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "اختر \"تمكين\" إذا كان يجب أن يصبح هذا القياس جزءًا من إخراج التقرير النهائي. اتركها بدون علامات إذا كانت هذه القياسات ستُستخدم فقط كعملية حسابية إضافية."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "اختر \"تمكين\" إذا كان هذا المقياس سيكون له نتيجة واحدة فقط في المجموع بدلاً من واحدة لكل عنصر مصدر بيانات. إنها نتيجة<br> سيظهر بشكل منفصل. استخدم هذا الخيار مع \"Visible\" = \"off\" إذا كنت تبحث عن مقياس يحتفظ بنتيجة مؤقتة فقط والتي يجب إعادة استخدامها في حساب القياسات الأخرى دون أن تكون مرئية للمستخدمين النهائيين."
+
+#: templates.php
+msgid "Formatting"
+msgstr "تنسيق"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "يعرّف على أنه نوع البيانات التي يجب التعامل معها."
+
+#: templates.php
+msgid "Precision"
+msgstr "الاحكام"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "يحدد عدد الأرقام العشرية التي يجب عرضها لأرقام الفاصلة العائمة."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "SI-البادئات"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "اختر نوع البادئة المستخدمة لتنسيق النتيجة. باستخدام البادئات العشرية ، سيتم تنسيق \"1024\" إلى \"1.024 كيلو\" بينما يقوم خيار البادئات الثنائية بإرجاع \"1 كي\". حدد \"إيقاف\" لعرض البيانات الأولية ، هنا \"1024\"."
+
+#: templates.php
+msgid "Formula"
+msgstr "نظام الغذاء"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "التعريف الرياضي لهذا المقياس. المسموح بها هي جميع مجموعات العوامل والمعاملات المدرجة أدناه وفقًا لقواعد الرياضيات. استخدم الأقواس المستديرة والمربعة للدلالة على المصطلحات المعقدة وترتيب العمليات."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "العاملين"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "انقر فوق أحد المشغلين أو المعاملين المدرجين لإلحاقهم بصيغة الكالوكاليون الخاصة بك. سيعرض لك تلميح الأداة معلومات إضافية مثل الوصف وقيمة الإرجاع والوسيطات والاستخدام."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "المقاييس [ قالب: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "لم يتم العثور على مقاييس"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "تقرير المرشحات"
+
+#: view.php
+msgid "My Reports"
+msgstr "تقاريري"
+
+#: view.php
+msgid "Go"
+msgstr "انتقال"
+
+#: view.php
+msgid "Clear"
+msgstr "مسح"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "الفترة٪ s من - إلى"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "آخر وقت تشغيل [ث]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "لم يتم العثور على تقارير"
+
+#: view.php
+msgid "Metric"
+msgstr "متري"
+
+#: view.php
+msgid "Data Source"
+msgstr "مصدر البيانات"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "إظهار أعلى 10 من الرسوم"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "عرض العناوين الفرعية"
+
+#: view.php
+msgid "Show Summary"
+msgstr "ملخص"
+
+#: view.php
+msgid "Additional"
+msgstr "حالة جامع البيانات عن بعد:"
+
+#: view.php
+msgid "Items"
+msgstr "الاعلانات"
+
+#: view.php
+msgid "Archive"
+msgstr "أرشيف"
+
+#: view.php
+msgid "Current"
+msgstr "بريدك الإلكتروني الحالي غير مسموح"
+
+#: view.php
+msgid "Title"
+msgstr "العنوان"
+
+#: view.php
+msgid "Runtime"
+msgstr "المدة"
+
+#: view.php
+msgid "Period"
+msgstr "فترة"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "قائمة السيارات التي تم إنشاؤها RRD"
+
+#: view.php
+msgid "Data Description"
+msgstr "بيانات الوصف"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "- ممنوع التغطيس -"
+
+#: view.php
+msgid "No Data Items"
+msgstr "عناصر البيانات"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "المقياس: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "الترتيب."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "النتائج [%s]"
+
