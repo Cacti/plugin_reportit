@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-25 22:35+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/reportit/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/reportit/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -396,7 +396,7 @@ msgstr "Επιστρέφει τη διαφορά μεταξύ της μεγαλ�
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_iqr - Interquartile Range"
-msgstr "f_iqr - Interquartile Range"
+msgstr "f_iqr - Ενδοτεταρτημοριακό εύρος"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the distance of the middle50&#037; around the median per DS"
@@ -472,7 +472,7 @@ msgstr "Επιστρέφει την επόμενη υψηλότερη ακέρα
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "f_round - Round A Float"
-msgstr "f_round - Round A Float"
+msgstr "f_round - Στρογγυλοποίηση δεκαδικού αριθμού"
 
 #: include/global_arrays.php lib/const_measurands.php
 msgid "Returns the rounded integer value of any given float."
@@ -724,23 +724,23 @@ msgstr "Στοιχεία δεδομένων"
 
 #: include/global_arrays.php
 msgid "5,000 Data Source Items"
-msgstr "Πηγή δεδομένων"
+msgstr "5.000 Στοιχεία Προέλευσης Δεδομένων"
 
 #: include/global_arrays.php
 msgid "7,500 Data Source Items"
-msgstr "Πηγή δεδομένων"
+msgstr "7.500 στοιχεία πηγής δεδομένων"
 
 #: include/global_arrays.php
 msgid "10,000 Data Source Items"
-msgstr "Πηγή δεδομένων"
+msgstr "10.000 Στοιχεία Προέλευσης Δεδομένων"
 
 #: include/global_arrays.php
 msgid "15,000 Data Source Items"
-msgstr "Πηγή δεδομένων"
+msgstr "15.000 Στοιχεία Προέλευσης Δεδομένων"
 
 #: include/global_arrays.php
 msgid "25,000 Data Source Items"
-msgstr "Πηγή δεδομένων"
+msgstr "25.000 Στοιχεία Προέλευσης Δεδομένων"
 
 #: include/global_arrays.php
 msgid "1 Minute"
@@ -989,7 +989,7 @@ msgstr "Email"
 
 #: lib/const_reports.php reportit.php
 msgid "Data Sources"
-msgstr "Data Sources"
+msgstr "Πηγές δεδομένων"
 
 #: lib/const_reports.php lib/const_view.php
 msgid "Text CSV (.csv)"
@@ -1369,7 +1369,7 @@ msgstr "Ενεργοποιήστε το στοιχείο προέλευσης δ
 
 #: lib/funct_html.php
 msgid "Data Source Alias"
-msgstr "Πηγή δεδομένων"
+msgstr "Ψευδώνυμο πηγής δεδομένων"
 
 #: lib/funct_html.php
 #, php-format
@@ -1501,7 +1501,7 @@ msgstr "Τελευταίος χρόνος εκτέλεσης"
 
 #: reportit.php templates.php
 msgid "N/A"
-msgstr "Μη Διαθέσιμο"
+msgstr "Μη Εφαρμόσιμο"
 
 #: reportit.php
 msgid "Add sources"
@@ -1509,7 +1509,7 @@ msgstr "Προσθέστε πηγές"
 
 #: reportit.php
 msgid "Edit sources"
-msgstr "Πηγή δεδομένων"
+msgstr "Επεξεργασία πηγών"
 
 #: reportit.php
 #, php-format
@@ -1543,7 +1543,7 @@ msgstr "Δεν βρέθηκαν παραλήπτες"
 
 #: reportit.php
 msgid "Data Source Name"
-msgstr "Πηγή δεδομένων"
+msgstr "Όνομα πηγής δεδομένων"
 
 #: reportit.php
 msgid "Associated"
@@ -1681,7 +1681,7 @@ msgstr "Εργάσιμες:"
 
 #: reportit.php
 msgid "Shifttime:"
-msgstr "Shifttime:"
+msgstr "Μετατόπιση χρόνου:"
 
 #: reportit.php
 msgid "You must select at least one Report."
@@ -1765,7 +1765,7 @@ msgstr "Πρότυπα"
 
 #: setup.php
 msgid "No data source item selected"
-msgstr "Δεν υπάρχουν στοιχεία δεδομένων"
+msgstr "Δεν έχει επιλεγεί στοιχείο πηγής δεδομένων"
 
 #: setup.php
 msgid "Unselected data source items are still in use"
@@ -1877,7 +1877,7 @@ msgstr "Ο διαχωριστής στήλης που χρησιμοποιείτ
 
 #: setup.php
 msgid "CSV Decimal Separator"
-msgstr "CSV Decimal Separator"
+msgstr "Διαχωριστικό δεκαδικών CSV"
 
 #: setup.php
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
@@ -2323,7 +2323,7 @@ msgstr "Μετρικό σύστημα"
 
 #: view.php
 msgid "Data Source"
-msgstr "Ανεπεξέργαστη πηγή"
+msgstr "Πηγή δεδομένων"
 
 #: view.php
 msgid "Show Top 10 Graphs"
