@@ -2388,7 +2388,7 @@ msgstr "מדד: %s (%s)"
 
 #: view.php
 msgid "Pos."
-msgstr "מיקום"
+msgstr "מיקום."
 
 #: view.php
 #, php-format
