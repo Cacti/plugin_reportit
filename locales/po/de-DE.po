@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/reportit/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-28 16:07-0400\nPO-Revision-Date: 2026-11-26 10:48+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/reportit/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: include/global_arrays.php lib/const_reports.php lib/const_variables.php
 #: templates.php
@@ -632,7 +632,7 @@ msgstr "CSV Dezimaltrenner"
 
 #: include/global_arrays.php
 msgid "Decimal Mark used to separate the integer part from the fractional part"
-msgstr "Das Symbol, das das Ende des ganzzahligen Teils und den Anfang des Bruchteils anzeigt"
+msgstr "Das Symbol, welches das Ende des ganzzahligen Teils und den Anfang des Bruchteils anzeigt"
 
 #: include/global_arrays.php
 msgid "Round Bracket"
@@ -1881,7 +1881,7 @@ msgstr "CSV Dezimaltrenner"
 
 #: setup.php
 msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
-msgstr "Das Symbol, das das Ende des ganzzahligen Teils und den Anfang des Bruchteils anzeigt."
+msgstr "Das Symbol, welches das Ende des ganzzahligen Teils und den Anfang des Bruchteils anzeigt."
 
 #: setup.php
 msgid "Report General Settings"
@@ -2197,7 +2197,7 @@ msgstr "Typ"
 
 #: templates.php
 msgid "The method the report owner should use to define this variable."
-msgstr "Die Methode, mit der der Berichtseigner diese Variable definieren sollte."
+msgstr "Die Methode, mit welcher der Berichtseigner diese Variable definieren sollte."
 
 #: templates.php
 msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
