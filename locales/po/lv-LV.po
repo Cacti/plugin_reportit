@@ -1,0 +1,2407 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-09-28 16:07-0400\n"
+"PO-Revision-Date: 2026-11-28 02:00+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Latvian <https://translate.cacti.net/projects/cacti/reportit/lv/>\n"
+"Language: lv-LV\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+
+#: include/global_arrays.php lib/const_reports.php lib/const_variables.php
+#: templates.php
+msgid "Delete"
+msgstr "Dzēst"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Duplicate"
+msgstr "Dublēt"
+
+#: include/global_arrays.php
+msgid "Lock"
+msgstr "Bloķēt"
+
+#: include/global_arrays.php
+msgid "Unlock"
+msgstr "Atbloķēt"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Export"
+msgstr "Eksportēt"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: lib/const_variables.php reportit.php templates.php view.php
+msgid "Name"
+msgstr "Nosaukums"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Internal Name"
+msgstr "Iekšējais nosaukums"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Maximum"
+msgstr "Maksimums"
+
+#: include/global_arrays.php lib/const_variables.php lib/const_view.php
+#: templates.php
+msgid "Minimum"
+msgstr "Minimums"
+
+#: include/global_arrays.php lib/const_variables.php reportit.php templates.php
+#: view.php
+msgid "Default"
+msgstr "Noklusējuma"
+
+#: include/global_arrays.php templates.php
+msgid "Stepping"
+msgstr "Solis"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input Type"
+msgstr "Ievades tips"
+
+#: include/global_arrays.php templates.php
+msgid "Options"
+msgstr "Opcijas"
+
+#: include/global_arrays.php reportit.php templates.php
+msgid "ID"
+msgstr "ID"
+
+#: include/global_arrays.php templates.php
+msgid "Abbreviation"
+msgstr "Saīsinājums"
+
+#: include/global_arrays.php
+msgid "Group"
+msgstr "Grupa"
+
+#: include/global_arrays.php templates.php
+msgid "Unit"
+msgstr "Mērvienība"
+
+#: include/global_arrays.php templates.php
+msgid "Consolidation Function"
+msgstr "Konsolidācijas funkcija"
+
+#: include/global_arrays.php templates.php
+msgid "Visible"
+msgstr "Redzams"
+
+#: include/global_arrays.php templates.php
+msgid "Separate"
+msgstr "Atsevišķs"
+
+#: include/global_arrays.php templates.php
+msgid "Calculation Formula"
+msgstr "Aprēķina formula"
+
+#: include/global_arrays.php
+msgid "Generic ID"
+msgstr "Vispārīgs ID"
+
+#: include/global_arrays.php
+msgid "Elements"
+msgstr "Elementi"
+
+#: include/global_arrays.php setup.php templates.php
+msgid "Metrics"
+msgstr "Metrikas"
+
+#: include/global_arrays.php
+msgid "Associated Data Templates"
+msgstr "Saistītās datu veidnes"
+
+#: include/global_arrays.php include/global_forms.php lib/const_reports.php
+#: reportit.php setup.php templates.php
+msgid "General"
+msgstr "Vispārīgi"
+
+#: include/global_arrays.php
+msgid "Data Templates"
+msgstr "Datu veidnes"
+
+#: include/global_arrays.php
+msgid "Groups"
+msgstr "Grupas"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+#: setup.php templates.php
+msgid "Variables"
+msgstr "Mainīgie"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Today"
+msgstr "Šodien"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 1 Day"
+msgstr "Pēdējā 1 diena"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Days"
+msgstr "Pēdējās 2 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Days"
+msgstr "Pēdējās 3 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Days"
+msgstr "Pēdējās 4 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Days"
+msgstr "Pēdējās 5 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Days"
+msgstr "Pēdējās 6 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 7 Days"
+msgstr "Pēdējās 7 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Sun - Sat)"
+msgstr "Pagājusī nedēļa (Sv - Se)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Week (Mon - Sun)"
+msgstr "Pagājusī nedēļa (Pr - Sv)"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 14 Days"
+msgstr "Pēdējās 14 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 21 Days"
+msgstr "Pēdējā 21 diena"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 28 Days"
+msgstr "Pēdējās 28 dienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Month"
+msgstr "Pašreizējais mēnesis"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Month"
+msgstr "Pagājušais mēnesis"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Months"
+msgstr "Pēdējie 2 mēneši"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 3 Months"
+msgstr "Pēdējie 3 mēneši"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 4 Months"
+msgstr "Pēdējie 4 mēneši"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 5 Months"
+msgstr "Pēdējie 5 mēneši"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 6 Months"
+msgstr "Pēdējie 6 mēneši"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Current Year"
+msgstr "Pašreizējais gads"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last Year"
+msgstr "Pagājušais gads"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Last 2 Years"
+msgstr "Pēdējie 2 gadi"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Daily"
+msgstr "Ikdienas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Weekly"
+msgstr "Iknedēļas"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Monthly"
+msgstr "Katru mēnesi"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Quarterly"
+msgstr "Katru ceturksni"
+
+#: include/global_arrays.php lib/const_reports.php
+msgid "Yearly"
+msgstr "Katru gadu"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Dropdown"
+msgstr "Nolaižamais saraksts"
+
+#: include/global_arrays.php lib/const_variables.php templates.php
+msgid "Input field"
+msgstr "Ievades lauks"
+
+#: include/global_arrays.php lib/const_measurands.php lib/const_reports.php
+#: lib/const_view.php
+msgid "None"
+msgstr "Nav"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary"
+msgstr "Binārs"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Floating point"
+msgstr "Peldošā komata"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer"
+msgstr "Vesels skaitlis"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Integer (unsigned)"
+msgstr "Vesels skaitlis (bez zīmes)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (lower-case)"
+msgstr "Heksadecimāls (mazie burti)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Hexadecimal (upper-case)"
+msgstr "Heksadecimāls (lielie burti)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Octal"
+msgstr "Oktāls"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Scientific Notation"
+msgstr "Zinātniskais pieraksts"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Unchanged"
+msgstr "Nemainīts"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "off"
+msgstr "izslēgts"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Binary SI-Prefixes (Base 1024)"
+msgstr "Binārie SI priedēkļi (bāze 1024)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Decimal SI-Prefixes (Base 1000)"
+msgstr "Decimālie SI priedēkļi (bāze 1000)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_avg - Arithmetic Average"
+msgstr "f_avg - Aritmētiskais vidējais"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the average value of all measured values per DS"
+msgstr "Atgriež visu izmērīto vērtību vidējo vērtību katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "none"
+msgstr "nav"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_max - Maximum Value"
+msgstr "f_max - Maksimālā vērtība"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest measured value per DS"
+msgstr "Atgriež lielāko izmērīto vērtību katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_min - Minimum Value"
+msgstr "f_min - Minimālā vērtība"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest measured value per DS"
+msgstr "Atgriež mazāko izmērīto vērtību katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sum - Sum"
+msgstr "f_sum - Summa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of all measured values per DS"
+msgstr "Atgriež visu izmērīto vērtību summu katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_num - Number of Values (Not NaN)"
+msgstr "f_num - Vērtību skaits (nav NaN)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of valid measured values per DS"
+msgstr "Atgriež derīgo izmērīto vērtību skaitu katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_grd - Gradient"
+msgstr "f_grd - Gradients"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the gradient of a straight line by using linear regression per DS"
+msgstr "Atgriež taisnes gradientu, izmantojot lineāro regresiju katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_last - Last Value"
+msgstr "f_last - Pēdējā vērtība"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the last valid measured value per DS"
+msgstr "Atgriež pēdējo derīgo izmērīto vērtību katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_1st - First Value"
+msgstr "f_1st - Pirmā vērtība"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the first valid measured value per DS"
+msgstr "Atgriež pirmo derīgo izmērīto vērtību katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_nan - Number of NaNs"
+msgstr "f_nan - NaN vērtību skaits"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the number of NaNs stored per DS"
+msgstr "Atgriež saglabāto NaN vērtību skaitu katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_median - Median"
+msgstr "f_median - Mediāna"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns that value that separates the higher half from the lower half per DS"
+msgstr "Atgriež vērtību, kas atdala augstāko pusi no zemākās puses katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_range - Range"
+msgstr "f_range - Diapazons"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the difference between the largest and the smallest value per DS"
+msgstr "Atgriež starpību starp lielāko un mazāko vērtību katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_iqr - Interquartile Range"
+msgstr "f_iqr - Starpkvartiļu diapazons"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the distance of the middle50&#037; around the median per DS"
+msgstr "Atgriež vidējo 50&#037; attālumu ap mediānu katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sd - Standard Deviation"
+msgstr "f_sd - Standartnovirze"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the square root per data source variance"
+msgstr "Atgriež kvadrātsakni no datu avota dispersijas"
+
+#: include/global_arrays.php
+msgid "f_var - Variance"
+msgstr "f_var - Dispersija"
+
+#: include/global_arrays.php
+msgid "Returns the variance per DS"
+msgstr "Atgriež dispersiju katram DS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_xth - Xth Percentile"
+msgstr "f_xth - X. procentile"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the xth percentitle."
+msgstr "Atgriež x. procentili."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold in percent. Range: [0&lt; $var &le;100]"
+msgstr "$var: slieksnis procentos. Diapazons: [0&lt; $var &le;100]"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_dot - Duration Over Threshold"
+msgstr "f_dot - Ilgums virs sliekšņa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the duration over a defined threshold in percent."
+msgstr "Atgriež ilgumu virs noteiktā sliekšņa procentos."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: threshold (absolute)"
+msgstr "$var: slieksnis (absolūtais)"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_sot - Sum Over Threshold"
+msgstr "f_sot - Summa virs sliekšņa"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the sum of values over a defined threshold."
+msgstr "Atgriež vērtību summu virs noteiktā sliekšņa."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_floor - Round Fractions Down"
+msgstr "f_floor - Noapaļot daļskaitli uz leju"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next lowest integer value by rounding down value if necessary."
+msgstr "Atgriež nākamo zemāko veselo skaitli, nepieciešamības gadījumā noapaļojot vērtību uz leju."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float"
+msgstr "$var: peldošā komata skaitlis"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ceil - Round Fractions Up"
+msgstr "f_ceil - Noapaļot daļskaitli uz augšu"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the next highest integer value by rounding up value if necessary."
+msgstr "Atgriež nākamo augstāko veselo skaitli, nepieciešamības gadījumā noapaļojot vērtību uz augšu."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_round - Round A Float"
+msgstr "f_round - Noapaļot peldošā komata skaitli"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the rounded integer value of any given float."
+msgstr "Atgriež noapaļoto veselo skaitli jebkuram dotajam peldošā komata skaitlim."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var: float or string value"
+msgstr "$var: peldošā komata skaitlis vai virknes vērtība"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Highest Value"
+msgstr "f_high - Atrast lielāko vērtību"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the highest value of a given list of parameters"
+msgstr "Atgriež lielāko vērtību no dotā parametru saraksta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "$var1, $var2, $var3 ...: values to be compared"
+msgstr "$var1, $var2, $var3 ...: salīdzināmās vērtības"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_high - Find Lowest Value"
+msgstr "f_high - Atrast mazāko vērtību"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns the lowest value of a given list of parameters"
+msgstr "Atgriež mazāko vērtību no dotā parametru saraksta"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_if - Conditional Operation - IF-THEN-ELSE Logic"
+msgstr "f_if - Nosacījuma darbība - IF-THEN-ELSE loģika"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns B if A is true or C if A is false"
+msgstr "Atgriež B, ja A ir patiess, vai C, ja A ir aplams"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_isNaN - Find whether a value is not a number"
+msgstr "f_isNaN - Pārbaudīt, vai vērtība nav skaitlis"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or B) if A === NaN or 0 (or C) if not. Parameters B and C are optional."
+msgstr "Atgriež 1 (vai B), ja A === NaN, vai 0 (vai C), ja nav. Parametri B un C nav obligāti."
+
+#: include/global_arrays.php
+msgid "f_cmp - Complex Comparison"
+msgstr "f_cmp - Kompleksais salīdzinājums"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_int - Alias of f_floor"
+msgstr "f_int - f_floor aizstājvārds"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_rnd - Alias of f_round"
+msgstr "f_rnd - f_round aizstājvārds"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_eq - Alias of f_cmp - IS EQUAL"
+msgstr "f_eq - f_cmp aizstājvārds - IR VIENĀDS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A == B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Atgriež 1 (vai C), ja A == B, vai 0 (vai D), ja nav. Parametri C un D nav obligāti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_uq - Alias of f_cmp - IS UNEQUAL"
+msgstr "f_uq - f_cmp aizstājvārds - NAV VIENĀDS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A != B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Atgriež 1 (vai C), ja A != B, vai 0 (vai D), ja nav. Parametri C un D nav obligāti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_gt - Alias of f_cmp - IS GREATER THAN"
+msgstr "f_gt - f_cmp aizstājvārds - IR LIELĀKS PAR"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A > B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Atgriež 1 (vai C), ja A > B, vai 0 (vai D), ja nav. Parametri C un D nav obligāti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_lt - Alias of f_cmp - IS LOWER THAN"
+msgstr "f_lt - f_cmp aizstājvārds - IR MAZĀKS PAR"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A < B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Atgriež 1 (vai C), ja A < B, vai 0 (vai D), ja nav. Parametri C un D nav obligāti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_ge - Alias of f_cmp - IS GREATER OR EQUAL"
+msgstr "f_ge - f_cmp aizstājvārds - IR LIELĀKS VAI VIENĀDS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A >= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Atgriež 1 (vai C), ja A >= B, vai 0 (vai D), ja nav. Parametri C un D nav obligāti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "f_le - Alias of f_cmp - IS LOWER OR EQUAL"
+msgstr "f_le - f_cmp aizstājvārds - IR MAZĀKS VAI VIENĀDS"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Returns 1 (or C) if A <= B or 0 (or D) if not. Parameters C and D are optional."
+msgstr "Atgriež 1 (vai C), ja A <= B, vai 0 (vai D), ja nav. Parametri C un D nav obligāti."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Addition"
+msgstr "Saskaitīšana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the sum of two or more summands"
+msgstr "Matemātiska darbība divu vai vairāku saskaitāmo summas iegūšanai"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Subtraction"
+msgstr "Atņemšana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the difference of minuend and subtrahend"
+msgstr "Matemātiska darbība mazināmā un mazinātāja starpības iegūšanai"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Multiplication"
+msgstr "Reizināšana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the product of multiplier and multiplicant"
+msgstr "Matemātiska darbība reizinātāja un reizināmā reizinājuma iegūšanai"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Division"
+msgstr "Dalīšana"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the fraction of divident and divisor"
+msgstr "Matemātiska darbība dalāmā un dalītāja dalījuma iegūšanai"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Modulus"
+msgstr "Modulis"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the remainder of a division of two integers"
+msgstr "Matemātiska darbība divu veselu skaitļu dalīšanas atlikuma iegūšanai"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Exponentiation - PHP5.6 or above required"
+msgstr "Kāpināšana - nepieciešama PHP5.6 vai jaunāka versija"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Mathematical Operation to return the repeated multiplication (or division) of a base by its exponent."
+msgstr "Matemātiska darbība bāzes atkārtotai reizināšanai (vai dalīšanai) ar kāpinātāju."
+
+#: include/global_arrays.php
+msgid "Decimal Mark"
+msgstr "Decimālatdalītājs"
+
+#: include/global_arrays.php
+msgid "Decimal Mark used to separate the integer part from the fractional part"
+msgstr "Decimālatdalītājs, ko izmanto veselās daļas atdalīšanai no daļskaitļa daļas"
+
+#: include/global_arrays.php
+msgid "Round Bracket"
+msgstr "Apaļās iekavas"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the first level of nesting"
+msgstr "Izmanto, lai mainītu parasto darbību secību vai apzīmētu pirmo ligzdošanas līmeni"
+
+#: include/global_arrays.php
+msgid "Square Bracket"
+msgstr "Kvadrātiekavas"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Used to override normal precedence or to mark the second level of nesting"
+msgstr "Izmanto, lai mainītu parasto darbību secību vai apzīmētu otro ligzdošanas līmeni"
+
+#: include/global_arrays.php
+msgid "Punctuation mark"
+msgstr "Pieturzīme"
+
+#: include/global_arrays.php
+msgid "Used to separate arguments forwarded to a function"
+msgstr "Izmanto funkcijai nodoto argumentu atdalīšanai"
+
+#: include/global_arrays.php
+msgid "The minimum value of data that is allowed to be collected."
+msgstr "Minimālā datu vērtība, kuru atļauts apkopot."
+
+#: include/global_arrays.php
+msgid "WARNING! This variable can be set to zero or unlimited"
+msgstr "BRĪDINĀJUMS! Šo mainīgo var iestatīt uz nulli vai bez ierobežojuma"
+
+#: include/global_arrays.php
+msgid "The maximum value of data that is allowed to be collected."
+msgstr "Maksimālā datu vērtība, kuru atļauts apkopot."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Contains the number of seconds between two measured values."
+msgstr "Satur sekunžu skaitu starp divām izmērītajām vērtībām."
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions w/o parameters"
+msgstr "Funkcijas bez parametriem"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Functions with parameters"
+msgstr "Funkcijas ar parametriem"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Aliases"
+msgstr "Aizstājvārdi"
+
+#: include/global_arrays.php lib/const_measurands.php
+msgid "Operators"
+msgstr "Operatori"
+
+#: include/global_arrays.php
+msgid "Numbers"
+msgstr "Skaitļi"
+
+#: include/global_arrays.php
+msgid "Others"
+msgstr "Citi"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Data Query Variables"
+msgstr "Datu vaicājuma mainīgie"
+
+#: include/global_arrays.php lib/const_measurands.php lib/funct_html.php
+msgid "Interim Results"
+msgstr "Starprezultāti"
+
+#: include/global_arrays.php
+msgid "Unlimited"
+msgstr "Neierobežots"
+
+#: include/global_arrays.php
+msgid "500 Data Items"
+msgstr "500 datu vienumu"
+
+#: include/global_arrays.php
+msgid "1,000 Data Items"
+msgstr "1 000 datu vienumu"
+
+#: include/global_arrays.php
+msgid "2,000 Data Items"
+msgstr "2 000 datu vienumu"
+
+#: include/global_arrays.php
+msgid "5,000 Data Source Items"
+msgstr "5 000 datu avota vienumu"
+
+#: include/global_arrays.php
+msgid "7,500 Data Source Items"
+msgstr "7 500 datu avota vienumu"
+
+#: include/global_arrays.php
+msgid "10,000 Data Source Items"
+msgstr "10 000 datu avota vienumu"
+
+#: include/global_arrays.php
+msgid "15,000 Data Source Items"
+msgstr "15 000 datu avota vienumu"
+
+#: include/global_arrays.php
+msgid "25,000 Data Source Items"
+msgstr "25 000 datu avota vienumu"
+
+#: include/global_arrays.php
+msgid "1 Minute"
+msgstr "1 minūte"
+
+#: include/global_arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minūtes"
+
+#: include/global_forms.php
+msgid "The unique name given to this Report Template."
+msgstr "Šai atskaites veidnei piešķirtais unikālais nosaukums."
+
+#: include/global_forms.php templates.php view.php
+msgid "Description"
+msgstr "Apraksts"
+
+#: include/global_forms.php
+msgid "A longer description of this Report Template."
+msgstr "Detalizētāks šīs atskaites veidnes apraksts."
+
+#: include/global_forms.php templates.php
+msgid "Version"
+msgstr "Versija"
+
+#: include/global_forms.php
+msgid "A version number for this template"
+msgstr "Šīs veidnes versijas numurs"
+
+#: include/global_forms.php templates.php
+msgid "Author"
+msgstr "Autors"
+
+#: include/global_forms.php
+msgid "The author of this template"
+msgstr "Šīs veidnes autors"
+
+#: include/global_forms.php
+msgid "Publish"
+msgstr "Publicēt"
+
+#: include/global_forms.php
+msgid "Should this report template be published for users to access? For testing purposes of new templates or modifications you should uncheck this box."
+msgstr "Vai publicēt šo atskaites veidni lietotāju piekļuvei? Jaunu veidņu vai izmaiņu testēšanas nolūkos noņemiet atzīmi no šīs izvēles rūtiņas."
+
+#: include/global_forms.php templates.php
+msgid "Locked"
+msgstr "Bloķēts"
+
+#: include/global_forms.php
+msgid "The status \"locked\" avoids any kind of modification to your report template as well as assigned measurands and variable definitions"
+msgstr "Statuss \"bloķēts\" novērš jebkādas izmaiņas jūsu atskaites veidnē, kā arī piešķirtajos mērāmajos lielumos un mainīgo definīcijās"
+
+#: include/global_forms.php
+msgid "Additional Pre-filter"
+msgstr "Papildu priekšfiltrs"
+
+#: include/global_forms.php
+msgid "Optional: The syntax to filter the available list of data items by their description. Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Neobligāti: sintakse pieejamo datu vienumu saraksta filtrēšanai pēc to apraksta. Izmantojiet SQL aizstājējzīmes, piemēram, % un/vai _. Bez regulārajām izteiksmēm!"
+
+#: include/global_forms.php
+msgid "Export Path"
+msgstr "Eksportēšanas ceļš"
+
+#: include/global_forms.php
+msgid "Optional: The path to an folder for saving the exports.  If it does not exist ReportIt automatically tries to create it during the first scheduled calculation, else it will try to create a new subfolder within the main export folder using the template id."
+msgstr "Neobligāti: ceļš uz mapi eksportēto failu saglabāšanai. Ja tā neeksistē, ReportIt automātiski mēģinās to izveidot pirmā ieplānotā aprēķina laikā, pretējā gadījumā tas mēģinās izveidot jaunu apakšmapi galvenajā eksportēšanas mapē, izmantojot veidnes ID."
+
+#: include/global_forms.php templates.php
+msgid "Data Template"
+msgstr "Datu veidne"
+
+#: include/global_forms.php
+msgid "The name of the data template this Report Template depends on."
+msgstr "Datu veidnes nosaukums, no kuras atkarīga šī atskaites veidne."
+
+#: include/global_forms.php
+msgid "Report Template"
+msgstr "Atskaites veidne"
+
+#: include/global_forms.php
+msgid "Choose one of your Report Templates to export to XML."
+msgstr "Izvēlieties vienu no savām atskaites veidnēm eksportēšanai uz XML."
+
+#: include/global_forms.php
+msgid "[Optional] Description"
+msgstr "[Neobligāti] Apraksts"
+
+#: include/global_forms.php
+msgid "Describe the characteristics of your report template"
+msgstr "Aprakstiet savas atskaites veidnes īpašības"
+
+#: include/global_forms.php
+msgid "[Optional] Author"
+msgstr "[Neobligāti] Autors"
+
+#: include/global_forms.php
+msgid "Add your name or nick here."
+msgstr "Šeit pievienojiet savu vārdu vai segvārdu."
+
+#: include/global_forms.php
+msgid "[Optional] Version"
+msgstr "[Neobligāti] Versija"
+
+#: include/global_forms.php
+msgid "[Optional] Contact"
+msgstr "[Neobligāti] Kontaktinformācija"
+
+#: lib/const_graphs.php
+msgid "Bar (vertical)"
+msgstr "Stabiņu (vertikāls)"
+
+#: lib/const_graphs.php
+msgid "Bar (horizontal)"
+msgstr "Stabiņu (horizontāls)"
+
+#: lib/const_graphs.php
+msgid "Line"
+msgstr "Līnija"
+
+#: lib/const_graphs.php
+msgid "Area"
+msgstr "Laukums"
+
+#: lib/const_graphs.php
+msgid "Pie chart 3D"
+msgstr "3D sektoru diagramma"
+
+#: lib/const_graphs.php lib/const_view.php
+msgid "Spider"
+msgstr "Zirnekļtīkla"
+
+#: lib/const_measurands.php
+msgid "f_mode - Mode"
+msgstr "f_mode - Moda"
+
+#: lib/const_measurands.php
+msgid "Returns the value that appears most often per DS"
+msgstr "Atgriež vērtību, kas visbiežāk atkārtojas katram DS"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) parenthesis"
+msgstr "Kreisā (atverošā) apaļā iekava"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) parenthesis"
+msgstr "Labā (aizverošā) apaļā iekava"
+
+#: lib/const_measurands.php
+msgid "Left (Opening) Square Bracket"
+msgstr "Kreisā (atverošā) kvadrātiekava"
+
+#: lib/const_measurands.php
+msgid "Right (Closing) Square Bracket"
+msgstr "Labā (aizverošā) kvadrātiekava"
+
+#: lib/const_measurands.php
+msgid "Contains the maximum bandwidth if 'ifspeed' is available."
+msgstr "Satur maksimālo joslas platumu, ja ir pieejams 'ifspeed'."
+
+#: lib/const_measurands.php
+msgid "Contains the maximum value that has been defined for the specific data source item under \\\"Data Sources\\\"."
+msgstr "Satur maksimālo vērtību, kas noteikta konkrētajam datu avota vienumam sadaļā \\\"Datu avoti\\\"."
+
+#: lib/const_measurands.php
+msgid "Contains the number of NAN's during the reporting period."
+msgstr "Satur NAN vērtību skaitu atskaites periodā."
+
+#: lib/const_measurands.php
+msgid "Parentheses"
+msgstr "Apaļās iekavas"
+
+#: lib/const_reports.php
+msgid "Disable"
+msgstr "Atspējot"
+
+#: lib/const_reports.php setup.php
+msgid "Enable"
+msgstr "Iespējot"
+
+#: lib/const_reports.php
+msgid "Run Now"
+msgstr "Palaist tūlīt"
+
+#: lib/const_reports.php
+msgid "Take Ownership"
+msgstr "Pārņemt īpašumtiesības"
+
+#: lib/const_reports.php
+msgid "CRASHED"
+msgstr "AVARĒJIS"
+
+#: lib/const_reports.php
+msgid "FAILED"
+msgstr "NEIZDEVĀS"
+
+#: lib/const_reports.php
+msgid "Idle"
+msgstr "Dīkstāvē"
+
+#: lib/const_reports.php
+msgid "Running"
+msgstr "Darbojas"
+
+#: lib/const_reports.php
+msgid "- No template available -"
+msgstr "- Nav pieejama neviena veidne -"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Monday"
+msgstr "Pirmdiena"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Tuesday"
+msgstr "Otrdiena"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Wednesday"
+msgstr "Trešdiena"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Thursday"
+msgstr "Ceturtdiena"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Friday"
+msgstr "Piektdiena"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Saturday"
+msgstr "Sestdiena"
+
+#: lib/const_reports.php lib/const_rrdlist.php lib/funct_runtime.php
+msgid "Sunday"
+msgstr "Svētdiena"
+
+#: lib/const_reports.php
+msgid "Data Source Presets"
+msgstr "Datu avotu sagataves"
+
+#: lib/const_reports.php reportit.php
+msgid "Email"
+msgstr "E-pasts"
+
+#: lib/const_reports.php reportit.php
+msgid "Data Sources"
+msgstr "Datu avoti"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Text CSV (.csv)"
+msgstr "Teksta CSV (.csv)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "MS Excel 2003 XML (.xml)"
+msgstr "MS Excel 2003 XML (.xml)"
+
+#: lib/const_reports.php lib/const_view.php
+msgid "Raw XML (.xml)"
+msgstr "Neapstrādāts XML (.xml)"
+
+#: lib/const_reports.php
+msgid "JSON Data (.json)"
+msgstr "JSON dati (.json)"
+
+#: lib/const_reports.php
+msgid "YAML Data (.yaml)"
+msgstr "YAML dati (.yaml)"
+
+#: lib/const_reports.php
+msgid "Subject"
+msgstr "Temats"
+
+#: lib/const_reports.php
+msgid "Enter the subject of your email.<br> Following variables will be supported (without quotes): '|title|' and '|period|'"
+msgstr "Ievadiet e-pasta tematu.<br> Tiek atbalstīti šādi mainīgie (bez pēdiņām): '|title|' un '|period|'"
+
+#: lib/const_reports.php
+msgid "Scheduled report - |title| - |period|"
+msgstr "Ieplānotā atskaite - |title| - |period|"
+
+#: lib/const_reports.php
+msgid "Body (optional)"
+msgstr "Saturs (neobligāts)"
+
+#: lib/const_reports.php
+msgid "Enter a message which will be displayed in the body of your email"
+msgstr "Ievadiet ziņojumu, kas tiks parādīts e-pasta saturā"
+
+#: lib/const_reports.php
+msgid "This is a scheduled report generated from Cacti."
+msgstr "Šī ir ieplānotā atskaite, kas ģenerēta sistēmā Cacti."
+
+#: lib/const_reports.php
+msgid "Attachment"
+msgstr "Pielikums"
+
+#: lib/const_reports.php
+msgid "Only to receive an email as a notification that a new report is available choose 'None'.<br> Otherwise select the format the report should be attached as."
+msgstr "Lai saņemtu tikai e-pasta paziņojumu par jaunas atskaites pieejamību, izvēlieties 'Nav'.<br> Pretējā gadījumā atlasiet formātu, kādā pievienot atskaiti."
+
+#: lib/const_reports.php
+msgid "Email Recipients"
+msgstr "E-pasta adresāti"
+
+#: lib/const_reports.php
+msgid "Notification List Recipients"
+msgstr "Paziņojumu saraksta adresāti"
+
+#: lib/const_reports.php
+msgid "To add a Recipients based upon an valid Notification List."
+msgstr "Lai pievienotu adresātus, pamatojoties uz derīgu paziņojumu sarakstu."
+
+#: lib/const_reports.php
+msgid "To Email Address(es)"
+msgstr "Saņēmēja e-pasta adrese(-s)"
+
+#: lib/const_reports.php
+msgid "Please separate multiple addresses by comma (,)"
+msgstr "Lūdzu, atdaliet vairākas adreses ar komatu (,)"
+
+#: lib/const_reports.php
+msgid "BCC Address(es)"
+msgstr "Diskrētās kopijas (BCC) adrese(-s)"
+
+#: lib/const_reports.php
+msgid "Blind carbon copy. Please separate multiple addresses by comma (,)"
+msgstr "Diskrētā kopija. Lūdzu, atdaliet vairākas adreses ar komatu (,)"
+
+#: lib/const_reports.php
+msgid "New Email Recipients"
+msgstr "Jauni e-pasta adresāti"
+
+#: lib/const_reports.php
+msgid "To add a new recipient enter a valid email address (required) and a name (optional).<br> For a faster setup use a list of addresses/names where the names/addresses are separated with one of the following delimiters: ';' or ','"
+msgstr "Lai pievienotu jaunu adresātu, ievadiet derīgu e-pasta adresi (obligāta) un vārdu (neobligāts).<br> Ātrākai iestatīšanai izmantojiet adrešu/vārdu sarakstu, kur vārdi/adreses ir atdalīti ar kādu no šiem atdalītājiem: ';' vai ','"
+
+#: lib/const_reports.php
+msgid "Optional Sub-heading"
+msgstr "Neobligāts apakšvirsraksts"
+
+#: lib/const_reports.php reportit.php
+msgid "Define an additional subhead that should be on display under the interface description.<br> Following variables will be supported (without quotes): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+msgstr "Definējiet papildu apakšvirsrakstu, kam jāparādās zem saskarnes apraksta.<br> Tiek atbalstīti šādi mainīgie (bez pēdiņām): '|t1|' '|t2|' '|tmz|' '|d1|' '|d2|'"
+
+#: lib/const_reports.php reportit.php
+msgid "Time Zone"
+msgstr "Laika josla"
+
+#: lib/const_reports.php
+msgid "Select the time zone your following shifttime informations will be based on."
+msgstr "Atlasiet laika joslu, uz kuru balstīsies tālāk norādītā maiņas laika informācija."
+
+#: lib/const_reports.php
+msgid "Optional Data Source Pre-Filters"
+msgstr "Neobligāti datu avotu priekšfiltri"
+
+#: lib/const_reports.php
+msgid "Site Filter"
+msgstr "Atrašanās vietas filtrs"
+
+#: lib/const_reports.php
+msgid "Use this Sites matching Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Izmantot tikai šai atrašanās vietai atbilstošos datu avotus.<br>Atlasiet 'Nav' (noklusējuma), lai deaktivizētu šo filtra iestatījumu."
+
+#: lib/const_reports.php
+msgid "Device Template Filter"
+msgstr "Ierīces veidnes filtrs"
+
+#: lib/const_reports.php
+msgid "Use this Device Templates Data Sources only.<br>Select 'None' (default) to deactivate this filter setting."
+msgstr "Izmantot tikai šīs ierīces veidnes datu avotus.<br>Atlasiet 'Nav' (noklusējuma), lai deaktivizētu šo filtra iestatījumu."
+
+#: lib/const_reports.php
+msgid "Data Source Name Filter"
+msgstr "Datu avota nosaukuma filtrs"
+
+#: lib/const_reports.php
+msgid "Use Data Sources whose names match this filter.<br> Use SQL wildcards like % and/or _. No regular Expressions!"
+msgstr "Izmantot datu avotus, kuru nosaukumi atbilst šim filtram.<br> Izmantojiet SQL aizstājējzīmes, piemēram, % un/vai _. Bez regulārajām izteiksmēm!"
+
+#: lib/const_reports.php
+msgid "Auto Generated Data Items"
+msgstr "Automātiski ģenerēti datu vienumi"
+
+#: lib/const_reports.php
+msgid "Enable/disable automatic creation of all data items based on given filters. This will be called before report execution.  Obsolete RRDs will be deleted and all RRDs matching the filter settings will be added."
+msgstr "Iespējot/atspējot automātisku visu datu vienumu izveidi, pamatojoties uz norādītajiem filtriem. Tas tiks izsaukts pirms atskaites izpildes. Novecojušie RRD faili tiks dzēsti, un tiks pievienoti visi filtra iestatījumiem atbilstošie RRD faili."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Time"
+msgstr "Darba laiks"
+
+#: lib/const_reports.php reportit.php
+msgid "From"
+msgstr "No"
+
+#: lib/const_reports.php reportit.php
+msgid "The startpoint of duration you want to analyse"
+msgstr "Analizējamā laikposma sākuma punkts"
+
+#: lib/const_reports.php reportit.php
+msgid "To"
+msgstr "Līdz"
+
+#: lib/const_reports.php reportit.php
+msgid "The end of analysing time."
+msgstr "Analizējamā laikposma beigas."
+
+#: lib/const_reports.php reportit.php
+msgid "Working Days"
+msgstr "Darba dienas"
+
+#: lib/const_reports.php reportit.php
+msgid "Define the band of days where shift STARTS!"
+msgstr "Norādiet dienu diapazonu, kurās SĀKAS maiņa!"
+
+#: lib/const_reports.php reportit.php
+msgid "Example: For a nightshift from Mo(22:30) till Sat(06:30) define Monday to Friday"
+msgstr "Piemērs: nakts maiņai no P(22:30) līdz S(06:30) norādiet no pirmdienas līdz piektdienai"
+
+#: lib/const_reports.php
+msgid "The name given to this report"
+msgstr "Šai atskaitei piešķirtais nosaukums"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Template"
+msgstr "Veidne"
+
+#: lib/const_reports.php
+msgid "The template your configuration depends on"
+msgstr "Veidne, no kuras ir atkarīga jūsu konfigurācija"
+
+#: lib/const_reports.php lib/funct_export.php view.php
+msgid "Owner"
+msgstr "Īpašnieks"
+
+#: lib/const_reports.php
+msgid "Change the owner of this report. Only users with the permission \"view\" or above can be chosen."
+msgstr "Mainīt šīs atskaites īpašnieku. Var izvēlēties tikai lietotājus ar atļauju \"skatīt\" vai augstāku."
+
+#: lib/const_reports.php reportit.php view.php
+msgid "Enabled"
+msgstr "Iespējots"
+
+#: lib/const_reports.php
+msgid "Enable/disable scheduled reporting. Sliding time frame should be enabled."
+msgstr "Iespējot/atspējot ieplānoto atskaišu sagatavošanu. Jābūt iespējotam slīdošajam laika posmam."
+
+#: lib/const_reports.php reportit.php
+msgid "Public"
+msgstr "Publiska"
+
+#: lib/const_reports.php
+msgid "If enabled everyone can see your report under tab 'reports'"
+msgstr "Ja iespējots, ikviens var redzēt jūsu atskaiti cilnē 'Atskaites'"
+
+#: lib/const_reports.php
+msgid "Enable Use of Graph Permissions"
+msgstr "Iespējot grafiku atļauju izmantošanu"
+
+#: lib/const_reports.php
+msgid "If enabled (default) the list of available data items will be filtered automatically by owner's graph permission: 'by device'."
+msgstr "Ja iespējots (noklusējuma), pieejamo datu vienumu saraksts tiks automātiski filtrēts pēc īpašnieka grafiku atļaujām: 'pēc ierīces'."
+
+#: lib/const_reports.php
+msgid "Auto Generated Email"
+msgstr "Automātiski ģenerēts e-pasts"
+
+#: lib/const_reports.php
+msgid "If enabled tab 'Email' will be activated and all recipients defined under that section will receive automatically an email containing this scheduled report."
+msgstr "Ja iespējots, tiks aktivizēta cilne 'E-pasts', un visi šajā sadaļā definētie adresāti automātiski saņems e-pastu ar šo ieplānoto atskaiti."
+
+#: lib/const_reports.php
+msgid "Reporting Period"
+msgstr "Atskaites periods"
+
+#: lib/const_reports.php view.php
+msgid "Sliding Time Frame"
+msgstr "Slīdošais laika posms"
+
+#: lib/const_reports.php
+msgid "If checked the reporting period will be configured automatically in relation to the point of time the calculation starts."
+msgstr "Ja atzīmēts, atskaites periods tiks konfigurēts automātiski attiecībā pret brīdi, kad sākas aprēķins."
+
+#: lib/const_reports.php
+msgid "Time Frames"
+msgstr "Laika posmi"
+
+#: lib/const_reports.php
+msgid "The time frame you want to analyse in relation to the point of time the calculation starts.<br>This means calendar days, calendar months and calendar years."
+msgstr "Laika posms, kuru vēlaties analizēt attiecībā pret aprēķina sākuma brīdi.<br>Tas nozīmē kalendārās dienas, kalendāros mēnešus un kalendāros gadus."
+
+#: lib/const_reports.php
+msgid "Up To The Day of Calculation"
+msgstr "Līdz aprēķina dienai"
+
+#: lib/const_reports.php
+msgid "Extend the sliding time frame up to the day the calculation runs."
+msgstr "Pagarināt slīdošo laika posmu līdz dienai, kad tiek veikts aprēķins."
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - Start Date (From)"
+msgstr "Fiksēts laika posms - sākuma datums (No)"
+
+#: lib/const_reports.php
+msgid "To define the start date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Lai norādītu sākuma datumu, izmantojiet šādu formātu: <b>gggg-mm-dd</b>"
+
+#: lib/const_reports.php
+msgid "Fixed Time Frame - End Date (To)"
+msgstr "Fiksēts laika posms - beigu datums (Līdz)"
+
+#: lib/const_reports.php
+msgid "To define the end date use the following format: <b>yyyy-mm-dd</b>"
+msgstr "Lai norādītu beigu datumu, izmantojiet šādu formātu: <b>gggg-mm-dd</b>"
+
+#: lib/const_rrdlist.php
+msgid "Add to Report"
+msgstr "Pievienot atskaitei"
+
+#: lib/const_rrdlist.php
+msgid "Remove from Report"
+msgstr "Noņemt no atskaites"
+
+#: lib/const_rrdlist.php
+msgid "Copy Settings to All"
+msgstr "Kopēt iestatījumus visiem"
+
+#: lib/const_rrdlist.php setup.php
+msgid "Add"
+msgstr "Pievienot"
+
+#: lib/const_view.php
+msgid "Bar chart: vertical"
+msgstr "Joslu diagramma: vertikāla"
+
+#: lib/const_view.php
+msgid "Bar chart: horizontal"
+msgstr "Joslu diagramma: horizontāla"
+
+#: lib/const_view.php
+msgid "Line chart"
+msgstr "Līniju diagramma"
+
+#: lib/const_view.php
+msgid "Area chart"
+msgstr "Apgabalu diagramma"
+
+#: lib/const_view.php
+msgid "Pie chart: 3D"
+msgstr "Sektoru diagramma: 3D"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Hi"
+msgstr "%s augstākie"
+
+#: lib/const_view.php
+#, php-format
+msgid "%s Lo"
+msgstr "%s zemākie"
+
+#: lib/const_view.php
+msgid "Any"
+msgstr "Jebkurš"
+
+#: lib/const_view.php view.php
+msgid "All"
+msgstr "Visi"
+
+#: lib/const_view.php
+msgid "Sum"
+msgstr "Summa"
+
+#: lib/const_view.php
+msgid "Average"
+msgstr "Vidējais"
+
+#: lib/funct_export.php
+msgid "Report title"
+msgstr "Atskaites nosaukums"
+
+#: lib/funct_export.php
+msgid "Start"
+msgstr "Sākums"
+
+#: lib/funct_export.php
+msgid "End"
+msgstr "Beigas"
+
+#: lib/funct_export.php view.php
+msgid "Last Run"
+msgstr "Pēdējā izpilde"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Description: %s"
+msgstr "Apraksts: %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Syntax:      %s"
+msgstr "Sintakse:    %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Parameters:  %s"
+msgstr "Parametri:   %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Examples:    %s"
+msgstr "Piemēri:     %s"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Enable [%s]"
+msgstr "Iespējot [%s]"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Activate data source item '%s' for the calculation process."
+msgstr "Aktivizēt datu avota vienumu '%s' aprēķina procesam."
+
+#: lib/funct_html.php
+msgid "Data Source Alias"
+msgstr "Datu avota aizstājvārds"
+
+#: lib/funct_html.php
+#, php-format
+msgid "Optional: You can define an alias which should be displayed instead of the internal data source name '%s' in the reports."
+msgstr "Neobligāts: varat definēt aizstājvārdu, kas atskaitēs tiks rādīts iekšējā datu avota nosaukuma '%s' vietā."
+
+#: lib/funct_html.php
+msgid "Separate Group Title [overall]"
+msgstr "Atsevišķas grupas nosaukums [kopējais]"
+
+#: lib/funct_html.php
+msgid "Optional: You can define an group name which should be displayed as the title for all separate measurands within the reports."
+msgstr "Neobligāts: varat definēt grupas nosaukumu, kas atskaitēs tiks rādīts kā virsraksts visiem atsevišķajiem mērāmajiem lielumiem."
+
+#: lib/funct_shared.php
+msgid "Unknown Owner"
+msgstr "Nezināms īpašnieks"
+
+#: lib/funct_validate.php
+msgid "The file is to big."
+msgstr "Fails ir pārāk liels."
+
+#: lib/funct_validate.php
+msgid "Incomplete file transfer."
+msgstr "Nepilnīga faila pārsūtīšana."
+
+#: lib/funct_validate.php
+msgid "No file uploaded."
+msgstr "Nav augšupielādēts neviens fails."
+
+#: lib/funct_validate.php
+msgid "Temporary folder missing."
+msgstr "Trūkst pagaidu mapes."
+
+#: lib/funct_validate.php
+msgid "Failed to write file to disk"
+msgstr "Neizdevās ierakstīt failu diskā"
+
+#: lib/funct_validate.php
+msgid "File upload stopped by extension"
+msgstr "Faila augšupielādi apturēja paplašinājums"
+
+#: lib/funct_validate.php
+msgid "Invalid file extension."
+msgstr "Nederīgs faila paplašinājums."
+
+#: lib/funct_validate.php
+msgid "Unable to parse template file."
+msgstr "Neizdevās parsēt veidnes failu."
+
+#: lib/funct_validate.php
+#, php-format
+msgid "Checksum error with Template %s in XML file"
+msgstr "Kontrolsummas kļūda veidnei %s XML failā"
+
+#: reportit.php
+msgid "New Report"
+msgstr "Jauna atskaite"
+
+#: reportit.php
+#, php-format
+msgid "There are no unlocked and enabled report templates available (%s locked or disabled)."
+msgstr "Nav pieejama neviena atbloķēta un iespējota atskaites veidne (%s bloķētas vai atspējotas)."
+
+#: reportit.php templates.php
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: reportit.php templates.php
+msgid "Continue"
+msgstr "Turpināt"
+
+#: reportit.php
+msgid "Create a new report"
+msgstr "Izveidot jaunu atskaiti"
+
+#: reportit.php
+msgid "Choose a template this report should depend on."
+msgstr "Izvēlieties veidni, no kuras būs atkarīga šī atskaite."
+
+#: reportit.php
+msgid "Report Filters"
+msgstr "Atskaišu filtri"
+
+#: reportit.php templates.php view.php
+msgid "Search"
+msgstr "Meklēt"
+
+#: reportit.php setup.php templates.php view.php
+msgid "Reports"
+msgstr "Atskaites"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: use filter settings"
+msgid "Go"
+msgstr "Atlasīt"
+
+#: reportit.php templates.php view.php
+msgctxt "Button: reset filter settings"
+msgid "Clear"
+msgstr "Notīrīt"
+
+#: reportit.php
+#, php-format
+msgid "Period %s From - To"
+msgstr "Periods %s No - Līdz"
+
+#: reportit.php
+msgid "Schedule"
+msgstr "Plānotājs"
+
+#: reportit.php
+msgid "State"
+msgstr "Stāvoklis"
+
+#: reportit.php
+#, php-format
+msgid "Next Start %s"
+msgstr "Nākamā palaišana %s"
+
+#: reportit.php view.php
+#, php-format
+msgid "Last Started %s"
+msgstr "Pēdējo reizi palaista %s"
+
+#: reportit.php
+msgid "Last Runtime"
+msgstr "Pēdējais izpildes ilgums"
+
+#: reportit.php templates.php
+msgid "N/A"
+msgstr "Nav pieejams"
+
+#: reportit.php
+msgid "Add sources"
+msgstr "Pievienot avotus"
+
+#: reportit.php
+msgid "Edit sources"
+msgstr "Rediģēt avotus"
+
+#: reportit.php
+#, php-format
+msgid "Select %s"
+msgstr "Atlasīt %s"
+
+#: reportit.php
+msgid "Report has been locked"
+msgstr "Atskaite ir bloķēta"
+
+#: reportit.php
+msgid "No reports"
+msgstr "Nav atskaišu"
+
+#: reportit.php
+msgid "Not Authorized"
+msgstr "Nav autorizēts"
+
+#: reportit.php
+#, php-format
+msgid "Report Configuration (%s) %s"
+msgstr "Atskaites konfigurācija (%s) %s"
+
+#: reportit.php
+msgid "Action"
+msgstr "Darbība"
+
+#: reportit.php
+msgid "No recipients found"
+msgstr "Adresāti nav atrasti"
+
+#: reportit.php
+msgid "Data Source Name"
+msgstr "Datu avota nosaukums"
+
+#: reportit.php
+msgid "Associated"
+msgstr "Saistīts"
+
+#: reportit.php
+msgid "Subhead"
+msgstr "Apakšvirsraksts"
+
+#: reportit.php
+msgid "Shifttime (From - To)"
+msgstr "Maiņas laiks (No - Līdz)"
+
+#: reportit.php
+msgid "Weekdays (From - To)"
+msgstr "Nedēļas dienas (No - Līdz)"
+
+#: reportit.php
+msgid "RRDs"
+msgstr "RRD faili"
+
+#: reportit.php
+msgid "Show All"
+msgstr "Rādīt visu"
+
+#: reportit.php
+msgid "Does not exist anymore"
+msgstr "Vairs nepastāv"
+
+#: reportit.php
+msgid "Included in Report"
+msgstr "Iekļauts atskaitē"
+
+#: reportit.php
+msgid "Not Included in Report"
+msgstr "Nav iekļauts atskaitē"
+
+#: reportit.php
+msgid "Select"
+msgstr "Atlasīt"
+
+#: reportit.php
+msgid "No data items found"
+msgstr "Datu vienumi nav atrasti"
+
+#: reportit.php
+msgid "Email address of a recipient (or comma separated list)"
+msgstr "Adresāta e-pasta adrese (vai ar komatiem atdalīts saraksts)"
+
+#: reportit.php
+msgid "[OPTIONAL] Name of a recipient (or comma separated list of names)"
+msgstr "[NEOBLIGĀTS] Adresāta vārds (vai ar komatiem atdalīts vārdu saraksts)"
+
+#: reportit.php
+#, php-format
+msgid "Data Source [edit: %s]"
+msgstr "Datu avots [rediģēt: %s]"
+
+#: reportit.php
+msgid "Subhead (optional)"
+msgstr "Apakšvirsraksts (neobligāts)"
+
+#: reportit.php
+msgid "Select the time zone your following shifttime information will be based on."
+msgstr "Atlasiet laika joslu, uz kuru balstīsies tālāk norādītā maiņas laika informācija."
+
+#: reportit.php
+msgid "Click 'Continue' to Run the following Report:"
+msgstr "Noklikšķiniet uz 'Turpināt', lai palaistu šādu atskaiti:"
+
+#: reportit.php
+msgid "Click 'Continue' to Delete the following Reports:"
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu šādas atskaites:"
+
+#: reportit.php
+msgid "Click 'Continue' to duplicate the following Report configurations.  You may also change the title format during this operation."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dublētu šādas atskaišu konfigurācijas. Šīs darbības laikā varat arī mainīt nosaukuma formātu."
+
+#: reportit.php
+msgid "Title Format:"
+msgstr "Nosaukuma formāts:"
+
+#: reportit.php
+msgid "<report_title> (1)"
+msgstr "<report_title> (1)"
+
+#: reportit.php
+msgid "Click 'Continue' to Disable the following Report:"
+msgstr "Noklikšķiniet uz 'Turpināt', lai atspējotu šādu atskaiti:"
+
+#: reportit.php
+msgid "Click 'Continue' to Enable the following Report:"
+msgstr "Noklikšķiniet uz 'Turpināt', lai iespējotu šādu atskaiti:"
+
+#: reportit.php
+msgid "Click 'Continue' to Take Ownership of the following Report:"
+msgstr "Noklikšķiniet uz 'Turpināt', lai pārņemtu šīs atskaites īpašumtiesības:"
+
+#: reportit.php
+msgid "You must select at least one unlocked, not running, report."
+msgstr "Jāatlasa vismaz viena atbloķēta atskaite, kas pašlaik netiek izpildīta."
+
+#: reportit.php
+msgid "Click 'Continue' to Remove the following Data Sources from the Report."
+msgstr "Noklikšķiniet uz 'Turpināt', lai noņemtu šādus datu avotus no atskaites."
+
+#: reportit.php
+msgid "List of selected Data Sources below."
+msgstr "Atlasīto datu avotu saraksts zemāk."
+
+#: reportit.php view.php
+#, php-format
+msgid "Data Source: %s"
+msgstr "Datu avots: %s"
+
+#: reportit.php
+msgid "Click 'Continue' to Add the following Data Sources to the Report."
+msgstr "Noklikšķiniet uz 'Turpināt', lai pievienotu šādus datu avotus atskaitei."
+
+#: reportit.php
+msgid "Click 'Continue' to Copy the Settings to the other Data Sources."
+msgstr "Noklikšķiniet uz 'Turpināt', lai kopētu iestatījumus uz citiem datu avotiem."
+
+#: reportit.php
+msgid "Selected Data Source as Reference:"
+msgstr "Kā atsauce atlasītais datu avots:"
+
+#: reportit.php
+msgid "Time Zone:"
+msgstr "Laika josla:"
+
+#: reportit.php
+msgid "Weekdays:"
+msgstr "Nedēļas dienas:"
+
+#: reportit.php
+msgid "Shifttime:"
+msgstr "Maiņas laiks:"
+
+#: reportit.php
+msgid "You must select at least one Report."
+msgstr "Jāatlasa vismaz viena atskaite."
+
+#: setup.php
+msgid "ReportIt - Report Viewing"
+msgstr "ReportIt - Atskaišu skatīšana"
+
+#: setup.php
+msgid "ReportIt - Create Reports"
+msgstr "ReportIt - Atskaišu izveide"
+
+#: setup.php
+msgid "ReportIt - Manage Reports"
+msgstr "ReportIt - Atskaišu pārvaldība"
+
+#: setup.php
+msgid "(Edit)"
+msgstr "(Rediģēt)"
+
+#: setup.php
+msgid "Actions"
+msgstr "Darbības"
+
+#: setup.php
+msgid "Data Items"
+msgstr "Datu vienumi"
+
+#: setup.php templates.php
+msgid "Report Templates"
+msgstr "Atskaišu veidnes"
+
+#: setup.php templates.php
+msgid "Import"
+msgstr "Importēt"
+
+#: setup.php
+msgid "Report Calculation"
+msgstr "Atskaites aprēķins"
+
+#: setup.php view.php
+msgid "Public Reports"
+msgstr "Publiskās atskaites"
+
+#: setup.php
+msgid "Show Report"
+msgstr "Rādīt atskaiti"
+
+#: setup.php
+msgid "Export Report"
+msgstr "Eksportēt atskaiti"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Parasts lietotājs"
+
+#: setup.php
+msgid "General Administration"
+msgstr "Vispārējā administrēšana"
+
+#: setup.php
+msgid "System Administration"
+msgstr "Sistēmas administrēšana"
+
+#: setup.php
+msgid "Management"
+msgstr "Pārvaldība"
+
+#: setup.php
+msgid "ReportIt Reports"
+msgstr "ReportIt atskaites"
+
+#: setup.php
+msgid "ReportIt"
+msgstr "ReportIt"
+
+#: setup.php templates.php
+msgid "Templates"
+msgstr "Veidnes"
+
+#: setup.php
+msgid "No data source item selected"
+msgstr "Nav atlasīts neviens datu avota vienums"
+
+#: setup.php
+msgid "Unselected data source items are still in use"
+msgstr "Neatlasītie datu avota vienumi joprojām tiek izmantoti"
+
+#: setup.php
+msgid "Unable to unlock this template without defined measurands"
+msgstr "Nevar atbloķēt šo veidni bez definētiem mērāmajiem lielumiem"
+
+#: setup.php
+msgid "global"
+msgstr "globāls"
+
+#: setup.php
+msgid "local"
+msgstr "lokāls"
+
+#: setup.php
+msgid "Power User (Report Owner)"
+msgstr "Pieredzējis lietotājs (atskaites īpašnieks)"
+
+#: setup.php
+msgid "Super User (Report Admin)"
+msgstr "Superlietotājs (atskaišu administrators)"
+
+#: setup.php
+msgid "Maximum Execution Time (in seconds)"
+msgstr "Maksimālais izpildes laiks (sekundēs)"
+
+#: setup.php
+msgid "Optional: Maximum execution time of one calculation."
+msgstr "Neobligāts: maksimālais viena aprēķina izpildes laiks."
+
+#: setup.php
+msgid "Maximum Record Count Change"
+msgstr "Maksimālā ierakstu skaita izmaiņa"
+
+#: setup.php
+msgid "Optional (Auto-Generate RRD List): Do not change RRD List of any Report if Record Count Change is greater than this Number This is to avoid unwanted and disastrous changes on RRD Lists"
+msgstr "Neobligāts (automātiska RRD saraksta ģenerēšana): nemainīt nevienas atskaites RRD sarakstu, ja ierakstu skaita izmaiņa pārsniedz šo skaitli. Tas ļauj izvairīties no nevēlamām un kritiskām izmaiņām RRD sarakstos"
+
+#: setup.php
+msgid "Time Zones"
+msgstr "Laika joslas"
+
+#: setup.php
+msgid "Enable/Disable the use of time zones for Data Item's configuration and report calculation.  In the former case server time has to be set up to GMT/UTC!"
+msgstr "Iespējot/atspējot laika joslu izmantošanu datu vienumu konfigurācijā un atskaišu aprēķinos. Ja tas ir iespējots, servera laikam jābūt iestatītam uz GMT/UTC!"
+
+#: setup.php
+msgid "Show Local Time Zone"
+msgstr "Rādīt vietējo laika joslu"
+
+#: setup.php
+msgid "Enable/Disable to display server's timezone on the headlines."
+msgstr "Iespējot/atspējot servera laika joslas attēlošanu virsrakstos."
+
+#: setup.php
+msgid "Allow Scheduling by Operators"
+msgstr "Atļaut operatoriem plānot atskaites"
+
+#: setup.php
+msgid "Enable/Disable Operator's ability to Schedule Reports.  When Disabled, only Administrators may change scheduling."
+msgstr "Iespējot/atspējot operatoru iespēju plānot atskaites. Kad atspējots, plānošanu var mainīt tikai administratori."
+
+#: setup.php
+msgid "SI-Prefixes"
+msgstr "SI priedēkļi"
+
+#: setup.php
+msgid "Enable/Disable the use of correct SI-Prefixes for binary multiples under the terms of <a href='http://www.ieee.org'>IEEE 1541</a> and <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a>."
+msgstr "Iespējot/atspējot pareizu SI priedēkļu izmantošanu binārajiem daudzkārtņiem saskaņā ar <a href='http://www.ieee.org'>IEEE 1541</a> un <a href='http://www.iec.ch/zone/si/si_bytes.htm'>IEC 60027-2</a> standartiem."
+
+#: setup.php
+msgid "Auto E-Mailing"
+msgstr "Automātiska sūtīšana pa e-pastu"
+
+#: setup.php
+msgid "If enabled scheduled reports can be emailed automatically to a list of recipients.<br> This feature requires a configured version of the 'Settings Plugin'."
+msgstr "Ja iespējots, ieplānotās atskaites var automātiski nosūtīt pa e-pastu adresātu sarakstam.<br> Šai funkcijai nepieciešams konfigurēts spraudnis 'Settings Plugin'."
+
+#: setup.php
+msgid "Separate Report View Filter"
+msgstr "Atsevišķs atskaites skata filtrs"
+
+#: setup.php
+msgid "Enable/disable the use of an individual filter per report."
+msgstr "Iespējot/atspējot atsevišķa filtra izmantošanu katrai atskaitei."
+
+#: setup.php
+msgid "Rows Per Page"
+msgstr "Rindas lapā"
+
+#: setup.php
+msgid "The number of rows to display on a single page."
+msgstr "Vienā lapā attēlojamo rindu skaits."
+
+#: setup.php
+msgid "Report Export Settings"
+msgstr "Atskaišu eksportēšanas iestatījumi"
+
+#: setup.php
+msgid "CSV Column Separator"
+msgstr "CSV kolonnu atdalītājs"
+
+#: setup.php
+msgid "The column separator to be used for CSV exports."
+msgstr "Kolonnu atdalītājs, ko izmantot CSV eksportam."
+
+#: setup.php
+msgid "CSV Decimal Separator"
+msgstr "CSV decimāldaļas atdalītājs"
+
+#: setup.php
+msgid "The symbol indicating the end of the integer part and the beginning of the fractional part."
+msgstr "Simbols, kas norāda veselās daļas beigas un daļskaitļa daļas sākumu."
+
+#: setup.php
+msgid "Report General Settings"
+msgstr "Vispārīgie atskaišu iestatījumi"
+
+#: templates.php
+msgid "New Report Template"
+msgstr "Jauna atskaites veidne"
+
+#: templates.php
+msgid "There are no Data Templates in use."
+msgstr "Neviena datu veidne netiek izmantota."
+
+#: templates.php
+msgid "Create a new Report Template"
+msgstr "Izveidot jaunu atskaites veidni"
+
+#: templates.php
+msgid "Choose a Data Template this Report Template should depend on.  Unused Data Templates are hidden."
+msgstr "Izvēlieties datu veidni, no kuras šai atskaites veidnei jābūt atkarīgai. Neizmantotās datu veidnes ir paslēptas."
+
+#: templates.php
+msgid "Import Report Template"
+msgstr "Importēt atskaites veidni"
+
+#: templates.php
+msgid "Select the XML file that contains your Report Template."
+msgstr "Atlasiet XML failu, kas satur jūsu atskaites veidni."
+
+#: templates.php
+msgid "Import Report Templates"
+msgstr "Importēt atskaišu veidnes"
+
+#: templates.php
+msgid "Compatible"
+msgstr "Saderīga"
+
+#: templates.php
+msgid "Summary"
+msgstr "Kopsavilkums"
+
+#: templates.php
+msgid "No"
+msgstr "Nē"
+
+#: templates.php
+msgid "Yes"
+msgstr "Jā"
+
+#: templates.php
+msgid "No Compatible Templates Found"
+msgstr "Saderīgas veidnes nav atrastas"
+
+#: templates.php
+msgctxt "Button: import button"
+msgid "Import"
+msgstr "Importēt"
+
+#: templates.php
+msgid "The name of this Report Template."
+msgstr "Šīs atskaites veidnes nosaukums."
+
+#: templates.php
+msgid "The internal identifier of this Report Template."
+msgstr "Šīs atskaites veidnes iekšējais identifikators."
+
+#: templates.php
+msgid "The Author of this Report Template."
+msgstr "Šīs atskaites veidnes autors."
+
+#: templates.php
+msgid "The version of this Report Template."
+msgstr "Šīs atskaites veidnes versija."
+
+#: templates.php
+msgid "Published"
+msgstr "Publicēts"
+
+#: templates.php
+msgid "The total number of reports using this report template."
+msgstr "Kopējais atskaišu skaits, kurās izmantota šī atskaites veidne."
+
+#: templates.php
+msgid "No matching data sources"
+msgstr "Nav atbilstošu datu avotu"
+
+#: templates.php
+msgid "Data template not available"
+msgstr "Datu veidne nav pieejama"
+
+#: templates.php
+msgid "Add measurands"
+msgstr "Pievienot mērāmos lielumus"
+
+#: templates.php
+msgid "Edit measurands"
+msgstr "Rediģēt mērāmos lielumus"
+
+#: templates.php
+msgid "Add variables"
+msgstr "Pievienot mainīgos"
+
+#: templates.php
+msgid "Edit variables"
+msgstr "Rediģēt mainīgos"
+
+#: templates.php
+msgid "No templates"
+msgstr "Nav veidņu"
+
+#: templates.php
+msgid "Maximum has to be greater than minimum."
+msgstr "Maksimumam jābūt lielākam par minimumu."
+
+#: templates.php
+msgid "Default value is out of values range."
+msgstr "Noklusējuma vērtība ir ārpus vērtību diapazona."
+
+#: templates.php
+msgid "Duplicate abbreviation"
+msgstr "Dublēts saīsinājums"
+
+#: templates.php
+msgid "Interim results are used by other measurands."
+msgstr "Starpposma rezultātus izmanto citi mērāmie lielumi."
+
+#: templates.php
+#, php-format
+msgid "Template [ %s - %s ]"
+msgstr "Veidne [ %s - %s ]"
+
+#: templates.php
+msgid "Template [new]"
+msgstr "Veidne [jauna]"
+
+#: templates.php
+msgid "<template_title>"
+msgstr "<template_title>"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Report Templates"
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu tālāk norādītās atskaišu veidnes"
+
+#: templates.php
+msgid "WARNING: Every Report that belongs to these Templates will also be deleted!"
+msgstr "BRĪDINĀJUMS: tiks dzēsta arī katra atskaite, kas pieder šīm veidnēm!"
+
+#: templates.php
+#, php-format
+msgid "Template: %s"
+msgstr "Veidne: %s"
+
+#: templates.php
+#, php-format
+msgid "Report: %s"
+msgstr "Atskaite: %s"
+
+#: templates.php
+msgid "Report: <i>None</i>"
+msgstr "Atskaite: <i>Nav</i>"
+
+#: templates.php
+msgid "Click 'Continue' to duplicate the following report templates. You can optionally change the title of those duplicates."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dublētu tālāk norādītās atskaišu veidnes. Pēc izvēles varat mainīt šo kopiju nosaukumus."
+
+#: templates.php
+msgid "List of selected report templates:"
+msgstr "Atlasīto atskaišu veidņu saraksts:"
+
+#: templates.php
+msgid "Title:"
+msgstr "Nosaukums:"
+
+#: templates.php
+msgid "<template_title> (1)"
+msgstr "<template_title> (1)"
+
+#: templates.php
+msgid "Click 'Continue' to Export the following Report Templates"
+msgstr "Noklikšķiniet uz 'Turpināt', lai eksportētu tālāk norādītās atskaišu veidnes"
+
+#: templates.php
+msgid "You must select at least one Report Template."
+msgstr "Jāatlasa vismaz viena atskaites veidne."
+
+#: templates.php
+msgid "Delete Report Templates"
+msgstr "Dzēst atskaišu veidnes"
+
+#: templates.php
+msgid "Duplicate Report Templates"
+msgstr "Dublēt atskaišu veidnes"
+
+#: templates.php
+msgid "Export Report Templates"
+msgstr "Eksportēt atskaišu veidnes"
+
+#: templates.php
+msgid "Click 'Continue to Delete the following variables."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu tālāk norādītos mainīgos."
+
+#: templates.php
+msgid "List of selected variables:"
+msgstr "Atlasīto mainīgo saraksts:"
+
+#: templates.php
+#, php-format
+msgid "Variable: %s"
+msgstr "Mainīgais: %s"
+
+#: templates.php
+msgid "There are one or more variables in use."
+msgstr "Viens vai vairāki mainīgie tiek izmantoti."
+
+#: templates.php
+msgid "You must select at least one variable."
+msgstr "Jāatlasa vismaz viens mainīgais."
+
+#: templates.php
+msgid "Delete Template Variables"
+msgstr "Dzēst veidnes mainīgos"
+
+#: templates.php
+msgid "Click 'Continue' to Delete the following Metrics.  Notice: If there are no other Metrics left after this process, the Report Template will be locked automatically."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu tālāk norādītās metrikas. Paziņojums: ja pēc šīs darbības nepaliks nevienas citas metrikas, atskaites veidne tiks automātiski bloķēta."
+
+#: templates.php
+msgid "List of selected measurands:"
+msgstr "Atlasīto mērāmo lielumu saraksts:"
+
+#: templates.php
+#, php-format
+msgid "Metric: %s"
+msgstr "Metrika: %s"
+
+#: templates.php
+msgid "You must select at least one measurand."
+msgstr "Jāatlasa vismaz viens mērāmais lielums."
+
+#: templates.php
+msgid "Delete Template Metrics"
+msgstr "Dzēst veidnes metrikas"
+
+#: templates.php
+#, php-format
+msgid "Variables [ Template: %s - %s ]"
+msgstr "Mainīgie [ Veidne: %s - %s ]"
+
+#: templates.php
+msgid "No Variables Found"
+msgstr "Mainīgie nav atrasti"
+
+#: templates.php
+#, php-format
+msgid "Variable Configuration [ edit: %s ]"
+msgstr "Mainīgā konfigurācija [ rediģēt: %s ]"
+
+#: templates.php
+msgid "Variable Configuration [new]"
+msgstr "Mainīgā konfigurācija [jauns]"
+
+#: templates.php
+msgid "Internal name"
+msgstr "Iekšējais nosaukums"
+
+#: templates.php
+msgid "A unique identifier which will be created by ReportIt itself. Use this ID within the definition of your calculation formulas to include that value the report user has defined individually for it."
+msgstr "Unikāls identifikators, ko izveidos pats ReportIt. Izmantojiet šo ID aprēķinu formulu definīcijās, lai iekļautu vērtību, ko atskaites lietotājs tam individuāli definējis."
+
+#: templates.php
+msgid "A name like \"Threshold\" for example which should be used as a headline within the report config."
+msgstr "Nosaukums, piemēram, \"Slieksnis\", kas tiks izmantots kā virsraksts atskaites konfigurācijā."
+
+#: templates.php
+msgid "Provide a name for this Variable"
+msgstr "Norādiet šī mainīgā nosaukumu"
+
+#: templates.php
+msgid "A description that explains the sense of this variable."
+msgstr "Apraksts, kas izskaidro šī mainīgā nozīmi."
+
+#: templates.php
+msgid "Provide a meaningful description"
+msgstr "Norādiet saprotamu aprakstu"
+
+#: templates.php
+msgid "Maximum Value"
+msgstr "Maksimālā vērtība"
+
+#: templates.php
+msgid "Defines the upper limit of this variable."
+msgstr "Nosaka šī mainīgā augšējo robežu."
+
+#: templates.php
+msgid "Minimum Value"
+msgstr "Minimālā vērtība"
+
+#: templates.php
+msgid "Defines the lower limit of this variable."
+msgstr "Nosaka šī mainīgā apakšējo robežu."
+
+#: templates.php
+msgid "Default Value"
+msgstr "Noklusējuma vērtība"
+
+#: templates.php
+msgid "Sets the default value."
+msgstr "Iestata noklusējuma vērtību."
+
+#: templates.php view.php
+msgid "Type"
+msgstr "Tips"
+
+#: templates.php
+msgid "The method the report owner should use to define this variable."
+msgstr "Metode, ko atskaites īpašniekam jāizmanto šī mainīgā definēšanai."
+
+#: templates.php
+msgid "Defines the distance between two values if method \"DropDown\" has been chosen. Please ensure that this value is not set too low, because it defines indirectly the number of options the dropdown field will have. For example the following parameters: MAX:100, MIN:0, STEP:0.01  will result in a select box of 10.001 options. This can cause dramatical performance issues due to a high CPU load at the clients side. Try to keep it under 1000."
+msgstr "Nosaka soli starp divām vērtībām, ja ir izvēlēta metode \"Nolaižamais saraksts\". Lūdzu, pārliecinieties, ka šī vērtība nav iestatīta pārāk zema, jo tā netieši nosaka nolaižamā saraksta opciju skaitu. Piemēram, parametri MAX:100, MIN:0, STEP:0.01 izveidos izvēles sarakstu ar 10 001 opciju. Tas var izraisīt būtiskas veiktspējas problēmas augstas CPU noslodzes dēļ klienta pusē. Centieties saglabāt opciju skaitu zem 1000."
+
+#: templates.php
+#, php-format
+msgid "Metric Configuration [ edit: %s - %s ]"
+msgstr "Metrikas konfigurācija [ rediģēt: %s - %s ]"
+
+#: templates.php
+msgid "Metric Configuration [new]"
+msgstr "Metrikas konfigurācija [jauna]"
+
+#: templates.php
+msgid "The explanation given to this measurand. This will be shown as legend within exports as well as a tooltip within the presentation of a report itself."
+msgstr "Šī mērāmā lieluma skaidrojums. Tas tiks parādīts kā apzīmējumu skaidrojums eksportos, kā arī kā rīka padoms pašas atskaites skatā."
+
+#: templates.php
+msgid "Define a unique abbreviation for this measurand with max. 8 letters/numbers."
+msgstr "Definējiet unikālu saīsinājumu šim mērāmajam lielumam ar ne vairāk kā 8 burtiem/cipariem."
+
+#: templates.php
+msgid "The unit given to this measurand. e.g. 'Bits/s'"
+msgstr "Šim mērāmajam lielumam piešķirtā mērvienība, piem., 'Bits/s'"
+
+#: templates.php
+msgid "Consolidation function"
+msgstr "Konsolidācijas funkcija"
+
+#: templates.php
+msgid "The name of the consolidation function to define which CDPs should be read out."
+msgstr "Konsolidācijas funkcijas nosaukums, lai noteiktu, kuri CDP dati ir jānolasa."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand should be become part of the final report output. Leave it unflagged if this measurands will only be used as an auxiliary calculation."
+msgstr "Izvēlieties 'iespējot', ja šim mērāmajam lielumam jābūt iekļautam galīgajā atskaites izvadē. Atstājiet neatzīmētu, ja šis mērāmais lielums tiks izmantots tikai kā palīgaprēķins."
+
+#: templates.php
+msgid "Choose 'enable' if this measurand will only have one result in total instead of one for every Data Source Item. It's result<br>will be shown separately. Use this option in combination with \"Visible\" = \"off\" if you are looking for a measurand keeping an interim result only that should be reused within the calculation of other measurands without being visible for end users."
+msgstr "Izvēlieties 'iespējot', ja šim mērāmajam lielumam kopumā būs tikai viens rezultāts, nevis pa vienam katram datu avota vienumam. Tā rezultāts<br>tiks parādīts atsevišķi. Izmantojiet šo opciju kombinācijā ar \"Redzams\" = \"izslēgts\", ja vēlaties mērāmo lielumu, kas glabā tikai starpposma rezultātu atkārtotai izmantošanai citu mērāmo lielumu aprēķinos, nerādot to gala lietotājiem."
+
+#: templates.php
+msgid "Formatting"
+msgstr "Formatēšana"
+
+#: templates.php
+msgid "Defines as what type the data should be treated as."
+msgstr "Nosaka, kā kāds datu tips dati ir jāapstrādā."
+
+#: templates.php
+msgid "Precision"
+msgstr "Precizitāte"
+
+#: templates.php
+msgid "Defines how many decimal digits should be displayed for floating-point numbers."
+msgstr "Nosaka, cik ciparu aiz komata jāattēlo peldošā punkta skaitļiem."
+
+#: templates.php
+msgid "Prefixes"
+msgstr "Priedēkļi"
+
+#: templates.php
+msgid "Choose the type of prefix being used to format the result. With the use of decimal prefixes '1024' will be formatted to '1.024k' while the binary prefixes option returns '1ki'. Select 'off' to display the raw data, here '1024'."
+msgstr "Izvēlieties priedēkļa tipu rezultāta formatēšanai. Izmantojot decimālos priedēkļus, '1024' tiks formatēts kā '1.024k', savukārt bināro priedēkļu opcija atgriezīs '1ki'. Izvēlieties 'izslēgts', lai attēlotu neapstrādātus datus, šajā gadījumā '1024'."
+
+#: templates.php
+msgid "Formula"
+msgstr "Formula"
+
+#: templates.php
+msgid "The mathematical definition of this measurand. Allowed are all combinations of operators and operands listed below following the rules of mathematics. Use round and square brackets to signify complex terms and the order of operations."
+msgstr "Šī mērāmā lieluma matemātiskā definīcija. Atļautas visas tālāk norādīto operatoru un operandu kombinācijas saskaņā ar matemātikas likumiem. Izmantojiet apaļās un kvadrātiekavas, lai apzīmētu sarežģītas izteiksmes un darbību secību."
+
+#: templates.php
+msgid "Operators & Operands"
+msgstr "Operatori un operandi"
+
+#: templates.php
+msgid "Click on one of the listed operators or operand to append them to your calucalion formula. The tooltip will show you additional information like description, return value, arguments and usage."
+msgstr "Noklikšķiniet uz viena no norādītajiem operatoriem vai operandiem, lai pievienotu to aprēķina formulai. Rīka padomā tiks parādīta papildinformācija, piemēram, apraksts, atgriežamā vērtība, argumenti un lietojums."
+
+#: templates.php
+#, php-format
+msgid "Metrics [ Template: %s - %s ]"
+msgstr "Metrikas [ Veidne: %s - %s ]"
+
+#: templates.php
+msgid "No Metrics Found"
+msgstr "Metrikas nav atrastas"
+
+#: view.php
+msgid "Reports Filter"
+msgstr "Atskaišu filtrs"
+
+#: view.php
+msgid "My Reports"
+msgstr "Manas atskaites"
+
+#: view.php
+msgid "Go"
+msgstr "Atlasīt"
+
+#: view.php
+msgid "Clear"
+msgstr "Notīrīt"
+
+#: view.php
+msgid "Period (From - To)"
+msgstr "Periods (No - Līdz)"
+
+#: view.php
+msgid "Last Runtime [s]"
+msgstr "Pēdējais izpildes laiks [s]"
+
+#: view.php
+msgid "No Reports Found"
+msgstr "Atskaites nav atrastas"
+
+#: view.php
+msgid "Metric"
+msgstr "Metrika"
+
+#: view.php
+msgid "Data Source"
+msgstr "Datu avots"
+
+#: view.php
+msgid "Show Top 10 Graphs"
+msgstr "Rādīt Top 10 grafikus"
+
+#: view.php
+msgid "Show Subheads"
+msgstr "Rādīt apakšvirsrakstus"
+
+#: view.php
+msgid "Show Summary"
+msgstr "Rādīt kopsavilkumu"
+
+#: view.php
+msgid "Additional"
+msgstr "Papildu"
+
+#: view.php
+msgid "Items"
+msgstr "Vienumi"
+
+#: view.php
+msgid "Archive"
+msgstr "Arhīvs"
+
+#: view.php
+msgid "Current"
+msgstr "Pašreizējais"
+
+#: view.php
+msgid "Title"
+msgstr "Virsraksts"
+
+#: view.php
+msgid "Runtime"
+msgstr "Izpildes laiks"
+
+#: view.php
+msgid "Period"
+msgstr "Periods"
+
+#: view.php
+msgid "Auto Generated RRD list"
+msgstr "Automātiski ģenerēts RRD saraksts"
+
+#: view.php
+msgid "Data Description"
+msgstr "Datu apraksts"
+
+#: view.php
+msgid "-- NO SUBHEADING --"
+msgstr "-- BEZ APAKŠVIRSRAKSTA --"
+
+#: view.php
+msgid "No Data Items"
+msgstr "Nav datu vienumu"
+
+#: view.php
+#, php-format
+msgid "Metric: %s (%s)"
+msgstr "Metrika: %s (%s)"
+
+#: view.php
+msgid "Pos."
+msgstr "Poz."
+
+#: view.php
+#, php-format
+msgid "Results [%s]"
+msgstr "Rezultāti [%s]"
